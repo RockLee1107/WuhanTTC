@@ -14,6 +14,7 @@
 		F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AC1C7232FC00D46D79 /* Images.xcassets */; };
 		F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AE1C7232FC00D46D79 /* LaunchScreen.xib */; };
 		F70B01BC1C7232FC00D46D79 /* FoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01BB1C7232FC00D46D79 /* FoundationTests.m */; };
+		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F70B01B51C7232FC00D46D79 /* FoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70B01BA1C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F70B01BB1C7232FC00D46D79 /* FoundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationTests.m; sourceTree = "<group>"; };
+		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		F70B019E1C7232FC00D46D79 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F7B98EAB1C7459FF006ABA71 /* images */,
 				F70B01A31C7232FC00D46D79 /* AppDelegate.h */,
 				F70B01A41C7232FC00D46D79 /* AppDelegate.m */,
 				F70B01A61C7232FC00D46D79 /* ViewController.h */,
@@ -117,6 +120,14 @@
 				F70B01BA1C7232FC00D46D79 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F7B98EAB1C7459FF006ABA71 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F70B01AB1C7232FC00D46D79 /* Main.storyboard in Resources */,
+				F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */,
 				F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */,
 				F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */,
 			);
@@ -347,6 +359,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Foundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Foundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +430,7 @@
 				F70B01C11C7232FC00D46D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F70B01C21C7232FC00D46D79 /* Build configuration list for PBXNativeTarget "FoundationTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +439,7 @@
 				F70B01C41C7232FC00D46D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
