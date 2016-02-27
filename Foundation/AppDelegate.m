@@ -1,13 +1,14 @@
 //
 //  AppDelegate.m
-//  Foundation
+//  Commune
 //
-//  Created by HuangXiuJie on 16/2/16.
+//  Created by HuangXiuJie on 16/2/24.
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import "Global.h"
+#import "MainTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIColor *tintColor = MAIN_COLOR;
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    [[UINavigationBar appearance] setBarTintColor:tintColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance]setTintColor:tintColor];
+    MainTabBarController *rootViewController = [[MainTabBarController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = rootViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
