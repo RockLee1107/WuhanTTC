@@ -22,21 +22,13 @@
 }
 
 - (void)POST:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success{
-    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
-//    NSLog(@"url:%@",urlstr);
-    //申明返回的结果是json类型,不声明亦可
-//    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    //申明请求的数据是json类型
-    self.manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    //不声明也运行正常，反之设为text/html则报错
-//    self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
-    [self.manager POST:urlstr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"responseObject： %@",responseObject);
+    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",@"http://120.25.231.152:8080/ttc_web",actionStr];
+            NSLog(@"responseObject： %@",urlstr);
+    [self.manager GET:urlstr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation,responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%@",operation.responseString);
+        NSLog(@"%@",operation.responseString);
     }];
-
     
 }
 @end

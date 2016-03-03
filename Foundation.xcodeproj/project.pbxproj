@@ -52,6 +52,12 @@
 		F73B78D01C81451E00069EEE /* icon_member_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CC1C81451E00069EEE /* icon_member_selected@2x.png */; };
 		F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */; };
 		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
+		FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */; };
+		FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */; };
+		FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */; };
+		FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE91C887F98002238CA /* BaseTableViewController.m */; };
+		FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEC1C88872B002238CA /* BaseViewController.m */; };
+		FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +81,6 @@
 		F70B01B51C7232FC00D46D79 /* FoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70B01BA1C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F70B01BB1C7232FC00D46D79 /* FoundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationTests.m; sourceTree = "<group>"; };
-		F73B785C1C81375500069EEE /* ApiUri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiUri.h; sourceTree = "<group>"; };
 		F73B785D1C81375500069EEE /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
 		F73B785E1C81375500069EEE /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
 		F73B785F1C81375500069EEE /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -144,6 +149,17 @@
 		F73B78CC1C81451E00069EEE /* icon_member_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_member_selected@2x.png"; sourceTree = "<group>"; };
 		F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_project_selected@2x.png"; sourceTree = "<group>"; };
 		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
+		FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeTableViewCell.h; sourceTree = "<group>"; };
+		FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTypeTableViewCell.m; sourceTree = "<group>"; };
+		FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialTypeTableViewCell.xib; sourceTree = "<group>"; };
+		FDE2AFE41C887ED2002238CA /* SpecialTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeViewController.h; sourceTree = "<group>"; };
+		FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTypeViewController.m; sourceTree = "<group>"; };
+		FDE2AFE81C887F98002238CA /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		FDE2AFE91C887F98002238CA /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		FDE2AFEB1C88872B002238CA /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		FDE2AFEC1C88872B002238CA /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSpBookListViewController.h; sourceTree = "<group>"; };
+		FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSpBookListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +203,7 @@
 		F70B019E1C7232FC00D46D79 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				FDE2AFE71C887F87002238CA /* Modal */,
 				F73B78B61C813DDD00069EEE /* Book */,
 				F73B78B91C813E2800069EEE /* Activity */,
 				F73B78BD1C813E2800069EEE /* Project */,
@@ -232,7 +249,6 @@
 		F73B785B1C81375500069EEE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F73B785C1C81375500069EEE /* ApiUri.h */,
 				F73B785D1C81375500069EEE /* CommonUtil.h */,
 				F73B785E1C81375500069EEE /* CommonUtil.m */,
 				F73B785F1C81375500069EEE /* Global.h */,
@@ -325,6 +341,13 @@
 			isa = PBXGroup;
 			children = (
 				F73B78B71C813DDD00069EEE /* Book.storyboard */,
+				FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */,
+				FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */,
+				FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */,
+				FDE2AFE41C887ED2002238CA /* SpecialTypeViewController.h */,
+				FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */,
+				FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */,
+				FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -367,6 +390,17 @@
 				F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		FDE2AFE71C887F87002238CA /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				FDE2AFEB1C88872B002238CA /* BaseViewController.h */,
+				FDE2AFEC1C88872B002238CA /* BaseViewController.m */,
+				FDE2AFE81C887F98002238CA /* BaseTableViewController.h */,
+				FDE2AFE91C887F98002238CA /* BaseTableViewController.m */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +486,7 @@
 				F73B78D01C81451E00069EEE /* icon_member_selected@2x.png in Resources */,
 				F73B78C01C813E2800069EEE /* Member.storyboard in Resources */,
 				F73B78CE1C81451E00069EEE /* icon_activity_selected@2x.png in Resources */,
+				FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */,
 				F73B78C61C81414900069EEE /* icon_activity_normal@2x.png in Resources */,
 				F73B78C81C81414900069EEE /* icon_member_normal@2x.png in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
@@ -484,22 +519,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
+				FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
 				F73B789C1C81375600069EEE /* AFNetworkReachabilityManager.m in Sources */,
 				F73B78A41C81375600069EEE /* MJRefreshConst.m in Sources */,
+				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
+				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
+				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
@@ -510,6 +549,7 @@
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
+				FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
