@@ -54,6 +54,7 @@
 		F7B827F51C892DDC00014746 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B827F41C892DDC00014746 /* Login.storyboard */; };
 		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
 		F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */; };
+		FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */; };
 		FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */; };
 		FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */; };
 		FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */; };
@@ -154,6 +155,8 @@
 		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		F7FE4FFE1C892E7F00114B28 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
+		FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeTableViewCell.h; sourceTree = "<group>"; };
 		FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTypeTableViewCell.m; sourceTree = "<group>"; };
 		FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialTypeTableViewCell.xib; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 				FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */,
 				FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */,
 				FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */,
+				FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */,
+				FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -547,6 +552,7 @@
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
+				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
