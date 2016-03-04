@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Global.h"
-#import "MainTabBarController.h"
+#import "LoginViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,9 +24,10 @@
     [[UINavigationBar appearance] setBarTintColor:tintColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance]setTintColor:tintColor];
-    MainTabBarController *rootViewController = [[MainTabBarController alloc] init];
+    //登录页为首页
+    LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = rootViewController;
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;
 }

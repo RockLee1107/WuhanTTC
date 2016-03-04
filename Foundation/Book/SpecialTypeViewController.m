@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchData];
+//    先发起一次登录
+    [self login];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -26,6 +27,15 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)login{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *param = @{@"username":@"huangxj",
+                            @"password":@"123456"};
+    [manager POST:@"http://120.25.231.152:8080/ttc_web/login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self fetchData];
+
+    } failure:nil];
+}
 -(void)fetchData {
     HttpService *service = [HttpService getInstance];
     NSDictionary *param = @{@"QueryParams":@"{\"SEQ_userId\":\"1\"}"};
