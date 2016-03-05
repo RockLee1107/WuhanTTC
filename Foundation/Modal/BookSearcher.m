@@ -29,13 +29,13 @@
 - (NSDictionary *)dictionary {
     NSDictionary *dict = @{@"SEQ_userId":self.userId,
                            @"SEQ_specialCode":self.specialCode,
-                           @"IEQ_isRead":self.isRead,
+                           @"SEQ_isRead":self.isRead,
                            @"SEQ_orderBy":self.orderBy,
-                           @"IEQ_authorId":self.isRead,
-                           @"IEQ_referUserId":self.isRead,
-                           @"IEQ_labelId":self.isRead,
-                           @"IEQ_bookType":self.isRead,
-                           @"IEQ_period":self.isRead
+                           @"SEQ_authorId":self.isRead,
+                           @"SEQ_referUserId":self.isRead,
+                           @"SEQ_labelId":self.isRead,
+                           @"SEQ_bookType":self.isRead,
+                           @"SEQ_period":self.isRead
                            };
     return dict;
 }
