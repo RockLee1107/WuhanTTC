@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 @interface StringUtil : NSObject
 +(NSString*)dictToJson:(id)object;
++(NSString*)toString:(id)object;
 @end

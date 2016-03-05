@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loginButtonPress:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -32,8 +33,8 @@
     [service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"login:%@",responseObject);
         User *user = [User getInstance];
-        user.username = responseObject[@"data"][@"username"];
-        user.uid = responseObject[@"data"][@"userId"];
+        user.username = responseObject[@"username"];
+        user.uid = responseObject[@"userId"];
         MainTabBarController *vc = [[MainTabBarController alloc] init];
         [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
     }];

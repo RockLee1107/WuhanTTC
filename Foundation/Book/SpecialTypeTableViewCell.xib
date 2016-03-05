@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UGu-sE-dRu">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="UGu-sE-dRu">
                         <rect key="frame" x="8" y="7" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="UGu-sE-dRu" secondAttribute="height" multiplier="1:1" id="741-kf-ijJ"/>
@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新文章" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a3-jM-anL">
-                        <rect key="frame" x="76" y="46" width="68" height="18"/>
+                        <rect key="frame" x="76" y="46" width="154" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -47,14 +47,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="hIb-tC-rRz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6pm-2Z-riG"/>
-                    <constraint firstItem="hIb-tC-rRz" firstAttribute="leading" secondItem="2a3-jM-anL" secondAttribute="trailing" constant="89" id="B6A-Q6-Soc"/>
+                    <constraint firstItem="2a3-jM-anL" firstAttribute="leading" secondItem="UGu-sE-dRu" secondAttribute="trailing" constant="8" id="IyK-Ur-Set"/>
                     <constraint firstItem="UGu-sE-dRu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Udf-GP-tbz"/>
                     <constraint firstItem="QUa-wR-HhU" firstAttribute="leading" secondItem="UGu-sE-dRu" secondAttribute="trailing" constant="8" id="aC3-m4-3ge"/>
                     <constraint firstAttribute="centerY" secondItem="hIb-tC-rRz" secondAttribute="centerY" constant="-17.5" id="djK-zL-c1W"/>
-                    <constraint firstItem="2a3-jM-anL" firstAttribute="leading" secondItem="UGu-sE-dRu" secondAttribute="trailing" constant="8" id="hhC-PL-sB6"/>
+                    <constraint firstItem="hIb-tC-rRz" firstAttribute="leading" secondItem="2a3-jM-anL" secondAttribute="trailing" constant="3" id="dx9-v7-JLl"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2a3-jM-anL" secondAttribute="bottom" constant="2" id="iaT-XW-VMS"/>
                     <constraint firstItem="QUa-wR-HhU" firstAttribute="top" secondItem="UGu-sE-dRu" secondAttribute="top" constant="4" id="jV2-br-f8z"/>
                     <constraint firstAttribute="centerY" secondItem="UGu-sE-dRu" secondAttribute="centerY" id="jov-Zb-0d1"/>
-                    <constraint firstItem="2a3-jM-anL" firstAttribute="centerY" secondItem="hIb-tC-rRz" secondAttribute="centerY" constant="-0.5" id="v9Y-XY-H7D"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -65,4 +65,7 @@
             <point key="canvasLocation" x="338" y="156.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="book_thumb.png" width="60" height="60"/>
+    </resources>
 </document>

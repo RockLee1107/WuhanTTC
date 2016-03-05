@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Page.h"
 
 @interface BookSearcher : NSObject
 @property (nonatomic,strong) NSString *userId;

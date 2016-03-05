@@ -9,9 +9,11 @@
 #import "SpecialTypeViewController.h"
 #import "SearchSpBookListViewController.h"
 #import "StringUtil.h"
+#import "DateUtil.h"
 #import "User.h"
+#import "SpecialTypeTableViewCell.h"
 
-@interface SpecialTypeViewController ()
+@interface SpecialTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -20,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self fetchData];
 }
 
@@ -36,19 +40,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)buttonPress:(id)sender {
-    SearchSpBookListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"search"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 #pragma mark - Table view data source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataArray count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialTypeTableViewCell" owner:nil options:nil] firstObject];
+    SpecialTypeTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialTypeTableViewCell" owner:nil options:nil] firstObject];
+    cell.specialNameLabel.text = self.dataArray[indexPath.row][@"specialName"];
+    cell.latestBookNameLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"latestBookName"]];
+    
+    cell.latestUpdateTimeLabel.text = [DateUtil toString:self.dataArray[indexPath.row][@"latestUpdateTime"]];
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SearchSpBookListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"search"];
+    vc.specialCode = self.dataArray[indexPath.row][@"specialCode"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

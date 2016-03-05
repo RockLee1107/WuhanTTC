@@ -25,12 +25,11 @@
 -(void)fetchData {
     HttpService *service = [HttpService getInstance];
     BookSearcher *searcher = [[BookSearcher alloc] init];
-#warning 硬编码spcode
-    searcher.specialCode = @"zl0001";
+    searcher.specialCode = self.specialCode;
     NSDictionary *dict = [searcher dictionary];
     NSString *jsonStr = [StringUtil dictToJson:dict];
-#warning hard coding
-    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[NSString stringWithFormat:@"{\"pageNo\":\"%@\",\"pageSize\":\"10\"}",@"1"]};
+    Page *page = [[Page alloc] init];
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[page dictionary]]};
     NSLog(@"json:%@",param);
     [service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"responseObject:%@",responseObject);

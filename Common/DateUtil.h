@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface DateUtil : NSObject
-
++ (NSString *)prettyString:(NSString *)str;
++ (NSString *)toString:(id)str;
 @end

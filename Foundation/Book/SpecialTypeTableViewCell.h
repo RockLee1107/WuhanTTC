@@ -11,7 +11,6 @@
 @interface SpecialTypeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *specialNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latestBookNameLabel;
-#warning 日期转化
 @property (weak, nonatomic) IBOutlet UILabel *latestUpdateTimeLabel;
 
 @end
