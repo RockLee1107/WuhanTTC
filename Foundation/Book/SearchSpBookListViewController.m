@@ -7,6 +7,8 @@
 //
 
 #import "SearchSpBookListViewController.h"
+#import "StringUtil.h"
+#import "BookSearcher.h"
 
 @interface SearchSpBookListViewController ()
 
@@ -22,27 +24,17 @@
 
 -(void)fetchData {
     HttpService *service = [HttpService getInstance];
-    NSDictionary *dict = @{@"specialCode":@"zl0001"};
-    NSString *jsonStr = [self DataTOjsonString:dict];
-    NSDictionary *param = @{@"QueryParams":jsonStr};
+    BookSearcher *searcher = [[BookSearcher alloc] init];
+#warning 硬编码spcode
+    searcher.specialCode = @"zl0001";
+    NSDictionary *dict = [searcher dictionary];
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+#warning hard coding
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[NSString stringWithFormat:@"{\"pageNo\":\"%@\",\"pageSize\":\"10\"}",@"1"]};
     NSLog(@"json:%@",param);
-    [service POST:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"responseObject:%@",responseObject);
     }];
-}
--(NSString*)DataTOjsonString:(id)object
-{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
 }
 
 - (void)didReceiveMemoryWarning {

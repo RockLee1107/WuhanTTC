@@ -54,6 +54,10 @@
 		F7B827F51C892DDC00014746 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B827F41C892DDC00014746 /* Login.storyboard */; };
 		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
 		F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */; };
+		F7FE50031C8A762700114B28 /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50021C8A762700114B28 /* DateUtil.m */; };
+		F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50051C8A76C600114B28 /* StringUtil.m */; };
+		F7FE50091C8A786800114B28 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50081C8A786700114B28 /* User.m */; };
+		F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */; };
 		FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */; };
 		FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */; };
 		FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */; };
@@ -155,6 +159,14 @@
 		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		F7FE4FFE1C892E7F00114B28 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		F7FE50011C8A762700114B28 /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
+		F7FE50021C8A762700114B28 /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
+		F7FE50041C8A76C600114B28 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
+		F7FE50051C8A76C600114B28 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
+		F7FE50071C8A786700114B28 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		F7FE50081C8A786700114B28 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearcher.h; sourceTree = "<group>"; };
+		F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearcher.m; sourceTree = "<group>"; };
 		FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeTableViewCell.h; sourceTree = "<group>"; };
@@ -258,6 +270,12 @@
 		F73B785B1C81375500069EEE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F7FE50071C8A786700114B28 /* User.h */,
+				F7FE50081C8A786700114B28 /* User.m */,
+				F7FE50041C8A76C600114B28 /* StringUtil.h */,
+				F7FE50051C8A76C600114B28 /* StringUtil.m */,
+				F7FE50011C8A762700114B28 /* DateUtil.h */,
+				F7FE50021C8A762700114B28 /* DateUtil.m */,
 				F73B785D1C81375500069EEE /* CommonUtil.h */,
 				F73B785E1C81375500069EEE /* CommonUtil.m */,
 				F73B785F1C81375500069EEE /* Global.h */,
@@ -416,6 +434,8 @@
 		FDE2AFE71C887F87002238CA /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */,
+				F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */,
 				FDE2AFEB1C88872B002238CA /* BaseViewController.h */,
 				FDE2AFEC1C88872B002238CA /* BaseViewController.m */,
 				FDE2AFE81C887F98002238CA /* BaseTableViewController.h */,
@@ -552,6 +572,8 @@
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
+				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
+				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
 				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
@@ -561,6 +583,7 @@
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
+				F7FE50031C8A762700114B28 /* DateUtil.m in Sources */,
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
@@ -568,6 +591,7 @@
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
+				F7FE50091C8A786800114B28 /* User.m in Sources */,
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,

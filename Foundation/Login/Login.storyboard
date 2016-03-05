@@ -82,6 +82,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="团团创" id="nuM-xm-dMU"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="27F-oU-LJa" id="cc5-0A-4zK"/>
+                        <outlet property="usernameTextField" destination="tqG-dn-pvf" id="5xk-8o-Qj5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pso-pk-6yr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

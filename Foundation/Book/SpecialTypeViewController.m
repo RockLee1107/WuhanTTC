@@ -8,6 +8,8 @@
 
 #import "SpecialTypeViewController.h"
 #import "SearchSpBookListViewController.h"
+#import "StringUtil.h"
+#import "User.h"
 
 @interface SpecialTypeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,29 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    先发起一次登录
-    [self login];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self fetchData];
 }
 
-- (void)login{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *param = @{@"username":@"huangxj",
-                            @"password":@"123456"};
-    [manager POST:@"http://120.25.231.152:8080/ttc_web/login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self fetchData];
-
-    } failure:nil];
-}
 -(void)fetchData {
     HttpService *service = [HttpService getInstance];
-    NSDictionary *param = @{@"QueryParams":@"{\"SEQ_userId\":\"1\"}"};
-    [service POST:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"res:%@",responseObject);
+    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{@"SEQ_userId":[User getInstance].uid}]};
+    [service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataArray = responseObject;
         [self.tableView reloadData];
     }];

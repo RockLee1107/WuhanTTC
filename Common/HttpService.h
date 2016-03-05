@@ -17,5 +17,6 @@ typedef void (^failure)(AFHTTPRequestOperation *operation, NSError *error);
 @interface HttpService : NSObject
 @property (nonatomic,strong) AFHTTPRequestOperationManager *manager;
 + (instancetype)getInstance;
+- (void)GET:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success;
 - (void)POST:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success;
 @end
