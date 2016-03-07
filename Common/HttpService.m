@@ -28,6 +28,7 @@
     NSLog(@"param:%@",dict);
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
     [self.manager GET:urlstr parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"origin response:\n%@",responseObject);
         if ([responseObject[@"success"] integerValue] == YES) {
             success(operation,responseObject[@"data"]);
         } else {
