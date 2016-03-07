@@ -31,9 +31,9 @@
                            @"SEQ_specialCode":self.specialCode,
                            @"IEQ_isRead":self.isRead,
                            @"SEQ_orderBy":self.orderBy,
-                           @"SEQ_authorId":self.authorId,
+//                           @"SEQ_authorId":self.authorId,
                            @"SEQ_referUserId":self.referUserId,
-                           @"SEQ_labelId":self.labelId,
+//                           @"SEQ_labelId":self.labelId,
 //                           @"SEQ_bookType":self.bookType,
                            @"SEQ_period":self.period
                            };
