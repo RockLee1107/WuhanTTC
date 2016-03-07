@@ -13,8 +13,8 @@
 - (instancetype)init{
     self = [super init];
     self.userId = [User getInstance].uid;
-    self.specialCode = @"";
-    self.isRead = @"1";
+//    self.specialCode = @"";
+    self.isRead = @"0";
     self.orderBy = @"pbDate";
     
     self.authorId = @"1";
@@ -29,13 +29,13 @@
 - (NSDictionary *)dictionary {
     NSDictionary *dict = @{@"SEQ_userId":self.userId,
                            @"SEQ_specialCode":self.specialCode,
-                           @"SEQ_isRead":self.isRead,
+                           @"IEQ_isRead":self.isRead,
                            @"SEQ_orderBy":self.orderBy,
-                           @"SEQ_authorId":self.isRead,
-                           @"SEQ_referUserId":self.isRead,
-                           @"SEQ_labelId":self.isRead,
-                           @"SEQ_bookType":self.isRead,
-                           @"SEQ_period":self.isRead
+                           @"SEQ_authorId":self.authorId,
+                           @"SEQ_referUserId":self.referUserId,
+                           @"SEQ_labelId":self.labelId,
+//                           @"SEQ_bookType":self.bookType,
+                           @"SEQ_period":self.period
                            };
     return dict;
 }
