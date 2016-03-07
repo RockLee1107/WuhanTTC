@@ -25,6 +25,7 @@
 - (void)GET:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [dict setObject:@"MOBILE" forKey:@"clientType"];
+    NSLog(@"param:%@",dict);
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
     [self.manager GET:urlstr parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"success"] integerValue] == YES) {
