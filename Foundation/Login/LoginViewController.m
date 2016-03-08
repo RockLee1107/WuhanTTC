@@ -31,7 +31,7 @@
                             @"password":password};
     HttpService *service = [HttpService getInstance];
     [service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"login:%@",responseObject);
+//        NSLog(@"login:%@",responseObject);
         User *user = [User getInstance];
         user.username = responseObject[@"username"];
         user.uid = responseObject[@"userId"];

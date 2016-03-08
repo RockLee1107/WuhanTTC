@@ -51,6 +51,8 @@
 		F73B78CF1C81451E00069EEE /* icon_book_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CB1C81451E00069EEE /* icon_book_normal@2x.png */; };
 		F73B78D01C81451E00069EEE /* icon_member_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CC1C81451E00069EEE /* icon_member_selected@2x.png */; };
 		F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */; };
+		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
+		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
 		F7B827F51C892DDC00014746 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B827F41C892DDC00014746 /* Login.storyboard */; };
 		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
 		F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */; };
@@ -157,6 +159,9 @@
 		F73B78CB1C81451E00069EEE /* icon_book_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_book_normal@2x.png"; sourceTree = "<group>"; };
 		F73B78CC1C81451E00069EEE /* icon_member_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_member_selected@2x.png"; sourceTree = "<group>"; };
 		F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_project_selected@2x.png"; sourceTree = "<group>"; };
+		F741A6451C8F38E4008DC72B /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
+		F741A6461C8F38E4008DC72B /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
+		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		F7B827F41C892DDC00014746 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		F7FE4FFE1C892E7F00114B28 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -372,6 +377,9 @@
 		F73B78B61C813DDD00069EEE /* Book */ = {
 			isa = PBXGroup;
 			children = (
+				F741A6451C8F38E4008DC72B /* BookTableViewCell.h */,
+				F741A6461C8F38E4008DC72B /* BookTableViewCell.m */,
+				F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */,
 				F73B78B71C813DDD00069EEE /* Book.storyboard */,
 				FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */,
 				FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */,
@@ -552,6 +560,7 @@
 				F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
 				F73B78C71C81414900069EEE /* icon_book_selected@2x.png in Resources */,
+				F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +598,7 @@
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
+				F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,

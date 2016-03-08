@@ -32,6 +32,7 @@
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{@"SEQ_userId":[User getInstance].uid}]};
     [service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataArray = responseObject;
+//        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
     }];
 }

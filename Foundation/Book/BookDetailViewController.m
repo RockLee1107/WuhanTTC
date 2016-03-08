@@ -17,29 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSString *html = @"";
-//    [self.webView loadHTMLString:html baseURL:nil];
-//    [[HttpService getInstance] POST:@"http://localhost/string.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:responseObject[@"str"]]]];
-//    }];
+    HttpService *service = [HttpService getInstance];
+    NSDictionary *param = @{@"bookId":self.bookId};
+    [service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSString *cssStr = @"<style>img{width:100%;}</style>";
+        NSString *contentStr = [NSString stringWithFormat:@"%@%@",cssStr,responseObject[@"content"]];
+        NSLog(@"%@",contentStr);
+        [self.webView loadHTMLString:contentStr baseURL:nil];
+    }];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.199.123/string.html"]]];
-
-    // Do any additional setup after loading the view.
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

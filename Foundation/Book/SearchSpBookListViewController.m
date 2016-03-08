@@ -9,8 +9,12 @@
 #import "SearchSpBookListViewController.h"
 #import "StringUtil.h"
 #import "BookSearcher.h"
+#import "BookTableViewCell.h"
+#import "StringUtil.h"
+#import "BookDetailViewController.h"
 
-@interface SearchSpBookListViewController ()
+@interface SearchSpBookListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -18,6 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self fetchData];
     // Do any additional setup after loading the view.
 }
@@ -32,23 +38,32 @@
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[page dictionary]]};
 //    NSLog(@"json:%@",param);
     [service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"responseObject:%@",responseObject);
+        self.dataArray = responseObject[@"result"];
+        [self.tableView reloadData];
+//        NSLog(@"responseObject:%@",responseObject);
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.dataArray count];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BookTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookTableViewCell" owner:nil options:nil] firstObject];
+    cell.bookNameLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"bookName"]];
+    cell.bookTypeLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"bookType"]];
+    return cell;
+    
 }
-*/
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BookDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    vc.bookId = self.dataArray[indexPath.row][@"bookId"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70.0;
+}
 @end

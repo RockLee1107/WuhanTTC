@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface BookDetailViewController : BaseViewController
-
+@property (nonatomic,strong) NSString *bookId;
 @end
