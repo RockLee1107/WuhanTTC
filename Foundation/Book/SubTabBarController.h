@@ -10,4 +10,5 @@
 
 @interface SubTabBarController : UITabBarController
 @property (nonatomic,strong) NSString *specialCode;
+@property (nonatomic,strong) NSString *specialName;
 @end

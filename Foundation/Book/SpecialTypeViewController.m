@@ -63,6 +63,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SubTabBarController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sub"];
     vc.specialCode = self.dataArray[indexPath.row][@"specialCode"];
+    vc.specialName = self.dataArray[indexPath.row][@"specialName"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

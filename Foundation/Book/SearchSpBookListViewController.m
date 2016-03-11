@@ -16,6 +16,7 @@
 
 @interface SearchSpBookListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *nameNavigationItem;
 
 @end
 
@@ -25,6 +26,8 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.nameNavigationItem.title = ((SubTabBarController *)self.tabBarController).specialName;
+//    self.nameNavigationItem.title = @"2";
     [self fetchData];
     // Do any additional setup after loading the view.
 }
