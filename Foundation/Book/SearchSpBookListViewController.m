@@ -12,6 +12,7 @@
 #import "BookTableViewCell.h"
 #import "StringUtil.h"
 #import "BookDetailViewController.h"
+#import "SubTabBarController.h"
 
 @interface SearchSpBookListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -31,7 +32,7 @@
 -(void)fetchData {
     HttpService *service = [HttpService getInstance];
     BookSearcher *searcher = [[BookSearcher alloc] init];
-    searcher.specialCode = self.specialCode;
+    searcher.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
     NSDictionary *dict = [searcher dictionary];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     Page *page = [[Page alloc] init];

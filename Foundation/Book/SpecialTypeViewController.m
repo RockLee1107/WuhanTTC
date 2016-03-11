@@ -7,7 +7,7 @@
 //
 
 #import "SpecialTypeViewController.h"
-#import "SearchSpBookListViewController.h"
+#import "SubTabBarController.h"
 #import "StringUtil.h"
 #import "DateUtil.h"
 #import "User.h"
@@ -61,7 +61,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SearchSpBookListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"search"];
+    SubTabBarController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sub"];
     vc.specialCode = self.dataArray[indexPath.row][@"specialCode"];
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -9,6 +9,6 @@
 #import "BaseViewController.h"
 
 @interface SearchSpBookListViewController : BaseViewController
-@property (nonatomic,strong) NSString *specialCode;
+//@property (nonatomic,strong) NSString *specialCode;
 
 @end

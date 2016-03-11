@@ -69,6 +69,13 @@
 		FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE91C887F98002238CA /* BaseTableViewController.m */; };
 		FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEC1C88872B002238CA /* BaseViewController.m */; };
 		FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */; };
+		FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */; };
+		FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */; };
+		FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */; };
+		FDEADC0E1C92AA2D00971DD1 /* icon_about_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC081C92AA2D00971DD1 /* icon_about_normal@2x.png */; };
+		FDEADC0F1C92AA2D00971DD1 /* icon_community_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC091C92AA2D00971DD1 /* icon_community_normal@2x.png */; };
+		FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC0A1C92AA2D00971DD1 /* icon_content_selected@2x.png */; };
+		FDEADC131C92ACEB00971DD1 /* SubTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEADC121C92ACEB00971DD1 /* SubTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +197,14 @@
 		FDE2AFEC1C88872B002238CA /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSpBookListViewController.h; sourceTree = "<group>"; };
 		FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSpBookListViewController.m; sourceTree = "<group>"; };
+		FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_selected@2x.png"; sourceTree = "<group>"; };
+		FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_about_selected@2x.png"; sourceTree = "<group>"; };
+		FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_normal@2x.png"; sourceTree = "<group>"; };
+		FDEADC081C92AA2D00971DD1 /* icon_about_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_about_normal@2x.png"; sourceTree = "<group>"; };
+		FDEADC091C92AA2D00971DD1 /* icon_community_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_normal@2x.png"; sourceTree = "<group>"; };
+		FDEADC0A1C92AA2D00971DD1 /* icon_content_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_selected@2x.png"; sourceTree = "<group>"; };
+		FDEADC111C92ACEB00971DD1 /* SubTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTabBarController.h; sourceTree = "<group>"; };
+		FDEADC121C92ACEB00971DD1 /* SubTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +405,8 @@
 				FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */,
 				FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */,
 				FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */,
+				FDEADC111C92ACEB00971DD1 /* SubTabBarController.h */,
+				FDEADC121C92ACEB00971DD1 /* SubTabBarController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -431,6 +448,12 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */,
+				FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */,
+				FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */,
+				FDEADC081C92AA2D00971DD1 /* icon_about_normal@2x.png */,
+				FDEADC091C92AA2D00971DD1 /* icon_community_normal@2x.png */,
+				FDEADC0A1C92AA2D00971DD1 /* icon_content_selected@2x.png */,
 				FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */,
 				F73B78CA1C81451E00069EEE /* icon_activity_selected@2x.png */,
 				F73B78CB1C81451E00069EEE /* icon_book_normal@2x.png */,
@@ -542,25 +565,31 @@
 			files = (
 				FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */,
 				F73B78D01C81451E00069EEE /* icon_member_selected@2x.png in Resources */,
+				FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */,
 				F7B827F51C892DDC00014746 /* Login.storyboard in Resources */,
 				F73B78C01C813E2800069EEE /* Member.storyboard in Resources */,
 				F73B78CE1C81451E00069EEE /* icon_activity_selected@2x.png in Resources */,
 				FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */,
+				FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */,
 				F73B78C61C81414900069EEE /* icon_activity_normal@2x.png in Resources */,
 				F73B78C81C81414900069EEE /* icon_member_normal@2x.png in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
 				F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */,
 				F73B78B81C813DDD00069EEE /* Book.storyboard in Resources */,
+				FDEADC0E1C92AA2D00971DD1 /* icon_about_normal@2x.png in Resources */,
 				F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */,
 				F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */,
 				F73B78CF1C81451E00069EEE /* icon_book_normal@2x.png in Resources */,
 				F73B78BF1C813E2800069EEE /* Activity.storyboard in Resources */,
 				F73B78A21C81375600069EEE /* MJRefresh.bundle in Resources */,
+				FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */,
 				F73B78C91C81414900069EEE /* icon_project_normal@2x.png in Resources */,
 				F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
+				FDEADC0F1C92AA2D00971DD1 /* icon_community_normal@2x.png in Resources */,
 				F73B78C71C81414900069EEE /* icon_book_selected@2x.png in Resources */,
 				F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */,
+				FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +624,7 @@
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
 				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
+				FDEADC131C92ACEB00971DD1 /* SubTabBarController.m in Sources */,
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
