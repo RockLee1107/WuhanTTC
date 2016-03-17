@@ -63,6 +63,7 @@
 		FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */; };
 		FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47F85C1C8AC58C00D0ED07 /* Page.m */; };
 		FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */; };
+		FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */; };
 		FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */; };
 		FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */; };
 		FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */; };
@@ -186,6 +187,8 @@
 		FD47F85C1C8AC58C00D0ED07 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 		FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
+		FDE26AA91C9A3C09003418D5 /* ActivityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListViewController.h; sourceTree = "<group>"; };
+		FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListViewController.m; sourceTree = "<group>"; };
 		FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeTableViewCell.h; sourceTree = "<group>"; };
 		FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTypeTableViewCell.m; sourceTree = "<group>"; };
 		FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialTypeTableViewCell.xib; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 			isa = PBXGroup;
 			children = (
 				F73B78BA1C813E2800069EEE /* Activity.storyboard */,
+				FDE26AA91C9A3C09003418D5 /* ActivityListViewController.h */,
+				FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -616,6 +621,7 @@
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
 				F73B789C1C81375600069EEE /* AFNetworkReachabilityManager.m in Sources */,
 				F73B78A41C81375600069EEE /* MJRefreshConst.m in Sources */,
+				FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */,
 				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
