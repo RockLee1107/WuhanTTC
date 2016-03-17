@@ -64,6 +64,8 @@
 		FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47F85C1C8AC58C00D0ED07 /* Page.m */; };
 		FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */; };
 		FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */; };
+		FDE26ABA1C9AABA0003418D5 /* link_investor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE26AB81C9AABA0003418D5 /* link_investor@2x.png */; };
+		FDE26ABB1C9AABA0003418D5 /* link_project@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE26AB91C9AABA0003418D5 /* link_project@2x.png */; };
 		FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */; };
 		FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */; };
 		FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */; };
@@ -189,6 +191,8 @@
 		FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		FDE26AA91C9A3C09003418D5 /* ActivityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityListViewController.h; sourceTree = "<group>"; };
 		FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityListViewController.m; sourceTree = "<group>"; };
+		FDE26AB81C9AABA0003418D5 /* link_investor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "link_investor@2x.png"; sourceTree = "<group>"; };
+		FDE26AB91C9AABA0003418D5 /* link_project@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "link_project@2x.png"; sourceTree = "<group>"; };
 		FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeTableViewCell.h; sourceTree = "<group>"; };
 		FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTypeTableViewCell.m; sourceTree = "<group>"; };
 		FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialTypeTableViewCell.xib; sourceTree = "<group>"; };
@@ -453,6 +457,8 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDE26AB81C9AABA0003418D5 /* link_investor@2x.png */,
+				FDE26AB91C9AABA0003418D5 /* link_project@2x.png */,
 				FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */,
 				FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */,
 				FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */,
@@ -580,6 +586,7 @@
 				F73B78C61C81414900069EEE /* icon_activity_normal@2x.png in Resources */,
 				F73B78C81C81414900069EEE /* icon_member_normal@2x.png in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
+				FDE26ABA1C9AABA0003418D5 /* link_investor@2x.png in Resources */,
 				F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */,
 				F73B78B81C813DDD00069EEE /* Book.storyboard in Resources */,
 				FDEADC0E1C92AA2D00971DD1 /* icon_about_normal@2x.png in Resources */,
@@ -587,6 +594,7 @@
 				F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */,
 				F73B78CF1C81451E00069EEE /* icon_book_normal@2x.png in Resources */,
 				F73B78BF1C813E2800069EEE /* Activity.storyboard in Resources */,
+				FDE26ABB1C9AABA0003418D5 /* link_project@2x.png in Resources */,
 				F73B78A21C81375600069EEE /* MJRefresh.bundle in Resources */,
 				FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */,
 				F73B78C91C81414900069EEE /* icon_project_normal@2x.png in Resources */,
