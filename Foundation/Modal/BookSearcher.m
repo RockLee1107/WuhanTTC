@@ -27,7 +27,8 @@
 }
 
 - (NSDictionary *)dictionary {
-    NSDictionary *dict = @{@"SEQ_userId":self.userId,
+    NSDictionary *dict = @{
+                           @"SEQ_userId":self.userId,
                            @"SEQ_specialCode":self.specialCode,
                            @"IEQ_isRead":self.isRead,
                            @"SEQ_orderBy":self.orderBy,

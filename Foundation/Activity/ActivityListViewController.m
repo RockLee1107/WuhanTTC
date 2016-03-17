@@ -17,9 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self fetchData];
-//    [self fetchActivityData];
-    [self fetchInvestorData];
+    [self fetchActivityData];
+//    [self fetchProjectData];
+//    [self fetchInvestorData];
+//    [self fetchSubjectData];
 //    __weak typeof(self) weakSelf = self;
 //    [self.tableView addLegendFooterWithRefreshingBlock:^{
 //        weakSelf.pageIndex++;
@@ -30,42 +31,42 @@
 }
 
 /**创活动*/
-- (void)fetchData{
+- (void)fetchActivityData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                 @{
-//                                  @"typeCode":@"",
-                                  @"status":@2,
-//                                  @"city":@0,
-                                  @"orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+//                                  @"SEQ_typeCode":@"",
+                                  @"IIN_status":@"2",
+//                                  @"SEQ_city":@0,
+                                  @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                 }];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
         NSLog(@"json:%@",param);
     [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject[@"result"];
+//        self.dataArray = responseObject[@"result"];
         [self.tableView reloadData];
                 NSLog(@"responseObject:%@",responseObject);
     }];
 }
 
-/**创活动项目*/
-- (void)fetchActivityData{
+/**创连接项目*/
+- (void)fetchProjectData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                   //@"typeCode":@"",
-//                                   @"area":@2,
-//                                   @"bizCode":
-//                                   @"processStatusCode":项目阶段状态
-//                                    @"financeProcCode":融资情况
-                                   @"orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                   //@"SEQ_typeCode":@"",
+//                                   @"SEQ_area":@2,
+//                                   @"SEQ_bizCode":
+//                                   @"SEQ_processStatusCode":项目阶段状态
+//                                    @"SEQ_financeProcCode":融资情况
+//                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                    }];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     NSLog(@"json:%@",param);
     [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject[@"result"];
+//        self.dataArray = responseObject[@"result"];
 //        [self.tableView reloadData];
         NSLog(@"responseObject:%@",responseObject);
     }];
@@ -88,4 +89,20 @@
     }];
 }
 
+/**创活动投资人*/
+- (void)fetchSubjectData{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
+                                 @{
+                                   @"SEQ_specialCode":@"zl0001"
+                                   }];
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    NSLog(@"json:%@",param);
+    [self.service GET:@"/book/postSubject/queryPostSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //        self.dataArray = responseObject[@"result"];
+        //        [self.tableView reloadData];
+        NSLog(@"responseObject:%@",responseObject);
+    }];
+}
 @end
