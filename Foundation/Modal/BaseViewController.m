@@ -16,9 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.pageIndex = 1;
-    self.page = [[Page alloc] init];
-    self.service = [HttpService getInstance];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -40,10 +40,39 @@
                         <sections>
                             <tableViewSection id="dpq-Ms-w1z">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="15" id="j96-bg-zjK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="96" id="j96-bg-zjK">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j96-bg-zjK" id="PX7-50-yOm">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_user_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="sGg-ec-ayS">
+                                                    <rect key="frame" x="17" y="17" width="62" height="62"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="KY2-eC-Vcz"/>
+                                                        <constraint firstAttribute="width" secondItem="sGg-ec-ayS" secondAttribute="height" multiplier="1:1" id="sx3-Bn-EHI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13587567910" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFh-Lm-3m7">
+                                                    <rect key="frame" x="98" y="23" width="105" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2e-x0-MNt">
+                                                    <rect key="frame" x="99" y="45" width="105" height="30"/>
+                                                    <state key="normal" title="请完善个人资料">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="f2e-x0-MNt" firstAttribute="leading" secondItem="sGg-ec-ayS" secondAttribute="trailing" constant="20" id="3oR-Qh-Z4L"/>
+                                                <constraint firstItem="OFh-Lm-3m7" firstAttribute="leading" secondItem="sGg-ec-ayS" secondAttribute="trailing" constant="19" id="6FJ-YI-8Uy"/>
+                                                <constraint firstItem="sGg-ec-ayS" firstAttribute="leading" secondItem="PX7-50-yOm" secondAttribute="leadingMargin" constant="9" id="CJZ-My-hhE"/>
+                                                <constraint firstItem="OFh-Lm-3m7" firstAttribute="top" secondItem="PX7-50-yOm" secondAttribute="topMargin" constant="15" id="FJG-8W-S1w"/>
+                                                <constraint firstAttribute="centerY" secondItem="sGg-ec-ayS" secondAttribute="centerY" constant="-0.5" id="bgw-Fj-A6L"/>
+                                                <constraint firstItem="f2e-x0-MNt" firstAttribute="top" secondItem="OFh-Lm-3m7" secondAttribute="bottom" constant="1" id="zBE-Pr-xI2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -113,14 +142,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nB6-Ch-mV8" id="n6x-nZ-S7w">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_msg.png" translatesAutoresizingMaskIntoConstraints="NO" id="bLn-nY-aTZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_collect.png" translatesAutoresizingMaskIntoConstraints="NO" id="bLn-nY-aTZ">
                                                     <rect key="frame" x="26" y="14" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bLn-nY-aTZ" secondAttribute="height" multiplier="1:1" id="h0q-fw-2xg"/>
                                                         <constraint firstAttribute="width" constant="21" id="y48-z8-WFL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48G-mI-AEk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48G-mI-AEk">
                                                     <rect key="frame" x="65" y="15" width="32" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -140,15 +169,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="djz-Do-pd7" id="qxg-ix-6Gl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_friends.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Ds-0T-Jhd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Ds-0T-Jhd">
                                                     <rect key="frame" x="26" y="14" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9Ds-0T-Jhd" secondAttribute="height" multiplier="1:1" id="AEX-Ov-DfJ"/>
                                                         <constraint firstAttribute="width" constant="21" id="qEd-wF-cAF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创友录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hT-8y-NiE">
-                                                    <rect key="frame" x="65" y="15" width="48" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的笔记" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hT-8y-NiE">
+                                                    <rect key="frame" x="65" y="15" width="64" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -167,15 +196,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qR6-15-bjL" id="FGx-T2-WM2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_friends.png" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-tG-BPU">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_project.png" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-tG-BPU">
                                                     <rect key="frame" x="26" y="14" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="Ix6-fA-y6S"/>
                                                         <constraint firstAttribute="width" secondItem="lRu-tG-BPU" secondAttribute="height" multiplier="1:1" id="cjO-lf-z5M"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创友录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h03-ML-zg7">
-                                                    <rect key="frame" x="65" y="15" width="48" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的项目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h03-ML-zg7">
+                                                    <rect key="frame" x="65" y="15" width="64" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -194,15 +223,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbz-iJ-0yO" id="Thu-Tb-WGi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_msg.png" translatesAutoresizingMaskIntoConstraints="NO" id="oad-5A-u8F">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_event.png" translatesAutoresizingMaskIntoConstraints="NO" id="oad-5A-u8F">
                                                     <rect key="frame" x="26" y="14" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="QDu-gC-2vV"/>
                                                         <constraint firstAttribute="width" secondItem="oad-5A-u8F" secondAttribute="height" multiplier="1:1" id="syJ-SZ-L7R"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-0v-72c">
-                                                    <rect key="frame" x="65" y="15" width="32" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的活动" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-0v-72c">
+                                                    <rect key="frame" x="65" y="15" width="64" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -221,15 +250,15 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="29t-cy-Jfe" id="5HQ-9r-2vn">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_friends.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Jx-ST-GXD">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_post.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Jx-ST-GXD">
                                                     <rect key="frame" x="26" y="14" width="21" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="5e6-tL-k4J"/>
                                                         <constraint firstAttribute="width" secondItem="4Jx-ST-GXD" secondAttribute="height" multiplier="1:1" id="uER-Ul-SOm"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创友录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpp-t1-cqV">
-                                                    <rect key="frame" x="65" y="15" width="48" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的帖子" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpp-t1-cqV">
+                                                    <rect key="frame" x="65" y="15" width="64" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -290,9 +319,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="app_user_icon.png" width="47" height="47"/>
         <image name="icon_member_normal.png" width="40" height="40"/>
+        <image name="person_collect.png" width="21" height="21"/>
+        <image name="person_event.png" width="19" height="21"/>
         <image name="person_friends.png" width="23" height="19"/>
         <image name="person_msg.png" width="21" height="15"/>
+        <image name="person_note.png" width="21" height="21"/>
+        <image name="person_post.png" width="18" height="23"/>
+        <image name="person_project.png" width="21" height="21"/>
         <image name="person_setting.png" width="18" height="18"/>
     </resources>
 </document>

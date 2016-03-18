@@ -6,8 +6,8 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BasicDynamicTableViewController.h"
 
-@interface ActivityListViewController : BaseViewController
+@interface ActivityListViewController : BasicDynamicTableViewController
 
 @end

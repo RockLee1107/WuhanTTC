@@ -10,4 +10,5 @@
 @interface DateUtil : NSObject
 + (NSString *)prettyString:(NSString *)str;
 + (NSString *)toString:(id)str;
++ (NSString *)toShortDate:(id)str;
 @end

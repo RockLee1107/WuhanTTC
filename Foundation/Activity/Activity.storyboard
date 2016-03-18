@@ -19,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dFq-SZ-KD9">
-                                <rect key="frame" x="0.0" y="119" width="320" height="400"/>
+                                <rect key="frame" x="0.0" y="107" width="320" height="461"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gCH-H7-M0J" firstAttribute="top" secondItem="dFq-SZ-KD9" secondAttribute="bottom" id="4cQ-EB-r2G"/>
-                            <constraint firstItem="dFq-SZ-KD9" firstAttribute="top" secondItem="f0v-py-TKh" secondAttribute="bottom" constant="55" id="ElV-hA-r1r"/>
+                            <constraint firstItem="gCH-H7-M0J" firstAttribute="top" secondItem="dFq-SZ-KD9" secondAttribute="bottom" constant="-49" id="4cQ-EB-r2G"/>
+                            <constraint firstItem="dFq-SZ-KD9" firstAttribute="top" secondItem="f0v-py-TKh" secondAttribute="bottom" constant="43" id="ElV-hA-r1r"/>
                             <constraint firstItem="dFq-SZ-KD9" firstAttribute="leading" secondItem="0zM-2l-hjY" secondAttribute="leadingMargin" constant="-16" id="i20-Dr-PKz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dFq-SZ-KD9" secondAttribute="trailing" constant="-16" id="lCn-cd-2O4"/>
                         </constraints>

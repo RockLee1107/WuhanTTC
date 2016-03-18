@@ -29,4 +29,14 @@
     NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
     return [NSString stringWithFormat:@"%@/%@/%@",year,month,day];
 }
+
++ (NSString *)toShortDate:(id)str {
+    if (str == [NSNull null]) {
+        return @"";
+    }
+    NSString *dateStr = str;
+    NSString *month = [dateStr substringWithRange:NSMakeRange(4, 2)];
+    NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
+    return [NSString stringWithFormat:@"%@/%@",month,day];
+}
 @end

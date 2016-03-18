@@ -20,4 +20,12 @@
 
 #define RECT_LOG(f) NSLog(@"\nx:%f\ny:%f\nwidth:%f\nheight:%f\n",f.origin.x,f.origin.y,f.size.width,f.size.height)
 #define NETWORK_ERROR @"网络错误"
+
+//typedef enum : NSUInteger {
+//    ACTIVITY_STATUS_ONE,
+//    ACTIVITY_STATUS_TWO,
+//    ACTIVITY_STATUS_THREE,
+//} ACTIVITY_STATUS;
+
+#define ACTIVITY_STATUS_ARRAY @[@"报名中",@"已满",@"已结束"]
 #endif
