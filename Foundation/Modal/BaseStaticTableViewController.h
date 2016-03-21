@@ -10,7 +10,7 @@
 #import "HttpService.h"
 #import "SVProgressHUD.h"
 
-@interface BaseTableViewController : UITableViewController
+@interface BaseStaticTableViewController : UITableViewController
 @property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
 

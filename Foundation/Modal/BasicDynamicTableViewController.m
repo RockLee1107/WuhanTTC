@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.page = [[Page alloc] init];
-    self.service = [HttpService getInstance];
     self.dataMutableArray = [NSMutableArray array];
 }
 

@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.service = [HttpService getInstance];
 }
 
 - (void)didReceiveMemoryWarning {

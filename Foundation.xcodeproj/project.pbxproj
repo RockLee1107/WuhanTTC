@@ -91,7 +91,7 @@
 		FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */; };
 		FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */; };
 		FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */; };
-		FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE91C887F98002238CA /* BaseTableViewController.m */; };
+		FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE91C887F98002238CA /* BaseStaticTableViewController.m */; };
 		FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEC1C88872B002238CA /* BaseViewController.m */; };
 		FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */; };
 		FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F081C9FD5E6005C6863 /* BaseTableView.m */; };
@@ -100,7 +100,6 @@
 		FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F111C9FEDF9005C6863 /* ProjectTableViewDelegate.m */; };
 		FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */; };
 		FDE33F171C9FEF68005C6863 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */; };
-		FDE33F1B1C9FFF8D005C6863 /* BaseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F1A1C9FFF8D005C6863 /* BaseImageView.m */; };
 		FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */; };
 		FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */; };
 		FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */; };
@@ -262,8 +261,8 @@
 		FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialTypeTableViewCell.xib; sourceTree = "<group>"; };
 		FDE2AFE41C887ED2002238CA /* SpecialTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTypeViewController.h; sourceTree = "<group>"; };
 		FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTypeViewController.m; sourceTree = "<group>"; };
-		FDE2AFE81C887F98002238CA /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		FDE2AFE91C887F98002238CA /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		FDE2AFE81C887F98002238CA /* BaseStaticTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseStaticTableViewController.h; sourceTree = "<group>"; };
+		FDE2AFE91C887F98002238CA /* BaseStaticTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseStaticTableViewController.m; sourceTree = "<group>"; };
 		FDE2AFEB1C88872B002238CA /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		FDE2AFEC1C88872B002238CA /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSpBookListViewController.h; sourceTree = "<group>"; };
@@ -279,8 +278,6 @@
 		FDE33F131C9FEF68005C6863 /* ProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewCell.h; sourceTree = "<group>"; };
 		FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewCell.m; sourceTree = "<group>"; };
 		FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
-		FDE33F191C9FFF8D005C6863 /* BaseImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageView.h; sourceTree = "<group>"; };
-		FDE33F1A1C9FFF8D005C6863 /* BaseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageView.m; sourceTree = "<group>"; };
 		FDE33F201CA0068C005C6863 /* ActivityTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewDelegate.h; sourceTree = "<group>"; };
 		FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewDelegate.m; sourceTree = "<group>"; };
 		FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_selected@2x.png"; sourceTree = "<group>"; };
@@ -604,16 +601,14 @@
 				F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */,
 				FDE2AFEB1C88872B002238CA /* BaseViewController.h */,
 				FDE2AFEC1C88872B002238CA /* BaseViewController.m */,
-				FDE2AFE81C887F98002238CA /* BaseTableViewController.h */,
-				FDE2AFE91C887F98002238CA /* BaseTableViewController.m */,
+				FDE2AFE81C887F98002238CA /* BaseStaticTableViewController.h */,
+				FDE2AFE91C887F98002238CA /* BaseStaticTableViewController.m */,
 				FDE26AE91C9C363A003418D5 /* BasicDynamicTableViewController.h */,
 				FDE26AEA1C9C363A003418D5 /* BasicDynamicTableViewController.m */,
 				FDE33F071C9FD5E6005C6863 /* BaseTableView.h */,
 				FDE33F081C9FD5E6005C6863 /* BaseTableView.m */,
 				FDE33F0D1C9FED31005C6863 /* BaseTableViewDelegate.h */,
 				FDE33F0E1C9FED31005C6863 /* BaseTableViewDelegate.m */,
-				FDE33F191C9FFF8D005C6863 /* BaseImageView.h */,
-				FDE33F1A1C9FFF8D005C6863 /* BaseImageView.m */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -789,7 +784,7 @@
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
-				FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */,
+				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
@@ -843,7 +838,6 @@
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
-				FDE33F1B1C9FFF8D005C6863 /* BaseImageView.m in Sources */,
 				FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

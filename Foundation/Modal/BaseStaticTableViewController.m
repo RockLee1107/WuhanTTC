@@ -6,13 +6,13 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
+#import "BaseStaticTableViewController.h"
 
-@interface BaseTableViewController ()
+@interface BaseStaticTableViewController ()
 
 @end
 
-@implementation BaseTableViewController
+@implementation BaseStaticTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
