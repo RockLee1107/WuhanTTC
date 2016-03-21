@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ProjectTableViewCell : UITableViewCell
-
+/**图片*/
+@property (nonatomic,weak) IBOutlet UIImageView *pictUrlImageView;
+/**标题*/
+@property (nonatomic,weak) IBOutlet UILabel *titleLabel;
+/**简历*/
+@property (nonatomic,weak) IBOutlet UILabel *resumeLabel;
+/**城市*/
+@property (nonatomic,weak) IBOutlet UILabel *cityLabel;
 @end

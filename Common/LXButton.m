@@ -17,8 +17,8 @@
 - (void)drawRect:(CGRect)rect {
     self.layer.cornerRadius = 4.0;
     self.clipsToBounds = YES;
-    self.layer.borderWidth = 1.0;
-    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+//    self.layer.borderWidth = 1.0;
+//    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.layer.backgroundColor = [MAIN_COLOR CGColor];
     [self setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
 }

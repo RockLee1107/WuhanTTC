@@ -8,7 +8,7 @@
 
 #import "ProjectTableViewDelegate.h"
 #import "ProjectTableViewCell.h"
-
+#import "HttpService.h"
 
 @implementation ProjectTableViewDelegate
 #pragma mark - tb代理方法
@@ -18,19 +18,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProjectTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ProjectTableViewCell" owner:nil options:nil] firstObject];
-//    NSDictionary *object = self.dataMutableArray[indexPath.row];
-//    /**图片*/
-//    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[StringUtil toString:object[@"pictUrl"]]]];
-//    cell.pictUrlImageView.clipsToBounds = YES;
-//    /**标题*/
-//    cell.activityTitleLabel.text = [StringUtil toString:object[@"activityTitle"]];
-//    /**状态*/
-//    cell.statusLabel.text = ACTIVITY_STATUS_ARRAY[[object[@"status"] integerValue]];
-//    /**开始时间*/
-//    cell.planDateLabel.text = [DateUtil toShortDate:object[@"planDate"]];
-//    /**城市*/
-//    cell.cityLabel.text = [StringUtil toString:object[@"city"]];
+    NSDictionary *object = self.dataArray[indexPath.row];
+    /**图片*/
+    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",HOST_URL,[StringUtil toString:object[@"bppictUrl"]]]]];
+    cell.pictUrlImageView.clipsToBounds = YES;
+    /**标题*/
+    cell.titleLabel.text = [StringUtil toString:object[@"projectName"]];
+    /**简历*/
+    cell.resumeLabel.text = [StringUtil toString:object[@"projectResume"]];
+    /**城市*/
+    cell.cityLabel.text = [StringUtil toString:object[@"area"]];
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.0;
+}
 @end

@@ -8,7 +8,6 @@
 
 #import "HttpService.h"
 #import "SVProgressHUD.h"
-#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
 @implementation HttpService
 - (instancetype)init {
     self.manager = [AFHTTPRequestOperationManager manager];
