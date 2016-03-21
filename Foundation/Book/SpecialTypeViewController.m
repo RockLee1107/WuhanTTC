@@ -31,7 +31,7 @@
     HttpService *service = [HttpService getInstance];
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{@"SEQ_userId":[User getInstance].uid}]};
     [service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject;
+        self.dataImmutableArray = responseObject;
 //        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
     }];
@@ -44,15 +44,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataArray count];
+    return [self.dataImmutableArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SpecialTypeTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialTypeTableViewCell" owner:nil options:nil] firstObject];
-    cell.specialNameLabel.text = self.dataArray[indexPath.row][@"specialName"];
-    cell.latestBookNameLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"latestBookName"]];
+    cell.specialNameLabel.text = self.dataImmutableArray[indexPath.row][@"specialName"];
+    cell.latestBookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"latestBookName"]];
     
-    cell.latestUpdateTimeLabel.text = [DateUtil toString:self.dataArray[indexPath.row][@"latestUpdateTime"]];
+    cell.latestUpdateTimeLabel.text = [DateUtil toString:self.dataImmutableArray[indexPath.row][@"latestUpdateTime"]];
     return cell;
 }
 
@@ -62,8 +62,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SubTabBarController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sub"];
-    vc.specialCode = self.dataArray[indexPath.row][@"specialCode"];
-    vc.specialName = self.dataArray[indexPath.row][@"specialName"];
+    vc.specialCode = self.dataImmutableArray[indexPath.row][@"specialCode"];
+    vc.specialName = self.dataImmutableArray[indexPath.row][@"specialName"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

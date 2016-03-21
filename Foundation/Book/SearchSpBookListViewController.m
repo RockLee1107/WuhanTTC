@@ -42,20 +42,20 @@
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[page dictionary]]};
 //    NSLog(@"json:%@",param);
     [service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject[@"result"];
+        self.dataImmutableArray = responseObject[@"result"];
         [self.tableView reloadData];
 //        NSLog(@"responseObject:%@",responseObject);
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataArray count];
+    return [self.dataImmutableArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BookTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookTableViewCell" owner:nil options:nil] firstObject];
-    cell.bookNameLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"bookName"]];
-    cell.bookTypeLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"bookType"]];
+    cell.bookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"bookName"]];
+    cell.bookTypeLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"bookType"]];
     return cell;
     
 }
@@ -63,7 +63,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BookDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    vc.bookId = self.dataArray[indexPath.row][@"bookId"];
+    vc.bookId = self.dataImmutableArray[indexPath.row][@"bookId"];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

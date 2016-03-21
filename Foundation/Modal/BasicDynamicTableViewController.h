@@ -14,8 +14,7 @@
 
 @interface BasicDynamicTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;
-//@property (nonatomic,strong) NSMutableDictionary *dataMutableDict;
-@property (nonatomic,strong) NSMutableArray *dataMutableArray;
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
 
 @end

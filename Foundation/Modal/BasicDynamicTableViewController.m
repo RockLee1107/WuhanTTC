@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.page = [[Page alloc] init];
-    self.dataMutableArray = [NSMutableArray array];
+    self.dataArray = [NSMutableArray array];
 }
 
 @end
