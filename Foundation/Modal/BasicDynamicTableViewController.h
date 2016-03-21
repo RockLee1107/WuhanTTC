@@ -9,9 +9,9 @@
 #import "BaseViewController.h"
 #import "Page.h"
 #import "MJRefresh.h"
+#import "BaseTableView.h"
 
 @interface BasicDynamicTableViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-@property (assign, nonatomic) NSInteger pageIndex;
 @property (nonatomic, strong) Page *page;
 @property (nonatomic,strong) NSMutableDictionary *dataMutableDict;
 @property (nonatomic,strong) NSMutableArray *dataMutableArray;

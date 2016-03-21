@@ -94,6 +94,7 @@
 		FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFE91C887F98002238CA /* BaseTableViewController.m */; };
 		FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEC1C88872B002238CA /* BaseViewController.m */; };
 		FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */; };
+		FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F081C9FD5E6005C6863 /* BaseTableView.m */; };
 		FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */; };
 		FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */; };
 		FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */; };
@@ -260,6 +261,8 @@
 		FDE2AFEC1C88872B002238CA /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSpBookListViewController.h; sourceTree = "<group>"; };
 		FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSpBookListViewController.m; sourceTree = "<group>"; };
+		FDE33F071C9FD5E6005C6863 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		FDE33F081C9FD5E6005C6863 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_about_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_normal@2x.png"; sourceTree = "<group>"; };
@@ -588,6 +591,8 @@
 				FDE2AFE91C887F98002238CA /* BaseTableViewController.m */,
 				FDE26AE91C9C363A003418D5 /* BasicDynamicTableViewController.h */,
 				FDE26AEA1C9C363A003418D5 /* BasicDynamicTableViewController.m */,
+				FDE33F071C9FD5E6005C6863 /* BaseTableView.h */,
+				FDE33F081C9FD5E6005C6863 /* BaseTableView.m */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -748,6 +753,7 @@
 				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
+				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,

@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.pageIndex = 1;
     self.page = [[Page alloc] init];
     self.service = [HttpService getInstance];
     self.dataMutableArray = [NSMutableArray array];
@@ -29,4 +28,5 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [UITableViewCell new];
 }
+
 @end

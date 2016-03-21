@@ -10,7 +10,7 @@
 #import "ActivityTableViewCell.h"
 
 @interface ActivityListViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet BaseTableView *tableView;
 
 @end
 
