@@ -12,7 +12,7 @@
 
 @interface ProjectListViewController ()
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
-@property (strong, nonatomic) ProjectTableViewDelegate *tableViewDelegate;
+@property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
 
 @end
 
