@@ -13,5 +13,6 @@
 @interface BaseStaticTableViewController : UITableViewController
 @property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) HttpService *service;
 
 @end

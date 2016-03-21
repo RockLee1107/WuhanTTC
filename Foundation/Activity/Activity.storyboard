@@ -36,11 +36,31 @@
                     <navigationItem key="navigationItem" title="创活动" id="6zz-2H-7AR"/>
                     <connections>
                         <outlet property="tableView" destination="dFq-SZ-KD9" id="04e-Bd-R2z"/>
+                        <segue destination="97m-b8-9iA" kind="show" identifier="detail" id="X8E-AF-b6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trU-CJ-ghQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="988" y="481"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="jEA-45-5AQ">
+            <objects>
+                <tableViewController id="97m-b8-9iA" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zoq-Ke-ADR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="97m-b8-9iA" id="cAc-g6-QW2"/>
+                            <outlet property="delegate" destination="97m-b8-9iA" id="gfb-eH-YcM"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wS-sa-Pim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="481"/>
         </scene>
         <!--创活动-->
         <scene sceneID="FPO-lA-S7X">

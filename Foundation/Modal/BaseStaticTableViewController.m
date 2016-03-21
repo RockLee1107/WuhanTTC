@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(-36.0, 0, 0, 0);
+    self.service = [HttpService getInstance];
+
 }
 
 - (void)didReceiveMemoryWarning {

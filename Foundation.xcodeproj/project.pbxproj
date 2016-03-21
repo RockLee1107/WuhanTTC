@@ -53,6 +53,14 @@
 		F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */; };
 		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
+		F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */; };
+		F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */; };
+		F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */; };
+		F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E701CA04CCB001B5FB3 /* WMMenuView.m */; };
+		F7A61E7B1CA04CCB001B5FB3 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E721CA04CCB001B5FB3 /* WMProgressView.m */; };
+		F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E741CA04CCB001B5FB3 /* WMScrollView.m */; };
+		F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E771CA04CCB001B5FB3 /* WMPageController.m */; };
+		F7A61E801CA04E83001B5FB3 /* ProjectSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryViewController.m */; };
 		F7B827F51C892DDC00014746 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B827F41C892DDC00014746 /* Login.storyboard */; };
 		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
 		F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */; };
@@ -201,6 +209,23 @@
 		F741A6451C8F38E4008DC72B /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		F741A6461C8F38E4008DC72B /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
+		F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
+		F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
+		F7A61E6B1CA04CCB001B5FB3 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
+		F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
+		F7A61E6D1CA04CCB001B5FB3 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		F7A61E6F1CA04CCB001B5FB3 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		F7A61E701CA04CCB001B5FB3 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		F7A61E711CA04CCB001B5FB3 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		F7A61E721CA04CCB001B5FB3 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		F7A61E731CA04CCB001B5FB3 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		F7A61E741CA04CCB001B5FB3 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		F7A61E751CA04CCB001B5FB3 /* WMPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageConst.h; sourceTree = "<group>"; };
+		F7A61E761CA04CCB001B5FB3 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		F7A61E771CA04CCB001B5FB3 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSummaryViewController.h; sourceTree = "<group>"; };
+		F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSummaryViewController.m; sourceTree = "<group>"; };
 		F7B827F41C892DDC00014746 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		F7FE4FFE1C892E7F00114B28 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -398,6 +423,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F7A61E691CA04CCB001B5FB3 /* WMPageController */,
 				FDE26AEC1C9C38A0003418D5 /* UIKit+AFNetworking */,
 				F73B78651C81375500069EEE /* AFNetworking */,
 				F73B78791C81375500069EEE /* MJRefresh */,
@@ -498,6 +524,7 @@
 		F73B78B91C813E2800069EEE /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				F7A61E641CA049DB001B5FB3 /* Detail */,
 				F73B78BA1C813E2800069EEE /* Activity.storyboard */,
 				FDE33F1C1CA005DA005C6863 /* ActivityList */,
 			);
@@ -518,9 +545,56 @@
 			isa = PBXGroup;
 			children = (
 				F73B78BE1C813E2800069EEE /* Project.storyboard */,
+				F7A61E651CA04A41001B5FB3 /* Detail */,
 				FDE33F181C9FEF73005C6863 /* ProjectList */,
 			);
 			path = Project;
+			sourceTree = "<group>";
+		};
+		F7A61E641CA049DB001B5FB3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F7A61E651CA04A41001B5FB3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryViewController.h */,
+				F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryViewController.m */,
+				F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */,
+				F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F7A61E691CA04CCB001B5FB3 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				F7A61E6A1CA04CCB001B5FB3 /* WMMenuView */,
+				F7A61E751CA04CCB001B5FB3 /* WMPageConst.h */,
+				F7A61E761CA04CCB001B5FB3 /* WMPageController.h */,
+				F7A61E771CA04CCB001B5FB3 /* WMPageController.m */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		F7A61E6A1CA04CCB001B5FB3 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				F7A61E6B1CA04CCB001B5FB3 /* WMFooldView.h */,
+				F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */,
+				F7A61E6D1CA04CCB001B5FB3 /* WMMenuItem.h */,
+				F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */,
+				F7A61E6F1CA04CCB001B5FB3 /* WMMenuView.h */,
+				F7A61E701CA04CCB001B5FB3 /* WMMenuView.m */,
+				F7A61E711CA04CCB001B5FB3 /* WMProgressView.h */,
+				F7A61E721CA04CCB001B5FB3 /* WMProgressView.m */,
+				F7A61E731CA04CCB001B5FB3 /* WMScrollView.h */,
+				F7A61E741CA04CCB001B5FB3 /* WMScrollView.m */,
+			);
+			path = WMMenuView;
 			sourceTree = "<group>";
 		};
 		F7B827F31C892DD500014746 /* Login */ = {
@@ -793,6 +867,7 @@
 				F73B789C1C81375600069EEE /* AFNetworkReachabilityManager.m in Sources */,
 				F73B78A41C81375600069EEE /* MJRefreshConst.m in Sources */,
 				FDE26AE51C9C308F003418D5 /* ActivityTableViewCell.m in Sources */,
+				F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */,
 				FDE26B021C9C38A0003418D5 /* UIImageView+AFNetworking.m in Sources */,
 				FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */,
 				FDE26ACC1C9BF6EE003418D5 /* MemberTableViewController.m in Sources */,
@@ -801,7 +876,9 @@
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
+				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
+				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
@@ -809,8 +886,10 @@
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
 				FDEADC131C92ACEB00971DD1 /* SubTabBarController.m in Sources */,
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
+				F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
+				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
@@ -823,10 +902,12 @@
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BasicDynamicTableViewController.m in Sources */,
+				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
+				F7A61E801CA04E83001B5FB3 /* ProjectSummaryViewController.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				F7FE50091C8A786800114B28 /* User.m in Sources */,
@@ -839,6 +920,7 @@
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
 				FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */,
+				F7A61E7B1CA04CCB001B5FB3 /* WMProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

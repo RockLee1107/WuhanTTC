@@ -8,6 +8,7 @@
 
 #import "ProjectTableViewDelegate.h"
 #import "ProjectTableViewCell.h"
+#import "ProjectSummaryViewController.h"
 
 @implementation ProjectTableViewDelegate
 #pragma mark - tb代理方法
@@ -32,5 +33,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ProjectSummaryViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
+    //vc的Id值
+#warning vc.id
+    [self.vc.navigationController pushViewController:vc animated:YES];
 }
 @end

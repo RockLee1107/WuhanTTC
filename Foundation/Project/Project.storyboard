@@ -167,11 +167,31 @@
                     <navigationItem key="navigationItem" title="项目" id="P9s-8a-Uv4"/>
                     <connections>
                         <outlet property="tableView" destination="03c-YI-UCB" id="FeL-Iv-KmL"/>
+                        <segue destination="YCU-nX-NI7" kind="show" identifier="detail" id="xTH-Mv-pWu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v56-bH-SCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="407"/>
+            <point key="canvasLocation" x="1559" y="481"/>
+        </scene>
+        <!--Project Detail View Controller-->
+        <scene sceneID="mC2-m3-N7d">
+            <objects>
+                <viewController storyboardIdentifier="detail" id="YCU-nX-NI7" customClass="ProjectDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4co-gd-gBm"/>
+                        <viewControllerLayoutGuide type="bottom" id="H2z-FQ-zN2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BMr-71-qog">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNT-xT-tzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2054" y="481"/>
         </scene>
     </scenes>
     <resources>
