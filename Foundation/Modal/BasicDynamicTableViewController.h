@@ -10,9 +10,12 @@
 #import "Page.h"
 #import "MJRefresh.h"
 #import "BaseTableView.h"
+#import "BaseTableViewDelegate.h"
 
 @interface BasicDynamicTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;
 //@property (nonatomic,strong) NSMutableDictionary *dataMutableDict;
 @property (nonatomic,strong) NSMutableArray *dataMutableArray;
+@property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
+
 @end
