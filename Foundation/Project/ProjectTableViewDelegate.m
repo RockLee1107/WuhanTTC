@@ -8,7 +8,6 @@
 
 #import "ProjectTableViewDelegate.h"
 #import "ProjectTableViewCell.h"
-#import "HttpService.h"
 
 @implementation ProjectTableViewDelegate
 #pragma mark - tb代理方法

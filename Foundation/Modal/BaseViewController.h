@@ -14,7 +14,6 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface BaseViewController : UIViewController
-@property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
 
 @property (nonatomic,strong) HttpService *service;

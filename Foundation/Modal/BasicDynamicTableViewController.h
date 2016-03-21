@@ -11,8 +11,8 @@
 #import "MJRefresh.h"
 #import "BaseTableView.h"
 
-@interface BasicDynamicTableViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface BasicDynamicTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;
-@property (nonatomic,strong) NSMutableDictionary *dataMutableDict;
+//@property (nonatomic,strong) NSMutableDictionary *dataMutableDict;
 @property (nonatomic,strong) NSMutableArray *dataMutableArray;
 @end

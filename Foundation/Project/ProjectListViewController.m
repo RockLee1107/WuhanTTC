@@ -45,8 +45,6 @@
 
 }
 
-
-
 //初始化代理
 - (void)initDelegate {
     self.tableViewDelegate = [[ProjectTableViewDelegate alloc] init];

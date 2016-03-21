@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Global.h"
 #import "DateUtil.h"
 #import "StringUtil.h"
 #import "UIImageView+AFNetworking.h"

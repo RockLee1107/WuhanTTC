@@ -8,9 +8,11 @@
 
 #import "ActivityListViewController.h"
 #import "ActivityTableViewCell.h"
+#import "ActivityTableViewDelegate.h"
 
 @interface ActivityListViewController ()
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
+@property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
 
 @end
 
@@ -19,13 +21,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self fetchData];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self initDelegate];
+    [self initRefreshControl];
 //    [self fetchProjectData];
 //    [self fetchInvestorData];
 //    [self fetchSubjectData];
     
-/**上拉刷新、下拉加载*/
+///**上拉刷新、下拉加载*/
+//    __weak typeof(self) weakSelf = self;
+//    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+//    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+//        weakSelf.page.pageNo = 1;
+//        [weakSelf fetchData];
+//        [weakSelf.tableView.header endRefreshing];
+//    }];
+//    [self.tableView.legendHeader beginRefreshing];
+//    [self.tableView addLegendFooterWithRefreshingBlock:^{
+//        weakSelf.page.pageNo++;
+//        [weakSelf fetchData];
+//        // 拿到当前的上拉刷新控件，结束刷新状态
+//        [weakSelf.tableView.footer endRefreshing];
+//    }];
+}
+
+//上拉下拉控件
+- (void)initRefreshControl {
+    /**上拉刷新、下拉加载*/
     __weak typeof(self) weakSelf = self;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
@@ -40,32 +61,15 @@
         // 拿到当前的上拉刷新控件，结束刷新状态
         [weakSelf.tableView.footer endRefreshing];
     }];
+    
 }
 
-#pragma mark - tb代理方法
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataMutableArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ActivityTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ActivityTableViewCell" owner:nil options:nil] firstObject];
-    NSDictionary *object = self.dataMutableArray[indexPath.row];
-    /**图片*/
-    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[StringUtil toString:object[@"pictUrl"]]]];
-    cell.pictUrlImageView.clipsToBounds = YES;
-    /**标题*/
-    cell.activityTitleLabel.text = [StringUtil toString:object[@"activityTitle"]];
-    /**状态*/
-    cell.statusLabel.text = ACTIVITY_STATUS_ARRAY[[object[@"status"] integerValue]];
-    /**开始时间*/
-    cell.planDateLabel.text = [DateUtil toShortDate:object[@"planDate"]];
-    /**城市*/
-    cell.cityLabel.text = [StringUtil toString:object[@"city"]];
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 78.0;
+//初始化代理
+- (void)initDelegate {
+    self.tableViewDelegate = [[ActivityTableViewDelegate alloc] init];
+    self.tableViewDelegate.vc = self;
+    self.tableView.delegate = self.tableViewDelegate;
+    self.tableView.dataSource = self.tableViewDelegate;
 }
 
 /**创活动*/
@@ -83,10 +87,10 @@
     [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
-            [self.dataMutableArray removeAllObjects];
+            [self.tableViewDelegate.dataArray removeAllObjects];
             [self.tableView.footer resetNoMoreData];
         }
-        [self.dataMutableArray addObjectsFromArray:responseObject];
+        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
     }];
 }

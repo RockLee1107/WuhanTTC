@@ -101,6 +101,7 @@
 		FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */; };
 		FDE33F171C9FEF68005C6863 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */; };
 		FDE33F1B1C9FFF8D005C6863 /* BaseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F1A1C9FFF8D005C6863 /* BaseImageView.m */; };
+		FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */; };
 		FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */; };
 		FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */; };
 		FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */; };
@@ -280,6 +281,8 @@
 		FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		FDE33F191C9FFF8D005C6863 /* BaseImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageView.h; sourceTree = "<group>"; };
 		FDE33F1A1C9FFF8D005C6863 /* BaseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageView.m; sourceTree = "<group>"; };
+		FDE33F201CA0068C005C6863 /* ActivityTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewDelegate.h; sourceTree = "<group>"; };
+		FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewDelegate.m; sourceTree = "<group>"; };
 		FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_about_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_normal@2x.png"; sourceTree = "<group>"; };
@@ -499,11 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				F73B78BA1C813E2800069EEE /* Activity.storyboard */,
-				FDE26AA91C9A3C09003418D5 /* ActivityListViewController.h */,
-				FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */,
-				FDE26AE21C9C308F003418D5 /* ActivityTableViewCell.h */,
-				FDE26AE31C9C308F003418D5 /* ActivityTableViewCell.m */,
-				FDE26AE41C9C308F003418D5 /* ActivityTableViewCell.xib */,
+				FDE33F1C1CA005DA005C6863 /* ActivityList */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -631,6 +630,20 @@
 				FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */,
 			);
 			name = ProjectList;
+			sourceTree = "<group>";
+		};
+		FDE33F1C1CA005DA005C6863 /* ActivityList */ = {
+			isa = PBXGroup;
+			children = (
+				FDE26AA91C9A3C09003418D5 /* ActivityListViewController.h */,
+				FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */,
+				FDE26AE21C9C308F003418D5 /* ActivityTableViewCell.h */,
+				FDE26AE31C9C308F003418D5 /* ActivityTableViewCell.m */,
+				FDE26AE41C9C308F003418D5 /* ActivityTableViewCell.xib */,
+				FDE33F201CA0068C005C6863 /* ActivityTableViewDelegate.h */,
+				FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */,
+			);
+			name = ActivityList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -777,6 +790,7 @@
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */,
+				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
