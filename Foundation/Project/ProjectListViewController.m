@@ -70,10 +70,10 @@
     [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
-            [self.dataMutableArray removeAllObjects];
+            [self.tableViewDelegate.dataArray removeAllObjects];
             [self.tableView.footer resetNoMoreData];
         }
-        [self.dataMutableArray addObjectsFromArray:responseObject];
+        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
     }];
 }
