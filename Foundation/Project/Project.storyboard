@@ -73,6 +73,9 @@
                                                 <constraint firstItem="WRe-rc-oKM" firstAttribute="leading" secondItem="ksa-uc-GnL" secondAttribute="trailing" constant="16" id="wvd-EO-1cw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="01G-y6-rmh" kind="show" id="JMt-4n-8Iw"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="60" id="RNq-WR-YtF">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -122,6 +125,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cl-xt-lX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050" y="481"/>
+        </scene>
+        <!--项目-->
+        <scene sceneID="72e-G7-V7d">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="01G-y6-rmh" customClass="ProjectListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="frT-Ki-tbo"/>
+                        <viewControllerLayoutGuide type="bottom" id="dPA-lY-L7X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LTk-DV-8pl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="03c-YI-UCB" customClass="BaseTableView">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="03c-YI-UCB" secondAttribute="trailing" constant="-16" id="8cR-Q8-IgW"/>
+                            <constraint firstItem="03c-YI-UCB" firstAttribute="leading" secondItem="LTk-DV-8pl" secondAttribute="leadingMargin" constant="-16" id="Q5x-K9-Mx1"/>
+                            <constraint firstItem="03c-YI-UCB" firstAttribute="top" secondItem="frT-Ki-tbo" secondAttribute="bottom" constant="44" id="lK6-jS-paj"/>
+                            <constraint firstItem="dPA-lY-L7X" firstAttribute="top" secondItem="03c-YI-UCB" secondAttribute="bottom" constant="-49" id="xBJ-gf-g1I"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="项目" id="P9s-8a-Uv4"/>
+                    <connections>
+                        <outlet property="tableView" destination="03c-YI-UCB" id="FeL-Iv-KmL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v56-bH-SCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="407"/>
         </scene>
     </scenes>
     <resources>

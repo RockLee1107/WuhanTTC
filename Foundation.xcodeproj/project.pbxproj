@@ -95,6 +95,11 @@
 		FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEC1C88872B002238CA /* BaseViewController.m */; };
 		FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */; };
 		FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F081C9FD5E6005C6863 /* BaseTableView.m */; };
+		FDE33F0C1C9FE993005C6863 /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F0B1C9FE993005C6863 /* ProjectListViewController.m */; };
+		FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F0E1C9FED31005C6863 /* BaseTableViewDelegate.m */; };
+		FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F111C9FEDF9005C6863 /* ProjectTableViewDelegate.m */; };
+		FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */; };
+		FDE33F171C9FEF68005C6863 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */; };
 		FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */; };
 		FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */; };
 		FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */; };
@@ -263,6 +268,15 @@
 		FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSpBookListViewController.m; sourceTree = "<group>"; };
 		FDE33F071C9FD5E6005C6863 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		FDE33F081C9FD5E6005C6863 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		FDE33F0A1C9FE993005C6863 /* ProjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectListViewController.h; sourceTree = "<group>"; };
+		FDE33F0B1C9FE993005C6863 /* ProjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectListViewController.m; sourceTree = "<group>"; };
+		FDE33F0D1C9FED31005C6863 /* BaseTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewDelegate.h; sourceTree = "<group>"; };
+		FDE33F0E1C9FED31005C6863 /* BaseTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewDelegate.m; sourceTree = "<group>"; };
+		FDE33F101C9FEDF9005C6863 /* ProjectTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewDelegate.h; sourceTree = "<group>"; };
+		FDE33F111C9FEDF9005C6863 /* ProjectTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewDelegate.m; sourceTree = "<group>"; };
+		FDE33F131C9FEF68005C6863 /* ProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewCell.h; sourceTree = "<group>"; };
+		FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewCell.m; sourceTree = "<group>"; };
+		FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_about_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_normal@2x.png"; sourceTree = "<group>"; };
@@ -505,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				F73B78BE1C813E2800069EEE /* Project.storyboard */,
+				FDE33F181C9FEF73005C6863 /* ProjectList */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -593,8 +608,24 @@
 				FDE26AEA1C9C363A003418D5 /* BasicDynamicTableViewController.m */,
 				FDE33F071C9FD5E6005C6863 /* BaseTableView.h */,
 				FDE33F081C9FD5E6005C6863 /* BaseTableView.m */,
+				FDE33F0D1C9FED31005C6863 /* BaseTableViewDelegate.h */,
+				FDE33F0E1C9FED31005C6863 /* BaseTableViewDelegate.m */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		FDE33F181C9FEF73005C6863 /* ProjectList */ = {
+			isa = PBXGroup;
+			children = (
+				FDE33F0A1C9FE993005C6863 /* ProjectListViewController.h */,
+				FDE33F0B1C9FE993005C6863 /* ProjectListViewController.m */,
+				FDE33F101C9FEDF9005C6863 /* ProjectTableViewDelegate.h */,
+				FDE33F111C9FEDF9005C6863 /* ProjectTableViewDelegate.m */,
+				FDE33F131C9FEF68005C6863 /* ProjectTableViewCell.h */,
+				FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */,
+				FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */,
+			);
+			name = ProjectList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,6 +724,7 @@
 				FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */,
 				F73B78C61C81414900069EEE /* icon_activity_normal@2x.png in Resources */,
 				FDE26ADE1C9C287A003418D5 /* app_user_icon@2x.png in Resources */,
+				FDE33F171C9FEF68005C6863 /* ProjectTableViewCell.xib in Resources */,
 				FDE26ADC1C9BF8B8003418D5 /* person_setting@2x.png in Resources */,
 				F73B78C81C81414900069EEE /* icon_member_normal@2x.png in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
@@ -736,6 +768,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDE26B001C9C38A0003418D5 /* UIAlertView+AFNetworking.m in Sources */,
+				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseTableViewController.m in Sources */,
@@ -752,6 +785,7 @@
 				FDE26AFE1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
+				FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
@@ -771,6 +805,7 @@
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
 				F7FE50031C8A762700114B28 /* DateUtil.m in Sources */,
+				FDE33F0C1C9FE993005C6863 /* ProjectListViewController.m in Sources */,
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BasicDynamicTableViewController.m in Sources */,
@@ -785,6 +820,7 @@
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
+				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
