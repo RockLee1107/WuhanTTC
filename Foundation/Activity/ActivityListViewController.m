@@ -18,15 +18,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchData];
+//    [self fetchData];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 //    [self fetchProjectData];
 //    [self fetchInvestorData];
 //    [self fetchSubjectData];
+    
+/**上拉刷新、下拉加载*/
     __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.page.pageNo = 1;
+        [weakSelf fetchData];
+        [weakSelf.tableView.header endRefreshing];
+    }];
+    [self.tableView.legendHeader beginRefreshing];
     [self.tableView addLegendFooterWithRefreshingBlock:^{
-        weakSelf.pageIndex++;
+        weakSelf.page.pageNo++;
         [weakSelf fetchData];
         // 拿到当前的上拉刷新控件，结束刷新状态
         [weakSelf.tableView.footer endRefreshing];
@@ -42,16 +51,16 @@
     ActivityTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ActivityTableViewCell" owner:nil options:nil] firstObject];
     NSDictionary *object = self.dataMutableArray[indexPath.row];
     /**图片*/
-    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:object[@"pictUrl"]]];
+    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[StringUtil toString:object[@"pictUrl"]]]];
     cell.pictUrlImageView.clipsToBounds = YES;
     /**标题*/
-    cell.activityTitleLabel.text = object[@"activityTitle"];
+    cell.activityTitleLabel.text = [StringUtil toString:object[@"activityTitle"]];
     /**状态*/
     cell.statusLabel.text = ACTIVITY_STATUS_ARRAY[[object[@"status"] integerValue]];
     /**开始时间*/
-    cell.planDateLabel.text = [ DateUtil toShortDate:object[@"planDate"]];
+    cell.planDateLabel.text = [DateUtil toShortDate:object[@"planDate"]];
     /**城市*/
-    cell.cityLabel.text = object[@"city"];
+    cell.cityLabel.text = [StringUtil toString:object[@"city"]];
     return cell;
 }
 
@@ -71,12 +80,14 @@
     NSString *jsonStr = [StringUtil dictToJson:dict];
     
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-//        NSLog(@"json:%@",param);
     [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        self.dataArray = responseObject[@"result"];
+        if (self.page.pageNo == 1) {
+            //由于下拉刷新时页面而归零
+            [self.dataMutableArray removeAllObjects];
+            [self.tableView.footer resetNoMoreData];
+        }
         [self.dataMutableArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
-//                NSLog(@"responseObject:%@",responseObject);
     }];
 }
 
