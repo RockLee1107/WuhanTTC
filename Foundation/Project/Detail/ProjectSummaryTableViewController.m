@@ -10,6 +10,7 @@
 #import "SingletonObject.h"
 
 @interface ProjectSummaryTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *procDetailsLabel;
 
 @end
 
@@ -22,8 +23,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.pid = [[SingletonObject getInstance].pid ]
-    // Do any additional setup after loading the view.
+    [self fetchData];
 }
 
+- (void)fetchData {
+    self.procDetailsLabel.text = @"xxx";
+    NSDictionary *param = @{
+                            @"projectId":self.pid
+                            };
+    [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.procDetailsLabel.text = responseObject[@"procDetails"];
+    }];
+}
 @end
