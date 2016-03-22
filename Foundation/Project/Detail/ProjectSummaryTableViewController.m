@@ -10,7 +10,14 @@
 #import "SingletonObject.h"
 
 @interface ProjectSummaryTableViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UILabel *procDetailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *projectNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *procStatusNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bizNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *procUrlLabel;
+@property (weak, nonatomic) IBOutlet UILabel *procFuncLabel;
 
 @end
 
@@ -32,7 +39,16 @@
                             @"projectId":self.pid
                             };
     [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.thumbImageView.clipsToBounds = YES;
+        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,responseObject[@"bppictUrl"]];
+        [self.thumbImageView setImageWithURL:[NSURL URLWithString:url]];
         self.procDetailsLabel.text = responseObject[@"procDetails"];
+        self.projectNameLabel.text = [StringUtil toString: responseObject[@"projectName"]];
+        self.procStatusNameLabel.text = [StringUtil toString: responseObject[@"procStatusName"]];
+        self.bizNameLabel.text = [StringUtil toString: responseObject[@"bizName"]];
+        self.companyLabel.text = [StringUtil toString: responseObject[@"company"]];
+        self.procUrlLabel.text = [StringUtil toString: responseObject[@"procUrl"]];
+        self.procFuncLabel.text = [StringUtil toString: responseObject[@"procDetails"]];
     }];
 }
 @end
