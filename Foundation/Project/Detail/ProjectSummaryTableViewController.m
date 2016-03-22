@@ -15,6 +15,11 @@
 
 @implementation ProjectSummaryTableViewController
 
+- (instancetype)init {
+    self = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"summary"];
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.pid = [[SingletonObject getInstance].pid ]
