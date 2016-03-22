@@ -8,7 +8,8 @@
 
 #import "ProjectTableViewDelegate.h"
 #import "ProjectTableViewCell.h"
-#import "ProjectSummaryViewController.h"
+#import "ProjectDetailViewController.h"
+#import "SingletonObject.h"
 
 @implementation ProjectTableViewDelegate
 #pragma mark - tb代理方法
@@ -20,7 +21,7 @@
     ProjectTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ProjectTableViewCell" owner:nil options:nil] firstObject];
     NSDictionary *object = self.dataArray[indexPath.row];
     /**图片*/
-    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",HOST_URL,[StringUtil toString:object[@"bppictUrl"]]]]];
+    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"bppictUrl"]]]]];
     cell.pictUrlImageView.clipsToBounds = YES;
     /**标题*/
     cell.titleLabel.text = [StringUtil toString:object[@"projectName"]];
@@ -36,9 +37,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProjectSummaryViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
-    //vc的Id值
-#warning vc.id
+    NSDictionary *object = self.dataArray[indexPath.row];
+    [SingletonObject getInstance].pid = object[@"projectId"];
+    ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     [self.vc.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -8,6 +8,6 @@
 
 #import "BaseStaticTableViewController.h"
 
-@interface ProjectSummaryViewController : BaseStaticTableViewController
-
+@interface ProjectSummaryTableViewController : BaseStaticTableViewController
+@property (strong,nonatomic) NSString *pid;
 @end

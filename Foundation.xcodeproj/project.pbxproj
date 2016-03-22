@@ -60,7 +60,7 @@
 		F7A61E7B1CA04CCB001B5FB3 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E721CA04CCB001B5FB3 /* WMProgressView.m */; };
 		F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E741CA04CCB001B5FB3 /* WMScrollView.m */; };
 		F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E771CA04CCB001B5FB3 /* WMPageController.m */; };
-		F7A61E801CA04E83001B5FB3 /* ProjectSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryViewController.m */; };
+		F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryTableViewController.m */; };
 		F7B827F51C892DDC00014746 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B827F41C892DDC00014746 /* Login.storyboard */; };
 		F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */; };
 		F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */; };
@@ -109,6 +109,8 @@
 		FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */; };
 		FDE33F171C9FEF68005C6863 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */; };
 		FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */; };
+		FDE50A831CA0C7080058B87D /* CaptionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE50A821CA0C7080058B87D /* CaptionButton.m */; };
+		FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE50A851CA0D0800058B87D /* SingletonObject.m */; };
 		FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */; };
 		FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */; };
 		FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */; };
@@ -224,8 +226,8 @@
 		F7A61E751CA04CCB001B5FB3 /* WMPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageConst.h; sourceTree = "<group>"; };
 		F7A61E761CA04CCB001B5FB3 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
 		F7A61E771CA04CCB001B5FB3 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
-		F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSummaryViewController.h; sourceTree = "<group>"; };
-		F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSummaryViewController.m; sourceTree = "<group>"; };
+		F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSummaryTableViewController.h; sourceTree = "<group>"; };
+		F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSummaryTableViewController.m; sourceTree = "<group>"; };
 		F7B827F41C892DDC00014746 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		F7FE4FFE1C892E7F00114B28 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -305,6 +307,10 @@
 		FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		FDE33F201CA0068C005C6863 /* ActivityTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewDelegate.h; sourceTree = "<group>"; };
 		FDE33F211CA0068C005C6863 /* ActivityTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewDelegate.m; sourceTree = "<group>"; };
+		FDE50A811CA0C7080058B87D /* CaptionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptionButton.h; sourceTree = "<group>"; };
+		FDE50A821CA0C7080058B87D /* CaptionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptionButton.m; sourceTree = "<group>"; };
+		FDE50A841CA0D0800058B87D /* SingletonObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonObject.h; sourceTree = "<group>"; };
+		FDE50A851CA0D0800058B87D /* SingletonObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonObject.m; sourceTree = "<group>"; };
 		FDEADC051C92AA2D00971DD1 /* icon_community_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_community_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC061C92AA2D00971DD1 /* icon_about_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_about_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC071C92AA2D00971DD1 /* icon_content_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_normal@2x.png"; sourceTree = "<group>"; };
@@ -561,8 +567,8 @@
 		F7A61E651CA04A41001B5FB3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryViewController.h */,
-				F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryViewController.m */,
+				F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryTableViewController.h */,
+				F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryTableViewController.m */,
 				F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */,
 				F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */,
 			);
@@ -683,6 +689,10 @@
 				FDE33F081C9FD5E6005C6863 /* BaseTableView.m */,
 				FDE33F0D1C9FED31005C6863 /* BaseTableViewDelegate.h */,
 				FDE33F0E1C9FED31005C6863 /* BaseTableViewDelegate.m */,
+				FDE50A811CA0C7080058B87D /* CaptionButton.h */,
+				FDE50A821CA0C7080058B87D /* CaptionButton.m */,
+				FDE50A841CA0D0800058B87D /* SingletonObject.h */,
+				FDE50A851CA0D0800058B87D /* SingletonObject.m */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -854,6 +864,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE50A831CA0C7080058B87D /* CaptionButton.m in Sources */,
 				FDE26B001C9C38A0003418D5 /* UIAlertView+AFNetworking.m in Sources */,
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
@@ -900,6 +911,7 @@
 				F7FE50031C8A762700114B28 /* DateUtil.m in Sources */,
 				FDE33F0C1C9FE993005C6863 /* ProjectListViewController.m in Sources */,
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
+				FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BasicDynamicTableViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
@@ -907,7 +919,7 @@
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
-				F7A61E801CA04E83001B5FB3 /* ProjectSummaryViewController.m in Sources */,
+				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				F7FE50091C8A786800114B28 /* User.m in Sources */,

@@ -7,7 +7,8 @@
 //
 
 #import "ProjectDetailViewController.h"
-#import "ProjectSummaryViewController.h"
+#import "ProjectSummaryTableViewController.h"
+#import "SingletonObject.h"
 
 @interface ProjectDetailViewController ()
 
@@ -24,18 +25,19 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         NSArray *viewControllerClasses = @[
-                                           [ProjectSummaryViewController class],
-                                           [ProjectSummaryViewController class],
-                                           [ProjectSummaryViewController class],
-                                           [ProjectSummaryViewController class],
-                                           [ProjectSummaryViewController class]
+                                           [ProjectSummaryTableViewController class],
+                                           [ProjectSummaryTableViewController class],
+                                           [ProjectSummaryTableViewController class],
+                                           [ProjectSummaryTableViewController class],
+                                           [ProjectSummaryTableViewController class]
                                            ];
         NSArray *titles = @[
                             @"详情",
                             @"团队",
                             @"进展",
                             @"融资",
-                            @"评析"];
+                            @"评析"
+                            ];
         self.viewControllerClasses = viewControllerClasses;
         self.titles = titles;
         self.menuItemWidth = SCREEN_WIDTH / titles.count;
@@ -43,14 +45,20 @@
         self.titleSizeSelected = 15.0;
         self.titleColorSelected = MAIN_COLOR;
         //为不同页面设置相对应的标签，每一个key对应一个values
-//        self.keys = @[@"orderStatus",@"orderStatus",@"orderStatus",@"orderStatus"];
-//        //        状态2 OrderStatusShouldAccept待接单暂时不需要
-//        self.values = @[
-//                        [NSNumber numberWithInt:OrderStatusShouldPay],
-//                        [NSNumber numberWithInt:OrderStatusShouldSend],
-//                        [NSNumber numberWithInt:OrderStatusShouldFinish],
-//                        [NSNumber numberWithInt:OrderStatusFinished]
-//                        ];
+        self.keys = @[
+                      @"pid",
+                      @"pid",
+                      @"pid",
+                      @"pid",
+                      @"pid"
+                      ];
+        self.values = @[
+                        [SingletonObject getInstance].pid,
+                        [SingletonObject getInstance].pid,
+                        [SingletonObject getInstance].pid,
+                        [SingletonObject getInstance].pid,
+                        [SingletonObject getInstance].pid
+                        ];
     }
     return self;
 }

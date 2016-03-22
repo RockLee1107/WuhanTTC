@@ -10,5 +10,4 @@
 #import "WMPageController.h"
 
 @interface ProjectDetailViewController : WMPageController
-
 @end
