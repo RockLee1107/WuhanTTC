@@ -17,7 +17,7 @@
 */
 - (void)drawRect:(CGRect)rect {
     [self setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 5, 25)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 5, CGRectGetHeight(rect))];
     imageView.backgroundColor = HGColor(15, 122, 236);
     [self addSubview:imageView];
 }
