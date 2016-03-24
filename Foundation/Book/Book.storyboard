@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zhQ-7K-drR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -30,7 +30,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="zhQ-7K-drR" secondAttribute="trailing" constant="-16" id="Lsx-I3-x0f"/>
                             <constraint firstItem="zhQ-7K-drR" firstAttribute="leading" secondItem="0zM-2l-hjY" secondAttribute="leadingMargin" constant="-16" id="POf-cq-ynz"/>
                             <constraint firstItem="zhQ-7K-drR" firstAttribute="top" secondItem="f0v-py-TKh" secondAttribute="bottom" constant="-64" id="u5j-w2-vZG"/>
-                            <constraint firstItem="gCH-H7-M0J" firstAttribute="top" secondItem="zhQ-7K-drR" secondAttribute="bottom" id="w6y-mT-FST"/>
+                            <constraint firstItem="gCH-H7-M0J" firstAttribute="top" secondItem="zhQ-7K-drR" secondAttribute="bottom" constant="-49" id="w6y-mT-FST"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="创成长" id="6zz-2H-7AR"/>
@@ -93,7 +93,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Po-3e-N6m">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -105,8 +105,13 @@
                             <constraint firstItem="5Po-3e-N6m" firstAttribute="leading" secondItem="lbE-JR-Y1d" secondAttribute="leadingMargin" constant="-16" id="eHj-4J-gRM"/>
                             <constraint firstItem="wPm-FY-1Sf" firstAttribute="top" secondItem="5Po-3e-N6m" secondAttribute="bottom" constant="-49" id="jCW-Ew-eTH"/>
                             <constraint firstItem="5Po-3e-N6m" firstAttribute="top" secondItem="iQQ-dB-VaI" secondAttribute="bottom" constant="-64" id="mFK-eb-nB5"/>
-                            <constraint firstItem="5Po-3e-N6m" firstAttribute="top" secondItem="iQQ-dB-VaI" secondAttribute="bottom" constant="-64" id="qIq-UW-Vqp"/>
+                            <constraint firstItem="5Po-3e-N6m" firstAttribute="top" secondItem="iQQ-dB-VaI" secondAttribute="bottom" constant="44" id="qIq-UW-Vqp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mFK-eb-nB5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Myq-di-FbD"/>
                     <connections>

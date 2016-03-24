@@ -11,4 +11,6 @@
 + (NSString *)prettyString:(NSString *)str;
 + (NSString *)toString:(id)str;
 + (NSString *)toShortDate:(id)str;
+///转长日期，20160305120859
+//+ (NSString *)toStrFromYmdHis:(id)str;
 @end

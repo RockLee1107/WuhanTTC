@@ -29,4 +29,15 @@
     }
     return object;
 }
+
++ (NSString *)labelArrayToStr:(NSArray *)array {
+    if (array.count == 0) {
+        return @"";
+    }
+    NSMutableArray *labelStrArray = [NSMutableArray array];
+    for (NSDictionary *label in array) {
+        [labelStrArray addObject:label[@"labelName"]];
+    }
+    return [labelStrArray componentsJoinedByString:@","];
+}
 @end

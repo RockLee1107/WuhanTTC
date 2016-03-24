@@ -115,10 +115,10 @@
 		FDE2D9591CA369CF008DDE4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2D9481CA369CF008DDE4F /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		FDE2D95A1CA369CF008DDE4F /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2D94A1CA369CF008DDE4F /* View+MASAdditions.m */; };
 		FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE2D94D1CA369CF008DDE4F /* ViewController+MASAdditions.m */; };
-		FDE2D95C1CA369CF008DDE4F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = FDE2D94E1CA369CF008DDE4F /* README.md */; };
 		FDE2D95E1CA36C9C008DDE4F /* app_create@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2D95D1CA36C9C008DDE4F /* app_create@2x.png */; };
 		FDE2D9601CA36CDB008DDE4F /* ic_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2D95F1CA36CDB008DDE4F /* ic_menu@2x.png */; };
 		FDE2D9621CA36D56008DDE4F /* menu_mine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2D9611CA36D56008DDE4F /* menu_mine@2x.png */; };
+		FDE2D98E1CA3D341008DDE4F /* app_label@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE2D98D1CA3D341008DDE4F /* app_label@2x.png */; };
 		FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F081C9FD5E6005C6863 /* BaseTableView.m */; };
 		FDE33F0C1C9FE993005C6863 /* ProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F0B1C9FE993005C6863 /* ProjectListViewController.m */; };
 		FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE33F0E1C9FED31005C6863 /* BaseTableViewDelegate.m */; };
@@ -340,10 +340,10 @@
 		FDE2D94B1CA369CF008DDE4F /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		FDE2D94C1CA369CF008DDE4F /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		FDE2D94D1CA369CF008DDE4F /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		FDE2D94E1CA369CF008DDE4F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FDE2D95D1CA36C9C008DDE4F /* app_create@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_create@2x.png"; sourceTree = "<group>"; };
 		FDE2D95F1CA36CDB008DDE4F /* ic_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_menu@2x.png"; sourceTree = "<group>"; };
 		FDE2D9611CA36D56008DDE4F /* menu_mine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_mine@2x.png"; sourceTree = "<group>"; };
+		FDE2D98D1CA3D341008DDE4F /* app_label@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_label@2x.png"; sourceTree = "<group>"; };
 		FDE33F071C9FD5E6005C6863 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		FDE33F081C9FD5E6005C6863 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		FDE33F0A1C9FE993005C6863 /* ProjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectListViewController.h; sourceTree = "<group>"; };
@@ -667,6 +667,7 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDE2D98D1CA3D341008DDE4F /* app_label@2x.png */,
 				FDE2D9611CA36D56008DDE4F /* menu_mine@2x.png */,
 				FDE2D95F1CA36CDB008DDE4F /* ic_menu@2x.png */,
 				FDE2D95D1CA36C9C008DDE4F /* app_create@2x.png */,
@@ -758,7 +759,6 @@
 				FDE2D92F1CA369CE008DDE4F /* DTKDropdownMenuView */,
 				FDE2D9331CA369CF008DDE4F /* LICENSE */,
 				FDE2D9341CA369CF008DDE4F /* Masonry */,
-				FDE2D94E1CA369CF008DDE4F /* README.md */,
 			);
 			path = DTKDropdownMenu;
 			sourceTree = "<group>";
@@ -965,6 +965,7 @@
 				FDE2D9601CA36CDB008DDE4F /* ic_menu@2x.png in Resources */,
 				F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */,
 				FDE26AD61C9BF8B8003418D5 /* person_event@2x.png in Resources */,
+				FDE2D98E1CA3D341008DDE4F /* app_label@2x.png in Resources */,
 				FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */,
 				FDE2D9621CA36D56008DDE4F /* menu_mine@2x.png in Resources */,
 			);
@@ -1053,7 +1054,6 @@
 				FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */,
 				FDE2D9591CA369CF008DDE4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				F7FE50091C8A786800114B28 /* User.m in Sources */,
-				FDE2D95C1CA369CF008DDE4F /* README.md in Sources */,
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,

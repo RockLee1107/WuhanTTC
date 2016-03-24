@@ -10,4 +10,5 @@
 @interface StringUtil : NSObject
 +(NSString*)dictToJson:(id)object;
 +(NSString*)toString:(id)object;
++ (NSString *)labelArrayToStr:(NSArray *)array;
 @end

@@ -28,15 +28,15 @@
 
 - (NSDictionary *)dictionary {
     NSDictionary *dict = @{
-                           @"SEQ_userId":self.userId,
+//                           @"SEQ_userId":self.userId,
                            @"SEQ_specialCode":self.specialCode,
-                           @"IEQ_isRead":self.isRead,
-                           @"SEQ_orderBy":self.orderBy,
+//                           @"IEQ_isRead":self.isRead,
+//                           @"SEQ_orderBy":self.orderBy,
 //                           @"SEQ_authorId":self.authorId,
-                           @"SEQ_referUserId":self.referUserId,
+//                           @"SEQ_referUserId":self.referUserId,
 //                           @"SEQ_labelId":self.labelId,
 //                           @"SEQ_bookType":self.bookType,
-                           @"SEQ_period":self.period
+//                           @"SEQ_period":self.period
                            };
     return dict;
 }

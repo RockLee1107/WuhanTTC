@@ -7,10 +7,8 @@
 //
 
 #import "SearchSpBookListViewController.h"
-#import "StringUtil.h"
 #import "BookSearcher.h"
 #import "BookTableViewCell.h"
-#import "StringUtil.h"
 #import "BookDetailViewController.h"
 #import "SubTabBarController.h"
 
@@ -33,7 +31,7 @@
 }
 
 -(void)fetchData {
-    HttpService *service = [HttpService getInstance];
+
     BookSearcher *searcher = [[BookSearcher alloc] init];
     searcher.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
     NSDictionary *dict = [searcher dictionary];
@@ -41,7 +39,7 @@
     Page *page = [[Page alloc] init];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[page dictionary]]};
 //    NSLog(@"json:%@",param);
-    [service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataImmutableArray = responseObject[@"result"];
         [self.tableView reloadData];
 //        NSLog(@"responseObject:%@",responseObject);
@@ -55,7 +53,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BookTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookTableViewCell" owner:nil options:nil] firstObject];
     cell.bookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"bookName"]];
-    cell.bookTypeLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"bookType"]];
+    cell.bookTypeLabel.text = self.dataImmutableArray[indexPath.row][@"bookType"];
+    cell.publishDate.text = [DateUtil toString:self.dataImmutableArray[indexPath.row][@"publishDate"]];
+    cell.bookTypeLabel.backgroundColor = BOOK_TYPE_COLOR[self.dataImmutableArray[indexPath.row][@"bookType"]];
+//    多标签转换字符串
+    cell.bookLabelLabel.text = [StringUtil labelArrayToStr:self.dataImmutableArray[indexPath.row][@"labels"]];
+
     return cell;
     
 }
@@ -68,6 +71,8 @@
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0;
+    return 70;
 }
+
+
 @end
