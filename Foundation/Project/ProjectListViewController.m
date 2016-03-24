@@ -9,6 +9,7 @@
 #import "ProjectListViewController.h"
 #import "ProjectTableViewCell.h"
 #import "ProjectTableViewDelegate.h"
+#import "DTKDropdownMenuView.h"
 
 @interface ProjectListViewController ()
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -21,6 +22,7 @@
     [super viewDidLoad];
     [self initDelegate];
     [self initRefreshControl];
+    [self addRightItem];
     // Do any additional setup after loading the view.
 }
 
@@ -52,7 +54,7 @@
     self.tableView.dataSource = self.tableViewDelegate;
 }
 
-/**创活动*/
+/**创连接项目*/
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
@@ -74,25 +76,35 @@
     }];
 }
 
-/**创连接项目*/
-- (void)fetchProjectData{
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
-                                 @{
-                                   //@"SEQ_typeCode":@"",
-                                   //                                   @"SEQ_area":@2,
-                                   //                                   @"SEQ_bizCode":
-                                   //                                   @"SEQ_processStatusCode":项目阶段状态
-                                   //                                    @"SEQ_financeProcCode":融资情况
-                                   //                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
-                                   }];
-    NSString *jsonStr = [StringUtil dictToJson:dict];
-    
-    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    NSLog(@"json:%@",param);
-    [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //        self.dataArray = responseObject[@"result"];
-        //        [self.tableView reloadData];
-        NSLog(@"responseObject:%@",responseObject);
+
+///导航栏下拉菜单
+- (void)addRightItem
+{
+    __weak typeof(self) weakSelf = self;
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的项目" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
+        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+        weakSelf.tabBarController.selectedIndex = 0;
     }];
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
+//        if (self.goodData == nil) {
+//            [SVProgressHUD showSuccessWithStatus:@"请稍候..."];
+//            return ;
+//        } else if (![self jumpLoginVC]) {
+//            //登录判断
+//            
+//        }
+    }];
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 44.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
+    menuView.cellColor = MAIN_COLOR;
+    menuView.cellHeight = 50.0;
+    menuView.dropWidth = 150.f;
+    menuView.titleFont = [UIFont systemFontOfSize:18.f];
+    menuView.textColor = [UIColor whiteColor];
+    menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    menuView.textFont = [UIFont systemFontOfSize:16.f];
+    menuView.animationDuration = 0.4f;
+    menuView.backgroundAlpha = 0;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
 }
+
 @end
