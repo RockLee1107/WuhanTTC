@@ -87,7 +87,7 @@
 		FDE26AE51C9C308F003418D5 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AE31C9C308F003418D5 /* ActivityTableViewCell.m */; };
 		FDE26AE61C9C308F003418D5 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE26AE41C9C308F003418D5 /* ActivityTableViewCell.xib */; };
 		FDE26AE81C9C322A003418D5 /* app_failure_img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE26AE71C9C322A003418D5 /* app_failure_img@2x.png */; };
-		FDE26AEB1C9C363A003418D5 /* BasicDynamicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AEA1C9C363A003418D5 /* BasicDynamicTableViewController.m */; };
+		FDE26AEB1C9C363A003418D5 /* BaseDynamicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AEA1C9C363A003418D5 /* BaseDynamicTableViewController.m */; };
 		FDE26AFE1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AEE1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.m */; };
 		FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AF01C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m */; };
 		FDE26B001C9C38A0003418D5 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AF21C9C38A0003418D5 /* UIAlertView+AFNetworking.m */; };
@@ -281,8 +281,8 @@
 		FDE26AE31C9C308F003418D5 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
 		FDE26AE41C9C308F003418D5 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		FDE26AE71C9C322A003418D5 /* app_failure_img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_failure_img@2x.png"; sourceTree = "<group>"; };
-		FDE26AE91C9C363A003418D5 /* BasicDynamicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicDynamicTableViewController.h; sourceTree = "<group>"; };
-		FDE26AEA1C9C363A003418D5 /* BasicDynamicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicDynamicTableViewController.m; sourceTree = "<group>"; };
+		FDE26AE91C9C363A003418D5 /* BaseDynamicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDynamicTableViewController.h; sourceTree = "<group>"; };
+		FDE26AEA1C9C363A003418D5 /* BaseDynamicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDynamicTableViewController.m; sourceTree = "<group>"; };
 		FDE26AED1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		FDE26AEE1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		FDE26AEF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -735,8 +735,8 @@
 				F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */,
 				FDE2AFEB1C88872B002238CA /* BaseViewController.h */,
 				FDE2AFEC1C88872B002238CA /* BaseViewController.m */,
-				FDE26AE91C9C363A003418D5 /* BasicDynamicTableViewController.h */,
-				FDE26AEA1C9C363A003418D5 /* BasicDynamicTableViewController.m */,
+				FDE26AE91C9C363A003418D5 /* BaseDynamicTableViewController.h */,
+				FDE26AEA1C9C363A003418D5 /* BaseDynamicTableViewController.m */,
 				FDE2AFE81C887F98002238CA /* BaseStaticTableViewController.h */,
 				FDE2AFE91C887F98002238CA /* BaseStaticTableViewController.m */,
 				FDE33F071C9FD5E6005C6863 /* BaseTableView.h */,
@@ -1040,7 +1040,7 @@
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				FDE26AEB1C9C363A003418D5 /* BasicDynamicTableViewController.m in Sources */,
+				FDE26AEB1C9C363A003418D5 /* BaseDynamicTableViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,

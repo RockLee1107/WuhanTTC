@@ -8,9 +8,6 @@
 
 #import "SpecialTypeViewController.h"
 #import "SubTabBarController.h"
-#import "StringUtil.h"
-#import "DateUtil.h"
-#import "User.h"
 #import "SpecialTypeTableViewCell.h"
 
 @interface SpecialTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -28,11 +25,9 @@
 }
 
 -(void)fetchData {
-    HttpService *service = [HttpService getInstance];
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{@"SEQ_userId":[User getInstance].uid}]};
-    [service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataImmutableArray = responseObject;
-//        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
     }];
 }

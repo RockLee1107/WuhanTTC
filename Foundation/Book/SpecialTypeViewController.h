@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "BaseDynamicTableViewController.h"
 
-@interface SpecialTypeViewController : BaseViewController
+@interface SpecialTypeViewController : BaseDynamicTableViewController
 @end

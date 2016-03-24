@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "StringUtil.h"
 #import "UIImageView+AFNetworking.h"
+#import "User.h"
 
 @interface BaseStaticTableViewController : UITableViewController
 @property (nonatomic,strong) NSDictionary *dataDict;

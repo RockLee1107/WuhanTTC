@@ -12,6 +12,7 @@
 #import "StringUtil.h"
 #import "DateUtil.h"
 #import "UIImageView+AFNetworking.h"
+#import "User.h"
 
 @interface BaseViewController : UIViewController
 @property (nonatomic,strong) NSArray *dataImmutableArray;
