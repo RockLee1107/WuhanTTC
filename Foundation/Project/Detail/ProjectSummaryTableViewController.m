@@ -49,6 +49,8 @@
         self.companyLabel.text = [StringUtil toString: responseObject[@"company"]];
         self.procUrlLabel.text = [StringUtil toString: responseObject[@"procUrl"]];
         self.procFuncLabel.text = [StringUtil toString: responseObject[@"procDetails"]];
+    } noResult:^{
+        
     }];
 }
 @end

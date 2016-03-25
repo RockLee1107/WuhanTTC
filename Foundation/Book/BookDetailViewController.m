@@ -25,6 +25,8 @@
         NSString *contentStr = [NSString stringWithFormat:@"%@%@",cssStr,responseObject[@"content"]];
         NSLog(@"%@",contentStr);
         [self.webView loadHTMLString:contentStr baseURL:nil];
+    } noResult:^{
+        
     }];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.199.123/string.html"]]];
 }

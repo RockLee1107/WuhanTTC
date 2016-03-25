@@ -73,6 +73,8 @@
         }
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
+    } noResult:^{
+        [self.tableView.footer noticeNoMoreData];
     }];
 }
 

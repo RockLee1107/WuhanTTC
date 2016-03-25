@@ -29,14 +29,15 @@
     NSString *password = self.passwordTextField.text;
     NSDictionary *param = @{@"username":username,
                             @"password":password};
-    HttpService *service = [HttpService getInstance];
-    [service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"login:%@",responseObject);
         User *user = [User getInstance];
         user.username = responseObject[@"username"];
         user.uid = responseObject[@"userId"];
         MainTabBarController *vc = [[MainTabBarController alloc] init];
         [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+    } noResult:^{
+        
     }];
 }
 

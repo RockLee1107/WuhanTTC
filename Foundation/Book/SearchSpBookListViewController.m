@@ -77,6 +77,8 @@
         }
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject[@"result"]];
         [self.tableView reloadData];
+    } noResult:^{
+        [self.tableView.footer noticeNoMoreData];
     }];
 }
 

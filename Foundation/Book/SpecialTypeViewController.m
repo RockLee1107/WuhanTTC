@@ -29,7 +29,7 @@
     [self.service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataImmutableArray = responseObject;
         [self.tableView reloadData];
-    }];
+    } noResult:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
