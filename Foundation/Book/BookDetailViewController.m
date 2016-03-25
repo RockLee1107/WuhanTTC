@@ -23,7 +23,7 @@
 
         NSString *cssStr = @"<style>img{width:100%;}</style>";
         NSString *contentStr = [NSString stringWithFormat:@"%@%@",cssStr,responseObject[@"content"]];
-        NSLog(@"%@",contentStr);
+//        NSLog(@"%@",contentStr);
         [self.webView loadHTMLString:contentStr baseURL:nil];
     } noResult:^{
         
