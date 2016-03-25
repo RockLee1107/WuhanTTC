@@ -18,7 +18,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BookTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookTableViewCell" owner:nil options:nil] firstObject];
     cell.bookNameLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"bookName"]];
-    cell.bookTypeLabel.text = self.dataArray[indexPath.row][@"bookType"];
+    cell.bookTypeLabel.text = BOOK_TYPE_TEXT[self.dataArray[indexPath.row][@"bookType"]];
     cell.publishDate.text = [DateUtil toString:self.dataArray[indexPath.row][@"publishDate"]];
     cell.bookTypeLabel.backgroundColor = BOOK_TYPE_COLOR[self.dataArray[indexPath.row][@"bookType"]];
     //    多标签转换字符串

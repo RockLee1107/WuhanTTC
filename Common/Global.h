@@ -32,7 +32,7 @@
 #define PPT_COLOR [UIColor colorWithRed:255/255.0 green:130/255.0 blue:0/255.0 alpha:1.0]
 #define VIDEO_COLOR [UIColor colorWithRed:104/255.0 green:191/255.0 blue:54/255.0 alpha:1.0]
 #define BOOK_TYPE_COLOR @{@"DOC":DOC_COLOR,@"PPT":PPT_COLOR,@"VIDEO":VIDEO_COLOR}
-#define BOOK_TYPE_TEXT @{@"图文":DOC_COLOR,@"PPT":PPT_COLOR,@"视频":VIDEO_COLOR}
+#define BOOK_TYPE_TEXT @{@"DOC":@"图文",@"PPT":@"PPT",@"VIDEO":@"视频"}
 
 #define ACTIVITY_STATUS_ARRAY @[@"报名中",@"已满",@"已结束"]
 #endif
