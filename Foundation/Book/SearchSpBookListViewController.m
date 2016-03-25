@@ -26,7 +26,6 @@
     [self initDelegate];
     [self initRefreshControl];
 //    self.nameNavigationItem.title = @"2";
-    [self fetchData];
 }
 
 //上拉下拉控件
@@ -63,8 +62,7 @@
     searcher.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
     NSDictionary *dict = [searcher dictionary];
     NSString *jsonStr = [StringUtil dictToJson:dict];
-    Page *page = [[Page alloc] init];
-    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[page dictionary]]};
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
 //    NSLog(@"json:%@",param);
 //    [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        self.dataImmutableArray = responseObject[@"result"];

@@ -7,7 +7,6 @@
 //
 
 #import "ActivityListViewController.h"
-#import "ActivityTableViewCell.h"
 #import "ActivityTableViewDelegate.h"
 
 @interface ActivityListViewController ()

@@ -9,6 +9,5 @@
 #import "BaseDynamicTableViewController.h"
 
 @interface SearchSpBookListViewController : BaseDynamicTableViewController
-//@property (nonatomic,strong) NSString *specialCode;
 
 @end
