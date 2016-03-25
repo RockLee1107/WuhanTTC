@@ -8,11 +8,11 @@
 
 #import "SearchSpBookListViewController.h"
 #import "BookSearcher.h"
-#import "BookTableViewCell.h"
 #import "BookDetailViewController.h"
 #import "SubTabBarController.h"
+#import "BookListDelegate.h"
 
-@interface SearchSpBookListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SearchSpBookListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *nameNavigationItem;
 
@@ -22,12 +22,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     self.nameNavigationItem.title = ((SubTabBarController *)self.tabBarController).specialName;
+    [self initDelegate];
+    [self initRefreshControl];
 //    self.nameNavigationItem.title = @"2";
     [self fetchData];
-    // Do any additional setup after loading the view.
+}
+
+//上拉下拉控件
+- (void)initRefreshControl {
+    /**上拉刷新、下拉加载*/
+    __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.page.pageNo = 1;
+        [weakSelf fetchData];
+        [weakSelf.tableView.header endRefreshing];
+    }];
+    [self.tableView.legendHeader beginRefreshing];
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        weakSelf.page.pageNo++;
+        [weakSelf fetchData];
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        [weakSelf.tableView.footer endRefreshing];
+    }];
+    
+}
+
+//初始化代理
+- (void)initDelegate {
+    self.tableViewDelegate = [[BookListDelegate alloc] init];
+    self.tableViewDelegate.vc = self;
+    self.tableView.delegate = self.tableViewDelegate;
+    self.tableView.dataSource = self.tableViewDelegate;
 }
 
 -(void)fetchData {
@@ -39,40 +66,23 @@
     Page *page = [[Page alloc] init];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[page dictionary]]};
 //    NSLog(@"json:%@",param);
+//    [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        self.dataImmutableArray = responseObject[@"result"];
+//        [self.tableView reloadData];
+////        NSLog(@"responseObject:%@",responseObject);
+//    }];
     [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataImmutableArray = responseObject[@"result"];
+        if (self.page.pageNo == 1) {
+            //由于下拉刷新时页面而归零
+            [self.tableViewDelegate.dataArray removeAllObjects];
+            [self.tableView.footer resetNoMoreData];
+        }
+        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject[@"result"]];
         [self.tableView reloadData];
-//        NSLog(@"responseObject:%@",responseObject);
     }];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataImmutableArray count];
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BookTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookTableViewCell" owner:nil options:nil] firstObject];
-    cell.bookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"bookName"]];
-    cell.bookTypeLabel.text = self.dataImmutableArray[indexPath.row][@"bookType"];
-    cell.publishDate.text = [DateUtil toString:self.dataImmutableArray[indexPath.row][@"publishDate"]];
-    cell.bookTypeLabel.backgroundColor = BOOK_TYPE_COLOR[self.dataImmutableArray[indexPath.row][@"bookType"]];
-//    多标签转换字符串
-    cell.bookLabelLabel.text = [StringUtil labelArrayToStr:self.dataImmutableArray[indexPath.row][@"labels"]];
-
-    return cell;
-    
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BookDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"detail"];
-    vc.bookId = self.dataImmutableArray[indexPath.row][@"bookId"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
-}
 
 
 @end
