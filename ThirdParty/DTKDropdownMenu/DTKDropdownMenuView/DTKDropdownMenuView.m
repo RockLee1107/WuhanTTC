@@ -89,6 +89,14 @@ UITableViewDataSource
 @property (assign, nonatomic) DTKDropDownType dropDownType;
 /**按钮图标*/
 @property (copy, nonatomic) NSString *icon;
+
+//huangxj add
+/**额外按钮图标*/
+@property (copy, nonatomic) NSString *extraIcon;
+/**第二按钮title*/
+@property (strong ,nonatomic) DTKDropdownButton *extraTitleButton;
+/// 额外按钮点击回调
+@property (nonatomic, copy) extraButtonCallBack extraButtonCallBack;
 @end
 
 @implementation DTKDropdownMenuView
@@ -116,6 +124,29 @@ UITableViewDataSource
 {
     return [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeTitle frame:frame dropdownItems:dropdownItems icon:nil];
 }
+
+/**huangxj add begin*/
+//静态方法实例化
++ (instancetype)dropdownMenuViewWithType:(DTKDropDownType)dropDownType frame:(CGRect)frame dropdownItems:(NSArray *)dropdownItems icon:(NSString *)icon extraIcon:(NSString *)extraIcon extraButtunCallBack:(extraButtonCallBack)callBack;
+{
+    //    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeTitle frame:frame dropdownItems:dropdownItems icon:icon];
+    DTKDropdownMenuView *menuView = [[DTKDropdownMenuView alloc]initWithFrame:frame];
+    menuView.dropDownType = dropDownType;
+    [menuView updateMainConstraints];
+    menuView.items = dropdownItems;
+    menuView.isMenuShow = NO;
+    menuView.selectedIndex = 0;
+    menuView.icon = icon;
+    menuView.extraIcon = extraIcon;
+    menuView.extraButtonCallBack = callBack;
+    //    [menuView.extraTitleButton addTarget:self action:@selector(extraButtonClicked) forControlEvents:(UIControlEventTouchUpInside)];
+    return menuView;
+}
+
+///点击额外按钮回调
+- (void)extraButtonClicked {
+    self.extraButtonCallBack();
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -124,6 +155,34 @@ UITableViewDataSource
     }
     return self;
 }
+
+//设置按钮图标
+- (void)setExtraIcon:(NSString *)extraIcon
+{
+    if (![_extraIcon isEqualToString:extraIcon]) {
+        _extraIcon = extraIcon;
+        if (self.dropDownType != dropDownTypeTitle) {
+            [self.extraTitleButton setImage:[UIImage imageNamed:_extraIcon] forState:UIControlStateNormal];
+            [self.extraTitleButton setImage:[UIImage imageNamed:_extraIcon] forState:UIControlStateSelected];
+        }
+    }
+}
+- (DTKDropdownButton *)extraTitleButton
+{
+    if (!_extraTitleButton)
+    {
+        _extraTitleButton = [[DTKDropdownButton alloc] init];
+        [_extraTitleButton addTarget:self action:@selector(extraButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        [_extraTitleButton.titleLabel setFont:self.titleFont];
+        [_extraTitleButton setTitleColor:self.titleColor forState:UIControlStateNormal];
+        _extraTitleButton.titleLabel.lineBreakMode =NSLineBreakByTruncatingTail;
+        
+        [self addSubview:_extraTitleButton];
+    }
+    return _extraTitleButton;
+}
+
+/**huangxj add begin*/
 
 /**
  *  界面点击事件监测
@@ -180,6 +239,12 @@ UITableViewDataSource
             }else{
                 make.trailing.equalTo(self.mas_trailing);
             }
+        }];
+        //huangxj add
+        //更新额外按钮约束
+        [self.extraTitleButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.mas_centerY);
+            make.leading.equalTo(self.mas_leading);
         }];
         [self addBarItemTap:self];
     }
@@ -556,7 +621,7 @@ UITableViewDataSource
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.separatorColor = self.cellSeparatorColor;
         [_tableView.layer setMasksToBounds:YES];
-//        [_tableView.layer setCornerRadius:6.f];
+        [_tableView.layer setCornerRadius:6.f];
     }
     
     return _tableView;

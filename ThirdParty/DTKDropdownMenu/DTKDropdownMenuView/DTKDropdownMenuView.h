@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^dropMenuCallBack)(NSUInteger index,id info);
+//huangxj add
+typedef void(^extraButtonCallBack)(void);
 
 typedef enum : NSUInteger {
     dropDownTypeTitle = 0,//navBar的titleView
@@ -20,8 +22,9 @@ typedef enum : NSUInteger {
 
 + (instancetype)dropdownMenuViewWithType:(DTKDropDownType)dropDownType frame:(CGRect)frame dropdownItems:(NSArray *)dropdownItems icon:(NSString *)icon;
 + (instancetype)dropdownMenuViewForNavbarTitleViewWithFrame:(CGRect )frame dropdownItems:(NSArray *)dropdownItems;
-
-/// 当前Nav导航栏  
+//huangxj add
++ (instancetype)dropdownMenuViewWithType:(DTKDropDownType)dropDownType frame:(CGRect)frame dropdownItems:(NSArray *)dropdownItems icon:(NSString *)icon extraIcon:(NSString *)extraIcon extraButtunCallBack:(extraButtonCallBack)callBack;
+/// 当前Nav导航栏
 @property(weak ,nonatomic) UINavigationController *currentNav;
 
 /// 当前选中index 默认是0
