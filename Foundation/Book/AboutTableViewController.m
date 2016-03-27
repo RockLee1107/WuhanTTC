@@ -7,6 +7,7 @@
 //
 
 #import "AboutTableViewController.h"
+#import "SubTabBarController.h"
 
 @interface AboutTableViewController ()
 
@@ -16,7 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = ((SubTabBarController *)self.tabBarController).specialName;
+
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 //回到主页

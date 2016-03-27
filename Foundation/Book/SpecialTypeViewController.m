@@ -74,10 +74,10 @@
 - (void)addRightItem
 {
 //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"原创投稿" iconName:@"menu_contribute.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"原创投稿" iconName:@"menu_contribute" callBack:^(NSUInteger index, id info) {
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_essential.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_essential" callBack:^(NSUInteger index, id info) {
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{

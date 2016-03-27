@@ -7,6 +7,7 @@
 //
 
 #import "SubjectListViewController.h"
+#import "SubjectDetailTableViewController.h"
 
 @interface SubjectListViewController ()
 
@@ -16,7 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self performSelector:@selector(jumpDetailTest) withObject:nil afterDelay:.5];
     // Do any additional setup after loading the view.
+}
+
+- (void)jumpDetailTest {
+    SubjectDetailTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"subjectDetail"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

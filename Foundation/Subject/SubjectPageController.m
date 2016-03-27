@@ -9,6 +9,8 @@
 #import "SubjectPageController.h"
 #import "SubjectListViewController.h"
 #import "DTKDropdownMenuView.h"
+#import "SubTabBarController.h"
+
 @interface SubjectPageController ()
 
 @end
@@ -18,15 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"我的";
-#warning subtab
-//    subTab
+    self.navigationItem.title = ((SubTabBarController *)self.tabBarController).specialName;
     [self addRightItem];
     // Do any additional setup after loading the view.
 }
 
-- (instancetype)init{
-    self = [super init];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
         NSArray *viewControllerClasses = @[
                                            [SubjectListViewController class],
@@ -68,10 +68,10 @@
 - (void)addRightItem
 {
     //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的帖子" iconName:@"menu_create.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的帖子" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"发帖" iconName:@"menu_my_post.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"发帖" iconName:@"menu_my_post" callBack:^(NSUInteger index, id info) {
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
