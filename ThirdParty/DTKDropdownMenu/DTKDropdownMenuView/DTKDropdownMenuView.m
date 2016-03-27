@@ -145,7 +145,10 @@ UITableViewDataSource
 
 ///点击额外按钮回调
 - (void)extraButtonClicked {
-    self.extraButtonCallBack();
+    //fixed by huangxj 单一按钮时要先判断是否已传入回调代码
+    if (self.extraButtonCallBack != nil) {
+        self.extraButtonCallBack();
+    }
 }
 - (instancetype)initWithFrame:(CGRect)frame
 {
