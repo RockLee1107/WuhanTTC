@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 #import "BaseTableView.h"
 #import "BaseTableViewDelegate.h"
+#import "JSDropDownMenu.h"
 
 @interface BaseTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;

@@ -616,7 +616,9 @@
             leftTableView.frame = CGRectMake(_origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width*ratio, 0);
             [self.superview addSubview:leftTableView];
             
-            leftTableViewHeight = ([leftTableView numberOfRowsInSection:0] > 5) ? (5 * leftTableView.rowHeight) : ([leftTableView numberOfRowsInSection:0] * leftTableView.rowHeight);
+//            leftTableViewHeight = ([leftTableView numberOfRowsInSection:0] > 5) ? (5 * leftTableView.rowHeight) : ([leftTableView numberOfRowsInSection:0] * leftTableView.rowHeight);
+            leftTableViewHeight = [leftTableView numberOfRowsInSection:0] * leftTableView.rowHeight;
+
 
         }
         if([self.dataSource haveRightTableViewInColumn:_currentSelectedMenudIndex]){
@@ -626,7 +628,8 @@
                 
                 [self.superview addSubview:rightTableView];
                 
-                rightTableViewHeight = ([rightTableView numberOfRowsInSection:0] > 5) ? (5 * rightTableView.rowHeight) : ([rightTableView numberOfRowsInSection:0] * rightTableView.rowHeight);
+//                rightTableViewHeight = ([rightTableView numberOfRowsInSection:0] > 5) ? (5 * rightTableView.rowHeight) : ([rightTableView numberOfRowsInSection:0] * rightTableView.rowHeight);
+                rightTableViewHeight = [rightTableView numberOfRowsInSection:0] * rightTableView.rowHeight;
             }
         }
         CGFloat tableViewHeight = MAX(leftTableViewHeight, rightTableViewHeight);

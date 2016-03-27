@@ -11,7 +11,6 @@
 #import "BookDetailViewController.h"
 #import "SubTabBarController.h"
 #import "BookListDelegate.h"
-#import "JSDropDownMenu.h"
 
 @interface SearchSpBookListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -106,6 +105,7 @@
         [self.tableView.footer noticeNoMoreData];
     }];
 }
+
 #pragma mark - 下拉筛选菜单
 - (void)initSearchConditionView{
     self.dataTitle = @[@"顺序",@"全部",@"内容"];
@@ -157,11 +157,9 @@
         return _currentData1Index;
     }
     if (column == 1) {
-        
         return _currentData2Index;
     }
     if (column == 2) {
-        
         return _currentData3Index;
     }
     return 0;
@@ -170,26 +168,16 @@
 - (NSInteger)menu:(JSDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column leftOrRight:(NSInteger)leftOrRight leftRow:(NSInteger)leftRow{
     if (column==0) {
         return _data1.count;
-    } else if (column==1){
+    } else if (column == 1){
         return _data2.count;
-    } else if (column==2){
+    } else if (column == 2){
         return _data3.count;
     }
     return 0;
 }
 
 - (NSString *)menu:(JSDropDownMenu *)menu titleForColumn:(NSInteger)column{
-    switch (column) {
-        case 0: return @"排序方式";
-            break;
-        case 1: return @"购买方式";
-            break;
-        case 2: return @"上架时间";
-            break;
-        default:
-            return nil;
-            break;
-    }
+    return self.dataTitle[column];
 }
 
 - (NSString *)menu:(JSDropDownMenu *)menu titleForRowAtIndexPath:(JSIndexPath *)indexPath {
