@@ -24,43 +24,45 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-wR-HhU">
-                        <rect key="frame" x="76" y="11" width="34" height="21"/>
+                        <rect key="frame" x="76" y="11" width="191" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03/02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-tC-rRz">
-                        <rect key="frame" x="262" y="46" width="50" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="50" id="9Sx-4T-fqC"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新文章" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a3-jM-anL">
+                        <rect key="frame" x="76" y="46" width="236" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新文章" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a3-jM-anL">
-                        <rect key="frame" x="76" y="46" width="183" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03/02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-tC-rRz">
+                        <rect key="frame" x="262" y="13" width="50" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="rWA-02-Abg"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hIb-tC-rRz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6pm-2Z-riG"/>
                     <constraint firstItem="2a3-jM-anL" firstAttribute="leading" secondItem="UGu-sE-dRu" secondAttribute="trailing" constant="8" id="IyK-Ur-Set"/>
+                    <constraint firstItem="hIb-tC-rRz" firstAttribute="leading" secondItem="QUa-wR-HhU" secondAttribute="trailing" constant="-5" id="UNU-mI-1Zc"/>
                     <constraint firstItem="UGu-sE-dRu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Udf-GP-tbz"/>
+                    <constraint firstItem="hIb-tC-rRz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Yco-Gj-oOs"/>
                     <constraint firstItem="QUa-wR-HhU" firstAttribute="leading" secondItem="UGu-sE-dRu" secondAttribute="trailing" constant="8" id="aC3-m4-3ge"/>
-                    <constraint firstAttribute="centerY" secondItem="hIb-tC-rRz" secondAttribute="centerY" constant="-17.5" id="djK-zL-c1W"/>
-                    <constraint firstItem="hIb-tC-rRz" firstAttribute="leading" secondItem="2a3-jM-anL" secondAttribute="trailing" constant="3" id="dx9-v7-JLl"/>
+                    <constraint firstItem="hIb-tC-rRz" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="fgj-OW-Qpl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="2a3-jM-anL" secondAttribute="bottom" constant="2" id="iaT-XW-VMS"/>
                     <constraint firstItem="QUa-wR-HhU" firstAttribute="top" secondItem="UGu-sE-dRu" secondAttribute="top" constant="4" id="jV2-br-f8z"/>
                     <constraint firstAttribute="centerY" secondItem="UGu-sE-dRu" secondAttribute="centerY" id="jov-Zb-0d1"/>
+                    <constraint firstItem="2a3-jM-anL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tuI-20-iwS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="latestBookNameLabel" destination="2a3-jM-anL" id="yPh-nC-faj"/>
                 <outlet property="latestUpdateTimeLabel" destination="hIb-tC-rRz" id="qmX-9V-LXi"/>
                 <outlet property="specialNameLabel" destination="QUa-wR-HhU" id="qoL-ug-qL9"/>
+                <outlet property="thumbImageView" destination="UGu-sE-dRu" id="gWM-zn-bIg"/>
             </connections>
             <point key="canvasLocation" x="338" y="156.5"/>
         </tableViewCell>

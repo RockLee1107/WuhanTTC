@@ -22,7 +22,7 @@
 }
 
 - (void)jumpDetailTest {
-    SubjectDetailTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"subjectDetail"];
+    SubjectDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"subjectDetail"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

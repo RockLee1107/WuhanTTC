@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SpecialTypeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UILabel *specialNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latestBookNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latestUpdateTimeLabel;
