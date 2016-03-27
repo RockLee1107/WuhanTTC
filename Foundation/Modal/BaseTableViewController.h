@@ -12,7 +12,7 @@
 #import "BaseTableView.h"
 #import "BaseTableViewDelegate.h"
 
-@interface BaseDynamicTableViewController : BaseViewController
+@interface BaseTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;

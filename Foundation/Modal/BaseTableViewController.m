@@ -6,13 +6,13 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "BaseDynamicTableViewController.h"
+#import "BaseTableViewController.h"
 
-@interface BaseDynamicTableViewController ()
+@interface BaseTableViewController ()
 
 @end
 
-@implementation BaseDynamicTableViewController
+@implementation BaseTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
