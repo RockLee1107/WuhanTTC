@@ -11,10 +11,19 @@
 #import "BookDetailViewController.h"
 #import "SubTabBarController.h"
 #import "BookListDelegate.h"
+#import "JSDropDownMenu.h"
 
-@interface SearchSpBookListViewController ()
+@interface SearchSpBookListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *nameNavigationItem;
+//搜索条件
+@property (nonatomic,strong) NSArray *dataTitle;
+@property (nonatomic,strong) NSArray *data1;
+@property (nonatomic,strong) NSArray *data2;
+@property (nonatomic,strong) NSArray *data3;
+@property (nonatomic,assign) NSInteger currentData1Index;
+@property (nonatomic,assign) NSInteger currentData2Index;
+@property (nonatomic,assign) NSInteger currentData3Index;
 
 @end
 
@@ -25,6 +34,7 @@
     self.nameNavigationItem.title = ((SubTabBarController *)self.tabBarController).specialName;
     [self initDelegate];
     [self initRefreshControl];
+    [self initSearchConditionView];
     [self performSelector:@selector(hideNaviBar) withObject:nil afterDelay:0.025];
 }
 
@@ -32,6 +42,7 @@
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
 }
+
 //回到主页
 - (IBAction)goBack:(id)sender {
     [self.tabBarController.navigationController popViewControllerAnimated:YES];
@@ -95,8 +106,119 @@
         [self.tableView.footer noticeNoMoreData];
     }];
 }
+#pragma mark - 下拉筛选菜单
+- (void)initSearchConditionView{
+    self.dataTitle = @[@"顺序",@"全部",@"内容"];
+    self.data1 = @[
+                   @[@"pbDate",@"顺序"],
+                   @[@"readNum",@"按阅读量"],
+                   @[@"commNum",@"按评论数量"],
+                   @[@"collNum",@"按收藏数"]
+                   ];
+    self.data2 = @[
+                   @[@"",@"全部"],
+                   @[@"1",@"已读"],
+                   @[@"0",@"未读"]
+                   ];
+    self.data3 = @[
+                   @[@"",@"全部"],
+                   @[@"DOC",@"图文"],
+                   @[@"PPT",@"PPT"],
+                   @[@"VIDEO",@"视频"]
+                   ];
+    JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:45];
+    menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
+    menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
+    menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
+    //搜索条件的代理
+    menu.dataSource = self;
+    menu.delegate = self;
+    [self.view addSubview:menu];
+}
 
+- (NSInteger)numberOfColumnsInMenu:(JSDropDownMenu *)menu {
+    return 3;
+}
 
+-(BOOL)displayByCollectionViewInColumn:(NSInteger)column{
+    return NO;
+}
+
+-(BOOL)haveRightTableViewInColumn:(NSInteger)column{
+    return NO;
+}
+
+-(CGFloat)widthRatioOfLeftColumn:(NSInteger)column{
+    return 1;
+}
+
+-(NSInteger)currentLeftSelectedRow:(NSInteger)column{
+    if (column == 0) {
+        return _currentData1Index;
+    }
+    if (column == 1) {
+        
+        return _currentData2Index;
+    }
+    if (column == 2) {
+        
+        return _currentData3Index;
+    }
+    return 0;
+}
+
+- (NSInteger)menu:(JSDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column leftOrRight:(NSInteger)leftOrRight leftRow:(NSInteger)leftRow{
+    if (column==0) {
+        return _data1.count;
+    } else if (column==1){
+        return _data2.count;
+    } else if (column==2){
+        return _data3.count;
+    }
+    return 0;
+}
+
+- (NSString *)menu:(JSDropDownMenu *)menu titleForColumn:(NSInteger)column{
+    switch (column) {
+        case 0: return @"排序方式";
+            break;
+        case 1: return @"购买方式";
+            break;
+        case 2: return @"上架时间";
+            break;
+        default:
+            return nil;
+            break;
+    }
+}
+
+- (NSString *)menu:(JSDropDownMenu *)menu titleForRowAtIndexPath:(JSIndexPath *)indexPath {
+    if (indexPath.column == 0) {
+        return _data1[indexPath.row][1];
+    } else if (indexPath.column ==1 ) {
+        return _data2[indexPath.row][1];
+    } else {
+        return _data3[indexPath.row][1];
+    }
+}
+
+- (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
+    //    清空
+    [self.tableViewDelegate.dataArray removeAllObjects];
+    //    页码归零
+    self.page.pageNo = 1;
+    if (indexPath.column == 0) {
+        _currentData1Index = indexPath.row;
+        /**刷新表格*/
+        [self fetchData];
+    } else if(indexPath.column == 1){
+        [self fetchData];
+        _currentData2Index = indexPath.row;
+    } else{
+        [self fetchData];
+        _currentData3Index = indexPath.row;
+    }
+}
 
 
 @end
