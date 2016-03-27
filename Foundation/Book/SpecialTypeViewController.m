@@ -53,8 +53,7 @@
     SpecialTypeTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialTypeTableViewCell" owner:nil options:nil] firstObject];
     cell.specialNameLabel.text = self.dataImmutableArray[indexPath.row][@"specialName"];
     cell.latestBookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"latestBookName"]];
-    
-    cell.latestUpdateTimeLabel.text = [DateUtil toString:self.dataImmutableArray[indexPath.row][@"latestUpdateTime"]];
+    cell.latestUpdateTimeLabel.text = [DateUtil toShortDate:self.dataImmutableArray[indexPath.row][@"latestUpdateTime"]];
     return cell;
 }
 

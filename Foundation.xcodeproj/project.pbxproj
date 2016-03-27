@@ -577,11 +577,7 @@
 				F741A6461C8F38E4008DC72B /* BookTableViewCell.m */,
 				F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */,
 				F73B78B71C813DDD00069EEE /* Book.storyboard */,
-				FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */,
-				FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */,
-				FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */,
-				FDE2AFE41C887ED2002238CA /* SpecialTypeViewController.h */,
-				FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */,
+				FDF3FE101CA80007007B7C83 /* BookType */,
 				FDE2AFEE1C88881A002238CA /* SearchSpBookListViewController.h */,
 				FDE2AFEF1C88881A002238CA /* SearchSpBookListViewController.m */,
 				FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */,
@@ -867,6 +863,18 @@
 				FDF3FE0D1CA7F854007B7C83 /* JSDropDownMenu.m */,
 			);
 			path = JSDropDownMenu;
+			sourceTree = "<group>";
+		};
+		FDF3FE101CA80007007B7C83 /* BookType */ = {
+			isa = PBXGroup;
+			children = (
+				FDE2AFE41C887ED2002238CA /* SpecialTypeViewController.h */,
+				FDE2AFE51C887ED2002238CA /* SpecialTypeViewController.m */,
+				FDE2AFDC1C887C2B002238CA /* SpecialTypeTableViewCell.h */,
+				FDE2AFDD1C887C2B002238CA /* SpecialTypeTableViewCell.m */,
+				FDE2AFDE1C887C2B002238CA /* SpecialTypeTableViewCell.xib */,
+			);
+			name = BookType;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
