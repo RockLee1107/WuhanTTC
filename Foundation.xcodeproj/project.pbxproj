@@ -140,6 +140,17 @@
 		FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */; };
 		FDF3FE0E1CA7F854007B7C83 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF3FE0B1CA7F854007B7C83 /* ico_make.png */; };
 		FDF3FE0F1CA7F854007B7C83 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE0D1CA7F854007B7C83 /* JSDropDownMenu.m */; };
+		FDF3FE131CA80922007B7C83 /* app_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF3FE121CA80922007B7C83 /* app_search@2x.png */; };
+		FDF3FE201CA816F0007B7C83 /* MyProjectPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE1D1CA816F0007B7C83 /* MyProjectPageController.m */; };
+		FDF3FE211CA816F0007B7C83 /* MyProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE1F1CA816F0007B7C83 /* MyProjectTableViewController.m */; };
+		FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE241CA81F52007B7C83 /* MyActivityPageController.m */; };
+		FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE261CA81F52007B7C83 /* MyActivityTableViewController.m */; };
+		FDF3FE381CA81F52007B7C83 /* MyCollectPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE291CA81F52007B7C83 /* MyCollectPageController.m */; };
+		FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE2B1CA81F52007B7C83 /* MyCollectTableViewController.m */; };
+		FDF3FE3A1CA81F52007B7C83 /* MyNotePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE2E1CA81F52007B7C83 /* MyNotePageController.m */; };
+		FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE301CA81F52007B7C83 /* MyNoteTableViewController.m */; };
+		FDF3FE3C1CA81F52007B7C83 /* MySubjectPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE331CA81F52007B7C83 /* MySubjectPageController.m */; };
+		FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +393,27 @@
 		FDF3FE0B1CA7F854007B7C83 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		FDF3FE0C1CA7F854007B7C83 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		FDF3FE0D1CA7F854007B7C83 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
+		FDF3FE121CA80922007B7C83 /* app_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_search@2x.png"; sourceTree = "<group>"; };
+		FDF3FE1C1CA816F0007B7C83 /* MyProjectPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectPageController.h; sourceTree = "<group>"; };
+		FDF3FE1D1CA816F0007B7C83 /* MyProjectPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectPageController.m; sourceTree = "<group>"; };
+		FDF3FE1E1CA816F0007B7C83 /* MyProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectTableViewController.h; sourceTree = "<group>"; };
+		FDF3FE1F1CA816F0007B7C83 /* MyProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectTableViewController.m; sourceTree = "<group>"; };
+		FDF3FE231CA81F52007B7C83 /* MyActivityPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityPageController.h; sourceTree = "<group>"; };
+		FDF3FE241CA81F52007B7C83 /* MyActivityPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityPageController.m; sourceTree = "<group>"; };
+		FDF3FE251CA81F52007B7C83 /* MyActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyActivityTableViewController.h; sourceTree = "<group>"; };
+		FDF3FE261CA81F52007B7C83 /* MyActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyActivityTableViewController.m; sourceTree = "<group>"; };
+		FDF3FE281CA81F52007B7C83 /* MyCollectPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectPageController.h; sourceTree = "<group>"; };
+		FDF3FE291CA81F52007B7C83 /* MyCollectPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectPageController.m; sourceTree = "<group>"; };
+		FDF3FE2A1CA81F52007B7C83 /* MyCollectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectTableViewController.h; sourceTree = "<group>"; };
+		FDF3FE2B1CA81F52007B7C83 /* MyCollectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectTableViewController.m; sourceTree = "<group>"; };
+		FDF3FE2D1CA81F52007B7C83 /* MyNotePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotePageController.h; sourceTree = "<group>"; };
+		FDF3FE2E1CA81F52007B7C83 /* MyNotePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNotePageController.m; sourceTree = "<group>"; };
+		FDF3FE2F1CA81F52007B7C83 /* MyNoteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNoteTableViewController.h; sourceTree = "<group>"; };
+		FDF3FE301CA81F52007B7C83 /* MyNoteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNoteTableViewController.m; sourceTree = "<group>"; };
+		FDF3FE321CA81F52007B7C83 /* MySubjectPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySubjectPageController.h; sourceTree = "<group>"; };
+		FDF3FE331CA81F52007B7C83 /* MySubjectPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySubjectPageController.m; sourceTree = "<group>"; };
+		FDF3FE341CA81F52007B7C83 /* MySubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySubjectTableViewController.h; sourceTree = "<group>"; };
+		FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySubjectTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +629,11 @@
 		F73B78BB1C813E2800069EEE /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				FDF3FE221CA81F52007B7C83 /* Activity */,
+				FDF3FE271CA81F52007B7C83 /* Collect */,
+				FDF3FE2C1CA81F52007B7C83 /* Note */,
+				FDF3FE311CA81F52007B7C83 /* Subject */,
+				FDF3FE1B1CA816F0007B7C83 /* Project */,
 				F73B78BC1C813E2800069EEE /* Member.storyboard */,
 				FDE26ACA1C9BF6EE003418D5 /* MemberTableViewController.h */,
 				FDE26ACB1C9BF6EE003418D5 /* MemberTableViewController.m */,
@@ -675,6 +712,7 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDF3FE121CA80922007B7C83 /* app_search@2x.png */,
 				FDE098A41CA5737900F271EF /* arrow_left@2x.png */,
 				FDE2D98D1CA3D341008DDE4F /* app_label@2x.png */,
 				FDE2D9611CA36D56008DDE4F /* menu_mine@2x.png */,
@@ -885,6 +923,61 @@
 			name = BookList;
 			sourceTree = "<group>";
 		};
+		FDF3FE1B1CA816F0007B7C83 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				FDF3FE1C1CA816F0007B7C83 /* MyProjectPageController.h */,
+				FDF3FE1D1CA816F0007B7C83 /* MyProjectPageController.m */,
+				FDF3FE1E1CA816F0007B7C83 /* MyProjectTableViewController.h */,
+				FDF3FE1F1CA816F0007B7C83 /* MyProjectTableViewController.m */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		FDF3FE221CA81F52007B7C83 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				FDF3FE231CA81F52007B7C83 /* MyActivityPageController.h */,
+				FDF3FE241CA81F52007B7C83 /* MyActivityPageController.m */,
+				FDF3FE251CA81F52007B7C83 /* MyActivityTableViewController.h */,
+				FDF3FE261CA81F52007B7C83 /* MyActivityTableViewController.m */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		FDF3FE271CA81F52007B7C83 /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				FDF3FE281CA81F52007B7C83 /* MyCollectPageController.h */,
+				FDF3FE291CA81F52007B7C83 /* MyCollectPageController.m */,
+				FDF3FE2A1CA81F52007B7C83 /* MyCollectTableViewController.h */,
+				FDF3FE2B1CA81F52007B7C83 /* MyCollectTableViewController.m */,
+			);
+			path = Collect;
+			sourceTree = "<group>";
+		};
+		FDF3FE2C1CA81F52007B7C83 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				FDF3FE2D1CA81F52007B7C83 /* MyNotePageController.h */,
+				FDF3FE2E1CA81F52007B7C83 /* MyNotePageController.m */,
+				FDF3FE2F1CA81F52007B7C83 /* MyNoteTableViewController.h */,
+				FDF3FE301CA81F52007B7C83 /* MyNoteTableViewController.m */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		FDF3FE311CA81F52007B7C83 /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				FDF3FE321CA81F52007B7C83 /* MySubjectPageController.h */,
+				FDF3FE331CA81F52007B7C83 /* MySubjectPageController.m */,
+				FDF3FE341CA81F52007B7C83 /* MySubjectTableViewController.h */,
+				FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */,
+			);
+			path = Subject;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -986,6 +1079,7 @@
 				FDE26ADC1C9BF8B8003418D5 /* person_setting@2x.png in Resources */,
 				F73B78C81C81414900069EEE /* icon_member_normal@2x.png in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
+				FDF3FE131CA80922007B7C83 /* app_search@2x.png in Resources */,
 				FDE26AE81C9C322A003418D5 /* app_failure_img@2x.png in Resources */,
 				FDE26ABA1C9AABA0003418D5 /* link_investor@2x.png in Resources */,
 				F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */,
@@ -1034,6 +1128,7 @@
 			files = (
 				FDE50A831CA0C7080058B87D /* CaptionButton.m in Sources */,
 				FDE26B001C9C38A0003418D5 /* UIAlertView+AFNetworking.m in Sources */,
+				FDF3FE201CA816F0007B7C83 /* MyProjectPageController.m in Sources */,
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FDE2D9571CA369CF008DDE4F /* MASViewConstraint.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
@@ -1042,13 +1137,16 @@
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
+				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
+				FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */,
 				F73B789C1C81375600069EEE /* AFNetworkReachabilityManager.m in Sources */,
 				F73B78A41C81375600069EEE /* MJRefreshConst.m in Sources */,
 				FDE26AE51C9C308F003418D5 /* ActivityTableViewCell.m in Sources */,
 				FDE2D9501CA369CF008DDE4F /* DTKDropdownMenuView.m in Sources */,
+				FDF3FE3C1CA81F52007B7C83 /* MySubjectPageController.m in Sources */,
 				F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */,
 				FDE26B021C9C38A0003418D5 /* UIImageView+AFNetworking.m in Sources */,
 				FDE098911CA5206800F271EF /* BookListDelegate.m in Sources */,
@@ -1073,6 +1171,7 @@
 				FDE2D9561CA369CF008DDE4F /* MASViewAttribute.m in Sources */,
 				F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
+				FDF3FE211CA816F0007B7C83 /* MyProjectTableViewController.m in Sources */,
 				FDE2D9541CA369CF008DDE4F /* MASConstraintMaker.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
 				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
@@ -1083,6 +1182,7 @@
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
+				FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */,
 				FDE2D9581CA369CF008DDE4F /* NSArray+MASAdditions.m in Sources */,
 				FDE2D95A1CA369CF008DDE4F /* View+MASAdditions.m in Sources */,
 				F7FE50031C8A762700114B28 /* DateUtil.m in Sources */,
@@ -1097,6 +1197,7 @@
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				FDE2D9531CA369CF008DDE4F /* MASConstraint.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
+				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
 				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
@@ -1107,8 +1208,11 @@
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
+				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
 				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
 				FDE2D9551CA369CF008DDE4F /* MASLayoutConstraint.m in Sources */,
+				FDF3FE3A1CA81F52007B7C83 /* MyNotePageController.m in Sources */,
+				FDF3FE381CA81F52007B7C83 /* MyCollectPageController.m in Sources */,
 				FDF3FE0F1CA7F854007B7C83 /* JSDropDownMenu.m in Sources */,
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,

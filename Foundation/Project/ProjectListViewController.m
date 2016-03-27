@@ -90,10 +90,10 @@
 ///导航栏下拉菜单
 - (void)addRightItem
 {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的项目" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
-        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-        weakSelf.tabBarController.selectedIndex = 0;
+//        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+//        weakSelf.tabBarController.selectedIndex = 0;
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
 //        if (self.goodData == nil) {
@@ -104,7 +104,10 @@
 //            
 //        }
     }];
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 44.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
+        //跳转搜索页
+        [self performSegueWithIdentifier:@"search" sender:nil];
+    }];
     menuView.cellColor = MAIN_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;

@@ -249,7 +249,7 @@ UITableViewDataSource
             make.centerY.equalTo(self.mas_centerY);
             make.leading.equalTo(self.mas_leading);
         }];
-        [self addBarItemTap:self];
+//        [self addBarItemTap:self];
     }
     //下拉指示图
     [self.arrowImageView mas_updateConstraints:^(MASConstraintMaker *make) {

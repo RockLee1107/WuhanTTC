@@ -312,10 +312,33 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我" id="0tc-P7-b4z"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="lgQ-nB-2kj" kind="show" identifier="project" id="997-Hw-df4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWF-c8-OHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="990" y="481"/>
+        </scene>
+        <!--我的项目-->
+        <scene sceneID="ffD-nD-4aW">
+            <objects>
+                <viewController id="lgQ-nB-2kj" customClass="MyProjectPageController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nfB-nH-KMH"/>
+                        <viewControllerLayoutGuide type="bottom" id="iZG-0Y-brT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6K3-rM-Aqz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的项目" id="PhE-kw-BbY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EMs-8s-DDp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1437" y="481"/>
         </scene>
     </scenes>
     <resources>

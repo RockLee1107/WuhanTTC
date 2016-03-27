@@ -6,7 +6,7 @@
 //
 //
 
-#import "BaseViewController.h"
+#import "Global.h"
 #import "WMPageController.h"
 
 @interface ProjectDetailViewController : WMPageController
