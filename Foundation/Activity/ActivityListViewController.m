@@ -22,6 +22,11 @@
     [self initRefreshControl];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 //上拉下拉控件
 - (void)initRefreshControl {
     /**上拉刷新、下拉加载*/

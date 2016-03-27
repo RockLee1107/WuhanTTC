@@ -28,6 +28,10 @@
     [self performSelector:@selector(hideNaviBar) withObject:nil afterDelay:0.025];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
 //回到主页
 - (IBAction)goBack:(id)sender {
     [self.tabBarController.navigationController popViewControllerAnimated:YES];

@@ -137,6 +137,7 @@
 		FDEADC0F1C92AA2D00971DD1 /* icon_community_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC091C92AA2D00971DD1 /* icon_community_normal@2x.png */; };
 		FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDEADC0A1C92AA2D00971DD1 /* icon_content_selected@2x.png */; };
 		FDEADC131C92ACEB00971DD1 /* SubTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDEADC121C92ACEB00971DD1 /* SubTabBarController.m */; };
+		FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,6 +375,8 @@
 		FDEADC0A1C92AA2D00971DD1 /* icon_content_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_content_selected@2x.png"; sourceTree = "<group>"; };
 		FDEADC111C92ACEB00971DD1 /* SubTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubTabBarController.h; sourceTree = "<group>"; };
 		FDEADC121C92ACEB00971DD1 /* SubTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubTabBarController.m; sourceTree = "<group>"; };
+		FDF3FE071CA7E948007B7C83 /* ProjectIndexTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectIndexTableViewController.h; sourceTree = "<group>"; };
+		FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectIndexTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -611,6 +614,8 @@
 				F73B78BE1C813E2800069EEE /* Project.storyboard */,
 				F7A61E651CA04A41001B5FB3 /* Detail */,
 				FDE33F181C9FEF73005C6863 /* ProjectList */,
+				FDF3FE071CA7E948007B7C83 /* ProjectIndexTableViewController.h */,
+				FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -1024,6 +1029,7 @@
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
+				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
