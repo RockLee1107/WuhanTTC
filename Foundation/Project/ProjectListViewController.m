@@ -10,6 +10,7 @@
 #import "ProjectTableViewCell.h"
 #import "ProjectTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
+#import "MyProjectPageController.h"
 
 @interface ProjectListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -90,19 +91,13 @@
 ///导航栏下拉菜单
 - (void)addRightItem
 {
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的项目" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
-//        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
-//        weakSelf.tabBarController.selectedIndex = 0;
+        MyProjectPageController *vc = [[MyProjectPageController alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
-//        if (self.goodData == nil) {
-//            [SVProgressHUD showSuccessWithStatus:@"请稍候..."];
-//            return ;
-//        } else if (![self jumpLoginVC]) {
-//            //登录判断
-//            
-//        }
+        [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页
@@ -119,6 +114,7 @@
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
 }
+
 #pragma mark - 下拉筛选菜单
 - (void)initSearchConditionView{
     self.dataTitle = @[@"按发布时间",@"全国",@"类型"];

@@ -27,16 +27,18 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gCH-H7-M0J" firstAttribute="top" secondItem="dFq-SZ-KD9" secondAttribute="bottom" constant="-49" id="4cQ-EB-r2G"/>
+                            <constraint firstItem="gCH-H7-M0J" firstAttribute="top" secondItem="dFq-SZ-KD9" secondAttribute="bottom" id="4cQ-EB-r2G"/>
                             <constraint firstItem="dFq-SZ-KD9" firstAttribute="top" secondItem="f0v-py-TKh" secondAttribute="bottom" constant="44" id="ElV-hA-r1r"/>
                             <constraint firstItem="dFq-SZ-KD9" firstAttribute="leading" secondItem="0zM-2l-hjY" secondAttribute="leadingMargin" constant="-16" id="i20-Dr-PKz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dFq-SZ-KD9" secondAttribute="trailing" constant="-16" id="lCn-cd-2O4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="创活动" id="6zz-2H-7AR"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="dFq-SZ-KD9" id="04e-Bd-R2z"/>
                         <segue destination="97m-b8-9iA" kind="show" identifier="detail" id="X8E-AF-b6M"/>
+                        <segue destination="1ER-kc-Z5s" kind="show" identifier="search" id="c1M-XK-TW4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trU-CJ-ghQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,6 +85,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTd-ml-OQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="591" y="481"/>
+        </scene>
+        <!--查找活动-->
+        <scene sceneID="P2x-7F-wYr">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="1ER-kc-Z5s" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qF6-O2-4WC"/>
+                        <viewControllerLayoutGuide type="bottom" id="dQ5-BK-Hso"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U2H-Bp-YFi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Htt-oU-JoQ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableFooterView" contentMode="redraw" id="obn-U3-0re">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Htt-oU-JoQ" firstAttribute="top" secondItem="qF6-O2-4WC" secondAttribute="bottom" id="WRH-QN-K6N"/>
+                            <constraint firstItem="Htt-oU-JoQ" firstAttribute="leading" secondItem="U2H-Bp-YFi" secondAttribute="leadingMargin" constant="-16" id="c6u-NQ-NUq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Htt-oU-JoQ" secondAttribute="trailing" constant="-16" id="eaQ-zw-zus"/>
+                            <constraint firstItem="dQ5-BK-Hso" firstAttribute="top" secondItem="Htt-oU-JoQ" secondAttribute="bottom" id="xdu-LB-pmf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="查找活动" id="1qn-yd-UR8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnF-dF-G9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="-170"/>
         </scene>
     </scenes>
     <resources>

@@ -9,6 +9,7 @@
 #import "SpecialTypeViewController.h"
 #import "SubTabBarController.h"
 #import "SpecialTypeTableViewCell.h"
+#import "DTKDropdownMenuView.h"
 
 @interface SpecialTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,6 +22,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self addRightItem];
     [self fetchData];
 }
 
@@ -67,4 +69,31 @@
     vc.specialName = self.dataImmutableArray[indexPath.row][@"specialName"];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+///导航栏下拉菜单
+- (void)addRightItem
+{
+//    __weak typeof(self) weakSelf = self;
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"原创投稿" iconName:@"menu_contribute.png" callBack:^(NSUInteger index, id info) {
+        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+    }];
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_essential.png" callBack:^(NSUInteger index, id info) {
+        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+    }];
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
+        //跳转搜索页
+        [self performSegueWithIdentifier:@"search" sender:nil];
+    }];
+    menuView.cellColor = MAIN_COLOR;
+    menuView.cellHeight = 50.0;
+    menuView.dropWidth = 150.f;
+    menuView.titleFont = [UIFont systemFontOfSize:18.f];
+    menuView.textColor = [UIColor whiteColor];
+    menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    menuView.textFont = [UIFont systemFontOfSize:16.f];
+    menuView.animationDuration = 0.4f;
+    menuView.backgroundAlpha = 0;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+}
+
 @end
