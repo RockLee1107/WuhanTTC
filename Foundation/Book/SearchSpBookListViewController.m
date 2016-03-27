@@ -25,9 +25,18 @@
     self.nameNavigationItem.title = ((SubTabBarController *)self.tabBarController).specialName;
     [self initDelegate];
     [self initRefreshControl];
-//    self.nameNavigationItem.title = @"2";
+    [self performSelector:@selector(hideNaviBar) withObject:nil afterDelay:0.025];
 }
 
+//回到主页
+- (IBAction)goBack:(id)sender {
+    [self.tabBarController.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)hideNaviBar {
+    //    隐藏父级导航栏
+    self.tabBarController.navigationController.navigationBarHidden = YES;
+}
 //上拉下拉控件
 - (void)initRefreshControl {
     /**上拉刷新、下拉加载*/
@@ -70,6 +79,7 @@
 ////        NSLog(@"responseObject:%@",responseObject);
 //    }];
     [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];

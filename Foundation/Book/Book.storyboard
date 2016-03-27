@@ -113,7 +113,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Myq-di-FbD"/>
+                    <navigationItem key="navigationItem" title="Title" id="Myq-di-FbD">
+                        <barButtonItem key="leftBarButtonItem" image="arrow_left.png" id="h9U-ix-NpD">
+                            <connections>
+                                <action selector="goBack:" destination="ctj-J8-7zZ" id="wme-0H-blM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameNavigationItem" destination="Myq-di-FbD" id="iRh-pB-JeN"/>
                         <outlet property="tableView" destination="5Po-3e-N6m" id="aMn-Cx-TwV"/>
@@ -411,6 +417,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left.png" width="40" height="25"/>
         <image name="icon_about_normal.png" width="30" height="30"/>
         <image name="icon_book_normal.png" width="40" height="40"/>
         <image name="icon_community_normal.png" width="30" height="30"/>
