@@ -9,5 +9,5 @@
 #import "BaseStaticTableViewController.h"
 
 @interface SubjectDetailTableViewController : BaseStaticTableViewController
-
+@property (nonatomic,strong) NSString *subjectId;
 @end

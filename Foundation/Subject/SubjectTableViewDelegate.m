@@ -8,6 +8,7 @@
 
 #import "SubjectTableViewDelegate.h"
 #import "SubjectTableViewCell.h"
+#import "SubjectDetailTableViewController.h"
 
 @implementation SubjectTableViewDelegate
 #pragma mark - tb代理方法
@@ -36,5 +37,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 78.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SubjectDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"subjectDetail"];
+    NSDictionary *object = self.dataArray[indexPath.row];
+    vc.subjectId = object[@"subjectId"];
+    [self.vc.navigationController pushViewController:vc animated:YES];
 }
 @end
