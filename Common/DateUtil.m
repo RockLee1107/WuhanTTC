@@ -10,14 +10,14 @@
 #import "StringUtil.h"
 
 @implementation DateUtil
-+ (NSString *)prettyString:(NSString *)str {
-    str = [StringUtil toString:str];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYMMddHHmmss"];
-    NSDate *date = [formatter dateFromString:str];
-    [formatter setDateFormat:@"YY-MM-dd"];
-    return [formatter stringFromDate:date];
-}
+//+ (NSString *)prettyString:(NSString *)str {
+//    str = [StringUtil toString:str];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"YYMMddHHmmss"];
+//    NSDate *date = [formatter dateFromString:str];
+//    [formatter setDateFormat:@"YY-MM-dd"];
+//    return [formatter stringFromDate:date];
+//}
 
 //+ (NSString *)toStrFromYmdHis:(id)str {
 //    if (str == [NSNull null]) {
@@ -30,6 +30,13 @@
 //    return [NSString stringWithFormat:@"%@/%@/%@",year,month,day];
 //}
 
+///转日期时间，分别传入日期与时间
++ (NSString *)toString:(id)date time:(id)time {
+    NSString *datePart = [DateUtil toString:date];
+    NSString *timePart = [DateUtil toTime:time];
+    return [NSString stringWithFormat:@"%@ %@",datePart,timePart];
+}
+
 + (NSString *)toString:(id)str {
     if (str == [NSNull null]) {
         return @"";
@@ -39,6 +46,16 @@
     NSString *month = [dateStr substringWithRange:NSMakeRange(4, 2)];
     NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
     return [NSString stringWithFormat:@"%@/%@/%@",year,month,day];
+}
+
++ (NSString *)toTime:(id)str {
+    if (str == [NSNull null]) {
+        return @"";
+    }
+    NSString *timeStr = str;
+    NSString *year = [timeStr substringWithRange:NSMakeRange(0, 2)];
+    NSString *month = [timeStr substringWithRange:NSMakeRange(2, 2)];
+    return [NSString stringWithFormat:@"%@:%@",year,month];
 }
 
 + (NSString *)toShortDate:(id)str {

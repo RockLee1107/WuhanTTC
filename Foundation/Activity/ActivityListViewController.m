@@ -28,8 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initDelegate];
-    [self initSearchConditionView];
     [self initRefreshControl];
+    [self initSearchConditionView];
     [self addRightItem];
 }
 

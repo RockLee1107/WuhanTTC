@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @interface DateUtil : NSObject
-+ (NSString *)prettyString:(NSString *)str;
+//+ (NSString *)prettyString:(NSString *)str;
 + (NSString *)toString:(id)str;
 + (NSString *)toShortDate:(id)str;
 ///转长日期，20160305120859
 //+ (NSString *)toStrFromYmdHis:(id)str;
+///转日期时间，分别传入日期与时间
++ (NSString *)toString:(id)date time:(id)time;
 @end
