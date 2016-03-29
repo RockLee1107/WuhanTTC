@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BookTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *bookTypeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *bookTypeButton;
 @property (weak, nonatomic) IBOutlet UILabel *bookNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bookLabelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *publishDate;

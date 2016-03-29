@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "MainTabBarController.h"
 #import "User.h"
+#import "LocationUtil.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loginButtonPress:nil];
+    [[LocationUtil getInstance] fetchLocation];
     // Do any additional setup after loading the view.
 }
 

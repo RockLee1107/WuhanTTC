@@ -53,6 +53,7 @@
 		F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */; };
 		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
+		F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E92381CAAE53C001AE980 /* LocationUtil.m */; };
 		F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */; };
 		F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */; };
 		F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */; };
@@ -272,6 +273,8 @@
 		F741A6451C8F38E4008DC72B /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		F741A6461C8F38E4008DC72B /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
+		F76E92371CAAE53C001AE980 /* LocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtil.h; sourceTree = "<group>"; };
+		F76E92381CAAE53C001AE980 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
 		F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
 		F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
 		F7A61E6B1CA04CCB001B5FB3 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 		F73B785B1C81375500069EEE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F76E92371CAAE53C001AE980 /* LocationUtil.h */,
+				F76E92381CAAE53C001AE980 /* LocationUtil.m */,
 				F7FE50071C8A786700114B28 /* User.h */,
 				F7FE50081C8A786700114B28 /* User.m */,
 				F7FE50041C8A76C600114B28 /* StringUtil.h */,
@@ -1284,6 +1289,7 @@
 				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */,
+				F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,

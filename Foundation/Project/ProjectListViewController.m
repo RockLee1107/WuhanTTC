@@ -124,7 +124,7 @@
                    ];
     self.data2 = @[
                    @[@"",@"全国"],
-                   @[@"0",@"温州市"]
+                   @[@"0",[LocationUtil getInstance].locatedCityName]
                    ];
     self.data3 = @[
                    @[@"",@"项目阶段"],

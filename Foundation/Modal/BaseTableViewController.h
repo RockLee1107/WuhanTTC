@@ -12,6 +12,7 @@
 #import "BaseTableView.h"
 #import "BaseTableViewDelegate.h"
 #import "JSDropDownMenu.h"
+#import "LocationUtil.h"
 
 @interface BaseTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;

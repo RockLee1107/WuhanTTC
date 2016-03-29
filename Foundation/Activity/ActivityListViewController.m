@@ -129,7 +129,7 @@
     self.data2 = @[
                    @[@"",@"全国"],
                    @[@"1",@"线上"],
-                   @[@"0",@"温州市"]
+                   @[@"0",[LocationUtil getInstance].locatedCityName]
                    ];
     self.data3 = @[
                    @[@"",@"全部"],
