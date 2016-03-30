@@ -11,4 +11,5 @@
 @interface LXPasswordView : UIView
 @property (nonatomic,strong) UIButton *showButton;
 @property (nonatomic,strong) UITextField *passwordTextField;
+@property (nonatomic,assign) BOOL isShow;
 @end
