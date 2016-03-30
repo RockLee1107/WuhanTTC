@@ -11,6 +11,7 @@
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end
 
 @implementation LoginViewController
