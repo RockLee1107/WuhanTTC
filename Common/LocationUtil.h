@@ -23,4 +23,6 @@
 - (NSDictionary *)coordinateDict;
 //给出默认定位地址
 - (NSDictionary *)defaultCoordinateDict;
+//是否定位成功
+@property (nonatomic, assign) BOOL isSuccess;
 @end

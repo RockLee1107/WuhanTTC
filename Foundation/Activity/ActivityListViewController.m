@@ -129,7 +129,7 @@
     self.data2 = @[
                    @[@"",@"全国"],
                    @[@"1",@"线上"],
-                   @[@"0",[LocationUtil getInstance].locatedCityName]
+                   @[@"0",[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].locatedCityName : @"定位失败"]
                    ];
     self.data3 = @[
                    @[@"",@"全部"],

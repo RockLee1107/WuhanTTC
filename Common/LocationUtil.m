@@ -17,6 +17,7 @@
     }
     return instance;
 }
+
 //请求地理位置
 - (void)fetchLocation {
     self.locationManager = [[CLLocationManager alloc]init];
@@ -48,11 +49,12 @@
     [[NSUserDefaults standardUserDefaults] setObject:locationDict forKey:@"location"];
 //    NSLog(@"%@",locationStr);
     [self.locationManager stopUpdatingLocation];
-    
+    self.isSuccess = YES;
 }
 
 //地理位置获取失败
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    self.isSuccess = NO;
 //    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"定位失败" message:@"请检查系统设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [alertView show];
 }

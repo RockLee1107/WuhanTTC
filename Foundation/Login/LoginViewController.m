@@ -21,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loginButtonPress:nil];
+//    直接登录
+//    [self loginButtonPress:nil];
     [[LocationUtil getInstance] fetchLocation];
     // Do any additional setup after loading the view.
 }
