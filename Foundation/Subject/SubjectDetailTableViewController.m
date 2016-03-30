@@ -10,6 +10,11 @@
 #import "DTKDropdownMenuView.h"
 
 @interface SubjectDetailTableViewController ()
+@property (nonatomic,strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic,strong) IBOutlet UILabel *realnameLabel;
+@property (nonatomic,strong) IBOutlet UILabel *pbDateTimeLabel;
+@property (nonatomic,strong) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 
 @end
 
@@ -18,8 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightItem];
-    
-    // Do any additional setup after loading the view.
+//    @"subjectId"
+//    读取值
+    self.titleLabel.text = self.dict[@"title"];
+    self.realnameLabel.text = self.dict[@"realName"];
+    self.pbDateTimeLabel.text = [DateUtil toString:self.dict[@"pbDate"] time:self.dict[@"pbTime"]];
+    self.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:self.dict[@"content"] attributes:[StringUtil textViewAttribute]];
+    [self.contentTextView sizeToFit];
+        [self.thumbImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dict[@"pictUrl"]]]]];
+    [self.tableView reloadData];
 }
 
 ///导航栏下拉菜单
@@ -48,5 +60,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
 }
 
-
+//行高
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return self.contentTextView.frame.size.height + 130.0;
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
 @end

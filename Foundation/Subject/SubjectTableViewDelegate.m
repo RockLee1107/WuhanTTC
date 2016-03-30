@@ -42,7 +42,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"subjectDetail"];
     NSDictionary *object = self.dataArray[indexPath.row];
-    vc.subjectId = object[@"subjectId"];
+    vc.dict = object;
     [self.vc.navigationController pushViewController:vc animated:YES];
 }
 @end

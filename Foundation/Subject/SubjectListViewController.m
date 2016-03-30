@@ -79,9 +79,9 @@
     }];
 }
 
-- (void)jumpDetailTest {
-    SubjectDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"subjectDetail"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (void)jumpDetailTest {
+//    SubjectDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"subjectDetail"];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 @end
