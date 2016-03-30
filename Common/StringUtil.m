@@ -40,4 +40,15 @@
     }
     return [labelStrArray componentsJoinedByString:@","];
 }
+
+///自适应TextView高度
++ (NSDictionary *)textViewAttribute {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 7;
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:16],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+    return attributes;
+}
 @end

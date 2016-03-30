@@ -11,4 +11,6 @@
 +(NSString*)dictToJson:(id)object;
 +(NSString*)toString:(id)object;
 + (NSString *)labelArrayToStr:(NSArray *)array;
+///自适应TextView高度
++ (NSDictionary *)textViewAttribute;
 @end

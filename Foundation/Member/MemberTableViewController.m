@@ -48,6 +48,8 @@
             vc = [[MySubjectPageController alloc] init];
         }
         [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.section == 3) {
+        [self performSegueWithIdentifier:@"settings" sender:nil];
     }
 }
 @end
