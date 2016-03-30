@@ -11,7 +11,6 @@
 		F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A41C7232FC00D46D79 /* AppDelegate.m */; };
 		F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AC1C7232FC00D46D79 /* Images.xcassets */; };
 		F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AE1C7232FC00D46D79 /* LaunchScreen.xib */; };
-		F70B01BC1C7232FC00D46D79 /* FoundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01BB1C7232FC00D46D79 /* FoundationTests.m */; };
 		F73B78961C81375600069EEE /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F73B785E1C81375500069EEE /* CommonUtil.m */; };
 		F73B78971C81375600069EEE /* HttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = F73B78611C81375500069EEE /* HttpService.m */; };
 		F73B78981C81375600069EEE /* LXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F73B78631C81375500069EEE /* LXButton.m */; };
@@ -186,16 +185,6 @@
 		FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F70B01B61C7232FC00D46D79 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F70B01941C7232FC00D46D79 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F70B019B1C7232FC00D46D79;
-			remoteInfo = Foundation;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		F70B019C1C7232FC00D46D79 /* Foundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70B01A01C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,9 +193,6 @@
 		F70B01A41C7232FC00D46D79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F70B01AC1C7232FC00D46D79 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F70B01AF1C7232FC00D46D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F70B01B51C7232FC00D46D79 /* FoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F70B01BA1C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F70B01BB1C7232FC00D46D79 /* FoundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoundationTests.m; sourceTree = "<group>"; };
 		F73B785D1C81375500069EEE /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
 		F73B785E1C81375500069EEE /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
 		F73B785F1C81375500069EEE /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
@@ -499,13 +485,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F70B01B21C7232FC00D46D79 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -515,7 +494,6 @@
 				F73B785B1C81375500069EEE /* Common */,
 				F73B78641C81375500069EEE /* ThirdParty */,
 				F70B019E1C7232FC00D46D79 /* Foundation */,
-				F70B01B81C7232FC00D46D79 /* FoundationTests */,
 				F70B019D1C7232FC00D46D79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -524,7 +502,6 @@
 			isa = PBXGroup;
 			children = (
 				F70B019C1C7232FC00D46D79 /* Foundation.app */,
-				F70B01B51C7232FC00D46D79 /* FoundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -556,23 +533,6 @@
 			children = (
 				F70B01A01C7232FC00D46D79 /* Info.plist */,
 				F70B01A11C7232FC00D46D79 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F70B01B81C7232FC00D46D79 /* FoundationTests */ = {
-			isa = PBXGroup;
-			children = (
-				F70B01BB1C7232FC00D46D79 /* FoundationTests.m */,
-				F70B01B91C7232FC00D46D79 /* Supporting Files */,
-			);
-			path = FoundationTests;
-			sourceTree = "<group>";
-		};
-		F70B01B91C7232FC00D46D79 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F70B01BA1C7232FC00D46D79 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1131,40 +1091,18 @@
 			productReference = F70B019C1C7232FC00D46D79 /* Foundation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F70B01B41C7232FC00D46D79 /* FoundationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F70B01C21C7232FC00D46D79 /* Build configuration list for PBXNativeTarget "FoundationTests" */;
-			buildPhases = (
-				F70B01B11C7232FC00D46D79 /* Sources */,
-				F70B01B21C7232FC00D46D79 /* Frameworks */,
-				F70B01B31C7232FC00D46D79 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F70B01B71C7232FC00D46D79 /* PBXTargetDependency */,
-			);
-			name = FoundationTests;
-			productName = FoundationTests;
-			productReference = F70B01B51C7232FC00D46D79 /* FoundationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F70B01941C7232FC00D46D79 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "瑞安市灵犀网络技术有限公司";
 				TargetAttributes = {
 					F70B019B1C7232FC00D46D79 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = K83TKABJMN;
-					};
-					F70B01B41C7232FC00D46D79 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = F70B019B1C7232FC00D46D79;
 					};
 				};
 			};
@@ -1182,7 +1120,6 @@
 			projectRoot = "";
 			targets = (
 				F70B019B1C7232FC00D46D79 /* Foundation */,
-				F70B01B41C7232FC00D46D79 /* FoundationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1266,13 +1203,6 @@
 				FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */,
 				FDE2D9621CA36D56008DDE4F /* menu_mine@2x.png in Resources */,
 				FDE098A51CA5737900F271EF /* arrow_left@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F70B01B31C7232FC00D46D79 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1388,23 +1318,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F70B01B11C7232FC00D46D79 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F70B01BC1C7232FC00D46D79 /* FoundationTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F70B01B71C7232FC00D46D79 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F70B019B1C7232FC00D46D79 /* Foundation */;
-			targetProxy = F70B01B61C7232FC00D46D79 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F70B01AE1C7232FC00D46D79 /* LaunchScreen.xib */ = {
@@ -1439,6 +1353,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1506,6 +1421,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Foundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1518,42 +1434,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Foundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8e7c795f-c3a8-487b-aaa2-89fb80843ed1";
-			};
-			name = Release;
-		};
-		F70B01C31C7232FC00D46D79 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foundation.app/Foundation";
-			};
-			name = Debug;
-		};
-		F70B01C41C7232FC00D46D79 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foundation.app/Foundation";
 			};
 			name = Release;
 		};
@@ -1602,23 +1485,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Foundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6e8ccfd8-0c33-4255-a782-88086e64ea0c";
-			};
-			name = "ad hoc";
-		};
-		FDE26AAE1C9A5369003418D5 /* ad hoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FoundationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foundation.app/Foundation";
 			};
 			name = "ad hoc";
 		};
@@ -1641,16 +1510,6 @@
 				F70B01C01C7232FC00D46D79 /* Debug */,
 				F70B01C11C7232FC00D46D79 /* Release */,
 				FDE26AAD1C9A5369003418D5 /* ad hoc */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F70B01C21C7232FC00D46D79 /* Build configuration list for PBXNativeTarget "FoundationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F70B01C31C7232FC00D46D79 /* Debug */,
-				F70B01C41C7232FC00D46D79 /* Release */,
-				FDE26AAE1C9A5369003418D5 /* ad hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
