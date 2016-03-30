@@ -18,17 +18,22 @@
 - (void)drawRect:(CGRect)rect {
     self.passwordTextField = [[UITextField alloc] init];
     self.passwordTextField.secureTextEntry = YES;
+    self.passwordTextField.font = [UIFont systemFontOfSize:14.0];
     self.passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [self.passwordTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.trailing.mas_equalTo(self.passwordTextField.mas_width);
-        make.centerY.mas_equalTo(self.mas_centerY);
-    }];
     self.showButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.showButton setBackgroundImage:[UIImage imageNamed:@"app_pwd_unvisible.png"] forState:(UIControlStateNormal)];
+    [self addSubview:self.passwordTextField];
+    [self addSubview:self.showButton];
     [self.showButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.mas_centerY);
         make.trailing.mas_equalTo(self.mas_trailing);
     }];
-    [self.showButton setBackgroundImage:[UIImage imageNamed:@"app_pwd_unvisible.png"] forState:(UIControlStateNormal)];
+    [self.passwordTextField mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(self.mas_leading);
+        make.trailing.mas_equalTo(self.showButton.mas_leading);
+        make.centerY.mas_equalTo(self.mas_centerY);
+        make.height.mas_equalTo(30.0);
+    }];
 }
 
 @end
