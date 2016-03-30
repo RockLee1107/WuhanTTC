@@ -17,8 +17,11 @@
 */
 - (void)drawRect:(CGRect)rect {
     self.passwordTextField = [[UITextField alloc] init];
+    self.passwordTextField.secureTextEntry = YES;
+    self.passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self.passwordTextField mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.trailing.mas_offset
+        make.trailing.mas_equalTo(self.passwordTextField.mas_width);
+        make.centerY.mas_equalTo(self.mas_centerY);
     }];
     self.showButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.showButton mas_updateConstraints:^(MASConstraintMaker *make) {
