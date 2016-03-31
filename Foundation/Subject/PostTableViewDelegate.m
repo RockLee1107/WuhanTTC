@@ -8,8 +8,17 @@
 
 #import "PostTableViewDelegate.h"
 #import "PostTableViewCell.h"
+@interface PostTableViewDelegate()
+@end
 
 @implementation PostTableViewDelegate
+- (instancetype)init {
+    if (self = [super init]) {
+        self.heightArray = [NSMutableArray arrayWithCapacity:self.dataArray.count];
+    }
+    return self;
+}
+
 #pragma mark - tb代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
@@ -29,16 +38,19 @@
     cell.pbDateTimeLabel.text = [DateUtil toShortDate:object[@"pbDate"] time:object[@"pbTime"]];
     /**回复数*/
     cell.praiseCountLabel.text = object[@"praiseCount"];
-    /*正文**/
+    /**正文*/
     cell.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:object[@"content"] attributes:[StringUtil textViewAttribute]];
     [cell.contentTextView sizeToFit];
+    self.heightArray[indexPath.row] = [NSNumber numberWithFloat:cell.contentTextView.frame.size.height];
     return cell;
 }
 
 //行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    PostTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    return cell.contentTextView.frame.size.height + 78.0;
+    if (self.heightArray.count > 0) {
+        return [self.heightArray[indexPath.row] floatValue] + 78.0;
+    }
     return 78.0;
 }
 

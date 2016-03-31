@@ -98,8 +98,17 @@
 //        主帖
         return self.contentTextView.frame.size.height + 130.0;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-//        return self.sumPostHeight;
+//        总高度汇总
+        return self.sumPostHeight;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (CGFloat)sumPostHeight {
+    CGFloat sum;
+    for (NSNumber *height in self.postTableViewDelegate.heightArray) {
+        sum += [height floatValue];
+    }
+    return sum;
 }
 @end

@@ -9,5 +9,5 @@
 #import "BaseTableViewDelegate.h"
 
 @interface PostTableViewDelegate : BaseTableViewDelegate
-
+@property (nonatomic,strong) NSMutableArray *heightArray;
 @end
