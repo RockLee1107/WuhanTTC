@@ -333,6 +333,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="3zC-B7-bB8" id="Jc2-Fb-qBa"/>
                         <outlet property="pbDateTimeLabel" destination="30W-pH-xB7" id="LTM-9a-jm2"/>
+                        <outlet property="postTableView" destination="hzU-9H-iR8" id="391-h5-ABC"/>
                         <outlet property="realnameLabel" destination="2kq-oJ-TFm" id="rEr-Fk-eVZ"/>
                         <outlet property="thumbImageView" destination="Pzb-AS-Mrh" id="7A4-UA-IMT"/>
                         <outlet property="titleLabel" destination="rVd-Jt-fhV" id="dlO-cr-DIv"/>

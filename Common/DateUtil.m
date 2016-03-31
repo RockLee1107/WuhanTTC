@@ -37,6 +37,13 @@
     return [NSString stringWithFormat:@"%@ %@",datePart,timePart];
 }
 
+///转非全年份的日期时间，分别传入日期与时间
++ (NSString *)toShortDate:(id)date time:(id)time {
+    NSString *datePart = [DateUtil toShortDate:date];
+    NSString *timePart = [DateUtil toTime:time];
+    return [NSString stringWithFormat:@"%@ %@",datePart,timePart];
+}
+
 + (NSString *)toString:(id)str {
     if (str == [NSNull null]) {
         return @"";

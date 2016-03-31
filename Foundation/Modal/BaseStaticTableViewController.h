@@ -13,10 +13,12 @@
 #import "UIImageView+AFNetworking.h"
 #import "User.h"
 #import "DateUtil.h"
+#import "Page.h"
 
 @interface BaseStaticTableViewController : UITableViewController
 @property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic, strong) Page *page;
 @property (nonatomic,strong) HttpService *service;
 
 @end

@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(-36.0, 0, 0, 0);
+    self.page = [[Page alloc] init];
+    self.page.pageNo = 1;
     self.service = [HttpService getInstance];
     //后退按钮标题与按钮图片
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];

@@ -8,6 +8,7 @@
 
 #import "SubjectDetailTableViewController.h"
 #import "DTKDropdownMenuView.h"
+#import "PostTableViewDelegate.h"
 
 @interface SubjectDetailTableViewController ()
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
@@ -15,7 +16,10 @@
 @property (nonatomic,strong) IBOutlet UILabel *pbDateTimeLabel;
 @property (nonatomic,strong) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
-
+/*回复的TableView*/
+@property (weak, nonatomic) IBOutlet UITableView *postTableView;
+@property (strong, nonatomic) PostTableViewDelegate *postTableViewDelegate;
+@property (assign, nonatomic) CGFloat sumPostHeight;
 @end
 
 @implementation SubjectDetailTableViewController
@@ -23,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightItem];
+    [self initDelegate];
 //    @"subjectId"
 //    读取值
     self.titleLabel.text = self.dict[@"title"];
@@ -32,8 +37,35 @@
     [self.contentTextView sizeToFit];
         [self.thumbImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dict[@"pictUrl"]]]]];
     [self.tableView reloadData];
+    //回复内容
+//    self.postTableView.scrollEnabled = NO;
+    [self fetchData];
 }
 
+///初始化代理
+- (void)initDelegate {
+    self.postTableViewDelegate = [[PostTableViewDelegate alloc] init];
+    self.postTableViewDelegate.vc = self;
+    self.postTableView.delegate = self.postTableViewDelegate;
+    self.postTableView.dataSource = self.postTableViewDelegate;
+}
+
+
+///访问网络
+- (void)fetchData {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
+                                 @{
+                                   @"SEQ_subjectId":self.dict[@"subjectId"]
+                                   }];
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    [self.service POST:@"/book/postSubject/getSubjectDetail" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.postTableViewDelegate.dataArray = responseObject[@"postReplyDto"];
+        [self.postTableView reloadData];
+        [self.tableView reloadData];
+    } noResult:nil];
+}
 ///导航栏下拉菜单
 - (void)addRightItem
 {
@@ -63,7 +95,10 @@
 //行高
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
+//        主帖
         return self.contentTextView.frame.size.height + 130.0;
+    } else if (indexPath.section == 0 && indexPath.row == 1) {
+//        return self.sumPostHeight;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }

@@ -15,4 +15,6 @@
 //+ (NSString *)toStrFromYmdHis:(id)str;
 ///转日期时间，分别传入日期与时间
 + (NSString *)toString:(id)date time:(id)time;
+///转非全年份的日期时间，分别传入日期与时间
++ (NSString *)toShortDate:(id)date time:(id)time;
 @end

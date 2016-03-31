@@ -73,6 +73,11 @@
 		F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50051C8A76C600114B28 /* StringUtil.m */; };
 		F7FE50091C8A786800114B28 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50081C8A786700114B28 /* User.m */; };
 		F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */; };
+		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
+		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
+		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
+		FD4462781CAC9A0100F7E12F /* app_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462761CAC9A0100F7E12F /* app_praise@2x.png */; };
+		FD44627B1CAC9EF000F7E12F /* PostTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD44627A1CAC9EF000F7E12F /* PostTableViewDelegate.m */; };
 		FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */; };
 		FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47F85C1C8AC58C00D0ED07 /* Page.m */; };
 		FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A3F1CABE0F100706B4D /* login_sina@2x.png */; };
@@ -306,6 +311,13 @@
 		F7FE50081C8A786700114B28 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearcher.h; sourceTree = "<group>"; };
 		F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearcher.m; sourceTree = "<group>"; };
+		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_praise_done@2x.png"; sourceTree = "<group>"; };
+		FD4462761CAC9A0100F7E12F /* app_praise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_praise@2x.png"; sourceTree = "<group>"; };
+		FD4462791CAC9EF000F7E12F /* PostTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewDelegate.h; sourceTree = "<group>"; };
+		FD44627A1CAC9EF000F7E12F /* PostTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewDelegate.m; sourceTree = "<group>"; };
 		FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_thumb@2x.png"; sourceTree = "<group>"; };
 		FD47F85B1C8AC58C00D0ED07 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		FD47F85C1C8AC58C00D0ED07 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
@@ -518,7 +530,6 @@
 		F70B019E1C7232FC00D46D79 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				FD9450D41CA82B8100E00759 /* Subject */,
 				F7B827F31C892DD500014746 /* Login */,
 				FDE2AFE71C887F87002238CA /* Modal */,
 				F73B78B61C813DDD00069EEE /* Book */,
@@ -654,6 +665,7 @@
 		F73B78B61C813DDD00069EEE /* Book */ = {
 			isa = PBXGroup;
 			children = (
+				FD9450D41CA82B8100E00759 /* Subject */,
 				F73B78B71C813DDD00069EEE /* Book.storyboard */,
 				FDF3FE101CA80007007B7C83 /* BookIndex */,
 				FDF3FE111CA8006D007B7C83 /* BookList */,
@@ -775,6 +787,8 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */,
+				FD4462761CAC9A0100F7E12F /* app_praise@2x.png */,
 				FD891A441CABE32B00706B4D /* login_qq@2x.png */,
 				FD891A451CABE32B00706B4D /* login_wx@2x.png */,
 				FD891A3F1CABE0F100706B4D /* login_sina@2x.png */,
@@ -839,6 +853,20 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		FD44626F1CAC95FD00F7E12F /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				FD9450E51CA8336A00E00759 /* SubjectDetailTableViewController.h */,
+				FD9450E61CA8336A00E00759 /* SubjectDetailTableViewController.m */,
+				FD4462701CAC967900F7E12F /* PostTableViewCell.h */,
+				FD4462711CAC967900F7E12F /* PostTableViewCell.m */,
+				FD4462721CAC967900F7E12F /* PostTableViewCell.xib */,
+				FD4462791CAC9EF000F7E12F /* PostTableViewDelegate.h */,
+				FD44627A1CAC9EF000F7E12F /* PostTableViewDelegate.m */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
 		FD9450D41CA82B8100E00759 /* Subject */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,10 +879,10 @@
 				FDD0FBCF1CA8C018004CFA75 /* SubjectTableViewCell.xib */,
 				FDD0FBD01CA8C018004CFA75 /* SubjectTableViewDelegate.h */,
 				FDD0FBD11CA8C018004CFA75 /* SubjectTableViewDelegate.m */,
-				FD9450E51CA8336A00E00759 /* SubjectDetailTableViewController.h */,
-				FD9450E61CA8336A00E00759 /* SubjectDetailTableViewController.m */,
+				FD44626F1CAC95FD00F7E12F /* Post */,
 			);
-			path = Subject;
+			name = Subject;
+			path = ../Subject;
 			sourceTree = "<group>";
 		};
 		FDE26AEC1C9C38A0003418D5 /* UIKit+AFNetworking */ = {
@@ -1145,6 +1173,7 @@
 			files = (
 				FD9451051CA843DD00E00759 /* special3@2x.png in Resources */,
 				FD9450EF1CA8362100E00759 /* menu_auther@2x.png in Resources */,
+				FD4462781CAC9A0100F7E12F /* app_praise@2x.png in Resources */,
 				FDE2D9511CA369CF008DDE4F /* LICENSE in Resources */,
 				FDE26AD91C9BF8B8003418D5 /* person_note@2x.png in Resources */,
 				FDD0FBD31CA8C018004CFA75 /* SubjectTableViewCell.xib in Resources */,
@@ -1194,6 +1223,7 @@
 				F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */,
 				FD9451091CA843DD00E00759 /* special7@2x.png in Resources */,
 				F73B78CF1C81451E00069EEE /* icon_book_normal@2x.png in Resources */,
+				FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */,
 				FD9451071CA843DD00E00759 /* special5@2x.png in Resources */,
 				F73B78BF1C813E2800069EEE /* Activity.storyboard in Resources */,
 				FDE26ABB1C9AABA0003418D5 /* link_project@2x.png in Resources */,
@@ -1201,6 +1231,7 @@
 				FDE26ADA1C9BF8B8003418D5 /* person_post@2x.png in Resources */,
 				F7EB9B9A1CAB6788005343AC /* app_pwd_unvisible@2x.png in Resources */,
 				FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */,
+				FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */,
 				FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */,
 				F73B78C91C81414900069EEE /* icon_project_normal@2x.png in Resources */,
 				FDE2D94F1CA369CF008DDE4F /* DTKDropdownMenuView.bundle in Resources */,
@@ -1309,6 +1340,7 @@
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
 				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
+				FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */,
@@ -1318,6 +1350,7 @@
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				F7EB9B941CAB5AE5005343AC /* SettingsTableViewController.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
+				FD44627B1CAC9EF000F7E12F /* PostTableViewDelegate.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
 				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
