@@ -79,6 +79,8 @@
 		FD4462781CAC9A0100F7E12F /* app_praise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462761CAC9A0100F7E12F /* app_praise@2x.png */; };
 		FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD44627D1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m */; };
 		FD4462801CAD1C7F00F7E12F /* SubjectDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD44627E1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.xib */; };
+		FD4462831CAD4B4C00F7E12F /* ActivityDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462821CAD4B4C00F7E12F /* ActivityDetailTableViewController.m */; };
+		FD4462861CAD51FF00F7E12F /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462851CAD51FF00F7E12F /* ActivityDetailViewController.m */; };
 		FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */; };
 		FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47F85C1C8AC58C00D0ED07 /* Page.m */; };
 		FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A3F1CABE0F100706B4D /* login_sina@2x.png */; };
@@ -320,6 +322,10 @@
 		FD44627C1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectDetailTableViewCell.h; sourceTree = "<group>"; };
 		FD44627D1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectDetailTableViewCell.m; sourceTree = "<group>"; };
 		FD44627E1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectDetailTableViewCell.xib; sourceTree = "<group>"; };
+		FD4462811CAD4B4C00F7E12F /* ActivityDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailTableViewController.h; path = Foundation/Activity/ActivityDetailTableViewController.h; sourceTree = SOURCE_ROOT; };
+		FD4462821CAD4B4C00F7E12F /* ActivityDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailTableViewController.m; path = Foundation/Activity/ActivityDetailTableViewController.m; sourceTree = SOURCE_ROOT; };
+		FD4462841CAD51FF00F7E12F /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityDetailViewController.h; path = Foundation/Activity/ActivityDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		FD4462851CAD51FF00F7E12F /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityDetailViewController.m; path = Foundation/Activity/ActivityDetailViewController.m; sourceTree = SOURCE_ROOT; };
 		FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_thumb@2x.png"; sourceTree = "<group>"; };
 		FD47F85B1C8AC58C00D0ED07 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		FD47F85C1C8AC58C00D0ED07 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
@@ -731,6 +737,10 @@
 		F7A61E641CA049DB001B5FB3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FD4462811CAD4B4C00F7E12F /* ActivityDetailTableViewController.h */,
+				FD4462821CAD4B4C00F7E12F /* ActivityDetailTableViewController.m */,
+				FD4462841CAD51FF00F7E12F /* ActivityDetailViewController.h */,
+				FD4462851CAD51FF00F7E12F /* ActivityDetailViewController.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1283,6 +1293,7 @@
 				FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */,
 				F73B789C1C81375600069EEE /* AFNetworkReachabilityManager.m in Sources */,
 				F73B78A41C81375600069EEE /* MJRefreshConst.m in Sources */,
+				FD4462861CAD51FF00F7E12F /* ActivityDetailViewController.m in Sources */,
 				FDE26AE51C9C308F003418D5 /* ActivityTableViewCell.m in Sources */,
 				FDE2D9501CA369CF008DDE4F /* DTKDropdownMenuView.m in Sources */,
 				FDF3FE3C1CA81F52007B7C83 /* MySubjectPageController.m in Sources */,
@@ -1336,6 +1347,7 @@
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				FD4462831CAD4B4C00F7E12F /* ActivityDetailTableViewController.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "ActivityTableViewDelegate.h"
 #import "ActivityTableViewCell.h"
+#import "ActivityDetailViewController.h"
 
 @implementation ActivityTableViewDelegate
 #pragma mark - tb代理方法
@@ -37,4 +38,10 @@
     return 72.0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *object = self.dataArray[indexPath.row];
+    ActivityDetailViewController *vc = [self.vc.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    vc.activityId = object[@"activityId"];
+    [self.vc.navigationController pushViewController:vc animated:YES];
+}
 @end
