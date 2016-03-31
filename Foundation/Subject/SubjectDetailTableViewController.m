@@ -87,7 +87,7 @@
         cell.thumbImageView.clipsToBounds = YES;
         cell.thumbImageView.layer.cornerRadius = 10.0;
         /**作者*/
-        cell.realnameLabel.text = [StringUtil toString:object[@"realName"]];
+        cell.realnameLabel.text = object[@"realName"] == [NSNull null] ? @"匿名用户" : object[@"realName"];
         /**发布时间*/
         cell.pbDateTimeLabel.text = [DateUtil toShortDate:object[@"pbDate"] time:object[@"pbTime"]];
         /**回复数*/
