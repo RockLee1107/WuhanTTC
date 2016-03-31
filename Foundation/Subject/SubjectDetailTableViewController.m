@@ -43,14 +43,11 @@
 
 ///初始化代理
 - (void)initDelegate {
-    self.postTableViewDelegate = [[PostTableViewDelegate alloc] initWithVC:self];
-//    self.postTableViewDelegate.vc = self;
+    self.postTableViewDelegate = [[PostTableViewDelegate alloc] init];
+    self.postTableViewDelegate.vc = self;
     self.postTableView.delegate = self.postTableViewDelegate;
     self.postTableView.dataSource = self.postTableViewDelegate;
-    UINib *cellNib = [UINib nibWithNibName:@"PostTableViewCell" bundle:nil];
-    [self.postTableView registerNib:cellNib forCellReuseIdentifier:@"post"];
-    self.postTableViewDelegate.prototypeCell = [self.postTableView dequeueReusableCellWithIdentifier:@"post"];
-
+    [self.postTableView registerNib:[UINib nibWithNibName:@"PostTableViewCell" bundle:nil] forCellReuseIdentifier:@"post"];
 }
 
 
@@ -69,6 +66,7 @@
         [self.tableView reloadData];
     } noResult:nil];
 }
+
 ///导航栏下拉菜单
 - (void)addRightItem
 {
@@ -101,22 +99,9 @@
 //        主帖
         return self.contentTextView.frame.size.height + 130.0;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
-//        总高度汇总
-        NSLog(@"%.2f",self.sumPostHeight);
-//        if (self.sumPostHeight != 0) {
-//            return self.sumPostHeight;
-//        }
+
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
-
-//估算高度
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0 && indexPath.row == 1) {
-//        //        总高度汇总
-//        return self.sumPostHeight;
-//    }
-//    return SCREEN_HEIGHT - 160.0;
-//}
 
 @end
