@@ -20,5 +20,6 @@
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic, strong) Page *page;
 @property (nonatomic,strong) HttpService *service;
+- (void)setDynamicLayout;
 
 @end

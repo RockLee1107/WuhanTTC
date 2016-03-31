@@ -10,7 +10,4 @@
 
 @interface SubjectDetailTableViewController : BaseStaticTableViewController
 @property (nonatomic,strong) NSDictionary *dict;
-@property (assign, nonatomic) CGFloat sumPostHeight;
-@property (weak, nonatomic) IBOutlet UITableView *postTableView;
-
 @end
