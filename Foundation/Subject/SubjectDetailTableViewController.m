@@ -33,9 +33,7 @@
     self.realnameLabel.text = self.dict[@"realName"];
     self.pbDateTimeLabel.text = [DateUtil toString:self.dict[@"pbDate"] time:self.dict[@"pbTime"]];
     self.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:self.dict[@"content"] attributes:[StringUtil textViewAttribute]];
-    [self.contentTextView sizeToFit];
         [self.thumbImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dict[@"pictUrl"]]]]];
-    [self.tableView reloadData];
     //回复内容
 //    self.postTableView.scrollEnabled = NO;
     [self fetchData];
@@ -63,7 +61,6 @@
     [self.service POST:@"/book/postSubject/getSubjectDetail" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.postTableViewDelegate.dataArray = responseObject[@"postReplyDto"];
         [self.postTableView reloadData];
-        [self.tableView reloadData];
     } noResult:nil];
 }
 
@@ -97,7 +94,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
 //        主帖
-        return self.contentTextView.frame.size.height + 130.0;
+        NSDictionary *attribute = [StringUtil textViewAttribute];
+        CGRect frame = [self.dict[@"content"] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX) options:((NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)) attributes:attribute context:nil];
+        return frame.size.height + 140;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
 
     }

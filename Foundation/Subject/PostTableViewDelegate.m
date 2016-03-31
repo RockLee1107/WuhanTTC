@@ -43,8 +43,8 @@
     NSDictionary *object = self.dataArray[indexPath.row];
     NSString *content = object[@"content"];
     NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:14]};
-    CGRect size = [content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:attribute context:nil];
-    return size.size.height + 60.0;
+    CGRect frame = [content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin) attributes:attribute context:nil];
+    return frame.size.height + 60.0;
 }
 
 @end
