@@ -12,6 +12,7 @@
 @property (nonatomic,strong) IBOutlet UILabel *realnameLabel;
 @property (nonatomic,strong) IBOutlet UILabel *pbDateTimeLabel;
 @property (nonatomic,strong) IBOutlet UITextView *contentTextView;
+@property (nonatomic,strong) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (nonatomic,strong) IBOutlet UILabel *praiseCountLabel;
 @end

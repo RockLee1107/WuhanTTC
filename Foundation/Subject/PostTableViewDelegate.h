@@ -10,4 +10,7 @@
 
 @interface PostTableViewDelegate : BaseTableViewDelegate
 @property (nonatomic,strong) NSMutableArray *heightArray;
+- (instancetype)initWithVC:(UIViewController *)vc;
+@property (nonatomic, strong) UITableViewCell *prototypeCell;
+
 @end

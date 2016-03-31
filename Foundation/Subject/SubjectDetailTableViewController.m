@@ -17,7 +17,6 @@
 @property (nonatomic,strong) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 /*回复的TableView*/
-@property (weak, nonatomic) IBOutlet UITableView *postTableView;
 @property (strong, nonatomic) PostTableViewDelegate *postTableViewDelegate;
 
 @end
@@ -44,10 +43,14 @@
 
 ///初始化代理
 - (void)initDelegate {
-    self.postTableViewDelegate = [[PostTableViewDelegate alloc] init];
-    self.postTableViewDelegate.vc = self;
+    self.postTableViewDelegate = [[PostTableViewDelegate alloc] initWithVC:self];
+//    self.postTableViewDelegate.vc = self;
     self.postTableView.delegate = self.postTableViewDelegate;
     self.postTableView.dataSource = self.postTableViewDelegate;
+    UINib *cellNib = [UINib nibWithNibName:@"PostTableViewCell" bundle:nil];
+    [self.postTableView registerNib:cellNib forCellReuseIdentifier:@"post"];
+    self.postTableViewDelegate.prototypeCell = [self.postTableView dequeueReusableCellWithIdentifier:@"post"];
+
 }
 
 
