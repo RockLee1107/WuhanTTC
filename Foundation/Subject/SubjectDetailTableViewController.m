@@ -19,7 +19,7 @@
 /*回复的TableView*/
 @property (weak, nonatomic) IBOutlet UITableView *postTableView;
 @property (strong, nonatomic) PostTableViewDelegate *postTableViewDelegate;
-@property (assign, nonatomic) CGFloat sumPostHeight;
+
 @end
 
 @implementation SubjectDetailTableViewController
@@ -99,16 +99,21 @@
         return self.contentTextView.frame.size.height + 130.0;
     } else if (indexPath.section == 0 && indexPath.row == 1) {
 //        总高度汇总
-        return self.sumPostHeight;
+        NSLog(@"%.2f",self.sumPostHeight);
+//        if (self.sumPostHeight != 0) {
+//            return self.sumPostHeight;
+//        }
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
-- (CGFloat)sumPostHeight {
-    CGFloat sum;
-    for (NSNumber *height in self.postTableViewDelegate.heightArray) {
-        sum += [height floatValue];
-    }
-    return sum;
-}
+//估算高度
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.section == 0 && indexPath.row == 1) {
+//        //        总高度汇总
+//        return self.sumPostHeight;
+//    }
+//    return SCREEN_HEIGHT - 160.0;
+//}
+
 @end

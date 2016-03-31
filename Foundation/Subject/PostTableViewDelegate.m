@@ -8,6 +8,8 @@
 
 #import "PostTableViewDelegate.h"
 #import "PostTableViewCell.h"
+#import "SubjectDetailTableViewController.h"
+
 @interface PostTableViewDelegate()
 @end
 
@@ -42,6 +44,16 @@
     cell.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:object[@"content"] attributes:[StringUtil textViewAttribute]];
     [cell.contentTextView sizeToFit];
     self.heightArray[indexPath.row] = [NSNumber numberWithFloat:cell.contentTextView.frame.size.height];
+    //汇总高度
+    if (indexPath.row == self.dataArray.count - 1) {
+        CGFloat sum;
+        for (NSNumber *height in self.heightArray) {
+            sum += [height floatValue];
+        }
+        ((SubjectDetailTableViewController *)self.vc).sumPostHeight = sum;
+        [((SubjectDetailTableViewController *)self.vc).tableView reloadData];
+    }
+    
     return cell;
 }
 
