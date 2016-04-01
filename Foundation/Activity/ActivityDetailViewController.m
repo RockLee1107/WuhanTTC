@@ -43,7 +43,9 @@
                                                                         @"isAttention":@1
                                                                         }]
                                 };
-        [self.service GET:@"/activity/activityAttention" parameters:param success:nil noResult:nil];
+        [self.service GET:@"/activity/activityAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+        } noResult:nil];
     }];
     
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu"];
