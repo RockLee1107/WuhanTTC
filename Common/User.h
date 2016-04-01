@@ -11,4 +11,5 @@
 + (instancetype)getInstance;
 @property (nonatomic,strong) NSString *username;
 @property (nonatomic,strong) NSString *uid;
+@property (nonnull,strong) NSNumber *hasInfo;
 @end

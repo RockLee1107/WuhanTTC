@@ -27,7 +27,20 @@
 }
 
 - (IBAction)joinButtonPress:(id)sender {
-    [SVProgressHUD showErrorWithStatus:@"请先完善个人资料"];
+    if ([[User getInstance].hasInfo boolValue]) {
+        //报名操作
+        NSDictionary *param = @{
+                                @"Applys":[StringUtil dictToJson:@{
+                                                                        @"activityId":self.activityId,
+                                                                        @"userId":[User getInstance].uid
+                                                                        }]
+                                };
+        [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"报名成功"];
+        } noResult:nil];
+    } else {
+        [SVProgressHUD showErrorWithStatus:@"请先完善个人资料"];
+    }
 }
 
 ///导航栏下拉菜单
