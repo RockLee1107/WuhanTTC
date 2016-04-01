@@ -30,7 +30,7 @@
 //        NSLog(@"origin response:\n%@",responseObject);
         if ([responseObject[@"success"] boolValue] == YES) {
             success(operation,responseObject[@"data"]);
-            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+//            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
         } else {
             if ([responseObject[@"errorCode"] integerValue] == 520) {
                 //未登录
@@ -57,7 +57,7 @@
         //        NSLog(@"origin response:\n%@",responseObject);
         if ([responseObject[@"success"] boolValue] == YES) {
             success(operation,responseObject[@"data"]);
-            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+//            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
         } else {
             if ([responseObject[@"errorCode"] integerValue] == 520) {
                 //未登录

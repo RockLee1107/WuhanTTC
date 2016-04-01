@@ -44,7 +44,7 @@
                                                                         }]
                                 };
         [self.service GET:@"/activity/activityAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
+            [SVProgressHUD showSuccessWithStatus:@"关注活动成功"];
         } noResult:nil];
     }];
     

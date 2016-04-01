@@ -7,8 +7,11 @@
 //
 
 #import "ProjectIndexTableViewController.h"
+#import "ProjectTableViewDelegate.h"
 
 @interface ProjectIndexTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;
+@property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
 
 @end
 
@@ -16,26 +19,72 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initDelegate];
+    [self initRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//上拉下拉控件
+- (void)initRefreshControl {
+    /**上拉刷新、下拉加载*/
+    __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.wrappedTableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.page.pageNo = 1;
+        [weakSelf fetchData];
+        [weakSelf.wrappedTableView.header endRefreshing];
+    }];
+    [self.wrappedTableView.legendHeader beginRefreshing];
+    [self.wrappedTableView addLegendFooterWithRefreshingBlock:^{
+        weakSelf.page.pageNo++;
+        [weakSelf fetchData];
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        [weakSelf.wrappedTableView.footer endRefreshing];
+    }];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//初始化代理
+- (void)initDelegate {
+    self.tableViewDelegate = [[ProjectTableViewDelegate alloc] init];
+    self.tableViewDelegate.vc = self;
+    self.wrappedTableView.delegate = self.tableViewDelegate;
+    self.wrappedTableView.dataSource = self.tableViewDelegate;
 }
-*/
 
+/**创连接项目*/
+- (void)fetchData{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
+                                 @{
+                                   //                                  @"SEQ_typeCode":@"",
+                                   //                                  @"IIN_status":@"2",
+                                   //                                  @"SEQ_city":@0,
+                                   //                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                   }];
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.page.pageNo == 1) {
+            //由于下拉刷新时页面而归零
+            [self.tableViewDelegate.dataArray removeAllObjects];
+            [self.wrappedTableView.footer resetNoMoreData];
+        }
+        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
+        [self.wrappedTableView reloadData];
+        //为了刷新表格总高度
+        [self.tableView reloadData];
+    } noResult:^{
+        [self.wrappedTableView.footer noticeNoMoreData];
+    }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        return self.tableViewDelegate.dataArray.count * 80.0;
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
 @end

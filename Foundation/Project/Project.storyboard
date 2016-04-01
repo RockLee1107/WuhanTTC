@@ -118,6 +118,62 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="tEy-cb-IR9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="46" id="fiJ-Z0-lBx">
+                                        <rect key="frame" x="0.0" y="239" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fiJ-Z0-lBx" id="9MM-0j-9qj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoh-iV-ySH" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="13" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="YIy-Q1-Kf5"/>
+                                                        <constraint firstAttribute="width" constant="90" id="wo1-cT-cjI"/>
+                                                    </constraints>
+                                                    <state key="normal" title="热门项目">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qoh-iV-ySH" firstAttribute="leading" secondItem="9MM-0j-9qj" secondAttribute="leadingMargin" constant="5" id="ThC-ga-DAy"/>
+                                                <constraint firstItem="qoh-iV-ySH" firstAttribute="leading" secondItem="9MM-0j-9qj" secondAttribute="leadingMargin" constant="5" id="bTJ-fm-HEw"/>
+                                                <constraint firstAttribute="topMargin" secondItem="qoh-iV-ySH" secondAttribute="top" constant="5" id="eqe-1r-s2O"/>
+                                                <constraint firstItem="qoh-iV-ySH" firstAttribute="top" secondItem="9MM-0j-9qj" secondAttribute="topMargin" constant="5" id="hXZ-hc-aNJ"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="bTJ-fm-HEw"/>
+                                                    <exclude reference="eqe-1r-s2O"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="172" id="l6T-0o-Yp1">
+                                        <rect key="frame" x="0.0" y="285" width="320" height="172"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l6T-0o-Yp1" id="Pf9-cn-Oat">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XNb-qD-tci">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </tableView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XNb-qD-tci" firstAttribute="top" secondItem="Pf9-cn-Oat" secondAttribute="topMargin" constant="-8" id="5g9-St-hH7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="XNb-qD-tci" secondAttribute="bottom" constant="-8" id="SOR-vO-3n6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XNb-qD-tci" secondAttribute="trailing" constant="-8" id="W6g-dz-lng"/>
+                                                <constraint firstItem="XNb-qD-tci" firstAttribute="leading" secondItem="Pf9-cn-Oat" secondAttribute="leadingMargin" constant="-8" id="dKH-DR-KLs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="cyv-Ze-yal" id="gqA-JI-4GY"/>
@@ -125,6 +181,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="创连接" id="MMz-ER-4Wa"/>
+                    <connections>
+                        <outlet property="wrappedTableView" destination="XNb-qD-tci" id="gOo-Sw-ita"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cl-xt-lX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

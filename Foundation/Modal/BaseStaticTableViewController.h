@@ -14,6 +14,7 @@
 #import "User.h"
 #import "DateUtil.h"
 #import "Page.h"
+#import "MJRefresh.h"
 
 @interface BaseStaticTableViewController : UITableViewController
 @property (nonatomic,strong) NSDictionary *dataDict;
