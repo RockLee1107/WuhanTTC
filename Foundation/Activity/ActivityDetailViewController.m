@@ -27,7 +27,7 @@
 }
 
 - (IBAction)joinButtonPress:(id)sender {
-    [SVProgressHUD showErrorWithStatus:@"请先登录"];
+    [SVProgressHUD showErrorWithStatus:@"请先完善个人资料"];
 }
 
 ///导航栏下拉菜单
@@ -35,6 +35,15 @@
 {
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+//        访问网络
+        NSDictionary *param = @{
+                                @"Participate":[StringUtil dictToJson:@{
+                                                                        @"activityId":self.activityId,
+                                                                        @"userId":[User getInstance].uid,
+                                                                        @"isAttention":@1
+                                                                        }]
+                                };
+        [self.service GET:@"/activity/activityAttention" parameters:param success:nil noResult:nil];
     }];
     
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu"];

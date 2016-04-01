@@ -14,6 +14,7 @@
 #import "JSDropDownMenu.h"
 #import "LocationUtil.h"
 #import "SVProgressHUD.h"
+#import "User.h"
 
 @interface BaseTableViewController : BaseViewController
 @property (nonatomic, strong) Page *page;
