@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @interface User : NSObject
-+ (instancetype)getInstance;
-@property (nonatomic,strong) NSString *username;
-@property (nonatomic,strong) NSString *uid;
++ (nonnull instancetype)getInstance;
+@property (nonatomic,strong,nonnull) NSString *username;
+@property (nonatomic,strong,nonnull) NSString *uid;
 @property (nonnull,strong) NSNumber *hasInfo;
 @end
