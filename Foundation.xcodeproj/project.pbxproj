@@ -73,6 +73,9 @@
 		F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50051C8A76C600114B28 /* StringUtil.m */; };
 		F7FE50091C8A786800114B28 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50081C8A786700114B28 /* User.m */; };
 		F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */; };
+		FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */; };
+		FD34C0BF1CAFBE9B002B7630 /* InvestorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BD1CAFBE9B002B7630 /* InvestorTableViewCell.m */; };
+		FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -314,6 +317,11 @@
 		F7FE50081C8A786700114B28 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearcher.h; sourceTree = "<group>"; };
 		F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearcher.m; sourceTree = "<group>"; };
+		FD34C0B91CAFBDCA002B7630 /* InvestorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorListViewController.h; sourceTree = "<group>"; };
+		FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorListViewController.m; sourceTree = "<group>"; };
+		FD34C0BC1CAFBE9B002B7630 /* InvestorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewCell.h; sourceTree = "<group>"; };
+		FD34C0BD1CAFBE9B002B7630 /* InvestorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorTableViewCell.m; sourceTree = "<group>"; };
+		FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvestorTableViewCell.xib; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -716,6 +724,7 @@
 		F73B78BD1C813E2800069EEE /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				FD34C0B81CAFBDA0002B7630 /* Investor */,
 				F73B78BE1C813E2800069EEE /* Project.storyboard */,
 				F7A61E651CA04A41001B5FB3 /* Detail */,
 				FDE33F181C9FEF73005C6863 /* ProjectList */,
@@ -863,6 +872,18 @@
 				F7B98EAC1C7459FF006ABA71 /* Launch@2x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		FD34C0B81CAFBDA0002B7630 /* Investor */ = {
+			isa = PBXGroup;
+			children = (
+				FD34C0B91CAFBDCA002B7630 /* InvestorListViewController.h */,
+				FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */,
+				FD34C0BC1CAFBE9B002B7630 /* InvestorTableViewCell.h */,
+				FD34C0BD1CAFBE9B002B7630 /* InvestorTableViewCell.m */,
+				FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */,
+			);
+			path = Investor;
 			sourceTree = "<group>";
 		};
 		FD44626F1CAC95FD00F7E12F /* Post */ = {
@@ -1229,6 +1250,7 @@
 				FD9450F81CA8398800E00759 /* menu_comment@2x.png in Resources */,
 				FDE26AD81C9BF8B8003418D5 /* person_msg@2x.png in Resources */,
 				FD9450F01CA8362100E00759 /* menu_reply@2x.png in Resources */,
+				FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */,
 				FD9450F91CA8398800E00759 /* menu_share@2x.png in Resources */,
 				F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */,
 				FD9451061CA843DD00E00759 /* special4@2x.png in Resources */,
@@ -1287,6 +1309,7 @@
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
+				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
@@ -1307,6 +1330,7 @@
 				FD9450E71CA8336A00E00759 /* SubjectDetailTableViewController.m in Sources */,
 				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
+				FD34C0BF1CAFBE9B002B7630 /* InvestorTableViewCell.m in Sources */,
 				FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */,
 				F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,

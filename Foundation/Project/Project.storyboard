@@ -115,6 +115,9 @@
                                                 <constraint firstItem="SUG-4n-hgk" firstAttribute="centerY" secondItem="Hba-iq-FOd" secondAttribute="centerY" constant="0.5" id="yem-mo-nhf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JYy-CI-9ZV" kind="show" id="1OB-au-596"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -546,6 +549,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1A-Li-1Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2519" y="481"/>
+        </scene>
+        <!--投资人-->
+        <scene sceneID="PGj-Un-Rhp">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="JYy-CI-9ZV" customClass="InvestorListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xnd-Ws-VtS"/>
+                        <viewControllerLayoutGuide type="bottom" id="F2N-T4-wQB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w5a-ci-CrG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="06Z-a8-1XX" customClass="BaseTableView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F2N-T4-wQB" firstAttribute="top" secondItem="06Z-a8-1XX" secondAttribute="bottom" id="1A6-71-qbN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="06Z-a8-1XX" secondAttribute="trailing" constant="-16" id="6a3-XS-1Lp"/>
+                            <constraint firstItem="F2N-T4-wQB" firstAttribute="top" secondItem="06Z-a8-1XX" secondAttribute="bottom" id="Dc9-y0-0Fn"/>
+                            <constraint firstItem="06Z-a8-1XX" firstAttribute="top" secondItem="Xnd-Ws-VtS" secondAttribute="bottom" id="VWx-ph-sx8"/>
+                            <constraint firstItem="06Z-a8-1XX" firstAttribute="leading" secondItem="w5a-ci-CrG" secondAttribute="leadingMargin" constant="-16" id="nHR-Sa-yrD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Dc9-y0-0Fn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="投资人" id="t2q-NU-6Ue"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="06Z-a8-1XX" id="Xj7-Df-9nY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKb-9M-fXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559" y="1267"/>
         </scene>
     </scenes>
     <resources>
