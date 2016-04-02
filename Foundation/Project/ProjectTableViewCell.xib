@@ -16,13 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="这是活动名称，只显示一行" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yv-vb-p7o">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是活动名称，只显示一行" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yv-vb-p7o">
                         <rect key="frame" x="108" y="14" width="115" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="活动类型" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfP-Xb-Kri">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动类型" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfP-Xb-Kri">
                         <rect key="frame" x="108" y="46" width="56" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,23 +40,39 @@
                             </mask>
                         </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="城市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-ZS-LfE">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-ZS-LfE">
                         <rect key="frame" x="284" y="16" width="28" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="TVC-vO-M0B"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isK-L7-Wb4" customClass="LXButton">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isK-L7-Wb4" customClass="LXButton">
                         <rect key="frame" x="231" y="13" width="46" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="PFF-eb-XG3"/>
+                            <constraint firstAttribute="width" constant="46" id="utx-fb-hEk"/>
+                        </constraints>
                         <state key="normal" title="A轮">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="CfP-Xb-Kri" firstAttribute="top" secondItem="9yv-vb-p7o" secondAttribute="bottom" constant="11" id="7CL-93-D78"/>
                     <constraint firstItem="LRu-qh-tfd" firstAttribute="leading" secondItem="rTX-CG-MU4" secondAttribute="leadingMargin" id="7Gl-93-0jz"/>
+                    <constraint firstItem="wMy-ZS-LfE" firstAttribute="leading" secondItem="isK-L7-Wb4" secondAttribute="trailing" constant="7" id="7fk-E7-zLu"/>
+                    <constraint firstItem="isK-L7-Wb4" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" constant="5" id="8aS-OV-ZrR"/>
                     <constraint firstAttribute="centerY" secondItem="LRu-qh-tfd" secondAttribute="centerY" id="Gtl-Fd-eXf"/>
+                    <constraint firstItem="isK-L7-Wb4" firstAttribute="leading" secondItem="9yv-vb-p7o" secondAttribute="trailing" constant="8" id="LXc-gb-bjk"/>
                     <constraint firstItem="LRu-qh-tfd" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" id="Pbw-19-LeM"/>
+                    <constraint firstItem="9yv-vb-p7o" firstAttribute="leading" secondItem="LRu-qh-tfd" secondAttribute="trailing" constant="8" id="eFY-sh-ZSt"/>
+                    <constraint firstItem="9yv-vb-p7o" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" constant="6" id="eoH-zK-PBM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wMy-ZS-LfE" secondAttribute="trailing" id="nIN-Uu-ADb"/>
+                    <constraint firstItem="wMy-ZS-LfE" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" constant="8" id="rMa-WS-O5U"/>
+                    <constraint firstItem="CfP-Xb-Kri" firstAttribute="leading" secondItem="LRu-qh-tfd" secondAttribute="trailing" constant="8" id="rh0-er-Ml9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

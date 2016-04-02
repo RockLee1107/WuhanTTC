@@ -9,6 +9,7 @@
 #import "ActivityDetailTableViewController.h"
 
 @interface ActivityDetailTableViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *pictUrlImageView;
 @property (weak, nonatomic) IBOutlet UILabel *activityTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -30,6 +31,8 @@
                             };
     [self.service POST:@"/activity/getActivity" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
+        [self.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"pictUrl"]]]]];
+        self.pictUrlImageView.clipsToBounds = YES;
         self.activityTitleLabel.text = responseObject[@"activityTitle"];
         self.typeLabel.text = responseObject[@"type"];
         self.statusLabel.text = ACTIVITY_STATUS_ARRAY[[responseObject[@"status"] integerValue]];

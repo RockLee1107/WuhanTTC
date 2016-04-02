@@ -20,7 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.scrollEnabled = NO;
-    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
+//    自动登录
+//    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 }
 
 - (IBAction)loginButtonPress:(id)sender {

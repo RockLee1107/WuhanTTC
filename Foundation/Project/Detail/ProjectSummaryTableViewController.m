@@ -34,15 +34,15 @@
 }
 
 - (void)fetchData {
-    self.procDetailsLabel.text = @"xxx";
     NSDictionary *param = @{
                             @"projectId":self.pid
                             };
     [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.thumbImageView.clipsToBounds = YES;
-        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,responseObject[@"bppictUrl"]];
+        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,responseObject[@"headPictUrl"]];
         [self.thumbImageView setImageWithURL:[NSURL URLWithString:url]];
-        self.procDetailsLabel.text = responseObject[@"procDetails"];
+        self.thumbImageView.clipsToBounds = YES;
+        self.procDetailsLabel.text = [StringUtil toString: responseObject[@"procDetails"]];
         self.projectNameLabel.text = [StringUtil toString: responseObject[@"projectName"]];
         self.procStatusNameLabel.text = [StringUtil toString: responseObject[@"procStatusName"]];
         self.bizNameLabel.text = [StringUtil toString: responseObject[@"bizName"]];

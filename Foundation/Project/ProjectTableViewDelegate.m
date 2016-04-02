@@ -21,7 +21,7 @@
     ProjectTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ProjectTableViewCell" owner:nil options:nil] firstObject];
     NSDictionary *object = self.dataArray[indexPath.row];
     /**图片*/
-    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"bppictUrl"]]]]];
+    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"headPictUrl"]]]]];
     cell.pictUrlImageView.clipsToBounds = YES;
     /**标题*/
     cell.titleLabel.text = [StringUtil toString:object[@"projectName"]];

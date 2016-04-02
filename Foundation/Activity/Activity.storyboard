@@ -449,6 +449,7 @@
                         <outlet property="applyRequirementLabel" destination="dtG-Wv-cI7" id="0hC-8T-5yk"/>
                         <outlet property="cityLabel" destination="ipt-eZ-fr9" id="jZG-DR-CC5"/>
                         <outlet property="endDatetimeLabel" destination="nm1-5f-WqW" id="lpb-pu-NPP"/>
+                        <outlet property="pictUrlImageView" destination="zKh-Pz-P7g" id="c18-hc-2MY"/>
                         <outlet property="planDatetimeLabel" destination="RGi-Fm-PY9" id="6zD-QL-XEf"/>
                         <outlet property="planSiteLabel" destination="9mE-d9-DUn" id="76t-n4-RNd"/>
                         <outlet property="statusLabel" destination="xBg-31-2l3" id="gHv-CQ-1BS"/>
