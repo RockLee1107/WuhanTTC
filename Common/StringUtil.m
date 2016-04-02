@@ -30,6 +30,13 @@
     return object;
 }
 
++(NSString*)toPlaceHolderString:(id)object {
+    if (object == [NSNull null]) {
+        object = @"暂无";
+    }
+    return object;
+}
+
 + (NSString *)labelArrayToStr:(NSArray *)array {
     if (array.count == 0) {
         return @"";

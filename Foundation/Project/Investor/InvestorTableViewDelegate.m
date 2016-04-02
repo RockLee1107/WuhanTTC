@@ -20,13 +20,12 @@
     InvestorTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"InvestorTableViewCell" owner:nil options:nil] firstObject];
     NSDictionary *object = self.dataArray[indexPath.row];
     /**图片*/
-    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"bppictUrl"]]]]];
+    [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"pictUrl"]]]]];
     cell.pictUrlImageView.clipsToBounds = YES;
     cell.realNameLabel.text = [StringUtil toString:object[@"realName"]];
     cell.companyLabel.text = [StringUtil toString:object[@"company"]];
     cell.investProcessLabel.text = [StringUtil toString:object[@"investProcess"]];
     cell.investAreaLabel.text = [StringUtil toString:object[@"investArea"]];
-    /**城市*/
     cell.areaLabel.text = [StringUtil toString:object[@"area"]];
     return cell;
 }

@@ -9,5 +9,4 @@
 #import "BaseStaticTableViewController.h"
 
 @interface InvestorDetailTableViewController : BaseStaticTableViewController
-
 @end
