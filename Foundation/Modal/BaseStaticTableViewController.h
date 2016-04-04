@@ -16,11 +16,12 @@
 #import "Page.h"
 #import "MJRefresh.h"
 
-@interface BaseStaticTableViewController : UITableViewController
+@interface BaseStaticTableViewController : UITableViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic, strong) Page *page;
 @property (nonatomic,strong) HttpService *service;
+@property (nonatomic,strong) UITextField *currentTextField;
 - (void)setDynamicLayout;
 
 @end

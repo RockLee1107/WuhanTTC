@@ -21,7 +21,11 @@
     [[LocationUtil getInstance] fetchLocation];
     self.containerView.layer.cornerRadius = 6.0;
     self.containerView.clipsToBounds = YES;
-    // Do any additional setup after loading the view.
 }
+
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+//}
 
 @end

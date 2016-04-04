@@ -30,7 +30,7 @@
 
 - (void)setDynamicLayout {
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.tableView.contentInset=UIEdgeInsetsMake(0,0,0,0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0,0,0,0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,5 +40,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    self.currentTextField = textField;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.currentTextField resignFirstResponder];
+//    [textField resignFirstResponder];
+    return YES;
 }
 @end

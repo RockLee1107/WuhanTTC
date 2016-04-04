@@ -28,4 +28,13 @@
 - (void)viewWillAppear:(BOOL)animated {
 //    self.tabBarController.tabBar.hidden = YES;
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    self.currentTextField = textField;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.currentTextField resignFirstResponder];
+    return YES;
+}
 @end

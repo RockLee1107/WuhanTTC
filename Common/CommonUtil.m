@@ -88,10 +88,7 @@
 + (BOOL)validatePassword:(NSString *)password {
     NSString *passwordReg = @"^(?!([a-zA-Z]+|\\d+)$)[a-zA-Z\\d]{8,16}$";
     NSPredicate *regexPwd = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordReg];
-    if (![regexPwd evaluateWithObject:password] == YES) {
-        return NO;
-    }
-    return YES;
+    return [regexPwd evaluateWithObject:password];
 }
 /**
  *非空
@@ -107,9 +104,6 @@
 + (BOOL)isDecimal:(NSString *)number {
     NSString *passwordReg = @"^\\d+(\\.\\d+)?$";
     NSPredicate *regexPwd = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordReg];
-    if (![regexPwd evaluateWithObject:number] == YES) {
-        return NO;
-    }
-    return YES;
+    return [regexPwd evaluateWithObject:number];
 }
 @end
