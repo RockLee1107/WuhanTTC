@@ -14,6 +14,8 @@
 #import "UIImageView+AFNetworking.h"
 #import "User.h"
 #import "CommonUtil.h"
+#import "PXAlertView.h"
+#import "PXAlertView+Customization.h"
 
 @interface BaseViewController : UIViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSArray *dataImmutableArray;

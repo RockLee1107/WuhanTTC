@@ -81,6 +81,9 @@
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
+		FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D5A001CB2AA6E00B9514D /* PXAlertView+Customization.m */; };
+		FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D5A021CB2AA6E00B9514D /* PXAlertView.m */; };
+		FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D5A041CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -337,6 +340,12 @@
 		FD3D59F91CB29AB100B9514D /* ResetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetViewController.m; sourceTree = "<group>"; };
 		FD3D59FB1CB2A19700B9514D /* modifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modifyViewController.h; sourceTree = "<group>"; };
 		FD3D59FC1CB2A19700B9514D /* modifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modifyViewController.m; sourceTree = "<group>"; };
+		FD3D59FF1CB2AA6E00B9514D /* PXAlertView+Customization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PXAlertView+Customization.h"; sourceTree = "<group>"; };
+		FD3D5A001CB2AA6E00B9514D /* PXAlertView+Customization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PXAlertView+Customization.m"; sourceTree = "<group>"; };
+		FD3D5A011CB2AA6E00B9514D /* PXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXAlertView.h; sourceTree = "<group>"; };
+		FD3D5A021CB2AA6E00B9514D /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
+		FD3D5A031CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+PXAlertViewOverride.h"; sourceTree = "<group>"; };
+		FD3D5A041CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+PXAlertViewOverride.m"; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -617,6 +626,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FD3D59FE1CB2AA6E00B9514D /* PXAlert */,
 				FDF3FE0A1CA7F854007B7C83 /* JSDropDownMenu */,
 				FDE2D92D1CA369CE008DDE4F /* DTKDropdownMenu */,
 				F7A61E691CA04CCB001B5FB3 /* WMPageController */,
@@ -909,6 +919,19 @@
 				FD34C0C51CAFEBE9002B7630 /* InvestorDetailTableViewController.m */,
 			);
 			path = Investor;
+			sourceTree = "<group>";
+		};
+		FD3D59FE1CB2AA6E00B9514D /* PXAlert */ = {
+			isa = PBXGroup;
+			children = (
+				FD3D59FF1CB2AA6E00B9514D /* PXAlertView+Customization.h */,
+				FD3D5A001CB2AA6E00B9514D /* PXAlertView+Customization.m */,
+				FD3D5A011CB2AA6E00B9514D /* PXAlertView.h */,
+				FD3D5A021CB2AA6E00B9514D /* PXAlertView.m */,
+				FD3D5A031CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.h */,
+				FD3D5A041CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m */,
+			);
+			path = PXAlert;
 			sourceTree = "<group>";
 		};
 		FD44626F1CAC95FD00F7E12F /* Post */ = {
@@ -1329,6 +1352,7 @@
 				FDE2D9571CA369CF008DDE4F /* MASViewConstraint.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
+				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
@@ -1366,6 +1390,7 @@
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
+				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
 				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
@@ -1392,6 +1417,7 @@
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
+				FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */,
 				FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */,
 				FDE2D9581CA369CF008DDE4F /* NSArray+MASAdditions.m in Sources */,
 				FDE2D95A1CA369CF008DDE4F /* View+MASAdditions.m in Sources */,
