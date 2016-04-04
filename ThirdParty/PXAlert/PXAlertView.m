@@ -199,7 +199,7 @@ static const CGFloat AlertViewVerticalEdgeMinMargin = 25;
 		if (cancelTitle) {
 			[self addButtonWithTitle:cancelTitle];
 		} else {
-			[self addButtonWithTitle:NSLocalizedString(@"Ok", nil)];
+			[self addButtonWithTitle:NSLocalizedString(@"确定", nil)];
 		}
 		
 		if (otherTitles && [otherTitles count] > 0) {
@@ -525,20 +525,20 @@ static const CGFloat AlertViewVerticalEdgeMinMargin = 25;
 
 + (instancetype)showAlertWithTitle:(NSString *)title
 {
-	return [[self class] showAlertWithTitle:title message:nil cancelTitle:NSLocalizedString(@"Ok", nil) completion:nil];
+	return [[self class] showAlertWithTitle:title message:nil cancelTitle:NSLocalizedString(@"确定", nil) completion:nil];
 }
 
 + (instancetype)showAlertWithTitle:(NSString *)title
 						   message:(NSString *)message
 {
-	return [[self class] showAlertWithTitle:title message:message cancelTitle:NSLocalizedString(@"Ok", nil) completion:nil];
+	return [[self class] showAlertWithTitle:title message:message cancelTitle:NSLocalizedString(@"确定", nil) completion:nil];
 }
 
 + (instancetype)showAlertWithTitle:(NSString *)title
 						   message:(NSString *)message
 						completion:(PXAlertViewCompletionBlock)completion
 {
-	return [[self class] showAlertWithTitle:title message:message cancelTitle:NSLocalizedString(@"Ok", nil) completion:completion];
+	return [[self class] showAlertWithTitle:title message:message cancelTitle:NSLocalizedString(@"确定", nil) completion:completion];
 }
 
 + (instancetype)showAlertWithTitle:(NSString *)title
