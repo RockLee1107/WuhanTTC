@@ -28,7 +28,6 @@
     self.containerView.layer.cornerRadius = 6.0;
     self.containerView.clipsToBounds = YES;
     [self.scrollView addGestureRecognizer:self.tap];
-    [self.containerView addGestureRecognizer:self.tap];
     self.usernameTextField.delegate = self;
     self.passwordView.textField.delegate = self;
     self.visitorButton.backgroundColor = [UIColor grayColor];
