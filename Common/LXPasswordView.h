@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LXPasswordView : UIView
+@interface LXPasswordView : UIView<UITextFieldDelegate>
 @property (nonatomic,strong) UIButton *button;
 @property (nonatomic,strong) UITextField *textField;
 @property (nonatomic,assign) BOOL isShow;

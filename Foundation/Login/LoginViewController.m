@@ -31,6 +31,8 @@
     self.usernameTextField.delegate = self;
     self.passwordView.textField.delegate = self;
     self.visitorButton.backgroundColor = [UIColor grayColor];
+    //    自动登录，调试阶段打开
+    //    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 }
 
 - (IBAction)loginButtonPress:(id)sender {

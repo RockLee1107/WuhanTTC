@@ -42,7 +42,8 @@
     }];
     //按钮点击事件
     [self.button addTarget:self action:@selector(showOrHide) forControlEvents:(UIControlEventTouchUpInside)];
-    
+    //关闭键盘
+    self.textField.delegate = self;
 }
 
 ///显示开头
@@ -56,4 +57,9 @@
     self.isShow = !self.isShow;
 }
 
+//关闭键盘
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end
