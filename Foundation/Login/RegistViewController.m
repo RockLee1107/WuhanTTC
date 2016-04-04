@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *realNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *realnameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *authCodeTextField;
 @property (weak, nonatomic) IBOutlet LXPasswordView *passwordView;
 @end
@@ -27,6 +27,8 @@
     self.containerView.clipsToBounds = YES;
     [self.scrollView addGestureRecognizer:self.tap];
     self.usernameTextField.delegate = self;
+    self.authCodeTextField.delegate = self;
+    self.realnameTextField.delegate = self;
     self.passwordView.textField.delegate = self;
     // Do any additional setup after loading the view.
 }
@@ -45,7 +47,7 @@
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordView.textField.text;
     NSString *authCode = self.authCodeTextField.text;
-    NSString *realname = self.realNameTextField.text;
+    NSString *realname = self.realnameTextField.text;
     NSDictionary *param = @{@"realName":realname,
                             @"username":username,
                             @"password":password,

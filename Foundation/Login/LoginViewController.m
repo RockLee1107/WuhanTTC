@@ -65,9 +65,4 @@
     }];
 }
 
-- (void)jumpMain {
-    MainTabBarController *vc = [[MainTabBarController alloc] init];
-    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
-}
-
 @end

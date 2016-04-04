@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "MainTabBarController.h"
+#import "LoginViewController.h"
 
 @interface BaseViewController ()
 
@@ -46,5 +48,15 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.currentTextField resignFirstResponder];
     return YES;
+}
+
+- (void)jumpMain {
+    MainTabBarController *vc = [[MainTabBarController alloc] init];
+    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+}
+
+- (void)jumpLogin {
+    LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
 }
 @end

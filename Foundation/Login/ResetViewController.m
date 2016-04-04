@@ -28,6 +28,7 @@
     self.containerView.clipsToBounds = YES;
     [self.scrollView addGestureRecognizer:self.tap];
     self.usernameTextField.delegate = self;
+    self.authCodeTextField.delegate = self;
     self.passwordView.textField.delegate = self;
     self.cancelButton.backgroundColor = [UIColor grayColor];
     // Do any additional setup after loading the view.
