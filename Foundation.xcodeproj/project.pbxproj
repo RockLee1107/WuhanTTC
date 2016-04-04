@@ -53,6 +53,7 @@
 		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
 		F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E92381CAAE53C001AE980 /* LocationUtil.m */; };
+		F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF421CB2555A002BCDEE /* RegistViewController.m */; };
 		F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */; };
 		F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */; };
 		F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */; };
@@ -281,6 +282,8 @@
 		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		F76E92371CAAE53C001AE980 /* LocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtil.h; sourceTree = "<group>"; };
 		F76E92381CAAE53C001AE980 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
+		F795DF411CB2555A002BCDEE /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		F795DF421CB2555A002BCDEE /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
 		F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
 		F7A61E6B1CA04CCB001B5FB3 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
@@ -802,6 +805,8 @@
 				F7FE4FFE1C892E7F00114B28 /* LoginViewController.h */,
 				F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */,
 				F7B827F41C892DDC00014746 /* Login.storyboard */,
+				F795DF411CB2555A002BCDEE /* RegistViewController.h */,
+				F795DF421CB2555A002BCDEE /* RegistViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1346,6 +1351,7 @@
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
+				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
 				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
