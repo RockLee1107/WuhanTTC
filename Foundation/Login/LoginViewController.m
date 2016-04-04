@@ -54,7 +54,10 @@
         User *user = [User getInstance];
         user.username = responseObject[@"username"];
         user.uid = responseObject[@"userId"];
-        if (responseObject[@"userinfo"] != [NSNull null]) {
+        if (responseObject[@"userinfo"][@"realName"] != [NSNull null]
+            && responseObject[@"userinfo"][@"company"] != [NSNull null]
+            && responseObject[@"userinfo"][@"duty"] != [NSNull null]
+            ) {
             user.hasInfo = [NSNumber numberWithBool:YES];
         } else {
             user.hasInfo = [NSNumber numberWithBool:NO];
