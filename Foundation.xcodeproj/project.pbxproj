@@ -78,6 +78,7 @@
 		FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */; };
 		FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0C21CAFEAED002B7630 /* InvestorTableViewDelegate.m */; };
 		FD34C0C61CAFEBE9002B7630 /* InvestorDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0C51CAFEBE9002B7630 /* InvestorDetailTableViewController.m */; };
+		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -328,6 +329,8 @@
 		FD34C0C21CAFEAED002B7630 /* InvestorTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorTableViewDelegate.m; sourceTree = "<group>"; };
 		FD34C0C41CAFEBE9002B7630 /* InvestorDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorDetailTableViewController.h; sourceTree = "<group>"; };
 		FD34C0C51CAFEBE9002B7630 /* InvestorDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorDetailTableViewController.m; sourceTree = "<group>"; };
+		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
+		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 		F73B785B1C81375500069EEE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */,
+				FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */,
 				F7EB9B9C1CAB68E2005343AC /* LXPasswordView.h */,
 				F7EB9B9D1CAB68E2005343AC /* LXPasswordView.m */,
 				F76E92371CAAE53C001AE980 /* LocationUtil.h */,
@@ -1413,6 +1418,7 @@
 				FDF3FE381CA81F52007B7C83 /* MyCollectPageController.m in Sources */,
 				FDF3FE0F1CA7F854007B7C83 /* JSDropDownMenu.m in Sources */,
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
+				FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
 				F7EB9B9E1CAB68E2005343AC /* LXPasswordView.m in Sources */,
