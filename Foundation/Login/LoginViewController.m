@@ -21,6 +21,7 @@
     [[LocationUtil getInstance] fetchLocation];
     self.containerView.layer.cornerRadius = 6.0;
     self.containerView.clipsToBounds = YES;
+    [self.scrollView addGestureRecognizer:self.tap];
 }
 
 //- (void)viewWillAppear:(BOOL)animated {

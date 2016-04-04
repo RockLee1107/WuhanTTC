@@ -18,4 +18,5 @@
 @property (nonatomic,strong) NSArray *dataImmutableArray;
 @property (nonatomic,strong) UITextField *currentTextField;
 @property (nonatomic,strong) HttpService *service;
+@property (nonatomic,strong) UITapGestureRecognizer *tap;
 @end

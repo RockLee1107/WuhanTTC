@@ -23,10 +23,20 @@
     UIImage *backBarItemImage = [[UIImage imageNamed:@"arrow_left"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [backItem setBackButtonBackgroundImage:backBarItemImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem = backItem;
+    //tap
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 //    self.tabBarController.tabBar.hidden = YES;
+}
+
+- (void)dismissKeyboard {
+    [self.currentTextField resignFirstResponder];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.currentTextField resignFirstResponder];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{

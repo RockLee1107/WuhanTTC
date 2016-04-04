@@ -33,8 +33,8 @@
     self.tableView.contentInset = UIEdgeInsetsMake(0,0,0,0);
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-//    self.tabBarController.tabBar.hidden = YES;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.currentTextField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +48,6 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.currentTextField resignFirstResponder];
-//    [textField resignFirstResponder];
     return YES;
 }
 @end
