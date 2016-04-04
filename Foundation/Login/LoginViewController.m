@@ -35,6 +35,14 @@
     //    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 }
 
+///游客登录
+- (IBAction)vistorButtonPress:(id)sender {
+    [self.service POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self jumpMain];
+    } noResult:nil];
+}
+
+///会员登录
 - (IBAction)loginButtonPress:(id)sender {
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordView.textField.text;
