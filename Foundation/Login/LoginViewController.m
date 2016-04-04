@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[LocationUtil getInstance] fetchLocation];
-    self.containerView.layer.cornerRadius = 6.0;
+    self.containerView.layer.cornerRadius = 4.0;
     self.containerView.clipsToBounds = YES;
     [self.scrollView addGestureRecognizer:self.tap];
     self.usernameTextField.delegate = self;
@@ -33,6 +33,7 @@
     self.visitorButton.backgroundColor = [UIColor grayColor];
     //    自动登录，调试阶段打开
     //    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
+    self.passwordView.textField.text = @"325200";
 }
 
 ///游客登录

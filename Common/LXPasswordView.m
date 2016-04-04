@@ -18,7 +18,7 @@
     self.textField.font = [UIFont systemFontOfSize:14.0];
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.textField.placeholder = @"请输入密码";
-    self.textField.text = @"123456";
+//    self.textField.text = @"123456";
 //    按钮初始化
     self.button = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.button setImage:[[UIImage imageNamed:@"app_pwd_unvisible.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
