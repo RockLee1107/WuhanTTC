@@ -8,10 +8,16 @@
 
 #import "LoginViewController.h"
 #import "LocationUtil.h"
+#import "LXPasswordView.h"
+#import "MainTabBarController.h"
+#import "LXButton.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet LXPasswordView *passwordView;
+@property (weak, nonatomic) IBOutlet LXButton *visitorButton;
 @end
 
 @implementation LoginViewController
@@ -22,11 +28,35 @@
     self.containerView.layer.cornerRadius = 6.0;
     self.containerView.clipsToBounds = YES;
     [self.scrollView addGestureRecognizer:self.tap];
+    self.usernameTextField.delegate = self;
+    self.passwordView.textField.delegate = self;
+    self.visitorButton.backgroundColor = [UIColor grayColor];
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
-//}
+- (IBAction)loginButtonPress:(id)sender {
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordView.textField.text;
+    NSDictionary *param = @{@"username":username,
+                            @"password":password};
+    [self.service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //        NSLog(@"login:%@",responseObject);
+        User *user = [User getInstance];
+        user.username = responseObject[@"username"];
+        user.uid = responseObject[@"userId"];
+        if (responseObject[@"userinfo"] != [NSNull null]) {
+            user.hasInfo = [NSNumber numberWithBool:YES];
+        } else {
+            user.hasInfo = [NSNumber numberWithBool:NO];
+        }
+        [self jumpMain];
+    } noResult:^{
+        
+    }];
+}
+
+- (void)jumpMain {
+    MainTabBarController *vc = [[MainTabBarController alloc] init];
+    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+}
 
 @end

@@ -29,29 +29,5 @@
 //    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 }
 
-- (IBAction)loginButtonPress:(id)sender {
-    NSString *username = self.usernameTextField.text;
-    NSString *password = self.passwordView.textField.text;
-    NSDictionary *param = @{@"username":username,
-                            @"password":password};
-    [self.service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //        NSLog(@"login:%@",responseObject);
-        User *user = [User getInstance];
-        user.username = responseObject[@"username"];
-        user.uid = responseObject[@"userId"];
-        if (responseObject[@"userinfo"] != [NSNull null]) {
-            user.hasInfo = [NSNumber numberWithBool:YES];
-        } else {
-            user.hasInfo = [NSNumber numberWithBool:NO];
-        }
-        [self jumpMain];
-    } noResult:^{
-        
-    }];
-}
 
-- (void)jumpMain {
-    MainTabBarController *vc = [[MainTabBarController alloc] init];
-    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
-}
 @end
