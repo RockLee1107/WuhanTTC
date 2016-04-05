@@ -25,9 +25,11 @@
     if (indexPath.section == 0) {
         
     } else if (indexPath.section == 3) {
-        [SVProgressHUD showSuccessWithStatus:@"退出成功"];
-        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-        [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+        [[User getInstance] logout];
+        [[PXAlertView showAlertWithTitle:@"退出成功" message:nil completion:^(BOOL cancelled, NSInteger buttonIndex) {
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+        }] useDefaultIOS7Style];
     }
 }
 

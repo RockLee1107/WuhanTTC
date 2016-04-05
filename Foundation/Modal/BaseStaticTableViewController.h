@@ -15,6 +15,8 @@
 #import "DateUtil.h"
 #import "Page.h"
 #import "MJRefresh.h"
+#import "PXAlertView.h"
+#import "PXAlertView+Customization.h"
 
 @interface BaseStaticTableViewController : UITableViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSDictionary *dataDict;

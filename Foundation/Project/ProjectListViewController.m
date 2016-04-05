@@ -97,7 +97,16 @@
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        if ([[[User getInstance] hasInfo] boolValue]) {
+            
+        } else {
+            
+            [[PXAlertView showAlertWithTitle:@"请先完善个人资料" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    [SVProgressHUD showSuccessWithStatus:@"正在为您跳转"];
+                }
+            }] useDefaultIOS7Style];
+        }
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页

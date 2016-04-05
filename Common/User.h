@@ -12,4 +12,5 @@
 @property (nonatomic,strong,nonnull) NSString *username;
 @property (nonatomic,strong,nonnull) NSString *uid;
 @property (nonnull,strong) NSNumber *hasInfo;
+- (void)logout;
 @end
