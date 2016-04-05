@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="238" id="KGk-i7-Jjw" customClass="HotCityTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="238"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQj-VK-wnR">
+                        <rect key="frame" x="108" y="20" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="cW0-5r-R3F"/>
+                            <constraint firstAttribute="height" constant="40" id="g9X-vf-cbm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="北京">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXw-UK-W5D">
+                        <rect key="frame" x="8" y="20" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="X0r-H0-rKj"/>
+                            <constraint firstAttribute="width" constant="80" id="YZS-IL-Ft7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="上海">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00i-GG-6Db">
+                        <rect key="frame" x="207" y="20" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="ZSo-6e-VKX"/>
+                            <constraint firstAttribute="width" constant="80" id="che-N9-M57"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="广州">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCH-1W-eGt">
+                        <rect key="frame" x="108" y="72" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="tti-62-WlN"/>
+                            <constraint firstAttribute="width" constant="80" id="yMA-oq-Xyt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="武汉">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqP-Ib-5Jc">
+                        <rect key="frame" x="8" y="72" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="fC6-JD-PS9"/>
+                            <constraint firstAttribute="height" constant="40" id="iap-xQ-ekZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="深圳">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUw-qC-PHq">
+                        <rect key="frame" x="207" y="72" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="QMX-Qg-fme"/>
+                            <constraint firstAttribute="width" constant="80" id="vbH-fJ-cWb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="天津">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDY-ht-CWz">
+                        <rect key="frame" x="108" y="124" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="VNV-wR-tIm"/>
+                            <constraint firstAttribute="width" constant="80" id="co1-cO-GPR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="南京">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5J-Q8-m3x">
+                        <rect key="frame" x="207" y="124" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="CB3-uF-z7L"/>
+                            <constraint firstAttribute="width" constant="80" id="q1t-bG-Xp3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="杭州">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dG-z7-Jby">
+                        <rect key="frame" x="108" y="176" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="IdQ-HU-hx9"/>
+                            <constraint firstAttribute="width" constant="80" id="poL-kx-qWJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="重庆">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvv-pb-nXi">
+                        <rect key="frame" x="8" y="176" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="bjC-Sf-tTo"/>
+                            <constraint firstAttribute="height" constant="40" id="sf7-hz-l5K"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="成都">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1L-Ln-Ef5">
+                        <rect key="frame" x="8" y="124" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="H6a-Iq-R7S"/>
+                            <constraint firstAttribute="height" constant="40" id="wdi-wn-La5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="西安">
+                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="DUw-qC-PHq" secondAttribute="trailing" id="4GL-Rr-LOz"/>
+                    <constraint firstItem="5dG-z7-Jby" firstAttribute="top" secondItem="qvv-pb-nXi" secondAttribute="top" id="AXR-2y-g39"/>
+                    <constraint firstItem="00i-GG-6Db" firstAttribute="top" secondItem="fQj-VK-wnR" secondAttribute="top" id="BJA-fV-XtF"/>
+                    <constraint firstAttribute="centerX" secondItem="LCH-1W-eGt" secondAttribute="centerX" id="CG8-nl-iuX"/>
+                    <constraint firstItem="5dG-z7-Jby" firstAttribute="top" secondItem="TDY-ht-CWz" secondAttribute="bottom" constant="12" id="FQq-oe-ZkY"/>
+                    <constraint firstItem="z1L-Ln-Ef5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="GCZ-nM-6E7"/>
+                    <constraint firstItem="fQj-VK-wnR" firstAttribute="top" secondItem="TXw-UK-W5D" secondAttribute="top" id="GPC-Rb-eAO"/>
+                    <constraint firstItem="qvv-pb-nXi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="H1T-Cd-PeZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F5J-Q8-m3x" secondAttribute="trailing" id="LSN-47-mdH"/>
+                    <constraint firstItem="LCH-1W-eGt" firstAttribute="top" secondItem="fQj-VK-wnR" secondAttribute="bottom" constant="12" id="O7g-Mq-Y7r"/>
+                    <constraint firstAttribute="centerX" secondItem="fQj-VK-wnR" secondAttribute="centerX" id="Q3X-UE-HAv"/>
+                    <constraint firstAttribute="centerX" secondItem="5dG-z7-Jby" secondAttribute="centerX" id="X9X-C8-vdq"/>
+                    <constraint firstItem="fQj-VK-wnR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="Ygc-9E-95g"/>
+                    <constraint firstItem="TDY-ht-CWz" firstAttribute="top" secondItem="z1L-Ln-Ef5" secondAttribute="top" id="aVQ-PX-E6a"/>
+                    <constraint firstAttribute="centerX" secondItem="TDY-ht-CWz" secondAttribute="centerX" id="aig-7W-D8x"/>
+                    <constraint firstItem="TXw-UK-W5D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dOz-9D-Ath"/>
+                    <constraint firstItem="BqP-Ib-5Jc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dk1-qd-tG1"/>
+                    <constraint firstItem="DUw-qC-PHq" firstAttribute="top" secondItem="LCH-1W-eGt" secondAttribute="top" id="o0W-YN-2GM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="00i-GG-6Db" secondAttribute="trailing" id="qY4-yG-eVJ"/>
+                    <constraint firstItem="LCH-1W-eGt" firstAttribute="top" secondItem="BqP-Ib-5Jc" secondAttribute="top" id="tnu-WC-zB1"/>
+                    <constraint firstItem="TDY-ht-CWz" firstAttribute="top" secondItem="LCH-1W-eGt" secondAttribute="bottom" constant="12" id="xda-Rh-WeU"/>
+                    <constraint firstItem="F5J-Q8-m3x" firstAttribute="top" secondItem="TDY-ht-CWz" secondAttribute="top" id="zQY-O7-nC1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="city1" destination="TXw-UK-W5D" id="HTm-ny-g6L"/>
+                <outlet property="city10" destination="qvv-pb-nXi" id="UGz-rO-QM2"/>
+                <outlet property="city11" destination="5dG-z7-Jby" id="Nua-Bb-d6S"/>
+                <outlet property="city2" destination="fQj-VK-wnR" id="3jc-gN-Jsd"/>
+                <outlet property="city3" destination="00i-GG-6Db" id="ceo-RW-WHv"/>
+                <outlet property="city4" destination="BqP-Ib-5Jc" id="9At-7h-Zxj"/>
+                <outlet property="city5" destination="LCH-1W-eGt" id="5L8-QC-GQQ"/>
+                <outlet property="city6" destination="DUw-qC-PHq" id="mOO-rL-Mph"/>
+                <outlet property="city7" destination="z1L-Ln-Ef5" id="mA7-2U-xde"/>
+                <outlet property="city8" destination="TDY-ht-CWz" id="MEl-31-dlA"/>
+                <outlet property="city9" destination="F5J-Q8-m3x" id="Euf-wY-PqE"/>
+            </connections>
+            <point key="canvasLocation" x="689.5" y="202"/>
+        </tableViewCell>
+    </objects>
+</document>

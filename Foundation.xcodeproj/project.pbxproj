@@ -54,6 +54,17 @@
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
 		F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E92381CAAE53C001AE980 /* LocationUtil.m */; };
 		F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF421CB2555A002BCDEE /* RegistViewController.m */; };
+		F795DF451CB40643002BCDEE /* app_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F795DF441CB40643002BCDEE /* app_photo@2x.png */; };
+		F795DF481CB408DC002BCDEE /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF471CB408DC002BCDEE /* UserInfoTableViewController.m */; };
+		F795DF591CB40BB8002BCDEE /* BaiduMap_cityCenter.txt in Resources */ = {isa = PBXBuildFile; fileRef = F795DF4A1CB40BB8002BCDEE /* BaiduMap_cityCenter.txt */; };
+		F795DF5A1CB40BB8002BCDEE /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF4C1CB40BB8002BCDEE /* City.m */; };
+		F795DF5B1CB40BB8002BCDEE /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF4E1CB40BB8002BCDEE /* CityViewController.m */; };
+		F795DF5C1CB40BB8002BCDEE /* HandleCityData.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF501CB40BB8002BCDEE /* HandleCityData.m */; };
+		F795DF5D1CB40BB8002BCDEE /* HotCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF521CB40BB8002BCDEE /* HotCityTableViewCell.m */; };
+		F795DF5E1CB40BB8002BCDEE /* HotCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F795DF531CB40BB8002BCDEE /* HotCityTableViewCell.xib */; };
+		F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF551CB40BB8002BCDEE /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F795DF601CB40BB8002BCDEE /* LocationCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF571CB40BB8002BCDEE /* LocationCityTableViewCell.m */; };
+		F795DF611CB40BB8002BCDEE /* LocationCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F795DF581CB40BB8002BCDEE /* LocationCityTableViewCell.xib */; };
 		F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */; };
 		F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */; };
 		F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */; };
@@ -290,6 +301,24 @@
 		F76E92381CAAE53C001AE980 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
 		F795DF411CB2555A002BCDEE /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
 		F795DF421CB2555A002BCDEE /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		F795DF441CB40643002BCDEE /* app_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_photo@2x.png"; sourceTree = "<group>"; };
+		F795DF461CB408DC002BCDEE /* UserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewController.h; sourceTree = "<group>"; };
+		F795DF471CB408DC002BCDEE /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewController.m; sourceTree = "<group>"; };
+		F795DF4A1CB40BB8002BCDEE /* BaiduMap_cityCenter.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BaiduMap_cityCenter.txt; sourceTree = "<group>"; };
+		F795DF4B1CB40BB8002BCDEE /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		F795DF4C1CB40BB8002BCDEE /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		F795DF4D1CB40BB8002BCDEE /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		F795DF4E1CB40BB8002BCDEE /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		F795DF4F1CB40BB8002BCDEE /* HandleCityData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandleCityData.h; sourceTree = "<group>"; };
+		F795DF501CB40BB8002BCDEE /* HandleCityData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandleCityData.m; sourceTree = "<group>"; };
+		F795DF511CB40BB8002BCDEE /* HotCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCityTableViewCell.h; sourceTree = "<group>"; };
+		F795DF521CB40BB8002BCDEE /* HotCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCityTableViewCell.m; sourceTree = "<group>"; };
+		F795DF531CB40BB8002BCDEE /* HotCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCityTableViewCell.xib; sourceTree = "<group>"; };
+		F795DF541CB40BB8002BCDEE /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		F795DF551CB40BB8002BCDEE /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		F795DF561CB40BB8002BCDEE /* LocationCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCityTableViewCell.h; sourceTree = "<group>"; };
+		F795DF571CB40BB8002BCDEE /* LocationCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCityTableViewCell.m; sourceTree = "<group>"; };
+		F795DF581CB40BB8002BCDEE /* LocationCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCityTableViewCell.xib; sourceTree = "<group>"; };
 		F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
 		F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
 		F7A61E6B1CA04CCB001B5FB3 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
@@ -626,6 +655,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F795DF491CB40BB8002BCDEE /* CityPlist */,
 				FD3D59FE1CB2AA6E00B9514D /* PXAlert */,
 				FDF3FE0A1CA7F854007B7C83 /* JSDropDownMenu */,
 				FDE2D92D1CA369CE008DDE4F /* DTKDropdownMenu */,
@@ -744,6 +774,8 @@
 				F73B78BC1C813E2800069EEE /* Member.storyboard */,
 				FDE26ACA1C9BF6EE003418D5 /* MemberTableViewController.h */,
 				FDE26ACB1C9BF6EE003418D5 /* MemberTableViewController.m */,
+				F795DF461CB408DC002BCDEE /* UserInfoTableViewController.h */,
+				F795DF471CB408DC002BCDEE /* UserInfoTableViewController.m */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -770,6 +802,28 @@
 				FD3D59FC1CB2A19700B9514D /* modifyViewController.m */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		F795DF491CB40BB8002BCDEE /* CityPlist */ = {
+			isa = PBXGroup;
+			children = (
+				F795DF4A1CB40BB8002BCDEE /* BaiduMap_cityCenter.txt */,
+				F795DF4B1CB40BB8002BCDEE /* City.h */,
+				F795DF4C1CB40BB8002BCDEE /* City.m */,
+				F795DF4D1CB40BB8002BCDEE /* CityViewController.h */,
+				F795DF4E1CB40BB8002BCDEE /* CityViewController.m */,
+				F795DF4F1CB40BB8002BCDEE /* HandleCityData.h */,
+				F795DF501CB40BB8002BCDEE /* HandleCityData.m */,
+				F795DF511CB40BB8002BCDEE /* HotCityTableViewCell.h */,
+				F795DF521CB40BB8002BCDEE /* HotCityTableViewCell.m */,
+				F795DF531CB40BB8002BCDEE /* HotCityTableViewCell.xib */,
+				F795DF541CB40BB8002BCDEE /* JSONKit.h */,
+				F795DF551CB40BB8002BCDEE /* JSONKit.m */,
+				F795DF561CB40BB8002BCDEE /* LocationCityTableViewCell.h */,
+				F795DF571CB40BB8002BCDEE /* LocationCityTableViewCell.m */,
+				F795DF581CB40BB8002BCDEE /* LocationCityTableViewCell.xib */,
+			);
+			path = CityPlist;
 			sourceTree = "<group>";
 		};
 		F7A61E641CA049DB001B5FB3 /* Detail */ = {
@@ -839,6 +893,7 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F795DF441CB40643002BCDEE /* app_photo@2x.png */,
 				FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */,
 				FD4462761CAC9A0100F7E12F /* app_praise@2x.png */,
 				FD891A441CABE32B00706B4D /* login_qq@2x.png */,
@@ -1262,6 +1317,7 @@
 				FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */,
 				FDE26ADB1C9BF8B8003418D5 /* person_project@2x.png in Resources */,
 				FDE26AD51C9BF8B8003418D5 /* person_collect@2x.png in Resources */,
+				F795DF5E1CB40BB8002BCDEE /* HotCityTableViewCell.xib in Resources */,
 				FDE26AE61C9C308F003418D5 /* ActivityTableViewCell.xib in Resources */,
 				F73B78D01C81451E00069EEE /* icon_member_selected@2x.png in Resources */,
 				FD4462801CAD1C7F00F7E12F /* SubjectDetailTableViewCell.xib in Resources */,
@@ -1274,6 +1330,7 @@
 				FDE26AD71C9BF8B8003418D5 /* person_friends@2x.png in Resources */,
 				F73B78CE1C81451E00069EEE /* icon_activity_selected@2x.png in Resources */,
 				FDE2AFE01C887C2B002238CA /* SpecialTypeTableViewCell.xib in Resources */,
+				F795DF451CB40643002BCDEE /* app_photo@2x.png in Resources */,
 				FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */,
 				FD9450E41CA831A800E00759 /* menu_essential@2x.png in Resources */,
 				F7EB9B9B1CAB6788005343AC /* app_pwd_visible@2x.png in Resources */,
@@ -1301,8 +1358,10 @@
 				FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */,
 				FD9450F91CA8398800E00759 /* menu_share@2x.png in Resources */,
 				F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */,
+				F795DF591CB40BB8002BCDEE /* BaiduMap_cityCenter.txt in Resources */,
 				FD9451061CA843DD00E00759 /* special4@2x.png in Resources */,
 				FD9450F61CA8398800E00759 /* menu_add_comment@2x.png in Resources */,
+				F795DF611CB40BB8002BCDEE /* LocationCityTableViewCell.xib in Resources */,
 				FD9450EA1CA8353400E00759 /* menu_create@2x.png in Resources */,
 				F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */,
 				FD9451091CA843DD00E00759 /* special7@2x.png in Resources */,
@@ -1359,10 +1418,12 @@
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
+				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
 				FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */,
+				F795DF481CB408DC002BCDEE /* UserInfoTableViewController.m in Sources */,
 				F73B789C1C81375600069EEE /* AFNetworkReachabilityManager.m in Sources */,
 				F73B78A41C81375600069EEE /* MJRefreshConst.m in Sources */,
 				FD4462861CAD51FF00F7E12F /* ActivityDetailViewController.m in Sources */,
@@ -1382,6 +1443,8 @@
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
 				FD34C0BF1CAFBE9B002B7630 /* InvestorTableViewCell.m in Sources */,
 				FDE33F121C9FEDF9005C6863 /* ProjectTableViewDelegate.m in Sources */,
+				F795DF601CB40BB8002BCDEE /* LocationCityTableViewCell.m in Sources */,
+				F795DF5C1CB40BB8002BCDEE /* HandleCityData.m in Sources */,
 				F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
@@ -1393,6 +1456,7 @@
 				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
 				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
+				F795DF5D1CB40BB8002BCDEE /* HotCityTableViewCell.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
 				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
@@ -1412,6 +1476,7 @@
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
+				F795DF5A1CB40BB8002BCDEE /* City.m in Sources */,
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,
 				FD9450E01CA82ECA00E00759 /* AboutTableViewController.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
@@ -1430,6 +1495,7 @@
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
+				F795DF5B1CB40BB8002BCDEE /* CityViewController.m in Sources */,
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				FDE2D9531CA369CF008DDE4F /* MASConstraint.m in Sources */,

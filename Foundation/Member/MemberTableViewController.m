@@ -12,8 +12,10 @@
 #import "MyProjectPageController.h"
 #import "MyActivityPageController.h"
 #import "MySubjectPageController.h"
+#import "UserInfoTableViewController.h"
 
 @interface MemberTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @end
 
@@ -21,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.usernameLabel.text = [User getInstance].username;
     // Do any additional setup after loading the view.
 }
 
@@ -29,7 +32,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 2) {
+    if (indexPath.section == 0) {
+        UserInfoTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.section == 2) {
         UIViewController *vc = nil;
         if (indexPath.row == 0) {
             //我的收藏
