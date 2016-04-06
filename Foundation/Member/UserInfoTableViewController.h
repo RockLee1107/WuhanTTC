@@ -9,5 +9,5 @@
 #import "BaseStaticTableViewController.h"
 
 @interface UserInfoTableViewController : BaseStaticTableViewController
-- (void)setArea;
+- (void)fillArea;
 @end

@@ -250,7 +250,7 @@
 
 //navi跳转首页
 - (void)goBackHome {
-    [self.vc setArea];
+    [self.vc fillArea];
     [self.navigationController popViewControllerAnimated:YES];
 
 }

@@ -32,7 +32,7 @@
     self.passwordView.textField.delegate = self;
     self.visitorButton.backgroundColor = [UIColor grayColor];
     //    自动登录，调试阶段打开
-    //    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
+        [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
     self.passwordView.textField.text = @"325200";
 }
 

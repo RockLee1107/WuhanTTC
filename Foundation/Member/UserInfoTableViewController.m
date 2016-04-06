@@ -52,10 +52,11 @@
 
 - (IBAction)selectArea:(id)sender {
     CityViewController *vc = [[CityViewController alloc] init];
+    vc.vc = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)setArea {
+- (void)fillArea {
     self.areaTextField.text = [LocationUtil getInstance].locatedCityName;
 }
 @end
