@@ -53,7 +53,7 @@
 
 - (IBAction)updateUserInfo:(id)sender {
     NSDictionary *param = @{
-              @"UserInfo":[StringUtil dictToJson: @{
+              @"UserInfoDto":[StringUtil dictToJson: @{
                                                     @"userId":[User getInstance].uid,
                                                     @"realName":self.realnameTextField.text,
                                                     @"mobile":self.mobileTextField.text,
@@ -67,6 +67,8 @@
               @"InvestorInfo":[StringUtil dictToJson:@{
                                                        
                                                        }]
+              ,
+              @"msgAuthenCode":@""
               };
     [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"修改成功"];
