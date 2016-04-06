@@ -34,6 +34,7 @@
     [self fetchData];
 }
 
+//访问网络
 - (void)fetchData {
     NSDictionary *param = @{
                             @"userId":[User getInstance].uid
@@ -50,12 +51,36 @@
     } noResult:nil];
 }
 
+- (IBAction)updateUserInfo:(id)sender {
+    NSDictionary *param = @{
+              @"UserInfo":[StringUtil dictToJson: @{
+                                                    @"userId":[User getInstance].uid,
+                                                    @"realName":self.realnameTextField.text,
+                                                    @"mobile":self.mobileTextField.text,
+                                                    @"email":self.emailTextField.text,
+                                                    @"duty":self.dutyTextField.text,
+                                                    @"company":self.companyTextField.text,
+                                                    @"area":self.areaTextField.text,
+                                                    @"wechat":self.wechatTextField.text
+                                                    }]
+              ,
+              @"InvestorInfo":[StringUtil dictToJson:@{
+                                                       
+                                                       }]
+              };
+    [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+    } noResult:nil];
+}
+
+//选择城市
 - (IBAction)selectArea:(id)sender {
     CityViewController *vc = [[CityViewController alloc] init];
     vc.vc = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+//回调填充城市
 - (void)fillArea {
     self.areaTextField.text = [LocationUtil getInstance].locatedCityName;
 }
