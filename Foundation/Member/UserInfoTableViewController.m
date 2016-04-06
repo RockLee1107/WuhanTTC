@@ -61,7 +61,7 @@
                                                     @"duty":self.dutyTextField.text,
                                                     @"company":self.companyTextField.text,
                                                     @"area":self.areaTextField.text,
-                                                    @"wechat":self.wechatTextField.text
+                                                    @"weChat":self.wechatTextField.text
                                                     }
               ,
               @"investorInfo":@{
