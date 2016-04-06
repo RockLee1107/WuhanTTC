@@ -52,8 +52,8 @@
 }
 
 - (IBAction)updateUserInfo:(id)sender {
-    NSDictionary *param = @{
-              @"UserInfoDto":[StringUtil dictToJson: @{
+    NSDictionary *dict = @{
+              @"userinfo":@{
                                                     @"userId":[User getInstance].uid,
                                                     @"realName":self.realnameTextField.text,
                                                     @"mobile":self.mobileTextField.text,
@@ -62,16 +62,19 @@
                                                     @"company":self.companyTextField.text,
                                                     @"area":self.areaTextField.text,
                                                     @"wechat":self.wechatTextField.text
-                                                    }]
+                                                    }
               ,
-              @"InvestorInfo":[StringUtil dictToJson:@{
+              @"investorInfo":@{
                                                        
-                                                       }]
-              ,
-              @"msgAuthenCode":@""
+                                                       }
+//              ,
+//              @"userId":[User getInstance].uid
               };
+    
+    NSDictionary *param = @{@"UserInfoDto":[StringUtil dictToJson:dict]};
     [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        [self.navigationController popViewControllerAnimated:YES];
     } noResult:nil];
 }
 
