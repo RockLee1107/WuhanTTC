@@ -84,6 +84,7 @@
 		F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50051C8A76C600114B28 /* StringUtil.m */; };
 		F7FE50091C8A786800114B28 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50081C8A786700114B28 /* User.m */; };
 		F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */; };
+		FD19BB5B1CB60067007D52DC /* ProjectCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */; };
 		FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */; };
 		FD34C0BF1CAFBE9B002B7630 /* InvestorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BD1CAFBE9B002B7630 /* InvestorTableViewCell.m */; };
 		FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */; };
@@ -354,6 +355,8 @@
 		F7FE50081C8A786700114B28 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearcher.h; sourceTree = "<group>"; };
 		F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearcher.m; sourceTree = "<group>"; };
+		FD19BB591CB60067007D52DC /* ProjectCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCreateTableViewController.h; sourceTree = "<group>"; };
+		FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCreateTableViewController.m; sourceTree = "<group>"; };
 		FD34C0B91CAFBDCA002B7630 /* InvestorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorListViewController.h; sourceTree = "<group>"; };
 		FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorListViewController.m; sourceTree = "<group>"; };
 		FD34C0BC1CAFBE9B002B7630 /* InvestorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewCell.h; sourceTree = "<group>"; };
@@ -789,6 +792,8 @@
 				FDE33F181C9FEF73005C6863 /* ProjectList */,
 				FDF3FE071CA7E948007B7C83 /* ProjectIndexTableViewController.h */,
 				FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */,
+				FD19BB591CB60067007D52DC /* ProjectCreateTableViewController.h */,
+				FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -1507,6 +1512,7 @@
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */,
+				FD19BB5B1CB60067007D52DC /* ProjectCreateTableViewController.m in Sources */,
 				FDE2D9591CA369CF008DDE4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				F7FE50091C8A786800114B28 /* User.m in Sources */,
 				FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */,

@@ -74,6 +74,13 @@
     NSDictionary *param = @{@"UserInfoDto":[StringUtil dictToJson:dict]};
     [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+        if (![self.companyTextField.text isEqualToString:@""]
+            && ![self.dutyTextField.text isEqualToString:@""]
+            && ![self.realnameTextField.text isEqualToString:@""]) {
+            [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
+        } else {
+            [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
+        }
         [self.navigationController popViewControllerAnimated:YES];
     } noResult:nil];
 }

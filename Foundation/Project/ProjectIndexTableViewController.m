@@ -66,7 +66,9 @@
                                    }];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];

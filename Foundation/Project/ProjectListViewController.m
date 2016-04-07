@@ -11,6 +11,7 @@
 #import "ProjectTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
 #import "MyProjectPageController.h"
+#import "UserInfoTableViewController.h"
 
 @interface ProjectListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -98,12 +99,13 @@
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
         if ([[[User getInstance] hasInfo] boolValue]) {
-            
+//            跳转到创建页面
+            [self performSegueWithIdentifier:@"create" sender:nil];
         } else {
-            
             [[PXAlertView showAlertWithTitle:@"请先完善个人资料" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
                 if (buttonIndex == 1) {
-                    [SVProgressHUD showSuccessWithStatus:@"正在为您跳转"];
+                    UserInfoTableViewController *vc = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateViewControllerWithIdentifier:@"userinfo"];
+                    [self.navigationController pushViewController:vc animated:YES];
                 }
             }] useDefaultIOS7Style];
         }
