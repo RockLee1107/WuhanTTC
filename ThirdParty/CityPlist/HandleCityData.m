@@ -97,7 +97,7 @@ NSInteger nickNameSort(id user1, id user2, void *context)
         {
             //不存在就添加进去
             [_sectionHeadsKeys addObject:[sr uppercaseString]];
-            TempArrForGrouping = [[NSMutableArray alloc] initWithObjects:nil];
+            TempArrForGrouping = [[NSMutableArray alloc] init];
             checkValueAtIndex = NO;
         }
         //有就把数据添加进去
