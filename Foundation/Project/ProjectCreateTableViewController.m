@@ -7,8 +7,13 @@
 //
 
 #import "ProjectCreateTableViewController.h"
+#import "EMTextView.h"
+#import "CityViewController.h"
+#import "LXButton.h"
 
-@interface ProjectCreateTableViewController ()
+@interface ProjectCreateTableViewController ()<CityViewControllerDelegete>
+@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView;
+@property (weak, nonatomic) IBOutlet LXButton *currentCityButton;
 
 @end
 
@@ -22,6 +27,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+///切换城市
+- (IBAction)switchCity:(id)sender {
+    CityViewController *vc = [[CityViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    vc.delegete = self;
+//    vc.vc = self;
+}
+
+///选择了城市之后的回调
+- (void)cityViewdidSelectCity:(NSString *)city anamation:(BOOL)anamation {
+    [self.currentCityButton setTitle:city forState:(UIControlStateNormal)];
 }
 
 /*

@@ -245,6 +245,7 @@
 //热门城市与当前城市点击共用
 - (void)cityButtonPress:(UIButton *)sender {
     [LocationUtil getInstance].locatedCityName = [sender titleForState:(UIControlStateNormal)];
+    [_delegete cityViewdidSelectCity:[sender titleForState:(UIControlStateNormal)] anamation:YES];
     [self goBackHome];
 }
 

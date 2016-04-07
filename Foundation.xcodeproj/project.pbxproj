@@ -65,6 +65,7 @@
 		F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF551CB40BB8002BCDEE /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F795DF601CB40BB8002BCDEE /* LocationCityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF571CB40BB8002BCDEE /* LocationCityTableViewCell.m */; };
 		F795DF611CB40BB8002BCDEE /* LocationCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F795DF581CB40BB8002BCDEE /* LocationCityTableViewCell.xib */; };
+		F795DF641CB697ED002BCDEE /* EMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF631CB697ED002BCDEE /* EMTextView.m */; };
 		F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */; };
 		F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6C1CA04CCB001B5FB3 /* WMFooldView.m */; };
 		F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A61E6E1CA04CCB001B5FB3 /* WMMenuItem.m */; };
@@ -320,6 +321,8 @@
 		F795DF561CB40BB8002BCDEE /* LocationCityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCityTableViewCell.h; sourceTree = "<group>"; };
 		F795DF571CB40BB8002BCDEE /* LocationCityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCityTableViewCell.m; sourceTree = "<group>"; };
 		F795DF581CB40BB8002BCDEE /* LocationCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCityTableViewCell.xib; sourceTree = "<group>"; };
+		F795DF621CB697ED002BCDEE /* EMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMTextView.h; sourceTree = "<group>"; };
+		F795DF631CB697ED002BCDEE /* EMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMTextView.m; sourceTree = "<group>"; };
 		F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailViewController.h; sourceTree = "<group>"; };
 		F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailViewController.m; sourceTree = "<group>"; };
 		F7A61E6B1CA04CCB001B5FB3 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
@@ -1054,6 +1057,8 @@
 		FDE2AFE71C887F87002238CA /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				F795DF621CB697ED002BCDEE /* EMTextView.h */,
+				F795DF631CB697ED002BCDEE /* EMTextView.m */,
 				FD47F85B1C8AC58C00D0ED07 /* Page.h */,
 				FD47F85C1C8AC58C00D0ED07 /* Page.m */,
 				F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */,
@@ -1424,6 +1429,7 @@
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
+				F795DF641CB697ED002BCDEE /* EMTextView.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
