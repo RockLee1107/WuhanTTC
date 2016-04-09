@@ -85,6 +85,15 @@
 		F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50051C8A76C600114B28 /* StringUtil.m */; };
 		F7FE50091C8A786800114B28 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE50081C8A786700114B28 /* User.m */; };
 		F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */; };
+		FD066CE51CB8EB09001A132A /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CD51CB8EB09001A132A /* AbstractActionSheetPicker.m */; };
+		FD066CE61CB8EB09001A132A /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CD71CB8EB09001A132A /* ActionSheetCustomPicker.m */; };
+		FD066CE71CB8EB09001A132A /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CDA1CB8EB09001A132A /* ActionSheetDatePicker.m */; };
+		FD066CE81CB8EB09001A132A /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CDC1CB8EB09001A132A /* ActionSheetDistancePicker.m */; };
+		FD066CE91CB8EB09001A132A /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CDE1CB8EB09001A132A /* ActionSheetLocalePicker.m */; };
+		FD066CEA1CB8EB09001A132A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CE01CB8EB09001A132A /* ActionSheetStringPicker.m */; };
+		FD066CEB1CB8EB09001A132A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CE21CB8EB09001A132A /* DistancePickerView.m */; };
+		FD066CEC1CB8EB09001A132A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CE41CB8EB09001A132A /* SWActionSheet.m */; };
+		FD066CEF1CB8F579001A132A /* StatusDict.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CEE1CB8F579001A132A /* StatusDict.m */; };
 		FD19BB5B1CB60067007D52DC /* ProjectCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */; };
 		FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */; };
 		FD34C0BF1CAFBE9B002B7630 /* InvestorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BD1CAFBE9B002B7630 /* InvestorTableViewCell.m */; };
@@ -358,6 +367,25 @@
 		F7FE50081C8A786700114B28 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F7FE500A1C8A7C8B00114B28 /* BookSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearcher.h; sourceTree = "<group>"; };
 		F7FE500B1C8A7C8B00114B28 /* BookSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearcher.m; sourceTree = "<group>"; };
+		FD066CD41CB8EB09001A132A /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		FD066CD51CB8EB09001A132A /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		FD066CD61CB8EB09001A132A /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		FD066CD71CB8EB09001A132A /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		FD066CD81CB8EB09001A132A /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		FD066CD91CB8EB09001A132A /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		FD066CDA1CB8EB09001A132A /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		FD066CDB1CB8EB09001A132A /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		FD066CDC1CB8EB09001A132A /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		FD066CDD1CB8EB09001A132A /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		FD066CDE1CB8EB09001A132A /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		FD066CDF1CB8EB09001A132A /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		FD066CE01CB8EB09001A132A /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		FD066CE11CB8EB09001A132A /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		FD066CE21CB8EB09001A132A /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		FD066CE31CB8EB09001A132A /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		FD066CE41CB8EB09001A132A /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		FD066CED1CB8F579001A132A /* StatusDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusDict.h; sourceTree = "<group>"; };
+		FD066CEE1CB8F579001A132A /* StatusDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusDict.m; sourceTree = "<group>"; };
 		FD19BB591CB60067007D52DC /* ProjectCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCreateTableViewController.h; sourceTree = "<group>"; };
 		FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCreateTableViewController.m; sourceTree = "<group>"; };
 		FD34C0B91CAFBDCA002B7630 /* InvestorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorListViewController.h; sourceTree = "<group>"; };
@@ -661,6 +689,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FD066CD31CB8EB09001A132A /* Pickers */,
 				F795DF491CB40BB8002BCDEE /* CityPlist */,
 				FD3D59FE1CB2AA6E00B9514D /* PXAlert */,
 				FDF3FE0A1CA7F854007B7C83 /* JSDropDownMenu */,
@@ -968,6 +997,30 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		FD066CD31CB8EB09001A132A /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				FD066CD41CB8EB09001A132A /* AbstractActionSheetPicker.h */,
+				FD066CD51CB8EB09001A132A /* AbstractActionSheetPicker.m */,
+				FD066CD61CB8EB09001A132A /* ActionSheetCustomPicker.h */,
+				FD066CD71CB8EB09001A132A /* ActionSheetCustomPicker.m */,
+				FD066CD81CB8EB09001A132A /* ActionSheetCustomPickerDelegate.h */,
+				FD066CD91CB8EB09001A132A /* ActionSheetDatePicker.h */,
+				FD066CDA1CB8EB09001A132A /* ActionSheetDatePicker.m */,
+				FD066CDB1CB8EB09001A132A /* ActionSheetDistancePicker.h */,
+				FD066CDC1CB8EB09001A132A /* ActionSheetDistancePicker.m */,
+				FD066CDD1CB8EB09001A132A /* ActionSheetLocalePicker.h */,
+				FD066CDE1CB8EB09001A132A /* ActionSheetLocalePicker.m */,
+				FD066CDF1CB8EB09001A132A /* ActionSheetStringPicker.h */,
+				FD066CE01CB8EB09001A132A /* ActionSheetStringPicker.m */,
+				FD066CE11CB8EB09001A132A /* DistancePickerView.h */,
+				FD066CE21CB8EB09001A132A /* DistancePickerView.m */,
+				FD066CE31CB8EB09001A132A /* SWActionSheet.h */,
+				FD066CE41CB8EB09001A132A /* SWActionSheet.m */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
 		FD34C0B81CAFBDA0002B7630 /* Investor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1077,6 +1130,8 @@
 				FDE50A821CA0C7080058B87D /* CaptionButton.m */,
 				FDE50A841CA0D0800058B87D /* SingletonObject.h */,
 				FDE50A851CA0D0800058B87D /* SingletonObject.m */,
+				FD066CED1CB8F579001A132A /* StatusDict.h */,
+				FD066CEE1CB8F579001A132A /* StatusDict.m */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1420,18 +1475,23 @@
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FDE2D9571CA369CF008DDE4F /* MASViewConstraint.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
+				FD066CE71CB8EB09001A132A /* ActionSheetDatePicker.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
 				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
+				FD066CEA1CB8EB09001A132A /* ActionSheetStringPicker.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
 				F795DF641CB697ED002BCDEE /* EMTextView.m in Sources */,
+				FD066CE51CB8EB09001A132A /* AbstractActionSheetPicker.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
+				FD066CEF1CB8F579001A132A /* StatusDict.m in Sources */,
+				FD066CEC1CB8EB09001A132A /* SWActionSheet.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
 				FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */,
 				F795DF481CB408DC002BCDEE /* UserInfoTableViewController.m in Sources */,
@@ -1481,6 +1541,7 @@
 				FDE2D9541CA369CF008DDE4F /* MASConstraintMaker.m in Sources */,
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
 				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
+				FD066CE91CB8EB09001A132A /* ActionSheetLocalePicker.m in Sources */,
 				FD9450D71CA82BD400E00759 /* SubjectPageController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
@@ -1493,6 +1554,7 @@
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
+				FD066CEB1CB8EB09001A132A /* DistancePickerView.m in Sources */,
 				FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */,
 				FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */,
 				FDE2D9581CA369CF008DDE4F /* NSArray+MASAdditions.m in Sources */,
@@ -1513,6 +1575,7 @@
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
 				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
+				FD066CE61CB8EB09001A132A /* ActionSheetCustomPicker.m in Sources */,
 				FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */,
 				FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
@@ -1539,6 +1602,7 @@
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
 				F7EB9B9E1CAB68E2005343AC /* LXPasswordView.m in Sources */,
 				FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */,
+				FD066CE81CB8EB09001A132A /* ActionSheetDistancePicker.m in Sources */,
 				F7A61E7B1CA04CCB001B5FB3 /* WMProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

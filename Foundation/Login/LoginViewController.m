@@ -70,10 +70,36 @@
         } else {
             user.hasInfo = [NSNumber numberWithBool:NO];
         }
+        //将各状态值存到本地
+        [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //        项目阶段
+            [self saveStatusCode:responseObject type:@"procStatus" key:nil];
+            //        融资阶段
+            [self saveStatusCode:responseObject type:@"financeProc" key:nil];
+            //        项目领域
+            [self saveStatusCode:responseObject type:@"industry" key:@"biz"];
+        } noResult:nil];
         [self jumpMain];
     } noResult:^{
         
     }];
 }
 
+//保存状态值到本地
+- (void)saveStatusCode:(NSDictionary *)responseObject type:(NSString *)type key:(NSString *)key {
+    NSMutableArray *array = [NSMutableArray array];
+    //    第三字段可选
+    if (key == nil) {
+        key = type;
+    }
+    NSString *code = [NSString stringWithFormat:@"%@Code",key];
+    NSString *name = [NSString stringWithFormat:@"%@Name",key];
+    for (NSDictionary *procStatusDict in responseObject[type]) {
+        [array addObject:@{
+                           code:procStatusDict[code],
+                           name:procStatusDict[name]
+                           }];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:array forKey:type];
+}
 @end

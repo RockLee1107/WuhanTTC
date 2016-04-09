@@ -10,11 +10,18 @@
 #import "EMTextView.h"
 #import "CityViewController.h"
 #import "LXButton.h"
+#import "ActionSheetStringPicker.h"
+#import "StatusDict.h"
 
 @interface ProjectCreateTableViewController ()<CityViewControllerDelegete>
 @property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView;
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;
-
+@property (assign, nonatomic) IBOutlet UIButton *statusButton;         //按钮，用于显示所选中文值
+@property (assign, nonatomic) NSInteger selectedStatusIndex;           //状态index，用于选择框反显
+@property (assign, nonatomic) NSString *selectedStatusValue;           //状态value，用于数据提交
+@property (assign, nonatomic) IBOutlet UIButton *financeButton;
+@property (assign, nonatomic) NSInteger selectedFinanceIndex;
+@property (assign, nonatomic) NSString *selectedFinanceValue;
 @end
 
 @implementation ProjectCreateTableViewController
@@ -22,11 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 ///切换城市
@@ -42,14 +44,37 @@
     [self.currentCityButton setTitle:city forState:(UIControlStateNormal)];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)selectStatus:(id)sender {
+//    数据预处理
+    NSArray *array = [StatusDict procStatus];
+    NSMutableArray *names = [NSMutableArray array];
+    for (NSDictionary *dict in array) {
+        [names addObject:dict[@"procStatusName"]];
+    }
+    //弹出选择框
+    [ActionSheetStringPicker showPickerWithTitle:@"选择项目阶段" rows:names initialSelection:self.selectedStatusIndex doneBlock: ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+        //            按钮赋值当前区名称
+        self.selectedStatusIndex = selectedIndex;
+        //            当前选值以提交
+        self.selectedStatusValue = array[selectedIndex][@"procStatusCode"];
+        [self.statusButton setTitle:selectedValue forState:(UIControlStateNormal)];
+    } cancelBlock:nil origin:sender];
 }
-*/
 
+- (IBAction)selectFinace:(id)sender {
+    //    数据预处理
+    NSArray *array = [StatusDict financeProc];
+    NSMutableArray *names = [NSMutableArray array];
+    for (NSDictionary *dict in array) {
+        [names addObject:dict[@"financeProcName"]];
+    }
+    //弹出选择框
+    [ActionSheetStringPicker showPickerWithTitle:@"选择融资阶段" rows:names initialSelection:self.selectedFinanceIndex doneBlock: ^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+        //            按钮赋值当前区名称
+        self.selectedFinanceIndex = selectedIndex;
+        //            当前选值以提交
+        self.selectedFinanceValue = array[selectedIndex][@"financeProcCode"];
+        [self.financeButton setTitle:selectedValue forState:(UIControlStateNormal)];
+    } cancelBlock:nil origin:sender];
+}
 @end
