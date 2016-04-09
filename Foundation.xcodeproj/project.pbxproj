@@ -228,6 +228,11 @@
 		FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE301CA81F52007B7C83 /* MyNoteTableViewController.m */; };
 		FDF3FE3C1CA81F52007B7C83 /* MySubjectPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE331CA81F52007B7C83 /* MySubjectPageController.m */; };
 		FDF3FE3D1CA81F52007B7C83 /* MySubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */; };
+		FDFD8C581CB92EBF0095FC3C /* app_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDFD8C571CB92EBF0095FC3C /* app_ok@2x.png */; };
+		FDFD8C5B1CB92F130095FC3C /* BizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFD8C5A1CB92F130095FC3C /* BizViewController.m */; };
+		FDFD8C661CB938560095FC3C /* JCCollectionViewTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFD8C611CB938560095FC3C /* JCCollectionViewTagFlowLayout.m */; };
+		FDFD8C671CB938560095FC3C /* JCTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFD8C631CB938560095FC3C /* JCTagCell.m */; };
+		FDFD8C681CB938560095FC3C /* JCTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FDFD8C651CB938560095FC3C /* JCTagListView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -599,6 +604,15 @@
 		FDF3FE331CA81F52007B7C83 /* MySubjectPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySubjectPageController.m; sourceTree = "<group>"; };
 		FDF3FE341CA81F52007B7C83 /* MySubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySubjectTableViewController.h; sourceTree = "<group>"; };
 		FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySubjectTableViewController.m; sourceTree = "<group>"; };
+		FDFD8C571CB92EBF0095FC3C /* app_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_ok@2x.png"; sourceTree = "<group>"; };
+		FDFD8C591CB92F130095FC3C /* BizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BizViewController.h; sourceTree = "<group>"; };
+		FDFD8C5A1CB92F130095FC3C /* BizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BizViewController.m; sourceTree = "<group>"; };
+		FDFD8C601CB938560095FC3C /* JCCollectionViewTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCCollectionViewTagFlowLayout.h; sourceTree = "<group>"; };
+		FDFD8C611CB938560095FC3C /* JCCollectionViewTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCCollectionViewTagFlowLayout.m; sourceTree = "<group>"; };
+		FDFD8C621CB938560095FC3C /* JCTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagCell.h; sourceTree = "<group>"; };
+		FDFD8C631CB938560095FC3C /* JCTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagCell.m; sourceTree = "<group>"; };
+		FDFD8C641CB938560095FC3C /* JCTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTagListView.h; sourceTree = "<group>"; };
+		FDFD8C651CB938560095FC3C /* JCTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTagListView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +703,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FDFD8C5F1CB938560095FC3C /* JCTagListView */,
 				FD066CD31CB8EB09001A132A /* Pickers */,
 				F795DF491CB40BB8002BCDEE /* CityPlist */,
 				FD3D59FE1CB2AA6E00B9514D /* PXAlert */,
@@ -826,6 +841,8 @@
 				FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */,
 				FD19BB591CB60067007D52DC /* ProjectCreateTableViewController.h */,
 				FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */,
+				FDFD8C591CB92F130095FC3C /* BizViewController.h */,
+				FDFD8C5A1CB92F130095FC3C /* BizViewController.m */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -930,6 +947,7 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FDFD8C571CB92EBF0095FC3C /* app_ok@2x.png */,
 				F795DF441CB40643002BCDEE /* app_photo@2x.png */,
 				FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */,
 				FD4462761CAC9A0100F7E12F /* app_praise@2x.png */,
@@ -1315,6 +1333,19 @@
 			path = Subject;
 			sourceTree = "<group>";
 		};
+		FDFD8C5F1CB938560095FC3C /* JCTagListView */ = {
+			isa = PBXGroup;
+			children = (
+				FDFD8C601CB938560095FC3C /* JCCollectionViewTagFlowLayout.h */,
+				FDFD8C611CB938560095FC3C /* JCCollectionViewTagFlowLayout.m */,
+				FDFD8C621CB938560095FC3C /* JCTagCell.h */,
+				FDFD8C631CB938560095FC3C /* JCTagCell.m */,
+				FDFD8C641CB938560095FC3C /* JCTagListView.h */,
+				FDFD8C651CB938560095FC3C /* JCTagListView.m */,
+			);
+			path = JCTagListView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1419,6 +1450,7 @@
 				FDEADC0E1C92AA2D00971DD1 /* icon_about_normal@2x.png in Resources */,
 				FD9450F81CA8398800E00759 /* menu_comment@2x.png in Resources */,
 				FDE26AD81C9BF8B8003418D5 /* person_msg@2x.png in Resources */,
+				FDFD8C581CB92EBF0095FC3C /* app_ok@2x.png in Resources */,
 				FD9450F01CA8362100E00759 /* menu_reply@2x.png in Resources */,
 				FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */,
 				FD9450F91CA8398800E00759 /* menu_share@2x.png in Resources */,
@@ -1490,6 +1522,7 @@
 				FD066CE51CB8EB09001A132A /* AbstractActionSheetPicker.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
+				FDFD8C5B1CB92F130095FC3C /* BizViewController.m in Sources */,
 				FD066CEF1CB8F579001A132A /* StatusDict.m in Sources */,
 				FD066CEC1CB8EB09001A132A /* SWActionSheet.m in Sources */,
 				F73B78AF1C81375600069EEE /* SVProgressHUD.m in Sources */,
@@ -1509,6 +1542,7 @@
 				FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */,
 				FDE26ACC1C9BF6EE003418D5 /* MemberTableViewController.m in Sources */,
 				FDE26AFE1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				FDFD8C661CB938560095FC3C /* JCCollectionViewTagFlowLayout.m in Sources */,
 				FD9450E71CA8336A00E00759 /* SubjectDetailTableViewController.m in Sources */,
 				FDE2AFED1C88872C002238CA /* BaseViewController.m in Sources */,
 				F73B78A51C81375600069EEE /* MJRefreshFooter.m in Sources */,
@@ -1565,6 +1599,7 @@
 				FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FD4462831CAD4B4C00F7E12F /* ActivityDetailTableViewController.m in Sources */,
+				FDFD8C681CB938560095FC3C /* JCTagListView.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
@@ -1574,6 +1609,7 @@
 				FDE2D9531CA369CF008DDE4F /* MASConstraint.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
+				FDFD8C671CB938560095FC3C /* JCTagCell.m in Sources */,
 				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
 				FD066CE61CB8EB09001A132A /* ActionSheetCustomPicker.m in Sources */,
 				FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "LXPasswordView.h"
 #import "MainTabBarController.h"
 #import "LXButton.h"
+#import "ProjectCreateTableViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -79,10 +80,16 @@
             //        项目领域
             [self saveStatusCode:responseObject type:@"industry" key:@"biz"];
         } noResult:nil];
-        [self jumpMain];
+//        [self jumpMain];
+        [self jumpTest];
     } noResult:^{
         
     }];
+}
+
+- (void)jumpTest {
+    ProjectCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //保存状态值到本地

@@ -12,16 +12,24 @@
 #import "LXButton.h"
 #import "ActionSheetStringPicker.h"
 #import "StatusDict.h"
+#import "BizViewController.h"
 
-@interface ProjectCreateTableViewController ()<CityViewControllerDelegete>
+@interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView;
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;
-@property (assign, nonatomic) IBOutlet UIButton *statusButton;         //按钮，用于显示所选中文值
+//项目状态
+@property (weak, nonatomic) IBOutlet UIButton *statusButton;         //按钮，用于显示所选中文值
 @property (assign, nonatomic) NSInteger selectedStatusIndex;           //状态index，用于选择框反显
-@property (assign, nonatomic) NSString *selectedStatusValue;           //状态value，用于数据提交
-@property (assign, nonatomic) IBOutlet UIButton *financeButton;
+@property (strong, nonatomic) NSString *selectedStatusValue;           //状态value，用于数据提交
+//融资阶段
+@property (weak, nonatomic) IBOutlet UIButton *financeButton;
 @property (assign, nonatomic) NSInteger selectedFinanceIndex;
-@property (assign, nonatomic) NSString *selectedFinanceValue;
+@property (strong, nonatomic) NSString *selectedFinanceValue;
+//项目领域
+@property (weak, nonatomic) IBOutlet UIButton *bizButton;
+@property (strong, nonatomic) NSString *selectedBizValue;
+
+
 @end
 
 @implementation ProjectCreateTableViewController
@@ -42,6 +50,13 @@
 ///选择了城市之后的回调
 - (void)cityViewdidSelectCity:(NSString *)city anamation:(BOOL)anamation {
     [self.currentCityButton setTitle:city forState:(UIControlStateNormal)];
+}
+
+///选择了投资领域的回调
+- (void)didSelectedTags:(NSArray *)selectedCodeArray selectedNames:(NSArray *)selectedNameArray {
+    NSString *str = [selectedNameArray componentsJoinedByString:@","];
+    [self.bizButton setTitle:str forState:(UIControlStateNormal)];
+    self.selectedBizValue = [selectedCodeArray componentsJoinedByString:@","];
 }
 
 - (IBAction)selectStatus:(id)sender {

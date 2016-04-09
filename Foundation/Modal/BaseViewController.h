@@ -24,4 +24,5 @@
 @property (nonatomic,strong) UITapGestureRecognizer *tap;
 - (void)jumpMain;
 - (void)jumpLogin;
+- (void)goBack;
 @end

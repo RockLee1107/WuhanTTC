@@ -857,7 +857,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="create" id="LFm-MW-hdo" customClass="ProjectCreateTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Zgs-mq-51S">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="888"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -949,7 +949,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jRe-sb-Spm" customClass="EMTextView">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jRe-sb-Spm" customClass="EMTextView">
                                                     <rect key="frame" x="13" y="40" width="299" height="88"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -960,7 +960,11 @@
                                                 </textView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="jRe-sb-Spm" firstAttribute="top" secondItem="ary-d4-kQ1" secondAttribute="bottom" constant="8" id="4YK-tw-rZA"/>
                                                 <constraint firstItem="ary-d4-kQ1" firstAttribute="leading" secondItem="4Ab-r5-QlF" secondAttribute="leadingMargin" constant="5" id="Yms-bF-x8n"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jRe-sb-Spm" secondAttribute="trailing" id="bkq-2f-gZs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jRe-sb-Spm" secondAttribute="bottom" constant="3" id="d0u-Mb-XOp"/>
+                                                <constraint firstItem="jRe-sb-Spm" firstAttribute="leading" secondItem="4Ab-r5-QlF" secondAttribute="leadingMargin" constant="5" id="oww-wS-YrY"/>
                                                 <constraint firstItem="ary-d4-kQ1" firstAttribute="top" secondItem="4Ab-r5-QlF" secondAttribute="topMargin" constant="4" id="tIr-Hi-42w"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1093,12 +1097,16 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAW-hn-THm">
-                                                    <rect key="frame" x="121" y="7" width="45" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAW-hn-THm">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
                                                     <state key="normal" title="请选择"/>
+                                                    <connections>
+                                                        <segue destination="7Ep-hJ-Bgi" kind="show" id="WV6-3i-cTX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZAW-hn-THm" secondAttribute="trailing" constant="7" id="686-CC-NXS"/>
                                                 <constraint firstItem="ZAW-hn-THm" firstAttribute="leading" secondItem="MoM-he-dmk" secondAttribute="trailing" constant="18" id="6IY-w6-KxU"/>
                                                 <constraint firstItem="ZAW-hn-THm" firstAttribute="centerY" secondItem="Hym-SY-BdW" secondAttribute="centerY" id="eP9-UJ-X5U"/>
                                                 <constraint firstItem="MoM-he-dmk" firstAttribute="leading" secondItem="Hym-SY-BdW" secondAttribute="leadingMargin" constant="5" id="oa7-RZ-iNM"/>
@@ -1106,11 +1114,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="8aQ-oT-zUG">
-                                        <rect key="frame" x="0.0" y="575" width="320" height="80"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="182" id="8aQ-oT-zUG">
+                                        <rect key="frame" x="0.0" y="575" width="320" height="182"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8aQ-oT-zUG" id="u7A-eZ-8xh">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMr-QI-Iy5" customClass="CaptionButton">
@@ -1119,26 +1127,27 @@
                                                         <constraint firstAttribute="height" constant="20" id="ELp-zJ-8sq"/>
                                                         <constraint firstAttribute="width" constant="90" id="jQM-ia-GBa"/>
                                                     </constraints>
-                                                    <state key="normal" title="产品功能">
+                                                    <state key="normal" title="项目描述">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品功能" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRo-xE-2XG">
-                                                    <rect key="frame" x="13" y="46" width="299" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="faP-8X-nw8"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pFV-0Y-3tc" customClass="EMTextView">
+                                                    <rect key="frame" x="11" y="40" width="299" height="123"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入项目描述(3-500字)"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="PMr-QI-Iy5" firstAttribute="top" secondItem="u7A-eZ-8xh" secondAttribute="topMargin" constant="4" id="437-NF-ISy"/>
-                                                <constraint firstItem="pRo-xE-2XG" firstAttribute="trailing" secondItem="u7A-eZ-8xh" secondAttribute="trailingMargin" id="5Eh-81-Ojk"/>
-                                                <constraint firstItem="pRo-xE-2XG" firstAttribute="top" secondItem="PMr-QI-Iy5" secondAttribute="bottom" constant="14" id="WmB-w2-Het"/>
-                                                <constraint firstItem="pRo-xE-2XG" firstAttribute="leading" secondItem="u7A-eZ-8xh" secondAttribute="leadingMargin" constant="5" id="ajy-Jw-U2k"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pFV-0Y-3tc" secondAttribute="trailing" constant="2" id="RgZ-dA-p5b"/>
+                                                <constraint firstItem="pFV-0Y-3tc" firstAttribute="top" secondItem="PMr-QI-Iy5" secondAttribute="bottom" constant="8" id="Sw5-S3-Jo4"/>
                                                 <constraint firstItem="PMr-QI-Iy5" firstAttribute="leading" secondItem="u7A-eZ-8xh" secondAttribute="leadingMargin" constant="5" id="i5t-bc-VZ6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pFV-0Y-3tc" secondAttribute="bottom" constant="10" id="ivA-Gb-oWe"/>
+                                                <constraint firstItem="pFV-0Y-3tc" firstAttribute="leading" secondItem="u7A-eZ-8xh" secondAttribute="leadingMargin" constant="3" id="odv-gX-ifg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1150,7 +1159,10 @@
                             <outlet property="delegate" destination="LFm-MW-hdo" id="PsN-cW-jYi"/>
                         </connections>
                     </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="888"/>
                     <connections>
+                        <outlet property="bizButton" destination="ZAW-hn-THm" id="oQC-u0-P7H"/>
                         <outlet property="currentCityButton" destination="de3-Oc-WKl" id="47V-GV-Wh0"/>
                         <outlet property="financeButton" destination="7jr-dg-gtn" id="UCZ-s6-6LH"/>
                         <outlet property="projectResumeTextView" destination="jRe-sb-Spm" id="2ZT-iR-m53"/>
@@ -1161,9 +1173,50 @@
             </objects>
             <point key="canvasLocation" x="2054" y="1547"/>
         </scene>
+        <!--选择投资领域-->
+        <scene sceneID="71o-eg-KVn">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7Ep-hJ-Bgi" customClass="BizViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y8t-vc-HIO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jdy-dy-yA3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QNO-pb-Fvd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="888"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvt-wX-Whz" customClass="JCTagListView">
+                                <rect key="frame" x="-4" y="64" width="328" height="824"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hvt-wX-Whz" firstAttribute="leading" secondItem="QNO-pb-Fvd" secondAttribute="leadingMargin" constant="-20" id="1LM-oj-Uqb"/>
+                            <constraint firstItem="Jdy-dy-yA3" firstAttribute="top" secondItem="Hvt-wX-Whz" secondAttribute="bottom" id="Icv-wf-eXt"/>
+                            <constraint firstItem="Hvt-wX-Whz" firstAttribute="top" secondItem="y8t-vc-HIO" secondAttribute="bottom" id="ksD-Kv-dzn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hvt-wX-Whz" secondAttribute="trailing" constant="-20" id="ykF-wC-P1Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="选择投资领域" id="Xzx-0U-csh">
+                        <barButtonItem key="rightBarButtonItem" image="app_ok.png" id="7Ew-OH-RCA">
+                            <connections>
+                                <action selector="finish:" destination="7Ep-hJ-Bgi" id="cSP-fQ-2zk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tagListView" destination="Hvt-wX-Whz" id="nJS-7N-ZW3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KyW-dA-oZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2560" y="1547"/>
+        </scene>
     </scenes>
     <resources>
         <image name="app_failure_img.png" width="35" height="35"/>
+        <image name="app_ok.png" width="23" height="16"/>
         <image name="app_photo.png" width="58" height="58"/>
         <image name="icon_project_normal.png" width="26" height="26"/>
         <image name="link_investor.png" width="29" height="30"/>

@@ -59,4 +59,8 @@
     LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
     [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
 }
+
+- (void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
