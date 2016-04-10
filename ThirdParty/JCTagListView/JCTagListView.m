@@ -114,7 +114,7 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
 {
     if (self.canSelectTags) {
 //        限制个数
-        if (self.selectedTags.count > 3) {
+        if (self.selectedTags.count > 3 && ![self.selectedTags containsObject:self.tags[indexPath.item]]) {
             [SVProgressHUD showErrorWithStatus:@"最多只能选择4个"];
             return;
         }

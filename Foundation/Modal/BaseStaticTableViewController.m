@@ -50,4 +50,8 @@
     [self.currentTextField resignFirstResponder];
     return YES;
 }
+
+- (void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

@@ -14,9 +14,10 @@
 #import "StatusDict.h"
 #import "BizViewController.h"
 
-@interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate>
+@interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
+@property (strong, nonatomic) UIImage *imageOriginal;
 @property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
 //项目状态
@@ -110,22 +111,86 @@
 }
 
 - (IBAction)createButtonPress:(id)sender {
-    NSDictionary *param = @{
+    NSDictionary *project = @{
                             @"projectName":self.projectNameTextField.text,
-//                            @"headPictUrl"
                             @"projectResume":self.projectResumeTextView.text,
                             @"desc":self.descTextView.text,
-//                            @"procStatusCode":self.selectedStatusValue,
-//                            @"financeProcCode":self.selectedFinanceValue,
+                            @"procStatusCode":self.selectedStatusValue,
+                            @"financeProcCode":self.selectedFinanceValue,
                             @"area":[self.currentCityButton titleForState:(UIControlStateNormal)],
                             @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
                             };
+    NSDictionary *team = @{
+                           @"parterId":[User getInstance].uid,
+                           @"duty":@"创始人"
+                           };
+    NSDictionary *param = @{
+                            @"Project":[StringUtil dictToJson:project],
+                            @"Team":[StringUtil dictToJson:@[team]]
+                            };
     NSLog(@"%@",param);
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
+    [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            NSLog(@"responseObject:%@",responseObject);
+        if ([responseObject[@"success"] boolValue]) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            [self goBack];
+        } else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
     
 //    [self.service POST:@"/personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        
 //    } noResult:nil];
 }
 
+///upload img
+//点选相片或拍照
+- (IBAction)selectPicture:(id)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄图片",@"图片选择",nil];
+    [sheet showInView:self.view];
+}
+//点击选取or从本机相册选择的ActionSheet
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (0 == buttonIndex) {
+        [self takeOrSelectPhoto:UIImagePickerControllerSourceTypeCamera];
+    } else if (1 == buttonIndex){
+        [self takeOrSelectPhoto:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+    }
+}
+
+- (void)takeOrSelectPhoto:(UIImagePickerControllerSourceType)sourceType {
+    NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:sourceType];
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.mediaTypes = mediaTypes;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = sourceType;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+//用户上传照片-取消操作
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    //    最原始的图
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    //    先减半传到服务器
+    UIImage *imageOriginal = [CommonUtil shrinkImage:image toSize:CGSizeMake(0.3*image.size.width, 0.3*image.size.height)];
+    self.imageOriginal = imageOriginal;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self.headPictUrlButton setImage:self.imageOriginal forState:(UIControlStateNormal)];
+    }];
+}
 @end

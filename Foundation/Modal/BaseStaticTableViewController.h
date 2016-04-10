@@ -26,5 +26,5 @@
 @property (nonatomic,strong) HttpService *service;
 @property (nonatomic,strong) UITextField *currentTextField;
 - (void)setDynamicLayout;
-
+- (void)goBack;
 @end
