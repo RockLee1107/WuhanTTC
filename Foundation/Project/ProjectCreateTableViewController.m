@@ -29,7 +29,6 @@
 @property (strong, nonatomic) NSString *selectedFinanceValue;
 //项目领域
 @property (weak, nonatomic) IBOutlet UIButton *bizButton;
-//@property (strong, nonatomic) NSString *selectedBizValue;
 @property (strong, nonatomic) NSMutableArray *selectedCodeArray;
 @property (strong, nonatomic) NSMutableArray *selectedNameArray;
 
@@ -60,7 +59,6 @@
 ///选择了投资领域的回调
 - (void)didSelectedTags:(NSMutableArray *)selectedCodeArray selectedNames:(NSMutableArray *)selectedNameArray {
     [self.bizButton setTitle:[selectedNameArray componentsJoinedByString:@","] forState:(UIControlStateNormal)];
-//    self.selectedBizValue = [selectedCodeArray componentsJoinedByString:@","];
     self.selectedCodeArray = selectedCodeArray;
     self.selectedNameArray = selectedNameArray;
 }
@@ -106,7 +104,7 @@
     if ([segue.identifier isEqualToString:@"biz"]) {
         BizViewController *vc = segue.destinationViewController;
         vc.selectedCodeArray = self.selectedCodeArray;
-        vc.tagListView.selectedTags = self.selectedNameArray;
+        vc.selectedNameArray = self.selectedNameArray;
         vc.delegate = self;
     }
 }
@@ -117,8 +115,8 @@
 //                            @"headPictUrl"
                             @"projectResume":self.projectResumeTextView.text,
                             @"desc":self.descTextView.text,
-                            @"procStatusCode":self.selectedStatusValue,
-                            @"financeProcCode":self.selectedFinanceValue,
+//                            @"procStatusCode":self.selectedStatusValue,
+//                            @"financeProcCode":self.selectedFinanceValue,
                             @"area":[self.currentCityButton titleForState:(UIControlStateNormal)],
                             @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
                             };

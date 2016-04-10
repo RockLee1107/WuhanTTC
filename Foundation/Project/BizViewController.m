@@ -7,9 +7,11 @@
 //
 
 #import "BizViewController.h"
+#import "JCTagListView.h"
 #import "StatusDict.h"
 
 @interface BizViewController ()
+@property (nonatomic, weak) IBOutlet JCTagListView *tagListView;
 
 @end
 
@@ -25,7 +27,14 @@
     }
     self.tagListView.tags = array;
     //已选
-    _selectedCodeArray = [NSMutableArray array];
+//    考虑从原编辑页面传回，否则一直是nil就不能够addObject了。
+    if (_selectedNameArray != nil) {
+        self.tagListView.selectedTags = _selectedNameArray;
+    }
+//    考虑从原编辑页面传回，否则传来的就清空了。
+    if (_selectedCodeArray == nil) {
+        _selectedCodeArray = [NSMutableArray array];
+    }
     [self.tagListView setCompletionBlockWithSelected:^(NSInteger index) {
 //        NSLog(@"______%ld______", (long)index);
         //判断已选状态，是则加入，否则移除
@@ -33,9 +42,6 @@
             [self.selectedCodeArray addObject:[StatusDict industry][index][@"bizCode"]];
         } else {
             [self.selectedCodeArray removeObject:[StatusDict industry][index][@"bizCode"]];
-        }
-        if (self.tagListView.selectedTags.count > 4) {
-            [SVProgressHUD showErrorWithStatus:@"最多只能选择4个"];
         }
     }];
 }

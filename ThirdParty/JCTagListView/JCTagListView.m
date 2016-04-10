@@ -10,6 +10,7 @@
 #import "JCTagCell.h"
 #import "JCCollectionViewTagFlowLayout.h"
 #import "Global.h"
+#import "SVProgressHUD.h"
 
 @interface JCTagListView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -112,6 +113,11 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.canSelectTags) {
+//        限制个数
+        if (self.selectedTags.count > 3) {
+            [SVProgressHUD showErrorWithStatus:@"最多只能选择4个"];
+            return;
+        }
         JCTagCell *cell = (JCTagCell *)[collectionView cellForItemAtIndexPath:indexPath];
         
         if ([self.selectedTags containsObject:self.tags[indexPath.item]]) {
