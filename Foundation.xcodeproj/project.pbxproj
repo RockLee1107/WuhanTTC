@@ -148,6 +148,7 @@
 		FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD0FBCE1CA8C018004CFA75 /* SubjectTableViewCell.m */; };
 		FDD0FBD31CA8C018004CFA75 /* SubjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD0FBCF1CA8C018004CFA75 /* SubjectTableViewCell.xib */; };
 		FDD0FBD41CA8C018004CFA75 /* SubjectTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD0FBD11CA8C018004CFA75 /* SubjectTableViewDelegate.m */; };
+		FDDFA9681CBA9B63001827BE /* VerifyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDFA9671CBA9B63001827BE /* VerifyUtil.m */; };
 		FDE098911CA5206800F271EF /* BookListDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE098901CA5206800F271EF /* BookListDelegate.m */; };
 		FDE098A51CA5737900F271EF /* arrow_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDE098A41CA5737900F271EF /* arrow_left@2x.png */; };
 		FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE26AAA1C9A3C09003418D5 /* ActivityListViewController.m */; };
@@ -468,6 +469,8 @@
 		FDD0FBCF1CA8C018004CFA75 /* SubjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectTableViewCell.xib; sourceTree = "<group>"; };
 		FDD0FBD01CA8C018004CFA75 /* SubjectTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectTableViewDelegate.h; sourceTree = "<group>"; };
 		FDD0FBD11CA8C018004CFA75 /* SubjectTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectTableViewDelegate.m; sourceTree = "<group>"; };
+		FDDFA9661CBA9B63001827BE /* VerifyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyUtil.h; sourceTree = "<group>"; };
+		FDDFA9671CBA9B63001827BE /* VerifyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyUtil.m; sourceTree = "<group>"; };
 		FDE0988F1CA5206800F271EF /* BookListDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookListDelegate.h; sourceTree = "<group>"; };
 		FDE098901CA5206800F271EF /* BookListDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookListDelegate.m; sourceTree = "<group>"; };
 		FDE098A41CA5737900F271EF /* arrow_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_left@2x.png"; sourceTree = "<group>"; };
@@ -685,6 +688,8 @@
 				F76E92381CAAE53C001AE980 /* LocationUtil.m */,
 				F7FE50071C8A786700114B28 /* User.h */,
 				F7FE50081C8A786700114B28 /* User.m */,
+				FDDFA9661CBA9B63001827BE /* VerifyUtil.h */,
+				FDDFA9671CBA9B63001827BE /* VerifyUtil.m */,
 				F7FE50041C8A76C600114B28 /* StringUtil.h */,
 				F7FE50051C8A76C600114B28 /* StringUtil.m */,
 				F7FE50011C8A762700114B28 /* DateUtil.h */,
@@ -1627,6 +1632,7 @@
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
 				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
+				FDDFA9681CBA9B63001827BE /* VerifyUtil.m in Sources */,
 				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
 				FDE2D9551CA369CF008DDE4F /* MASLayoutConstraint.m in Sources */,
 				FDF3FE3A1CA81F52007B7C83 /* MyNotePageController.m in Sources */,

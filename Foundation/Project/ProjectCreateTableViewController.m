@@ -13,6 +13,7 @@
 #import "ActionSheetStringPicker.h"
 #import "StatusDict.h"
 #import "BizViewController.h"
+#import "VerifyUtil.h"
 
 @interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
@@ -34,7 +35,7 @@
 @property (strong, nonatomic) NSMutableArray *selectedNameArray;
 
 @property (weak, nonatomic) IBOutlet EMTextView *descTextView;          //描述
-
+@property (nonatomic,strong) NSString *filePath;
 
 @end
 
@@ -111,8 +112,42 @@
 }
 
 - (IBAction)createButtonPress:(id)sender {
+    if (![VerifyUtil hasValue:self.projectNameTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.filePath]) {
+        [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
+        return;
+    }
+    if (![VerifyUtil isValidStringLengthRange:self.projectResumeTextView.text between:3 and:50]) {
+        [SVProgressHUD showErrorWithStatus:@"项目简介字数为3～50"];
+        return;
+    }
+    if ([[self.currentCityButton titleForState:(UIControlStateNormal)] isEqualToString:@"城市"]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择所在城市"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.selectedStatusValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目阶段"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.selectedFinanceValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+        return;
+    }
+    if (self.selectedCodeArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
+        return;
+    }
+    if (![VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:50]) {
+        [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
+        return;
+    }
+    
     NSDictionary *project = @{
                             @"projectName":self.projectNameTextField.text,
+                            @"headPictUrl":self.filePath,
                             @"projectResume":self.projectResumeTextView.text,
                             @"desc":self.descTextView.text,
                             @"procStatusCode":self.selectedStatusValue,
@@ -128,8 +163,6 @@
                             @"Project":[StringUtil dictToJson:project],
                             @"Team":[StringUtil dictToJson:@[team]]
                             };
-    NSLog(@"%@",param);
-    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -151,6 +184,15 @@
 //    [self.service POST:@"/personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        
 //    } noResult:nil];
+}
+
+- (void)savePicture {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"something.jpg"]];   // 保存文件的名称
+    BOOL result = [UIImagePNGRepresentation(self.imageOriginal)writeToFile: filePath    atomically:YES]; // 保存成功会返回YES
+    if (result) {
+        self.filePath = filePath;
+    }
 }
 
 ///upload img
@@ -191,6 +233,7 @@
     self.imageOriginal = imageOriginal;
     [picker dismissViewControllerAnimated:YES completion:^{
         [self.headPictUrlButton setImage:self.imageOriginal forState:(UIControlStateNormal)];
+        [self savePicture];
     }];
 }
 @end

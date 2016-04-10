@@ -1034,8 +1034,8 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKq-qW-prX">
-                                                    <rect key="frame" x="121" y="7" width="45" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKq-qW-prX">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
                                                     <state key="normal" title="请选择"/>
                                                     <connections>
                                                         <action selector="selectStatus:" destination="LFm-MW-hdo" eventType="touchUpInside" id="3La-CM-WCv"/>
@@ -1045,6 +1045,7 @@
                                             <constraints>
                                                 <constraint firstItem="Seo-fn-8Lz" firstAttribute="top" secondItem="uCN-zh-X3x" secondAttribute="topMargin" constant="4" id="1WU-3h-KM7"/>
                                                 <constraint firstItem="cKq-qW-prX" firstAttribute="leading" secondItem="Seo-fn-8Lz" secondAttribute="trailing" constant="18" id="J2d-Fu-9Au"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cKq-qW-prX" secondAttribute="trailing" constant="7" id="ZR6-3z-QxJ"/>
                                                 <constraint firstItem="Seo-fn-8Lz" firstAttribute="leading" secondItem="uCN-zh-X3x" secondAttribute="leadingMargin" constant="5" id="mVx-vF-ncj"/>
                                                 <constraint firstItem="cKq-qW-prX" firstAttribute="centerY" secondItem="uCN-zh-X3x" secondAttribute="centerY" id="xCt-9D-QaY"/>
                                             </constraints>
@@ -1067,8 +1068,8 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jr-dg-gtn">
-                                                    <rect key="frame" x="121" y="7" width="45" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jr-dg-gtn">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
                                                     <state key="normal" title="请选择"/>
                                                     <connections>
                                                         <action selector="selectFinace:" destination="LFm-MW-hdo" eventType="touchUpInside" id="Fvo-JP-mJY"/>
@@ -1078,6 +1079,7 @@
                                             <constraints>
                                                 <constraint firstItem="7jr-dg-gtn" firstAttribute="leading" secondItem="yKH-Of-0vy" secondAttribute="trailing" constant="18" id="60g-3o-e0u"/>
                                                 <constraint firstItem="yKH-Of-0vy" firstAttribute="leading" secondItem="JZA-8D-sgD" secondAttribute="leadingMargin" constant="5" id="Tne-0d-a9m"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7jr-dg-gtn" secondAttribute="trailing" constant="7" id="Yet-Ws-CnV"/>
                                                 <constraint firstItem="7jr-dg-gtn" firstAttribute="centerY" secondItem="JZA-8D-sgD" secondAttribute="centerY" id="pb0-bl-9aN"/>
                                                 <constraint firstItem="yKH-Of-0vy" firstAttribute="top" secondItem="JZA-8D-sgD" secondAttribute="topMargin" constant="4" id="sEs-fD-WcS"/>
                                             </constraints>
