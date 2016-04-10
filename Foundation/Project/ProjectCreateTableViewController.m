@@ -43,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.projectNameTextField.delegate = self;
 }
 
 ///切换城市
@@ -111,6 +112,7 @@
     }
 }
 
+//提交数据
 - (IBAction)createButtonPress:(id)sender {
     if (![VerifyUtil hasValue:self.projectNameTextField.text]) {
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
@@ -180,12 +182,21 @@
         NSLog(@"%@",error);
         [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
-    
-//    [self.service POST:@"/personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
+//    [self.service POST:@"personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+//        [self goBack];
 //    } noResult:nil];
 }
 
+
+/**upload img*/
+//点选相片或拍照
+- (IBAction)selectPicture:(id)sender {
+    [self.currentTextField resignFirstResponder];
+    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄图片",@"图片选择",nil];
+    [sheet showInView:self.view];
+}
+//保存图片到沙盒
 - (void)savePicture {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"something.jpg"]];   // 保存文件的名称
@@ -193,13 +204,6 @@
     if (result) {
         self.filePath = filePath;
     }
-}
-
-///upload img
-//点选相片或拍照
-- (IBAction)selectPicture:(id)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄图片",@"图片选择",nil];
-    [sheet showInView:self.view];
 }
 //点击选取or从本机相册选择的ActionSheet
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

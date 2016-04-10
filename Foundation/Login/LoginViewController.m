@@ -82,8 +82,8 @@
             //        项目领域
             [self saveStatusCode:responseObject type:@"industry" key:@"biz"];
         } noResult:nil];
-//        [self jumpMain];
-        [self jumpTest];
+        [self jumpMain];
+//        [self jumpTest];
     } noResult:^{
         
     }];
