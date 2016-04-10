@@ -7,11 +7,14 @@
 //
 
 #import "BaseViewController.h"
+#import "JCTagListView.h"
 
 @protocol BizViewControllerDelegate
-- (void)didSelectedTags:(NSArray *)selectedCodeArray selectedNames:(NSArray *)selectedNameArray;
+- (void)didSelectedTags:(NSMutableArray *)selectedCodeArray selectedNames:(NSMutableArray *)selectedNameArray;
 @end
 
 @interface BizViewController : BaseViewController
 @property (nonatomic, strong) id<BizViewControllerDelegate> delegate;
+@property (nonatomic, weak) IBOutlet JCTagListView *tagListView;
+@property (nonatomic, strong) NSMutableArray *selectedCodeArray;
 @end

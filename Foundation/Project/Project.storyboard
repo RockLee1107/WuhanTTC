@@ -852,7 +852,7 @@
             </objects>
             <point key="canvasLocation" x="1545" y="1547"/>
         </scene>
-        <!--Project Create Table View Controller-->
+        <!--创建项目-->
         <scene sceneID="RQE-R0-cMR">
             <objects>
                 <tableViewController storyboardIdentifier="create" id="LFm-MW-hdo" customClass="ProjectCreateTableViewController" sceneMemberID="viewController">
@@ -1153,18 +1153,49 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="Hkn-99-yVw">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="sCl-aU-1cu">
+                                        <rect key="frame" x="0.0" y="777" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sCl-aU-1cu" id="WRv-0q-MbN">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNo-UJ-8fj" customClass="LXButton">
+                                                    <rect key="frame" x="8" y="12" width="304" height="36"/>
+                                                    <state key="normal" title="创建项目"/>
+                                                    <connections>
+                                                        <action selector="createButtonPress:" destination="LFm-MW-hdo" eventType="touchUpInside" id="Ddm-5f-L2R"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="MNo-UJ-8fj" secondAttribute="leading" id="K5Y-BV-ySI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MNo-UJ-8fj" secondAttribute="bottom" constant="4" id="Orn-yK-sc9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="MNo-UJ-8fj" secondAttribute="trailing" id="opa-R2-0f0"/>
+                                                <constraint firstItem="MNo-UJ-8fj" firstAttribute="top" secondItem="WRv-0q-MbN" secondAttribute="topMargin" constant="4" id="wIk-09-uTb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="LFm-MW-hdo" id="CtM-mv-wak"/>
                             <outlet property="delegate" destination="LFm-MW-hdo" id="PsN-cW-jYi"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="创建项目" id="6DX-Qp-dE7"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="888"/>
                     <connections>
                         <outlet property="bizButton" destination="ZAW-hn-THm" id="oQC-u0-P7H"/>
                         <outlet property="currentCityButton" destination="de3-Oc-WKl" id="47V-GV-Wh0"/>
+                        <outlet property="descTextView" destination="pFV-0Y-3tc" id="NUb-jx-UHG"/>
                         <outlet property="financeButton" destination="7jr-dg-gtn" id="UCZ-s6-6LH"/>
+                        <outlet property="headPictUrlButton" destination="abZ-5M-MoK" id="TWE-af-BFj"/>
+                        <outlet property="projectNameTextField" destination="jHO-rH-tjF" id="sJz-4q-bnb"/>
                         <outlet property="projectResumeTextView" destination="jRe-sb-Spm" id="2ZT-iR-m53"/>
                         <outlet property="statusButton" destination="cKq-qW-prX" id="YXn-mC-CMT"/>
                     </connections>

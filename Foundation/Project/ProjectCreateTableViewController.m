@@ -15,8 +15,10 @@
 #import "BizViewController.h"
 
 @interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView;
-@property (weak, nonatomic) IBOutlet LXButton *currentCityButton;
+@property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
+@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
+@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
+@property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
 //项目状态
 @property (weak, nonatomic) IBOutlet UIButton *statusButton;         //按钮，用于显示所选中文值
 @property (assign, nonatomic) NSInteger selectedStatusIndex;           //状态index，用于选择框反显
@@ -27,7 +29,11 @@
 @property (strong, nonatomic) NSString *selectedFinanceValue;
 //项目领域
 @property (weak, nonatomic) IBOutlet UIButton *bizButton;
-@property (strong, nonatomic) NSString *selectedBizValue;
+//@property (strong, nonatomic) NSString *selectedBizValue;
+@property (strong, nonatomic) NSMutableArray *selectedCodeArray;
+@property (strong, nonatomic) NSMutableArray *selectedNameArray;
+
+@property (weak, nonatomic) IBOutlet EMTextView *descTextView;          //描述
 
 
 @end
@@ -36,8 +42,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view.
 }
 
 ///切换城市
@@ -54,12 +58,14 @@
 }
 
 ///选择了投资领域的回调
-- (void)didSelectedTags:(NSArray *)selectedCodeArray selectedNames:(NSArray *)selectedNameArray {
-    NSString *str = [selectedNameArray componentsJoinedByString:@","];
-    [self.bizButton setTitle:str forState:(UIControlStateNormal)];
-    self.selectedBizValue = [selectedCodeArray componentsJoinedByString:@","];
+- (void)didSelectedTags:(NSMutableArray *)selectedCodeArray selectedNames:(NSMutableArray *)selectedNameArray {
+    [self.bizButton setTitle:[selectedNameArray componentsJoinedByString:@","] forState:(UIControlStateNormal)];
+//    self.selectedBizValue = [selectedCodeArray componentsJoinedByString:@","];
+    self.selectedCodeArray = selectedCodeArray;
+    self.selectedNameArray = selectedNameArray;
 }
 
+//选择项目阶段
 - (IBAction)selectStatus:(id)sender {
 //    数据预处理
     NSArray *array = [StatusDict procStatus];
@@ -77,6 +83,7 @@
     } cancelBlock:nil origin:sender];
 }
 
+//选择融资阶段
 - (IBAction)selectFinace:(id)sender {
     //    数据预处理
     NSArray *array = [StatusDict financeProc];
@@ -94,10 +101,33 @@
     } cancelBlock:nil origin:sender];
 }
 
+//投资领域
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"biz"]) {
         BizViewController *vc = segue.destinationViewController;
+        vc.selectedCodeArray = self.selectedCodeArray;
+        vc.tagListView.selectedTags = self.selectedNameArray;
         vc.delegate = self;
     }
 }
+
+- (IBAction)createButtonPress:(id)sender {
+    NSDictionary *param = @{
+                            @"projectName":self.projectNameTextField.text,
+//                            @"headPictUrl"
+                            @"projectResume":self.projectResumeTextView.text,
+                            @"desc":self.descTextView.text,
+                            @"procStatusCode":self.selectedStatusValue,
+                            @"financeProcCode":self.selectedFinanceValue,
+                            @"area":[self.currentCityButton titleForState:(UIControlStateNormal)],
+                            @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
+                            };
+    NSLog(@"%@",param);
+    
+    
+//    [self.service POST:@"/personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//    } noResult:nil];
+}
+
 @end

@@ -10,7 +10,9 @@
 #define Beauty_Global_h
 
 #define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]
-#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
+//#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
+#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
+
 #define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
 #define HGfont(s)  [UIFont systemFontOfSize:(s)]
 #define HGColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
