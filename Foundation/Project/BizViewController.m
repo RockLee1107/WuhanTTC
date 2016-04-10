@@ -32,8 +32,8 @@
     _selectedNameArray = [NSMutableArray array];
     [self.tagListView setCompletionBlockWithSelected:^(NSInteger index) {
 //        NSLog(@"______%ld______", (long)index);
-        [_selectedNameArray addObject:array[index][@"bizName"]];
-        [_selectedCodeArray addObject:array[index][@"bizCode"]];
+        [_selectedNameArray addObject:[StatusDict industry][index][@"bizName"]];
+        [_selectedCodeArray addObject:[StatusDict industry][index][@"bizCode"]];
     }];
 }
 

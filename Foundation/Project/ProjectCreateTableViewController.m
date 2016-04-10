@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -91,5 +92,12 @@
         self.selectedFinanceValue = array[selectedIndex][@"financeProcCode"];
         [self.financeButton setTitle:selectedValue forState:(UIControlStateNormal)];
     } cancelBlock:nil origin:sender];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"biz"]) {
+        BizViewController *vc = segue.destinationViewController;
+        vc.delegate = self;
+    }
 }
 @end
