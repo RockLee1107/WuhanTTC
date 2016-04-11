@@ -15,7 +15,9 @@
 #import "UserInfoTableViewController.h"
 
 @interface MemberTableViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *userIdentityButton;
 
 @end
 
@@ -23,12 +25,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.usernameLabel.text = [User getInstance].username;
+    self.avatarImageView.clipsToBounds = YES;
+    self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame) / 2.0;
+//    self.usernameLabel.text = [User getInstance].username;
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
+    [self fetchData];
+}
+
+- (void)fetchData {
+    NSDictionary *param = @{
+                            @"userId":[User getInstance].uid
+                            };
+    [self.service POST:@"personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.realnameLabel.text = responseObject[@"userinfo"][@"realName"];
+        [self.avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,responseObject[@"userinfo"][@"pictUrl"]]]];
+//        [self.userIdentityButton setTitle:USER_IDENTITY_DICT[responseObject[@"userinfo"][@"pictUrl"]] forState:(UIControlStateNormal)];
+    } noResult:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

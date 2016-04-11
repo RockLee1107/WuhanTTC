@@ -79,4 +79,25 @@
         NSLog(@"%@",operation.responseString);
     }];
 }
+
+//- (void)POST:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success {
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
+//    [dict setObject:@"MOBILE" forKey:@"clientType"];
+//    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
+//    [self.manager POST:urlstr parameters:dict constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+//        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
+//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        //            NSLog(@"responseObject:%@",responseObject);
+//        if ([responseObject[@"success"] boolValue]) {
+//            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+//            [self goBack];
+//        } else {
+//            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%@",error);
+//        [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+//    }];
+//}
 @end

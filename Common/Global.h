@@ -36,4 +36,5 @@
 #define BOOK_TYPE_TEXT @{@"DOC":@"图文",@"PPT":@"PPT",@"VIDEO":@"视频"}
 
 #define ACTIVITY_STATUS_ARRAY @[@"报名中",@"已满",@"已结束"]
+#define USER_IDENTITY_DICT @{@"INVESTOR":@"投资者",@"CREATOR":@"创业者"}
 #endif

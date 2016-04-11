@@ -44,8 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.projectNameTextField.delegate = self;
-    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
-    self.picker.delegate = self;
+
 }
 
 ///切换城市
@@ -190,11 +189,11 @@
 //    } noResult:nil];
 }
 
-
-/**upload img*/
 //点选相片或拍照
 - (IBAction)selectPicture:(id)sender {
     [self.currentTextField resignFirstResponder];
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
     [self.picker selectPicture];
 }
 
