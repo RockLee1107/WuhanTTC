@@ -91,17 +91,35 @@
 //              @"userId":[User getInstance].uid
               };
     NSDictionary *param = @{@"UserInfoDto":[StringUtil dictToJson:dict]};
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
-    [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        if (self.picker.filePath != nil) {
+    
+    if (self.picker.filePath != nil) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
+        [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
-        }
-        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //            NSLog(@"responseObject:%@",responseObject);
-        if ([responseObject[@"success"] boolValue]) {
-            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //            NSLog(@"responseObject:%@",responseObject);
+            if ([responseObject[@"success"] boolValue]) {
+                [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+                if (![self.companyTextField.text isEqualToString:@""]
+                    && ![self.dutyTextField.text isEqualToString:@""]
+                    && ![self.realnameTextField.text isEqualToString:@""]) {
+                    [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
+                } else {
+                    [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
+                }
+                [self goBack];
+            } else {
+                [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+            [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+        }];
+    } else {
+        [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
             if (![self.companyTextField.text isEqualToString:@""]
                 && ![self.dutyTextField.text isEqualToString:@""]
                 && ![self.realnameTextField.text isEqualToString:@""]) {
@@ -109,27 +127,11 @@
             } else {
                 [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
             }
-            [self goBack];
-        } else {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-        [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-    }];
+            [self.navigationController popViewControllerAnimated:YES];
+        } noResult:nil];
     
+    }
     
-//    [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-//        if (![self.companyTextField.text isEqualToString:@""]
-//            && ![self.dutyTextField.text isEqualToString:@""]
-//            && ![self.realnameTextField.text isEqualToString:@""]) {
-//            [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
-//        } else {
-//            [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
-//        }
-//        [self.navigationController popViewControllerAnimated:YES];
-//    } noResult:nil];
 }
 
 //选择城市

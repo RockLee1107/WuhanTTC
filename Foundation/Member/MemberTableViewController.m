@@ -43,6 +43,7 @@
     [self.service POST:@"personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.realnameLabel.text = responseObject[@"userinfo"][@"realName"];
         NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"userinfo"][@"pictUrl"]]];
+//        NSLog(@"%@",url);
         [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
 //        [self.userIdentityButton setTitle:USER_IDENTITY_DICT[responseObject[@"userinfo"][@"pictUrl"]] forState:(UIControlStateNormal)];
     } noResult:nil];
