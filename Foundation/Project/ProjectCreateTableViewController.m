@@ -14,11 +14,11 @@
 #import "StatusDict.h"
 #import "BizViewController.h"
 #import "VerifyUtil.h"
+#import "LXPhotoPicker.h"
 
-@interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
-@property (strong, nonatomic) UIImage *imageOriginal;
 @property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
 //项目状态
@@ -35,7 +35,7 @@
 @property (strong, nonatomic) NSMutableArray *selectedNameArray;
 
 @property (weak, nonatomic) IBOutlet EMTextView *descTextView;          //描述
-@property (nonatomic,strong) NSString *filePath;
+@property (strong, nonatomic) LXPhotoPicker *picker;
 
 @end
 
@@ -44,6 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.projectNameTextField.delegate = self;
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
 }
 
 ///切换城市
@@ -118,7 +120,7 @@
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
         return;
     }
-    if (![VerifyUtil hasValue:self.filePath]) {
+    if (![VerifyUtil hasValue:self.picker.filePath]) {
         [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
         return;
     }
@@ -149,7 +151,7 @@
     
     NSDictionary *project = @{
                             @"projectName":self.projectNameTextField.text,
-                            @"headPictUrl":self.filePath,
+                            @"headPictUrl":self.picker.filePath,
                             @"projectResume":self.projectResumeTextView.text,
                             @"desc":self.descTextView.text,
                             @"procStatusCode":self.selectedStatusValue,
@@ -168,7 +170,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
@@ -193,51 +195,10 @@
 //点选相片或拍照
 - (IBAction)selectPicture:(id)sender {
     [self.currentTextField resignFirstResponder];
-    UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍摄图片",@"图片选择",nil];
-    [sheet showInView:self.view];
-}
-//保存图片到沙盒
-- (void)savePicture {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"something.jpg"]];   // 保存文件的名称
-    BOOL result = [UIImagePNGRepresentation(self.imageOriginal)writeToFile: filePath    atomically:YES]; // 保存成功会返回YES
-    if (result) {
-        self.filePath = filePath;
-    }
-}
-//点击选取or从本机相册选择的ActionSheet
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (0 == buttonIndex) {
-        [self takeOrSelectPhoto:UIImagePickerControllerSourceTypeCamera];
-    } else if (1 == buttonIndex){
-        [self takeOrSelectPhoto:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-    }
+    [self.picker selectPicture];
 }
 
-- (void)takeOrSelectPhoto:(UIImagePickerControllerSourceType)sourceType {
-    NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:sourceType];
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.mediaTypes = mediaTypes;
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = sourceType;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-//用户上传照片-取消操作
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    //    最原始的图
-    UIImage *image = info[UIImagePickerControllerEditedImage];
-    //    先减半传到服务器
-    UIImage *imageOriginal = [CommonUtil shrinkImage:image toSize:CGSizeMake(0.3*image.size.width, 0.3*image.size.height)];
-    self.imageOriginal = imageOriginal;
-    [picker dismissViewControllerAnimated:YES completion:^{
-        [self.headPictUrlButton setImage:self.imageOriginal forState:(UIControlStateNormal)];
-        [self savePicture];
-    }];
+- (void)didSelectPhoto:(UIImage *)image {
+    [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
 }
 @end

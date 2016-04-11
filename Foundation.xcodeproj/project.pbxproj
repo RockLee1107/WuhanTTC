@@ -52,6 +52,7 @@
 		F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */; };
 		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
+		F74C9AE21CBB8B1300C7A607 /* LXPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */; };
 		F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E92381CAAE53C001AE980 /* LocationUtil.m */; };
 		F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF421CB2555A002BCDEE /* RegistViewController.m */; };
 		F795DF451CB40643002BCDEE /* app_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F795DF441CB40643002BCDEE /* app_photo@2x.png */; };
@@ -314,6 +315,8 @@
 		F741A6451C8F38E4008DC72B /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		F741A6461C8F38E4008DC72B /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
+		F74C9AE01CBB8B1300C7A607 /* LXPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPhotoPicker.h; sourceTree = "<group>"; };
+		F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPhotoPicker.m; sourceTree = "<group>"; };
 		F76E92371CAAE53C001AE980 /* LocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtil.h; sourceTree = "<group>"; };
 		F76E92381CAAE53C001AE980 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
 		F795DF411CB2555A002BCDEE /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				F73B78611C81375500069EEE /* HttpService.m */,
 				F73B78621C81375500069EEE /* LXButton.h */,
 				F73B78631C81375500069EEE /* LXButton.m */,
+				F74C9AE01CBB8B1300C7A607 /* LXPhotoPicker.h */,
+				F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1570,6 +1575,7 @@
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
 				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
+				F74C9AE21CBB8B1300C7A607 /* LXPhotoPicker.m in Sources */,
 				FDEADC131C92ACEB00971DD1 /* SubTabBarController.m in Sources */,
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				FDE2D9561CA369CF008DDE4F /* MASViewAttribute.m in Sources */,
