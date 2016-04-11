@@ -42,7 +42,8 @@
                             };
     [self.service POST:@"personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.realnameLabel.text = responseObject[@"userinfo"][@"realName"];
-        [self.avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,responseObject[@"userinfo"][@"pictUrl"]]]];
+        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"userinfo"][@"pictUrl"]]];
+        [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
 //        [self.userIdentityButton setTitle:USER_IDENTITY_DICT[responseObject[@"userinfo"][@"pictUrl"]] forState:(UIControlStateNormal)];
     } noResult:nil];
 }
