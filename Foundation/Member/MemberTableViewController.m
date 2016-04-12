@@ -45,7 +45,15 @@
         NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"userinfo"][@"pictUrl"]]];
 //        NSLog(@"%@",url);
         [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
-//        [self.userIdentityButton setTitle:USER_IDENTITY_DICT[responseObject[@"userinfo"][@"pictUrl"]] forState:(UIControlStateNormal)];
+        NSString *userIdentity = nil;
+        if (responseObject[@"investorInfo"] != [NSNull null]) {
+            if ([responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
+                userIdentity = @"投资者";
+            }
+        } else {
+            userIdentity = @"创业者";
+        }
+        [self.userIdentityButton setTitle:userIdentity forState:(UIControlStateNormal)];
     } noResult:nil];
 }
 
