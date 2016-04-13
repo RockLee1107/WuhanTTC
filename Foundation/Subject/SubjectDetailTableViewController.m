@@ -10,6 +10,7 @@
 #import "DTKDropdownMenuView.h"
 #import "PostTableViewCell.h"
 #import "SubjectDetailTableViewCell.h"
+#import "EYPopupViewHeader.h"
 
 @interface SubjectDetailTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @end
@@ -50,7 +51,15 @@
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"回复" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        [EYInputPopupView popViewWithTitle:@"回复帖子" contentText:@"请填写回复内容(1-200字)"
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   
+                               } dismissBlock:^{
+                                   
+                               }];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1,item2] icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;
