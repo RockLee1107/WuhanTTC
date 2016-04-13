@@ -45,7 +45,28 @@
 {
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"举报" iconName:@"menu_report" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        [EYInputPopupView popViewWithTitle:@"举报帖子" contentText:@"请填写举报内容(1-200字)"
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                       [SVProgressHUD showErrorWithStatus:@"请举报回复内容(1-200字)"];
+                                       return ;
+                                   }
+                                   NSDictionary *param = @{
+                                                           @"PostReport":[StringUtil dictToJson:@{
+                                                                                                 @"subjectId":self.dict[@"subjectId"],
+                                                                                                 @"userId":[User getInstance].uid,
+                                                                                                 @"remark":text,
+                                                                                                 }]
+                                                           };
+                                   [self.service POST:@"book/postSubject/reportSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"举报成功"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
+                               }];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"只看楼主" iconName:@"menu_auther" callBack:^(NSUInteger index, id info) {
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
@@ -56,7 +77,21 @@
                                cancelBlock:^{
                                    
                                } confirmBlock:^(UIView *view, NSString *text) {
-                                   
+                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                       [SVProgressHUD showErrorWithStatus:@"请填写回复内容(1-200字)"];
+                                       return ;
+                                   }
+                                   NSDictionary *param = @{
+                                                           @"PostReply":[StringUtil dictToJson:@{
+                                                                                                 @"subjectId":self.dict[@"subjectId"],
+                                                                                                 @"userId":[User getInstance].uid,
+                                                                                                 @"content":text,
+                                                                                                 }]
+                                                           };
+                                   [self.service POST:@"book/postReply/reply" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"回复成功"];
+                                       [self fetchData];
+                                   } noResult:nil];
                                } dismissBlock:^{
                                    
                                }];
