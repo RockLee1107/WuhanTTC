@@ -13,6 +13,7 @@
 #import "MyActivityPageController.h"
 #import "MySubjectPageController.h"
 #import "UserInfoTableViewController.h"
+#import "FriendsListViewController.h"
 
 @interface MemberTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -61,6 +62,14 @@
     if (indexPath.section == 0) {
         UserInfoTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
         [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            //消息
+        } else if (indexPath.row == 1) {
+            //创友录
+            FriendsListViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateInitialViewController];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     } else if (indexPath.section == 2) {
         UIViewController *vc = nil;
         if (indexPath.row == 0) {

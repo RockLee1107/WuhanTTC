@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yjr-Uh-BJ2">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--创友录-->
+        <scene sceneID="5aB-Lc-a5b">
+            <objects>
+                <viewController id="yjr-Uh-BJ2" customClass="FriendsListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="svk-hf-gsw"/>
+                        <viewControllerLayoutGuide type="bottom" id="s9t-7H-RaE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1DO-np-DDv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="k0Y-Ka-whO">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s9t-7H-RaE" firstAttribute="top" secondItem="k0Y-Ka-whO" secondAttribute="bottom" id="5DW-HY-Yxc"/>
+                            <constraint firstItem="k0Y-Ka-whO" firstAttribute="top" secondItem="svk-hf-gsw" secondAttribute="bottom" constant="-64" id="GPg-jl-qwq"/>
+                            <constraint firstItem="k0Y-Ka-whO" firstAttribute="leading" secondItem="1DO-np-DDv" secondAttribute="leadingMargin" constant="-20" id="cdk-LE-5tZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k0Y-Ka-whO" secondAttribute="trailing" constant="-20" id="yii-lY-evS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="创友录" id="gNJ-2m-Rit"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="friendsTableView" destination="k0Y-Ka-whO" id="rgD-5v-vPy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jW-uB-vVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="275"/>
+        </scene>
+    </scenes>
+</document>

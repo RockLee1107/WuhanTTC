@@ -107,6 +107,10 @@
 		FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D5A001CB2AA6E00B9514D /* PXAlertView+Customization.m */; };
 		FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D5A021CB2AA6E00B9514D /* PXAlertView.m */; };
 		FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D5A041CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m */; };
+		FD3DFE811CBDDAAD00CD9E3A /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD3DFE801CBDDAAD00CD9E3A /* Friends.storyboard */; };
+		FD3DFE841CBDDB2600CD9E3A /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3DFE831CBDDB2600CD9E3A /* FriendsListViewController.m */; };
+		FD3DFE881CBDDB7F00CD9E3A /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3DFE861CBDDB7F00CD9E3A /* FriendTableViewCell.m */; };
+		FD3DFE891CBDDB7F00CD9E3A /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3DFE871CBDDB7F00CD9E3A /* FriendTableViewCell.xib */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -418,6 +422,12 @@
 		FD3D5A021CB2AA6E00B9514D /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
 		FD3D5A031CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+PXAlertViewOverride.h"; sourceTree = "<group>"; };
 		FD3D5A041CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+PXAlertViewOverride.m"; sourceTree = "<group>"; };
+		FD3DFE801CBDDAAD00CD9E3A /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		FD3DFE821CBDDB2600CD9E3A /* FriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
+		FD3DFE831CBDDB2600CD9E3A /* FriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
+		FD3DFE851CBDDB7F00CD9E3A /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		FD3DFE861CBDDB7F00CD9E3A /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		FD3DFE871CBDDB7F00CD9E3A /* FriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -825,6 +835,7 @@
 		F73B78BB1C813E2800069EEE /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				FD3DFE7F1CBDD97900CD9E3A /* Friends */,
 				F76E923B1CAB5A7C001AE980 /* Settings */,
 				FDF3FE221CA81F52007B7C83 /* Activity */,
 				FDF3FE271CA81F52007B7C83 /* Collect */,
@@ -1076,6 +1087,19 @@
 				FD3D5A041CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m */,
 			);
 			path = PXAlert;
+			sourceTree = "<group>";
+		};
+		FD3DFE7F1CBDD97900CD9E3A /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				FD3DFE801CBDDAAD00CD9E3A /* Friends.storyboard */,
+				FD3DFE821CBDDB2600CD9E3A /* FriendsListViewController.h */,
+				FD3DFE831CBDDB2600CD9E3A /* FriendsListViewController.m */,
+				FD3DFE851CBDDB7F00CD9E3A /* FriendTableViewCell.h */,
+				FD3DFE861CBDDB7F00CD9E3A /* FriendTableViewCell.m */,
+				FD3DFE871CBDDB7F00CD9E3A /* FriendTableViewCell.xib */,
+			);
+			path = Friends;
 			sourceTree = "<group>";
 		};
 		FD44626F1CAC95FD00F7E12F /* Post */ = {
@@ -1455,6 +1479,7 @@
 				FD891A471CABE32B00706B4D /* login_wx@2x.png in Resources */,
 				FD9451031CA843DD00E00759 /* special1@2x.png in Resources */,
 				F7B98EAD1C7459FF006ABA71 /* Launch@2x.png in Resources */,
+				FD3DFE891CBDDB7F00CD9E3A /* FriendTableViewCell.xib in Resources */,
 				F73B78B81C813DDD00069EEE /* Book.storyboard in Resources */,
 				FD94510B1CA843DD00E00759 /* special9@2x.png in Resources */,
 				FDEADC0E1C92AA2D00971DD1 /* icon_about_normal@2x.png in Resources */,
@@ -1490,6 +1515,7 @@
 				FDD0FBC91CA8B2DD004CFA75 /* app_comment_list@2x.png in Resources */,
 				FDF3FE0E1CA7F854007B7C83 /* ico_make.png in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
+				FD3DFE811CBDDAAD00CD9E3A /* Friends.storyboard in Resources */,
 				FDEADC0F1C92AA2D00971DD1 /* icon_community_normal@2x.png in Resources */,
 				F73B78C71C81414900069EEE /* icon_book_selected@2x.png in Resources */,
 				FDE2D9601CA36CDB008DDE4F /* ic_menu@2x.png in Resources */,
@@ -1635,11 +1661,13 @@
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				F7EB9B941CAB5AE5005343AC /* SettingsTableViewController.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
+				FD3DFE881CBDDB7F00CD9E3A /* FriendTableViewCell.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
 				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
 				FDDFA9681CBA9B63001827BE /* VerifyUtil.m in Sources */,
 				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
+				FD3DFE841CBDDB2600CD9E3A /* FriendsListViewController.m in Sources */,
 				FDE2D9551CA369CF008DDE4F /* MASLayoutConstraint.m in Sources */,
 				FDF3FE3A1CA81F52007B7C83 /* MyNotePageController.m in Sources */,
 				FDF3FE381CA81F52007B7C83 /* MyCollectPageController.m in Sources */,
