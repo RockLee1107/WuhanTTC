@@ -141,8 +141,8 @@
     }
     SubjectDetailTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SubjectDetailTableViewCell" owner:nil options:nil] firstObject];
     //    读取值
-    cell.titleLabel.text = self.dict[@"title"];
-    cell.realnameLabel.text = self.dict[@"realName"];
+    cell.titleLabel.text = [StringUtil toString:self.dict[@"title"]];
+    cell.realnameLabel.text = [StringUtil toString:self.dict[@"realName"]];
     cell.pbDateTimeLabel.text = [DateUtil toString:self.dict[@"pbDate"] time:self.dict[@"pbTime"]];
     cell.contentTextView.attributedText = [[NSAttributedString alloc] initWithString:self.dict[@"content"] attributes:[StringUtil textViewAttribute]];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dict[@"pictUrl"]]]]];
