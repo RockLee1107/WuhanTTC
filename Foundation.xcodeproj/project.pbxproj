@@ -128,6 +128,8 @@
 		FD4462861CAD51FF00F7E12F /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462851CAD51FF00F7E12F /* ActivityDetailViewController.m */; };
 		FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */; };
 		FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47F85C1C8AC58C00D0ED07 /* Page.m */; };
+		FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */; };
+		FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F751CBE8BE600A29998 /* StandardViewController.m */; };
 		FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A3F1CABE0F100706B4D /* login_sina@2x.png */; };
 		FD891A461CABE32B00706B4D /* login_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A441CABE32B00706B4D /* login_qq@2x.png */; };
 		FD891A471CABE32B00706B4D /* login_wx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A451CABE32B00706B4D /* login_wx@2x.png */; };
@@ -465,6 +467,10 @@
 		FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_thumb@2x.png"; sourceTree = "<group>"; };
 		FD47F85B1C8AC58C00D0ED07 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		FD47F85C1C8AC58C00D0ED07 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
+		FD725F711CBE86CF00A29998 /* ActivityCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCreateTableViewController.h; sourceTree = "<group>"; };
+		FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCreateTableViewController.m; sourceTree = "<group>"; };
+		FD725F741CBE8BE600A29998 /* StandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardViewController.h; sourceTree = "<group>"; };
+		FD725F751CBE8BE600A29998 /* StandardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardViewController.m; sourceTree = "<group>"; };
 		FD891A3F1CABE0F100706B4D /* login_sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_sina@2x.png"; sourceTree = "<group>"; };
 		FD891A441CABE32B00706B4D /* login_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_qq@2x.png"; sourceTree = "<group>"; };
 		FD891A451CABE32B00706B4D /* login_wx@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_wx@2x.png"; sourceTree = "<group>"; };
@@ -851,6 +857,10 @@
 				F7A61E641CA049DB001B5FB3 /* Detail */,
 				F73B78BA1C813E2800069EEE /* Activity.storyboard */,
 				FDE33F1C1CA005DA005C6863 /* ActivityList */,
+				FD725F711CBE86CF00A29998 /* ActivityCreateTableViewController.h */,
+				FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */,
+				FD725F741CBE8BE600A29998 /* StandardViewController.h */,
+				FD725F751CBE8BE600A29998 /* StandardViewController.m */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -1662,6 +1672,7 @@
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
 				FDD0FBD41CA8C018004CFA75 /* SubjectTableViewDelegate.m in Sources */,
+				FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */,
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F74C9AF81CBE1DE300C7A607 /* EYPopupView.m in Sources */,
@@ -1691,6 +1702,7 @@
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */,
+				FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
 				F795DF5A1CB40BB8002BCDEE /* City.m in Sources */,
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,

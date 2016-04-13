@@ -81,6 +81,10 @@
             [self saveStatusCode:responseObject type:@"financeProc" key:nil];
             //        项目领域
             [self saveStatusCode:responseObject type:@"industry" key:@"biz"];
+            //        活动类型
+            [self saveStatusCode:responseObject type:@"activityType" key:@"type"];
+            //        专题
+            [self saveStatusCode:responseObject type:@"specialType" key:@"special"];
         } noResult:nil];
         [self jumpMain];
 //        [self jumpTest];

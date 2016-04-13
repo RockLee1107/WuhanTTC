@@ -44,6 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.projectNameTextField.delegate = self;
+    [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
 
 }
 
@@ -52,7 +53,6 @@
     CityViewController *vc = [[CityViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
     vc.delegete = self;
-//    vc.vc = self;
 }
 
 ///选择了城市之后的回调
@@ -197,6 +197,7 @@
     [self.picker selectPicture];
 }
 
+///LXPhoto Delegate
 - (void)didSelectPhoto:(UIImage *)image {
     [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
 }

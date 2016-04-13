@@ -21,5 +21,12 @@
 + (NSArray *)industry {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"industry"];
 }
-
+///活动类型
++ (NSArray *)activityType {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"activityType"];
+}
+///专题
++ (NSArray *)specialType {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"specialType"];
+}
 @end

@@ -17,4 +17,8 @@
 + (NSString *)toString:(id)date time:(id)time;
 ///转非全年份的日期时间，分别传入日期与时间
 + (NSString *)toShortDate:(id)date time:(id)time;
+//NSDate类型转成String类型
++ (NSString *)dateToString:(NSDate *)date;
+///长日期
++ (NSString *)dateToFullString:(NSDate *)date;
 @end

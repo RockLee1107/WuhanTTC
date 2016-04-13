@@ -74,4 +74,18 @@
     NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
     return [NSString stringWithFormat:@"%@/%@",month,day];
 }
+
++ (NSString *)dateToString:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
+
++ (NSString *)dateToFullString:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
 @end

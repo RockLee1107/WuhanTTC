@@ -15,4 +15,8 @@
 + (NSArray *)financeProc;
 ///项目领域
 + (NSArray *)industry;
+///活动类型
++ (NSArray *)activityType;
+///专题
++ (NSArray *)specialType;
 @end
