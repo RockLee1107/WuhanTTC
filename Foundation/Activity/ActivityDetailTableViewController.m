@@ -33,7 +33,7 @@
         self.dataDict = responseObject;
         [self.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"pictUrl"]]]]];
         self.pictUrlImageView.clipsToBounds = YES;
-        self.activityTitleLabel.text = responseObject[@"activityTitle"];
+        self.activityTitleLabel.text = [StringUtil toString:responseObject[@"activityTitle"]];
         self.typeLabel.text = responseObject[@"type"];
         self.statusLabel.text = ACTIVITY_STATUS_ARRAY[[responseObject[@"status"] integerValue]];
         self.planDatetimeLabel.text = [DateUtil toString:responseObject[@"planDate"] time:responseObject[@"planTime"]];
@@ -41,23 +41,23 @@
         NSString *applyNum = [responseObject[@"applyNum"] stringValue];
         NSString *planJoinNum = [responseObject[@"planJoinNum"] stringValue];
         self.applyNumLabel.text = [NSString stringWithFormat:@"%@/%@",applyNum,planJoinNum];
-        self.cityLabel.text = responseObject[@"city"];
-        self.planSiteLabel.text = responseObject[@"planSite"];
-        self.applyRequirementLabel.text = self.dataDict[@"applyRequirement"];
-        self.activityDetailsLabel.text = self.dataDict[@"activityDetails"];
+        self.cityLabel.text = [StringUtil toString:responseObject[@"city"]];
+        self.planSiteLabel.text = [StringUtil toString:responseObject[@"planSite"]];
+        self.applyRequirementLabel.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
+        self.activityDetailsLabel.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
     } noResult:nil];
     // Do any additional setup after loading the view.
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 2) {
-        CGRect frame = [self.dataDict[@"applyRequirement"] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
+        CGRect frame = [[StringUtil toString:self.dataDict[@"applyRequirement"]] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
                                                                         options:(NSStringDrawingUsesLineFragmentOrigin)
                                                                      attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                                                         context:nil];
         return frame.size.height + 110.0;
     } else if (indexPath.row == 3) {
-        CGRect frame = [self.dataDict[@"activityDetails"] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
+        CGRect frame = [[StringUtil toString:self.dataDict[@"activityDetails"]] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
                                                                         options:(NSStringDrawingUsesLineFragmentOrigin)
                                                                      attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                                                         context:nil];

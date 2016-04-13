@@ -100,7 +100,7 @@
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建活动" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        [self performSegueWithIdentifier:@"create" sender:nil];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页

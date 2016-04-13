@@ -38,6 +38,7 @@
                         <outlet property="tableView" destination="dFq-SZ-KD9" id="04e-Bd-R2z"/>
                         <segue destination="1ER-kc-Z5s" kind="show" identifier="search" id="c1M-XK-TW4"/>
                         <segue destination="z3r-ku-b0c" kind="show" identifier="detail" id="Yfl-37-S5N"/>
+                        <segue destination="C2G-Xp-UQ1" kind="show" identifier="create" id="VfI-Ay-8g8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trU-CJ-ghQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,9 +461,562 @@
             </objects>
             <point key="canvasLocation" x="2056" y="478"/>
         </scene>
+        <!--创建活动-->
+        <scene sceneID="8nr-0m-BFF">
+            <objects>
+                <tableViewController storyboardIdentifier="create" id="C2G-Xp-UQ1" customClass="ActivityCreateTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="41T-H7-uQV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1288"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="USd-Dl-KvK">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="Oek-yP-kHc">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oek-yP-kHc" id="Ur2-E6-hMb">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDp-4s-CM1" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="aYl-O2-i1q"/>
+                                                        <constraint firstAttribute="width" constant="90" id="dSe-6j-asF"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动名称">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入项目名称(1-26字)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wFm-Pk-QwO">
+                                                    <rect key="frame" x="25" y="42" width="271" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="2Ey-yt-e4k"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wFm-Pk-QwO" secondAttribute="trailing" constant="16" id="009-C6-Dwu"/>
+                                                <constraint firstItem="IDp-4s-CM1" firstAttribute="top" secondItem="Ur2-E6-hMb" secondAttribute="topMargin" constant="4" id="JT7-zn-zvw"/>
+                                                <constraint firstItem="IDp-4s-CM1" firstAttribute="leading" secondItem="Ur2-E6-hMb" secondAttribute="leadingMargin" constant="5" id="Phx-eS-VKH"/>
+                                                <constraint firstItem="wFm-Pk-QwO" firstAttribute="leading" secondItem="Ur2-E6-hMb" secondAttribute="leadingMargin" constant="17" id="Q2z-bX-iyP"/>
+                                                <constraint firstItem="wFm-Pk-QwO" firstAttribute="top" secondItem="IDp-4s-CM1" secondAttribute="bottom" constant="10" id="f9A-GP-Jbg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="80" id="mB1-6X-Wk0">
+                                        <rect key="frame" x="0.0" y="179" width="320" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mB1-6X-Wk0" id="BpG-kH-Ywf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="116-RD-ZsD">
+                                                    <rect key="frame" x="234" y="11" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="58" id="Gfr-Ey-Mtr"/>
+                                                        <constraint firstAttribute="height" constant="58" id="xXv-kM-san"/>
+                                                    </constraints>
+                                                    <state key="normal" image="app_photo.png"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-mU-Isy" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="30" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="3Sb-Ph-Wra"/>
+                                                        <constraint firstAttribute="height" constant="20" id="axd-wx-2Ow"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动图片">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="116-RD-ZsD" secondAttribute="trailing" constant="20" id="HoN-Uk-bRS"/>
+                                                <constraint firstItem="116-RD-ZsD" firstAttribute="centerY" secondItem="BpG-kH-Ywf" secondAttribute="centerY" id="TYU-ZB-Ryl"/>
+                                                <constraint firstItem="u6O-mU-Isy" firstAttribute="leading" secondItem="BpG-kH-Ywf" secondAttribute="leadingMargin" constant="5" id="qQf-1E-koz"/>
+                                                <constraint firstItem="u6O-mU-Isy" firstAttribute="top" secondItem="BpG-kH-Ywf" secondAttribute="topMargin" constant="22" id="yeH-3f-3eX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="140" id="Xa1-X3-QZR">
+                                        <rect key="frame" x="0.0" y="259" width="320" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xa1-X3-QZR" id="i5G-ei-91y">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqj-Fr-8W8" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="Hi4-Td-aXZ"/>
+                                                        <constraint firstAttribute="height" constant="20" id="QP7-Bo-V8B"/>
+                                                    </constraints>
+                                                    <state key="normal" title="项目简介">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J88-aU-g4i" customClass="EMTextView">
+                                                    <rect key="frame" x="13" y="40" width="299" height="88"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请填写项目简介(3-50字)"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lqj-Fr-8W8" firstAttribute="top" secondItem="i5G-ei-91y" secondAttribute="topMargin" constant="4" id="DfU-nK-xh2"/>
+                                                <constraint firstItem="J88-aU-g4i" firstAttribute="leading" secondItem="i5G-ei-91y" secondAttribute="leadingMargin" constant="5" id="EPI-ak-KQL"/>
+                                                <constraint firstItem="J88-aU-g4i" firstAttribute="top" secondItem="Lqj-Fr-8W8" secondAttribute="bottom" constant="8" id="GOJ-6c-fTN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="J88-aU-g4i" secondAttribute="bottom" constant="3" id="Jky-y9-hPa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="J88-aU-g4i" secondAttribute="trailing" id="ki3-fn-7YP"/>
+                                                <constraint firstItem="Lqj-Fr-8W8" firstAttribute="leading" secondItem="i5G-ei-91y" secondAttribute="leadingMargin" constant="5" id="t91-pM-sw4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="xew-aL-T8W">
+                                        <rect key="frame" x="0.0" y="399" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xew-aL-T8W" id="m9l-Gx-vPf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdN-bq-PqB" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="Onj-IG-d6s"/>
+                                                        <constraint firstAttribute="height" constant="20" id="v7u-1J-iuO"/>
+                                                    </constraints>
+                                                    <state key="normal" title="所在城市">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrj-Wg-J9A" customClass="LXButton">
+                                                    <rect key="frame" x="179" y="7" width="48" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="b8R-R3-4Z3"/>
+                                                    </constraints>
+                                                    <state key="normal" title="城市"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv5-SB-0zx" customClass="LXButton">
+                                                    <rect key="frame" x="237" y="7" width="70" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="WvE-cM-PlZ"/>
+                                                    </constraints>
+                                                    <state key="normal" title="切换城市"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="WvE-cM-PlZ"/>
+                                                        </mask>
+                                                    </variation>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfo-4x-jAm" customClass="LXButton">
+                                                    <rect key="frame" x="121" y="7" width="48" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="X7b-w6-cxt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="线上"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tdN-bq-PqB" firstAttribute="top" secondItem="m9l-Gx-vPf" secondAttribute="topMargin" constant="4" id="EOr-7v-Hhb"/>
+                                                <constraint firstItem="tdN-bq-PqB" firstAttribute="leading" secondItem="m9l-Gx-vPf" secondAttribute="leadingMargin" constant="5" id="MeW-dc-rYs"/>
+                                                <constraint firstItem="yv5-SB-0zx" firstAttribute="leading" secondItem="xrj-Wg-J9A" secondAttribute="trailing" constant="10" id="Saa-J9-dR6"/>
+                                                <constraint firstItem="xrj-Wg-J9A" firstAttribute="leading" secondItem="tdN-bq-PqB" secondAttribute="trailing" constant="8" id="VZR-8f-UGf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yv5-SB-0zx" secondAttribute="trailing" constant="5" id="Xze-SD-3en"/>
+                                                <constraint firstItem="kfo-4x-jAm" firstAttribute="leading" secondItem="tdN-bq-PqB" secondAttribute="trailing" constant="18" id="csb-nN-mET"/>
+                                                <constraint firstItem="yv5-SB-0zx" firstAttribute="centerY" secondItem="xrj-Wg-J9A" secondAttribute="centerY" id="fJw-FI-0DP"/>
+                                                <constraint firstItem="xrj-Wg-J9A" firstAttribute="leading" secondItem="kfo-4x-jAm" secondAttribute="trailing" constant="10" id="sYt-tb-IvK"/>
+                                                <constraint firstItem="xrj-Wg-J9A" firstAttribute="centerY" secondItem="tdN-bq-PqB" secondAttribute="centerY" id="t0E-lr-V7N"/>
+                                                <constraint firstItem="kfo-4x-jAm" firstAttribute="centerY" secondItem="tdN-bq-PqB" secondAttribute="centerY" id="tkF-IA-IHF"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="VZR-8f-UGf"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="k99-Hq-Uxr">
+                                        <rect key="frame" x="0.0" y="443" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k99-Hq-Uxr" id="zHA-es-JdN">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcQ-aV-8Jq" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="4Ly-NO-d7y"/>
+                                                        <constraint firstAttribute="height" constant="20" id="zF5-Si-scD"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动类型">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbg-A7-35G">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
+                                                    <state key="normal" title="请选择"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mbg-A7-35G" secondAttribute="trailing" constant="7" id="44q-JT-VP6"/>
+                                                <constraint firstItem="mbg-A7-35G" firstAttribute="centerY" secondItem="zHA-es-JdN" secondAttribute="centerY" id="PhV-Mx-Ww6"/>
+                                                <constraint firstItem="mbg-A7-35G" firstAttribute="leading" secondItem="zcQ-aV-8Jq" secondAttribute="trailing" constant="18" id="Qpb-gh-D9Q"/>
+                                                <constraint firstItem="zcQ-aV-8Jq" firstAttribute="top" secondItem="zHA-es-JdN" secondAttribute="topMargin" constant="4" id="XRK-HL-qvH"/>
+                                                <constraint firstItem="zcQ-aV-8Jq" firstAttribute="leading" secondItem="zHA-es-JdN" secondAttribute="leadingMargin" constant="5" id="cbl-Yt-Pyk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="8hB-GK-mmq">
+                                        <rect key="frame" x="0.0" y="487" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8hB-GK-mmq" id="IZU-Ey-eYJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRo-jx-c9W" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="IbD-8p-49X"/>
+                                                        <constraint firstAttribute="height" constant="20" id="NVo-Gl-Sgd"/>
+                                                    </constraints>
+                                                    <state key="normal" title="开始时间">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5q-cd-Jau">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
+                                                    <state key="normal" title="请选择"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="g5q-cd-Jau" firstAttribute="leading" secondItem="lRo-jx-c9W" secondAttribute="trailing" constant="18" id="0d2-DV-fnB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="g5q-cd-Jau" secondAttribute="trailing" constant="7" id="6g3-ed-aHd"/>
+                                                <constraint firstItem="g5q-cd-Jau" firstAttribute="centerY" secondItem="IZU-Ey-eYJ" secondAttribute="centerY" id="S0S-jM-5oP"/>
+                                                <constraint firstItem="lRo-jx-c9W" firstAttribute="top" secondItem="IZU-Ey-eYJ" secondAttribute="topMargin" constant="4" id="bKI-AF-pek"/>
+                                                <constraint firstItem="lRo-jx-c9W" firstAttribute="leading" secondItem="IZU-Ey-eYJ" secondAttribute="leadingMargin" constant="5" id="iOE-QN-lf3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="gbZ-Hx-bwk">
+                                        <rect key="frame" x="0.0" y="531" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbZ-Hx-bwk" id="hXL-iF-gm3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEX-e9-CwX" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="Dtr-h4-TVj"/>
+                                                        <constraint firstAttribute="height" constant="20" id="ltE-kW-ejR"/>
+                                                    </constraints>
+                                                    <state key="normal" title="结束时间">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVm-jc-FKb">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
+                                                    <state key="normal" title="请选择"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eVm-jc-FKb" firstAttribute="centerY" secondItem="hXL-iF-gm3" secondAttribute="centerY" id="6yB-Gw-Krw"/>
+                                                <constraint firstItem="uEX-e9-CwX" firstAttribute="top" secondItem="hXL-iF-gm3" secondAttribute="topMargin" constant="4" id="Mp7-bD-qKa"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eVm-jc-FKb" secondAttribute="trailing" constant="7" id="OTd-Zy-Wc1"/>
+                                                <constraint firstItem="eVm-jc-FKb" firstAttribute="leading" secondItem="uEX-e9-CwX" secondAttribute="trailing" constant="18" id="Plc-Rc-CWy"/>
+                                                <constraint firstItem="uEX-e9-CwX" firstAttribute="leading" secondItem="hXL-iF-gm3" secondAttribute="leadingMargin" constant="5" id="kDu-r8-JKm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="uDn-0G-cnG">
+                                        <rect key="frame" x="0.0" y="575" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uDn-0G-cnG" id="YfQ-lq-P9m">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acr-yp-kvs" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="GTo-f8-9TL"/>
+                                                        <constraint firstAttribute="height" constant="20" id="HBr-8n-z6e"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动人数">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qFI-ZZ-D6t">
+                                                    <rect key="frame" x="121" y="7" width="191" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="iHz-fH-fGA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qFI-ZZ-D6t" firstAttribute="centerY" secondItem="Acr-yp-kvs" secondAttribute="centerY" id="9x8-Wu-9k9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qFI-ZZ-D6t" secondAttribute="trailing" id="TPp-oK-4pq"/>
+                                                <constraint firstItem="Acr-yp-kvs" firstAttribute="leading" secondItem="YfQ-lq-P9m" secondAttribute="leadingMargin" constant="5" id="Uf8-0s-mzo"/>
+                                                <constraint firstItem="qFI-ZZ-D6t" firstAttribute="leading" secondItem="Acr-yp-kvs" secondAttribute="trailing" constant="18" id="bch-2l-xYI"/>
+                                                <constraint firstItem="Acr-yp-kvs" firstAttribute="top" secondItem="YfQ-lq-P9m" secondAttribute="topMargin" constant="4" id="iIg-1g-7Vs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="DcH-BQ-yIk">
+                                        <rect key="frame" x="0.0" y="619" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DcH-BQ-yIk" id="9MY-Dr-NQA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUh-fj-fjk" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="U5w-ma-w7k"/>
+                                                        <constraint firstAttribute="height" constant="20" id="rm8-51-7Mf"/>
+                                                    </constraints>
+                                                    <state key="normal" title="联系人">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9EK-kd-GV2">
+                                                    <rect key="frame" x="121" y="7" width="191" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="TcQ-nM-jWh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qUh-fj-fjk" firstAttribute="leading" secondItem="9MY-Dr-NQA" secondAttribute="leadingMargin" constant="5" id="2Lq-HV-09x"/>
+                                                <constraint firstItem="9EK-kd-GV2" firstAttribute="centerY" secondItem="qUh-fj-fjk" secondAttribute="centerY" id="578-F5-fav"/>
+                                                <constraint firstItem="9EK-kd-GV2" firstAttribute="leading" secondItem="qUh-fj-fjk" secondAttribute="trailing" constant="18" id="Dru-3b-lte"/>
+                                                <constraint firstItem="qUh-fj-fjk" firstAttribute="top" secondItem="9MY-Dr-NQA" secondAttribute="topMargin" constant="4" id="K6r-Fw-UIT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9EK-kd-GV2" secondAttribute="trailing" id="dqd-74-Ngm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="2wF-Is-wGg">
+                                        <rect key="frame" x="0.0" y="663" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2wF-Is-wGg" id="V6T-yv-QnU">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3g-Jt-Y4r" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="6AS-cf-SVB"/>
+                                                        <constraint firstAttribute="height" constant="20" id="CoZ-sn-gs6"/>
+                                                    </constraints>
+                                                    <state key="normal" title="联系电话">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="syr-IG-xFY">
+                                                    <rect key="frame" x="121" y="7" width="191" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="boy-1r-CUy"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="syr-IG-xFY" firstAttribute="centerY" secondItem="r3g-Jt-Y4r" secondAttribute="centerY" id="GvX-cK-wne"/>
+                                                <constraint firstItem="syr-IG-xFY" firstAttribute="leading" secondItem="r3g-Jt-Y4r" secondAttribute="trailing" constant="18" id="IuE-iQ-d8J"/>
+                                                <constraint firstItem="r3g-Jt-Y4r" firstAttribute="top" secondItem="V6T-yv-QnU" secondAttribute="topMargin" constant="4" id="P0G-fd-oCS"/>
+                                                <constraint firstItem="r3g-Jt-Y4r" firstAttribute="leading" secondItem="V6T-yv-QnU" secondAttribute="leadingMargin" constant="5" id="o1g-e9-dpt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="syr-IG-xFY" secondAttribute="trailing" id="qzD-Dm-20E"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="145" id="gMX-sa-2aZ">
+                                        <rect key="frame" x="0.0" y="707" width="320" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gMX-sa-2aZ" id="Mc6-zA-dcc">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWH-Mh-Dby" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="2jk-Zp-jAZ"/>
+                                                        <constraint firstAttribute="width" constant="90" id="Jkp-Xg-3ED"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动介绍">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jhy-Av-ymg" customClass="EMTextView">
+                                                    <rect key="frame" x="11" y="40" width="299" height="86"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请填写活动简介、活动嘉宾、活动议程等相关活动信息，最多2000字"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jhy-Av-ymg" secondAttribute="trailing" constant="2" id="GvG-2D-02P"/>
+                                                <constraint firstItem="Jhy-Av-ymg" firstAttribute="leading" secondItem="Mc6-zA-dcc" secondAttribute="leadingMargin" constant="3" id="JGc-Mx-3qQ"/>
+                                                <constraint firstItem="Jhy-Av-ymg" firstAttribute="top" secondItem="ZWH-Mh-Dby" secondAttribute="bottom" constant="8" id="Mzk-Le-gTn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Jhy-Av-ymg" secondAttribute="bottom" constant="10" id="NCc-kk-h9o"/>
+                                                <constraint firstItem="ZWH-Mh-Dby" firstAttribute="top" secondItem="Mc6-zA-dcc" secondAttribute="topMargin" constant="4" id="Wq4-Ph-M2U"/>
+                                                <constraint firstItem="ZWH-Mh-Dby" firstAttribute="leading" secondItem="Mc6-zA-dcc" secondAttribute="leadingMargin" constant="5" id="xkc-5i-LgW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="108" id="jDp-9f-bQk">
+                                        <rect key="frame" x="0.0" y="852" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jDp-9f-bQk" id="9Fg-x5-NS9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMQ-lV-Eph" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="DZ8-fo-Cca"/>
+                                                        <constraint firstAttribute="height" constant="20" id="I0R-QI-fBI"/>
+                                                    </constraints>
+                                                    <state key="normal" title="详情图片">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eth-z4-g0o">
+                                                    <rect key="frame" x="29" y="40" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="58" id="RIs-51-zHy"/>
+                                                        <constraint firstAttribute="height" constant="58" id="v8o-y5-JA8"/>
+                                                    </constraints>
+                                                    <state key="normal" image="app_photo.png"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CMQ-lV-Eph" firstAttribute="top" secondItem="9Fg-x5-NS9" secondAttribute="topMargin" constant="4" id="Pxi-me-Ktr"/>
+                                                <constraint firstItem="CMQ-lV-Eph" firstAttribute="leading" secondItem="9Fg-x5-NS9" secondAttribute="leadingMargin" constant="5" id="Za1-Nt-KyV"/>
+                                                <constraint firstItem="eth-z4-g0o" firstAttribute="leading" secondItem="9Fg-x5-NS9" secondAttribute="leadingMargin" constant="21" id="loa-V2-nfZ"/>
+                                                <constraint firstItem="eth-z4-g0o" firstAttribute="top" secondItem="CMQ-lV-Eph" secondAttribute="bottom" constant="8" id="nk0-kw-h89"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="108" id="4pY-cP-uhE">
+                                        <rect key="frame" x="0.0" y="960" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pY-cP-uhE" id="8Bt-is-FL4">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rb-9R-su4" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="qgJ-WM-WpH"/>
+                                                        <constraint firstAttribute="width" constant="90" id="y40-Fj-7Sn"/>
+                                                    </constraints>
+                                                    <state key="normal" title="报名人信息">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7rb-9R-su4" firstAttribute="top" secondItem="8Bt-is-FL4" secondAttribute="topMargin" constant="4" id="GGU-dE-bvm"/>
+                                                <constraint firstItem="7rb-9R-su4" firstAttribute="leading" secondItem="8Bt-is-FL4" secondAttribute="leadingMargin" constant="5" id="e1f-7R-qlZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="145" id="ck2-d6-aYI">
+                                        <rect key="frame" x="0.0" y="1068" width="320" height="145"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ck2-d6-aYI" id="3y1-UC-PKJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGT-ni-2Bm" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="6TI-0s-lTu"/>
+                                                        <constraint firstAttribute="width" constant="90" id="e3V-xL-Ezj"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动要求">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VR0-tT-VUs" customClass="EMTextView">
+                                                    <rect key="frame" x="11" y="40" width="299" height="86"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请填写活动参与者的资格要求、报名审核方式等信息，最多500字"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jGT-ni-2Bm" firstAttribute="top" secondItem="3y1-UC-PKJ" secondAttribute="topMargin" constant="4" id="LlC-PS-T4B"/>
+                                                <constraint firstItem="jGT-ni-2Bm" firstAttribute="leading" secondItem="3y1-UC-PKJ" secondAttribute="leadingMargin" constant="5" id="R61-Y7-6Mw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="VR0-tT-VUs" secondAttribute="bottom" constant="10" id="dZE-DU-bps"/>
+                                                <constraint firstItem="VR0-tT-VUs" firstAttribute="top" secondItem="jGT-ni-2Bm" secondAttribute="bottom" constant="8" id="jn5-u0-T9U"/>
+                                                <constraint firstItem="VR0-tT-VUs" firstAttribute="leading" secondItem="3y1-UC-PKJ" secondAttribute="leadingMargin" constant="3" id="keG-41-A2t"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="VR0-tT-VUs" secondAttribute="trailing" constant="2" id="zHU-nZ-Wpz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="JtA-HO-UKu">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="2DR-7p-EGU">
+                                        <rect key="frame" x="0.0" y="1233" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2DR-7p-EGU" id="J7C-PW-yaH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUd-dl-1dz" customClass="LXButton">
+                                                    <rect key="frame" x="8" y="12" width="304" height="35"/>
+                                                    <state key="normal" title="创建活动"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JUd-dl-1dz" secondAttribute="bottom" constant="4" id="8aq-6c-rHp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JUd-dl-1dz" secondAttribute="trailing" id="Hkz-YW-1mW"/>
+                                                <constraint firstItem="JUd-dl-1dz" firstAttribute="top" secondItem="J7C-PW-yaH" secondAttribute="topMargin" constant="4" id="hXY-dT-0UF"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="JUd-dl-1dz" secondAttribute="leading" id="tge-BH-ybx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="C2G-Xp-UQ1" id="NLN-TQ-fCL"/>
+                            <outlet property="delegate" destination="C2G-Xp-UQ1" id="R7u-gP-7DT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="创建活动" id="200-J1-1zo">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="dR8-jg-6jA"/>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="1288"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WkM-Gy-Xfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="1369"/>
+        </scene>
     </scenes>
     <resources>
         <image name="app_failure_img.png" width="35" height="35"/>
+        <image name="app_photo.png" width="58" height="58"/>
         <image name="icon_activity_normal.png" width="26" height="26"/>
     </resources>
 </document>
