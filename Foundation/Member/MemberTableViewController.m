@@ -59,19 +59,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *vc = nil;
     if (indexPath.section == 0) {
-        UserInfoTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
-        [self.navigationController pushViewController:vc animated:YES];
+        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             //消息
         } else if (indexPath.row == 1) {
             //创友录
-            FriendsListViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateInitialViewController];
-            [self.navigationController pushViewController:vc animated:YES];
+            vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateInitialViewController];
         }
     } else if (indexPath.section == 2) {
-        UIViewController *vc = nil;
         if (indexPath.row == 0) {
             //我的收藏
             vc = [[MyCollectPageController alloc] init];
@@ -88,9 +86,9 @@
             //我的帖子
             vc = [[MySubjectPageController alloc] init];
         }
-        [self.navigationController pushViewController:vc animated:YES];
     } else if (indexPath.section == 3) {
-        [self performSegueWithIdentifier:@"settings" sender:nil];
+        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
     }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
