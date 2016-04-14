@@ -19,8 +19,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *areaTextField;
 @property (strong, nonatomic) LXPhotoPicker *picker;
-@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
+//@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
 @property (strong, nonatomic) NSDictionary *userinfo;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (strong, nonatomic) UIImage *avatarImage;
 
 @end
 
@@ -46,6 +48,13 @@
     [self.service POST:@"/personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.userinfo = responseObject[@"userinfo"];
         responseObject = responseObject[@"userinfo"];
+        NSString *pictUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,self.userinfo[@"pictUrl"]];
+        
+        [self.avatarImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:pictUrl]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            self.avatarImage = image;
+            [self.avatarImageView setImage:image];
+        } failure:nil];
+//        [self.avatarImageView setImageWithURL:[NSURL URLWithString:pictUrl]];
         self.realnameTextField.text = [StringUtil toString:responseObject[@"realName"]];
         self.mobileTextField.text = [StringUtil toString:responseObject[@"mobile"]];
         self.wechatTextField.text = [StringUtil toString:responseObject[@"weChat"]];
@@ -56,15 +65,25 @@
     } noResult:nil];
 }
 
+//tb delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        //上传头像
+        [self selectPicture];
+    }
+}
+
 //点选相片或拍照
-- (IBAction)selectPicture:(id)sender {
+- (void)selectPicture {
     self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
     self.picker.delegate = self;
     [self.picker selectPicture];
 }
 
 - (void)didSelectPhoto:(UIImage *)image {
-    [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+//    [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+    [self.avatarImageView setImage:image];
+    self.avatarImage = image;
 }
 
 - (IBAction)updateUserInfo:(id)sender {
@@ -105,8 +124,8 @@
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
         [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            if (self.picker.filePath != nil) {
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+            if (self.picker.filePath != nil || self.userinfo[@"pictUrl"] != [NSNull null]) {
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.avatarImage,0.8) name:@"pictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
             }
             //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -378,15 +378,21 @@
                                                         <constraint firstAttribute="height" constant="58" id="gkz-Cb-966"/>
                                                     </constraints>
                                                     <state key="normal" image="app_photo.png"/>
-                                                    <connections>
-                                                        <action selector="selectPicture:" destination="OU4-zg-p59" eventType="touchUpInside" id="Jdj-QK-MbJ"/>
-                                                    </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_user_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-T0-AgS">
+                                                    <rect key="frame" x="237" y="11" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="58" id="CNP-qj-PjS"/>
+                                                        <constraint firstAttribute="width" secondItem="iBi-T0-AgS" secondAttribute="height" multiplier="1:1" id="Gj3-dR-mEb"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="czG-ge-LLi" firstAttribute="leading" secondItem="nla-gL-bbi" secondAttribute="leadingMargin" constant="5" id="D4v-sa-yCh"/>
+                                                <constraint firstItem="iBi-T0-AgS" firstAttribute="centerY" secondItem="nla-gL-bbi" secondAttribute="centerY" id="DPi-Um-Gan"/>
                                                 <constraint firstItem="8p9-ZZ-v6E" firstAttribute="centerY" secondItem="nla-gL-bbi" secondAttribute="centerY" id="Fzk-tV-G9L"/>
                                                 <constraint firstItem="czG-ge-LLi" firstAttribute="centerY" secondItem="nla-gL-bbi" secondAttribute="centerY" id="M4m-eZ-A4i"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iBi-T0-AgS" secondAttribute="trailing" constant="17" id="ZLL-0V-d3j"/>
                                                 <constraint firstItem="8p9-ZZ-v6E" firstAttribute="leading" secondItem="czG-ge-LLi" secondAttribute="trailing" constant="26" id="hcM-LG-SqW"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -659,10 +665,10 @@
                     <navigationItem key="navigationItem" title="修改个人信息" id="cZE-Rp-2UU"/>
                     <connections>
                         <outlet property="areaTextField" destination="rpt-vj-6xm" id="JV1-BH-1Vb"/>
+                        <outlet property="avatarImageView" destination="iBi-T0-AgS" id="AF2-jY-c9U"/>
                         <outlet property="companyTextField" destination="dHx-Aj-fgo" id="O3z-Xl-HWO"/>
                         <outlet property="dutyTextField" destination="EgF-5r-aIJ" id="ZmZ-p0-YV0"/>
                         <outlet property="emailTextField" destination="z9c-Kb-A6o" id="ve1-C0-Ru0"/>
-                        <outlet property="headPictUrlButton" destination="8p9-ZZ-v6E" id="yLc-kR-ggO"/>
                         <outlet property="mobileTextField" destination="9j4-cC-6RV" id="z9X-kz-Bxy"/>
                         <outlet property="realnameTextField" destination="i4E-mc-kgM" id="UJH-ce-ryT"/>
                         <outlet property="wechatTextField" destination="O6N-3u-Qqs" id="Kum-M7-oN3"/>
