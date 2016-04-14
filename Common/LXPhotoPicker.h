@@ -18,4 +18,5 @@
 @property (nonatomic,strong) id<LXPhotoPickerDelegate> delegate;
 - (instancetype)initWithParentView:(UIViewController *)vc;
 - (void)selectPicture;
+@property (nonatomic,strong) NSString *filename;
 @end

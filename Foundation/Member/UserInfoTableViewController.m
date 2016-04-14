@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSDictionary *userinfo;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (strong, nonatomic) UIImage *avatarImage;
+@property (strong, nonatomic) NSString *filename;
 
 @end
 
@@ -38,6 +39,9 @@
     self.companyTextField.delegate = self;
     self.areaTextField.delegate = self;
     [self fetchData];
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
+    self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
 }
 
 //访问网络
@@ -75,8 +79,6 @@
 
 //点选相片或拍照
 - (void)selectPicture {
-    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
-    self.picker.delegate = self;
     [self.picker selectPicture];
 }
 
@@ -109,6 +111,8 @@
         //原先就有头像的，原值传回
         NSString *pictUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,self.userinfo[@"pictUrl"]];
         [userinfo setObject:pictUrl forKey:@"pictUrl"];
+        //不选图片名称，则取回之前的图片名称
+        self.picker.filename = self.userinfo[@"pictUrl"];
     }
 //    @"pictUrl":self.picker.filePath,
 
@@ -125,7 +129,7 @@
         NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
         [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             if (self.picker.filePath != nil || self.userinfo[@"pictUrl"] != [NSNull null]) {
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.avatarImage,0.8) name:@"pictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.avatarImage,0.8) name:@"pictUrl" fileName:self.picker.filename mimeType:@"image/jpeg"];
             }
             //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
