@@ -500,7 +500,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-Lq-A08">
                                                     <rect key="frame" x="25" y="76" width="77" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q33-Gf-hoK">
@@ -753,6 +753,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVm-jc-FKb">
                                                     <rect key="frame" x="121" y="7" width="184" height="30"/>
                                                     <state key="normal" title="请选择"/>
+                                                    <connections>
+                                                        <action selector="selectEndTime:" destination="C2G-Xp-UQ1" eventType="touchUpInside" id="gFj-dc-dif"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1045,6 +1048,7 @@
                     <connections>
                         <outlet property="activityTitleTextField" destination="wFm-Pk-QwO" id="Hn7-aH-AZK"/>
                         <outlet property="currentCityButton" destination="xrj-Wg-J9A" id="ZfY-gq-3uD"/>
+                        <outlet property="endDateButton" destination="eVm-jc-FKb" id="xuf-el-AhF"/>
                         <outlet property="headPictUrlButton" destination="116-RD-ZsD" id="tei-9P-3yy"/>
                         <outlet property="planDateButton" destination="g5q-cd-Jau" id="EhI-Uj-YIw"/>
                         <outlet property="projectResumeTextView" destination="J88-aU-g4i" id="4xi-L1-amp"/>
@@ -1071,7 +1075,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eH7-Dm-VFv">
                                 <rect key="frame" x="21" y="86" width="277" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBf-2d-yMR">

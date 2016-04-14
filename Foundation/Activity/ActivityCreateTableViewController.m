@@ -30,7 +30,9 @@
 @property (strong, nonatomic) LXPhotoPicker *picker;
 //日期选择器
 @property (weak, nonatomic) IBOutlet UIButton *planDateButton;
+@property (weak, nonatomic) IBOutlet UIButton *endDateButton;
 @property (nonatomic, strong) NSDate *planDate;
+@property (nonatomic, strong) NSDate *endDate;
 @end
 
 @implementation ActivityCreateTableViewController
@@ -40,6 +42,7 @@
     self.activityTitleTextField.delegate = self;
     [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
     self.planDate = [NSDate date];
+    self.endDate = [NSDate date];
 }
 
 ///切换城市
@@ -74,7 +77,7 @@
 
 ///选择开始日期
 - (IBAction)selectPlanTime:(id)sender {
-    AbstractActionSheetPicker *actionSheetPicker;actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"" datePickerMode:UIDatePickerModeDateAndTime selectedDate:self.planDate minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
+    AbstractActionSheetPicker *actionSheetPicker;actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"选择开始时间" datePickerMode:UIDatePickerModeDateAndTime selectedDate:self.planDate minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
     [actionSheetPicker showActionSheetPicker];
 }
 
@@ -82,6 +85,18 @@
 - (void)dateWasSelected:(NSDate *)selectedDate element:(id)element {
     self.planDate = selectedDate;
     [self.planDateButton setTitle:[DateUtil dateToFullString:self.planDate] forState:(UIControlStateNormal)];
+}
+
+///选择结束日期
+- (IBAction)selectEndTime:(id)sender {
+    AbstractActionSheetPicker *actionSheetPicker;actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"选择结束时间" datePickerMode:UIDatePickerModeDateAndTime selectedDate:self.endDate minimumDate:nil maximumDate:nil target:self action:@selector(endDateWasSelected:element:) origin:sender];
+    [actionSheetPicker showActionSheetPicker];
+}
+
+///结束日期回调
+- (void)endDateWasSelected:(NSDate *)selectedDate element:(id)element {
+    self.endDate = selectedDate;
+    [self.endDateButton setTitle:[DateUtil dateToFullString:self.endDate] forState:(UIControlStateNormal)];
 }
 
 ///活动规范
@@ -105,16 +120,37 @@
     [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
 }
 
+//保存按钮
 - (IBAction)saveButtonPress:(id)sender {
+    [self postData];
+}
+
+///提交到网络
+- (void)postData {
     NSDictionary *param = @{
                             @"Activity":[StringUtil dictToJson:@{
-                                                                 @"activityTitle":self.activityTitleTextField.text
+                                                                 @"activityTitle":self.activityTitleTextField.text,
+                                                                 @"pictURL":self.picker.filePath
                                                                  }],
                             @"SrcStatus":@""
                             };
-    [self.service POST:@"activity/saveActivity" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-    } noResult:nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"activity/saveActivity"];
+    [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            NSLog(@"responseObject:%@",responseObject);
+        if ([responseObject[@"success"] boolValue]) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            [self goBack];
+        } else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
 }
 
 @end

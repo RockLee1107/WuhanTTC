@@ -181,7 +181,7 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
-        [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
 //    [self.service POST:@"personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
