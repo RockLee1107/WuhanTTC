@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    隐藏键盘
     self.realnameTextField.delegate = self;
     self.mobileTextField.delegate = self;
     self.wechatTextField.delegate = self;
@@ -36,10 +37,15 @@
     self.dutyTextField.delegate = self;
     self.companyTextField.delegate = self;
     self.areaTextField.delegate = self;
+//    请求网络
     [self fetchData];
+//    初始化图片选择控件，重点是filename要预先设置好，适配不传图原路返回的情况
     self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
     self.picker.delegate = self;
     self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
+//    头像圆角
+    self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame) / 2.0;
+    self.avatarImageView.clipsToBounds = YES;
 }
 
 //访问网络
