@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *areaTextField;
 @property (strong, nonatomic) LXPhotoPicker *picker;
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
+@property (strong, nonatomic) NSDictionary *userinfo;
 
 @end
 
@@ -43,6 +44,7 @@
                             @"userId":[User getInstance].uid
                             };
     [self.service POST:@"/personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.userinfo = responseObject[@"userinfo"];
         responseObject = responseObject[@"userinfo"];
         self.realnameTextField.text = [StringUtil toString:responseObject[@"realName"]];
         self.mobileTextField.text = [StringUtil toString:responseObject[@"mobile"]];
@@ -81,6 +83,13 @@
     
     if (self.picker.filePath != nil) {
         [userinfo setObject:self.picker.filePath forKey:@"pictUrl"];
+    } else if(self.userinfo[@"pictUrl"] == [NSNull null]){
+        //且原先就没有头像的，赋值空串，否则逻辑有误，则原头像弄丢。
+        [userinfo setObject:@"" forKey:@"pictUrl"];
+    } else if (self.userinfo[@"pictUrl"] != [NSNull null]) {
+        //原先就有头像的，原值传回
+        NSString *pictUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,self.userinfo[@"pictUrl"]];
+        [userinfo setObject:pictUrl forKey:@"pictUrl"];
     }
 //    @"pictUrl":self.picker.filePath,
 
@@ -92,11 +101,13 @@
               };
     NSDictionary *param = @{@"UserInfoDto":[StringUtil dictToJson:dict]};
     
-    if (self.picker.filePath != nil) {
+    
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
         [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+            if (self.picker.filePath != nil) {
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+            }
             //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //            NSLog(@"responseObject:%@",responseObject);
@@ -117,20 +128,21 @@
             NSLog(@"%@",error);
             [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
         }];
-    } else {
-        [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-            if (![self.companyTextField.text isEqualToString:@""]
-                && ![self.dutyTextField.text isEqualToString:@""]
-                && ![self.realnameTextField.text isEqualToString:@""]) {
-                [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
-            } else {
-                [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
-            }
-            [self.navigationController popViewControllerAnimated:YES];
-        } noResult:nil];
-    
-    }
+//    }
+//    else {
+//        [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+//            if (![self.companyTextField.text isEqualToString:@""]
+//                && ![self.dutyTextField.text isEqualToString:@""]
+//                && ![self.realnameTextField.text isEqualToString:@""]) {
+//                [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
+//            } else {
+//                [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
+//            }
+//            [self.navigationController popViewControllerAnimated:YES];
+//        } noResult:nil];
+//    
+//    }
     
 }
 
