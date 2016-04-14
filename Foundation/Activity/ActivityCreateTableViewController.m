@@ -17,7 +17,11 @@
 #import "LXPhotoPicker.h"
 #import "LocationUtil.h"
 #import "StandardViewController.h"
-
+//保存或发布
+typedef enum : NSUInteger {
+    BizStatusSave,
+    BizStatusPublish
+} BizStatus;
 @interface ActivityCreateTableViewController ()<CityViewControllerDelegete,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *activityTitleTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
@@ -122,22 +126,33 @@
 
 //保存按钮
 - (IBAction)saveButtonPress:(id)sender {
-    [self postData];
+    [self postData:BizStatusSave];
 }
 
 ///提交到网络
-- (void)postData {
+- (void)postData:(NSInteger)bizStatus {
+
+    NSMutableDictionary *activity = [NSMutableDictionary dictionaryWithDictionary:
+                                     @{
+                                       @"activityTitle":self.activityTitleTextField.text,
+                                       @"bizStatus":[NSString stringWithFormat:@"%zi",bizStatus],//bizStatus区分保存与提交 保存是0 发布是1
+                                       }
+                                     ];
+    if (self.picker.filePath) {
+        [activity setObject:self.picker.filePath forKey:@"pictURL"];
+    } else {
+        [activity setObject:@"" forKey:@"pictURL"];
+    }
     NSDictionary *param = @{
-                            @"Activity":[StringUtil dictToJson:@{
-                                                                 @"activityTitle":self.activityTitleTextField.text,
-                                                                 @"pictURL":self.picker.filePath
-                                                                 }],
+                            @"Activity":[StringUtil dictToJson:activity],
                             @"SrcStatus":@""
                             };
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"activity/saveActivity"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (self.picker.filePath) {
         [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
