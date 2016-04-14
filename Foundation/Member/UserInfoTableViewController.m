@@ -19,12 +19,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *areaTextField;
 @property (strong, nonatomic) LXPhotoPicker *picker;
-//@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
 @property (strong, nonatomic) NSDictionary *userinfo;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (strong, nonatomic) UIImage *avatarImage;
 @property (strong, nonatomic) NSString *filename;
-
 @end
 
 @implementation UserInfoTableViewController
@@ -58,7 +56,6 @@
             self.avatarImage = image;
             [self.avatarImageView setImage:image];
         } failure:nil];
-//        [self.avatarImageView setImageWithURL:[NSURL URLWithString:pictUrl]];
         self.realnameTextField.text = [StringUtil toString:responseObject[@"realName"]];
         self.mobileTextField.text = [StringUtil toString:responseObject[@"mobile"]];
         self.wechatTextField.text = [StringUtil toString:responseObject[@"weChat"]];
@@ -83,7 +80,6 @@
 }
 
 - (void)didSelectPhoto:(UIImage *)image {
-//    [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
     [self.avatarImageView setImage:image];
     self.avatarImage = image;
 }
@@ -123,50 +119,32 @@
 //              @"userId":[User getInstance].uid
               };
     NSDictionary *param = @{@"UserInfoDto":[StringUtil dictToJson:dict]};
-    
-    
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
-        [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            if (self.picker.filePath != nil || self.userinfo[@"pictUrl"] != [NSNull null]) {
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(self.avatarImage,0.8) name:@"pictUrl" fileName:self.picker.filename mimeType:@"image/jpeg"];
-            }
-            //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //            NSLog(@"responseObject:%@",responseObject);
-            if ([responseObject[@"success"] boolValue]) {
-                [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
-                if (![self.companyTextField.text isEqualToString:@""]
-                    && ![self.dutyTextField.text isEqualToString:@""]
-                    && ![self.realnameTextField.text isEqualToString:@""]) {
-                    [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
-                } else {
-                    [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
-                }
-                [self goBack];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setUserTotalInfo"];
+    [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (self.picker.filePath != nil || self.userinfo[@"pictUrl"] != [NSNull null]) {
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(self.avatarImage,0.8) name:@"pictUrl" fileName:self.picker.filename mimeType:@"image/jpeg"];
+        }
+        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            NSLog(@"responseObject:%@",responseObject);
+        if ([responseObject[@"success"] boolValue]) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            if (![self.companyTextField.text isEqualToString:@""]
+                && ![self.dutyTextField.text isEqualToString:@""]
+                && ![self.realnameTextField.text isEqualToString:@""]) {
+                [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
             } else {
-                [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+                [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
             }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@",error);
-            [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-        }];
-//    }
-//    else {
-//        [self.service POST:@"/personal/info/setUserTotalInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-//            if (![self.companyTextField.text isEqualToString:@""]
-//                && ![self.dutyTextField.text isEqualToString:@""]
-//                && ![self.realnameTextField.text isEqualToString:@""]) {
-//                [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
-//            } else {
-//                [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
-//            }
-//            [self.navigationController popViewControllerAnimated:YES];
-//        } noResult:nil];
-//    
-//    }
-    
+            [self goBack];
+        } else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        [[[UIAlertView alloc]initWithTitle:@"上传失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
 }
 
 //选择城市
