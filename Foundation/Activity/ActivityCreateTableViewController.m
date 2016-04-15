@@ -56,7 +56,7 @@ typedef enum : NSUInteger {
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
     AJPhotoPickerView *picker = [[AJPhotoPickerView alloc] init];
-    picker.frame = CGRectMake(0, 50, SCREEN_WIDTH, 58.0);
+    
     picker.vc = self;
     [self.pictureView addSubview:picker];
 }

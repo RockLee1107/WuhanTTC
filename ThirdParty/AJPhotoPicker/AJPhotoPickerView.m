@@ -7,13 +7,15 @@
 //
 
 #import "AJPhotoPickerView.h"
+#import "Global.h"
 
 @implementation AJPhotoPickerView
 - (instancetype)init {
     if (self == [super init]) {
+        self.frame = CGRectMake(20, 40, SCREEN_WIDTH, 58.0);
+        //上传按钮
         UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
-        [button setImage:[UIImage imageNamed:@"app_photo.png"] forState:(UIControlStateNormal)];
-//        button.imageView.image
+        [button setImage:[[UIImage imageNamed:@"app_photo.png"] imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)] forState:(UIControlStateNormal)];
         button.frame = CGRectMake(0, 0, 58.0, 58.0);
         [self addSubview:button];
         [button addTarget:self action:@selector(multipleSelectionAction:) forControlEvents:(UIControlEventTouchUpInside)];
@@ -64,7 +66,7 @@
 //        }
 //        self.scrollView.contentSize = CGSizeMake(55 * self.photos.count, 0);
 //    }
-//    [picker dismissViewControllerAnimated:NO completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
     
     //显示预览
     //    AJPhotoBrowserViewController *photoBrowserViewController = [[AJPhotoBrowserViewController alloc] initWithPhotos:assets];

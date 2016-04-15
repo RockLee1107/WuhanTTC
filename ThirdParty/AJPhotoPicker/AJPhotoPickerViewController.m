@@ -91,7 +91,7 @@
 - (void)setupNavBar {
     //界面组件
     UIView *navBar = [[UIView alloc] init];
-    navBar.backgroundColor = [UIColor colorWithRed:236.0/255.0 green:66.0/255.0 blue:67.0/255.0 alpha:1.0];
+    navBar.backgroundColor = [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0];
     navBar.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:navBar];
     self.navBar = navBar;
