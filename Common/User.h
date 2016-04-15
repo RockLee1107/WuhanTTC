@@ -10,6 +10,7 @@
 @interface User : NSObject
 + (nonnull instancetype)getInstance;
 @property (nonatomic,strong,nonnull) NSString *username;
+@property (nonatomic,strong,nonnull) NSString *realname;
 @property (nonatomic,strong,nonnull) NSString *uid;
 @property (nonnull,strong) NSNumber *hasInfo;
 - (void)logout;

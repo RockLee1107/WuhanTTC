@@ -37,6 +37,10 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UIButton *endDateButton;
 @property (nonatomic, strong) NSDate *planDate;
 @property (nonatomic, strong) NSDate *endDate;
+//联系人
+@property (weak, nonatomic) IBOutlet UITextField *linkmanTextField;
+@property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
+
 @end
 
 @implementation ActivityCreateTableViewController
@@ -47,6 +51,8 @@ typedef enum : NSUInteger {
     [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
     self.planDate = [NSDate date];
     self.endDate = [NSDate date];
+    self.linkmanTextField.text = [User getInstance].realname;
+    self.telephoneTextField.text = [User getInstance].username;
 }
 
 ///切换城市

@@ -21,6 +21,10 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 }
 
+- (NSString *)realname {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"realname"];
+}
+
 - (NSString *)uid{
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
 }
@@ -28,6 +32,11 @@
 - (void)setUsername:(NSString *)username {
     [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
 }
+
+- (void)setRealname:(NSString *)realname {
+    [[NSUserDefaults standardUserDefaults] setObject:realname forKey:@"realname"];
+}
+
 
 - (void)setUid:(NSString *)uid {
     if (uid == nil) {

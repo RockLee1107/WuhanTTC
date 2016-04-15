@@ -1050,8 +1050,10 @@
                         <outlet property="currentCityButton" destination="xrj-Wg-J9A" id="ZfY-gq-3uD"/>
                         <outlet property="endDateButton" destination="eVm-jc-FKb" id="xuf-el-AhF"/>
                         <outlet property="headPictUrlButton" destination="116-RD-ZsD" id="tei-9P-3yy"/>
+                        <outlet property="linkmanTextField" destination="9EK-kd-GV2" id="mpT-Qr-ply"/>
                         <outlet property="planDateButton" destination="g5q-cd-Jau" id="EhI-Uj-YIw"/>
                         <outlet property="projectResumeTextView" destination="J88-aU-g4i" id="4xi-L1-amp"/>
+                        <outlet property="telephoneTextField" destination="syr-IG-xFY" id="Rlh-HR-jHX"/>
                         <outlet property="typeButton" destination="mbg-A7-35G" id="kiK-XM-f6k"/>
                         <segue destination="nBY-IX-pnY" kind="show" identifier="standard" id="gJN-mZ-Bfc"/>
                     </connections>

@@ -57,6 +57,7 @@
         //        NSLog(@"login:%@",responseObject);
         User *user = [User getInstance];
         user.username = responseObject[@"username"];
+        user.realname = responseObject[@"realName"];
         user.uid = responseObject[@"userId"];
         if (
             responseObject[@"userInfo"][@"realName"] != [NSNull null]
