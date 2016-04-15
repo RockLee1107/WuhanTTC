@@ -128,6 +128,19 @@
 		FD4462861CAD51FF00F7E12F /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462851CAD51FF00F7E12F /* ActivityDetailViewController.m */; };
 		FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */; };
 		FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47F85C1C8AC58C00D0ED07 /* Page.m */; };
+		FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51361CC118FD00061830 /* AJGradientView.m */; };
+		FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */; };
+		FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */; };
+		FD4E51511CC118FE00061830 /* AJPhotoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513C1CC118FD00061830 /* AJPhotoListCell.m */; };
+		FD4E51521CC118FE00061830 /* AJPhotoListCellTapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513E1CC118FD00061830 /* AJPhotoListCellTapView.m */; };
+		FD4E51531CC118FE00061830 /* AJPhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51401CC118FD00061830 /* AJPhotoListView.m */; };
+		FD4E51541CC118FE00061830 /* AJPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51421CC118FD00061830 /* AJPhotoPickerViewController.m */; };
+		FD4E51551CC118FE00061830 /* BoPhotoPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FD4E51431CC118FD00061830 /* BoPhotoPicker.bundle */; };
+		FD4E51561CC118FE00061830 /* AJPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51471CC118FD00061830 /* AJPhotoBrowserViewController.m */; };
+		FD4E51571CC118FE00061830 /* AJPhotoTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51491CC118FD00061830 /* AJPhotoTapDetectingImageView.m */; };
+		FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */; };
+		FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */; };
+		FD4E515C1CC11A5500061830 /* AJPhotoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E515B1CC11A5500061830 /* AJPhotoPickerView.m */; };
 		FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */; };
 		FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F751CBE8BE600A29998 /* StandardViewController.m */; };
 		FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A3F1CABE0F100706B4D /* login_sina@2x.png */; };
@@ -467,6 +480,32 @@
 		FD47F8591C8AC26300D0ED07 /* book_thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_thumb@2x.png"; sourceTree = "<group>"; };
 		FD47F85B1C8AC58C00D0ED07 /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
 		FD47F85C1C8AC58C00D0ED07 /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
+		FD4E51351CC118FD00061830 /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
+		FD4E51361CC118FD00061830 /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
+		FD4E51371CC118FD00061830 /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
+		FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoGroupCell.m; sourceTree = "<group>"; };
+		FD4E51391CC118FD00061830 /* AJPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupView.h; sourceTree = "<group>"; };
+		FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoGroupView.m; sourceTree = "<group>"; };
+		FD4E513B1CC118FD00061830 /* AJPhotoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoListCell.h; sourceTree = "<group>"; };
+		FD4E513C1CC118FD00061830 /* AJPhotoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoListCell.m; sourceTree = "<group>"; };
+		FD4E513D1CC118FD00061830 /* AJPhotoListCellTapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoListCellTapView.h; sourceTree = "<group>"; };
+		FD4E513E1CC118FD00061830 /* AJPhotoListCellTapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoListCellTapView.m; sourceTree = "<group>"; };
+		FD4E513F1CC118FD00061830 /* AJPhotoListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoListView.h; sourceTree = "<group>"; };
+		FD4E51401CC118FD00061830 /* AJPhotoListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoListView.m; sourceTree = "<group>"; };
+		FD4E51411CC118FD00061830 /* AJPhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerViewController.h; sourceTree = "<group>"; };
+		FD4E51421CC118FD00061830 /* AJPhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerViewController.m; sourceTree = "<group>"; };
+		FD4E51431CC118FD00061830 /* BoPhotoPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BoPhotoPicker.bundle; sourceTree = "<group>"; };
+		FD4E51461CC118FD00061830 /* AJPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		FD4E51471CC118FD00061830 /* AJPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoBrowserViewController.m; sourceTree = "<group>"; };
+		FD4E51481CC118FD00061830 /* AJPhotoTapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoTapDetectingImageView.h; sourceTree = "<group>"; };
+		FD4E51491CC118FD00061830 /* AJPhotoTapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoTapDetectingImageView.m; sourceTree = "<group>"; };
+		FD4E514A1CC118FD00061830 /* AJPhotoZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoZoomingScrollView.h; sourceTree = "<group>"; };
+		FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoZoomingScrollView.m; sourceTree = "<group>"; };
+		FD4E514C1CC118FD00061830 /* AJTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTapDetectingView.h; sourceTree = "<group>"; };
+		FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTapDetectingView.m; sourceTree = "<group>"; };
+		FD4E515A1CC11A5500061830 /* AJPhotoPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerView.h; sourceTree = "<group>"; };
+		FD4E515B1CC11A5500061830 /* AJPhotoPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerView.m; sourceTree = "<group>"; };
+		FD4E515D1CC11E5C00061830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		FD725F711CBE86CF00A29998 /* ActivityCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCreateTableViewController.h; sourceTree = "<group>"; };
 		FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCreateTableViewController.m; sourceTree = "<group>"; };
 		FD725F741CBE8BE600A29998 /* StandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardViewController.h; sourceTree = "<group>"; };
@@ -673,6 +712,7 @@
 		F70B01931C7232FC00D46D79 = {
 			isa = PBXGroup;
 			children = (
+				FD4E515D1CC11E5C00061830 /* AssetsLibrary.framework */,
 				F73B785B1C81375500069EEE /* Common */,
 				F73B78641C81375500069EEE /* ThirdParty */,
 				F70B019E1C7232FC00D46D79 /* Foundation */,
@@ -751,6 +791,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FD4E51341CC118FD00061830 /* AJPhotoPicker */,
 				F74C9AE31CBE1DE300C7A607 /* EYPopupView */,
 				FDFD8C5F1CB938560095FC3C /* JCTagListView */,
 				FD066CD31CB8EB09001A132A /* Pickers */,
@@ -1193,6 +1234,54 @@
 			name = Post;
 			sourceTree = "<group>";
 		};
+		FD4E51341CC118FD00061830 /* AJPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E51351CC118FD00061830 /* AJGradientView.h */,
+				FD4E51361CC118FD00061830 /* AJGradientView.m */,
+				FD4E51371CC118FD00061830 /* AJPhotoGroupCell.h */,
+				FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */,
+				FD4E51391CC118FD00061830 /* AJPhotoGroupView.h */,
+				FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */,
+				FD4E513B1CC118FD00061830 /* AJPhotoListCell.h */,
+				FD4E513C1CC118FD00061830 /* AJPhotoListCell.m */,
+				FD4E513D1CC118FD00061830 /* AJPhotoListCellTapView.h */,
+				FD4E513E1CC118FD00061830 /* AJPhotoListCellTapView.m */,
+				FD4E513F1CC118FD00061830 /* AJPhotoListView.h */,
+				FD4E51401CC118FD00061830 /* AJPhotoListView.m */,
+				FD4E51411CC118FD00061830 /* AJPhotoPickerViewController.h */,
+				FD4E51421CC118FD00061830 /* AJPhotoPickerViewController.m */,
+				FD4E51431CC118FD00061830 /* BoPhotoPicker.bundle */,
+				FD4E51441CC118FD00061830 /* Vendor */,
+				FD4E515A1CC11A5500061830 /* AJPhotoPickerView.h */,
+				FD4E515B1CC11A5500061830 /* AJPhotoPickerView.m */,
+			);
+			path = AJPhotoPicker;
+			sourceTree = "<group>";
+		};
+		FD4E51441CC118FD00061830 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E51451CC118FD00061830 /* AJPhotoBrowser */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		FD4E51451CC118FD00061830 /* AJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E51461CC118FD00061830 /* AJPhotoBrowserViewController.h */,
+				FD4E51471CC118FD00061830 /* AJPhotoBrowserViewController.m */,
+				FD4E51481CC118FD00061830 /* AJPhotoTapDetectingImageView.h */,
+				FD4E51491CC118FD00061830 /* AJPhotoTapDetectingImageView.m */,
+				FD4E514A1CC118FD00061830 /* AJPhotoZoomingScrollView.h */,
+				FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */,
+				FD4E514C1CC118FD00061830 /* AJTapDetectingView.h */,
+				FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */,
+			);
+			path = AJPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		FD9450D41CA82B8100E00759 /* Subject */ = {
 			isa = PBXGroup;
 			children = (
@@ -1518,6 +1607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD9451051CA843DD00E00759 /* special3@2x.png in Resources */,
+				FD4E51551CC118FE00061830 /* BoPhotoPicker.bundle in Resources */,
 				FD9450EF1CA8362100E00759 /* menu_auther@2x.png in Resources */,
 				FD4462781CAC9A0100F7E12F /* app_praise@2x.png in Resources */,
 				FDE2D9511CA369CF008DDE4F /* LICENSE in Resources */,
@@ -1617,6 +1707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4E51521CC118FE00061830 /* AJPhotoListCellTapView.m in Sources */,
 				FDE50A831CA0C7080058B87D /* CaptionButton.m in Sources */,
 				FDE26B001C9C38A0003418D5 /* UIAlertView+AFNetworking.m in Sources */,
 				FDF3FE201CA816F0007B7C83 /* MyProjectPageController.m in Sources */,
@@ -1628,13 +1719,16 @@
 				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
+				FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */,
 				F74C9AFB1CBE1DE300C7A607 /* EYTagView.m in Sources */,
+				FD4E515C1CC11A5500061830 /* AJPhotoPickerView.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
 				FD066CEA1CB8EB09001A132A /* ActionSheetStringPicker.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
+				FD4E51531CC118FE00061830 /* AJPhotoListView.m in Sources */,
 				F795DF641CB697ED002BCDEE /* EMTextView.m in Sources */,
 				FD066CE51CB8EB09001A132A /* AbstractActionSheetPicker.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
@@ -1654,6 +1748,7 @@
 				FDF3FE3C1CA81F52007B7C83 /* MySubjectPageController.m in Sources */,
 				FD9450DD1CA82CEC00E00759 /* SubjectListViewController.m in Sources */,
 				F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */,
+				FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */,
 				FDE26B021C9C38A0003418D5 /* UIImageView+AFNetworking.m in Sources */,
 				FDE098911CA5206800F271EF /* BookListDelegate.m in Sources */,
 				FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */,
@@ -1678,6 +1773,7 @@
 				F74C9AF81CBE1DE300C7A607 /* EYPopupView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
 				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
+				FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */,
 				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F795DF5D1CB40BB8002BCDEE /* HotCityTableViewCell.m in Sources */,
@@ -1702,6 +1798,7 @@
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */,
+				FD4E51511CC118FE00061830 /* AJPhotoListCell.m in Sources */,
 				FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
 				F795DF5A1CB40BB8002BCDEE /* City.m in Sources */,
@@ -1716,6 +1813,7 @@
 				FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */,
 				FDE2D9581CA369CF008DDE4F /* NSArray+MASAdditions.m in Sources */,
 				FDE2D95A1CA369CF008DDE4F /* View+MASAdditions.m in Sources */,
+				FD4E51571CC118FE00061830 /* AJPhotoTapDetectingImageView.m in Sources */,
 				F7FE50031C8A762700114B28 /* DateUtil.m in Sources */,
 				F74C9AFC1CBE1DE300C7A607 /* EYTextField.m in Sources */,
 				FDE33F0C1C9FE993005C6863 /* ProjectListViewController.m in Sources */,
@@ -1736,15 +1834,18 @@
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
 				FDFD8C671CB938560095FC3C /* JCTagCell.m in Sources */,
 				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
+				FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */,
 				FD066CE61CB8EB09001A132A /* ActionSheetCustomPicker.m in Sources */,
 				FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */,
 				FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
+				FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */,
 				FD19BB5B1CB60067007D52DC /* ProjectCreateTableViewController.m in Sources */,
 				FDE2D9591CA369CF008DDE4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				F7FE50091C8A786800114B28 /* User.m in Sources */,
+				FD4E51541CC118FE00061830 /* AJPhotoPickerViewController.m in Sources */,
 				FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */,
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				F7EB9B941CAB5AE5005343AC /* SettingsTableViewController.m in Sources */,
@@ -1766,6 +1867,7 @@
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
 				F7EB9B9E1CAB68E2005343AC /* LXPasswordView.m in Sources */,
 				FDE2AFDF1C887C2B002238CA /* SpecialTypeTableViewCell.m in Sources */,
+				FD4E51561CC118FE00061830 /* AJPhotoBrowserViewController.m in Sources */,
 				FD066CE81CB8EB09001A132A /* ActionSheetDistancePicker.m in Sources */,
 				F7A61E7B1CA04CCB001B5FB3 /* WMProgressView.m in Sources */,
 			);

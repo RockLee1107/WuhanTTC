@@ -926,20 +926,10 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eth-z4-g0o">
-                                                    <rect key="frame" x="29" y="40" width="58" height="58"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="58" id="RIs-51-zHy"/>
-                                                        <constraint firstAttribute="height" constant="58" id="v8o-y5-JA8"/>
-                                                    </constraints>
-                                                    <state key="normal" image="app_photo.png"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CMQ-lV-Eph" firstAttribute="top" secondItem="9Fg-x5-NS9" secondAttribute="topMargin" constant="4" id="Pxi-me-Ktr"/>
                                                 <constraint firstItem="CMQ-lV-Eph" firstAttribute="leading" secondItem="9Fg-x5-NS9" secondAttribute="leadingMargin" constant="5" id="Za1-Nt-KyV"/>
-                                                <constraint firstItem="eth-z4-g0o" firstAttribute="leading" secondItem="9Fg-x5-NS9" secondAttribute="leadingMargin" constant="21" id="loa-V2-nfZ"/>
-                                                <constraint firstItem="eth-z4-g0o" firstAttribute="top" secondItem="CMQ-lV-Eph" secondAttribute="bottom" constant="8" id="nk0-kw-h89"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1051,6 +1041,7 @@
                         <outlet property="endDateButton" destination="eVm-jc-FKb" id="xuf-el-AhF"/>
                         <outlet property="headPictUrlButton" destination="116-RD-ZsD" id="tei-9P-3yy"/>
                         <outlet property="linkmanTextField" destination="9EK-kd-GV2" id="mpT-Qr-ply"/>
+                        <outlet property="pictureView" destination="9Fg-x5-NS9" id="mdf-fu-v6K"/>
                         <outlet property="planDateButton" destination="g5q-cd-Jau" id="EhI-Uj-YIw"/>
                         <outlet property="projectResumeTextView" destination="J88-aU-g4i" id="4xi-L1-amp"/>
                         <outlet property="telephoneTextField" destination="syr-IG-xFY" id="Rlh-HR-jHX"/>

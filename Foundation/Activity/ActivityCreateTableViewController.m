@@ -17,6 +17,7 @@
 #import "LXPhotoPicker.h"
 #import "LocationUtil.h"
 #import "StandardViewController.h"
+#import "AJPhotoPickerView.h"
 //保存或发布
 typedef enum : NSUInteger {
     BizStatusSave,
@@ -40,6 +41,7 @@ typedef enum : NSUInteger {
 //联系人
 @property (weak, nonatomic) IBOutlet UITextField *linkmanTextField;
 @property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
+@property (weak, nonatomic) IBOutlet UIView *pictureView;
 
 @end
 
@@ -53,6 +55,10 @@ typedef enum : NSUInteger {
     self.endDate = [NSDate date];
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
+    AJPhotoPickerView *picker = [[AJPhotoPickerView alloc] init];
+    picker.frame = CGRectMake(0, 50, SCREEN_WIDTH, 58.0);
+    picker.vc = self;
+    [self.pictureView addSubview:picker];
 }
 
 ///切换城市
