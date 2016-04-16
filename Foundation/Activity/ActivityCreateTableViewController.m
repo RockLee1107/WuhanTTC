@@ -23,11 +23,18 @@ typedef enum : NSUInteger {
     BizStatusSave,
     BizStatusPublish
 } BizStatus;
+//线上或线下
+typedef enum : NSUInteger {
+    CityStyleOffline,
+    CityStyleOnline
+} CityStyle;
 @interface ActivityCreateTableViewController ()<CityViewControllerDelegete,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *activityTitleTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
 @property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
+@property (weak, nonatomic) IBOutlet LXButton *onlineCityButton;       //城市
+@property (strong, nonatomic) NSString *cityname;       //城市名称或“线上”以传值服务端
 //活动类型
 @property (weak, nonatomic) IBOutlet UIButton *typeButton;         //按钮，用于显示所选中文值
 @property (assign, nonatomic) NSInteger selectedTypeIndex;           //状态index，用于选择框反显
@@ -59,8 +66,22 @@ typedef enum : NSUInteger {
     self.photoGallery = [[AJPhotoPickerView alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING)];
     self.photoGallery.vc = self;
     [self.pictureView addSubview:self.photoGallery];
+    self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
 }
 
+///线上与城市按钮相互切换
+- (IBAction)switchCityStyle:(UIButton *)sender {
+    if (sender.tag == CityStyleOffline) {
+        self.currentCityButton.backgroundColor = MAIN_COLOR;
+        self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
+    } else {
+        self.currentCityButton.backgroundColor = [UIColor lightGrayColor];
+        self.onlineCityButton.backgroundColor = MAIN_COLOR;
+    }
+    self.cityname = [sender titleForState:(UIControlStateNormal)];
+}
+
+//主要针对图片选择的回调
 -(void)viewDidAppear:(BOOL)animated{
     [self.tableView reloadData];
 }
