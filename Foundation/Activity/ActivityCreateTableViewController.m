@@ -56,8 +56,7 @@ typedef enum : NSUInteger {
     self.endDate = [NSDate date];
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
-    self.photoGallery = [[AJPhotoPickerView alloc] init];
-    
+    self.photoGallery = [[AJPhotoPickerView alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING)];
     self.photoGallery.vc = self;
     [self.pictureView addSubview:self.photoGallery];
 }

@@ -9,12 +9,12 @@
 #import "AJPhotoPickerView.h"
 #import "Global.h"
 #import "Masonry.h"
-#define IMAGE_WIDTH ((SCREEN_WIDTH) - 32) / 4.0 - 4
-#define IMAGE_WIDTH_WITH_PADDING IMAGE_WIDTH + 5
+#import "CommonUtil.h"
+
 @implementation AJPhotoPickerView
-- (instancetype)init {
-    if (self == [super init]) {
-        self.frame = CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING);
+///初始化
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self == [super initWithFrame:frame]) {
         //上传按钮
         self.button = [UIButton buttonWithType:(UIButtonTypeSystem)];
         [self.button setImage:[[UIImage imageNamed:@"app_photo.png"] imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)] forState:(UIControlStateNormal)];
@@ -25,6 +25,7 @@
     return self;
 }
 
+//点击上传按钮
 - (void)multipleSelectionAction:(id)sender {
     AJPhotoPickerViewController *picker = [[AJPhotoPickerViewController alloc] init];
     picker.maximumNumberOfSelection = 15;
@@ -38,11 +39,99 @@
     [self.vc presentViewController:picker animated:YES completion:nil];
 }
 
-#pragma mark - BoPhotoPickerProtocol
+#pragma mark - PhotoPickerProtocol照片拾取器代理方法
+//取消
 - (void)photoPickerDidCancel:(AJPhotoPickerViewController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+//选取了一张或多张照片回调
+- (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAssets:(NSArray *)assets {
+    [self.photos addObjectsFromArray:[self assetsToImages:assets]];
+    [self reloadImagesList];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+//点选了某张照片回调
+- (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAsset:(ALAsset *)asset {
+//    NSLog(@"%s",__func__);
+}
+
+//反选了某张照片回调
+- (void)photoPicker:(AJPhotoPickerViewController *)picker didDeselectAsset:(ALAsset *)asset {
+//    NSLog(@"%s",__func__);
+}
+
+//超过最大选择项时回调
+- (void)photoPickerDidMaximum:(AJPhotoPickerViewController *)picker {
+    NSLog(@"%s",__func__);
+}
+
+//低于最低选择项时回调
+- (void)photoPickerDidMinimum:(AJPhotoPickerViewController *)picker {
+//    NSLog(@"%s",__func__);
+}
+
+//点击拍照按钮
+- (void)photoPickerTapCameraAction:(AJPhotoPickerViewController *)picker {
+    [self checkCameraAvailability:^(BOOL auth) {
+        if (!auth) {
+            NSLog(@"没有访问相机权限");
+            return;
+        }
+        [picker dismissViewControllerAnimated:NO completion:nil];
+        UIImagePickerController *cameraUI = [UIImagePickerController new];
+        cameraUI.allowsEditing = NO;
+        cameraUI.delegate = self;
+        cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+        cameraUI.cameraFlashMode=UIImagePickerControllerCameraFlashModeAuto;
+        [self.vc presentViewController: cameraUI animated: YES completion:nil];
+    }];
+}
+
+#pragma mark - AJPhotoBrowserDelegate图片浏览器代理方法
+//图片浏览器中删除某张图片回调
+- (void)photoBrowser:(AJPhotoBrowserViewController *)vc deleteWithIndex:(NSInteger)index {
+    NSLog(@"%s",__func__);
+}
+
+//点击图片浏览器完成按钮回调
+- (void)photoBrowser:(AJPhotoBrowserViewController *)vc didDonePhotos:(NSArray *)photos {
+    [self.photos removeAllObjects];
+    [self.photos addObjectsFromArray:photos];
+    [self reloadImagesList];
+    [vc dismissViewControllerAnimated:YES completion:nil];
+}
+
+//图片浏览器中保存图片到本地
+- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
+    if (!error) {
+        NSLog(@"保存到相册成功");
+    }else{
+        NSLog(@"保存到相册出错%@", error);
+    }
+}
+
+#pragma mark - UIImagePickerDelegate拍照代理方法
+//拍照取消回调
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *) picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+//拍照成功回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    UIImage *originalImage;
+    if (CFStringCompare((CFStringRef) mediaType,kUTTypeImage, 0)== kCFCompareEqualTo) {
+        originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
+    }
+    [self.photos addObject:[self shrinked:originalImage]];
+    [self reloadImagesList];
+    [self.vc dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 自身内部调用的方法
+//刷新图集
 - (void)reloadImagesList {
     for (UIView *uv in [self subviews]) {
         if ([uv isKindOfClass:[UIImageView class]]) {
@@ -51,8 +140,7 @@
     }
     CGRect frame = CGRectMake(0, 0, IMAGE_WIDTH, IMAGE_WIDTH);
     for (int i = 0 ; i < self.photos.count; i++) {
-        ALAsset *asset = self.photos[i];
-        UIImage *tempImg = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+        UIImage *tempImg = self.photos[i];
         frame.origin.x = i % 4 * IMAGE_WIDTH + 5;
         frame.origin.y = i / 4 * IMAGE_WIDTH + 5;
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
@@ -67,110 +155,41 @@
     CGRect rect = self.frame;
     rect.size.height = (self.photos.count / 4 + 1) * IMAGE_WIDTH_WITH_PADDING;
     self.frame = rect;
-    //    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-    //        make.height.mas_equalTo((self.photos.count / 4 + 1) * IMAGE_WIDTH_WITH_PADDING);
-    //    }];
-//    [self.button mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.photos.count % 4 * IMAGE_WIDTH_WITH_PADDING);
-//        make.top.mas_equalTo(self.photos.count / 4 * IMAGE_WIDTH_WITH_PADDING);
-//    }];
     CGRect button_rect = self.button.frame;
     button_rect.origin.x = self.photos.count % 4 * IMAGE_WIDTH_WITH_PADDING;
     button_rect.origin.y = self.photos.count / 4 * IMAGE_WIDTH_WITH_PADDING;
     self.button.frame = button_rect;
-    
     [self.vc viewDidAppear:YES];
-    
-    //显示预览
-    //    AJPhotoBrowserViewController *photoBrowserViewController = [[AJPhotoBrowserViewController alloc] initWithPhotos:assets];
-    //    photoBrowserViewController.delegate = self;
-    //    [self presentViewController:photoBrowserViewController animated:YES completion:nil];
-    
-}
-- (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAssets:(NSArray *)assets {
-    [self.photos addObjectsFromArray:assets];
-    [self reloadImagesList];
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAsset:(ALAsset *)asset {
-    NSLog(@"%s",__func__);
+///assets转为image
+- (NSArray *)assetsToImages:(NSArray *)assets {
+    NSMutableArray *images = [NSMutableArray array];
+    for (int i = 0 ; i < assets.count; i++) {
+        ALAsset *asset = assets[i];
+        UIImage *tempImg = [UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+        [images addObject:[self shrinked:tempImg]];
+    }
+    return images;
 }
 
-- (void)photoPicker:(AJPhotoPickerViewController *)picker didDeselectAsset:(ALAsset *)asset {
-    NSLog(@"%s",__func__);
+///image压缩
+- (UIImage *)shrinked:(UIImage *)image {
+    //    压缩图片以上传服务器
+    CGFloat imageWidth = 400;
+    CGFloat imageHeight = image.size.height / image.size.width * imageWidth;
+    return [CommonUtil shrinkImage:image toSize:CGSizeMake(imageWidth, imageHeight)];
 }
 
-//超过最大选择项时
-- (void)photoPickerDidMaximum:(AJPhotoPickerViewController *)picker {
-    NSLog(@"%s",__func__);
-}
-
-//低于最低选择项时
-- (void)photoPickerDidMinimum:(AJPhotoPickerViewController *)picker {
-    NSLog(@"%s",__func__);
-}
-
-- (void)photoPickerTapCameraAction:(AJPhotoPickerViewController *)picker {
-    [self checkCameraAvailability:^(BOOL auth) {
-        if (!auth) {
-            NSLog(@"没有访问相机权限");
-            return;
-        }
-        
-        [picker dismissViewControllerAnimated:NO completion:nil];
-        UIImagePickerController *cameraUI = [UIImagePickerController new];
-        cameraUI.allowsEditing = NO;
-        cameraUI.delegate = self;
-        cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-        cameraUI.cameraFlashMode=UIImagePickerControllerCameraFlashModeAuto;
-        
-        [self.vc presentViewController: cameraUI animated: YES completion:nil];
-    }];
-}
-#pragma mark - AJPhotoBrowserDelegate
-
-- (void)photoBrowser:(AJPhotoBrowserViewController *)vc deleteWithIndex:(NSInteger)index {
-    NSLog(@"%s",__func__);
-}
-
-- (void)photoBrowser:(AJPhotoBrowserViewController *)vc didDonePhotos:(NSArray *)photos {
-    [self.photos removeAllObjects];
-    [self.photos addObjectsFromArray:photos];
-    [self reloadImagesList];
-    [vc dismissViewControllerAnimated:YES completion:nil];
-}
-
+//查看大图
 - (void)showBig:(UITapGestureRecognizer *)sender {
     NSInteger index = sender.view.tag;
     AJPhotoBrowserViewController *photoBrowserViewController = [[AJPhotoBrowserViewController alloc] initWithPhotos:self.photos index:index];
     photoBrowserViewController.delegate = self;
-    [self.vc presentViewController:photoBrowserViewController animated:YES completion:nil];}
-
-#pragma mark - UIImagePickerDelegate
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *) picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self.vc presentViewController:photoBrowserViewController animated:YES completion:nil];
 }
 
-- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
-    if (!error) {
-        NSLog(@"保存到相册成功");
-    }else{
-        NSLog(@"保存到相册出错%@", error);
-    }
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-    UIImage *originalImage;
-    if (CFStringCompare((CFStringRef) mediaType,kUTTypeImage, 0)== kCFCompareEqualTo) {
-        originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
-    }
-//    self.imageView.image = originalImage;
-    
-    [self.vc dismissViewControllerAnimated:YES completion:nil];
-}
-
+//照片机能力判断
 - (void)checkCameraAvailability:(void (^)(BOOL auth))block {
     BOOL status = NO;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -199,10 +218,12 @@
     }
 }
 
+//photos初始化
 - (NSMutableArray *)photos {
     if (_photos == nil) {
         _photos = [NSMutableArray array];
     }
     return _photos;
 }
+
 @end
