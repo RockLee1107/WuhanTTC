@@ -17,7 +17,7 @@
 #import "LXPhotoPicker.h"
 #import "LocationUtil.h"
 #import "StandardViewController.h"
-#import "AJPhotoPickerView.h"
+#import "AJPhotoPickerGallery.h"
 //保存或发布
 typedef enum : NSUInteger {
     BizStatusSave,
@@ -49,7 +49,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UITextField *linkmanTextField;
 @property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
-@property (strong, nonatomic) AJPhotoPickerView *photoGallery;
+@property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
 
 @end
 
@@ -63,7 +63,7 @@ typedef enum : NSUInteger {
     self.endDate = [NSDate date];
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
-    self.photoGallery = [[AJPhotoPickerView alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING)];
+    self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING)];
     self.photoGallery.vc = self;
     [self.pictureView addSubview:self.photoGallery];
     self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];

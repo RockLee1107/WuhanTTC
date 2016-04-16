@@ -140,7 +140,7 @@
 		FD4E51571CC118FE00061830 /* AJPhotoTapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51491CC118FD00061830 /* AJPhotoTapDetectingImageView.m */; };
 		FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */; };
 		FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */; };
-		FD4E515C1CC11A5500061830 /* AJPhotoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E515B1CC11A5500061830 /* AJPhotoPickerView.m */; };
+		FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */; };
 		FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */; };
 		FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F751CBE8BE600A29998 /* StandardViewController.m */; };
 		FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A3F1CABE0F100706B4D /* login_sina@2x.png */; };
@@ -503,8 +503,8 @@
 		FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoZoomingScrollView.m; sourceTree = "<group>"; };
 		FD4E514C1CC118FD00061830 /* AJTapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTapDetectingView.h; sourceTree = "<group>"; };
 		FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTapDetectingView.m; sourceTree = "<group>"; };
-		FD4E515A1CC11A5500061830 /* AJPhotoPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerView.h; sourceTree = "<group>"; };
-		FD4E515B1CC11A5500061830 /* AJPhotoPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerView.m; sourceTree = "<group>"; };
+		FD4E515A1CC11A5500061830 /* AJPhotoPickerGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerGallery.h; sourceTree = "<group>"; };
+		FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerGallery.m; sourceTree = "<group>"; };
 		FD4E515D1CC11E5C00061830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		FD725F711CBE86CF00A29998 /* ActivityCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCreateTableViewController.h; sourceTree = "<group>"; };
 		FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCreateTableViewController.m; sourceTree = "<group>"; };
@@ -1253,8 +1253,8 @@
 				FD4E51421CC118FD00061830 /* AJPhotoPickerViewController.m */,
 				FD4E51431CC118FD00061830 /* BoPhotoPicker.bundle */,
 				FD4E51441CC118FD00061830 /* Vendor */,
-				FD4E515A1CC11A5500061830 /* AJPhotoPickerView.h */,
-				FD4E515B1CC11A5500061830 /* AJPhotoPickerView.m */,
+				FD4E515A1CC11A5500061830 /* AJPhotoPickerGallery.h */,
+				FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */,
 			);
 			path = AJPhotoPicker;
 			sourceTree = "<group>";
@@ -1721,7 +1721,7 @@
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
 				FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */,
 				F74C9AFB1CBE1DE300C7A607 /* EYTagView.m in Sources */,
-				FD4E515C1CC11A5500061830 /* AJPhotoPickerView.m in Sources */,
+				FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
 				FD066CEA1CB8EB09001A132A /* ActionSheetStringPicker.m in Sources */,
 				F73B78A11C81375600069EEE /* AFURLSessionManager.m in Sources */,

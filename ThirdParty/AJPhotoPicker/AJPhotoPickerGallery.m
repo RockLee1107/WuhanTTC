@@ -6,12 +6,12 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "AJPhotoPickerView.h"
+#import "AJPhotoPickerGallery.h"
 #import "Global.h"
 #import "Masonry.h"
 #import "CommonUtil.h"
 
-@implementation AJPhotoPickerView
+@implementation AJPhotoPickerGallery
 ///初始化
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
