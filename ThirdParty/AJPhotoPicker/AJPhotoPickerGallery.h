@@ -19,6 +19,5 @@
 @property (strong, nonatomic) UIButton *button;
 
 @property (nonatomic, assign) NSInteger maxCount;
-@property (nonatomic, assign) NSInteger existChosenImagesCount;
 
 @end

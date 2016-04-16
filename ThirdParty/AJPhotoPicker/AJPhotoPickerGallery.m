@@ -10,6 +10,7 @@
 #import "Global.h"
 #import "Masonry.h"
 #import "CommonUtil.h"
+#import "SVProgressHUD.h"
 
 @implementation AJPhotoPickerGallery
 ///初始化
@@ -28,7 +29,7 @@
 //点击上传按钮
 - (void)multipleSelectionAction:(id)sender {
     AJPhotoPickerViewController *picker = [[AJPhotoPickerViewController alloc] init];
-    picker.maximumNumberOfSelection = 15;
+    picker.maximumNumberOfSelection = self.maxCount - self.photos.count;
     picker.multipleSelection = YES;
     picker.assetsFilter = [ALAssetsFilter allPhotos];
     picker.showEmptyGroups = YES;
@@ -64,7 +65,9 @@
 
 //超过最大选择项时回调
 - (void)photoPickerDidMaximum:(AJPhotoPickerViewController *)picker {
-    NSLog(@"%s",__func__);
+//    NSLog(@"%s",__func__);
+    [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"最多只能选%zi张",self.maxCount]];
+    
 }
 
 //低于最低选择项时回调

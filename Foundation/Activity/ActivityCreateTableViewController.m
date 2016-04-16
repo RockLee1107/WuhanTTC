@@ -57,14 +57,20 @@ typedef enum : NSUInteger {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    隐藏键盘
     self.activityTitleTextField.delegate = self;
+//    当前城市
     [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
+//    开始与结束时间
     self.planDate = [NSDate date];
     self.endDate = [NSDate date];
+//    默认联系人与电话
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
+//    照片选择器
     self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING)];
     self.photoGallery.vc = self;
+    self.photoGallery.maxCount = 9;
     [self.pictureView addSubview:self.photoGallery];
     self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
 }
