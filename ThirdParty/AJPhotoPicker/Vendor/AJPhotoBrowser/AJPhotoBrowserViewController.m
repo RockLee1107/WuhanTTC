@@ -240,34 +240,25 @@
 }
 
 - (void)delBtnAction:(UIButton *)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"删除" otherButtonTitles:nil, nil];
-    actionSheet.tag = 2;
-    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+    [_photos removeObjectAtIndex:_currentPageIndex];
     
-}
-
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [_photos removeObjectAtIndex:_currentPageIndex];
-        
-        if (_delegate && [_delegate respondsToSelector:@selector(photoBrowser:deleteWithIndex:)]) {
-            [_delegate photoBrowser:self deleteWithIndex:_currentPageIndex];
+    if (_delegate && [_delegate respondsToSelector:@selector(photoBrowser:deleteWithIndex:)]) {
+        [_delegate photoBrowser:self deleteWithIndex:_currentPageIndex];
+    }
+    
+    //reload;
+    _currentPageIndex --;
+    if (_currentPageIndex == -1 && _photos.count == 0) {
+//        相当于点击了完成
+        [_delegate photoBrowser:self didDonePhotos:_photos];
+    } else {
+        _currentPageIndex = (_currentPageIndex == (-1) ? 0 : _currentPageIndex);
+        if (_currentPageIndex == 0) {
+            [self showPhotoViewAtIndex:0];
+            [self setTitlePageInfo];
         }
-        
-        //reload;
-        _currentPageIndex --;
-        if (_currentPageIndex == -1 && _photos.count == 0) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            _currentPageIndex = (_currentPageIndex == (-1) ? 0 : _currentPageIndex);
-            if (_currentPageIndex == 0) {
-                [self showPhotoViewAtIndex:0];
-                [self setTitlePageInfo];
-            }
-            _photoScrollView.contentOffset = CGPointMake(_currentPageIndex * _photoScrollView.bounds.size.width, 0);
-            _photoScrollView.contentSize = CGSizeMake(_photoScrollView.bounds.size.width * _photos.count, 0);
-        }
+        _photoScrollView.contentOffset = CGPointMake(_currentPageIndex * _photoScrollView.bounds.size.width, 0);
+        _photoScrollView.contentSize = CGSizeMake(_photoScrollView.bounds.size.width * _photos.count, 0);
     }
 }
 

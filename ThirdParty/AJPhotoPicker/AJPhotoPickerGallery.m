@@ -95,7 +95,7 @@
 #pragma mark - AJPhotoBrowserDelegate图片浏览器代理方法
 //图片浏览器中删除某张图片回调
 - (void)photoBrowser:(AJPhotoBrowserViewController *)vc deleteWithIndex:(NSInteger)index {
-    NSLog(@"%s",__func__);
+//    [self reloadImagesList];
 }
 
 //点击图片浏览器完成按钮回调
