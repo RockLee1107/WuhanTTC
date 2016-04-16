@@ -14,5 +14,9 @@
 @interface AJPhotoPickerView : UIView<AJPhotoPickerProtocol,AJPhotoBrowserDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UIViewController *vc;
 @property (strong, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic) UIButton *button;
+
+@property (nonatomic, assign) NSInteger maxCount;
+@property (nonatomic, assign) NSInteger existChosenImagesCount;
 
 @end

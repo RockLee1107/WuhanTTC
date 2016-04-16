@@ -42,6 +42,7 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UITextField *linkmanTextField;
 @property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
+@property (strong, nonatomic) AJPhotoPickerView *photoGallery;
 
 @end
 
@@ -55,10 +56,26 @@ typedef enum : NSUInteger {
     self.endDate = [NSDate date];
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
-    AJPhotoPickerView *picker = [[AJPhotoPickerView alloc] init];
+    self.photoGallery = [[AJPhotoPickerView alloc] init];
     
-    picker.vc = self;
-    [self.pictureView addSubview:picker];
+    self.photoGallery.vc = self;
+    [self.pictureView addSubview:self.photoGallery];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+#pragma mark - Table view data source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    // Return the number of sections.
+    if (indexPath.row == 11) {
+        NSInteger imageCount = self.photoGallery.photos.count;
+        CGFloat imageWidth = (SCREEN_WIDTH - 32) / 4.0 - 4;
+        CGFloat height = ((imageCount / 4) + 1) * imageWidth + 60;
+        return height;
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 ///切换城市
