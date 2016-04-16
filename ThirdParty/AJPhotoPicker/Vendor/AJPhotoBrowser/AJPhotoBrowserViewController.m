@@ -285,7 +285,7 @@
 }
 
 - (void)setTitlePageInfo {
-    NSString *title = [NSString stringWithFormat:@"%lu / %lu",_currentPageIndex+1,(unsigned long)_photos.count];
+    NSString *title = [NSString stringWithFormat:@"%zi / %lu",_currentPageIndex+1,(unsigned long)_photos.count];
     self.titleLabel.text = title;
 }
 
