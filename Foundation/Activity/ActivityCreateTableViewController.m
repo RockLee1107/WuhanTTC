@@ -59,6 +59,12 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UITextField *planSiteTextField;
 //报名人信息
 @property (nonatomic, weak) IBOutlet JCTagListView *tagListView;
+//基本成员变量
+@property (weak, nonatomic) IBOutlet UITextField *planJoinNum;      //限定人数
+@property (weak, nonatomic) IBOutlet EMTextView *activityDetailsTextView;  //活动详情
+@property (weak, nonatomic) IBOutlet EMTextView *applyRequireMentTextView;   //活动要求
+//infoType = @"姓名、微信等6个"
+//detailPictURL 图片路径读取用，以逗号分隔
 @end
 
 @implementation ActivityCreateTableViewController
@@ -108,16 +114,16 @@ typedef enum : NSUInteger {
 -(void)viewDidAppear:(BOOL)animated{
     [self.tableView reloadData];
 }
-#pragma mark - Table view data source
 
+#pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // Return the number of sections.
-    if (indexPath.row == 12) {
+    if (indexPath.row == 11) {
         NSInteger imageCount = self.photoGallery.photos.count;
         CGFloat imageWidth = (SCREEN_WIDTH - 32) / 4.0 - 4;
         CGFloat height = ((imageCount / 4) + 1) * imageWidth + 60;
         return height;
-    } else if (indexPath.row == 8) {
+    } else if (indexPath.row == 7) {
         if (self.cityStyle == CityStyleOnline) {
             self.planSiteContentView.hidden = YES;
             return 0.0;
