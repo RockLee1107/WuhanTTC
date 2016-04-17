@@ -49,6 +49,7 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
 
 - (void)setup
 {
+    _maxCount = 99;
     _selectedTags = [NSMutableArray array];
     _tags = [NSMutableArray array];
     
@@ -114,8 +115,12 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
 {
     if (self.canSelectTags) {
 //        限制个数
-        if (self.selectedTags.count > 3 && ![self.selectedTags containsObject:self.tags[indexPath.item]]) {
-            [SVProgressHUD showErrorWithStatus:@"最多只能选择4个"];
+        if (self.selectedTags.count > self.maxCount - 1 && ![self.selectedTags containsObject:self.tags[indexPath.item]]) {
+            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"最多只能选择%zi个",self.maxCount]];
+            return;
+        }
+//        硬编码禁止点击的按钮
+        if ([self.tags[indexPath.item] isEqualToString:@"姓名"]) {
             return;
         }
         JCTagCell *cell = (JCTagCell *)[collectionView cellForItemAtIndexPath:indexPath];

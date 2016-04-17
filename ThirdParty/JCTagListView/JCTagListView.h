@@ -24,7 +24,7 @@ typedef void (^JCTagListViewBlock)(NSInteger index);
 @property (nonatomic, strong) NSMutableArray *selectedTags;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-
+@property (nonatomic, assign) NSInteger maxCount;
 - (void)setCompletionBlockWithSelected:(JCTagListViewBlock)completionBlock;
 
 @end

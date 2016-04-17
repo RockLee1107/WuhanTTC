@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tagListView.canSelectTags = YES;
+    self.tagListView.maxCount = 4;
 //    初始
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dict in [StatusDict industry]) {

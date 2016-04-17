@@ -18,6 +18,8 @@
 #import "LocationUtil.h"
 #import "StandardViewController.h"
 #import "AJPhotoPickerGallery.h"
+#import "JCTagListView.h"
+
 //保存或发布
 typedef enum : NSUInteger {
     BizStatusSave,
@@ -35,6 +37,8 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
 @property (weak, nonatomic) IBOutlet LXButton *onlineCityButton;       //城市
 @property (strong, nonatomic) NSString *cityname;       //城市名称或“线上”以传值服务端
+@property (assign, nonatomic) CityStyle cityStyle;
+
 //活动类型
 @property (weak, nonatomic) IBOutlet UIButton *typeButton;         //按钮，用于显示所选中文值
 @property (assign, nonatomic) NSInteger selectedTypeIndex;           //状态index，用于选择框反显
@@ -50,7 +54,11 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
 @property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
-
+//活动地点
+@property (weak, nonatomic) IBOutlet UIView *planSiteContentView;
+@property (weak, nonatomic) IBOutlet UITextField *planSiteTextField;
+//报名人信息
+@property (nonatomic, weak) IBOutlet JCTagListView *tagListView;
 @end
 
 @implementation ActivityCreateTableViewController
@@ -72,11 +80,19 @@ typedef enum : NSUInteger {
     self.photoGallery.vc = self;
     self.photoGallery.maxCount = 9;
     [self.pictureView addSubview:self.photoGallery];
+//    线上样式
     self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
+//    报名人要求
+    self.tagListView.canSelectTags = YES;
+    //    初始
+    self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
+    //已选
+    self.tagListView.selectedTags = [NSMutableArray arrayWithArray:@[@"姓名"]];
 }
 
 ///线上与城市按钮相互切换
 - (IBAction)switchCityStyle:(UIButton *)sender {
+    self.cityStyle = sender.tag;
     if (sender.tag == CityStyleOffline) {
         self.currentCityButton.backgroundColor = MAIN_COLOR;
         self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
@@ -84,6 +100,7 @@ typedef enum : NSUInteger {
         self.currentCityButton.backgroundColor = [UIColor lightGrayColor];
         self.onlineCityButton.backgroundColor = MAIN_COLOR;
     }
+    [self.tableView reloadData];
     self.cityname = [sender titleForState:(UIControlStateNormal)];
 }
 
@@ -95,12 +112,21 @@ typedef enum : NSUInteger {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // Return the number of sections.
-    if (indexPath.row == 11) {
+    if (indexPath.row == 12) {
         NSInteger imageCount = self.photoGallery.photos.count;
         CGFloat imageWidth = (SCREEN_WIDTH - 32) / 4.0 - 4;
         CGFloat height = ((imageCount / 4) + 1) * imageWidth + 60;
         return height;
+    } else if (indexPath.row == 8) {
+        if (self.cityStyle == CityStyleOnline) {
+            self.planSiteContentView.hidden = YES;
+            return 0.0;
+        } else {
+            self.planSiteContentView.hidden = NO;
+            return 44.0;
+        }
     }
+    
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
