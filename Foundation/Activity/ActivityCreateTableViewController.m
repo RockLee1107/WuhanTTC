@@ -60,7 +60,7 @@ typedef enum : NSUInteger {
 //报名人信息
 @property (nonatomic, weak) IBOutlet JCTagListView *tagListView;
 //基本成员变量
-@property (weak, nonatomic) IBOutlet UITextField *planJoinNum;      //限定人数
+@property (weak, nonatomic) IBOutlet UITextField *planJoinNumTextField;      //限定人数
 @property (weak, nonatomic) IBOutlet EMTextView *activityDetailsTextView;  //活动详情
 @property (weak, nonatomic) IBOutlet EMTextView *applyRequireMentTextView;   //活动要求
 //infoType = @"姓名、微信等6个"
@@ -88,6 +88,7 @@ typedef enum : NSUInteger {
     [self.pictureView addSubview:self.photoGallery];
 //    线上样式
     self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
+    self.cityname = [LocationUtil getInstance].locatedCityName;
 //    报名人要求
     self.tagListView.canSelectTags = YES;
     //    初始
@@ -218,11 +219,24 @@ typedef enum : NSUInteger {
 
 ///提交到网络
 - (void)postData:(NSInteger)bizStatus {
-
+//表单验证，考虑保存模式下可为空，考虑结束日期要大于开始日期
     NSMutableDictionary *activity = [NSMutableDictionary dictionaryWithDictionary:
                                      @{
                                        @"activityTitle":self.activityTitleTextField.text,
+                                       @"city":self.cityname,
+                                       @"typeCode":self.selectedTypeValue,
+                                       @"planDate":[DateUtil dateToDatePart:self.planDate],//日期需要转化20151123格式
+                                       @"planTime":[DateUtil dateToTimePart:self.planDate],//Time convert to 2315 Style
+                                       @"endDate":[DateUtil dateToDatePart:self.endDate],
+                                       @"endTime":[DateUtil dateToTimePart:self.endDate],
+                                       @"planJoinNum":self.planJoinNumTextField.text,
+                                       @"planSite":self.planSiteTextField.text,
+                                       @"linkMan":self.linkmanTextField.text,
+                                       @"telePhone":self.telephoneTextField.text,
+                                       @"applyRequireMent":self.applyRequireMentTextView.text,
+                                       @"activityDetails":self.activityDetailsTextView.text,
                                        @"bizStatus":[NSString stringWithFormat:@"%zi",bizStatus],//bizStatus区分保存与提交 保存是0 发布是1
+                                       @"infoType":[self.tagListView.selectedTags componentsJoinedByString:@","]
                                        }
                                      ];
     if (self.picker.filePath) {

@@ -21,4 +21,8 @@
 + (NSString *)dateToString:(NSDate *)date;
 ///长日期
 + (NSString *)dateToFullString:(NSDate *)date;
+///日期类型转日期字符串 20141214
++ (NSString *)dateToDatePart:(NSDate *)date;
+///日期类型转不带秒数的时间字符串 0059
++ (NSString *)dateToTimePart:(NSDate *)date;
 @end

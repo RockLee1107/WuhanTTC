@@ -1058,7 +1058,7 @@
                         <outlet property="onlineCityButton" destination="kfo-4x-jAm" id="bXD-YY-CxZ"/>
                         <outlet property="pictureView" destination="9Fg-x5-NS9" id="mdf-fu-v6K"/>
                         <outlet property="planDateButton" destination="g5q-cd-Jau" id="EhI-Uj-YIw"/>
-                        <outlet property="planJoinNum" destination="qFI-ZZ-D6t" id="ckL-HL-2ME"/>
+                        <outlet property="planJoinNumTextField" destination="qFI-ZZ-D6t" id="0ak-15-5bw"/>
                         <outlet property="planSiteContentView" destination="9Lz-5B-xs1" id="hC9-rs-gxc"/>
                         <outlet property="planSiteTextField" destination="b0F-3v-qau" id="cCX-JB-suD"/>
                         <outlet property="tagListView" destination="iip-pT-OVa" id="Iqa-Xd-R7K"/>

@@ -88,4 +88,20 @@
     NSString *str = [formatter stringFromDate:date];
     return str;
 }
+
+///日期类型转日期字符串 20141214
++ (NSString *)dateToDatePart:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYYMMdd"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
+
+///日期类型转不带秒数的时间字符串 0059
++ (NSString *)dateToTimePart:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HHmm"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
 @end
