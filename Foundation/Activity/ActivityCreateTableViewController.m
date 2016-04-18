@@ -19,6 +19,7 @@
 #import "StandardViewController.h"
 #import "AJPhotoPickerGallery.h"
 #import "JCTagListView.h"
+#import "ImageUtil.h"
 
 //保存或发布
 typedef enum : NSUInteger {
@@ -64,7 +65,6 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) IBOutlet EMTextView *activityDetailsTextView;  //活动详情
 @property (weak, nonatomic) IBOutlet EMTextView *applyRequireMentTextView;   //活动要求
 //infoType = @"姓名、微信等6个"
-//detailPictURL 图片路径读取用，以逗号分隔
 @end
 
 @implementation ActivityCreateTableViewController
@@ -246,6 +246,10 @@ typedef enum : NSUInteger {
     if (self.selectedTypeValue != nil) {
         [activity setObject:self.selectedTypeValue forKey:@"typeCode"];
     }
+//    多图
+    if (self.photoGallery.photos.count > 0) {
+        [activity setObject:[[[ImageUtil getInstance] savePicture:@"detailPictURL" images:self.photoGallery.photos] componentsJoinedByString:@","] forKey:@"detailPictURL"];
+    }
     if (self.picker.filePath) {
         [activity setObject:self.picker.filePath forKey:@"pictURL"];
     } else {
@@ -258,8 +262,16 @@ typedef enum : NSUInteger {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"activity/saveActivity"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        logo
         if (self.picker.filePath) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:self.picker.filename mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:self.picker.filename mimeType:@"image/jpeg"];
+        }
+//        多图
+        if (self.photoGallery.photos.count > 0) {
+            for (int i = 0; i < self.photoGallery.photos.count; i++) {
+                UIImage *image = self.photoGallery.photos[i];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"detailPictURL%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+            }
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {

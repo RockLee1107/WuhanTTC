@@ -9,6 +9,13 @@
 #import "ImageUtil.h"
 
 @implementation ImageUtil
++ (instancetype)getInstance {
+    static ImageUtil *instance;
+    if (instance == nil) {
+        instance = [[self alloc]init];
+    }
+    return instance;
+}
 //保存图片到沙盒
 + (NSString *)savePicture:(NSString *)filename image:(UIImage *)image {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
@@ -18,5 +25,26 @@
         return filePath;
     }
     return nil;
+}
+
+//保存图片到沙盒-多图方式
+- (NSArray *)savePicture:(NSString *)filename images:(NSArray *)images {
+    NSMutableArray *array = [NSMutableArray array];
+    NSArray *filenames = [self generateFilename:filename num:images.count];
+    for (int i = 0; i < images.count; i++) {
+        [array addObject:[ImageUtil savePicture:filenames[i] image:images[i]]];
+    }
+    return array;
+}
+
+//生成图片名称
+- (NSArray *)generateFilename:(NSString *)name num:(NSInteger)num {
+    int timestamp = (int)([[NSDate date] timeIntervalSince1970]);
+    NSMutableArray *array = [NSMutableArray array];
+    for (int i = 0; i < num; i++) {
+        [array addObject:[NSString stringWithFormat:@"%@_%d_%zi.jpg",name,timestamp,i]];
+    }
+    self.filenames = array;
+    return array;
 }
 @end
