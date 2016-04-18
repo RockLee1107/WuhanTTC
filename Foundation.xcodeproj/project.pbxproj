@@ -108,6 +108,7 @@
 		FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */; };
 		FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0C21CAFEAED002B7630 /* InvestorTableViewDelegate.m */; };
 		FD34C0C61CAFEBE9002B7630 /* InvestorDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0C51CAFEBE9002B7630 /* InvestorDetailTableViewController.m */; };
+		FD3B00471CC4C04300DA0166 /* ImageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3B00461CC4C04300DA0166 /* ImageUtil.m */; };
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
@@ -447,6 +448,8 @@
 		FD34C0C21CAFEAED002B7630 /* InvestorTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorTableViewDelegate.m; sourceTree = "<group>"; };
 		FD34C0C41CAFEBE9002B7630 /* InvestorDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorDetailTableViewController.h; sourceTree = "<group>"; };
 		FD34C0C51CAFEBE9002B7630 /* InvestorDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorDetailTableViewController.m; sourceTree = "<group>"; };
+		FD3B00451CC4C04300DA0166 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
+		FD3B00461CC4C04300DA0166 /* ImageUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtil.m; sourceTree = "<group>"; };
 		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
 		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD3D59F81CB29AB100B9514D /* ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetViewController.h; sourceTree = "<group>"; };
@@ -784,6 +787,8 @@
 				F73B78631C81375500069EEE /* LXButton.m */,
 				F74C9AE01CBB8B1300C7A607 /* LXPhotoPicker.h */,
 				F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */,
+				FD3B00451CC4C04300DA0166 /* ImageUtil.h */,
+				FD3B00461CC4C04300DA0166 /* ImageUtil.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1714,6 +1719,7 @@
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FDE2D9571CA369CF008DDE4F /* MASViewConstraint.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
+				FD3B00471CC4C04300DA0166 /* ImageUtil.m in Sources */,
 				FD066CE71CB8EB09001A132A /* ActionSheetDatePicker.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
 				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
