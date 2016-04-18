@@ -34,7 +34,7 @@
         [self.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"pictUrl"]]]]];
         self.pictUrlImageView.clipsToBounds = YES;
         self.activityTitleLabel.text = [StringUtil toString:responseObject[@"activityTitle"]];
-        self.typeLabel.text = responseObject[@"type"];
+        self.typeLabel.text = [StringUtil toString:responseObject[@"type"]];
         self.statusLabel.text = ACTIVITY_STATUS_ARRAY[[responseObject[@"status"] integerValue]];
         self.planDatetimeLabel.text = [DateUtil toString:responseObject[@"planDate"] time:responseObject[@"planTime"]];
         self.endDatetimeLabel.text = [DateUtil toString:responseObject[@"endDate"] time:responseObject[@"endTime"]];
