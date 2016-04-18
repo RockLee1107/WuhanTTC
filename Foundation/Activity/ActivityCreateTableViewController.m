@@ -73,6 +73,11 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
 //    隐藏键盘
     self.activityTitleTextField.delegate = self;
+//    照片拾取
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
+    self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
+
 //    当前城市
     [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
 //    开始与结束时间
@@ -202,8 +207,6 @@ typedef enum : NSUInteger {
 //点选相片或拍照
 - (IBAction)selectPicture:(id)sender {
     [self.currentTextField resignFirstResponder];
-    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
-    self.picker.delegate = self;
     [self.picker selectPicture];
 }
 
@@ -224,7 +227,7 @@ typedef enum : NSUInteger {
                                      @{
                                        @"activityTitle":self.activityTitleTextField.text,
                                        @"city":self.cityname,
-                                       @"typeCode":self.selectedTypeValue,
+//                                       @"typeCode":self.selectedTypeValue,
                                        @"planDate":[DateUtil dateToDatePart:self.planDate],//日期需要转化20151123格式
                                        @"planTime":[DateUtil dateToTimePart:self.planDate],//Time convert to 2315 Style
                                        @"endDate":[DateUtil dateToDatePart:self.endDate],
@@ -239,6 +242,10 @@ typedef enum : NSUInteger {
                                        @"infoType":[self.tagListView.selectedTags componentsJoinedByString:@","]
                                        }
                                      ];
+//    活动类型
+    if (self.selectedTypeValue != nil) {
+        [activity setObject:self.selectedTypeValue forKey:@"typeCode"];
+    }
     if (self.picker.filePath) {
         [activity setObject:self.picker.filePath forKey:@"pictURL"];
     } else {
@@ -252,7 +259,7 @@ typedef enum : NSUInteger {
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"activity/saveActivity"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         if (self.picker.filePath) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:self.picker.filename mimeType:@"image/jpeg"];
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
