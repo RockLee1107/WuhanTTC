@@ -8,6 +8,7 @@
 
 #import "ProjectDetailViewController.h"
 #import "ProjectSummaryTableViewController.h"
+#import "TeamListTableViewController.h"
 #import "SingletonObject.h"
 
 @interface ProjectDetailViewController ()
@@ -26,7 +27,7 @@
     if (self) {
         NSArray *viewControllerClasses = @[
                                            [ProjectSummaryTableViewController class],
-                                           [ProjectSummaryTableViewController class],
+                                           [TeamListTableViewController class],
                                            [ProjectSummaryTableViewController class],
                                            [ProjectSummaryTableViewController class],
                                            [ProjectSummaryTableViewController class]

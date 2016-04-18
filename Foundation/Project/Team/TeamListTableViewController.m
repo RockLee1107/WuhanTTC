@@ -8,6 +8,7 @@
 
 #import "TeamListTableViewController.h"
 #import "TeamTableViewCell.h"
+
 @interface TeamListTableViewController ()
 
 @end
@@ -16,22 +17,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self fetchData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)fetchData {
+    NSDictionary *param = @{
+                            @"projectId":self.pid
+                            };
+    [self.service POST:@"team/queryTeamList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.dataArray = responseObject;
+        [self.tableView reloadData];
+    } noResult:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TeamTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"TeamTableViewCell" owner:nil options:nil] firstObject];
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    cell.realnameLabel.text = [StringUtil toString:dict[@"realName"]];
+    cell.dutyLabel.text = [StringUtil toString:dict[@"duty"]];
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
+    cell.avatarImageView.clipsToBounds = YES;
+    return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75.0;
+}
 
 @end

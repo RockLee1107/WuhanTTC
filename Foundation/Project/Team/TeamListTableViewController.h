@@ -9,5 +9,5 @@
 #import "BaseStaticTableViewController.h"
 
 @interface TeamListTableViewController : BaseStaticTableViewController
-
+@property (strong,nonatomic) NSString *pid;
 @end

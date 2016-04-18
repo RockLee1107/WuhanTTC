@@ -54,7 +54,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="avtarImageView" destination="afk-HJ-Rs7" id="a2U-et-NXY"/>
+                <outlet property="avatarImageView" destination="afk-HJ-Rs7" id="SCe-wX-cfD"/>
                 <outlet property="dutyLabel" destination="faW-ud-dmk" id="mq1-0v-3Ti"/>
                 <outlet property="realnameLabel" destination="Bxi-36-ef5" id="Le4-dn-AQO"/>
             </connections>
