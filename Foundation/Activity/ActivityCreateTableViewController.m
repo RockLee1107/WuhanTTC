@@ -248,7 +248,7 @@ typedef enum : NSUInteger {
     }
 //    多图
     if (self.photoGallery.photos.count > 0) {
-        [activity setObject:[[[ImageUtil getInstance] savePicture:@"detailPictURL" images:self.photoGallery.photos] componentsJoinedByString:@","] forKey:@"detailPictURL"];
+        [activity setObject:[[ImageUtil getInstance] savePicture:@"detailPictURL" images:self.photoGallery.photos] forKey:@"detailPictURL"];
     }
     if (self.picker.filePath) {
         [activity setObject:self.picker.filePath forKey:@"pictURL"];
@@ -270,7 +270,7 @@ typedef enum : NSUInteger {
         if (self.photoGallery.photos.count > 0) {
             for (int i = 0; i < self.photoGallery.photos.count; i++) {
                 UIImage *image = self.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"detailPictURL%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
             }
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);

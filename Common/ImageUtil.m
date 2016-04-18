@@ -28,13 +28,13 @@
 }
 
 //保存图片到沙盒-多图方式
-- (NSArray *)savePicture:(NSString *)filename images:(NSArray *)images {
+- (NSString *)savePicture:(NSString *)filename images:(NSArray *)images {
     NSMutableArray *array = [NSMutableArray array];
     NSArray *filenames = [self generateFilename:filename num:images.count];
     for (int i = 0; i < images.count; i++) {
         [array addObject:[ImageUtil savePicture:filenames[i] image:images[i]]];
     }
-    return array;
+    return [array componentsJoinedByString:@","];
 }
 
 //生成图片名称
