@@ -7,6 +7,7 @@
 //
 
 #import "MyProjectTableViewController.h"
+#import "ProjectTableViewDelegate.h"
 
 @interface MyProjectTableViewController ()
 
@@ -16,22 +17,63 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initDelegate];
+    [self initRefreshControl];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//上拉下拉控件
+- (void)initRefreshControl {
+    /**上拉刷新、下拉加载*/
+    __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.page.pageNo = 1;
+        [weakSelf fetchData];
+        [weakSelf.tableView.header endRefreshing];
+    }];
+    [self.tableView.legendHeader beginRefreshing];
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        weakSelf.page.pageNo++;
+        [weakSelf fetchData];
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        [weakSelf.tableView.footer endRefreshing];
+    }];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//初始化代理
+- (void)initDelegate {
+    self.tableViewDelegate = [[ProjectTableViewDelegate alloc] init];
+    self.tableViewDelegate.vc = self;
+    self.tableView.delegate = self.tableViewDelegate;
+    self.tableView.dataSource = self.tableViewDelegate;
 }
-*/
+
+/**创连接项目*/
+- (void)fetchData{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
+                                 @{
+                                   //                                  @"SEQ_typeCode":@"",
+                                   //                                  @"IIN_status":@"2",
+                                   //                                  @"SEQ_city":@0,
+                                   //                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                   @"SEQ_userId":[User getInstance].uid
+                                   }];
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.page.pageNo == 1) {
+            //由于下拉刷新时页面而归零
+            [self.tableViewDelegate.dataArray removeAllObjects];
+            [self.tableView.footer resetNoMoreData];
+        }
+        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
+        [self.tableView reloadData];
+    } noResult:^{
+        [self.tableView.footer noticeNoMoreData];
+    }];
+}
 
 @end

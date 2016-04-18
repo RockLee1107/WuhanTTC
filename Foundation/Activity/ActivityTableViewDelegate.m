@@ -40,7 +40,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *object = self.dataArray[indexPath.row];
-    ActivityDetailViewController *vc = [self.vc.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    ActivityDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.activityId = object[@"activityId"];
     [self.vc.navigationController pushViewController:vc animated:YES];
 }
