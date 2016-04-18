@@ -60,6 +60,9 @@
 		F74C9AFA1CBE1DE300C7A607 /* EYTextPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AEF1CBE1DE300C7A607 /* EYTextPopupView.m */; };
 		F74C9AFB1CBE1DE300C7A607 /* EYTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AF31CBE1DE300C7A607 /* EYTagView.m */; };
 		F74C9AFC1CBE1DE300C7A607 /* EYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AF51CBE1DE300C7A607 /* EYTextField.m */; };
+		F74C9B001CC5287F00C7A607 /* TeamListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AFF1CC5287F00C7A607 /* TeamListTableViewController.m */; };
+		F74C9B041CC5289900C7A607 /* TeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9B021CC5289900C7A607 /* TeamTableViewCell.m */; };
+		F74C9B051CC5289900C7A607 /* TeamTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74C9B031CC5289900C7A607 /* TeamTableViewCell.xib */; };
 		F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F76E92381CAAE53C001AE980 /* LocationUtil.m */; };
 		F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F795DF421CB2555A002BCDEE /* RegistViewController.m */; };
 		F795DF451CB40643002BCDEE /* app_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F795DF441CB40643002BCDEE /* app_photo@2x.png */; };
@@ -359,6 +362,11 @@
 		F74C9AF31CBE1DE300C7A607 /* EYTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYTagView.m; sourceTree = "<group>"; };
 		F74C9AF41CBE1DE300C7A607 /* EYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYTextField.h; sourceTree = "<group>"; };
 		F74C9AF51CBE1DE300C7A607 /* EYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EYTextField.m; sourceTree = "<group>"; };
+		F74C9AFE1CC5287F00C7A607 /* TeamListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamListTableViewController.h; sourceTree = "<group>"; };
+		F74C9AFF1CC5287F00C7A607 /* TeamListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamListTableViewController.m; sourceTree = "<group>"; };
+		F74C9B011CC5289900C7A607 /* TeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewCell.h; sourceTree = "<group>"; };
+		F74C9B021CC5289900C7A607 /* TeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewCell.m; sourceTree = "<group>"; };
+		F74C9B031CC5289900C7A607 /* TeamTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamTableViewCell.xib; sourceTree = "<group>"; };
 		F76E92371CAAE53C001AE980 /* LocationUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationUtil.h; sourceTree = "<group>"; };
 		F76E92381CAAE53C001AE980 /* LocationUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationUtil.m; sourceTree = "<group>"; };
 		F795DF411CB2555A002BCDEE /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
@@ -933,6 +941,7 @@
 		F73B78BD1C813E2800069EEE /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				F74C9AFD1CC5284700C7A607 /* Team */,
 				FD34C0B81CAFBDA0002B7630 /* Investor */,
 				F73B78BE1C813E2800069EEE /* Project.storyboard */,
 				F7A61E651CA04A41001B5FB3 /* Detail */,
@@ -991,6 +1000,18 @@
 				F74C9AF51CBE1DE300C7A607 /* EYTextField.m */,
 			);
 			path = EYTagView;
+			sourceTree = "<group>";
+		};
+		F74C9AFD1CC5284700C7A607 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				F74C9AFE1CC5287F00C7A607 /* TeamListTableViewController.h */,
+				F74C9AFF1CC5287F00C7A607 /* TeamListTableViewController.m */,
+				F74C9B011CC5289900C7A607 /* TeamTableViewCell.h */,
+				F74C9B021CC5289900C7A607 /* TeamTableViewCell.m */,
+				F74C9B031CC5289900C7A607 /* TeamTableViewCell.xib */,
+			);
+			path = Team;
 			sourceTree = "<group>";
 		};
 		F76E923B1CAB5A7C001AE980 /* Settings */ = {
@@ -1627,6 +1648,7 @@
 				FD4462801CAD1C7F00F7E12F /* SubjectDetailTableViewCell.xib in Resources */,
 				FD891A461CABE32B00706B4D /* login_qq@2x.png in Resources */,
 				FD9450F71CA8398800E00759 /* menu_collect@2x.png in Resources */,
+				F74C9B051CC5289900C7A607 /* TeamTableViewCell.xib in Resources */,
 				FDEADC0D1C92AA2D00971DD1 /* icon_content_normal@2x.png in Resources */,
 				F7B827F51C892DDC00014746 /* Login.storyboard in Resources */,
 				FD9451081CA843DD00E00759 /* special6@2x.png in Resources */,
@@ -1736,6 +1758,7 @@
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
 				FD4E51531CC118FE00061830 /* AJPhotoListView.m in Sources */,
 				F795DF641CB697ED002BCDEE /* EMTextView.m in Sources */,
+				F74C9B041CC5289900C7A607 /* TeamTableViewCell.m in Sources */,
 				FD066CE51CB8EB09001A132A /* AbstractActionSheetPicker.m in Sources */,
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
@@ -1812,6 +1835,7 @@
 				FD9450E01CA82ECA00E00759 /* AboutTableViewController.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
+				F74C9B001CC5287F00C7A607 /* TeamListTableViewController.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
 				FD066CEB1CB8EB09001A132A /* DistancePickerView.m in Sources */,
 				F74C9AF91CBE1DE300C7A607 /* EYTagPopupView.m in Sources */,
