@@ -8,7 +8,6 @@
 
 #import "MyActivityTableViewController.h"
 #import "ActivityTableViewDelegate.h"
-#import "DTKDropdownMenuView.h"
 #import "MyActivityPageController.h"
 
 @interface MyActivityTableViewController ()
@@ -20,7 +19,7 @@
     [super viewDidLoad];
     [self initDelegate];
     [self initRefreshControl];
-    [self addRightItem];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,33 +78,6 @@
     } noResult:^{
         [self.tableView.footer noticeNoMoreData];
     }];
-}
-
-///导航栏下拉菜单
-- (void)addRightItem
-{
-    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的活动" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
-        MyActivityPageController *vc = [[MyActivityPageController alloc] init];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-    }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建活动" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
-        [self performSegueWithIdentifier:@"create" sender:nil];
-    }];
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
-        //跳转搜索页
-        [self performSegueWithIdentifier:@"search" sender:nil];
-    }];
-    menuView.cellColor = MAIN_COLOR;
-    menuView.cellHeight = 50.0;
-    menuView.dropWidth = 150.f;
-    menuView.titleFont = [UIFont systemFontOfSize:18.f];
-    menuView.textColor = [UIColor whiteColor];
-    menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-    menuView.textFont = [UIFont systemFontOfSize:16.f];
-    menuView.animationDuration = 0.4f;
-    menuView.backgroundAlpha = 0;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
 }
 
 @end
