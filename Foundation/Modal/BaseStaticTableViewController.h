@@ -19,6 +19,7 @@
 #import "PXAlertView+Customization.h"
 #import "LocationUtil.h"
 #import "VerifyUtil.h"
+#import "BaseTableViewDelegate.h"
 
 @interface BaseStaticTableViewController : UITableViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSDictionary *dataDict;
@@ -28,4 +29,5 @@
 @property (nonatomic,strong) UITextField *currentTextField;
 - (void)setDynamicLayout;
 - (void)goBack;
+@property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
 @end

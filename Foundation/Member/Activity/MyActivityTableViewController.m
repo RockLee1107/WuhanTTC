@@ -1,37 +1,111 @@
 //
-//  MyProjectTableViewController.m
+//  ActivityListViewController.m
 //  Foundation
 //
-//  Created by Dotton on 16/3/27.
+//  Created by Dotton on 16/3/17.
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
 #import "MyActivityTableViewController.h"
+#import "ActivityTableViewDelegate.h"
+#import "DTKDropdownMenuView.h"
+#import "MyActivityPageController.h"
 
 @interface MyActivityTableViewController ()
-
 @end
 
 @implementation MyActivityTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initDelegate];
+    [self initRefreshControl];
+    [self addRightItem];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//上拉下拉控件
+- (void)initRefreshControl {
+    /**上拉刷新、下拉加载*/
+    __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.page.pageNo = 1;
+        [weakSelf fetchData];
+        [weakSelf.tableView.header endRefreshing];
+    }];
+    [self.tableView.legendHeader beginRefreshing];
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        weakSelf.page.pageNo++;
+        [weakSelf fetchData];
+        // 拿到当前的上拉刷新控件，结束刷新状态
+        [weakSelf.tableView.footer endRefreshing];
+    }];
+    
 }
-*/
+
+//初始化代理
+- (void)initDelegate {
+    self.tableViewDelegate = [[ActivityTableViewDelegate alloc] init];
+    self.tableViewDelegate.vc = self;
+    self.tableView.delegate = self.tableViewDelegate;
+    self.tableView.dataSource = self.tableViewDelegate;
+}
+
+/**创活动*/
+- (void)fetchData{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
+                                @{
+//                                  @"SEQ_typeCode":@"",
+//                                  @"IIN_status":@"2",
+//                                  @"SEQ_city":@0,
+                                  @"SEQ_orderBy":@"pbDate",//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                  @"SEQ_userId":[User getInstance].uid
+                                }];
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.page.pageNo == 1) {
+            //由于下拉刷新时页面而归零
+            [self.tableViewDelegate.dataArray removeAllObjects];
+            [self.tableView.footer resetNoMoreData];
+        }
+        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
+        [self.tableView reloadData];
+    } noResult:^{
+        [self.tableView.footer noticeNoMoreData];
+    }];
+}
+
+///导航栏下拉菜单
+- (void)addRightItem
+{
+    __weak typeof(self) weakSelf = self;
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的活动" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
+        MyActivityPageController *vc = [[MyActivityPageController alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建活动" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
+        [self performSegueWithIdentifier:@"create" sender:nil];
+    }];
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
+        //跳转搜索页
+        [self performSegueWithIdentifier:@"search" sender:nil];
+    }];
+    menuView.cellColor = MAIN_COLOR;
+    menuView.cellHeight = 50.0;
+    menuView.dropWidth = 150.f;
+    menuView.titleFont = [UIFont systemFontOfSize:18.f];
+    menuView.textColor = [UIColor whiteColor];
+    menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    menuView.textFont = [UIFont systemFontOfSize:16.f];
+    menuView.animationDuration = 0.4f;
+    menuView.backgroundAlpha = 0;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+}
 
 @end

@@ -11,7 +11,6 @@
 
 @interface ProjectIndexTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;
-@property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
 
 @end
 
