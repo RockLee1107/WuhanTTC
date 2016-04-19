@@ -69,7 +69,9 @@
                 [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
             } else if ([responseObject[@"errorCode"] integerValue] == 521){
                 //                无结果
-                noResult();
+                if (noResult) {
+                    noResult();
+                }
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:responseObject[@"msg"] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
                 [alert show];

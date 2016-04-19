@@ -9,6 +9,7 @@
 #import "ProjectDetailViewController.h"
 #import "ProjectSummaryTableViewController.h"
 #import "TeamListTableViewController.h"
+#import "ProcessTableViewController.h"
 #import "SingletonObject.h"
 #import "DTKDropdownMenuView.h"
 #import "HttpService.h"
@@ -30,7 +31,7 @@
         NSArray *viewControllerClasses = @[
                                            [ProjectSummaryTableViewController class],
                                            [TeamListTableViewController class],
-                                           [ProjectSummaryTableViewController class],
+                                           [ProcessTableViewController class],
                                            [ProjectSummaryTableViewController class],
                                            [ProjectSummaryTableViewController class]
                                            ];

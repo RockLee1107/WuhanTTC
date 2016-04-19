@@ -25,4 +25,6 @@
 + (NSString *)dateToDatePart:(NSDate *)date;
 ///日期类型转不带秒数的时间字符串 0059
 + (NSString *)dateToTimePart:(NSDate *)date;
+///20160808->2016年08月
++ (NSString *)toYYYYMMCN:(id)str;
 @end

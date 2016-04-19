@@ -104,4 +104,15 @@
     NSString *str = [formatter stringFromDate:date];
     return str;
 }
+
+///20160808->2016年08月
++ (NSString *)toYYYYMMCN:(id)str {
+    if (str == [NSNull null]) {
+        return @"";
+    }
+    NSString *dateStr = str;
+    NSString *month = [dateStr substringWithRange:NSMakeRange(0, 4)];
+    NSString *day = [dateStr substringWithRange:NSMakeRange(4, 2)];
+    return [NSString stringWithFormat:@"%@年%@月",month,day];
+}
 @end

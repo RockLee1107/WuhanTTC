@@ -18,13 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self fetchData];
 }
 
 - (void)fetchData {
-    NSDictionary *param = @{
-                            @"projectId":self.pid
-                            };
+    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{
+                                                                    @"SEQ_projectId":self.pid
+                                                                    }],
+                            @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"team/queryTeamList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataArray = responseObject;
         [self.tableView reloadData];
