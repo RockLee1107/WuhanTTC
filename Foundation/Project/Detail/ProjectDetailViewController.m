@@ -10,6 +10,7 @@
 #import "ProjectSummaryTableViewController.h"
 #import "TeamListTableViewController.h"
 #import "ProcessTableViewController.h"
+#import "FinanceTableViewController.h"
 #import "SingletonObject.h"
 #import "DTKDropdownMenuView.h"
 #import "HttpService.h"
@@ -32,7 +33,7 @@
                                            [ProjectSummaryTableViewController class],
                                            [TeamListTableViewController class],
                                            [ProcessTableViewController class],
-                                           [ProjectSummaryTableViewController class],
+                                           [FinanceTableViewController class],
                                            [ProjectSummaryTableViewController class]
                                            ];
         NSArray *titles = @[

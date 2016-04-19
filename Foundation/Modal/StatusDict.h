@@ -19,4 +19,6 @@
 + (NSArray *)activityType;
 ///专题
 + (NSArray *)specialType;
+///融资阶段查询
++ (NSString *)financeProcByCode:(NSString *)code;
 @end

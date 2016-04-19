@@ -29,4 +29,14 @@
 + (NSArray *)specialType {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"specialType"];
 }
+///融资阶段查询
++ (NSString *)financeProcByCode:(NSString *)code {
+    NSArray *financeProcArray = [StatusDict financeProc];
+    for (NSDictionary *financeDict in financeProcArray) {
+        if ([financeDict[@"financeProcCode"] isEqualToString:code]) {
+            return financeDict[@"financeProcName"];
+        }
+    }
+    return nil;
+}
 @end

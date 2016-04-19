@@ -118,6 +118,9 @@
 		FD3B00541CC6236F00DA0166 /* app_timeline_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3B00511CC6236F00DA0166 /* app_timeline_done@2x.png */; };
 		FD3B00551CC6236F00DA0166 /* app_timeline_undone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3B00521CC6236F00DA0166 /* app_timeline_undone@2x.png */; };
 		FD3B00561CC6236F00DA0166 /* app_unread@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD3B00531CC6236F00DA0166 /* app_unread@2x.png */; };
+		FD3B005B1CC66F6500DA0166 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3B00591CC66F6500DA0166 /* FinanceTableViewCell.m */; };
+		FD3B005C1CC66F6500DA0166 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */; };
+		FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */; };
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
@@ -472,6 +475,11 @@
 		FD3B00511CC6236F00DA0166 /* app_timeline_done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_timeline_done@2x.png"; sourceTree = "<group>"; };
 		FD3B00521CC6236F00DA0166 /* app_timeline_undone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_timeline_undone@2x.png"; sourceTree = "<group>"; };
 		FD3B00531CC6236F00DA0166 /* app_unread@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_unread@2x.png"; sourceTree = "<group>"; };
+		FD3B00581CC66F6500DA0166 /* FinanceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewCell.h; sourceTree = "<group>"; };
+		FD3B00591CC66F6500DA0166 /* FinanceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewCell.m; sourceTree = "<group>"; };
+		FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
+		FD3B005D1CC66F7900DA0166 /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
+		FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
 		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
 		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD3D59F81CB29AB100B9514D /* ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetViewController.h; sourceTree = "<group>"; };
@@ -955,6 +963,7 @@
 		F73B78BD1C813E2800069EEE /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				FD3B00571CC66F0F00DA0166 /* Finance */,
 				FD3B00481CC61DAC00DA0166 /* Process */,
 				F74C9AFD1CC5284700C7A607 /* Team */,
 				FD34C0B81CAFBDA0002B7630 /* Investor */,
@@ -1250,6 +1259,18 @@
 				FD3B004F1CC61DCE00DA0166 /* ProcessTableViewController.m */,
 			);
 			path = Process;
+			sourceTree = "<group>";
+		};
+		FD3B00571CC66F0F00DA0166 /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				FD3B00581CC66F6500DA0166 /* FinanceTableViewCell.h */,
+				FD3B00591CC66F6500DA0166 /* FinanceTableViewCell.m */,
+				FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */,
+				FD3B005D1CC66F7900DA0166 /* FinanceTableViewController.h */,
+				FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */,
+			);
+			path = Finance;
 			sourceTree = "<group>";
 		};
 		FD3D59FE1CB2AA6E00B9514D /* PXAlert */ = {
@@ -1747,6 +1768,7 @@
 				FDF3FE0E1CA7F854007B7C83 /* ico_make.png in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
 				FD3DFE811CBDDAAD00CD9E3A /* Friends.storyboard in Resources */,
+				FD3B005C1CC66F6500DA0166 /* FinanceTableViewCell.xib in Resources */,
 				FDEADC0F1C92AA2D00971DD1 /* icon_community_normal@2x.png in Resources */,
 				F73B78C71C81414900069EEE /* icon_book_selected@2x.png in Resources */,
 				FDE2D9601CA36CDB008DDE4F /* ic_menu@2x.png in Resources */,
@@ -1886,6 +1908,7 @@
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */,
 				FD4462831CAD4B4C00F7E12F /* ActivityDetailTableViewController.m in Sources */,
 				FDFD8C681CB938560095FC3C /* JCTagListView.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
@@ -1922,6 +1945,7 @@
 				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
 				FDDFA9681CBA9B63001827BE /* VerifyUtil.m in Sources */,
 				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
+				FD3B005B1CC66F6500DA0166 /* FinanceTableViewCell.m in Sources */,
 				FD3DFE841CBDDB2600CD9E3A /* FriendsListViewController.m in Sources */,
 				FDE2D9551CA369CF008DDE4F /* MASLayoutConstraint.m in Sources */,
 				FDF3FE3A1CA81F52007B7C83 /* MyNotePageController.m in Sources */,
