@@ -122,6 +122,8 @@
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject[@"result"]];
         [self.tableView reloadData];
     } noResult:^{
+        [self.tableViewDelegate.dataArray removeAllObjects];
+        [self.tableView reloadData];
         [self.tableView.footer noticeNoMoreData];
     }];
 }
@@ -154,7 +156,7 @@
 
 #pragma mark - 下拉筛选菜单
 - (void)initSearchConditionView{
-    self.dataTitle = @[@"顺序",@"分类",@"内容"];
+    self.dataTitle = @[@"顺序",@"分类",@"格式"];
     self.data1 = @[
                    @[@"pbDate",@"顺序"],
                    @[@"readNum",@"按阅读量"],
