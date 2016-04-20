@@ -13,6 +13,7 @@
 @property (nonatomic,strong,nonnull) NSString *realname;
 @property (nonatomic,strong,nonnull) NSString *uid;
 @property (nonnull,strong) NSNumber *hasInfo;
+@property (nonatomic,strong,nonnull) NSNumber *isAdmin;
 - (void)logout;
 - (BOOL)isLogin;
 @end

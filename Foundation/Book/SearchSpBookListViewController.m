@@ -91,8 +91,7 @@
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode,
                                                                                   @"SEQ_orderBy":@"pbDate",
-#warning user admin
-                                                                                  @"SEQ_isAdmin":@"0"
+                                                                                  @"SEQ_isAdmin":[[User getInstance].isAdmin stringValue]
                                                                                   }];
     if ([[User getInstance] isLogin]) {
         [query setObject:[User getInstance].uid forKey:@"SEQ_userId"];

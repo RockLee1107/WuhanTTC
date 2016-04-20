@@ -59,6 +59,8 @@
         user.username = responseObject[@"username"];
         user.realname = responseObject[@"realName"];
         user.uid = responseObject[@"userId"];
+        //是否管理员，文献列表选择用此传值
+        user.isAdmin = responseObject[@"userInfo"][@"isAdmin"];
         if (
             responseObject[@"userInfo"][@"realName"] != [NSNull null]
             && responseObject[@"userInfo"][@"company"] != [NSNull null]
