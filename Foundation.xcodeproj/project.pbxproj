@@ -154,6 +154,9 @@
 		FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */; };
 		FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */; };
 		FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */; };
+		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
+		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
+		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
 		FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */; };
 		FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD725F751CBE8BE600A29998 /* StandardViewController.m */; };
 		FD891A421CABE0F100706B4D /* login_sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD891A3F1CABE0F100706B4D /* login_sina@2x.png */; };
@@ -539,6 +542,11 @@
 		FD4E515A1CC11A5500061830 /* AJPhotoPickerGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerGallery.h; sourceTree = "<group>"; };
 		FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerGallery.m; sourceTree = "<group>"; };
 		FD4E515D1CC11E5C00061830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
+		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
+		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
+		FD5C74F81CC71DE90022BD81 /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewController.h; sourceTree = "<group>"; };
+		FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewController.m; sourceTree = "<group>"; };
 		FD725F711CBE86CF00A29998 /* ActivityCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCreateTableViewController.h; sourceTree = "<group>"; };
 		FD725F721CBE86CF00A29998 /* ActivityCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCreateTableViewController.m; sourceTree = "<group>"; };
 		FD725F741CBE8BE600A29998 /* StandardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardViewController.h; sourceTree = "<group>"; };
@@ -963,6 +971,7 @@
 		F73B78BD1C813E2800069EEE /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				FD5C74F21CC71DB10022BD81 /* Evaluate */,
 				FD3B00571CC66F0F00DA0166 /* Finance */,
 				FD3B00481CC61DAC00DA0166 /* Process */,
 				F74C9AFD1CC5284700C7A607 /* Team */,
@@ -1359,6 +1368,18 @@
 			path = AJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		FD5C74F21CC71DB10022BD81 /* Evaluate */ = {
+			isa = PBXGroup;
+			children = (
+				FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */,
+				FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */,
+				FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */,
+				FD5C74F81CC71DE90022BD81 /* EvaluateTableViewController.h */,
+				FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */,
+			);
+			path = Evaluate;
+			sourceTree = "<group>";
+		};
 		FD9450D41CA82B8100E00759 /* Subject */ = {
 			isa = PBXGroup;
 			children = (
@@ -1735,6 +1756,7 @@
 				FD9450F81CA8398800E00759 /* menu_comment@2x.png in Resources */,
 				FDE26AD81C9BF8B8003418D5 /* person_msg@2x.png in Resources */,
 				FDFD8C581CB92EBF0095FC3C /* app_ok@2x.png in Resources */,
+				FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */,
 				FD9450F01CA8362100E00759 /* menu_reply@2x.png in Resources */,
 				FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */,
 				FD9450F91CA8398800E00759 /* menu_share@2x.png in Resources */,
@@ -1880,6 +1902,7 @@
 				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
 				FD066CE91CB8EB09001A132A /* ActionSheetLocalePicker.m in Sources */,
 				FD9450D71CA82BD400E00759 /* SubjectPageController.m in Sources */,
+				FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
@@ -1895,6 +1918,7 @@
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
 				F74C9B001CC5287F00C7A607 /* TeamListTableViewController.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
+				FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */,
 				FD066CEB1CB8EB09001A132A /* DistancePickerView.m in Sources */,
 				F74C9AF91CBE1DE300C7A607 /* EYTagPopupView.m in Sources */,
 				FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */,

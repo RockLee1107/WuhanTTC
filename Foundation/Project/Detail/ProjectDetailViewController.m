@@ -11,6 +11,7 @@
 #import "TeamListTableViewController.h"
 #import "ProcessTableViewController.h"
 #import "FinanceTableViewController.h"
+#import "EvaluateTableViewController.h"
 #import "SingletonObject.h"
 #import "DTKDropdownMenuView.h"
 #import "HttpService.h"
@@ -34,7 +35,7 @@
                                            [TeamListTableViewController class],
                                            [ProcessTableViewController class],
                                            [FinanceTableViewController class],
-                                           [ProjectSummaryTableViewController class]
+                                           [EvaluateTableViewController class]
                                            ];
         NSArray *titles = @[
                             @"详情",

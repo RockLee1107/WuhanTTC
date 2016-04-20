@@ -115,4 +115,22 @@
     NSString *day = [dateStr substringWithRange:NSMakeRange(4, 2)];
     return [NSString stringWithFormat:@"%@年%@月",month,day];
 }
+
+///转非全年份的日期时间，分别传入日期与时间
++ (NSString *)toShortDateCN:(id)date time:(id)time {
+    NSString *datePart = [DateUtil toShortDateCN:date];
+    NSString *timePart = [DateUtil toTime:time];
+    return [NSString stringWithFormat:@"%@ %@",datePart,timePart];
+}
+
+///内部调用，20161111->11月11日
++ (NSString *)toShortDateCN:(id)str {
+    if (str == [NSNull null]) {
+        return @"";
+    }
+    NSString *dateStr = str;
+    NSString *month = [dateStr substringWithRange:NSMakeRange(4, 2)];
+    NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
+    return [NSString stringWithFormat:@"%@月%@日",month,day];
+}
 @end
