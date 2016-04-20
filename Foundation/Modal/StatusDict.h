@@ -21,4 +21,8 @@
 + (NSArray *)specialType;
 ///融资阶段查询
 + (NSString *)financeProcByCode:(NSString *)code;
+///文献二级列表
++ (NSArray *)bookCategory;
+///文献二级列表分组查询
++ (NSArray *)bookCategoryBySpecialCode:(NSString *)specialCode;
 @end

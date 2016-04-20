@@ -79,15 +79,17 @@
         //将各状态值存到本地
         [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //        项目阶段
-            [self saveStatusCode:responseObject type:@"procStatus" key:nil];
+            [self saveStatusCode:responseObject type:@"procStatus" key:nil thirdParty:nil];
             //        融资阶段
-            [self saveStatusCode:responseObject type:@"financeProc" key:nil];
+            [self saveStatusCode:responseObject type:@"financeProc" key:nil thirdParty:nil];
             //        项目领域
-            [self saveStatusCode:responseObject type:@"industry" key:@"biz"];
+            [self saveStatusCode:responseObject type:@"industry" key:@"biz" thirdParty:nil];
             //        活动类型
-            [self saveStatusCode:responseObject type:@"activityType" key:@"type"];
+            [self saveStatusCode:responseObject type:@"activityType" key:@"type" thirdParty:nil];
             //        专题
-            [self saveStatusCode:responseObject type:@"specialType" key:@"special"];
+            [self saveStatusCode:responseObject type:@"specialType" key:@"special" thirdParty:nil];
+            //        文献二级分类
+            [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
         [self jumpMain];
 //        [self jumpTest];
@@ -102,7 +104,7 @@
 }
 
 //保存状态值到本地
-- (void)saveStatusCode:(NSDictionary *)responseObject type:(NSString *)type key:(NSString *)key {
+- (void)saveStatusCode:(NSDictionary *)responseObject type:(NSString *)type key:(NSString *)key thirdParty:(NSString *)third {
     NSMutableArray *array = [NSMutableArray array];
     //    第三字段可选
     if (key == nil) {
@@ -111,10 +113,15 @@
     NSString *code = [NSString stringWithFormat:@"%@Code",key];
     NSString *name = [NSString stringWithFormat:@"%@Name",key];
     for (NSDictionary *procStatusDict in responseObject[type]) {
-        [array addObject:@{
-                           code:procStatusDict[code],
-                           name:procStatusDict[name]
-                           }];
+//        specialCode
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                    code:procStatusDict[code],
+                                                                                    name:procStatusDict[name]
+                                                                                    }];
+        if (third != nil) {
+            [dict setObject:procStatusDict[@"specialCode"] forKey:third];
+        }
+        [array addObject:dict];
     }
     [[NSUserDefaults standardUserDefaults] setObject:array forKey:type];
 }

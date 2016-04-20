@@ -12,6 +12,7 @@
 #import "SubTabBarController.h"
 #import "BookListDelegate.h"
 #import "DTKDropdownMenuView.h"
+#import "StatusDict.h"
 
 @interface SearchSpBookListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -82,12 +83,6 @@
 }
 
 -(void)fetchData {
-//
-//    BookSearcher *searcher = [[BookSearcher alloc] init];
-//    searcher.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
-//    NSDictionary *dict = [searcher dictionary];
-//    NSString *jsonStr = [StringUtil dictToJson:dict];
-//    @"SEQ_specialCode":self.specialCode,
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode,
                                                                                   @"SEQ_orderBy":@"pbDate",
@@ -146,18 +141,20 @@
 
 #pragma mark - 下拉筛选菜单
 - (void)initSearchConditionView{
-    self.dataTitle = @[@"顺序",@"全部",@"内容"];
+    self.dataTitle = @[@"顺序",@"分类",@"内容"];
     self.data1 = @[
                    @[@"pbDate",@"顺序"],
                    @[@"readNum",@"按阅读量"],
                    @[@"commNum",@"按评论数量"],
                    @[@"collNum",@"按收藏数"]
                    ];
-    self.data2 = @[
-                   @[@"",@"全部"],
-                   @[@"1",@"已读"],
-                   @[@"0",@"未读"]
-                   ];
+    NSMutableArray *names = [NSMutableArray array];
+    NSArray *array = [StatusDict bookCategoryBySpecialCode:((SubTabBarController *)self.tabBarController).specialCode];
+    for (NSDictionary *dict in array) {
+        [names addObject:@[dict[@"categoryCode"],dict[@"categoryName"]]];
+    }
+    
+    self.data2 = names;
     self.data3 = @[
                    @[@"",@"全部"],
                    @[@"DOC",@"图文"],
@@ -221,7 +218,7 @@
 - (NSString *)menu:(JSDropDownMenu *)menu titleForRowAtIndexPath:(JSIndexPath *)indexPath {
     if (indexPath.column == 0) {
         return _data1[indexPath.row][1];
-    } else if (indexPath.column ==1 ) {
+    } else if (indexPath.column == 1 ) {
         return _data2[indexPath.row][1];
     } else {
         return _data3[indexPath.row][1];
