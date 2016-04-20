@@ -25,7 +25,10 @@
 @property (nonatomic,assign) NSInteger currentData1Index;
 @property (nonatomic,assign) NSInteger currentData2Index;
 @property (nonatomic,assign) NSInteger currentData3Index;
-
+//条件值
+@property (nonatomic,strong) NSString *orderBy;
+@property (nonatomic,strong) NSString *categoryCode;
+@property (nonatomic,strong) NSString *bookType;
 @end
 
 @implementation SearchSpBookListViewController
@@ -38,6 +41,8 @@
     [self initSearchConditionView];
     [self addRightItem];
     [self performSelector:@selector(hideNaviBar) withObject:nil afterDelay:0.025];
+    self.categoryCode = @"all";
+    self.bookType = @"all";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,23 +89,31 @@
 
 -(void)fetchData {
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                  @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode,
-                                                                                  @"SEQ_orderBy":@"pbDate",
-                                                                                  @"SEQ_isAdmin":[[User getInstance].isAdmin stringValue]
-                                                                                  }];
+                                                                                  @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode                                                                                  }];
+//    游客判断
     if ([[User getInstance] isLogin]) {
         [query setObject:[User getInstance].uid forKey:@"SEQ_userId"];
+        //管理员判断
+        [query setObject:[[User getInstance].isAdmin stringValue] forKey:@"SEQ_isAdmin"];
+    }
+    //    条件1
+    if (self.orderBy != nil) {
+        [query setObject:self.orderBy forKey:@"SEQ_orderBy"];
+        
+    }
+    //    条件2
+    if (![self.categoryCode isEqualToString:@"all"]) {
+        [query setObject:self.categoryCode forKey:@"SEQ_categoryCode"];
+        
+    }
+    //    条件3
+    if (![self.bookType isEqualToString:@"all"]) {
+        [query setObject:self.bookType forKey:@"SEQ_bookType"];
+        
     }
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:query],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]};;
-//    NSLog(@"json:%@",param);
-//    [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        self.dataImmutableArray = responseObject[@"result"];
-//        [self.tableView reloadData];
-////        NSLog(@"responseObject:%@",responseObject);
-//    }];
     [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];
@@ -149,6 +162,7 @@
                    @[@"collNum",@"按收藏数"]
                    ];
     NSMutableArray *names = [NSMutableArray array];
+    [names addObject:@[@"all",@"全部"]];
     NSArray *array = [StatusDict bookCategoryBySpecialCode:((SubTabBarController *)self.tabBarController).specialCode];
     for (NSDictionary *dict in array) {
         [names addObject:@[dict[@"categoryCode"],dict[@"categoryName"]]];
@@ -156,7 +170,7 @@
     
     self.data2 = names;
     self.data3 = @[
-                   @[@"",@"全部"],
+                   @[@"all",@"全部"],
                    @[@"DOC",@"图文"],
                    @[@"PPT",@"PPT"],
                    @[@"VIDEO",@"视频"]
@@ -232,14 +246,17 @@
     self.page.pageNo = 1;
     if (indexPath.column == 0) {
         _currentData1Index = indexPath.row;
+        self.orderBy = self.data1[indexPath.row][0];
         /**刷新表格*/
         [self fetchData];
     } else if(indexPath.column == 1){
-        [self fetchData];
         _currentData2Index = indexPath.row;
-    } else{
+        self.categoryCode = self.data2[indexPath.row][0];
         [self fetchData];
+    } else{
         _currentData3Index = indexPath.row;
+        self.bookType = self.data3[indexPath.row][0];
+        [self fetchData];
     }
 }
 
