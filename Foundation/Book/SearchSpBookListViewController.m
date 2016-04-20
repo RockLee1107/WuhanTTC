@@ -121,9 +121,14 @@
         }
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject[@"result"]];
         [self.tableView reloadData];
+        if ([responseObject[@"result"] count] < self.page.pageSize) {
+            [self.tableView.footer noticeNoMoreData];
+        }
     } noResult:^{
-        [self.tableViewDelegate.dataArray removeAllObjects];
-        [self.tableView reloadData];
+        if (self.page.pageNo == 1) {
+            [self.tableViewDelegate.dataArray removeAllObjects];
+            [self.tableView reloadData];
+        }
         [self.tableView.footer noticeNoMoreData];
     }];
 }

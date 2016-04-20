@@ -11,7 +11,7 @@
 @implementation Page
 - (instancetype)init{
     self = [super init];
-    self.pageSize = 10;
+    self.pageSize = 25;
     self.pageNo = 1;
     return self;
 }
