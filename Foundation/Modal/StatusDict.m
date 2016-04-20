@@ -29,6 +29,9 @@
 + (NSArray *)specialType {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"specialType"];
 }
+///文献二级列表
+//"categoryName": "经典商业模式",
+//"categoryDesc": null,
 ///融资阶段查询
 + (NSString *)financeProcByCode:(NSString *)code {
     NSArray *financeProcArray = [StatusDict financeProc];

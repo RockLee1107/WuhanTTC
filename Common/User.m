@@ -45,6 +45,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"uid"];
 }
 
+- (BOOL)isLogin {
+    if (self.uid) {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)logout {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"uid"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];

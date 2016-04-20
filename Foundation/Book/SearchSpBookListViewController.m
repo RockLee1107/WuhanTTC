@@ -82,12 +82,23 @@
 }
 
 -(void)fetchData {
-
-    BookSearcher *searcher = [[BookSearcher alloc] init];
-    searcher.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
-    NSDictionary *dict = [searcher dictionary];
-    NSString *jsonStr = [StringUtil dictToJson:dict];
-    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+//
+//    BookSearcher *searcher = [[BookSearcher alloc] init];
+//    searcher.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
+//    NSDictionary *dict = [searcher dictionary];
+//    NSString *jsonStr = [StringUtil dictToJson:dict];
+//    @"SEQ_specialCode":self.specialCode,
+    NSMutableDictionary *query = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                  @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode,
+                                                                                  @"SEQ_orderBy":@"pbDate",
+#warning user admin
+                                                                                  @"SEQ_isAdmin":@"0"
+                                                                                  }];
+    if ([[User getInstance] isLogin]) {
+        [query setObject:[User getInstance].uid forKey:@"SEQ_userId"];
+    }
+    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:query],
+                            @"Page":[StringUtil dictToJson:[self.page dictionary]]};;
 //    NSLog(@"json:%@",param);
 //    [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        self.dataImmutableArray = responseObject[@"result"];
