@@ -41,7 +41,6 @@
 
 - (void)shareWithUrl {
     //    [SVProgressHUD showErrorWithStatus:@"缺少app_secret"];
-    NSString *shareText = self.shareText;
     UIImage *shareImage = [UIImage imageNamed:@"logo.png"];          //分享内嵌图片
     NSString *url = self.shareUrl;
     //设置微信AppId，设置分享url，默认使用友盟的网址
@@ -61,20 +60,27 @@
         [snsArr addObject:UMShareToQzone];
         [snsArr addObject:UMShareToQQ];
     }
+    //    QQ好友标题
+    [UMSocialData defaultData].extConfig.qqData.title = self.shareTitle;
+    //    QQ空间标题
+    [UMSocialData defaultData].extConfig.qzoneData.title = self.shareTitle;
     //    微信分享
     if ([WXApi isWXAppInstalled]) {
         [snsArr addObject:UMShareToWechatSession];
         [snsArr addObject:UMShareToWechatTimeline];
     }
+    //微信好友标题
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = self.shareTitle;
+    //微信朋友圈标题
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = self.shareTitle;
     //    腾讯微博
 //    [snsArr addObject:UMShareToTencent];
-//    [UMSocialData defaultData].extConfig.tencentData.shareText = [NSString stringWithFormat:@"%@ %@",shareText,url];
     //    新浪微博
     [snsArr addObject:UMShareToSina];
-    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@ %@",shareText,url];
+    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@ %@",self.shareText,url];
     [UMSocialSnsService presentSnsIconSheetView:self.vc
                                          appKey:UmengAppkey
-                                      shareText:shareText
+                                      shareText:self.shareText
                                      shareImage:shareImage
                                 shareToSnsNames:snsArr
                                        delegate:nil];

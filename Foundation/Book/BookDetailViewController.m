@@ -48,12 +48,18 @@
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"分享" iconName:@"menu_share" callBack:^(NSUInteger index, id info) {
-//        [SVProgressHUD showSuccessWithStatus:@"^_^"];
-        ShareUtil *share = [ShareUtil getInstance];
-        share.shareText = self.dataDict[@"title"];
-        share.shareUrl = [NSString stringWithFormat:@"%@/%@/%@.html",SHARE_URL,self.dataDict[@"specialCode"],self.dataDict[@"bookId"]];
-        share.vc = self;
-        [share shareWithUrl];
+//        请求网络获取副标题摘要
+        NSDictionary *param = @{
+                                @"type":@"4"
+                                };
+        [self.service POST:@"standard/getStandard" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            ShareUtil *share = [ShareUtil getInstance];
+            share.shareTitle = [NSString stringWithFormat:@"[%@]%@",BOOK_TYPE_TEXT[self.dataDict[@"bookType"]],self.dataDict[@"title"]];
+            share.shareText = responseObject[@"content"];
+            share.shareUrl = [NSString stringWithFormat:@"%@/%@/%@.html",SHARE_URL,self.dataDict[@"specialCode"],self.dataDict[@"bookId"]];
+            share.vc = self;
+            [share shareWithUrl];
+        } noResult:nil];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1,item2,item3] icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;

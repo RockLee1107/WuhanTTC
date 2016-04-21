@@ -10,6 +10,7 @@
 
 @interface ShareUtil : NSObject
 @property (nonatomic, strong) NSString *shareUrl;
+@property (nonatomic, strong) NSString *shareTitle;
 @property (nonatomic, strong) NSString *shareText;
 @property (nonatomic, strong) UIViewController *vc;
 + (instancetype)getInstance;
