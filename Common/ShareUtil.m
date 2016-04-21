@@ -27,7 +27,7 @@
 #define qqApp_ID @"1105122260"
 #define qqApp_KEY @"9lVbJWCqnLnkOQy2"
 //sina
-#define sinaAppKey @"901419200"
+#define sinaAppKey @"3480303992"
 #define sinaRedirectURI @"http://www.it577.net/"
 
 @implementation ShareUtil
