@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFx-LD-dx9">
@@ -26,9 +26,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-03-05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dQ-kh-lNo">
-                        <rect key="frame" x="12" y="46" width="71" height="16"/>
+                        <rect key="frame" x="12" y="46" width="75" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="71" id="3yk-Cd-xs4"/>
+                            <constraint firstAttribute="width" constant="75" id="3yk-Cd-xs4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,7 +61,7 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZCm-rk-AHF" firstAttribute="leading" secondItem="2dQ-kh-lNo" secondAttribute="trailing" constant="25" id="7YM-Lh-mfD"/>
+                    <constraint firstItem="ZCm-rk-AHF" firstAttribute="leading" secondItem="2dQ-kh-lNo" secondAttribute="trailing" constant="21" id="7YM-Lh-mfD"/>
                     <constraint firstItem="l0Y-ea-ohP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="7gr-Oq-Jyd"/>
                     <constraint firstItem="0b3-gm-sbJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="8ao-Be-8ve"/>
                     <constraint firstItem="CFx-LD-dx9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="GWl-sa-ZKx"/>

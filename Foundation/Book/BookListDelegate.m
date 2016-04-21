@@ -25,8 +25,9 @@
     
     cell.publishDate.text = [DateUtil toString:self.dataArray[indexPath.row][@"publishDate"]];
     //    多标签转换字符串
-    cell.bookLabelLabel.text = [StringUtil labelArrayToStr:self.dataArray[indexPath.row][@"labels"]];
-    
+//    cell.bookLabelLabel.text = [StringUtil labelArrayToStr:self.dataArray[indexPath.row][@"labels"]];
+    cell.bookLabelLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"labelNames"]];
+
     return cell;
     
 }
