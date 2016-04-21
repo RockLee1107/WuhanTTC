@@ -12,7 +12,7 @@
 #define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]
 //#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
 #define HOST_URL @"http://120.25.76.149:8080/ttc_web"
-
+#define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
 //#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
 #define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
 

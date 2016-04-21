@@ -8,9 +8,11 @@
 
 #import "BookDetailViewController.h"
 #import "DTKDropdownMenuView.h"
+#import "ShareUtil.h"
 
 @interface BookDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) NSDictionary *dataDict;
 
 @end
 
@@ -22,7 +24,7 @@
     HttpService *service = [HttpService getInstance];
     NSDictionary *param = @{@"bookId":self.bookId};
     [service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
+        self.dataDict = responseObject;
         NSString *cssStr = @"<style>img{width:100%;}</style>";
         NSString *contentStr = [NSString stringWithFormat:@"%@%@",cssStr,responseObject[@"content"]];
 //        NSLog(@"%@",contentStr);
@@ -30,7 +32,7 @@
     } noResult:^{
         
     }];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.199.123/string.html"]]];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.199.123/string.html"]]];
 }
 
 ///导航栏下拉菜单
@@ -46,7 +48,12 @@
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"分享" iconName:@"menu_share" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+//        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        ShareUtil *share = [ShareUtil getInstance];
+        share.shareText = self.dataDict[@"title"];
+        share.shareUrl = [NSString stringWithFormat:@"%@/%@/%@.html",SHARE_URL,self.dataDict[@"specialCode"],self.dataDict[@"bookId"]];
+        share.vc = self;
+        [share shareWithUrl];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1,item2,item3] icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;
