@@ -26,23 +26,23 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-03-05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dQ-kh-lNo">
-                        <rect key="frame" x="12" y="46" width="75" height="16"/>
+                        <rect key="frame" x="12" y="46" width="79" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="3yk-Cd-xs4"/>
+                            <constraint firstAttribute="width" constant="79" id="3yk-Cd-xs4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_label.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZCm-rk-AHF">
-                        <rect key="frame" x="108" y="49" width="10" height="10"/>
+                        <rect key="frame" x="112" y="49" width="10" height="10"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="HQ3-6f-zmV"/>
                             <constraint firstAttribute="width" constant="10" id="hfr-gp-0bI"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创业公司,股权分配" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b3-gm-sbJ">
-                        <rect key="frame" x="130" y="46" width="182" height="16"/>
+                        <rect key="frame" x="134" y="46" width="178" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
