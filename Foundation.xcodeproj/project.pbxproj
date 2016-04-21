@@ -106,6 +106,7 @@
 		FD066CEC1CB8EB09001A132A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CE41CB8EB09001A132A /* SWActionSheet.m */; };
 		FD066CEF1CB8F579001A132A /* StatusDict.m in Sources */ = {isa = PBXBuildFile; fileRef = FD066CEE1CB8F579001A132A /* StatusDict.m */; };
 		FD19BB5B1CB60067007D52DC /* ProjectCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */; };
+		FD30CA611CC90F6C002F70BC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD30CA5F1CC90EFE002F70BC /* ImageIO.framework */; };
 		FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */; };
 		FD34C0BF1CAFBE9B002B7630 /* InvestorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD34C0BD1CAFBE9B002B7630 /* InvestorTableViewCell.m */; };
 		FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD34C0BE1CAFBE9B002B7630 /* InvestorTableViewCell.xib */; };
@@ -486,6 +487,7 @@
 		FD066CEE1CB8F579001A132A /* StatusDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusDict.m; sourceTree = "<group>"; };
 		FD19BB591CB60067007D52DC /* ProjectCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCreateTableViewController.h; sourceTree = "<group>"; };
 		FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCreateTableViewController.m; sourceTree = "<group>"; };
+		FD30CA5F1CC90EFE002F70BC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		FD34C0B91CAFBDCA002B7630 /* InvestorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorListViewController.h; sourceTree = "<group>"; };
 		FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorListViewController.m; sourceTree = "<group>"; };
 		FD34C0BC1CAFBE9B002B7630 /* InvestorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorTableViewCell.h; sourceTree = "<group>"; };
@@ -828,6 +830,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD30CA611CC90F6C002F70BC /* ImageIO.framework in Frameworks */,
 				FD3E6E3E1CC8FC26006246AC /* CoreTelephony.framework in Frameworks */,
 				FD3E6E3C1CC8FC00006246AC /* libc++.tbd in Frameworks */,
 				FD3E6E3B1CC8FBED006246AC /* libz.tbd in Frameworks */,
@@ -850,6 +853,7 @@
 		F70B01931C7232FC00D46D79 = {
 			isa = PBXGroup;
 			children = (
+				FD30CA5F1CC90EFE002F70BC /* ImageIO.framework */,
 				FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */,
 				FD3E6E3A1CC8FBED006246AC /* libz.tbd */,
 				FD3E6E381CC8FBC2006246AC /* libc++.tbd */,
@@ -2336,6 +2340,7 @@
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2362,6 +2367,7 @@
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8e7c795f-c3a8-487b-aaa2-89fb80843ed1";
@@ -2426,6 +2432,7 @@
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6e8ccfd8-0c33-4255-a782-88086e64ea0c";
