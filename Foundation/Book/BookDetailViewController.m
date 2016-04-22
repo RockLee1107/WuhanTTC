@@ -9,6 +9,8 @@
 #import "BookDetailViewController.h"
 #import "DTKDropdownMenuView.h"
 #import "ShareUtil.h"
+#import "EYInputPopupView.h"
+#import "VerifyUtil.h"
 
 @interface BookDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -42,7 +44,29 @@
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"menu_comment" callBack:^(NSUInteger index, id info) {
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                       [SVProgressHUD showErrorWithStatus:@"请评论回复内容(1-500字)"];
+                                       return ;
+                                   }
+                                   NSDictionary *param = @{
+                                                           @"BookComment":[StringUtil dictToJson:@{
+                                                                                                  @"bookId":self.bookId,
+                                                                                                  @"userId":[User getInstance].uid,
+                                                                                                  @"comment":text,
+                                                                                                  }]
+                                                           };
+                                   [self.service POST:@"book/comment/addComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
+                               }
+         ];
     }];
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"menu_collect" callBack:^(NSUInteger index, id info) {
         //        访问网络
