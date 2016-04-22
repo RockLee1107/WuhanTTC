@@ -26,6 +26,8 @@
     self.tableView = [[UITableView alloc] init];
     [self initDelegate];
     self.searchBar.delegate = self;
+    [self.parentTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    self.tableView.scrollEnabled = NO;
     // Do any additional setup after loading the view.
 }
 
@@ -39,6 +41,7 @@
 
 ///请求网络
 - (void)fetchData {
+    self.page.pageSize = 10;
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:@{
                                                                      @"SLIKE_bookTitle":self.keyWords
                                                                      }],
@@ -66,6 +69,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.keyWords == nil) {
+        return 0;
+    }
     if (section == 0) {
 //        第一组2个
         return 2;
@@ -80,6 +86,7 @@
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 70.0 * self.tableViewDelegate.dataArray.count);
         [cell addSubview:self.tableView];
+        return cell;
     } else if (indexPath.section == 0 && indexPath.row == 0) {
         //    第一组第一行，第二组、第三组返回平常的cell
         BookSearchTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookSearchTableViewCell" owner:nil options:nil] firstObject];
@@ -101,7 +108,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 1) {
-        return self.dataArray.count * 70.0;
+        return self.tableViewDelegate.dataArray.count * 70.0;
     }
     return 55.0;
 }
