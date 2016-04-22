@@ -29,6 +29,21 @@
     
 }
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        _contentColor = [UIColor blackColor];
+        _placeholderColor = [UIColor lightGrayColor];
+        _editing = NO;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startEditing:) name:UITextViewTextDidBeginEditingNotification object:self];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishEditing:) name:UITextViewTextDidEndEditingNotification object:self];
+    }
+    return self;
+    
+}
+
 #pragma mark - super
 
 - (void)setTextColor:(UIColor *)textColor

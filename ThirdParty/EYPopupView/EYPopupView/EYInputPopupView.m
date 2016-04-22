@@ -9,6 +9,7 @@
 #import "EYInputPopupView.h"
 #import "EYPopupViewMacro.h"
 #import "EYTextField.h"
+#import "EMTextView.h"
 
 #define CONTENT_VIEW_POPVIEW ((popView.type==EYInputPopupView_Type_single_line_text)?popView.tfContent:popView.tvContent)
 #define CONTENT_VIEW ((_type==EYInputPopupView_Type_single_line_text)?_tfContent:_tvContent)
@@ -21,7 +22,7 @@
 @property (nonatomic) BOOL leftLeave;
 @property (nonatomic) EYInputPopupView_Type type;
 @property (nonatomic, strong) UILabel *lbTitle;
-@property (nonatomic, strong) UITextView *tvContent;
+@property (nonatomic, strong) EMTextView *tvContent;
 @property (nonatomic, strong) UITextField *tfContent;
 @property (nonatomic, strong) UIButton *leftBtn;
 @property (nonatomic, strong) UIButton *rightBtn;
@@ -80,7 +81,7 @@
             break;
         case EYInputPopupView_Type_multi_line:
         {
-            popView.tvContent = [[UITextView alloc] initWithFrame:CGRectMake((kAlertWidth - kContentWidth) * 0.5, CGRectGetMaxY(popView.lbTitle.frame)+kContentTopMargin, kContentWidth, kContentMinHeight)];
+            popView.tvContent = [[EMTextView alloc] initWithFrame:CGRectMake((kAlertWidth - kContentWidth) * 0.5, CGRectGetMaxY(popView.lbTitle.frame)+kContentTopMargin, kContentWidth, kContentMinHeight)];
             popView.tvContent.editable=YES;
             popView.tvContent.layer.cornerRadius=3;
             popView.tvContent.layer.borderColor=COLORRGB(0xaeeeeee).CGColor;
@@ -92,7 +93,7 @@
             popView.tvContent.font = [UIFont systemFontOfSize:15.0f];
             popView.tvContent.backgroundColor=[UIColor clearColor];
             [popView addSubview:popView.tvContent];
-            popView.tvContent.text = content;
+            popView.tvContent.placeholder = content;
         }
             break;
             
@@ -101,17 +102,17 @@
     }
     
     CGRect leftBtnFrame = CGRectMake((kAlertWidth - 2 * kCoupleButtonWidth - kButtonBottomMargin-5) * 0.5, CGRectGetMaxY(CONTENT_VIEW_POPVIEW.frame)+kContentBottomMargin, kCoupleButtonWidth, kButtonHeight);
-    CGRect rightBtnFrame = CGRectMake(CGRectGetMaxX(leftBtnFrame) + kButtonBottomMargin+5, CGRectGetMaxY(CONTENT_VIEW_POPVIEW.frame)+kContentBottomMargin, kCoupleButtonWidth, kButtonHeight);
+    CGRect rightBtnFrame = CGRectMake(CGRectGetMaxX(leftBtnFrame) + kButtonBottomMargin+5, CGRectGetMaxY(CONTENT_VIEW_POPVIEW.frame)+kContentBottomMargin, kCoupleButtonWidth, kButtonHeight * 3);
     popView.leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     popView.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     popView.leftBtn.frame = leftBtnFrame;
     popView.rightBtn.frame = rightBtnFrame;
     
     
-    [popView.rightBtn setBackgroundImage:[UIImage imageWithColor:COLORRGB(0xfca2a5)] forState:UIControlStateNormal];
-    [popView.leftBtn setBackgroundImage:[UIImage imageWithColor:COLORRGB(0x90d3fe)] forState:UIControlStateNormal];
-    [popView.rightBtn setTitle:EYLOCALSTRING(@"OK") forState:UIControlStateNormal];
-    [popView.leftBtn setTitle:EYLOCALSTRING(@"Cancel") forState:UIControlStateNormal];
+    [popView.rightBtn setBackgroundImage:[UIImage imageWithColor:COLORRGB(0x0091f0)] forState:UIControlStateNormal];
+    [popView.leftBtn setBackgroundImage:[UIImage imageWithColor:COLORRGB(0xcccccc)] forState:UIControlStateNormal];
+    [popView.rightBtn setTitle:EYLOCALSTRING(@"确定") forState:UIControlStateNormal];
+    [popView.leftBtn setTitle:EYLOCALSTRING(@"取消") forState:UIControlStateNormal];
     popView.leftBtn.titleLabel.font = popView.rightBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     [popView.leftBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [popView.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
