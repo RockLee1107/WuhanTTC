@@ -11,6 +11,8 @@
 #import "DTKDropdownMenuView.h"
 #import "EYInputPopupView.h"
 #import "CommentTableViewCell.h"
+#import "BookSearchTableViewCell.h"
+#import "CaptionButton.h"
 
 @interface CommentTableViewController ()
 //@property (nonatomic, strong) CommentTableViewDelegate *commentTableViewDelegate;
@@ -24,6 +26,7 @@
     [self addRightItem];
     [self initRefreshControl];
     [self fetchData];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     // Do any additional setup after loading the view.
 }
 
@@ -52,11 +55,13 @@
     [self.service GET:@"book/comment/getComments" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
-            [self.tableViewDelegate.dataArray removeAllObjects];
+//            [self.tableViewDelegate.dataArray removeAllObjects];
+            self.dataDict = responseObject;
             [self.tableView.footer resetNoMoreData];
         }
+        
 //        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
-        NSLog(@"%@!",responseObject);
+//        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
     } noResult:^{
         [self.tableView.footer noticeNoMoreData];
@@ -109,19 +114,44 @@
 
 #pragma mark - tb delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //hot or all comments,because of section 0 or 1
+    NSArray *array = indexPath.section == 0 ? self.dataDict[@"hotComments"] : self.dataDict[@"allComments"];
+    NSDictionary *dict = array[indexPath.row];
     CommentTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"CommentTableViewCell" owner:nil options:nil] firstObject];
-    
+    cell.avatarImageView.clipsToBounds = YES;
+    cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"logo.png"]];
+    cell.realnameLabel.text = dict[@"realName"];
+    cell.praiseCountLabel.text = [dict[@"praiseCount"] stringValue];
+    cell.pbtimeLabel.text = [DateUtil toShortDateCN:dict[@"pbDate"] time:dict[@"pbTime"]];
+    cell.contentLabel.text = [StringUtil toString:dict[@"comment"]];
     return cell;
 }
 
+//表头
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+////    BookSearchTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookSearchTableViewCell" owner:nil options:nil] firstObject];
+////    [cell.titleButton setTitle:section == 0 ? @"热门评论" : @"全部评论" forState:(UIControlStateNormal)];
+////    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55.0)];
+////    [view addSubview:cell];
+//    CaptionButton *caption = [CaptionButton buttonWithType:(UIButtonTypeSystem)];
+//    caption.frame = CGRectMake(0, 12, 121, 55.0);
+//    [caption setTitle:section == 0 ? @"热门评论" : @"全部评论" forState:(UIControlStateNormal)];
+//    return caption;
+//}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return section == 0 ? @"热门评论" : @"全部评论";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning plus
-    return self.dataArray.count;
+    return section == 0 ? [self.dataDict[@"hotComments"] count] : [self.dataDict[@"allComments"] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //muti line
-    return 44.0;
+    return 80.0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
