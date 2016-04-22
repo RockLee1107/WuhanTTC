@@ -102,7 +102,7 @@
     }
     
     CGRect leftBtnFrame = CGRectMake((kAlertWidth - 2 * kCoupleButtonWidth - kButtonBottomMargin-5) * 0.5, CGRectGetMaxY(CONTENT_VIEW_POPVIEW.frame)+kContentBottomMargin, kCoupleButtonWidth, kButtonHeight);
-    CGRect rightBtnFrame = CGRectMake(CGRectGetMaxX(leftBtnFrame) + kButtonBottomMargin+5, CGRectGetMaxY(CONTENT_VIEW_POPVIEW.frame)+kContentBottomMargin, kCoupleButtonWidth, kButtonHeight * 3);
+    CGRect rightBtnFrame = CGRectMake(CGRectGetMaxX(leftBtnFrame) + kButtonBottomMargin+5, CGRectGetMaxY(CONTENT_VIEW_POPVIEW.frame)+kContentBottomMargin, kCoupleButtonWidth, kButtonHeight);
     popView.leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     popView.rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     popView.leftBtn.frame = leftBtnFrame;
