@@ -186,6 +186,7 @@
 		FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */; };
 		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
 		FD5AA87A1CCA110D002FD276 /* CommentTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */; };
+		FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -639,6 +640,8 @@
 		FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
 		FD5AA8781CCA110D002FD276 /* CommentTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewDelegate.h; sourceTree = "<group>"; };
 		FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewDelegate.m; sourceTree = "<group>"; };
+		FD5AA87C1CCA1AAB002FD276 /* BookSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchViewController.h; sourceTree = "<group>"; };
+		FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchViewController.m; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1041,6 +1044,7 @@
 		F73B78B61C813DDD00069EEE /* Book */ = {
 			isa = PBXGroup;
 			children = (
+				FD5AA87B1CCA1A99002FD276 /* Search */,
 				FD5AA86F1CCA0C1A002FD276 /* Comment */,
 				FD9450D41CA82B8100E00759 /* Subject */,
 				F73B78B71C813DDD00069EEE /* Book.storyboard */,
@@ -1607,6 +1611,15 @@
 			path = Comment;
 			sourceTree = "<group>";
 		};
+		FD5AA87B1CCA1A99002FD276 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FD5AA87C1CCA1AAB002FD276 /* BookSearchViewController.h */,
+				FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		FD5C74F21CC71DB10022BD81 /* Evaluate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2138,6 +2151,7 @@
 				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
 				FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */,
 				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
+				FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F795DF5D1CB40BB8002BCDEE /* HotCityTableViewCell.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,

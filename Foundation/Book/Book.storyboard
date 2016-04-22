@@ -399,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="3124" y="997"/>
         </scene>
-        <!--查找专栏文章-->
+        <!--搜索专栏文章-->
         <scene sceneID="mYv-eh-KAM">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="eVP-Iu-pys" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="eVP-Iu-pys" customClass="BookSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fWr-xY-DhV"/>
                         <viewControllerLayoutGuide type="bottom" id="0d5-a0-S0R"/>
@@ -429,8 +429,12 @@
                             <constraint firstItem="0d5-a0-S0R" firstAttribute="top" secondItem="JD9-Vj-o9I" secondAttribute="bottom" id="qGs-W6-kcZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="查找专栏文章" id="oe0-57-TLq"/>
+                    <navigationItem key="navigationItem" title="搜索专栏文章" id="oe0-57-TLq"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="parentTableView" destination="JD9-Vj-o9I" id="4ms-tA-1Fg"/>
+                        <outlet property="searchBar" destination="eCy-Yd-S1z" id="gq7-hp-AWL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Mo-Z7-dn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
