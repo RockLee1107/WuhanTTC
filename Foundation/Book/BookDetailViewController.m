@@ -45,7 +45,17 @@
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"menu_collect" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        //        访问网络
+        NSDictionary *param = @{
+                                @"Collect":[StringUtil dictToJson:@{
+                                                                        @"bookId":self.bookId,
+                                                                        @"userId":[User getInstance].uid,
+                                                                        @"isAttention":@1
+                                                                        }]
+                                };
+        [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+        } noResult:nil];
     }];
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"分享" iconName:@"menu_share" callBack:^(NSUInteger index, id info) {
 //        请求网络获取副标题摘要
