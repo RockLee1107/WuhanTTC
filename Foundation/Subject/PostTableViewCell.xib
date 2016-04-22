@@ -32,7 +32,7 @@
                         <color key="textColor" red="0.1825765399" green="0.4795827365" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwF-Fo-RLD">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="UwF-Fo-RLD">
                         <rect key="frame" x="254" y="18" width="28" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="28" id="Zof-tG-I7F"/>

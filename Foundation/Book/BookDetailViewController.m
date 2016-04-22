@@ -11,6 +11,7 @@
 #import "ShareUtil.h"
 #import "EYInputPopupView.h"
 #import "VerifyUtil.h"
+#import "CommentTableViewController.h"
 
 @interface BookDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -40,8 +41,11 @@
 ///导航栏下拉菜单
 - (void)addRightItem
 {
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"menu_comment" callBack:^(NSUInteger index, id info) {
+        CommentTableViewController *commentVC = [[CommentTableViewController alloc] init];
+        commentVC.bookId = self.bookId;
+        [weakSelf.navigationController pushViewController:commentVC animated:YES];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"

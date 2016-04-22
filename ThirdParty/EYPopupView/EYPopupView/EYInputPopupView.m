@@ -86,7 +86,7 @@
             popView.tvContent.layer.cornerRadius=3;
             popView.tvContent.layer.borderColor=COLORRGB(0xaeeeeee).CGColor;
             popView.tvContent.layer.borderWidth=0.5;
-            popView.tvContent.delegate=popView;;
+            popView.tvContent.delegate=popView;
             popView.tvContent.selectable=YES;
             popView.tvContent.textAlignment = NSTextAlignmentLeft;
             popView.tvContent.textColor = [UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1];

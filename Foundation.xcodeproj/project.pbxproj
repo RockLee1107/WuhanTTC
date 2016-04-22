@@ -182,6 +182,10 @@
 		FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */; };
 		FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */; };
 		FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */; };
+		FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */; };
+		FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */; };
+		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
+		FD5AA87A1CCA110D002FD276 /* CommentTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -628,6 +632,13 @@
 		FD4E515A1CC11A5500061830 /* AJPhotoPickerGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerGallery.h; sourceTree = "<group>"; };
 		FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerGallery.m; sourceTree = "<group>"; };
 		FD4E515D1CC11E5C00061830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		FD5AA8701CCA0C3E002FD276 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		FD5AA8751CCA10DD002FD276 /* CommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewController.h; sourceTree = "<group>"; };
+		FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewController.m; sourceTree = "<group>"; };
+		FD5AA8781CCA110D002FD276 /* CommentTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewDelegate.h; sourceTree = "<group>"; };
+		FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewDelegate.m; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1030,6 +1041,7 @@
 		F73B78B61C813DDD00069EEE /* Book */ = {
 			isa = PBXGroup;
 			children = (
+				FD5AA86F1CCA0C1A002FD276 /* Comment */,
 				FD9450D41CA82B8100E00759 /* Subject */,
 				F73B78B71C813DDD00069EEE /* Book.storyboard */,
 				FDF3FE101CA80007007B7C83 /* BookIndex */,
@@ -1581,6 +1593,20 @@
 			path = AJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		FD5AA86F1CCA0C1A002FD276 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				FD5AA8701CCA0C3E002FD276 /* CommentTableViewCell.h */,
+				FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */,
+				FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */,
+				FD5AA8751CCA10DD002FD276 /* CommentTableViewController.h */,
+				FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */,
+				FD5AA8781CCA110D002FD276 /* CommentTableViewDelegate.h */,
+				FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		FD5C74F21CC71DB10022BD81 /* Evaluate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2013,6 +2039,7 @@
 				FDE2D94F1CA369CF008DDE4F /* DTKDropdownMenuView.bundle in Resources */,
 				F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */,
 				FDE2D95E1CA36C9C008DDE4F /* app_create@2x.png in Resources */,
+				FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */,
 				FDD0FBC91CA8B2DD004CFA75 /* app_comment_list@2x.png in Resources */,
 				FDF3FE0E1CA7F854007B7C83 /* ico_make.png in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
@@ -2130,6 +2157,7 @@
 				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
 				FD066CE91CB8EB09001A132A /* ActionSheetLocalePicker.m in Sources */,
 				FD9450D71CA82BD400E00759 /* SubjectPageController.m in Sources */,
+				FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */,
 				FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
@@ -2187,6 +2215,7 @@
 				FDE2D9591CA369CF008DDE4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				F7FE50091C8A786800114B28 /* User.m in Sources */,
 				FD4E51541CC118FE00061830 /* AJPhotoPickerViewController.m in Sources */,
+				FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */,
 				FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */,
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				F7EB9B941CAB5AE5005343AC /* SettingsTableViewController.m in Sources */,
@@ -2203,6 +2232,7 @@
 				FDF3FE3A1CA81F52007B7C83 /* MyNotePageController.m in Sources */,
 				FDF3FE381CA81F52007B7C83 /* MyCollectPageController.m in Sources */,
 				FDF3FE0F1CA7F854007B7C83 /* JSDropDownMenu.m in Sources */,
+				FD5AA87A1CCA110D002FD276 /* CommentTableViewDelegate.m in Sources */,
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
 				FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
