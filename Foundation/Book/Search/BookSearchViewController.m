@@ -8,6 +8,7 @@
 
 #import "BookSearchViewController.h"
 #import "BookListDelegate.h"
+#import "BookSearchTableViewCell.h"
 
 @interface BookSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate ,UISearchDisplayDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *parentTableView;
@@ -79,8 +80,21 @@
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 70.0 * self.tableViewDelegate.dataArray.count);
         [cell addSubview:self.tableView];
+    } else if (indexPath.section == 0 && indexPath.row == 0) {
+        //    第一组第一行，第二组、第三组返回平常的cell
+        BookSearchTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookSearchTableViewCell" owner:nil options:nil] firstObject];
+        [cell.titleButton setTitle:@"相关文章" forState:(UIControlStateNormal)];
+        cell.moreLabel.hidden = NO;
+        return cell;
+    } else if (indexPath.section == 1) {
+        BookSearchTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookSearchTableViewCell" owner:nil options:nil] firstObject];
+        [cell.titleButton setTitle:@"搜索作者" forState:(UIControlStateNormal)];
+        return cell;
+    } else if (indexPath.section == 2) {
+        BookSearchTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookSearchTableViewCell" owner:nil options:nil] firstObject];
+        [cell.titleButton setTitle:@"搜索标签" forState:(UIControlStateNormal)];
+        return cell;
     }
-//    第一组第一行，第二组、第三组返回平常的cell
     return [UITableViewCell new];
 }
 

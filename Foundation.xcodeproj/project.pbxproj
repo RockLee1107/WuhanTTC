@@ -187,6 +187,8 @@
 		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
 		FD5AA87A1CCA110D002FD276 /* CommentTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */; };
 		FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */; };
+		FD5AA88A1CCA2A8D002FD276 /* BookSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */; };
+		FD5AA88B1CCA2A8D002FD276 /* BookSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -642,6 +644,9 @@
 		FD5AA8791CCA110D002FD276 /* CommentTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewDelegate.m; sourceTree = "<group>"; };
 		FD5AA87C1CCA1AAB002FD276 /* BookSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchViewController.h; sourceTree = "<group>"; };
 		FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchViewController.m; sourceTree = "<group>"; };
+		FD5AA8871CCA2A8D002FD276 /* BookSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchTableViewCell.h; sourceTree = "<group>"; };
+		FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchTableViewCell.m; sourceTree = "<group>"; };
+		FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookSearchTableViewCell.xib; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1616,6 +1621,9 @@
 			children = (
 				FD5AA87C1CCA1AAB002FD276 /* BookSearchViewController.h */,
 				FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */,
+				FD5AA8871CCA2A8D002FD276 /* BookSearchTableViewCell.h */,
+				FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */,
+				FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -2021,6 +2029,7 @@
 				FDFD8C581CB92EBF0095FC3C /* app_ok@2x.png in Resources */,
 				FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */,
 				FD9450F01CA8362100E00759 /* menu_reply@2x.png in Resources */,
+				FD5AA88B1CCA2A8D002FD276 /* BookSearchTableViewCell.xib in Resources */,
 				FD34C0C01CAFBE9B002B7630 /* InvestorTableViewCell.xib in Resources */,
 				FD9450F91CA8398800E00759 /* menu_share@2x.png in Resources */,
 				F70B01B01C7232FC00D46D79 /* LaunchScreen.xib in Resources */,
@@ -2083,6 +2092,7 @@
 				FDE50A831CA0C7080058B87D /* CaptionButton.m in Sources */,
 				FDE26B001C9C38A0003418D5 /* UIAlertView+AFNetworking.m in Sources */,
 				FDF3FE201CA816F0007B7C83 /* MyProjectPageController.m in Sources */,
+				FD5AA88A1CCA2A8D002FD276 /* BookSearchTableViewCell.m in Sources */,
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FDE2D9571CA369CF008DDE4F /* MASViewConstraint.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
