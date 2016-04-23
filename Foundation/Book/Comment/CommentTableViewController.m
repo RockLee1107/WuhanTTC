@@ -28,7 +28,6 @@
     [self initRefreshControl];
     [self fetchData];
 #warning del
-    self.page.pageSize = 10;
     self.allCommentsArray = [NSMutableArray array];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
@@ -63,7 +62,12 @@
         if ([responseObject[@"allComments"] count] < self.page.pageSize) {
             [self.tableView.footer noticeNoMoreData];
         }
-//        这里不需要判断下拉刷新情况
+//        这里虽然没有下拉刷新功能，但是因为有切换我的与全部评论的存在，还需要判断page == 1的情况
+        if (self.page.pageNo == 1) {
+            //由于下拉刷新时页面而归零
+            [self.allCommentsArray removeAllObjects];
+            [self.tableView.footer resetNoMoreData];
+        }
 //        给dataDict赋值，热门评论用
         self.dataDict = responseObject;
         [self.allCommentsArray addObjectsFromArray:responseObject[@"allComments"]];
