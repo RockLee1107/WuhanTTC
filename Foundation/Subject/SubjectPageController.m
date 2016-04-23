@@ -10,6 +10,7 @@
 #import "SubjectListViewController.h"
 #import "DTKDropdownMenuView.h"
 #import "SubTabBarController.h"
+#import "PostSubjectTableViewController.h"
 
 @interface SubjectPageController ()
 
@@ -72,7 +73,8 @@
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"发帖" iconName:@"menu_my_post" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        PostSubjectTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;

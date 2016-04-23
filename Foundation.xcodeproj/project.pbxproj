@@ -52,6 +52,7 @@
 		F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F73B78CD1C81451E00069EEE /* icon_project_selected@2x.png */; };
 		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
+		F748184D1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */; };
 		F74C9AE21CBB8B1300C7A607 /* LXPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */; };
 		F74C9AF61CBE1DE300C7A607 /* EYInputPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE61CBE1DE300C7A607 /* EYInputPopupView.m */; };
 		F74C9AF71CBE1DE300C7A607 /* EYPopupView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F74C9AE71CBE1DE300C7A607 /* EYPopupView.bundle */; };
@@ -399,6 +400,8 @@
 		F741A6451C8F38E4008DC72B /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		F741A6461C8F38E4008DC72B /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
+		F748184B1CCBD3EC00CEEE3A /* PostSubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostSubjectTableViewController.h; sourceTree = "<group>"; };
+		F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostSubjectTableViewController.m; sourceTree = "<group>"; };
 		F74C9AE01CBB8B1300C7A607 /* LXPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPhotoPicker.h; sourceTree = "<group>"; };
 		F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPhotoPicker.m; sourceTree = "<group>"; };
 		F74C9AE51CBE1DE300C7A607 /* EYInputPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYInputPopupView.h; sourceTree = "<group>"; };
@@ -1688,6 +1691,8 @@
 		FD9450D41CA82B8100E00759 /* Subject */ = {
 			isa = PBXGroup;
 			children = (
+				F748184B1CCBD3EC00CEEE3A /* PostSubjectTableViewController.h */,
+				F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */,
 				FD9450D51CA82BD400E00759 /* SubjectPageController.h */,
 				FD9450D61CA82BD400E00759 /* SubjectPageController.m */,
 				FD9450DB1CA82CEC00E00759 /* SubjectListViewController.h */,
@@ -2150,6 +2155,7 @@
 				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
+				F748184D1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m in Sources */,
 				FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */,
 				F74C9AFB1CBE1DE300C7A607 /* EYTagView.m in Sources */,
 				FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */,
