@@ -7,7 +7,6 @@
 //
 
 #import "CommentTableViewController.h"
-//#import "CommentTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
 #import "EYInputPopupView.h"
 #import "CommentTableViewCell.h"
@@ -15,7 +14,6 @@
 #import "CaptionButton.h"
 
 @interface CommentTableViewController ()
-//@property (nonatomic, strong) CommentTableViewDelegate *commentTableViewDelegate;
 @end
 
 @implementation CommentTableViewController
@@ -26,6 +24,8 @@
     [self addRightItem];
     [self initRefreshControl];
     [self fetchData];
+    //改用grouped形式，以达到不固定表头的目的
+    self.tableView = [[UITableView alloc] initWithFrame:self.tableView.frame style:(UITableViewStyleGrouped)];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     // Do any additional setup after loading the view.
 }
@@ -55,13 +55,9 @@
     [self.service GET:@"book/comment/getComments" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
-//            [self.tableViewDelegate.dataArray removeAllObjects];
             self.dataDict = responseObject;
             [self.tableView.footer resetNoMoreData];
         }
-        
-//        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
-//        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
     } noResult:^{
         [self.tableView.footer noticeNoMoreData];
@@ -130,19 +126,18 @@
 }
 
 //表头
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-////    BookSearchTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"BookSearchTableViewCell" owner:nil options:nil] firstObject];
-////    [cell.titleButton setTitle:section == 0 ? @"热门评论" : @"全部评论" forState:(UIControlStateNormal)];
-////    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 55.0)];
-////    [view addSubview:cell];
-//    CaptionButton *caption = [CaptionButton buttonWithType:(UIButtonTypeSystem)];
-//    caption.frame = CGRectMake(0, 12, 121, 55.0);
-//    [caption setTitle:section == 0 ? @"热门评论" : @"全部评论" forState:(UIControlStateNormal)];
-//    return caption;
-//}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CaptionButton *caption = [CaptionButton buttonWithType:(UIButtonTypeSystem)];
+    caption.frame = CGRectMake(14, 14, 121, 25);
+    [caption setTitle:section == 0 ? @"热门评论" : @"全部评论" forState:(UIControlStateNormal)];
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    [view addSubview:caption];
+    return view;
+}
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return section == 0 ? @"热门评论" : @"全部评论";
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 55.0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
