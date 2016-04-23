@@ -69,8 +69,7 @@ UITableViewDelegate,
 UITableViewDataSource
 >
 
-/**items*/
-@property (strong, nonatomic) NSArray *items;
+
 /**是否显示*/
 @property (assign ,nonatomic) BOOL isMenuShow;
 /**按钮title*/

@@ -26,7 +26,9 @@ typedef enum : NSUInteger {
 + (instancetype)dropdownMenuViewWithType:(DTKDropDownType)dropDownType frame:(CGRect)frame dropdownItems:(NSArray *)dropdownItems icon:(NSString *)icon extraIcon:(NSString *)extraIcon extraButtunCallBack:(extraButtonCallBack)callBack;
 /// 当前Nav导航栏
 @property(weak ,nonatomic) UINavigationController *currentNav;
-
+/**items*/
+// huangxj move from .m to .h explode for invoker writing
+@property (strong, nonatomic) NSArray *items;
 /// 当前选中index 默认是0
 @property (assign ,nonatomic) NSUInteger selectedIndex;
 /// titleColor 标题字体颜色  默认 白色

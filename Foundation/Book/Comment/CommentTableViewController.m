@@ -12,20 +12,21 @@
 #import "CommentTableViewCell.h"
 #import "BookSearchTableViewCell.h"
 #import "CaptionButton.h"
-
+#define MY_COMMENT @"我的评论"
+#define ALL_COMMENT @"全部评论"
 @interface CommentTableViewController ()
+@property (nonatomic,assign) BOOL flag;
+@property (nonatomic,strong) DTKDropdownMenuView *menuView;
 @end
 
 @implementation CommentTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationItem.title = @"评论";
     [self addRightItem];
     [self initRefreshControl];
     [self fetchData];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    // Do any additional setup after loading the view.
 }
 
 //上拉下拉控件
@@ -38,7 +39,6 @@
         // 拿到当前的上拉刷新控件，结束刷新状态
         [weakSelf.tableView.footer endRefreshing];
     }];
-    
 }
 
 /**访问网络*/
@@ -47,6 +47,11 @@
                                                                                 @"SEQ_bookId":self.bookId,
                                                                                 @"SEQ_orderBy":@"createdDate"
                                                                                 }];
+    if (self.flag) {
+        [dict setObject:[User getInstance].uid forKey:@"SEQ_userId"];
+    } else {
+        [dict removeObjectForKey:@"SEQ_userId"];
+    }
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/comment/getComments" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -57,15 +62,30 @@
         }
         [self.tableView reloadData];
     } noResult:^{
+        if (self.page.pageNo == 1) {
+            self.dataDict = nil;
+            [self.tableView reloadData];
+        }
         [self.tableView.footer noticeNoMoreData];
     }];
+}
+
+///切换我的评论或全部评论
+- (void)switchMyOrAllComment {
+    //self.flag作为我的评论与全部评论的标识
+    DTKDropdownItem *commentItem = [self.menuView.items firstObject];
+    commentItem.title = self.flag ? MY_COMMENT : ALL_COMMENT;
+    self.flag = !self.flag;
+    //访问网络
+    self.page.pageNo = 1;
+    [self fetchData];
 }
 
 ///导航栏下拉菜单
 - (void)addRightItem
 {
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的评论" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
-        
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:MY_COMMENT iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
+        [self switchMyOrAllComment];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
@@ -103,6 +123,7 @@
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+    self.menuView = menuView;
 }
 
 #pragma mark - tb delegate
