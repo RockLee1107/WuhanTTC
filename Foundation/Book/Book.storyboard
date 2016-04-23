@@ -201,6 +201,7 @@
                         <outlet property="captionLabel" destination="AoN-Ga-jIX" id="c9s-Qp-6Dh"/>
                         <outlet property="collectNumLabel" destination="dhU-Cp-3wh" id="gYR-0W-e6C"/>
                         <outlet property="commentNumLabel" destination="Tlk-mZ-q2x" id="IXo-MK-gvt"/>
+                        <outlet property="footContentView" destination="gcW-3q-OU4" id="K01-c0-ehx"/>
                         <outlet property="publishDateLabel" destination="vq4-K5-zpg" id="mPi-ed-Txb"/>
                         <outlet property="readNumLabel" destination="bsa-yR-9aS" id="gfr-c4-Y9I"/>
                         <outlet property="webView" destination="J2Y-CW-luM" id="5kn-LU-PLL"/>

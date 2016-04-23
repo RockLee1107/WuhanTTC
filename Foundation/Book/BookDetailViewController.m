@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *readNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *collectNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;
+@property (weak, nonatomic) IBOutlet UIView *footContentView;
+
 @end
 
 @implementation BookDetailViewController
@@ -34,9 +36,12 @@
     [self setDynamicLayout];
     self.webView.delegate = self;
     self.webView.scrollView.scrollEnabled = NO;
-
+    self.footContentView.hidden = YES;
+    [SVProgressHUD showWithStatus:@"正在加载"];
     NSDictionary *param = @{@"bookId":self.bookId};
     [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        self.footContentView.hidden = NO;
         self.dataDict = responseObject;
 //        NSString *cssStr = @"<style>img{width:100%;}</style>";
 //        标题栏
@@ -116,11 +121,37 @@
     return str;
 }
 
+//height for web
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 3) {
         return self.introWebViewHeight;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+//cell for labels
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 2) {
+        UITableViewCell *cell = [UITableViewCell new];
+        for (int i = 0; i < [self.dataDict[@"labels"] count]; i++) {
+            NSDictionary *labelDict = self.dataDict[@"labels"][i];
+            UIButton *labelButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+            //frame
+            labelButton.frame = CGRectMake(10 + 90 * i, 10, 80, 20);
+            //font
+            labelButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+            //color
+            [labelButton setTitleColor:MAIN_COLOR forState:(UIControlStateNormal)];
+            //border
+            labelButton.layer.cornerRadius = 10.0;
+            labelButton.layer.borderColor = [MAIN_COLOR CGColor];
+            labelButton.layer.borderWidth = 1.0;
+            [labelButton setTitle:labelDict[@"labelName"] forState:(UIControlStateNormal)];
+            [cell.contentView addSubview:labelButton];
+        }
+        return cell;
+    }
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 ///导航栏下拉菜单
 - (void)addRightItem
