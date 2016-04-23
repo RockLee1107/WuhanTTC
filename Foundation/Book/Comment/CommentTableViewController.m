@@ -27,7 +27,6 @@
     [self addRightItem];
     [self initRefreshControl];
     [self fetchData];
-#warning del
     self.allCommentsArray = [NSMutableArray array];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
@@ -117,6 +116,8 @@
                                                            };
                                    [self.service POST:@"book/comment/addComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+                                       self.page.pageNo = 1;
+                                       [self fetchData];
                                    } noResult:nil];
                                } dismissBlock:^{
                                    
