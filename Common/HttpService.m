@@ -49,6 +49,8 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",operation.responseString);
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
     }];
 }
 
@@ -79,6 +81,8 @@
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",operation.responseString);
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
     }];
 }
 
