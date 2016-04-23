@@ -17,6 +17,7 @@
 @interface CommentTableViewController ()
 @property (nonatomic,assign) BOOL flag;
 @property (nonatomic,strong) DTKDropdownMenuView *menuView;
+@property (nonatomic,strong) NSMutableArray *allCommentsArray;
 @end
 
 @implementation CommentTableViewController
@@ -26,6 +27,9 @@
     [self addRightItem];
     [self initRefreshControl];
     [self fetchData];
+#warning del
+    self.page.pageSize = 10;
+    self.allCommentsArray = [NSMutableArray array];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
@@ -55,15 +59,18 @@
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/comment/getComments" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.page.pageNo == 1) {
-            //由于下拉刷新时页面而归零
-            self.dataDict = responseObject;
-            [self.tableView.footer resetNoMoreData];
+        //当小于每页条数，就判定加载完毕
+        if ([responseObject[@"allComments"] count] < self.page.pageSize) {
+            [self.tableView.footer noticeNoMoreData];
         }
+//        这里不需要判断下拉刷新情况
+//        给dataDict赋值，热门评论用
+        self.dataDict = responseObject;
+        [self.allCommentsArray addObjectsFromArray:responseObject[@"allComments"]];
         [self.tableView reloadData];
     } noResult:^{
         if (self.page.pageNo == 1) {
-            self.dataDict = nil;
+            [self.allCommentsArray removeAllObjects];
             [self.tableView reloadData];
         }
         [self.tableView.footer noticeNoMoreData];
@@ -129,7 +136,7 @@
 #pragma mark - tb delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //hot or all comments,because of section 0 or 1
-    NSArray *array = indexPath.section == 0 ? self.dataDict[@"hotComments"] : self.dataDict[@"allComments"];
+    NSArray *array = indexPath.section == 0 ? self.dataDict[@"hotComments"] : self.allCommentsArray;
     NSDictionary *dict = array[indexPath.row];
     CommentTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"CommentTableViewCell" owner:nil options:nil] firstObject];
     cell.avatarImageView.clipsToBounds = YES;
@@ -159,7 +166,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section == 0 ? [self.dataDict[@"hotComments"] count] : [self.dataDict[@"allComments"] count];
+    return section == 0 ? [self.dataDict[@"hotComments"] count] : [self.allCommentsArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
