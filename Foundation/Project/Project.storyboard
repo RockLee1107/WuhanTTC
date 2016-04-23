@@ -239,7 +239,7 @@
         <!--查找项目-->
         <scene sceneID="E71-jt-ogK">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="KIJ-5H-Gx3" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="KIJ-5H-Gx3" customClass="ProjectSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PWd-yT-0lS"/>
                         <viewControllerLayoutGuide type="bottom" id="G1V-Og-D5M"/>
@@ -248,25 +248,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="输入项目名称关键字" translatesAutoresizingMaskIntoConstraints="NO" id="12f-LE-Nsh">
+                                <rect key="frame" x="-4" y="64" width="328" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uHu-zc-mQg">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableFooterView" contentMode="redraw" id="12f-LE-Nsh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="G1V-Og-D5M" firstAttribute="top" secondItem="uHu-zc-mQg" secondAttribute="bottom" id="LZ3-Pf-5QN"/>
+                            <constraint firstItem="12f-LE-Nsh" firstAttribute="leading" secondItem="YBe-fu-Njb" secondAttribute="leadingMargin" constant="-20" id="b59-IG-Tzl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="12f-LE-Nsh" secondAttribute="trailing" constant="-20" id="iaM-7C-A6R"/>
+                            <constraint firstItem="12f-LE-Nsh" firstAttribute="top" secondItem="PWd-yT-0lS" secondAttribute="bottom" id="lGv-eb-Ab7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uHu-zc-mQg" secondAttribute="trailing" constant="-16" id="t9W-3n-APG"/>
                             <constraint firstItem="uHu-zc-mQg" firstAttribute="leading" secondItem="YBe-fu-Njb" secondAttribute="leadingMargin" constant="-16" id="uPj-hV-Lqp"/>
-                            <constraint firstItem="uHu-zc-mQg" firstAttribute="top" secondItem="PWd-yT-0lS" secondAttribute="bottom" id="x5W-Ki-4Jf"/>
+                            <constraint firstItem="uHu-zc-mQg" firstAttribute="top" secondItem="PWd-yT-0lS" secondAttribute="bottom" constant="44" id="x5W-Ki-4Jf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="查找项目" id="1SG-UN-ymS"/>
+                    <connections>
+                        <outlet property="searchBar" destination="12f-LE-Nsh" id="QbR-Yf-MH3"/>
+                        <outlet property="tableView" destination="uHu-zc-mQg" id="tQS-Rr-iWU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mar-Hh-iGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1253,7 +1259,7 @@
     <resources>
         <image name="app_failure_img.png" width="35" height="35"/>
         <image name="app_ok.png" width="23" height="16"/>
-        <image name="app_photo.png" width="58" height="58"/>
+        <image name="app_photo.png" width="91" height="91"/>
         <image name="icon_project_normal.png" width="26" height="26"/>
         <image name="link_investor.png" width="29" height="30"/>
         <image name="link_project.png" width="30" height="26"/>

@@ -161,6 +161,7 @@
 		FD3E6E3E1CC8FC26006246AC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */; };
 		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */; };
+		FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -600,6 +601,8 @@
 		FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchByTitleOrOthersTableViewController.m; sourceTree = "<group>"; };
 		FD405EAB1CCB6B5C005AD869 /* ActivitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySearchViewController.h; sourceTree = "<group>"; };
 		FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySearchViewController.m; sourceTree = "<group>"; };
+		FD405EAF1CCB70AC005AD869 /* ProjectSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSearchViewController.h; sourceTree = "<group>"; };
+		FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSearchViewController.m; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -1108,6 +1111,7 @@
 		F73B78BD1C813E2800069EEE /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				FD405EAE1CCB70AC005AD869 /* Search */,
 				FD5C74F21CC71DB10022BD81 /* Evaluate */,
 				FD3B00571CC66F0F00DA0166 /* Finance */,
 				FD3B00481CC61DAC00DA0166 /* Process */,
@@ -1554,6 +1558,15 @@
 			children = (
 				FD405EAB1CCB6B5C005AD869 /* ActivitySearchViewController.h */,
 				FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		FD405EAE1CCB70AC005AD869 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FD405EAF1CCB70AC005AD869 /* ProjectSearchViewController.h */,
+				FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -2191,6 +2204,7 @@
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				FDE2D9561CA369CF008DDE4F /* MASViewAttribute.m in Sources */,
 				F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */,
+				FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
 				FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */,
 				FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */,
