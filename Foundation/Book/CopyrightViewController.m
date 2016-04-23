@@ -24,11 +24,12 @@
         NSString *linkMobile = responseObject[@"linkMobile"];
         NSString *wechat = responseObject[@"wechat"];
         NSString *ps = @"（添加时注明：版权）";
-        self.textView.text = [NSString stringWithFormat:@"%@\n\n联系我们:\n\n        %@\n\n        微信号%@\n\n                %@",
+        NSString *contentStr = [NSString stringWithFormat:@"%@\n\n联系我们:\n\n        %@\n\n        微信号%@\n\n                %@",
                               copyRight,
                               linkMobile,
                               wechat,
                               ps];
+        [self.textView setAttributedText:[[NSAttributedString alloc] initWithString:contentStr attributes:[StringUtil textViewAttribute]]];
     } noResult:nil];
 }
 
