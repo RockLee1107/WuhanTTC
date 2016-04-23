@@ -159,6 +159,7 @@
 		FD3E6E3B1CC8FBED006246AC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E3A1CC8FBED006246AC /* libz.tbd */; };
 		FD3E6E3C1CC8FC00006246AC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E381CC8FBC2006246AC /* libc++.tbd */; };
 		FD3E6E3E1CC8FC26006246AC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */; };
+		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -594,6 +595,8 @@
 		FD3E6E381CC8FBC2006246AC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		FD3E6E3A1CC8FBED006246AC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FD405EA71CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchByTitleOrOthersTableViewController.h; sourceTree = "<group>"; };
+		FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchByTitleOrOthersTableViewController.m; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -1619,6 +1622,8 @@
 		FD5AA87B1CCA1A99002FD276 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				FD405EA71CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.h */,
+				FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */,
 				FD5AA87C1CCA1AAB002FD276 /* BookSearchViewController.h */,
 				FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */,
 				FD5AA8871CCA2A8D002FD276 /* BookSearchTableViewCell.h */,
@@ -2112,6 +2117,7 @@
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
+				FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */,
 				FD4E51531CC118FE00061830 /* AJPhotoListView.m in Sources */,
 				F795DF641CB697ED002BCDEE /* EMTextView.m in Sources */,
 				F74C9B041CC5289900C7A607 /* TeamTableViewCell.m in Sources */,

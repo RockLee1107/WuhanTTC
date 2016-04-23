@@ -9,6 +9,7 @@
 #import "BookSearchViewController.h"
 #import "BookListDelegate.h"
 #import "BookSearchTableViewCell.h"
+#import "BookSearchByTitleOrOthersTableViewController.h"
 
 @interface BookSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate ,UISearchDisplayDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *parentTableView;
@@ -111,5 +112,20 @@
         return self.tableViewDelegate.dataArray.count * 70.0;
     }
     return 55.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BookSearchByTitleOrOthersTableViewController *vc = [[BookSearchByTitleOrOthersTableViewController alloc] init];
+    vc.keyWords = self.keyWords;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        vc.type = @"SLIKE_bookTitle";
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
+        vc.type = @"SLIKE_authorName";
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if(indexPath.section == 2 && indexPath.row == 0) {
+        vc.type = @"SLIKE_labelName";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 @end

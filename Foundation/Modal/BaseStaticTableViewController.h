@@ -24,6 +24,7 @@
 @interface BaseStaticTableViewController : UITableViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) NSMutableArray *dataMutableArray;
 @property (nonatomic, strong) Page *page;
 @property (nonatomic,strong) HttpService *service;
 @property (nonatomic,strong) UITextField *currentTextField;
