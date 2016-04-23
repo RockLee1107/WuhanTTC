@@ -14,8 +14,11 @@
 #import "CommentTableViewController.h"
 #import "CopyrightViewController.h"
 
-@interface BookDetailViewController ()
+@interface BookDetailViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (assign, nonatomic) CGFloat introWebViewHeight;
+//是否已经加载网页
+@property (assign, nonatomic) BOOL isLoadedWeb;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *publishDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *readNumLabel;
@@ -29,6 +32,9 @@
     [super viewDidLoad];
     [self addRightItem];
     [self setDynamicLayout];
+    self.webView.delegate = self;
+    self.webView.scrollView.scrollEnabled = NO;
+
     NSDictionary *param = @{@"bookId":self.bookId};
     [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
@@ -48,7 +54,6 @@
     } noResult:^{
         
     }];
-//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.199.123/string.html"]]];
 }
 
 - (IBAction)copyrightButtonPress:(id)sender {
@@ -57,6 +62,66 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+//webView delegate
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    if(self.isLoadedWeb)
+    {
+        NSString *height_str= [webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"];
+        
+        if (self.introWebViewHeight == 0) {
+            self.introWebViewHeight = [height_str intValue];
+            [self.tableView reloadData];
+        }
+        return;
+    }
+    
+    //js获取body宽度
+    NSString *bodyWidth= [webView stringByEvaluatingJavaScriptFromString: @"document.body.scrollWidth "];
+    
+    int widthOfBody = [bodyWidth intValue];
+    
+    NSString *htmlBody  = [webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"];
+    
+    //    NSLog(@"htmlBody: %@",htmlBody);
+    //获取实际要显示的html
+    NSString *html = [self htmlAdjustWithPageWidth:widthOfBody
+                                              html:htmlBody
+                                           webView:webView];
+    //    NSLog(@"new htmlBody: %@",html);
+    self.isLoadedWeb = YES;
+    //加载实际要现实的html
+    [webView loadHTMLString:html baseURL:nil];
+}
+
+//获取宽度已经适配于webView的html。这里的原始html也可以通过js从webView里获取
+- (NSString *)htmlAdjustWithPageWidth:(CGFloat )pageWidth
+                                 html:(NSString *)html
+                              webView:(UIWebView *)webView
+{
+    NSMutableString *str = [NSMutableString stringWithString:html];
+    //计算要缩放的比例
+    //    CGFloat initialScale = webView.frame.size.width/pageWidth;
+    //将</head>替换为meta+head
+    CGFloat webWidth = SCREEN_WIDTH - 16;
+    if (SCREEN_WIDTH == 414) {
+        webWidth = SCREEN_WIDTH - 32;
+    }
+    
+    NSString *stringForReplace = [NSString stringWithFormat:@"<meta name=\"viewport\" http-equiv=\"Content-Type\"  content=\"charset=utf-8\"><style>body{margin:10px auto;padding:0;width:%.2f;white-space:normal;}body img{width:100%%;} p{margin-left:0px;padding-left:0px;text-align:justify;text-align-last:justify;}</style></head>",webWidth];
+    
+    NSRange range =  NSMakeRange(0, str.length);
+    //替换
+    [str replaceOccurrencesOfString:@"</head>" withString:stringForReplace options:NSLiteralSearch range:range];
+    //    NSLog(@"%@",str);
+    return str;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 3) {
+        return self.introWebViewHeight;
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
 ///导航栏下拉菜单
 - (void)addRightItem
 {
