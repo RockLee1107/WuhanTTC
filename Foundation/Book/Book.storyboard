@@ -431,7 +431,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="eCy-Yd-S1z">
+                            <searchBar contentMode="redraw" placeholder="输入文章标题/作者/标签" translatesAutoresizingMaskIntoConstraints="NO" id="eCy-Yd-S1z">
                                 <rect key="frame" x="-4" y="64" width="328" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
