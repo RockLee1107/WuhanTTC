@@ -133,4 +133,8 @@
     NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
     return [NSString stringWithFormat:@"%@月%@日",month,day];
 }
+
+///20151112090801->2015-11-12
+//+ (NSString *)toDate:(id)str {
+//}
 @end

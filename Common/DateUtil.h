@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @interface DateUtil : NSObject
 //+ (NSString *)prettyString:(NSString *)str;
+///转长日期20151112090801->2015-11-12
 + (NSString *)toString:(id)str;
 + (NSString *)toShortDate:(id)str;
 ///转长日期，20160305120859

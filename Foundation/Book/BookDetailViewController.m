@@ -12,11 +12,15 @@
 #import "EYInputPopupView.h"
 #import "VerifyUtil.h"
 #import "CommentTableViewController.h"
+#import "CopyrightViewController.h"
 
 @interface BookDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) NSDictionary *dataDict;
-
+@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *publishDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *readNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *collectNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;
 @end
 
 @implementation BookDetailViewController
@@ -24,18 +28,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightItem];
-    HttpService *service = [HttpService getInstance];
+    [self setDynamicLayout];
     NSDictionary *param = @{@"bookId":self.bookId};
-    [service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
-        NSString *cssStr = @"<style>img{width:100%;}</style>";
-        NSString *contentStr = [NSString stringWithFormat:@"%@%@",cssStr,responseObject[@"content"]];
-//        NSLog(@"%@",contentStr);
+//        NSString *cssStr = @"<style>img{width:100%;}</style>";
+//        标题栏
+        self.navigationItem.title = responseObject[@"specialName"];
+//        title
+        self.captionLabel.text = responseObject[@"title"];
+//        date
+        self.publishDateLabel.text = [DateUtil toString:responseObject[@"publishDate"]];
+        //nums
+        self.readNumLabel.text = [responseObject[@"readNum"] stringValue];
+        self.collectNumLabel.text = [responseObject[@"collectNum"] stringValue];
+        self.commentNumLabel.text = [responseObject[@"commentNum"] stringValue];
+        NSString *contentStr = responseObject[@"content"];
         [self.webView loadHTMLString:contentStr baseURL:nil];
     } noResult:^{
         
     }];
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.199.123/string.html"]]];
+}
+
+- (IBAction)copyrightButtonPress:(id)sender {
+    CopyrightViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"copyright"];
+    vc.bookId = self.bookId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 ///导航栏下拉菜单

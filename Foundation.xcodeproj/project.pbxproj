@@ -162,6 +162,10 @@
 		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */; };
 		FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */; };
+		FD405EB51CCBA8D9005AD869 /* app_collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405EB21CCBA8D9005AD869 /* app_collect@2x.png */; };
+		FD405EB61CCBA8D9005AD869 /* app_comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405EB31CCBA8D9005AD869 /* app_comment@2x.png */; };
+		FD405EB71CCBA8D9005AD869 /* app_read@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD405EB41CCBA8D9005AD869 /* app_read@2x.png */; };
+		FD405EBA1CCBADF2005AD869 /* CopyrightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB91CCBADF2005AD869 /* CopyrightViewController.m */; };
 		FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4462711CAC967900F7E12F /* PostTableViewCell.m */; };
 		FD4462741CAC967900F7E12F /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4462721CAC967900F7E12F /* PostTableViewCell.xib */; };
 		FD4462771CAC9A0100F7E12F /* app_praise_done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4462751CAC9A0100F7E12F /* app_praise_done@2x.png */; };
@@ -603,6 +607,11 @@
 		FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitySearchViewController.m; sourceTree = "<group>"; };
 		FD405EAF1CCB70AC005AD869 /* ProjectSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSearchViewController.h; sourceTree = "<group>"; };
 		FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSearchViewController.m; sourceTree = "<group>"; };
+		FD405EB21CCBA8D9005AD869 /* app_collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_collect@2x.png"; sourceTree = "<group>"; };
+		FD405EB31CCBA8D9005AD869 /* app_comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_comment@2x.png"; sourceTree = "<group>"; };
+		FD405EB41CCBA8D9005AD869 /* app_read@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_read@2x.png"; sourceTree = "<group>"; };
+		FD405EB81CCBADF2005AD869 /* CopyrightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyrightViewController.h; sourceTree = "<group>"; };
+		FD405EB91CCBADF2005AD869 /* CopyrightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyrightViewController.m; sourceTree = "<group>"; };
 		FD4462701CAC967900F7E12F /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		FD4462711CAC967900F7E12F /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		FD4462721CAC967900F7E12F /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
@@ -1070,6 +1079,8 @@
 				FDEADC121C92ACEB00971DD1 /* SubTabBarController.m */,
 				FD9450DE1CA82ECA00E00759 /* AboutTableViewController.h */,
 				FD9450DF1CA82ECA00E00759 /* AboutTableViewController.m */,
+				FD405EB81CCBADF2005AD869 /* CopyrightViewController.h */,
+				FD405EB91CCBADF2005AD869 /* CopyrightViewController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -1288,6 +1299,9 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD405EB21CCBA8D9005AD869 /* app_collect@2x.png */,
+				FD405EB31CCBA8D9005AD869 /* app_comment@2x.png */,
+				FD405EB41CCBA8D9005AD869 /* app_read@2x.png */,
 				FD3E6E321CC8F766006246AC /* logo@2x.png */,
 				FD3B00511CC6236F00DA0166 /* app_timeline_done@2x.png */,
 				FD3B00521CC6236F00DA0166 /* app_timeline_undone@2x.png */,
@@ -2056,6 +2070,7 @@
 				FD94510B1CA843DD00E00759 /* special9@2x.png in Resources */,
 				FDEADC0E1C92AA2D00971DD1 /* icon_about_normal@2x.png in Resources */,
 				FD9450F81CA8398800E00759 /* menu_comment@2x.png in Resources */,
+				FD405EB61CCBA8D9005AD869 /* app_comment@2x.png in Resources */,
 				FDE26AD81C9BF8B8003418D5 /* person_msg@2x.png in Resources */,
 				FDFD8C581CB92EBF0095FC3C /* app_ok@2x.png in Resources */,
 				FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */,
@@ -2079,6 +2094,7 @@
 				F73B78BF1C813E2800069EEE /* Activity.storyboard in Resources */,
 				FDE26ABB1C9AABA0003418D5 /* link_project@2x.png in Resources */,
 				F73B78A21C81375600069EEE /* MJRefresh.bundle in Resources */,
+				FD405EB51CCBA8D9005AD869 /* app_collect@2x.png in Resources */,
 				FDE26ADA1C9BF8B8003418D5 /* person_post@2x.png in Resources */,
 				F7EB9B9A1CAB6788005343AC /* app_pwd_unvisible@2x.png in Resources */,
 				F74C9AF71CBE1DE300C7A607 /* EYPopupView.bundle in Resources */,
@@ -2094,6 +2110,7 @@
 				FDE2D95E1CA36C9C008DDE4F /* app_create@2x.png in Resources */,
 				FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */,
 				FDD0FBC91CA8B2DD004CFA75 /* app_comment_list@2x.png in Resources */,
+				FD405EB71CCBA8D9005AD869 /* app_read@2x.png in Resources */,
 				FDF3FE0E1CA7F854007B7C83 /* ico_make.png in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
 				FD3DFE811CBDDAAD00CD9E3A /* Friends.storyboard in Resources */,
@@ -2191,6 +2208,7 @@
 				F74C9AF81CBE1DE300C7A607 /* EYPopupView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
 				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
+				FD405EBA1CCBADF2005AD869 /* CopyrightViewController.m in Sources */,
 				FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */,
 				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
 				FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */,
