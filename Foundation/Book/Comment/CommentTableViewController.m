@@ -58,15 +58,15 @@
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/comment/getComments" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //当小于每页条数，就判定加载完毕
-        if ([responseObject[@"allComments"] count] < self.page.pageSize) {
-            [self.tableView.footer noticeNoMoreData];
-        }
 //        这里虽然没有下拉刷新功能，但是因为有切换我的与全部评论的存在，还需要判断page == 1的情况
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.allCommentsArray removeAllObjects];
             [self.tableView.footer resetNoMoreData];
+        }
+        //当小于每页条数，就判定加载完毕
+        if ([responseObject[@"allComments"] count] < self.page.pageSize) {
+            [self.tableView.footer noticeNoMoreData];
         }
 //        给dataDict赋值，热门评论用
         self.dataDict = responseObject;
