@@ -49,6 +49,7 @@
                                                                                 @"SEQ_bookId":self.bookId,
                                                                                 @"SEQ_orderBy":@"createdDate"
                                                                                 }];
+    [SVProgressHUD showWithStatus:@"正在加载"];
     if (self.flag) {
         [dict setObject:[User getInstance].uid forKey:@"SEQ_userId"];
     } else {
@@ -57,6 +58,7 @@
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/comment/getComments" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
 //        这里虽然没有下拉刷新功能，但是因为有切换我的与全部评论的存在，还需要判断page == 1的情况
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
@@ -152,6 +154,11 @@
     cell.praiseCountLabel.text = [dict[@"praiseCount"] stringValue];
     cell.pbtimeLabel.text = [DateUtil toShortDateCN:dict[@"pbDate"] time:dict[@"pbTime"]];
     cell.contentLabel.text = [StringUtil toString:dict[@"comment"]];
+//    点赞按钮
+    [cell.praiseButton setTitle:dict[@"commentId"] forState:(UIControlStateDisabled)];
+//    因为是分组，所以不使用tag传值，而用UIControlStateDisabled更方便
+//    cell.praiseButton.tag = indexPath.row;
+    [cell.praiseButton addTarget:self action:@selector(praiseButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
     return cell;
 }
 
@@ -182,5 +189,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //热门评论、我的评论分别占一组
     return 2;
+}
+
+///点赞
+- (void)praiseButtonPress:(UIButton *)sender {
+    NSDictionary *param = @{
+                            @"CommentId":[sender titleForState:UIControlStateDisabled]
+                            };
+    [self.service POST:@"book/comment/praiseComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.page.pageNo = 1;
+        [self fetchData];
+    } noResult:nil];
 }
 @end

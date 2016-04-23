@@ -83,6 +83,7 @@
                 <outlet property="avatarImageView" destination="cP5-8n-sOJ" id="6KZ-C3-2QK"/>
                 <outlet property="contentLabel" destination="4VR-Mk-abJ" id="ohM-2d-zQe"/>
                 <outlet property="pbtimeLabel" destination="T5f-FU-jz1" id="mXk-jG-20h"/>
+                <outlet property="praiseButton" destination="GiS-4E-2p8" id="J9k-Z6-nNH"/>
                 <outlet property="praiseCountLabel" destination="HlT-dc-Y3V" id="VYY-93-hmn"/>
                 <outlet property="realnameLabel" destination="ACd-JM-hph" id="UcR-M0-c5I"/>
             </connections>

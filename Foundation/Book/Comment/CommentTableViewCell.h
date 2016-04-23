@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *pbtimeLabel;
 //内容
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+//点赞按钮
+@property (weak, nonatomic) IBOutlet UIButton *praiseButton;
 @end
