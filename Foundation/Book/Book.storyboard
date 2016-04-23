@@ -71,11 +71,31 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="webView" destination="J2Y-CW-luM" id="5Qq-nr-eOF"/>
+                        <segue destination="mVp-1s-C4O" kind="show" identifier="comment" id="NKX-yr-16W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klw-eB-F9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3567" y="-327"/>
+        </scene>
+        <!--评论-->
+        <scene sceneID="LXx-48-1cF">
+            <objects>
+                <tableViewController storyboardIdentifier="comment" id="mVp-1s-C4O" customClass="CommentTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4QT-0X-BWH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="mVp-1s-C4O" id="Kj7-Te-wCy"/>
+                            <outlet property="delegate" destination="mVp-1s-C4O" id="ewh-Nd-cNO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="评论" id="alj-Gx-r3p"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h0d-wo-7Ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4142" y="-327"/>
         </scene>
         <!--Title-->
         <scene sceneID="CSQ-fp-A53">

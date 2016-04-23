@@ -20,12 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"评论";
+//    self.navigationItem.title = @"评论";
     [self addRightItem];
     [self initRefreshControl];
     [self fetchData];
-    //改用grouped形式，以达到不固定表头的目的
-    self.tableView = [[UITableView alloc] initWithFrame:self.tableView.frame style:(UITableViewStyleGrouped)];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     // Do any additional setup after loading the view.
 }
@@ -34,7 +32,6 @@
 - (void)initRefreshControl {
     /**上拉刷新、下拉加载*/
     __weak typeof(self) weakSelf = self;
-    [self.tableView.legendHeader beginRefreshing];
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         weakSelf.page.pageNo++;
         [weakSelf fetchData];

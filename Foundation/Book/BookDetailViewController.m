@@ -43,7 +43,7 @@
 {
     __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"menu_comment" callBack:^(NSUInteger index, id info) {
-        CommentTableViewController *commentVC = [[CommentTableViewController alloc] init];
+        CommentTableViewController *commentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"comment"];
         commentVC.bookId = self.bookId;
         [weakSelf.navigationController pushViewController:commentVC animated:YES];
     }];
