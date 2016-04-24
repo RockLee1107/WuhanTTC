@@ -52,4 +52,8 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //fit muti line
+    return [StringUtil heightToFit:self.dataArray[indexPath.row][@"content"]] + 55;
+}
 @end
