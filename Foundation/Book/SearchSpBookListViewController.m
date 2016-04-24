@@ -249,6 +249,7 @@
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     //    清空
     [self.tableViewDelegate.dataArray removeAllObjects];
+    [self.tableView reloadData];
     //    页码归零
     self.page.pageNo = 1;
     if (indexPath.column == 0) {
