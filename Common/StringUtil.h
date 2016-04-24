@@ -14,4 +14,6 @@
 + (NSString *)labelArrayToStr:(NSArray *)array;
 ///自适应TextView高度
 + (NSDictionary *)textViewAttribute;
+///适配多行文本，返回文本应有高度，行数相关
+- (CGFloat)heightToFit:(NSString *)str;
 @end

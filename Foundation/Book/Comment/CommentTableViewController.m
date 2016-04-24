@@ -183,6 +183,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //muti line
+    if (indexPath.section == 0) {
+        //热门评论
+        NSString *
+    }
+    [StringUtil heightToFit:];
     return 80.0;
 }
 

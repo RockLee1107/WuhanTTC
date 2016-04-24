@@ -7,6 +7,7 @@
 //
 
 #import "StringUtil.h"
+#import "Global.h"
 
 @implementation StringUtil
 +(NSString*)dictToJson:(id)object
@@ -57,5 +58,12 @@
                                  NSParagraphStyleAttributeName:paragraphStyle
                                  };
     return attributes;
+}
+
+///适配多行文本，返回文本应有高度，行数相关
+- (CGFloat)heightToFit:(NSString *)str {
+    NSDictionary *attribute = [StringUtil textViewAttribute];
+    CGRect frame = [str boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX) options:((NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)) attributes:attribute context:nil];
+    return frame.size.height;
 }
 @end
