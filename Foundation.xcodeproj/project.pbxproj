@@ -187,6 +187,9 @@
 		FD4CD7D41CCD0AF500659D9D /* zl05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7CF1CCD0AF500659D9D /* zl05@2x.png */; };
 		FD4CD7D81CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7D61CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m */; };
 		FD4CD7D91CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7D71CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib */; };
+		FD4CD7DD1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7DB1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m */; };
+		FD4CD7DE1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7DC1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib */; };
+		FD4CD7E11CCD1B4B00659D9D /* MyReplyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */; };
 		FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51361CC118FD00061830 /* AJGradientView.m */; };
 		FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */; };
 		FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */; };
@@ -648,6 +651,11 @@
 		FD4CD7D51CCD168700659D9D /* SubjectForMemberCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectForMemberCenterTableViewCell.h; sourceTree = "<group>"; };
 		FD4CD7D61CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectForMemberCenterTableViewCell.m; sourceTree = "<group>"; };
 		FD4CD7D71CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectForMemberCenterTableViewCell.xib; sourceTree = "<group>"; };
+		FD4CD7DA1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyForMemberCenterTableViewCell.h; sourceTree = "<group>"; };
+		FD4CD7DB1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyForMemberCenterTableViewCell.m; sourceTree = "<group>"; };
+		FD4CD7DC1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyForMemberCenterTableViewCell.xib; sourceTree = "<group>"; };
+		FD4CD7DF1CCD1B4B00659D9D /* MyReplyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReplyTableViewController.h; sourceTree = "<group>"; };
+		FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReplyTableViewController.m; sourceTree = "<group>"; };
 		FD4E51351CC118FD00061830 /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		FD4E51361CC118FD00061830 /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		FD4E51371CC118FD00061830 /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -1960,6 +1968,11 @@
 				FD4CD7D51CCD168700659D9D /* SubjectForMemberCenterTableViewCell.h */,
 				FD4CD7D61CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m */,
 				FD4CD7D71CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib */,
+				FD4CD7DA1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.h */,
+				FD4CD7DB1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m */,
+				FD4CD7DC1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib */,
+				FD4CD7DF1CCD1B4B00659D9D /* MyReplyTableViewController.h */,
+				FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -2044,6 +2057,7 @@
 				FDD0FBD31CA8C018004CFA75 /* SubjectTableViewCell.xib in Resources */,
 				FD47F85A1C8AC26300D0ED07 /* book_thumb@2x.png in Resources */,
 				FDE26ADB1C9BF8B8003418D5 /* person_project@2x.png in Resources */,
+				FD4CD7DE1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib in Resources */,
 				FDE26AD51C9BF8B8003418D5 /* person_collect@2x.png in Resources */,
 				F795DF5E1CB40BB8002BCDEE /* HotCityTableViewCell.xib in Resources */,
 				FD3E6E211CC8F4D2006246AC /* UMSCommentDetailController.xib in Resources */,
@@ -2172,6 +2186,7 @@
 				FDE33F161C9FEF68005C6863 /* ProjectTableViewCell.m in Sources */,
 				FDE2D9571CA369CF008DDE4F /* MASViewConstraint.m in Sources */,
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
+				FD4CD7DD1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m in Sources */,
 				FD3B00471CC4C04300DA0166 /* ImageUtil.m in Sources */,
 				FD066CE71CB8EB09001A132A /* ActionSheetDatePicker.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
@@ -2227,6 +2242,7 @@
 				F795DF601CB40BB8002BCDEE /* LocationCityTableViewCell.m in Sources */,
 				F795DF5C1CB40BB8002BCDEE /* HandleCityData.m in Sources */,
 				F76E92391CAAE53C001AE980 /* LocationUtil.m in Sources */,
+				FD4CD7E11CCD1B4B00659D9D /* MyReplyTableViewController.m in Sources */,
 				FD3E6E311CC8F527006246AC /* ShareUtil.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,

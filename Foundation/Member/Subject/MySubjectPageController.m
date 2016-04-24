@@ -8,6 +8,7 @@
 
 #import "MySubjectPageController.h"
 #import "MySubjectTableViewController.h"
+#import "MyReplyTableViewController.h"
 
 @interface MySubjectPageController ()
 
@@ -27,7 +28,7 @@
     if (self) {
         NSArray *viewControllerClasses = @[
                                            [MySubjectTableViewController class],
-                                           [MySubjectTableViewController class]
+                                           [MyReplyTableViewController class]
                                            ];
         NSArray *titles = @[
                             @"我发布的",
