@@ -52,8 +52,14 @@
 
 ///请求网络
 - (void)fetchData {
-    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                     @"SEQ_collectUserId":[User getInstance].uid                                                                     }],
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                @"SEQ_collectUserId":[User getInstance].uid                                                                     }];
+    
+    if (self.specialCode != nil) {
+#warning speCode key name
+        [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
+    }
+    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];

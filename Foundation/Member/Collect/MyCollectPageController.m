@@ -8,6 +8,7 @@
 
 #import "MyCollectPageController.h"
 #import "MyCollectTableViewController.h"
+#import "MyCollectBySpecialTableViewController.h"
 
 @interface MyCollectPageController ()
 
@@ -27,7 +28,7 @@
     if (self) {
         NSArray *viewControllerClasses = @[
                                            [MyCollectTableViewController class],
-                                           [MyCollectTableViewController class]
+                                           [MyCollectBySpecialTableViewController class]
                                            ];
         NSArray *titles = @[
                             @"按时间",

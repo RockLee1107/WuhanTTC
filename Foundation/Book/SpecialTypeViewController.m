@@ -53,7 +53,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SpecialTypeTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SpecialTypeTableViewCell" owner:nil options:nil] firstObject];
-    cell.thumbImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"special%zi.png",indexPath.row + 1]];
+    cell.thumbImageView.image = [UIImage imageNamed:self.dataImmutableArray[indexPath.row][@"specialCode"]];
     cell.specialNameLabel.text = self.dataImmutableArray[indexPath.row][@"specialName"];
     cell.latestBookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"latestBookName"]];
     cell.latestUpdateTimeLabel.text = [DateUtil toShortDate:self.dataImmutableArray[indexPath.row][@"latestUpdateTime"]];

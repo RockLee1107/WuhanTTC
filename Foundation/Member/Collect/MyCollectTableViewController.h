@@ -9,5 +9,5 @@
 #import "BaseStaticTableViewController.h"
 
 @interface MyCollectTableViewController : BaseStaticTableViewController
-
+@property (nonatomic, strong) NSString *specialCode;
 @end
