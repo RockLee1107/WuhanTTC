@@ -30,29 +30,29 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_comment_list.png" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Zd-74Q">
-                        <rect key="frame" x="255" y="40" width="20" height="20"/>
+                        <rect key="frame" x="253" y="40" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="E0i-kh-xOe"/>
                             <constraint firstAttribute="width" constant="20" id="pEU-lO-TwM"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBK-Yl-5DQ">
-                        <rect key="frame" x="45" y="41" width="70" height="18"/>
+                        <rect key="frame" x="45" y="41" width="68" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mih-0n-9rj">
-                        <rect key="frame" x="281" y="41" width="26" height="18"/>
+                        <rect key="frame" x="279" y="41" width="28" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="26" id="Hd8-od-77G"/>
+                            <constraint firstAttribute="width" constant="28" id="Hd8-od-77G"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-06-15 12:11:09" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG2-sK-AOr">
-                        <rect key="frame" x="123" y="42" width="127" height="16"/>
+                        <rect key="frame" x="121" y="42" width="127" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="127" id="F5d-NH-oIM"/>
                         </constraints>

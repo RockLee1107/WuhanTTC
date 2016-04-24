@@ -185,6 +185,8 @@
 		FD4CD7D21CCD0AF500659D9D /* zl03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7CD1CCD0AF500659D9D /* zl03@2x.png */; };
 		FD4CD7D31CCD0AF500659D9D /* zl04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7CE1CCD0AF500659D9D /* zl04@2x.png */; };
 		FD4CD7D41CCD0AF500659D9D /* zl05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7CF1CCD0AF500659D9D /* zl05@2x.png */; };
+		FD4CD7D81CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7D61CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m */; };
+		FD4CD7D91CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7D71CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib */; };
 		FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51361CC118FD00061830 /* AJGradientView.m */; };
 		FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */; };
 		FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */; };
@@ -643,6 +645,9 @@
 		FD4CD7CD1CCD0AF500659D9D /* zl03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl03@2x.png"; sourceTree = "<group>"; };
 		FD4CD7CE1CCD0AF500659D9D /* zl04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl04@2x.png"; sourceTree = "<group>"; };
 		FD4CD7CF1CCD0AF500659D9D /* zl05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl05@2x.png"; sourceTree = "<group>"; };
+		FD4CD7D51CCD168700659D9D /* SubjectForMemberCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectForMemberCenterTableViewCell.h; sourceTree = "<group>"; };
+		FD4CD7D61CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectForMemberCenterTableViewCell.m; sourceTree = "<group>"; };
+		FD4CD7D71CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectForMemberCenterTableViewCell.xib; sourceTree = "<group>"; };
 		FD4E51351CC118FD00061830 /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		FD4E51361CC118FD00061830 /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		FD4E51371CC118FD00061830 /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -1952,6 +1957,9 @@
 				FDF3FE331CA81F52007B7C83 /* MySubjectPageController.m */,
 				FDF3FE341CA81F52007B7C83 /* MySubjectTableViewController.h */,
 				FDF3FE351CA81F52007B7C83 /* MySubjectTableViewController.m */,
+				FD4CD7D51CCD168700659D9D /* SubjectForMemberCenterTableViewCell.h */,
+				FD4CD7D61CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m */,
+				FD4CD7D71CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib */,
 			);
 			path = Subject;
 			sourceTree = "<group>";
@@ -2101,6 +2109,7 @@
 				FD9450F61CA8398800E00759 /* menu_add_comment@2x.png in Resources */,
 				F795DF611CB40BB8002BCDEE /* LocationCityTableViewCell.xib in Resources */,
 				FD9450EA1CA8353400E00759 /* menu_create@2x.png in Resources */,
+				FD4CD7D91CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib in Resources */,
 				F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */,
 				FD3E6E281CC8F4D2006246AC /* UMSShareListController.xib in Resources */,
 				FD3B00541CC6236F00DA0166 /* app_timeline_done@2x.png in Resources */,
@@ -2320,6 +2329,7 @@
 				FD3DFE881CBDDB7F00CD9E3A /* FriendTableViewCell.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
+				FD4CD7D81CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m in Sources */,
 				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
 				FDDFA9681CBA9B63001827BE /* VerifyUtil.m in Sources */,
 				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
