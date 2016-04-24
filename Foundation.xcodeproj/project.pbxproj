@@ -53,6 +53,7 @@
 		F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F741A6461C8F38E4008DC72B /* BookTableViewCell.m */; };
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
 		F748184D1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */; };
+		F748184F1CCD40DB00CEEE3A /* app_loading_img_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F748184E1CCD40DA00CEEE3A /* app_loading_img_big@2x.png */; };
 		F74C9AE21CBB8B1300C7A607 /* LXPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */; };
 		F74C9AF61CBE1DE300C7A607 /* EYInputPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE61CBE1DE300C7A607 /* EYInputPopupView.m */; };
 		F74C9AF71CBE1DE300C7A607 /* EYPopupView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F74C9AE71CBE1DE300C7A607 /* EYPopupView.bundle */; };
@@ -410,6 +411,7 @@
 		F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		F748184B1CCBD3EC00CEEE3A /* PostSubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostSubjectTableViewController.h; sourceTree = "<group>"; };
 		F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostSubjectTableViewController.m; sourceTree = "<group>"; };
+		F748184E1CCD40DA00CEEE3A /* app_loading_img_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_loading_img_big@2x.png"; sourceTree = "<group>"; };
 		F74C9AE01CBB8B1300C7A607 /* LXPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPhotoPicker.h; sourceTree = "<group>"; };
 		F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPhotoPicker.m; sourceTree = "<group>"; };
 		F74C9AE51CBE1DE300C7A607 /* EYInputPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYInputPopupView.h; sourceTree = "<group>"; };
@@ -1323,6 +1325,7 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F748184E1CCD40DA00CEEE3A /* app_loading_img_big@2x.png */,
 				FD405EB21CCBA8D9005AD869 /* app_collect@2x.png */,
 				FD405EB31CCBA8D9005AD869 /* app_comment@2x.png */,
 				FD405EB41CCBA8D9005AD869 /* app_read@2x.png */,
@@ -2163,6 +2166,7 @@
 				F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */,
 				FDE26AD61C9BF8B8003418D5 /* person_event@2x.png in Resources */,
 				FD9450EB1CA8353400E00759 /* menu_my_post@2x.png in Resources */,
+				F748184F1CCD40DB00CEEE3A /* app_loading_img_big@2x.png in Resources */,
 				FDE2D98E1CA3D341008DDE4F /* app_label@2x.png in Resources */,
 				FD94510A1CA843DD00E00759 /* zl08@2x.png in Resources */,
 				FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */,

@@ -10,6 +10,7 @@
 #import "ActivityTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
 #import "MyActivityPageController.h"
+#import "StatusDict.h"
 
 @interface ActivityListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -21,6 +22,10 @@
 @property (nonatomic,assign) NSInteger currentData1Index;
 @property (nonatomic,assign) NSInteger currentData2Index;
 @property (nonatomic,assign) NSInteger currentData3Index;
+//条件值
+@property (nonatomic,strong) NSString *orderBy;
+@property (nonatomic,strong) NSString *city;
+@property (nonatomic,strong) NSString *typeCode;
 @end
 
 @implementation ActivityListViewController
@@ -31,6 +36,7 @@
     [self initRefreshControl];
     [self initSearchConditionView];
     [self addRightItem];
+    self.typeCode = @"all";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,12 +77,26 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                 @{
 //                                  @"SEQ_typeCode":@"",
-//                                  @"IIN_status":@"2",
+                                  @"IEQ_bizStatus":@"2",
 //                                  @"SEQ_city":@0,
                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                 }];
+    //    条件1
+    if (self.orderBy != nil) {
+        [dict setObject:self.orderBy forKey:@"SEQ_orderBy"];
+        
+    }
+    //    条件2
+    if (self.city != nil) {
+        [dict setObject:self.city forKey:@"SEQ_city"];
+        
+    }
+    //    条件3
+    if (![self.typeCode isEqualToString:@"all"]) {
+        [dict setObject:self.typeCode forKey:@"SEQ_typeCode"];
+        
+    }
     NSString *jsonStr = [StringUtil dictToJson:dict];
-    
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
@@ -129,16 +149,16 @@
     self.data2 = @[
                    @[@"",@"全国"],
                    @[@"1",@"线上"],
-                   @[@"0",[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].locatedCityName : @"定位失败"]
+                   @[[LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
                    ];
-    self.data3 = @[
-                   @[@"",@"全部"],
-                   @[@"0",@"创业门诊"],
-                   @[@"1",@"天使有约"],
-                   @[@"2",@"创业沙龙"],
-                   @[@"4",@"创业课堂"],
-                   @[@"3",@"创业论坛"]
-                   ];
+    NSMutableArray *names = [NSMutableArray array];
+    [names addObject:@[@"all",@"全部"]];
+    NSArray *array = [StatusDict activityType];
+    for (NSDictionary *dict in array) {
+        [names addObject:@[dict[@"typeCode"],dict[@"typeName"]]];
+    }
+    
+    self.data3 = names;
     JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
     menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
@@ -206,74 +226,21 @@
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     //    清空
     [self.tableViewDelegate.dataArray removeAllObjects];
+    [self.tableView reloadData];
     //    页码归零
     self.page.pageNo = 1;
     if (indexPath.column == 0) {
         _currentData1Index = indexPath.row;
-        /**刷新表格*/
-        [self fetchData];
+        self.orderBy = self.data1[indexPath.row][0];
     } else if(indexPath.column == 1){
-        [self fetchData];
         _currentData2Index = indexPath.row;
+        self.city = self.data2[indexPath.row][0];
     } else{
-        [self fetchData];
         _currentData3Index = indexPath.row;
+        self.typeCode = self.data3[indexPath.row][0];
     }
+    /**刷新表格*/
+    [self fetchData];
 }
 
-///**创连接项目*/
-//- (void)fetchProjectData{
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
-//                                 @{
-//                                   //@"SEQ_typeCode":@"",
-////                                   @"SEQ_area":@2,
-////                                   @"SEQ_bizCode":
-////                                   @"SEQ_processStatusCode":项目阶段状态
-////                                    @"SEQ_financeProcCode":融资情况
-////                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
-//                                   }];
-//    NSString *jsonStr = [StringUtil dictToJson:dict];
-//    
-//    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-//    NSLog(@"json:%@",param);
-//    [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-////        self.dataArray = responseObject[@"result"];
-////        [self.tableView reloadData];
-//        NSLog(@"responseObject:%@",responseObject);
-//    }];
-//}
-//
-///**创活动投资人*/
-//- (void)fetchInvestorData{
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
-//                                 @{
-//
-//                                   }];
-//    NSString *jsonStr = [StringUtil dictToJson:dict];
-//    
-//    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-//    NSLog(@"json:%@",param);
-//    [self.service GET:@"/personal/info/queryInvestorInfoDtoList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-////        self.dataArray = responseObject[@"result"];
-////        [self.tableView reloadData];
-//        NSLog(@"responseObject:%@",responseObject);
-//    }];
-//}
-//
-///**创活动投资人*/
-//- (void)fetchSubjectData{
-//    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
-//                                 @{
-//                                   @"SEQ_specialCode":@"zl0001"
-//                                   }];
-//    NSString *jsonStr = [StringUtil dictToJson:dict];
-//    
-//    NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-//    NSLog(@"json:%@",param);
-//    [self.service GET:@"/book/postSubject/queryPostSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        //        self.dataArray = responseObject[@"result"];
-//        //        [self.tableView reloadData];
-//        NSLog(@"responseObject:%@",responseObject);
-//    }];
-//}
 @end
