@@ -185,6 +185,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="创连接" id="MMz-ER-4Wa"/>
                     <connections>
+                        <outlet property="investorCountLabel" destination="HG8-gE-W6R" id="X3T-x1-9VS"/>
+                        <outlet property="projectCountLabel" destination="dne-df-cgb" id="T6N-nj-sKl"/>
                         <outlet property="wrappedTableView" destination="XNb-qD-tci" id="gOo-Sw-ita"/>
                     </connections>
                 </tableViewController>
