@@ -62,7 +62,8 @@
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode
+                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode,
+                                   @"SEQ_orderBy":self.SEQ_orderBy
                                    }];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
