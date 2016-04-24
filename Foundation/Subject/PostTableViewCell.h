@@ -14,4 +14,6 @@
 @property (nonatomic,strong) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (nonatomic,strong) IBOutlet UILabel *praiseCountLabel;
+//点赞按钮
+@property (weak, nonatomic) IBOutlet UIButton *praiseButton;
 @end

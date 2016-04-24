@@ -150,6 +150,7 @@
 
 //单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    回复组
     if (indexPath.section == 1) {
         PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"post"];
         NSDictionary *object = self.dataArray[indexPath.row];
@@ -161,11 +162,15 @@
         cell.realnameLabel.text = object[@"realName"] == [NSNull null] ? @"匿名用户" : object[@"realName"];
         /**发布时间*/
         cell.pbDateTimeLabel.text = [DateUtil toShortDate:object[@"pbDate"] time:object[@"pbTime"]];
-        /**回复数*/
+        /**点赞数*/
         cell.praiseCountLabel.text = object[@"praiseCount"];
         cell.contentLabel.text = object[@"content"];
+        //    因为这次没有分组，所以可使用tag传值，不用UIControlStateDisabled更方便
+        cell.praiseButton.tag = indexPath.row;
+        [cell.praiseButton addTarget:self action:@selector(praiseButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
         return cell;
     }
+//    默认主帖组
     SubjectDetailTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"SubjectDetailTableViewCell" owner:nil options:nil] firstObject];
     //    读取值
     cell.titleLabel.text = [StringUtil toString:self.dict[@"title"]];
@@ -195,4 +200,22 @@
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
+///点赞
+- (void)praiseButtonPress:(UIButton *)sender {
+    NSDictionary *param = @{
+                            @"replyId": self.dataArray[sender.tag][@"replyId"]
+
+                            };
+    [self.service POST:@"book/postReply/praiseReply" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"点赞成功"];
+//        改图标为蓝
+        [sender setImage:[UIImage imageNamed:@""] forState:(UIControlStateNormal)];
+//        禁止再次点击
+        sender.enabled = NO;
+//        赞数+1
+        PostTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:sender.tag inSection:1]];
+        NSInteger newPraiseCount = [cell.praiseCountLabel.text integerValue] + 1;
+        cell.praiseCountLabel.text = [NSString stringWithFormat:@"%zi",newPraiseCount];
+    } noResult:nil];
+}
 @end
