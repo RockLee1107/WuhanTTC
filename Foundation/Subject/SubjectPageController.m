@@ -47,14 +47,14 @@
         self.titleColorSelected = MAIN_COLOR;
         //为不同页面设置相对应的标签，每一个key对应一个values
                 self.keys = @[
-                              @"SEQ_orderBy",
-                              @"SEQ_orderBy",
-                              @"SEQ_orderBy"
+                              @"condition",
+                              @"condition",
+                              @"condition"
                               ];
                 self.values = @[
                                 @"createdDate,createdTime",
                                 @"replyCount",
-                                @"createdDate,createdTime"
+                                @"createdDate,createdTime|1"
                                 ];
     }
     return self;

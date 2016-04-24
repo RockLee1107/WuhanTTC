@@ -62,9 +62,11 @@
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode,
-                                   @"SEQ_orderBy":self.SEQ_orderBy
+                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode
                                    }];
+    NSArray *array = [self.condition componentsSeparatedByString:@"|"];
+    [dict setObject:[array firstObject] forKey:@"SEQ_orderBy"];
+    [dict setObject:[array lastObject] forKey:@"IEQ_isEssence"];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"/book/postSubject/queryPostSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -72,6 +74,10 @@
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];
             [self.tableView.footer resetNoMoreData];
+        }
+        //当小于每页条数，就判定加载完毕
+        if ([responseObject count] < self.page.pageSize) {
+            [self.tableView.footer noticeNoMoreData];
         }
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];

@@ -10,6 +10,5 @@
 #import "Global.h"
 
 @interface SubjectListViewController : BaseTableViewController
-@property (nonatomic,strong) NSString *SEQ_orderBy;
-//@property (nonatomic,strong) NSString *IEQ_isEssence;
+@property (nonatomic,strong) NSString *condition;
 @end
