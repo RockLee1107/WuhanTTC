@@ -209,7 +209,7 @@
     [self.service POST:@"book/postReply/praiseReply" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"点赞成功"];
 //        改图标为蓝
-        [sender setImage:[UIImage imageNamed:@""] forState:(UIControlStateNormal)];
+        [sender setImage:[UIImage imageNamed:@"app_praise_done"] forState:(UIControlStateNormal)];
 //        禁止再次点击
         sender.enabled = NO;
 //        赞数+1
