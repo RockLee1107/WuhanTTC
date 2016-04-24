@@ -34,10 +34,10 @@
     self.visitorButton.backgroundColor = [UIColor grayColor];
     //    自动登录，调试阶段打开
 #if DEBUG
-    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
+//    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 #endif
-    self.usernameTextField.text = @"13587567910";
-    self.passwordView.textField.text = @"325200";
+//    self.usernameTextField.text = @"13587567910";
+//    self.passwordView.textField.text = @"325200";
 }
 
 ///游客登录

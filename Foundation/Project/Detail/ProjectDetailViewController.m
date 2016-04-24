@@ -93,8 +93,8 @@
     }];
     NSMutableArray *array = [NSMutableArray array];
     [array addObject:item0];
-    [array addObject:item1];
-    [array addObject:item2];
+//    [array addObject:item1];
+//    [array addObject:item2];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页
         [self performSegueWithIdentifier:@"search" sender:nil];
