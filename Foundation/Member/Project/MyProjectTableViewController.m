@@ -56,10 +56,11 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
                                    //                                  @"SEQ_typeCode":@"",
-                                   //                                  @"IIN_status":@"2",
+//                                                                     @"IEQ_status":@"2",
                                    //                                  @"SEQ_city":@0,
                                    //                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
-                                   @"SEQ_userId":[User getInstance].uid
+                                   @"SEQ_userId":[User getInstance].uid,
+                                   @"SEQ_queryType":self.SEQ_queryType
                                    }];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};

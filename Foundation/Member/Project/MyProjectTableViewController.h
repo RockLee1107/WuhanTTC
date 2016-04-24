@@ -9,5 +9,5 @@
 #import "BaseStaticTableViewController.h"
 
 @interface MyProjectTableViewController : BaseStaticTableViewController
-
+@property (nonatomic, strong) NSString *SEQ_queryType;
 @end
