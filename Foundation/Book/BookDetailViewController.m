@@ -193,6 +193,8 @@
                                 @"Collect":[StringUtil dictToJson:@{
                                                                         @"bookId":self.bookId,
                                                                         @"userId":[User getInstance].uid,
+                                                                        @"specialType":self.dataDict[@"specialCode"],
+                                                                        @"bookType":self.dataDict[@"bookType"],
                                                                         @"isAttention":@1
                                                                         }]
                                 };
