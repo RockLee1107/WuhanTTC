@@ -76,9 +76,7 @@
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                 @{
-//                                  @"SEQ_typeCode":@"",
                                   @"IEQ_bizStatus":@"2",
-//                                  @"SEQ_city":@0,
                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                 }];
     //    条件1
@@ -157,7 +155,6 @@
     for (NSDictionary *dict in array) {
         [names addObject:@[dict[@"typeCode"],dict[@"typeName"]]];
     }
-    
     self.data3 = names;
     JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];

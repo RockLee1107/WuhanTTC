@@ -12,6 +12,7 @@
 #import "DTKDropdownMenuView.h"
 #import "MyProjectPageController.h"
 #import "UserInfoTableViewController.h"
+#import "StatusDict.h"
 
 @interface ProjectListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -23,6 +24,10 @@
 @property (nonatomic,assign) NSInteger currentData1Index;
 @property (nonatomic,assign) NSInteger currentData2Index;
 @property (nonatomic,assign) NSInteger currentData3Index;
+//条件值
+@property (nonatomic,strong) NSString *orderBy;
+@property (nonatomic,strong) NSString *city;
+@property (nonatomic,strong) NSString *bizCode;
 @end
 
 @implementation ProjectListViewController
@@ -33,7 +38,7 @@
     [self initRefreshControl];
     [self initSearchConditionView];
     [self addRightItem];
-    // Do any additional setup after loading the view.
+    self.bizCode = @"all";
 }
 
 //上拉下拉控件
@@ -68,11 +73,23 @@
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                   //                                  @"SEQ_typeCode":@"",
-                                   //                                  @"IIN_status":@"2",
-                                   //                                  @"SEQ_city":@0,
-//                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                                                     @"IEQ_status":@"2",
                                    }];
+    //    条件1
+    if (self.orderBy != nil) {
+        [dict setObject:self.orderBy forKey:@"SEQ_orderBy"];
+        
+    }
+    //    条件2
+    if (self.city != nil) {
+        [dict setObject:self.city forKey:@"SEQ_city"];
+        
+    }
+    //    条件3
+    if (![self.bizCode isEqualToString:@"all"]) {
+        [dict setObject:self.bizCode forKey:@"SIN_bizCode"];
+        
+    }
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -135,13 +152,15 @@
                    ];
     self.data2 = @[
                    @[@"",@"全国"],
-                   @[@"0",[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].locatedCityName : @"定位失败"]
+                   @[[LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
                    ];
-    self.data3 = @[
-                   @[@"",@"项目阶段"],
-                   @[@"0",@"项目领域"],
-                   @[@"1",@"融资阶段"]
-                   ];
+    NSMutableArray *names = [NSMutableArray array];
+    [names addObject:@[@"all",@"全部"]];
+    NSArray *array = [StatusDict industry];
+    for (NSDictionary *dict in array) {
+        [names addObject:@[dict[@"bizCode"],dict[@"bizName"]]];
+    }
+    self.data3 = names;
     JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
     menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
@@ -209,19 +228,22 @@
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     //    清空
     [self.tableViewDelegate.dataArray removeAllObjects];
+    [self.tableView reloadData];
     //    页码归零
     self.page.pageNo = 1;
     if (indexPath.column == 0) {
         _currentData1Index = indexPath.row;
-        /**刷新表格*/
-        [self fetchData];
+        self.orderBy = self.data1[indexPath.row][0];
     } else if(indexPath.column == 1){
         [self fetchData];
         _currentData2Index = indexPath.row;
+        self.city = self.data2[indexPath.row][0];
     } else{
         [self fetchData];
         _currentData3Index = indexPath.row;
+        self.bizCode = self.data3[indexPath.row][0];
     }
+    [self fetchData];
 }
 
 @end
