@@ -11,8 +11,12 @@
 #import "PostTableViewCell.h"
 #import "SubjectDetailTableViewCell.h"
 #import "EYPopupViewHeader.h"
+#define AUTHOR_POST @"只看楼主"
+#define ALL_POST @"全部回复"
 
 @interface SubjectDetailTableViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,assign) BOOL flag;
+@property (nonatomic,strong) DTKDropdownMenuView *menuView;
 @end
 
 @implementation SubjectDetailTableViewController
@@ -31,13 +35,35 @@
                                  @{
                                    @"SEQ_subjectId":self.dict[@"subjectId"]
                                    }];
+    [SVProgressHUD showWithStatus:@"正在加载"];
+    if (self.flag) {
+        //服务器有时竟然userId返回null
+        if (self.dataDict[@"userId"] != [NSNull null]) {
+            [dict setObject:self.dataDict[@"userId"] forKey:@"SEQ_userId"];
+        }
+    } else {
+        [dict removeObjectForKey:@"SEQ_userId"];
+    }
     NSString *jsonStr = [StringUtil dictToJson:dict];
     
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"/book/postSubject/getSubjectDetail" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        self.dataDict = responseObject;
         self.dataArray = responseObject[@"postReplyDto"];
         [self.tableView reloadData];
     } noResult:nil];
+}
+
+///切换楼主或全部回复
+- (void)switchAuthorOrAllPost {
+    //self.flag作为我的评论与全部评论的标识
+    DTKDropdownItem *postItem = [self.menuView.items objectAtIndex:1];
+    postItem.title = self.flag ? AUTHOR_POST : ALL_POST;
+    self.flag = !self.flag;
+    //访问网络
+    self.page.pageNo = 1;
+    [self fetchData];
 }
 
 ///导航栏下拉菜单
@@ -69,7 +95,7 @@
                                }];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"只看楼主" iconName:@"menu_auther" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        [self switchAuthorOrAllPost];
     }];
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"回复" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"回复帖子" contentText:@"请填写回复内容(1-200字)"
@@ -107,6 +133,7 @@
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+    self.menuView = menuView;
 }
 
 #pragma mark - tb代理方法
