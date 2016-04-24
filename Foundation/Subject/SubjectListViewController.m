@@ -65,8 +65,13 @@
                                    @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode
                                    }];
     NSArray *array = [self.condition componentsSeparatedByString:@"|"];
-    [dict setObject:[array firstObject] forKey:@"SEQ_orderBy"];
-    [dict setObject:[array lastObject] forKey:@"IEQ_isEssence"];
+    //硬编码@"1"
+    if([[array lastObject] isEqualToString:@"1"]) {
+        [dict setObject:[array firstObject] forKey:@"SEQ_orderBy"];
+        [dict setObject:[array lastObject] forKey:@"IEQ_isEssence"];
+    } else {
+        [dict setObject:self.condition forKey:@"SEQ_orderBy"];
+    }
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"/book/postSubject/queryPostSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
