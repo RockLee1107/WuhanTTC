@@ -6,9 +6,9 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
+#import "BaseStaticTableViewController.h"
 #import "Global.h"
 
-@interface SubjectListViewController : BaseTableViewController
+@interface SubjectListViewController : BaseStaticTableViewController
 @property (nonatomic,strong) NSString *condition;
 @end

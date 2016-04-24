@@ -12,7 +12,7 @@
 #import "SubTabBarController.h"
 
 @interface SubjectListViewController ()
-@property (strong, nonatomic) BaseTableView *tableView;
+//@property (strong, nonatomic) BaseTableView *tableView;
 @end
 
 @implementation SubjectListViewController
@@ -26,8 +26,9 @@
 
 //代码生成表格
 - (void)initTableView {
-    self.tableView = [[BaseTableView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:self.tableView];
+//    self.tableView = [[BaseTableView alloc] initWithFrame:self.view.frame];
+//    [self.view addSubview:self.tableView];
+    [self setDynamicLayout];
 }
 
 //上拉下拉控件
