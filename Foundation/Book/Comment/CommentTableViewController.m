@@ -154,6 +154,7 @@
     cell.praiseCountLabel.text = [dict[@"praiseCount"] stringValue];
     cell.pbtimeLabel.text = [DateUtil toShortDateCN:dict[@"pbDate"] time:dict[@"pbTime"]];
     cell.contentLabel.text = [StringUtil toString:dict[@"comment"]];
+//    cell.contentLabel.attributedText =
 //    点赞按钮
     [cell.praiseButton setTitle:dict[@"commentId"] forState:(UIControlStateDisabled)];
 //    因为是分组，所以不使用tag传值，而用UIControlStateDisabled更方便
@@ -182,13 +183,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //muti line
+    //fit muti line
+    NSString *str = nil;
     if (indexPath.section == 0) {
         //热门评论
-        NSString *
+        str = self.dataDict[@"hotComments"][indexPath.row][@"comment"];
+    } else {
+        str = self.allCommentsArray[indexPath.row][@"comment"];
     }
-    [StringUtil heightToFit:];
-    return 80.0;
+    return [StringUtil heightToFit:str] + 55;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

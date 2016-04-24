@@ -49,7 +49,7 @@
     return [labelStrArray componentsJoinedByString:@","];
 }
 
-///自适应TextView高度
+///标准文本格式，大小16，间距7
 + (NSDictionary *)textViewAttribute {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = 7;
@@ -61,9 +61,14 @@
 }
 
 ///适配多行文本，返回文本应有高度，行数相关
-- (CGFloat)heightToFit:(NSString *)str {
-    NSDictionary *attribute = [StringUtil textViewAttribute];
-    CGRect frame = [str boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX) options:((NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)) attributes:attribute context:nil];
++ (CGFloat)heightToFit:(NSString *)str {
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 7;
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+    CGRect frame = [str boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX) options:((NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)) attributes:attributes context:nil];
     return frame.size.height;
 }
 @end
