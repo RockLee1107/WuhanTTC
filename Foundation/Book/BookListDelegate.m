@@ -34,7 +34,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BookDetailViewController *vc = [self.vc.storyboard instantiateViewControllerWithIdentifier:@"detail"];
+    BookDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.bookId = self.dataArray[indexPath.row][@"bookId"];
     [self.vc.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

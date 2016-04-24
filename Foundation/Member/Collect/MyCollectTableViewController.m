@@ -21,6 +21,7 @@
     [self initDelegate];
     [self initRefreshControl];
     [self fetchData];
+    self.navigationItem.title = @"我的收藏";
 }
 
 //初始化代理
@@ -56,7 +57,6 @@
                                                                                 @"SEQ_collectUserId":[User getInstance].uid                                                                     }];
     
     if (self.specialCode != nil) {
-#warning speCode key name
         [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
     }
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
