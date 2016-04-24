@@ -147,7 +147,7 @@
     self.data2 = @[
                    @[@"",@"全国"],
                    @[@"1",@"线上"],
-                   @[[LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
+                   @[[LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
                    ];
     NSMutableArray *names = [NSMutableArray array];
     [names addObject:@[@"all",@"全部"]];
