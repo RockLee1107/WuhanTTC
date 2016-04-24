@@ -42,16 +42,16 @@
         self.titleSizeSelected = 15.0;
         self.titleColorSelected = MAIN_COLOR;
         //为不同页面设置相对应的标签，每一个key对应一个values
-//        self.keys = @[
-//                      @"key",
-//                      @"key",
-//                      @"key"
-//                      ];
-//        self.values = @[
-//                        @"1",
-//                        @"1",
-//                        @"1"
-//                        ];
+        self.keys = @[
+                      @"uri",
+                      @"uri",
+                      @"uri"
+                      ];
+        self.values = @[
+                        @"queryActivityList",
+                        @"getApplyActivity",
+                        @"getAttentionActivity"
+                        ];
     }
     return self;
 }

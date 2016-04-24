@@ -9,5 +9,6 @@
 #import "BaseStaticTableViewController.h"
 
 @interface MyActivityTableViewController : BaseStaticTableViewController
+@property (nonatomic, strong) NSString *uri;
 
 @end

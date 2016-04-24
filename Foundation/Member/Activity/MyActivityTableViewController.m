@@ -67,7 +67,7 @@
                                 }];
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service GET:[NSString stringWithFormat:@"/activity/%@",self.uri] parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];
