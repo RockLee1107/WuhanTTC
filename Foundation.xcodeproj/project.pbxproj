@@ -54,6 +54,7 @@
 		F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F741A6471C8F38E4008DC72B /* BookTableViewCell.xib */; };
 		F748184D1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */; };
 		F748184F1CCD40DB00CEEE3A /* app_loading_img_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F748184E1CCD40DA00CEEE3A /* app_loading_img_big@2x.png */; };
+		F74818521CCDCB7D00CEEE3A /* ContributeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74818511CCDCB7C00CEEE3A /* ContributeTableViewController.m */; };
 		F74C9AE21CBB8B1300C7A607 /* LXPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */; };
 		F74C9AF61CBE1DE300C7A607 /* EYInputPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74C9AE61CBE1DE300C7A607 /* EYInputPopupView.m */; };
 		F74C9AF71CBE1DE300C7A607 /* EYPopupView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F74C9AE71CBE1DE300C7A607 /* EYPopupView.bundle */; };
@@ -412,6 +413,8 @@
 		F748184B1CCBD3EC00CEEE3A /* PostSubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostSubjectTableViewController.h; sourceTree = "<group>"; };
 		F748184C1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostSubjectTableViewController.m; sourceTree = "<group>"; };
 		F748184E1CCD40DA00CEEE3A /* app_loading_img_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_loading_img_big@2x.png"; sourceTree = "<group>"; };
+		F74818501CCDCB7C00CEEE3A /* ContributeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContributeTableViewController.h; sourceTree = "<group>"; };
+		F74818511CCDCB7C00CEEE3A /* ContributeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContributeTableViewController.m; sourceTree = "<group>"; };
 		F74C9AE01CBB8B1300C7A607 /* LXPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPhotoPicker.h; sourceTree = "<group>"; };
 		F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPhotoPicker.m; sourceTree = "<group>"; };
 		F74C9AE51CBE1DE300C7A607 /* EYInputPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EYInputPopupView.h; sourceTree = "<group>"; };
@@ -1107,6 +1110,8 @@
 				FD9450DF1CA82ECA00E00759 /* AboutTableViewController.m */,
 				FD405EB81CCBADF2005AD869 /* CopyrightViewController.h */,
 				FD405EB91CCBADF2005AD869 /* CopyrightViewController.m */,
+				F74818501CCDCB7C00CEEE3A /* ContributeTableViewController.h */,
+				F74818511CCDCB7C00CEEE3A /* ContributeTableViewController.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -2283,6 +2288,7 @@
 				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
 				FD066CE91CB8EB09001A132A /* ActionSheetLocalePicker.m in Sources */,
 				FD9450D71CA82BD400E00759 /* SubjectPageController.m in Sources */,
+				F74818521CCDCB7D00CEEE3A /* ContributeTableViewController.m in Sources */,
 				FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */,
 				FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
