@@ -69,7 +69,25 @@
 ///导航栏下拉菜单
 - (void)addRightItem
 {
+    NSDictionary *param = @{
+                            @"subjectId":self.dict[@"subjectId"]
+                            };
     //    __weak typeof(self) weakSelf = self;
+    DTKDropdownItem *itemBm0 = [DTKDropdownItem itemWithTitle:@"关闭本帖" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
+        [self.service POST:@"book/postSubject/closeSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"帖子关闭成功"];
+        } noResult:nil];
+    }];
+    DTKDropdownItem *itemBm1 = [DTKDropdownItem itemWithTitle:@"置顶" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
+        [self.service POST:@"book/postSubject/topSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"帖子置顶成功"];
+        } noResult:nil];
+    }];
+    DTKDropdownItem *itemBm2 = [DTKDropdownItem itemWithTitle:@"加精" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
+        [self.service POST:@"book/postSubject/essenceSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"帖子加精成功"];
+        } noResult:nil];
+    }];
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"举报" iconName:@"menu_report" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"举报帖子" contentText:@"请填写举报内容(1-200字)"
                                       type:EYInputPopupView_Type_multi_line
@@ -122,7 +140,16 @@
                                    
                                }];
     }];
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1,item2] icon:@"ic_menu"];
+    NSMutableArray *array = [NSMutableArray array];
+    if ([[User getInstance].isBm boolValue]) {
+        [array addObject:itemBm0];
+        [array addObject:itemBm1];
+        [array addObject:itemBm2];
+    }
+    [array addObject:item0];
+    [array addObject:item1];
+    [array addObject:item2];
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;

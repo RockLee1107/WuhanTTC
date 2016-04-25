@@ -37,7 +37,7 @@
     [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 #endif
     self.usernameTextField.text = @"13587567910";
-    self.usernameTextField.text = @"18658350723";
+//    self.usernameTextField.text = @"18658350723";
     self.passwordView.textField.text = @"325200";
 }
 
@@ -60,8 +60,10 @@
         user.username = responseObject[@"username"];
         user.realname = responseObject[@"realName"];
         user.uid = responseObject[@"userId"];
-        //是否管理员，文献列表选择用此传值
+        //是否APP管理员，文献列表选择用此传值
         user.isAdmin = responseObject[@"userInfo"][@"isAdmin"];
+        //是否社区管理员，文献列表选择用此传值
+        user.isBm = responseObject[@"userInfo"][@"isBm"];
         if (
             responseObject[@"userInfo"][@"realName"] != [NSNull null]
             && responseObject[@"userInfo"][@"company"] != [NSNull null]

@@ -14,6 +14,7 @@
 @property (nonatomic,strong,nonnull) NSString *uid;
 @property (nonnull,strong) NSNumber *hasInfo;
 @property (nonatomic,strong,nonnull) NSNumber *isAdmin;
+@property (nonatomic,strong,nonnull) NSNumber *isBm;
 - (void)logout;
 - (BOOL)isLogin;
 @end
