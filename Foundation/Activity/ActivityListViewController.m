@@ -77,7 +77,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                 @{
                                   @"IEQ_bizStatus":@"2",
-                                  @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                  @"SEQ_orderBy":@"planDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                 }];
     //    条件1
     if (self.orderBy != nil) {
