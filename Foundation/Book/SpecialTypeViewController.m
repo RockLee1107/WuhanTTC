@@ -10,8 +10,8 @@
 #import "SubTabBarController.h"
 #import "SpecialTypeTableViewCell.h"
 #import "DTKDropdownMenuView.h"
-//temp import
-#import "MyCollectPageController.h"
+#import "ContributeTableViewController.h"
+
 @interface SpecialTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -76,17 +76,11 @@
 - (void)addRightItem
 {
 //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item = [DTKDropdownItem itemWithTitle:@"我的收藏" iconName:@"menu_contribute" callBack:^(NSUInteger index, id info) {
-        MyCollectPageController *vc = [[MyCollectPageController alloc] init];
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_essential" callBack:^(NSUInteger index, id info) {
+        ContributeTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"contribute"];
         [self.navigationController pushViewController:vc animated:YES];
     }];
-//    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"原创投稿" iconName:@"menu_contribute" callBack:^(NSUInteger index, id info) {
-//        [SVProgressHUD showSuccessWithStatus:@"^_^"];
-//    }];
-//    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_essential" callBack:^(NSUInteger index, id info) {
-//        [SVProgressHUD showSuccessWithStatus:@"^_^"];
-//    }];
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页
         [self performSegueWithIdentifier:@"search" sender:nil];
     }];

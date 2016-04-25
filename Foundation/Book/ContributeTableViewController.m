@@ -36,13 +36,14 @@
         return;
     }
     NSDictionary *param = @{
-                            @"PostSubject":[StringUtil dictToJson:@{
-                                                                    @"title":self.titleTextField.text,
-                                                                    @"content":self.contentTextView.text
+                            @"Contribute":[StringUtil dictToJson:@{
+                                                                    @"url":self.titleTextField.text,
+                                                                    @"content":self.contentTextView.text,
+                                                                    @"type":@"0"
                                                                     }]
                             };
     [self.service POST:@"book/contribute" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+        [SVProgressHUD showSuccessWithStatus:@"推荐成功"];
         [self.navigationController popViewControllerAnimated:YES];
     } noResult:nil];
 }
