@@ -192,6 +192,7 @@
 		FD4CD7DD1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7DB1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m */; };
 		FD4CD7DE1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7DC1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib */; };
 		FD4CD7E11CCD1B4B00659D9D /* MyReplyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */; };
+		FD4CD7E41CCE437B00659D9D /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7E31CCE437B00659D9D /* LXWebView.m */; };
 		FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51361CC118FD00061830 /* AJGradientView.m */; };
 		FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */; };
 		FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */; };
@@ -661,6 +662,8 @@
 		FD4CD7DC1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyForMemberCenterTableViewCell.xib; sourceTree = "<group>"; };
 		FD4CD7DF1CCD1B4B00659D9D /* MyReplyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReplyTableViewController.h; sourceTree = "<group>"; };
 		FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReplyTableViewController.m; sourceTree = "<group>"; };
+		FD4CD7E21CCE437B00659D9D /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
+		FD4CD7E31CCE437B00659D9D /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
 		FD4E51351CC118FD00061830 /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		FD4E51361CC118FD00061830 /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		FD4E51371CC118FD00061830 /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -1001,6 +1004,8 @@
 				F74C9AE11CBB8B1300C7A607 /* LXPhotoPicker.m */,
 				FD3B00451CC4C04300DA0166 /* ImageUtil.h */,
 				FD3B00461CC4C04300DA0166 /* ImageUtil.m */,
+				FD4CD7E21CCE437B00659D9D /* LXWebView.h */,
+				FD4CD7E31CCE437B00659D9D /* LXWebView.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2340,6 +2345,7 @@
 				FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */,
 				FD4462731CAC967900F7E12F /* PostTableViewCell.m in Sources */,
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
+				FD4CD7E41CCE437B00659D9D /* LXWebView.m in Sources */,
 				FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */,

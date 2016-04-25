@@ -13,9 +13,10 @@
 #import "VerifyUtil.h"
 #import "CommentTableViewController.h"
 #import "CopyrightViewController.h"
+#import "LXWebView.h"
 
 @interface BookDetailViewController ()<UIWebViewDelegate>
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet LXWebView *webView;
 @property (assign, nonatomic) CGFloat introWebViewHeight;
 //是否已经加载网页
 @property (assign, nonatomic) BOOL isLoadedWeb;
