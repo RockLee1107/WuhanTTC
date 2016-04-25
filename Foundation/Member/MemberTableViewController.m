@@ -92,25 +92,25 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-#warning appstore
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        return 0.01;
-    }
-    if (indexPath.section == 2 && indexPath.row == 1) {
-        return 0.01;
-    }
-    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-}
+//#warning appstore
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.section == 1 && indexPath.row == 0) {
+//        return 0.01;
+//    }
+//    if (indexPath.section == 2 && indexPath.row == 1) {
+//        return 0.01;
+//    }
+//    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+//}
 
-#warning appstore
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        return [UITableViewCell new];
-    }
-    if (indexPath.section == 2 && indexPath.row == 1) {
-        return [UITableViewCell new];
-    }
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
-}
+//#warning appstore
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.section == 1 && indexPath.row == 0) {
+//        return [UITableViewCell new];
+//    }
+//    if (indexPath.section == 2 && indexPath.row == 1) {
+//        return [UITableViewCell new];
+//    }
+//    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+//}
 @end

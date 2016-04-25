@@ -9,5 +9,6 @@
 #import "BaseStaticTableViewController.h"
 
 @interface MyNoteTableViewController : BaseStaticTableViewController
+@property (nonatomic, strong) NSString *bookId;
 
 @end

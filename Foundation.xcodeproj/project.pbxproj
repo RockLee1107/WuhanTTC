@@ -193,6 +193,8 @@
 		FD4CD7DE1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7DC1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.xib */; };
 		FD4CD7E11CCD1B4B00659D9D /* MyReplyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */; };
 		FD4CD7E41CCE437B00659D9D /* LXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7E31CCE437B00659D9D /* LXWebView.m */; };
+		FD4CD7E81CCE686D00659D9D /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD7E61CCE686D00659D9D /* NoteTableViewCell.m */; };
+		FD4CD7E91CCE686D00659D9D /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD7E71CCE686D00659D9D /* NoteTableViewCell.xib */; };
 		FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51361CC118FD00061830 /* AJGradientView.m */; };
 		FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E51381CC118FD00061830 /* AJPhotoGroupCell.m */; };
 		FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E513A1CC118FD00061830 /* AJPhotoGroupView.m */; };
@@ -664,6 +666,9 @@
 		FD4CD7E01CCD1B4B00659D9D /* MyReplyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReplyTableViewController.m; sourceTree = "<group>"; };
 		FD4CD7E21CCE437B00659D9D /* LXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXWebView.h; sourceTree = "<group>"; };
 		FD4CD7E31CCE437B00659D9D /* LXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXWebView.m; sourceTree = "<group>"; };
+		FD4CD7E51CCE686D00659D9D /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
+		FD4CD7E61CCE686D00659D9D /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		FD4CD7E71CCE686D00659D9D /* NoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		FD4E51351CC118FD00061830 /* AJGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJGradientView.h; sourceTree = "<group>"; };
 		FD4E51361CC118FD00061830 /* AJGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJGradientView.m; sourceTree = "<group>"; };
 		FD4E51371CC118FD00061830 /* AJPhotoGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoGroupCell.h; sourceTree = "<group>"; };
@@ -1967,6 +1972,9 @@
 				FDF3FE2E1CA81F52007B7C83 /* MyNotePageController.m */,
 				FDF3FE2F1CA81F52007B7C83 /* MyNoteTableViewController.h */,
 				FDF3FE301CA81F52007B7C83 /* MyNoteTableViewController.m */,
+				FD4CD7E51CCE686D00659D9D /* NoteTableViewCell.h */,
+				FD4CD7E61CCE686D00659D9D /* NoteTableViewCell.m */,
+				FD4CD7E71CCE686D00659D9D /* NoteTableViewCell.xib */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -2100,6 +2108,7 @@
 				FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */,
 				FD9450E41CA831A800E00759 /* menu_essential@2x.png in Resources */,
 				FD3E6E2B1CC8F4D2006246AC /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				FD4CD7E91CCE686D00659D9D /* NoteTableViewCell.xib in Resources */,
 				F7EB9B9B1CAB6788005343AC /* app_pwd_visible@2x.png in Resources */,
 				F73B78C61C81414900069EEE /* icon_activity_normal@2x.png in Resources */,
 				FDE26ADE1C9C287A003418D5 /* app_user_icon@2x.png in Resources */,
@@ -2282,6 +2291,7 @@
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				FDE2D9561CA369CF008DDE4F /* MASViewAttribute.m in Sources */,
 				F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */,
+				FD4CD7E81CCE686D00659D9D /* NoteTableViewCell.m in Sources */,
 				FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
 				FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */,
