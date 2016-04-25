@@ -123,8 +123,11 @@
 
 //height for web
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3) {
+    if (indexPath.row == 4) {
         return self.introWebViewHeight;
+    } else if (!(indexPath.row == 0 && [[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] == 1)) {
+        //待发布按钮
+        return 0.01;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
@@ -216,7 +219,24 @@
             [share shareWithUrl];
         } noResult:nil];
     }];
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1,item2,item3] icon:@"ic_menu"];
+    DTKDropdownItem *item4;
+    item4 = [DTKDropdownItem itemWithTitle:@"文献发布" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
+        NSDictionary *param = @{
+                                @"bookId":self.bookId
+                            };
+        [self.service POST:@"book/appPublish" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+        } noResult:nil];
+    }];
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:item0];
+    [array addObject:item1];
+    [array addObject:item2];
+    [array addObject:item3];
+    if ([[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] == 1) {
+        [array addObject:item4];
+    }
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
