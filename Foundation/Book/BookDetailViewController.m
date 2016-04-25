@@ -48,6 +48,10 @@
         self.navigationItem.title = responseObject[@"specialName"];
 //        title
         self.captionLabel.text = responseObject[@"title"];
+        if ([[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] != 1) {
+            self.captionLabel.textColor = [UIColor redColor];
+            self.captionLabel.text = [NSString stringWithFormat:@"%@[待发布]",responseObject[@"title"]];
+        }
 //        date
         self.publishDateLabel.text = [DateUtil toString:responseObject[@"publishDate"]];
         //nums
@@ -123,11 +127,8 @@
 
 //height for web
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 4) {
+    if (indexPath.row == 3) {
         return self.introWebViewHeight;
-    } else if (!(indexPath.row == 0 && [[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] == 1)) {
-        //待发布按钮
-        return 0.01;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
@@ -219,8 +220,7 @@
             [share shareWithUrl];
         } noResult:nil];
     }];
-    DTKDropdownItem *item4;
-    item4 = [DTKDropdownItem itemWithTitle:@"文献发布" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item4 = [DTKDropdownItem itemWithTitle:@"文献发布" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
         NSDictionary *param = @{
                                 @"bookId":self.bookId
                             };
@@ -233,8 +233,11 @@
     [array addObject:item1];
     [array addObject:item2];
     [array addObject:item3];
-    if ([[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] == 1) {
-        [array addObject:item4];
+    if (self.dataDict != nil) {
+        //说明已经网络加载过了
+        if ([[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] != 1) {
+            [array addObject:item4];
+        }
     }
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;
