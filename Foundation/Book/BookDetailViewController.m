@@ -14,6 +14,7 @@
 #import "CommentTableViewController.h"
 #import "CopyrightViewController.h"
 #import "LXWebView.h"
+#import "SingletonObject.h"
 
 @interface BookDetailViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet LXWebView *webView;
@@ -42,6 +43,8 @@
     NSDictionary *param = @{@"bookId":self.bookId};
     [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];
+        [SingletonObject getInstance].pid = self.bookId;
+        [SingletonObject getInstance].pVal = responseObject[@"bookName"];
         self.footContentView.hidden = NO;
         self.dataDict = responseObject;
 //        NSString *cssStr = @"<style>img{width:100%;}</style>";

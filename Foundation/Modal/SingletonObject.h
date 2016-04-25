@@ -11,4 +11,5 @@
 @interface SingletonObject : NSObject
 + (instancetype)getInstance;
 @property (nonatomic,strong) NSString *pid;
+@property (nonatomic,strong) NSString *pVal;
 @end

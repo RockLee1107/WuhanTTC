@@ -10,6 +10,10 @@
 #import "HttpService.h"
 #import "SVProgressHUD.h"
 #import "StringUtil.h"
+#import "SingletonObject.h"
+#import "EYInputPopupView.h"
+#import "VerifyUtil.h"
+#import "User.h"
 
 @implementation LXWebView
 
@@ -34,19 +38,34 @@
     [self copy:nil];
     UIPasteboard *pasteBoard =[UIPasteboard generalPasteboard];
     if (pasteBoard.string != nil) {
-//        访问网络
-        NSDictionary *param = @{
-                                @"NoteBook":[StringUtil dictToJson:@{
-                                                                     @"bookExcerpt":pasteBoard.string,
-                                                                     @"bookId":@"",
-                                                                     @"excerptType":@"1"
-                                                                     //remark
-                                                                     }]
-                                };
-        [[HttpService getInstance] POST:@"personal/notebook/saveNote" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"添加成功"];
-        } noResult:nil];
-        //DLog(@"%@", pasteBoard.string);
+//        弹窗
+        [EYInputPopupView popViewWithTitle:@"添加笔记" contentText:@"摘录文字限500字以内哦"
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:500]) {
+                                       [SVProgressHUD showErrorWithStatus:@"摘录文字限500字以内哦"];
+                                       return ;
+                                   }
+                                   //        访问网络
+                                   NSDictionary *param = @{
+                                                           @"NoteBook":[StringUtil dictToJson:@{
+                                                                                                @"bookExcerpt":pasteBoard.string,
+                                                                                                @"bookId":[SingletonObject getInstance].pid,
+                                                                                                @"bookName":[SingletonObject getInstance].pVal,
+                                                                                                @"excerptType":@"1",
+                                                                                                @"userId":[User getInstance].uid,
+                                                                                                @"remark":text
+                                                                                                }]
+                                                           };
+                                   [[HttpService getInstance] POST:@"personal/notebook/saveNote" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
+                               }
+         ];
     }
 }
 
