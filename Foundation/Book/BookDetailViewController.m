@@ -14,7 +14,6 @@
 #import "CommentTableViewController.h"
 #import "CopyrightViewController.h"
 #import "LXWebView.h"
-#import "SingletonObject.h"
 
 @interface BookDetailViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet LXWebView *webView;
@@ -38,13 +37,14 @@
     [self setDynamicLayout];
     self.webView.delegate = self;
     self.webView.scrollView.scrollEnabled = NO;
+    [self.webView customMenu];
     self.footContentView.hidden = YES;
     [SVProgressHUD showWithStatus:@"正在加载"];
     NSDictionary *param = @{@"bookId":self.bookId};
     [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];
-        [SingletonObject getInstance].pid = self.bookId;
-        [SingletonObject getInstance].pVal = responseObject[@"bookName"];
+        self.webView.bookId = self.bookId;
+        self.webView.bookName = responseObject[@"title"];
         self.footContentView.hidden = NO;
         self.dataDict = responseObject;
 //        NSString *cssStr = @"<style>img{width:100%;}</style>";

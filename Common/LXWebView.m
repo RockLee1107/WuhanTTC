@@ -10,28 +10,16 @@
 #import "HttpService.h"
 #import "SVProgressHUD.h"
 #import "StringUtil.h"
-#import "SingletonObject.h"
 #import "EYInputPopupView.h"
 #import "VerifyUtil.h"
 #import "User.h"
 
 @implementation LXWebView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"添加笔记" action:@selector(note:)];
-        UIMenuController *menu =[UIMenuController sharedMenuController];
-        [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
-    }
-    return self;
+- (void)customMenu {
+    UIMenuItem *flag = [[UIMenuItem alloc] initWithTitle:@"添加笔记" action:@selector(note:)];
+    UIMenuController *menu =[UIMenuController sharedMenuController];
+    [menu setMenuItems:[NSArray arrayWithObjects:flag, nil]];
 }
 
 - (void)note:(id)sender{
@@ -52,8 +40,8 @@
                                    NSDictionary *param = @{
                                                            @"NoteBook":[StringUtil dictToJson:@{
                                                                                                 @"bookExcerpt":pasteBoard.string,
-                                                                                                @"bookId":[SingletonObject getInstance].pid,
-                                                                                                @"bookName":[SingletonObject getInstance].pVal,
+                                                                                                @"bookId":self.bookId,
+                                                                                                @"bookName":self.bookName,
                                                                                                 @"excerptType":@"1",
                                                                                                 @"userId":[User getInstance].uid,
                                                                                                 @"remark":text

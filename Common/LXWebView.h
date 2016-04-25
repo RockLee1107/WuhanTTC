@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LXWebView : UIWebView
-
+@property (nonatomic,strong) NSString *bookId;
+@property (nonatomic,strong) NSString *bookName;
+- (void)customMenu;
 @end
