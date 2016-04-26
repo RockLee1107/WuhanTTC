@@ -18,8 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchData];
+    [self initRefreshControl];
     [self setDynamicLayout];
+}
+
+//上拉下拉控件
+- (void)initRefreshControl {
+    /**上拉刷新、下拉加载*/
+    __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        weakSelf.page.pageNo = 1;
+        [weakSelf fetchData];
+        [weakSelf.tableView.header endRefreshing];
+    }];
+    [self.tableView.legendHeader beginRefreshing];
 }
 
 ///请求网络
