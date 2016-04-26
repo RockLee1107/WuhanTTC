@@ -9,6 +9,8 @@
 #import "BookListDelegate.h"
 #import "BookTableViewCell.h"
 #import "BookDetailViewController.h"
+#import "HttpService.h"
+#import "MyCollectTableViewController.h"
 
 @implementation BookListDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -43,5 +45,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
+}
+
+//单元格删除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *param = @{
+                                @"bookId":dict[@"bookId"],
+                                @"delType":@"bookId"
+                                };
+        [[HttpService getInstance] POST:@"personal/collect/cancelCollect" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            tableView.editing = NO;
+            MyCollectTableViewController *vc = (MyCollectTableViewController *)self.vc;
+            vc.page.pageNo = 1;
+            [vc fetchData];
+        } noResult:nil];
+    }
 }
 @end

@@ -59,4 +59,21 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 75.0;
 }
+
+//单元格删除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *param = @{
+                                @"specialCode":dict[@"specialCode"],
+                                @"delType":@"specialCode"
+                                };
+        [[HttpService getInstance] POST:@"personal/collect/cancelCollect" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            tableView.editing = NO;
+            self.page.pageNo = 1;
+            [self fetchData];
+        } noResult:nil];
+    }
+}
 @end

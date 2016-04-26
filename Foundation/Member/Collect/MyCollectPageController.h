@@ -7,8 +7,8 @@
 //
 
 #import "Global.h"
-#import "WMPageController.h"
+#import "LXPageController.h"
 
-@interface MyCollectPageController : WMPageController
+@interface MyCollectPageController : LXPageController
 
 @end
