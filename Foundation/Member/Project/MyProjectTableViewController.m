@@ -47,6 +47,16 @@
 - (void)initDelegate {
     self.tableViewDelegate = [[ProjectTableViewDelegate alloc] init];
     self.tableViewDelegate.vc = self;
+    //    硬编码判断类型，先行强转
+    ProjectTableViewDelegate *tableViewDelegate = (ProjectTableViewDelegate *)self.tableViewDelegate;
+    self.tableViewDelegate = tableViewDelegate;
+    NSDictionary *dict = @{
+                           @"CREATE":@"create",
+                           @"JOIN":@"join",
+                           @"ATTENTION":@"attention",
+                           @"RECEIVED":@"received"
+                           };
+    tableViewDelegate.delType = dict[self.SEQ_queryType];
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }

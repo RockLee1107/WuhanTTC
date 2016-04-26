@@ -9,5 +9,5 @@
 #import "BaseTableViewDelegate.h"
 
 @interface ProjectTableViewDelegate : BaseTableViewDelegate
-
+@property (nonatomic,strong) NSString *delType;
 @end

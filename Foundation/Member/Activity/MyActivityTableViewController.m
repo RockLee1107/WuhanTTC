@@ -51,16 +51,15 @@
 - (void)initDelegate {
     self.tableViewDelegate = [[ActivityTableViewDelegate alloc] init];
     self.tableViewDelegate.vc = self;
-//    硬编码判断类型，先行强转
+//    通过字典判断类型，先行强转
     ActivityTableViewDelegate *tableViewDelegate = (ActivityTableViewDelegate *)self.tableViewDelegate;
     self.tableViewDelegate = tableViewDelegate;
-    if ([self.uri isEqualToString:@"queryActivityList"]) {
-        tableViewDelegate.delType = @"create";
-    } else if ([self.uri isEqualToString:@"getApplyActivity"]) {
-        tableViewDelegate.delType = @"join";
-    } else if ([self.uri isEqualToString:@"getAttentionActivity"]){
-        tableViewDelegate.delType = @"attention";
-    }
+    NSDictionary *dict = @{
+                           @"queryActivityList":@"create",
+                           @"getApplyActivity":@"join",
+                           @"getAttentionActivity":@"attention"
+                           };
+    tableViewDelegate.delType = dict[self.uri];
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }

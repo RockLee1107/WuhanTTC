@@ -10,4 +10,5 @@
 
 @interface MyProjectTableViewController : BaseStaticTableViewController
 @property (nonatomic, strong) NSString *SEQ_queryType;
+- (void)fetchData;
 @end

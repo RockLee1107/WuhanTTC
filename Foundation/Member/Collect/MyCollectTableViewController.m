@@ -28,6 +28,7 @@
 - (void)initDelegate {
     self.tableViewDelegate = [[BookListDelegate alloc] init];
     self.tableViewDelegate.vc = self;
+    //    先行强转
     BookListDelegate *tableViewDelegate = (BookListDelegate *)self.tableViewDelegate;
     tableViewDelegate.shouldEditing = YES;
     self.tableViewDelegate = tableViewDelegate;

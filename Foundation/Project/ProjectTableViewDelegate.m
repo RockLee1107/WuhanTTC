@@ -10,6 +10,8 @@
 #import "ProjectTableViewCell.h"
 #import "ProjectDetailViewController.h"
 #import "SingletonObject.h"
+#import "HttpService.h"
+#import "MyProjectTableViewController.h"
 
 @implementation ProjectTableViewDelegate
 #pragma mark - tb代理方法
@@ -41,5 +43,31 @@
     [SingletonObject getInstance].pid = object[@"projectId"];
     ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     [self.vc.navigationController pushViewController:vc animated:YES];
+}
+
+//可编辑-包括左滑删除
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delType) {
+        return YES;
+    }
+    return NO;
+}
+
+//单元格删除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *param = @{
+                                @"projectId":dict[@"projectId"],
+                                @"delType":self.delType
+                                };
+        [[HttpService getInstance] POST:@"project/delProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            tableView.editing = NO;
+            MyProjectTableViewController *vc = (MyProjectTableViewController *)self.vc;
+            vc.page.pageNo = 1;
+            [vc fetchData];
+        } noResult:nil];
+    }
 }
 @end
