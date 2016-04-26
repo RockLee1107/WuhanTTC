@@ -28,6 +28,8 @@
 + (NSString *)dateToTimePart:(NSDate *)date;
 ///20160808->2016年08月
 + (NSString *)toYYYYMMCN:(id)str;
+///20160808->2016-08
++ (NSString *)toYYYYMMDD:(id)str;
 ///转非全年份的日期时间，分别传入日期与时间，CN环境
 + (NSString *)toShortDateCN:(id)date time:(id)time;
 @end

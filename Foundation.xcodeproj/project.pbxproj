@@ -208,6 +208,9 @@
 		FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514B1CC118FD00061830 /* AJPhotoZoomingScrollView.m */; };
 		FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E514D1CC118FD00061830 /* AJTapDetectingView.m */; };
 		FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */; };
+		FD4F43C01CCF06F1005BF414 /* NoteByBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43BE1CCF06F1005BF414 /* NoteByBookTableViewCell.m */; };
+		FD4F43C11CCF06F1005BF414 /* NoteByBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4F43BF1CCF06F1005BF414 /* NoteByBookTableViewCell.xib */; };
+		FD4F43C41CCF08CE005BF414 /* MyNoteByBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43C31CCF08CE005BF414 /* MyNoteByBookTableViewController.m */; };
 		FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */; };
 		FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */; };
 		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
@@ -695,6 +698,11 @@
 		FD4E515A1CC11A5500061830 /* AJPhotoPickerGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJPhotoPickerGallery.h; sourceTree = "<group>"; };
 		FD4E515B1CC11A5500061830 /* AJPhotoPickerGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJPhotoPickerGallery.m; sourceTree = "<group>"; };
 		FD4E515D1CC11E5C00061830 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		FD4F43BD1CCF06F1005BF414 /* NoteByBookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteByBookTableViewCell.h; sourceTree = "<group>"; };
+		FD4F43BE1CCF06F1005BF414 /* NoteByBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteByBookTableViewCell.m; sourceTree = "<group>"; };
+		FD4F43BF1CCF06F1005BF414 /* NoteByBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteByBookTableViewCell.xib; sourceTree = "<group>"; };
+		FD4F43C21CCF08CE005BF414 /* MyNoteByBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNoteByBookTableViewController.h; sourceTree = "<group>"; };
+		FD4F43C31CCF08CE005BF414 /* MyNoteByBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNoteByBookTableViewController.m; sourceTree = "<group>"; };
 		FD5AA8701CCA0C3E002FD276 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -1975,6 +1983,11 @@
 				FD4CD7E51CCE686D00659D9D /* NoteTableViewCell.h */,
 				FD4CD7E61CCE686D00659D9D /* NoteTableViewCell.m */,
 				FD4CD7E71CCE686D00659D9D /* NoteTableViewCell.xib */,
+				FD4F43BD1CCF06F1005BF414 /* NoteByBookTableViewCell.h */,
+				FD4F43BE1CCF06F1005BF414 /* NoteByBookTableViewCell.m */,
+				FD4F43BF1CCF06F1005BF414 /* NoteByBookTableViewCell.xib */,
+				FD4F43C21CCF08CE005BF414 /* MyNoteByBookTableViewController.h */,
+				FD4F43C31CCF08CE005BF414 /* MyNoteByBookTableViewController.m */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -2089,6 +2102,7 @@
 				FD4462801CAD1C7F00F7E12F /* SubjectDetailTableViewCell.xib in Resources */,
 				FD891A461CABE32B00706B4D /* login_qq@2x.png in Resources */,
 				FD3B00551CC6236F00DA0166 /* app_timeline_undone@2x.png in Resources */,
+				FD4F43C11CCF06F1005BF414 /* NoteByBookTableViewCell.xib in Resources */,
 				FD9450F71CA8398800E00759 /* menu_collect@2x.png in Resources */,
 				FD3E6E251CC8F4D2006246AC /* UMShareEditViewControlleriPad.xib in Resources */,
 				FD3E6E271CC8F4D2006246AC /* UMSnsAccountViewController.xib in Resources */,
@@ -2284,6 +2298,7 @@
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F795DF5D1CB40BB8002BCDEE /* HotCityTableViewCell.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
+				FD4F43C01CCF06F1005BF414 /* NoteByBookTableViewCell.m in Sources */,
 				FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */,
 				F73B78A71C81375600069EEE /* MJRefreshGifHeader.m in Sources */,
 				F74C9AE21CBB8B1300C7A607 /* LXPhotoPicker.m in Sources */,
@@ -2308,6 +2323,7 @@
 				FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
+				FD4F43C41CCF08CE005BF414 /* MyNoteByBookTableViewController.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				FD3B00501CC61DCE00DA0166 /* ProcessTableViewController.m in Sources */,
 				F741A6481C8F38E4008DC72B /* BookTableViewCell.m in Sources */,

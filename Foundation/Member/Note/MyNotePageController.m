@@ -8,6 +8,7 @@
 
 #import "MyNotePageController.h"
 #import "MyNoteTableViewController.h"
+#import "MyNoteByBookTableViewController.h"
 
 @interface MyNotePageController ()
 
@@ -27,7 +28,7 @@
     if (self) {
         NSArray *viewControllerClasses = @[
                                            [MyNoteTableViewController class],
-                                           [MyNoteTableViewController class]
+                                           [MyNoteByBookTableViewController class]
                                            ];
         NSArray *titles = @[
                             @"按时间",

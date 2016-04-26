@@ -116,6 +116,18 @@
     return [NSString stringWithFormat:@"%@年%@月",month,day];
 }
 
+///20160808->2016-08
++ (NSString *)toYYYYMMDD:(id)str {
+    if (str == [NSNull null]) {
+        return @"";
+    }
+    NSString *dateStr = str;
+    NSString *year = [dateStr substringWithRange:NSMakeRange(0, 4)];
+    NSString *month = [dateStr substringWithRange:NSMakeRange(4, 2)];
+    NSString *day = [dateStr substringWithRange:NSMakeRange(6, 2)];
+    return [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
+}
+
 ///转非全年份的日期时间，分别传入日期与时间
 + (NSString *)toShortDateCN:(id)date time:(id)time {
     NSString *datePart = [DateUtil toShortDateCN:date];
