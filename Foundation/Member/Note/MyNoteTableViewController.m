@@ -83,17 +83,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
     NoteTableViewCell *cell;
-    if ([dict[@"excerptType"] integerValue] == 1) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"NoteTableViewCell" owner:nil options:nil] lastObject];
+    if ([dict[@"excerptType"] integerValue] == 0) {
+        //0为图片，1为文字
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"NoteTableViewCell" owner:nil options:nil] firstObject];
         //加载图片
         NSString *url = [StringUtil toString:dict[@"bookExcerpt"]];
         cell.avatarImageView.clipsToBounds = YES;
         [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
-    } else if ([dict[@"excerptType"] integerValue] == 0) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"NoteTableViewCell" owner:nil options:nil] firstObject];
+    } else if ([dict[@"excerptType"] integerValue] == 1) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"NoteTableViewCell" owner:nil options:nil] lastObject];
         //加载摘录
         cell.bookExcerptLabel.text = [StringUtil toString:dict[@"bookExcerpt"]];
     }
+    cell.bookExcerptLabel.text = [StringUtil toString:dict[@"bookExcerpt"]];
     cell.remarkLabel.text = dict[@"remark"];
     cell.bookNameLabel.text = [StringUtil toString:dict[@"bookName"]];
     cell.createdDatetimeLabel.text = [DateUtil toString:dict[@"createdDate"] time:self.dataArray[indexPath.row][@"createdTime"]];
@@ -116,11 +118,11 @@
                                NSDictionary *param = @{
                                                        @"NoteBook":[StringUtil dictToJson:@{
                                                                                             @"id":dict[@"id"],
-//                                                                                            @"bookExcerpt":dict[@"bookExcerpt"],
+                                                                                            @"bookExcerpt":dict[@"bookExcerpt"],
                                                                                             @"bookId":dict[@"bookId"],
-//                                                                                            @"bookName":dict[@"bookName"],
+                                                                                            @"bookName":dict[@"bookName"],
                                                                                             @"excerptType":dict[@"excerptType"],
-//                                                                                            @"userId":[User getInstance].uid,
+                                                                                            @"userId":[User getInstance].uid,
                                                                                             @"remark":text
                                                                                             }]
                                                        };

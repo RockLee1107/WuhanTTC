@@ -220,7 +220,7 @@
                 <outlet property="createdDatetimeLabel" destination="oLq-yh-Vkw" id="0fL-a8-ARD"/>
                 <outlet property="remarkLabel" destination="jJ2-Ne-VDH" id="pwn-Fn-39e"/>
             </connections>
-            <point key="canvasLocation" x="520" y="630"/>
+            <point key="canvasLocation" x="520" y="327"/>
         </tableViewCell>
     </objects>
 </document>
