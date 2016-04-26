@@ -211,6 +211,7 @@
 		FD4F43C01CCF06F1005BF414 /* NoteByBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43BE1CCF06F1005BF414 /* NoteByBookTableViewCell.m */; };
 		FD4F43C11CCF06F1005BF414 /* NoteByBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4F43BF1CCF06F1005BF414 /* NoteByBookTableViewCell.xib */; };
 		FD4F43C41CCF08CE005BF414 /* MyNoteByBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43C31CCF08CE005BF414 /* MyNoteByBookTableViewController.m */; };
+		FD4F43C71CCF1580005BF414 /* LXPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43C61CCF1580005BF414 /* LXPageController.m */; };
 		FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */; };
 		FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */; };
 		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
@@ -703,6 +704,8 @@
 		FD4F43BF1CCF06F1005BF414 /* NoteByBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteByBookTableViewCell.xib; sourceTree = "<group>"; };
 		FD4F43C21CCF08CE005BF414 /* MyNoteByBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNoteByBookTableViewController.h; sourceTree = "<group>"; };
 		FD4F43C31CCF08CE005BF414 /* MyNoteByBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNoteByBookTableViewController.m; sourceTree = "<group>"; };
+		FD4F43C51CCF1580005BF414 /* LXPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPageController.h; sourceTree = "<group>"; };
+		FD4F43C61CCF1580005BF414 /* LXPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPageController.m; sourceTree = "<group>"; };
 		FD5AA8701CCA0C3E002FD276 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -1310,6 +1313,8 @@
 				F7A61E751CA04CCB001B5FB3 /* WMPageConst.h */,
 				F7A61E761CA04CCB001B5FB3 /* WMPageController.h */,
 				F7A61E771CA04CCB001B5FB3 /* WMPageController.m */,
+				FD4F43C51CCF1580005BF414 /* LXPageController.h */,
+				FD4F43C61CCF1580005BF414 /* LXPageController.m */,
 			);
 			path = WMPageController;
 			sourceTree = "<group>";
@@ -2341,6 +2346,7 @@
 				FD066CEB1CB8EB09001A132A /* DistancePickerView.m in Sources */,
 				F74C9AF91CBE1DE300C7A607 /* EYTagPopupView.m in Sources */,
 				FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */,
+				FD4F43C71CCF1580005BF414 /* LXPageController.m in Sources */,
 				FDF3FE3B1CA81F52007B7C83 /* MyNoteTableViewController.m in Sources */,
 				FDE2D9581CA369CF008DDE4F /* NSArray+MASAdditions.m in Sources */,
 				FDE2D95A1CA369CF008DDE4F /* View+MASAdditions.m in Sources */,
