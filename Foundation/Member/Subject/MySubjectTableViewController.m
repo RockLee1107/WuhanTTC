@@ -106,7 +106,7 @@
                                 @"subjectId":dict[@"subjectId"],
                                 @"delType":@"create"
                                 };
-        [[HttpService getInstance] POST:@"post/delPost" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[HttpService getInstance] POST:@"post/delPostSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"删除成功"];
             tableView.editing = NO;
             self.page.pageNo = 1;
