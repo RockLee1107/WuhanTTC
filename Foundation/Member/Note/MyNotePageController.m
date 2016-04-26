@@ -25,10 +25,12 @@
 
 
 - (void)edit:(UIBarButtonItem *)item {
-    NSDictionary *info = @{
-                           @"target":@"note"
-                           };
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"editNotifi" object:nil userInfo:info];
+//    NSDictionary *info = @{
+//                           @"target":@"note"
+//                           };
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"editNotifi" object:nil userInfo:info];
+    UITableViewController *vc = (UITableViewController *)self.currentViewController;
+    vc.editing = YES;
 }
 
 - (instancetype)init{

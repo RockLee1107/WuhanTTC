@@ -22,8 +22,7 @@
     [self initRefreshControl];
     [self fetchData];
     self.navigationItem.title = @"我的笔记";
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(edit:) name:@"editNotifi" object:nil];
-//    self.editing = YES;
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(edit:) name:@"editNotifi" object:nil];
 }
 
 - (void)edit:(NSDictionary *)info{
