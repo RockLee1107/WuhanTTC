@@ -147,14 +147,20 @@
     return 100;
 }
 
-//单元格是否可编辑
-//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return YES;
-//}
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//
-//    }
-//}
+//单元格删除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataMutableArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *param = @{
+                                @"noteId":dict[@"id"],
+                                @"delType":@"noteId"
+                                };
+        [self.service POST:@"personal/notebook/delNoteBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            tableView.editing = NO;
+            self.page.pageNo = 1;
+            [self fetchData];
+        } noResult:nil];
+    }
+}
 @end

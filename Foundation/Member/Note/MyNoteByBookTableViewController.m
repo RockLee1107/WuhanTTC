@@ -97,23 +97,20 @@
     return 60;
 }
 
-//单元格是否可编辑
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
+//单元格删除
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataMutableArray[indexPath.row];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //        NSNumber *favorId = self.dataArray[indexPath.row][@"favorite_id"];
-        //        NSDictionary *param = @{
-        //                                @"favorite_id":favorId
-        //                                };
-        //        HttpService *service = [HttpService getInstance];
-        //        [service POST:@"favoriteAction!delFav" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
-        //            FavorTableViewController *vc = (FavorTableViewController *)self.vc;
-        //            [vc fetchData];
-        //        }];
+        NSDictionary *param = @{
+                                @"bookId":dict[@"bookId"],
+                                @"delType":@"bookId"
+                                };
+        [self.service POST:@"personal/notebook/delNoteBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            tableView.editing = NO;
+            self.page.pageNo = 1;
+            [self fetchData];
+        } noResult:nil];
     }
 }
 @end
