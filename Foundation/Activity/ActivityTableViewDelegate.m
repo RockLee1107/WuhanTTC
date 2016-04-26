@@ -9,6 +9,7 @@
 #import "ActivityTableViewDelegate.h"
 #import "ActivityTableViewCell.h"
 #import "ActivityDetailViewController.h"
+#import "MyActivityTableViewController.h"
 
 @implementation ActivityTableViewDelegate
 #pragma mark - tb代理方法
@@ -43,5 +44,31 @@
     ActivityDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.activityId = object[@"activityId"];
     [self.vc.navigationController pushViewController:vc animated:YES];
+}
+
+//可编辑-包括左滑删除
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delType) {
+        return YES;
+    }
+    return NO;
+}
+
+//单元格删除
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *param = @{
+                                @"activityId":dict[@"activityId"],
+                                @"delType":self.delType
+                                };
+        [[HttpService getInstance] POST:@"activity/delActivity" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            tableView.editing = NO;
+            MyActivityTableViewController *vc = (MyActivityTableViewController *)self.vc;
+            vc.page.pageNo = 1;
+            [vc fetchData];
+        } noResult:nil];
+    }
 }
 @end

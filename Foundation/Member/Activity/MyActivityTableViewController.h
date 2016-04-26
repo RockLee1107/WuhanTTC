@@ -10,5 +10,5 @@
 
 @interface MyActivityTableViewController : BaseStaticTableViewController
 @property (nonatomic, strong) NSString *uri;
-
+- (void)fetchData;
 @end
