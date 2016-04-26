@@ -22,6 +22,11 @@
     UIImage *backBarItemImage = [[UIImage imageNamed:@"arrow_left"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [backItem setBackButtonBackgroundImage:backBarItemImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem = backItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:(UIBarButtonItemStyleBordered) target:self action:@selector(edit:)];
 }
 
+- (void)edit:(UIBarButtonItem *)item {
+    UITableViewController *vc = (UITableViewController *)self.currentViewController;
+    vc.editing = !vc.editing;
+}
 @end

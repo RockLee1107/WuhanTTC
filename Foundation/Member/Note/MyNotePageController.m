@@ -20,17 +20,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"我的笔记";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:(UIBarButtonItemStyleBordered) target:self action:@selector(edit:)];
-}
-
-
-- (void)edit:(UIBarButtonItem *)item {
-//    NSDictionary *info = @{
-//                           @"target":@"note"
-//                           };
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"editNotifi" object:nil userInfo:info];
-    UITableViewController *vc = (UITableViewController *)self.currentViewController;
-    vc.editing = YES;
 }
 
 - (instancetype)init{

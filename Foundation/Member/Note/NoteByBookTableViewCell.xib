@@ -22,16 +22,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="241" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bzq-53-Ofr">
-                        <rect key="frame" x="259" y="21" width="27" height="18"/>
+                        <rect key="frame" x="259" y="20" width="27" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="27" id="xJp-Md-qfz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.56862745100000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="文章标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ0-wq-3Ny">
-                        <rect key="frame" x="8" y="30" width="243" height="20"/>
+                        <rect key="frame" x="8" y="30" width="233" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                 <constraints>
                     <constraint firstItem="LZ0-wq-3Ny" firstAttribute="top" secondItem="mMn-BI-vn7" secondAttribute="bottom" constant="5" id="6jg-SJ-PCb"/>
                     <constraint firstAttribute="leadingMargin" secondItem="LZ0-wq-3Ny" secondAttribute="leading" id="DTw-j4-Lag"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="LZ0-wq-3Ny" secondAttribute="trailing" constant="28" id="XTB-HF-KjV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LZ0-wq-3Ny" secondAttribute="trailing" constant="38" id="XTB-HF-KjV"/>
                     <constraint firstItem="mMn-BI-vn7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="aph-Gt-F4P"/>
                     <constraint firstAttribute="leadingMargin" secondItem="mMn-BI-vn7" secondAttribute="leading" id="vFd-cS-pQG"/>
                 </constraints>

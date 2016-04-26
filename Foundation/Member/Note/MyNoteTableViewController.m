@@ -22,7 +22,6 @@
     [self initRefreshControl];
     [self fetchData];
     self.navigationItem.title = @"我的笔记";
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(edit:) name:@"editNotifi" object:nil];
 }
 
 - (void)edit:(NSDictionary *)info{
@@ -149,22 +148,13 @@
 }
 
 //单元格是否可编辑
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        NSNumber *favorId = self.dataArray[indexPath.row][@"favorite_id"];
-//        NSDictionary *param = @{
-//                                @"favorite_id":favorId
-//                                };
-//        HttpService *service = [HttpService getInstance];
-//        [service POST:@"favoriteAction!delFav" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
-//            FavorTableViewController *vc = (FavorTableViewController *)self.vc;
-//            [vc fetchData];
-//        }];
-    }
-}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//
+//    }
+//}
 @end

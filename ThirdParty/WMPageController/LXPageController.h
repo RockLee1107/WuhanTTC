@@ -9,5 +9,4 @@
 #import "WMPageController.h"
 
 @interface LXPageController : WMPageController
-
 @end
