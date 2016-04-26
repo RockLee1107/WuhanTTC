@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface NoteTableViewCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *createdDatetimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bookNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bookExcerptLabel;
+@property (weak, nonatomic) IBOutlet UILabel *remarkLabel;
 @end
