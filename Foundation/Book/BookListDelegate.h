@@ -9,5 +9,5 @@
 #import "BaseTableViewDelegate.h"
 
 @interface BookListDelegate : BaseTableViewDelegate
-
+@property (nonatomic,assign) BOOL shouldEditing;
 @end

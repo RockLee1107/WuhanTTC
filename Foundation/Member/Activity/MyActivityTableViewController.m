@@ -51,6 +51,16 @@
 - (void)initDelegate {
     self.tableViewDelegate = [[ActivityTableViewDelegate alloc] init];
     self.tableViewDelegate.vc = self;
+//    硬编码判断类型，先行强转
+    ActivityTableViewDelegate *tableViewDelegate = (ActivityTableViewDelegate *)self.tableViewDelegate;
+    self.tableViewDelegate = tableViewDelegate;
+    if ([self.uri isEqualToString:@"queryActivityList"]) {
+        tableViewDelegate.delType = @"create";
+    } else if ([self.uri isEqualToString:@"getApplyActivity"]) {
+        tableViewDelegate.delType = @"join";
+    } else if ([self.uri isEqualToString:@"getAttentionActivity"]){
+        tableViewDelegate.delType = @"attention";
+    }
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }

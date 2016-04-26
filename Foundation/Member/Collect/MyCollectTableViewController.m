@@ -28,6 +28,10 @@
 - (void)initDelegate {
     self.tableViewDelegate = [[BookListDelegate alloc] init];
     self.tableViewDelegate.vc = self;
+    BookListDelegate *tableViewDelegate = (BookListDelegate *)self.tableViewDelegate;
+    tableViewDelegate.shouldEditing = YES;
+    self.tableViewDelegate = tableViewDelegate;
+    
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }
