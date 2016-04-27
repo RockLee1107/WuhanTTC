@@ -14,6 +14,7 @@
 #import "CommentTableViewController.h"
 #import "CopyrightViewController.h"
 #import "LXWebView.h"
+#import "BookSearchByTitleOrOthersTableViewController.h"
 
 @interface BookDetailViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet LXWebView *webView;
@@ -155,12 +156,25 @@
             labelButton.layer.borderColor = [MAIN_COLOR CGColor];
             labelButton.layer.borderWidth = 1.0;
             [labelButton setTitle:labelDict[@"labelName"] forState:(UIControlStateNormal)];
+            labelButton.tag = i;
+            [labelButton addTarget:self action:@selector(searchByLabelId:) forControlEvents:(UIControlEventTouchUpInside)];
             [cell.contentView addSubview:labelButton];
         }
         return cell;
     }
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];
 }
+
+//标签点击事件
+- (void)searchByLabelId:(UIButton *)sender {
+    NSString *labelId = self.dataDict[@"labels"][sender.tag][@"id"];
+    BookSearchByTitleOrOthersTableViewController *vc = [[BookSearchByTitleOrOthersTableViewController alloc] init];
+    vc.keyWords = labelId;
+    vc.type = @"SEQ_labelId";
+    vc.specialCode = self.dataDict[@"specialCode"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 ///导航栏下拉菜单
 - (void)addRightItem
 {
