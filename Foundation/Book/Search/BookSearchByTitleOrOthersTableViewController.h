@@ -9,6 +9,7 @@
 #import "BaseStaticTableViewController.h"
 
 @interface BookSearchByTitleOrOthersTableViewController : BaseStaticTableViewController
+@property (strong, nonatomic) NSString *specialCode;
 @property (strong, nonatomic) NSString *keyWords;
 @property (strong, nonatomic) NSString *type;
 

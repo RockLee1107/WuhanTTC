@@ -26,6 +26,8 @@
         self.navigationItem.title = @"按文章作者搜索";
     } else if ([self.type isEqualToString:@"SLIKE_labelName"]) {
         self.navigationItem.title = @"按文章标签搜索";
+    } else if ([self.type isEqualToString:@"SEQ_labelId"]) {
+        self.navigationItem.title = @"创成长";
     }
     // Do any additional setup after loading the view.
 }
@@ -59,9 +61,13 @@
 
 ///请求网络
 - (void)fetchData {
-    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                     self.type:self.keyWords
-                                                                     }],
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                self.type:self.keyWords
+                                                                                }];
+    if (self.specialCode) {
+        [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
+    }
+    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];

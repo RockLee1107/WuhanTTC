@@ -19,6 +19,9 @@
 @property (strong, nonatomic) NSString *keyWords;
 @property (strong, nonatomic) UIView *gridView;
 @property (strong, nonatomic) Page *hotPage;
+@property (strong, nonatomic) NSArray *labelArray;
+@property (strong, nonatomic) UIButton *leftButton;
+@property (strong, nonatomic) UIButton *rightButton;
 @end
 
 @implementation BookSearchViewController
@@ -37,7 +40,7 @@
     [self initGridView];
     // Do any additional setup after loading the view.
 }
-
+#pragma mark - gridView
 //网格视图-热搜
 - (void)initGridView {
 //    init 容器
@@ -51,13 +54,16 @@
     captionLabel.text = @"大家都在搜:";
     [self.gridView addSubview:captionLabel];
 //    init 右按钮
-    UIButton *rightButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    [rightButton setImage:[UIImage imageNamed:@"app_next.png"] forState:(UIControlStateNormal)];
-    [self.gridView addSubview:rightButton];
+    self.rightButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    [self.rightButton setImage:[UIImage imageNamed:@"app_next.png"] forState:(UIControlStateNormal)];
+    [self.gridView addSubview:self.rightButton];
+    [self.rightButton addTarget:self action:@selector(pageGoNext:) forControlEvents:(UIControlEventTouchUpInside)];
+
 //    init 左按钮
-    UIButton *leftButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-    [leftButton setImage:[UIImage imageNamed:@"app_pre.png"] forState:(UIControlStateNormal)];
-    [self.gridView addSubview:leftButton];
+    self.leftButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    [self.leftButton setImage:[UIImage imageNamed:@"app_pre.png"] forState:(UIControlStateNormal)];
+    [self.gridView addSubview:self.leftButton];
+    [self.leftButton addTarget:self action:@selector(pageGoPre:) forControlEvents:(UIControlEventTouchUpInside)];
 //    update 容器
     [self.gridView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -70,13 +76,13 @@
         make.top.equalTo(self.gridView.mas_top).offset(20);
     }];
 //    update 右按钮
-    [rightButton mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.rightButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.gridView.mas_right).offset(-10);
         make.top.equalTo(self.gridView.mas_top).offset(20);
     }];
 //    update 左按钮
-    [leftButton mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(rightButton.mas_left).offset(-20);
+    [self.leftButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.rightButton.mas_left).offset(-20);
         make.top.equalTo(self.gridView.mas_top).offset(20);
     }];
     [self fetchHotLabel];
@@ -94,36 +100,84 @@
                             };
     [self.service POST:@"book/label/queryHotLabel" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //render grid view
-        for (int i = 0; i < [responseObject count]; i++) {
-            UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
-            [button setTitleColor:MAIN_COLOR forState:(UIControlStateNormal)];
-            button.titleLabel.font = [UIFont systemFontOfSize:15.0];
-            [button setTitle:responseObject[i][@"labelName"] forState:(UIControlStateNormal)];
-            [button setBackgroundColor:[UIColor whiteColor]];
-            button.layer.cornerRadius = 4.0;
-            [self.gridView addSubview:button];
-            [button mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.gridView.mas_top).with.offset(50 + i / 3 * (40 + 10));
-                switch (i % 3) {
-                    case 0:
-                        make.left.equalTo(self.gridView.mas_left).offset(5);
-                        break;
-                    case 1:
-                        make.centerX.equalTo(self.gridView.mas_centerX);
-                        break;
-                    case 2:
-                        make.right.equalTo(self.gridView.mas_right).offset(-5);
-                        break;
-                    default:
-                        break;
-                }
-                make.width.mas_equalTo(SCREEN_WIDTH / 3 - 10);
-                make.height.mas_equalTo(40);
-            }];
+        self.labelArray = responseObject;
+        if ([responseObject count] < 9) {
+            self.rightButton.enabled = NO;
+        } else {
+            self.rightButton.enabled = YES;
         }
+        [self reloadLabel];
     } noResult:nil];
 }
 
+- (void) reloadLabel {
+    //清空原来的Label
+    for (UIView *label in self.gridView.subviews) {
+        if ([label isKindOfClass:[UILabel class]]) {
+            [label removeFromSuperview];
+        }
+    }
+    
+//    加载新的Label
+    for (int i = 0; i < [self.labelArray count]; i++) {
+        UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
+        [button setTitleColor:MAIN_COLOR forState:(UIControlStateNormal)];
+        button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        [button setTitle:self.labelArray[i][@"labelName"] forState:(UIControlStateNormal)];
+        [button setBackgroundColor:[UIColor whiteColor]];
+        button.layer.cornerRadius = 4.0;
+        [self.gridView addSubview:button];
+        button.tag = i;
+        [button addTarget:self action:@selector(searchByLabelId:) forControlEvents:(UIControlEventTouchUpInside)];
+        [button mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.gridView.mas_top).with.offset(50 + i / 3 * (40 + 10));
+            switch (i % 3) {
+                case 0:
+                    make.left.equalTo(self.gridView.mas_left).offset(5);
+                    break;
+                case 1:
+                    make.centerX.equalTo(self.gridView.mas_centerX);
+                    break;
+                case 2:
+                    make.right.equalTo(self.gridView.mas_right).offset(-5);
+                    break;
+                default:
+                    break;
+            }
+            make.width.mas_equalTo(SCREEN_WIDTH / 3 - 10);
+            make.height.mas_equalTo(40);
+        }];
+    }
+}
+
+//标签按钮点击
+- (void)searchByLabelId:(UIButton *)sender {
+    NSString *labelId = self.labelArray[sender.tag][@"id"];
+    BookSearchByTitleOrOthersTableViewController *vc = [[BookSearchByTitleOrOthersTableViewController alloc] init];
+    vc.keyWords = labelId;
+    vc.type = @"SEQ_labelId";
+    if (self.specialCode) {
+        vc.specialCode = self.specialCode;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+//上翻
+- (void)pageGoPre:(UIButton *)sender {
+    if (self.page.pageNo == 1) {
+        [SVProgressHUD showErrorWithStatus:@"已经是第一页了"];
+    } else {
+        self.page.pageNo--;
+    }
+    [self fetchHotLabel];
+}
+
+//下翻
+- (void)pageGoNext:(UIButton *)sender {
+    self.page.pageNo++;
+    [self fetchHotLabel];
+}
+#pragma mark - init
 //初始化代理
 - (void)initDelegate {
     self.tableViewDelegate = [[BookListDelegate alloc] init];
