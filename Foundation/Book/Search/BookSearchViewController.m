@@ -201,9 +201,14 @@
 ///请求网络
 - (void)fetchData {
     self.page.pageSize = 10;
-    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                     @"SLIKE_bookTitle":self.keyWords
-                                                                     }],
+//    specialCode
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                         @"SLIKE_bookTitle":self.keyWords
+                                                                         }];
+    if (self.specialCode) {
+        [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
+    }
+    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.tableViewDelegate.dataArray = responseObject[@"result"];
