@@ -95,8 +95,8 @@
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
-//        [self jumpMain];
-        [self jumpTest];
+        [self jumpMain];
+//        [self jumpTest];
     } noResult:^{
         
     }];

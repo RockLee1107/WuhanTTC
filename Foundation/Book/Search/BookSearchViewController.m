@@ -17,9 +17,10 @@
 @property (strong,nonatomic) UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSString *keyWords;
-@property (strong, nonatomic) UIView *gridView;
+@property (strong, nonatomic) UIView *containerView;
 @property (strong, nonatomic) Page *hotPage;
 @property (strong, nonatomic) NSArray *labelArray;
+@property (strong, nonatomic) UIView *gridView;
 @property (strong, nonatomic) UIButton *leftButton;
 @property (strong, nonatomic) UIButton *rightButton;
 @end
@@ -37,53 +38,64 @@
     self.tableView.scrollEnabled = NO;
     self.hotPage = [[Page alloc] init];
     self.hotPage.pageSize = 9;
-    [self initGridView];
+    [self initContainerView];
     // Do any additional setup after loading the view.
 }
-#pragma mark - gridView
+#pragma mark - containerView
 //网格视图-热搜
-- (void)initGridView {
+- (void)initContainerView {
 //    init 容器
-    self.gridView = [[UIView alloc] init];
-    self.gridView.backgroundColor = [UIColor colorWithWhite:.9 alpha:1.0];
-    [self.view addSubview:self.gridView];
+    self.containerView = [[UIView alloc] init];
+    self.containerView.backgroundColor = [UIColor colorWithWhite:.9 alpha:1.0];
+    [self.view addSubview:self.containerView];
 //    init 标题
     UILabel *captionLabel = [[UILabel alloc] init];
     captionLabel.tintColor = [UIColor darkGrayColor];
     captionLabel.font = [UIFont systemFontOfSize:16.0];
     captionLabel.text = @"大家都在搜:";
-    [self.gridView addSubview:captionLabel];
+    [self.containerView addSubview:captionLabel];
 //    init 右按钮
     self.rightButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
     [self.rightButton setImage:[UIImage imageNamed:@"app_next.png"] forState:(UIControlStateNormal)];
-    [self.gridView addSubview:self.rightButton];
+    [self.containerView addSubview:self.rightButton];
     [self.rightButton addTarget:self action:@selector(pageGoNext:) forControlEvents:(UIControlEventTouchUpInside)];
 
 //    init 左按钮
     self.leftButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
     [self.leftButton setImage:[UIImage imageNamed:@"app_pre.png"] forState:(UIControlStateNormal)];
-    [self.gridView addSubview:self.leftButton];
+    [self.containerView addSubview:self.leftButton];
     [self.leftButton addTarget:self action:@selector(pageGoPre:) forControlEvents:(UIControlEventTouchUpInside)];
+//    init gridView
+    self.gridView = [[UIView alloc] init];
+    [self.containerView addSubview:self.gridView];
 //    update 容器
-    [self.gridView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
         make.top.equalTo(self.view.mas_top).offset(108);
         
     }];
 //    update 标题
     [captionLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.gridView.mas_left).offset(10);
-        make.top.equalTo(self.gridView.mas_top).offset(20);
+        make.left.equalTo(self.containerView.mas_left).offset(10);
+        make.top.equalTo(self.containerView.mas_top).offset(20);
     }];
 //    update 右按钮
     [self.rightButton mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.gridView.mas_right).offset(-10);
-        make.top.equalTo(self.gridView.mas_top).offset(20);
+        make.right.equalTo(self.containerView.mas_right).offset(-10);
+        make.top.equalTo(self.containerView.mas_top).offset(20);
     }];
 //    update 左按钮
     [self.leftButton mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.rightButton.mas_left).offset(-20);
-        make.top.equalTo(self.gridView.mas_top).offset(20);
+        make.top.equalTo(self.containerView.mas_top).offset(20);
+    }];
+//    update gridView
+    [self.gridView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(captionLabel.mas_bottom).offset(10);
+        make.bottom.equalTo(self.containerView.mas_bottom);
+        make.left.equalTo(self.containerView.mas_left);
+        make.right.equalTo(self.containerView.mas_right);
+        
     }];
     [self fetchHotLabel];
 }
@@ -99,7 +111,7 @@
                             @"Page":[StringUtil dictToJson:[self.hotPage dictionary]]
                             };
     [self.service POST:@"book/label/queryHotLabel" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //render grid view
+        //render container view
         self.labelArray = responseObject;
         if ([responseObject count] < 9) {
             self.rightButton.enabled = NO;
@@ -112,9 +124,9 @@
 
 - (void) reloadLabel {
     //清空原来的Label
-    for (UIView *label in self.gridView.subviews) {
-        if ([label isKindOfClass:[UILabel class]]) {
-            [label removeFromSuperview];
+    for (UIView *button in self.gridView.subviews) {
+        if ([button isKindOfClass:[UIButton class]]) {
+            [button removeFromSuperview];
         }
     }
     
@@ -130,7 +142,7 @@
         button.tag = i;
         [button addTarget:self action:@selector(searchByLabelId:) forControlEvents:(UIControlEventTouchUpInside)];
         [button mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.gridView.mas_top).with.offset(50 + i / 3 * (40 + 10));
+            make.top.equalTo(self.gridView.mas_top).with.offset(i / 3 * (40 + 10));
             switch (i % 3) {
                 case 0:
                     make.left.equalTo(self.gridView.mas_left).offset(5);
@@ -164,17 +176,17 @@
 
 //上翻
 - (void)pageGoPre:(UIButton *)sender {
-    if (self.page.pageNo == 1) {
+    if (self.hotPage.pageNo == 1) {
         [SVProgressHUD showErrorWithStatus:@"已经是第一页了"];
     } else {
-        self.page.pageNo--;
+        self.hotPage.pageNo--;
     }
     [self fetchHotLabel];
 }
 
 //下翻
 - (void)pageGoNext:(UIButton *)sender {
-    self.page.pageNo++;
+    self.hotPage.pageNo++;
     [self fetchHotLabel];
 }
 #pragma mark - init
@@ -210,10 +222,10 @@
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if ([searchText isEqualToString:@""]) {
-        self.gridView.hidden = NO;
+        self.containerView.hidden = NO;
 //        self.tableView.hidden = YES;
     } else {
-        self.gridView.hidden = YES;
+        self.containerView.hidden = YES;
 //        self.tableView.hidden = NO;
     }
 }
