@@ -215,6 +215,7 @@
 		FD4F43CB1CD04005005BF414 /* NoteOrCollectTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43CA1CD04005005BF414 /* NoteOrCollectTableHeaderView.m */; };
 		FD4F43CE1CD0565C005BF414 /* app_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4F43CC1CD0565C005BF414 /* app_next@2x.png */; };
 		FD4F43CF1CD0565C005BF414 /* app_pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4F43CD1CD0565C005BF414 /* app_pre@2x.png */; };
+		FD4F43D21CD0A944005BF414 /* FeedBackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43D11CD0A944005BF414 /* FeedBackTableViewController.m */; };
 		FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */; };
 		FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */; };
 		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
@@ -713,6 +714,8 @@
 		FD4F43CA1CD04005005BF414 /* NoteOrCollectTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteOrCollectTableHeaderView.m; sourceTree = "<group>"; };
 		FD4F43CC1CD0565C005BF414 /* app_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_next@2x.png"; sourceTree = "<group>"; };
 		FD4F43CD1CD0565C005BF414 /* app_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_pre@2x.png"; sourceTree = "<group>"; };
+		FD4F43D01CD0A944005BF414 /* FeedBackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackTableViewController.h; sourceTree = "<group>"; };
+		FD4F43D11CD0A944005BF414 /* FeedBackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackTableViewController.m; sourceTree = "<group>"; };
 		FD5AA8701CCA0C3E002FD276 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -1175,6 +1178,8 @@
 				FDE26ACB1C9BF6EE003418D5 /* MemberTableViewController.m */,
 				F795DF461CB408DC002BCDEE /* UserInfoTableViewController.h */,
 				F795DF471CB408DC002BCDEE /* UserInfoTableViewController.m */,
+				FD4F43D01CD0A944005BF414 /* FeedBackTableViewController.h */,
+				FD4F43D11CD0A944005BF414 /* FeedBackTableViewController.m */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -2389,6 +2394,7 @@
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				F74C9AF61CBE1DE300C7A607 /* EYInputPopupView.m in Sources */,
+				FD4F43D21CD0A944005BF414 /* FeedBackTableViewController.m in Sources */,
 				FDE2D9531CA369CF008DDE4F /* MASConstraint.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,

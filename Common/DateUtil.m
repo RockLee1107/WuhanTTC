@@ -149,4 +149,20 @@
 ///20151112090801->2015-11-12
 //+ (NSString *)toDate:(id)str {
 //}
+
+///日期类型转日期时间字符串 20141214235959
++ (NSString *)dateToCompactString:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYYMMddHHmmss"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
+
+///日期类型转日期时间字符串 2014/12/14 23:59
++ (NSString *)dateToCompactStringWithoutSecond:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd HH:mm"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
 @end

@@ -32,4 +32,8 @@
 + (NSString *)toYYYYMMDD:(id)str;
 ///转非全年份的日期时间，分别传入日期与时间，CN环境
 + (NSString *)toShortDateCN:(id)date time:(id)time;
+///日期类型转日期时间字符串 20141214235959
++ (NSString *)dateToCompactString:(NSDate *)date;
+///日期类型转日期时间字符串 2014/12/14 23:59
++ (NSString *)dateToCompactStringWithoutSecond:(NSDate *)date;
 @end
