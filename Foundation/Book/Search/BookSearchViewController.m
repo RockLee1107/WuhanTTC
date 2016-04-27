@@ -10,12 +10,14 @@
 #import "BookListDelegate.h"
 #import "BookSearchTableViewCell.h"
 #import "BookSearchByTitleOrOthersTableViewController.h"
+#import "Masonry.h"
 
 @interface BookSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate ,UISearchDisplayDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *parentTableView;
 @property (strong,nonatomic) UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSString *keyWords;
+@property (strong, nonatomic) UIView *gridView;
 @end
 
 @implementation BookSearchViewController
@@ -29,7 +31,51 @@
     self.searchBar.delegate = self;
     [self.parentTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.tableView.scrollEnabled = NO;
+    [self initGridView];
     // Do any additional setup after loading the view.
+}
+
+//网格视图-热搜
+- (void)initGridView {
+//    init 容器
+    self.gridView = [[UIView alloc] init];
+    self.gridView.backgroundColor = [UIColor colorWithWhite:.9 alpha:1.0];
+    [self.view addSubview:self.gridView];
+//    init 标题
+    UILabel *captionLabel = [[UILabel alloc] init];
+    captionLabel.tintColor = [UIColor darkGrayColor];
+    captionLabel.font = [UIFont systemFontOfSize:15.0];
+    captionLabel.text = @"大家都在搜:";
+    [self.gridView addSubview:captionLabel];
+//    init 右按钮
+    UIButton *rightButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    [rightButton setImage:[UIImage imageNamed:@"app_next.png"] forState:(UIControlStateNormal)];
+    [self.gridView addSubview:rightButton];
+//    init 左按钮
+    UIButton *leftButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    [leftButton setImage:[UIImage imageNamed:@"app_pre.png"] forState:(UIControlStateNormal)];
+    [self.gridView addSubview:leftButton];
+//    update 容器
+    [self.gridView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).offset(108);
+        
+    }];
+//    update 标题
+    [captionLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.gridView.mas_left).offset(10);
+        make.top.equalTo(self.gridView.mas_top).offset(20);
+    }];
+//    update 右按钮
+    [rightButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.gridView.mas_right).offset(-10);
+        make.top.equalTo(self.gridView.mas_top).offset(20);
+    }];
+//    update 左按钮
+    [leftButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(rightButton.mas_left).offset(-20);
+        make.top.equalTo(self.gridView.mas_top).offset(20);
+    }];
 }
 
 //初始化代理
@@ -62,7 +108,15 @@
     [searchBar resignFirstResponder];
     [self fetchData];
 }
-
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if ([searchText isEqualToString:@""]) {
+        self.gridView.hidden = NO;
+//        self.tableView.hidden = YES;
+    } else {
+        self.gridView.hidden = YES;
+//        self.tableView.hidden = NO;
+    }
+}
 #pragma mark - tb delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    共3组

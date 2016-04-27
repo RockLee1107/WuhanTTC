@@ -9,5 +9,5 @@
 #import "BaseTableViewController.h"
 
 @interface BookSearchViewController : BaseTableViewController
-
+@property (nonatomic, strong) NSString *specialCode;
 @end

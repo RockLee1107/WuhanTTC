@@ -14,6 +14,7 @@
 #import "DTKDropdownMenuView.h"
 #import "StatusDict.h"
 #import "ContributeTableViewController.h"
+#import "BookSearchViewController.h"
 
 @interface SearchSpBookListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -144,7 +145,9 @@
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页
-        [self performSegueWithIdentifier:@"search" sender:nil];
+        BookSearchViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"find"];
+        vc.specialCode = ((SubTabBarController *)self.tabBarController).specialCode;
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     menuView.cellColor = MAIN_COLOR;
     menuView.cellHeight = 50.0;

@@ -213,6 +213,8 @@
 		FD4F43C41CCF08CE005BF414 /* MyNoteByBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43C31CCF08CE005BF414 /* MyNoteByBookTableViewController.m */; };
 		FD4F43C71CCF1580005BF414 /* LXPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43C61CCF1580005BF414 /* LXPageController.m */; };
 		FD4F43CB1CD04005005BF414 /* NoteOrCollectTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD4F43CA1CD04005005BF414 /* NoteOrCollectTableHeaderView.m */; };
+		FD4F43CE1CD0565C005BF414 /* app_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4F43CC1CD0565C005BF414 /* app_next@2x.png */; };
+		FD4F43CF1CD0565C005BF414 /* app_pre@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4F43CD1CD0565C005BF414 /* app_pre@2x.png */; };
 		FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */; };
 		FD5AA8741CCA0C3E002FD276 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */; };
 		FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8761CCA10DD002FD276 /* CommentTableViewController.m */; };
@@ -709,6 +711,8 @@
 		FD4F43C61CCF1580005BF414 /* LXPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPageController.m; sourceTree = "<group>"; };
 		FD4F43C91CD04005005BF414 /* NoteOrCollectTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteOrCollectTableHeaderView.h; sourceTree = "<group>"; };
 		FD4F43CA1CD04005005BF414 /* NoteOrCollectTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteOrCollectTableHeaderView.m; sourceTree = "<group>"; };
+		FD4F43CC1CD0565C005BF414 /* app_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_next@2x.png"; sourceTree = "<group>"; };
+		FD4F43CD1CD0565C005BF414 /* app_pre@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_pre@2x.png"; sourceTree = "<group>"; };
 		FD5AA8701CCA0C3E002FD276 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		FD5AA8711CCA0C3E002FD276 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		FD5AA8721CCA0C3E002FD276 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -1357,6 +1361,8 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD4F43CC1CD0565C005BF414 /* app_next@2x.png */,
+				FD4F43CD1CD0565C005BF414 /* app_pre@2x.png */,
 				F748184E1CCD40DA00CEEE3A /* app_loading_img_big@2x.png */,
 				FD405EB21CCBA8D9005AD869 /* app_collect@2x.png */,
 				FD405EB31CCBA8D9005AD869 /* app_comment@2x.png */,
@@ -2139,6 +2145,7 @@
 				FD3B004D1CC61DB800DA0166 /* ProcessTableViewCell.xib in Resources */,
 				FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */,
 				FD9450E41CA831A800E00759 /* menu_essential@2x.png in Resources */,
+				FD4F43CF1CD0565C005BF414 /* app_pre@2x.png in Resources */,
 				FD3E6E2B1CC8F4D2006246AC /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				FD4CD7E91CCE686D00659D9D /* NoteTableViewCell.xib in Resources */,
 				F7EB9B9B1CAB6788005343AC /* app_pwd_visible@2x.png in Resources */,
@@ -2167,6 +2174,7 @@
 				FD405EB61CCBA8D9005AD869 /* app_comment@2x.png in Resources */,
 				FDE26AD81C9BF8B8003418D5 /* person_msg@2x.png in Resources */,
 				FDFD8C581CB92EBF0095FC3C /* app_ok@2x.png in Resources */,
+				FD4F43CE1CD0565C005BF414 /* app_next@2x.png in Resources */,
 				FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */,
 				FD9450F01CA8362100E00759 /* menu_reply@2x.png in Resources */,
 				FD5AA88B1CCA2A8D002FD276 /* BookSearchTableViewCell.xib in Resources */,
