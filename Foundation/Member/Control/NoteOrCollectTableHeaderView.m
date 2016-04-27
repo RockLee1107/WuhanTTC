@@ -12,8 +12,6 @@
 @implementation NoteOrCollectTableHeaderView
 - (instancetype)initWithFrame:(CGRect)frame icon:(NSString *)icon num:(NSNumber *)num {
     if (self = [super initWithFrame:frame]) {
-        
-        //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60.0)];
         //    小图标
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png",icon]]];
         [self addSubview:imageView];//需先加入view中，不然报找不到super view的错误
@@ -35,7 +33,6 @@
         unitLabel.textColor = [UIColor darkGrayColor];
         unitLabel.font = [UIFont systemFontOfSize:14.0];
         [self addSubview:unitLabel];
-        //    app_comment@2x
         //    图标布局
         [imageView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_leading.layoutAttribute + 10);

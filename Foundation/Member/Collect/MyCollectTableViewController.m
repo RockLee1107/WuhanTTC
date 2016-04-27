@@ -73,6 +73,8 @@
             [self.tableViewDelegate.dataArray removeAllObjects];
             [self.tableView.footer resetNoMoreData];
         }
+        //返回总条数
+        ((BookListDelegate *)self.tableViewDelegate).num = responseObject[@"totalCount"];
         //当小于每页条数，就判定加载完毕
         if ([responseObject[@"result"] count] < self.page.pageSize) {
             [self.tableView.footer noticeNoMoreData];

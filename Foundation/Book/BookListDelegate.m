@@ -11,6 +11,7 @@
 #import "BookDetailViewController.h"
 #import "HttpService.h"
 #import "MyCollectTableViewController.h"
+#import "NoteOrCollectTableHeaderView.h"
 
 @implementation BookListDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -71,5 +72,21 @@
             [vc fetchData];
         } noResult:nil];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    //以此作为是否显示表头的依据
+    if (self.num) {
+        return 60.0;
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.num) {
+        NoteOrCollectTableHeaderView *view = [[NoteOrCollectTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60.0) icon:@"app_comment" num:self.num];
+        return view;
+    }
+    return [UIView new];
 }
 @end

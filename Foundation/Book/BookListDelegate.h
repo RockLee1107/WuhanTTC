@@ -10,4 +10,5 @@
 
 @interface BookListDelegate : BaseTableViewDelegate
 @property (nonatomic,assign) BOOL shouldEditing;
+@property (nonatomic,strong) NSNumber *num;
 @end
