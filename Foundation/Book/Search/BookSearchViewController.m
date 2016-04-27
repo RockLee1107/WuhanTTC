@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSString *keyWords;
 @property (strong, nonatomic) UIView *gridView;
+@property (strong, nonatomic) Page *hotPage;
 @end
 
 @implementation BookSearchViewController
@@ -31,6 +32,8 @@
     self.searchBar.delegate = self;
     [self.parentTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.tableView.scrollEnabled = NO;
+    self.hotPage = [[Page alloc] init];
+    self.hotPage.pageSize = 9;
     [self initGridView];
     // Do any additional setup after loading the view.
 }
@@ -44,7 +47,7 @@
 //    init 标题
     UILabel *captionLabel = [[UILabel alloc] init];
     captionLabel.tintColor = [UIColor darkGrayColor];
-    captionLabel.font = [UIFont systemFontOfSize:15.0];
+    captionLabel.font = [UIFont systemFontOfSize:16.0];
     captionLabel.text = @"大家都在搜:";
     [self.gridView addSubview:captionLabel];
 //    init 右按钮
@@ -76,6 +79,49 @@
         make.right.equalTo(rightButton.mas_left).offset(-20);
         make.top.equalTo(self.gridView.mas_top).offset(20);
     }];
+    [self fetchHotLabel];
+}
+
+//热门
+- (void)fetchHotLabel {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if (self.specialCode) {
+        [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
+    }
+    NSDictionary *param = @{
+                            @"QueryParams":[StringUtil dictToJson:dict],
+                            @"Page":[StringUtil dictToJson:[self.hotPage dictionary]]
+                            };
+    [self.service POST:@"book/label/queryHotLabel" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //render grid view
+        for (int i = 0; i < [responseObject count]; i++) {
+            UIButton *button = [UIButton buttonWithType:(UIButtonTypeSystem)];
+            [button setTitleColor:MAIN_COLOR forState:(UIControlStateNormal)];
+            button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+            [button setTitle:responseObject[i][@"labelName"] forState:(UIControlStateNormal)];
+            [button setBackgroundColor:[UIColor whiteColor]];
+            button.layer.cornerRadius = 4.0;
+            [self.gridView addSubview:button];
+            [button mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.gridView.mas_top).with.offset(50 + i / 3 * (40 + 10));
+                switch (i % 3) {
+                    case 0:
+                        make.left.equalTo(self.gridView.mas_left).offset(5);
+                        break;
+                    case 1:
+                        make.centerX.equalTo(self.gridView.mas_centerX);
+                        break;
+                    case 2:
+                        make.right.equalTo(self.gridView.mas_right).offset(-5);
+                        break;
+                    default:
+                        break;
+                }
+                make.width.mas_equalTo(SCREEN_WIDTH / 3 - 10);
+                make.height.mas_equalTo(40);
+            }];
+        }
+    } noResult:nil];
 }
 
 //初始化代理

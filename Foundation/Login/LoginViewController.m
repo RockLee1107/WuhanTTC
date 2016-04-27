@@ -11,7 +11,8 @@
 #import "LXPasswordView.h"
 #import "MainTabBarController.h"
 #import "LXButton.h"
-#import "ProjectCreateTableViewController.h"
+//#import "ProjectCreateTableViewController.h"
+#import "BookSearchViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -94,15 +95,17 @@
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
-        [self jumpMain];
-//        [self jumpTest];
+//        [self jumpMain];
+        [self jumpTest];
     } noResult:^{
         
     }];
 }
 
 - (void)jumpTest {
-    ProjectCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
+    BookSearchViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"find"];
+    
+//    ProjectCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
