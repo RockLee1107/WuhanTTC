@@ -58,6 +58,13 @@
     cell.specialNameLabel.text = self.dataImmutableArray[indexPath.row][@"specialName"];
     cell.latestBookNameLabel.text = [StringUtil toString:self.dataImmutableArray[indexPath.row][@"latestBookName"]];
     cell.latestUpdateTimeLabel.text = [DateUtil toShortDate:self.dataImmutableArray[indexPath.row][@"latestUpdateTime"]];
+    if ([[User getInstance] isLogin]) {
+        if ([DateUtil compare:self.dataImmutableArray[indexPath.row][@"latestUpdateTime"] lastRequestTime:self.dataImmutableArray[indexPath.row][@"lastRequestTime"]]) {
+            cell.unreadImageView.hidden = YES;
+        }
+    } else {
+        cell.unreadImageView.hidden = YES;
+    }
     return cell;
 }
 

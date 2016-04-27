@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -13,34 +13,37 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book_thumb.png" translatesAutoresizingMaskIntoConstraints="NO" id="UGu-sE-dRu">
                         <rect key="frame" x="8" y="10" width="55" height="55"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="UGu-sE-dRu" secondAttribute="height" multiplier="1:1" id="741-kf-ijJ"/>
                             <constraint firstAttribute="width" constant="55" id="SRI-FK-HCn"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_unread.png" translatesAutoresizingMaskIntoConstraints="NO" id="z6Q-f9-rfj">
+                        <rect key="frame" x="54" y="10" width="9" height="9"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="9" id="2AL-2t-ebJ"/>
+                            <constraint firstAttribute="width" constant="9" id="Ls5-Ao-Xz5"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUa-wR-HhU">
                         <rect key="frame" x="76" y="11" width="191" height="21"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新文章" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a3-jM-anL">
                         <rect key="frame" x="76" y="46" width="236" height="18"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03/02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-tC-rRz">
                         <rect key="frame" x="262" y="13" width="50" height="18"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="rWA-02-Abg"/>
                         </constraints>
@@ -49,8 +52,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <animations/>
                 <constraints>
+                    <constraint firstItem="z6Q-f9-rfj" firstAttribute="trailing" secondItem="UGu-sE-dRu" secondAttribute="trailing" id="0xE-Cd-pHx"/>
                     <constraint firstItem="2a3-jM-anL" firstAttribute="leading" secondItem="UGu-sE-dRu" secondAttribute="trailing" constant="13" id="IyK-Ur-Set"/>
                     <constraint firstItem="hIb-tC-rRz" firstAttribute="leading" secondItem="QUa-wR-HhU" secondAttribute="trailing" constant="-5" id="UNU-mI-1Zc"/>
                     <constraint firstItem="UGu-sE-dRu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Udf-GP-tbz"/>
@@ -60,20 +63,22 @@
                     <constraint firstAttribute="bottomMargin" secondItem="2a3-jM-anL" secondAttribute="bottom" constant="2" id="iaT-XW-VMS"/>
                     <constraint firstItem="QUa-wR-HhU" firstAttribute="top" secondItem="UGu-sE-dRu" secondAttribute="top" constant="1" id="jV2-br-f8z"/>
                     <constraint firstAttribute="centerY" secondItem="UGu-sE-dRu" secondAttribute="centerY" constant="-0.25" id="jov-Zb-0d1"/>
+                    <constraint firstItem="z6Q-f9-rfj" firstAttribute="top" secondItem="UGu-sE-dRu" secondAttribute="top" id="tCX-1h-tN5"/>
                     <constraint firstItem="2a3-jM-anL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tuI-20-iwS"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="latestBookNameLabel" destination="2a3-jM-anL" id="yPh-nC-faj"/>
                 <outlet property="latestUpdateTimeLabel" destination="hIb-tC-rRz" id="qmX-9V-LXi"/>
                 <outlet property="specialNameLabel" destination="QUa-wR-HhU" id="qoL-ug-qL9"/>
                 <outlet property="thumbImageView" destination="UGu-sE-dRu" id="gWM-zn-bIg"/>
+                <outlet property="unreadImageView" destination="z6Q-f9-rfj" id="sWO-nX-fy1"/>
             </connections>
             <point key="canvasLocation" x="338" y="156.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="app_unread.png" width="9" height="9"/>
         <image name="book_thumb.png" width="60" height="60"/>
     </resources>
 </document>

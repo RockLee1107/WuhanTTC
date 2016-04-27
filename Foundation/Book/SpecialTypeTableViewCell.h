@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *specialNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latestBookNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latestUpdateTimeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *unreadImageView;
 
 @end

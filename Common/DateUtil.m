@@ -165,4 +165,19 @@
     NSString *str = [formatter stringFromDate:date];
     return str;
 }
+
+///日期比较For未读红点
++ (BOOL)compare:(NSString *)latestUpdateTime lastRequestTime:(NSString *)lastRequestTime {
+//    lastRequestTime可能为空
+    NSDate *lastRequestTimeDate = [NSDate dateWithTimeIntervalSince1970:[[StringUtil toString:lastRequestTime] doubleValue] / 1000];
+//    NSLog(@"1.%@",lastRequestTimeDate);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYYMMddHHmmss"];
+    NSDate *latestUpdateTimeDate = [formatter dateFromString:latestUpdateTime];
+//    NSLog(@"2.%@",latestUpdateTimeDate);
+    if ([latestUpdateTimeDate compare:lastRequestTimeDate] == NSOrderedAscending) {
+        return YES;
+    }
+    return NO;
+}
 @end

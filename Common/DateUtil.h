@@ -36,4 +36,6 @@
 + (NSString *)dateToCompactString:(NSDate *)date;
 ///日期类型转日期时间字符串 2014/12/14 23:59
 + (NSString *)dateToCompactStringWithoutSecond:(NSDate *)date;
+///日期比较For未读红点
++ (BOOL)compare:(NSString *)latestUpdateTime lastRequestTime:(NSString *)lastRequestTime;
 @end
