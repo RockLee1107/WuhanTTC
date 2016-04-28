@@ -7,7 +7,7 @@
 //
 
 #import "UserSearchViewController.h"
-#import "ActivityTableViewDelegate.h"
+#import "UserTableViewDelegate.h"
 
 @interface UserSearchViewController ()<UISearchBarDelegate ,UISearchDisplayDelegate>
 @property (strong,nonatomic) IBOutlet UITableView *tableView;
@@ -50,7 +50,7 @@
 
 //初始化代理
 - (void)initDelegate {
-    self.tableViewDelegate = [[ActivityTableViewDelegate alloc] init];
+    self.tableViewDelegate = [[UserTableViewDelegate alloc] init];
     self.tableViewDelegate.vc = self;
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
@@ -66,11 +66,16 @@
 
 ///请求网络
 - (void)fetchData {
-    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                     @"SLIKE_activityTitle":self.keyWords
-                                                                     }],
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if ([VerifyUtil isMobile:self.keyWords]) {
+        [dict setObject:self.keyWords forKey:@"SEQ_mobile"];
+    } else {
+        [dict setObject:self.keyWords forKey:@"SLIKE_realName"];
+    }
+    
+    NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service GET:@"activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service GET:@"personal/info/getUserDetailsList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];

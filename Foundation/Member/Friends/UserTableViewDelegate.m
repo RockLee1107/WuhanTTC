@@ -20,12 +20,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UserTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"UserTableViewCell" owner:nil options:nil] firstObject];
-    NSDictionary *object = self.dataArray[indexPath.row];
+    NSDictionary *dict = self.dataArray[indexPath.row];
     /**图片*/
-    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:[StringUtil toString:object[@"pictUrl"]]]];
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
     cell.avatarImageView.clipsToBounds = YES;
-
-    cell.areaLabel.text = [StringUtil toString:object[@"area"]];
+//    cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
+    cell.avatarImageView.clipsToBounds = YES;
+    cell.realnameLabel.text = [StringUtil toString:dict[@"realName"]];
+    cell.companyLabel.text = [StringUtil toString:dict[@"company"]];
+    cell.dutyLabel.text = [StringUtil toString:dict[@"duty"]];
+    cell.areaLabel.text = [StringUtil toString:dict[@"area"]];
     return cell;
 }
 

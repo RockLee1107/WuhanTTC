@@ -48,6 +48,34 @@
             </objects>
             <point key="canvasLocation" x="862" y="275"/>
         </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="aeT-YI-QDj">
+            <objects>
+                <tableViewController storyboardIdentifier="userDetail" id="7Ba-nW-pys" customClass="UserDetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="f9K-Jm-Mek">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ju2-SH-JhB">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ju2-SH-JhB" id="bzR-77-hEr">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7Ba-nW-pys" id="6Tx-er-3fH"/>
+                            <outlet property="delegate" destination="7Ba-nW-pys" id="Elh-jU-Xhg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70G-ta-3y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784" y="275"/>
+        </scene>
         <!--查找用户-->
         <scene sceneID="JiQ-b1-Dbn">
             <objects>
@@ -84,6 +112,7 @@
                     <connections>
                         <outlet property="searchBar" destination="aYA-GE-CXQ" id="U5H-Ra-ILL"/>
                         <outlet property="tableView" destination="1bT-LR-1BP" id="FyM-vg-Z2a"/>
+                        <segue destination="7Ba-nW-pys" kind="show" id="1jN-62-s1y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGC-K1-LWH" userLabel="First Responder" sceneMemberID="firstResponder"/>

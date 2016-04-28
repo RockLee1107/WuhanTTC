@@ -16,6 +16,7 @@
 #import "CommonUtil.h"
 #import "PXAlertView.h"
 #import "PXAlertView+Customization.h"
+#import "VerifyUtil.h"
 
 @interface BaseViewController : UIViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSArray *dataImmutableArray;
