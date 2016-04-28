@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_failure_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="afk-HJ-Rs7">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="afk-HJ-Rs7">
                         <rect key="frame" x="8" y="7" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="afk-HJ-Rs7" secondAttribute="height" multiplier="92:61" id="74O-1x-hBI"/>
@@ -62,6 +62,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="app_failure_img.png" width="35" height="35"/>
+        <image name="app_loading_img_big.png" width="50" height="35"/>
     </resources>
 </document>

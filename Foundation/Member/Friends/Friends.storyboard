@@ -31,7 +31,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="k0Y-Ka-whO" secondAttribute="trailing" constant="-20" id="yii-lY-evS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="创友录" id="gNJ-2m-Rit"/>
+                    <navigationItem key="navigationItem" title="创友录" id="gNJ-2m-Rit">
+                        <barButtonItem key="rightBarButtonItem" image="app_addfriend.png" id="4aE-aT-pbh">
+                            <connections>
+                                <segue destination="Q6D-YA-lwQ" kind="show" id="dxS-no-4Nd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -42,5 +48,50 @@
             </objects>
             <point key="canvasLocation" x="862" y="275"/>
         </scene>
+        <!--查找用户-->
+        <scene sceneID="JiQ-b1-Dbn">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Q6D-YA-lwQ" customClass="UserSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="irZ-yd-aeC"/>
+                        <viewControllerLayoutGuide type="bottom" id="lts-du-WlM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nv0-Om-YcT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="输入姓名或手机号开始查找" translatesAutoresizingMaskIntoConstraints="NO" id="aYA-GE-CXQ">
+                                <rect key="frame" x="-4" y="64" width="328" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1bT-LR-1BP">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1bT-LR-1BP" firstAttribute="top" secondItem="irZ-yd-aeC" secondAttribute="bottom" constant="44" id="8Qw-Xw-gzy"/>
+                            <constraint firstItem="1bT-LR-1BP" firstAttribute="leading" secondItem="nv0-Om-YcT" secondAttribute="leadingMargin" constant="-16" id="LSb-8y-cwG"/>
+                            <constraint firstItem="aYA-GE-CXQ" firstAttribute="top" secondItem="irZ-yd-aeC" secondAttribute="bottom" id="SUE-oE-CMf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1bT-LR-1BP" secondAttribute="trailing" constant="-16" id="jmz-78-0Y0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aYA-GE-CXQ" secondAttribute="trailing" constant="-20" id="kK1-Q9-Jux"/>
+                            <constraint firstItem="lts-du-WlM" firstAttribute="top" secondItem="1bT-LR-1BP" secondAttribute="bottom" id="nUn-uK-oQt"/>
+                            <constraint firstItem="aYA-GE-CXQ" firstAttribute="leading" secondItem="nv0-Om-YcT" secondAttribute="leadingMargin" constant="-20" id="obM-oJ-nP0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="查找用户" id="cV0-mH-Yeg"/>
+                    <connections>
+                        <outlet property="searchBar" destination="aYA-GE-CXQ" id="U5H-Ra-ILL"/>
+                        <outlet property="tableView" destination="1bT-LR-1BP" id="FyM-vg-Z2a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGC-K1-LWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1311" y="275"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="app_addfriend.png" width="19" height="19"/>
+    </resources>
 </document>

@@ -1,21 +1,21 @@
 //
-//  BookSearchViewController.m
+//  UserSearchViewController.m
 //  Foundation
 //
-//  Created by Dotton on 16/4/22.
+//  Created by Dotton on 16/4/28.
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "ActivitySearchViewController.h"
+#import "UserSearchViewController.h"
 #import "ActivityTableViewDelegate.h"
 
-@interface ActivitySearchViewController ()<UISearchBarDelegate ,UISearchDisplayDelegate>
+@interface UserSearchViewController ()<UISearchBarDelegate ,UISearchDisplayDelegate>
 @property (strong,nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSString *keyWords;
 @end
 
-@implementation ActivitySearchViewController
+@implementation UserSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +39,7 @@
         [weakSelf fetchData];
         [weakSelf.tableView.header endRefreshing];
     }];
-//    [self.tableView.legendHeader beginRefreshing];
+    //    [self.tableView.legendHeader beginRefreshing];
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         weakSelf.page.pageNo++;
         [weakSelf fetchData];
