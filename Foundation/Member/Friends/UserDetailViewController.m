@@ -46,11 +46,29 @@
         self.companyLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"company"]];
         self.dutyLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"duty"]];
         self.areaLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"area"]];
-        self.investAreaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investArea"]];
-        self.investProcessLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investProcess"]];
-        self.investProjectLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investProject"]];
-        self.investIdeaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investIdea"]];
+        if (responseObject[@"investorInfo"] != [NSNull null]) {
+            self.investAreaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investArea"]];
+            self.investProcessLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investProcess"]];
+            self.investProjectLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investProject"]];
+            self.investIdeaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investIdea"]];
+        }
+        if ([responseObject[@"isFriend"] boolValue]) {
+            self.navigationItem.title = @"好友信息";
+        } else {
+            self.navigationItem.title = @"用户信息";
+        }
+        [self.tableView reloadData];
     } noResult:nil];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+        if (![self.dataDict[@"isInvestor"] boolValue]) {
+            if (section == 1) {
+//        针对非投资人的情况，要隐藏那几个单元格
+            return 0;
+        }
+    }
+    return [super tableView:tableView numberOfRowsInSection:section];
 }
 
 @end

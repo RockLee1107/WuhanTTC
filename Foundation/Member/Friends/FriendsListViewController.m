@@ -8,6 +8,7 @@
 
 #import "FriendsListViewController.h"
 #import "FriendTableViewCell.h"
+#import "UserDetailViewController.h"
 
 @interface FriendsListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
@@ -61,5 +62,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
+    vc.userId = self.dataArray[indexPath.row][@"friendId"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
