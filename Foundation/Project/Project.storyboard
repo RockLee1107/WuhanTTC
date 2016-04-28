@@ -629,14 +629,14 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_failure_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="cVe-yt-GAZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="cVe-yt-GAZ">
                                                     <rect key="frame" x="13" y="14" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="cVe-yt-GAZ" secondAttribute="height" multiplier="1:1" id="6ro-Bl-B0Z"/>
                                                         <constraint firstAttribute="width" constant="70" id="Qch-Fu-VpS"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAa-M7-eVr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HAa-M7-eVr">
                                                     <rect key="frame" x="97" y="14" width="56" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="56" id="SyP-Cc-u5b"/>
@@ -1260,6 +1260,7 @@
     </scenes>
     <resources>
         <image name="app_failure_img.png" width="35" height="35"/>
+        <image name="app_loading_img_big.png" width="50" height="35"/>
         <image name="app_ok.png" width="23" height="16"/>
         <image name="app_photo.png" width="91" height="91"/>
         <image name="icon_project_normal.png" width="26" height="26"/>

@@ -49,7 +49,7 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_failure_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-EX-HCH">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="r4A-EX-HCH">
                         <rect key="frame" x="8" y="21" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="RGr-jN-wgg"/>
@@ -127,6 +127,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="app_failure_img.png" width="35" height="35"/>
+        <image name="app_loading_img_big.png" width="50" height="35"/>
     </resources>
 </document>

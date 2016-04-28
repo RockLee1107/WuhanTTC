@@ -9,29 +9,48 @@
 #import "UserDetailViewController.h"
 
 @interface UserDetailViewController ()
-
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *areaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dutyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *investIdeaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *investAreaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *investProcessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *investProjectLabel;
 @end
 
 @implementation UserDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self fetchData];
+    self.avatarImageView.clipsToBounds = YES;
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)fetchData {
+    NSDictionary *param = @{
+                            @"hisUserId":self.userId,
+                            @"curUserId":[User getInstance].uid,
+                            };
+    [self.service GET:@"/personal/info/getUserDetails" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.dataDict = responseObject;
+        /**图片*/
+        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"userinfo"][@"pictUrl"]]];
+        
+        //    cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
+        [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
+        self.avatarImageView.clipsToBounds = YES;
+        self.realnameLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"realName"]];
+        self.companyLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"company"]];
+        self.dutyLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"duty"]];
+        self.areaLabel.text = [StringUtil toString:responseObject[@"userinfo"][@"area"]];
+        self.investAreaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investArea"]];
+        self.investProcessLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investProcess"]];
+        self.investProjectLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investProject"]];
+        self.investIdeaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investorInfo"][@"investIdea"]];
+    } noResult:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
