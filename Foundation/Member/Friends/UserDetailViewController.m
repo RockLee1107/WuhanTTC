@@ -137,15 +137,6 @@
                            cancelBlock:^{
                                
                            } confirmBlock:^(UIView *view, NSString *text) {
-//                               NSDictionary *param = @{@"Friends":[StringUtil dictToJson:@{
-//                                                                                           @"friendId":self.userId,
-//                                                                                           @"userId":[User getInstance].uid
-//                                                                                           }
-//                                                                   ]};
-//                               [self.service POST:@"personal/friends/makeFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                   [SVProgressHUD showSuccessWithStatus:@"添加成功"];
-//                               } noResult:nil];
-                               
                                NSDictionary *param = @{@"UserMessage":[StringUtil dictToJson:@{
                                                                                            @"toUserId":self.userId,
                                                                                            @"userId":[User getInstance].uid,

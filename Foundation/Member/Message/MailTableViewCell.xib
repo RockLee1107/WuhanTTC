@@ -107,6 +107,7 @@
                 <outlet property="avatarImageView" destination="7F8-6r-BqY" id="gnW-lO-V7M"/>
                 <outlet property="contentLabel" destination="oAZ-RT-iyf" id="39I-WZ-2mZ"/>
                 <outlet property="createdDatetimeLabel" destination="GdR-tV-axv" id="hIg-dR-Vck"/>
+                <outlet property="directionLabel" destination="8MT-Pg-SeR" id="jNN-lc-cfN"/>
                 <outlet property="leadingOfCreatedDateTimeLabel" destination="jbJ-7d-mTx" id="1ib-bc-vZG"/>
                 <outlet property="realNameButton" destination="uVg-qo-WXL" id="nPi-ws-CZW"/>
                 <outlet property="statusLabel" destination="i5L-S7-9Tk" id="ViS-8L-9Qc"/>

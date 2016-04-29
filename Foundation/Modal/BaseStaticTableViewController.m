@@ -29,6 +29,10 @@
     self.navigationItem.backBarButtonItem = backItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+}
+
 - (void)setDynamicLayout {
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.tableView.contentInset = UIEdgeInsetsMake(0,0,0,0);

@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" title="创友录" id="gNJ-2m-Rit">
                         <barButtonItem key="rightBarButtonItem" image="app_addfriend.png" id="4aE-aT-pbh">
                             <connections>
-                                <segue destination="Q6D-YA-lwQ" kind="show" id="dxS-no-4Nd"/>
+                                <segue destination="Q6D-YA-lwQ" kind="show" identifier="search" id="dxS-no-4Nd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -608,7 +608,7 @@
                     <connections>
                         <outlet property="searchBar" destination="aYA-GE-CXQ" id="U5H-Ra-ILL"/>
                         <outlet property="tableView" destination="1bT-LR-1BP" id="FyM-vg-Z2a"/>
-                        <segue destination="7Ba-nW-pys" kind="show" id="1jN-62-s1y"/>
+                        <segue destination="7Ba-nW-pys" kind="show" identifier="detail" id="1jN-62-s1y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGC-K1-LWH" userLabel="First Responder" sceneMemberID="firstResponder"/>

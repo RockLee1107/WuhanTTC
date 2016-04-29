@@ -8,6 +8,7 @@
 
 #import "MessageTableViewController.h"
 #import "MessageTableViewCell.h"
+#import "MessageDetailViewController.h"
 
 @interface MessageTableViewController ()
 
@@ -89,6 +90,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
+    MessageDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateInitialViewController];
+    vc.dataDict = dict;
+    [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

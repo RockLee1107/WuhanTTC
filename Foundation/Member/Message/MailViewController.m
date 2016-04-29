@@ -8,6 +8,7 @@
 
 #import "MailViewController.h"
 #import "MailTableViewCell.h"
+#import "MessageDetailViewController.h"
 
 @interface MailViewController ()
 
@@ -88,7 +89,7 @@
     cell.createdDatetimeLabel.text = [DateUtil toShortDateCN:dict[@"createdDate"] time:dict[@"createdTime"]];
 //    是否显示收件状态
     if ([self.userType isEqualToString:@"SEQ_userId"]) {
-        //显示状态
+        //显示状态，发信
         cell.statusLabel.hidden = NO;
 //        status: (0," 发送成功"), (1,"对方已阅读"), (2,"对方已回复");
         switch ([dict[@"status"] integerValue]) {
@@ -108,7 +109,9 @@
                 break;
         }
         cell.leadingOfCreatedDateTimeLabel.constant = 100;
+        cell.directionLabel.text = @"发给";
     } else {
+//        收信
         cell.statusLabel.hidden = YES;
     }
     cell.contentLabel.text = [StringUtil toString:dict[@"content"]];
@@ -117,6 +120,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
+    MessageDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateInitialViewController];
+    vc.dataDict = dict;
+    [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

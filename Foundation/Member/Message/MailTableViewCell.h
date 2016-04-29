@@ -15,5 +15,6 @@
 @property (nonatomic,strong) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic,strong) IBOutlet UIButton *realNameButton;
 @property (nonatomic,strong) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *directionLabel;
 
 @end

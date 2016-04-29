@@ -170,6 +170,8 @@
 		FD3F656E1CD34EF800FBEE43 /* MailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F656C1CD34EF800FBEE43 /* MailTableViewCell.m */; };
 		FD3F656F1CD34EF800FBEE43 /* MailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3F656D1CD34EF800FBEE43 /* MailTableViewCell.xib */; };
 		FD3F65721CD34F1200FBEE43 /* MailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65711CD34F1200FBEE43 /* MailViewController.m */; };
+		FD3F65741CD3773200FBEE43 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD3F65731CD3773200FBEE43 /* Message.storyboard */; };
+		FD3F65771CD3799A00FBEE43 /* MessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65761CD3799A00FBEE43 /* MessageDetailViewController.m */; };
 		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */; };
 		FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */; };
@@ -658,6 +660,9 @@
 		FD3F656D1CD34EF800FBEE43 /* MailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailTableViewCell.xib; sourceTree = "<group>"; };
 		FD3F65701CD34F1200FBEE43 /* MailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailViewController.h; sourceTree = "<group>"; };
 		FD3F65711CD34F1200FBEE43 /* MailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailViewController.m; sourceTree = "<group>"; };
+		FD3F65731CD3773200FBEE43 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		FD3F65751CD3799A00FBEE43 /* MessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailViewController.h; sourceTree = "<group>"; };
+		FD3F65761CD3799A00FBEE43 /* MessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailViewController.m; sourceTree = "<group>"; };
 		FD405EA71CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchByTitleOrOthersTableViewController.h; sourceTree = "<group>"; };
 		FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchByTitleOrOthersTableViewController.m; sourceTree = "<group>"; };
 		FD405EAB1CCB6B5C005AD869 /* ActivitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySearchViewController.h; sourceTree = "<group>"; };
@@ -1709,6 +1714,9 @@
 				FD3F656D1CD34EF800FBEE43 /* MailTableViewCell.xib */,
 				FD3F65701CD34F1200FBEE43 /* MailViewController.h */,
 				FD3F65711CD34F1200FBEE43 /* MailViewController.m */,
+				FD3F65731CD3773200FBEE43 /* Message.storyboard */,
+				FD3F65751CD3799A00FBEE43 /* MessageDetailViewController.h */,
+				FD3F65761CD3799A00FBEE43 /* MessageDetailViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2237,6 +2245,7 @@
 				FDE26ADC1C9BF8B8003418D5 /* person_setting@2x.png in Resources */,
 				F73B78C81C81414900069EEE /* icon_member_normal@2x.png in Resources */,
 				FD9450F11CA8362100E00759 /* menu_report@2x.png in Resources */,
+				FD3F65741CD3773200FBEE43 /* Message.storyboard in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
 				FD9450E31CA831A800E00759 /* menu_contribute@2x.png in Resources */,
 				FDF3FE131CA80922007B7C83 /* app_search@2x.png in Resources */,
@@ -2400,6 +2409,7 @@
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
+				FD3F65771CD3799A00FBEE43 /* MessageDetailViewController.m in Sources */,
 				FDD0FBD41CA8C018004CFA75 /* SubjectTableViewDelegate.m in Sources */,
 				FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */,
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
