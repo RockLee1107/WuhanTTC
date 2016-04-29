@@ -14,6 +14,7 @@
 #import "MySubjectPageController.h"
 #import "UserInfoTableViewController.h"
 #import "FriendsListViewController.h"
+#import "MessagePageController.h"
 
 @interface MemberTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -65,6 +66,7 @@
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             //消息
+            vc = [[MessagePageController alloc] init];
         } else if (indexPath.row == 1) {
             //创友录
             vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateInitialViewController];

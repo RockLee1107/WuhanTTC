@@ -163,6 +163,8 @@
 		FD3E6E3C1CC8FC00006246AC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E381CC8FBC2006246AC /* libc++.tbd */; };
 		FD3E6E3E1CC8FC26006246AC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */; };
 		FD3F655F1CD3450B00FBEE43 /* BasePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F655E1CD3450B00FBEE43 /* BasePageController.m */; };
+		FD3F65621CD3460A00FBEE43 /* MessagePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65611CD3460900FBEE43 /* MessagePageController.m */; };
+		FD3F65651CD3465700FBEE43 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */; };
 		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */; };
 		FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */; };
@@ -639,6 +641,10 @@
 		FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		FD3F655D1CD3450B00FBEE43 /* BasePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageController.h; sourceTree = "<group>"; };
 		FD3F655E1CD3450B00FBEE43 /* BasePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageController.m; sourceTree = "<group>"; };
+		FD3F65601CD3460900FBEE43 /* MessagePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePageController.h; sourceTree = "<group>"; };
+		FD3F65611CD3460900FBEE43 /* MessagePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePageController.m; sourceTree = "<group>"; };
+		FD3F65631CD3465700FBEE43 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
+		FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		FD405EA71CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchByTitleOrOthersTableViewController.h; sourceTree = "<group>"; };
 		FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchByTitleOrOthersTableViewController.m; sourceTree = "<group>"; };
 		FD405EAB1CCB6B5C005AD869 /* ActivitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySearchViewController.h; sourceTree = "<group>"; };
@@ -1678,6 +1684,10 @@
 		FD3F655C1CD3442200FBEE43 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				FD3F65601CD3460900FBEE43 /* MessagePageController.h */,
+				FD3F65611CD3460900FBEE43 /* MessagePageController.m */,
+				FD3F65631CD3465700FBEE43 /* MessageTableViewController.h */,
+				FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2345,6 +2355,7 @@
 				FDF3FE3C1CA81F52007B7C83 /* MySubjectPageController.m in Sources */,
 				FD9450DD1CA82CEC00E00759 /* SubjectListViewController.m in Sources */,
 				F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */,
+				FD3F65651CD3465700FBEE43 /* MessageTableViewController.m in Sources */,
 				FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */,
 				FDE26B021C9C38A0003418D5 /* UIImageView+AFNetworking.m in Sources */,
 				FDE098911CA5206800F271EF /* BookListDelegate.m in Sources */,
@@ -2415,6 +2426,7 @@
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,
 				FD4F43E61CD1BC36005BF414 /* UserDetailViewController.m in Sources */,
 				FD9450E01CA82ECA00E00759 /* AboutTableViewController.m in Sources */,
+				FD3F65621CD3460A00FBEE43 /* MessagePageController.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
 				F74C9B001CC5287F00C7A607 /* TeamListTableViewController.m in Sources */,

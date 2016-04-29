@@ -51,7 +51,9 @@
             }
         }
         [self.friendsTableView reloadData];
-    } noResult:nil];
+    } noResult:^{
+        [SVProgressHUD showSuccessWithStatus:@"暂无好友"];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
