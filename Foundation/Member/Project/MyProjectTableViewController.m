@@ -20,6 +20,18 @@
     [self initDelegate];
     [self initRefreshControl];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    if ([self.SEQ_queryType isEqualToString:@"CREATE"]) {
+        self.navigationItem.title = @"创建的项目";
+    } else if ([self.SEQ_queryType isEqualToString:@"JOIN"]) {
+        self.navigationItem.title = @"参与的项目";
+    } else if ([self.SEQ_queryType isEqualToString:@"ATTENTION"]) {
+        self.navigationItem.title = @"关注的项目";
+    } else if ([self.SEQ_queryType isEqualToString:@"RECEIVED"]) {
+        self.navigationItem.title = @"收到的项目";
+    } else {
+        self.navigationItem.title = @"项目";
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -56,7 +68,10 @@
                            @"ATTENTION":@"attention",
                            @"RECEIVED":@"received"
                            };
-    tableViewDelegate.delType = dict[self.SEQ_queryType];
+    if (!self.userId) {
+        //self.userId代表从创友录等用户资料点击而进来的
+        tableViewDelegate.delType = dict[self.SEQ_queryType];
+    }
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }
@@ -69,7 +84,7 @@
 //                                                                     @"IEQ_status":@"2",
                                    //                                  @"SEQ_city":@0,
                                    //                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
-                                   @"SEQ_userId":[User getInstance].uid,
+                                   @"SEQ_userId":self.userId != nil ? self.userId : [User getInstance].uid,
                                    @"SEQ_queryType":self.SEQ_queryType
                                    }];
     NSString *jsonStr = [StringUtil dictToJson:dict];

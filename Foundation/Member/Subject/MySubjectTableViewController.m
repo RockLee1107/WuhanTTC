@@ -21,6 +21,7 @@
     [self setDynamicLayout];
     [self initRefreshControl];
     [self fetchData];
+    self.navigationItem.title = @"发表的帖子";
 }
 
 //上拉下拉控件
@@ -45,7 +46,7 @@
 ///请求网络
 - (void)fetchData {
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                     @"SEQ_userId":[User getInstance].uid                                                                     }],
+                                                                     @"SEQ_userId":self.userId != nil ? self.userId : [User getInstance].uid                                                                  }],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"book/postSubject/queryPostSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];
@@ -96,6 +97,15 @@
     NSDictionary *object = self.dataMutableArray[indexPath.row];
     vc.dict = object;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+//可编辑-包括左滑删除
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.userId) {
+        //self.userId代表从创友录等用户资料点击而进来的
+        return YES;
+    }
+    return NO;
 }
 
 //单元格删除

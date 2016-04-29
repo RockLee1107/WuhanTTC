@@ -29,7 +29,7 @@
     self.page.pageSize = 99999;
     NSDictionary *param = @{
                             @"QueryParams":[StringUtil dictToJson:@{
-                                                                    @"SEQ_userId":[User getInstance].uid
+                                                                    @"SEQ_userId":self.userId != nil ? self.userId : [User getInstance].uid
                                                                     }],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]
                             };

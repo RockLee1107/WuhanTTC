@@ -21,7 +21,7 @@
     [self initDelegate];
     [self initRefreshControl];
     [self fetchData];
-    self.navigationItem.title = @"我的收藏";
+    self.navigationItem.title = @"收藏文章";
 }
 
 //初始化代理
@@ -30,7 +30,12 @@
     self.tableViewDelegate.vc = self;
     //    先行强转
     BookListDelegate *tableViewDelegate = (BookListDelegate *)self.tableViewDelegate;
-    tableViewDelegate.shouldEditing = YES;
+    if (self.userId) {
+        //self.userId代表从创友录等用户资料点击而进来的
+        tableViewDelegate.shouldEditing = NO;
+    } else {
+        tableViewDelegate.shouldEditing = YES;
+    }
     self.tableViewDelegate = tableViewDelegate;
     
     self.tableView.delegate = self.tableViewDelegate;
@@ -59,7 +64,7 @@
 ///请求网络
 - (void)fetchData {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                @"SEQ_collectUserId":[User getInstance].uid                                                                     }];
+                                                                                @"SEQ_collectUserId":self.userId != nil ? self.userId : [User getInstance].uid                                                                     }];
     
     if (self.specialCode != nil) {
         [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
@@ -74,7 +79,10 @@
             [self.tableView.footer resetNoMoreData];
         }
         //返回总条数
-        ((BookListDelegate *)self.tableViewDelegate).num = responseObject[@"totalCount"];
+        if (!self.userId) {
+            //self.userId代表从创友录等用户资料点击而进来的
+            ((BookListDelegate *)self.tableViewDelegate).num = responseObject[@"totalCount"];
+        }
         //当小于每页条数，就判定加载完毕
         if ([responseObject[@"result"] count] < self.page.pageSize) {
             [self.tableView.footer noticeNoMoreData];

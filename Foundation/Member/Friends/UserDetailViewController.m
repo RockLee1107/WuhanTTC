@@ -9,21 +9,33 @@
 #import "UserDetailViewController.h"
 #import "EYInputPopupView.h"
 #import "LXButton.h"
+#import "FriendsListViewController.h"
+#import "MyCollectTableViewController.h"
+#import "MyProjectTableViewController.h"
+#import "MySubjectTableViewController.h"
 
 @interface UserDetailViewController ()
+/*个人信息属性*/
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *areaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dutyLabel;
+/*投资人*/
 @property (weak, nonatomic) IBOutlet UILabel *investIdeaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investAreaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investProcessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investProjectLabel;
+/*4大按钮*/
 @property (weak, nonatomic) IBOutlet LXButton *makeFriendsButton;
 @property (weak, nonatomic) IBOutlet LXButton *delFriendButton;
 @property (weak, nonatomic) IBOutlet LXButton *postProjectButton;
 @property (weak, nonatomic) IBOutlet LXButton *sendMsgButton;
+/*4大标签*/
+@property (weak, nonatomic) IBOutlet UILabel *sameFdsNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hisColNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hisAtProjNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hisPostNumLabel;
 @end
 
 @implementation UserDetailViewController
@@ -70,6 +82,11 @@
         } else {
             self.postProjectButton.hidden = YES;
         }
+        /*4大标签*/
+        self.sameFdsNumLabel.text = self.dataDict[@"userStaticDto"][@"sameFdsNum"];
+        self.hisColNumLabel.text = self.dataDict[@"userStaticDto"][@"hisColNum"];
+        self.hisAtProjNumLabel.text = self.dataDict[@"userStaticDto"][@"hisAtProjNum"];
+        self.hisPostNumLabel.text = self.dataDict[@"userStaticDto"][@"hisPostNum"];
         //是好友
         if ([self.dataDict[@"isFriend"] boolValue]) {
             self.sendMsgButton.hidden = NO;
@@ -89,16 +106,6 @@
         }
         [self.tableView reloadData];
     } noResult:nil];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        if (![self.dataDict[@"isInvestor"] boolValue]) {
-            if (section == 1) {
-//        针对非投资人的情况，要隐藏那几个单元格
-            return 0;
-        }
-    }
-    return [super tableView:tableView numberOfRowsInSection:section];
 }
 
 - (IBAction)sendMsgButtonPress:(id)sender {
@@ -159,5 +166,61 @@
 
 - (IBAction)postProjectButton:(id)sender {
 //    跳转可投资项目页
+}
+
+#pragma mark - tb delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (![self.dataDict[@"isInvestor"] boolValue]) {
+        if (section == 1) {
+            //        针对非投资人的情况，要隐藏那几个单元格
+            return 0;
+        }
+    }
+    return [super tableView:tableView numberOfRowsInSection:section];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            //共同好友
+            if ([self.dataDict[@"userStaticDto"][@"sameFdsNum"] integerValue] == 0) {
+                [SVProgressHUD showSuccessWithStatus:@"暂无共同好友哦"];
+                return;
+            }
+            FriendsListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"friendsList"];
+            vc.userId = self.userId;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    } else if (indexPath.section == 3) {
+        if (indexPath.row == 0) {
+//            收藏文章
+            if ([self.dataDict[@"userStaticDto"][@"hisColNum"] integerValue] == 0) {
+                [SVProgressHUD showSuccessWithStatus:@"用户暂未收藏文章哦"];
+                return;
+            }
+            MyCollectTableViewController *vc = [[MyCollectTableViewController alloc] init];
+            vc.userId = self.userId;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 1) {
+//            关注项目
+            if ([self.dataDict[@"userStaticDto"][@"hisAtProjNum"] integerValue] == 0) {
+                [SVProgressHUD showSuccessWithStatus:@"用户暂未关注项目哦"];
+                return;
+            }
+            MyProjectTableViewController *vc = [[MyProjectTableViewController alloc] init];
+            vc.userId = self.userId;
+            vc.SEQ_queryType = @"ATTENTION";
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 2) {
+//            发表帖子
+            if ([self.dataDict[@"userStaticDto"][@"hisPostNum"] integerValue] == 0) {
+                [SVProgressHUD showSuccessWithStatus:@"用户暂未发表帖子哦"];
+                return;
+            }
+            MySubjectTableViewController *vc = [[MySubjectTableViewController alloc] init];
+            vc.userId = self.userId;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
 }
 @end

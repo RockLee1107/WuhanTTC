@@ -10,5 +10,6 @@
 
 @interface MyCollectTableViewController : BaseStaticTableViewController
 @property (nonatomic, strong) NSString *specialCode;
+@property (nonatomic,strong) NSString *userId;
 - (void)fetchData;
 @end

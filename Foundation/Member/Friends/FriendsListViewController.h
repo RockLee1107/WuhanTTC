@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "BaseTableViewController.h"
 @interface FriendsListViewController : BaseTableViewController
-
+@property (nonatomic,strong) NSString *userId;
 @end
