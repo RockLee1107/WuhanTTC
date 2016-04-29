@@ -12,6 +12,7 @@
 
 @interface FriendsListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
+@property (nonatomic, strong) NSMutableArray *letterArray;
 
 @end
 
@@ -21,6 +22,7 @@
     [super viewDidLoad];
     self.friendsTableView.delegate = self;
     self.friendsTableView.dataSource = self;
+    self.letterArray = [NSMutableArray array];
     [self fetchData];
     if (self.userId != nil) {
         self.navigationItem.title = @"共同好友";
@@ -43,6 +45,11 @@
                             };
     [self.service POST:@"personal/friends/getFriendsForIOS" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataArray = responseObject;
+        for (NSDictionary *dict in responseObject) {
+            for (NSString *letter in dict) {
+                [self.letterArray addObject: letter];
+            }
+        }
         [self.friendsTableView reloadData];
     } noResult:nil];
 }
@@ -52,25 +59,30 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    for (NSString *letter in self.dataArray[section]) {
-        return [self.dataArray[section][letter] count];
-    }
+//    for (NSString *letter in self.dataArray[section]) {
+        return [self.dataArray[section][self.letterArray[section]] count];
+//    }
     return 0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    for (NSString *letter in self.dataArray[section]) {
-        return letter;
-    }
-    return @"";
+//    for (NSString *letter in self.dataArray[section]) {
+//        return letter;
+//    }
+    return self.letterArray[section];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return self.letterArray;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSDictionary *dict = self.dataArray[indexPath.section];
-    NSArray *array;
-    for (NSString *letter in self.dataArray[indexPath.section]) {
-        array = self.dataArray[indexPath.section][letter];
-    }
+//    NSArray *array;
+//    for (NSString *letter in self.dataArray[indexPath.section]) {
+//        array = self.dataArray[indexPath.section][letter];
+//    }
+    NSArray *array = self.dataArray[indexPath.section][self.letterArray[indexPath.section]];
+    
     NSDictionary *dict = array[indexPath.row];
     FriendTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"FriendTableViewCell" owner:nil options:nil] firstObject];
     cell.avatarImageView.clipsToBounds = YES;
@@ -90,11 +102,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
-    NSString *key;
-    for (NSString *letter in self.dataArray[indexPath.section]) {
-        key = letter;
-    }
-    vc.userId = self.dataArray[indexPath.section][key][indexPath.row][@"friendId"];
+//    NSString *key;
+//    for (NSString *letter in self.dataArray[indexPath.section]) {
+//        key = letter;
+//    }
+    vc.userId = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row][@"friendId"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
