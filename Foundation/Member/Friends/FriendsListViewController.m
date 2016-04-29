@@ -22,15 +22,23 @@
     self.friendsTableView.delegate = self;
     self.friendsTableView.dataSource = self;
     [self fetchData];
+    if (self.userId != nil) {
+        self.navigationItem.title = @"共同好友";
+    }
 }
 
 ///访问网络数据
 - (void)fetchData {
     self.page.pageSize = 99999;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                @"SEQ_userId":[User getInstance].uid
+                                                                                }
+                                 ];
+    if (self.userId != nil) {
+        [dict setObject:self.userId forKey:@"SEQ_hisUserId"];
+    }
     NSDictionary *param = @{
-                            @"QueryParams":[StringUtil dictToJson:@{
-                                                                    @"SEQ_userId":self.userId != nil ? self.userId : [User getInstance].uid
-                                                                    }],
+                            @"QueryParams":[StringUtil dictToJson:dict],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]
                             };
     [self.service POST:@"personal/friends/getFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
