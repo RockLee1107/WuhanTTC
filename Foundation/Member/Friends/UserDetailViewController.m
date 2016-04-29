@@ -130,13 +130,26 @@
                            cancelBlock:^{
                                
                            } confirmBlock:^(UIView *view, NSString *text) {
-                               NSDictionary *param = @{@"Friends":[StringUtil dictToJson:@{
-                                                                                           @"friendId":self.userId,
-                                                                                           @"userId":[User getInstance].uid
+//                               NSDictionary *param = @{@"Friends":[StringUtil dictToJson:@{
+//                                                                                           @"friendId":self.userId,
+//                                                                                           @"userId":[User getInstance].uid
+//                                                                                           }
+//                                                                   ]};
+//                               [self.service POST:@"personal/friends/makeFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                                   [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+//                               } noResult:nil];
+                               
+                               NSDictionary *param = @{@"UserMessage":[StringUtil dictToJson:@{
+                                                                                           @"toUserId":self.userId,
+                                                                                           @"userId":[User getInstance].uid,
+                                                                                           @"type":@"0",
+                                                                                           @"contentType":@"4",
+                                                                                           @"title":@"好友申请",
+                                                                                           @"content":[NSString stringWithFormat:@"%@请求添加你为好友：%@",self.dataDict[@"userinfo"][@"realName"],text]
                                                                                            }
                                                                    ]};
-                               [self.service POST:@"personal/friends/makeFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                   [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+                               [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                   [SVProgressHUD showSuccessWithStatus:@"添加成功"];
                                } noResult:nil];
                            } dismissBlock:^{
                                
