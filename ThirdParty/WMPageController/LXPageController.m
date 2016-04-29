@@ -16,12 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //后退按钮标题与按钮图片
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"";
-    UIImage *backBarItemImage = [[UIImage imageNamed:@"arrow_left"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    [backItem setBackButtonBackgroundImage:backBarItemImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem = backItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:(UIBarButtonItemStyleBordered) target:self action:@selector(edit:)];
 }
 

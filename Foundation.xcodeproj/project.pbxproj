@@ -162,6 +162,7 @@
 		FD3E6E3B1CC8FBED006246AC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E3A1CC8FBED006246AC /* libz.tbd */; };
 		FD3E6E3C1CC8FC00006246AC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E381CC8FBC2006246AC /* libc++.tbd */; };
 		FD3E6E3E1CC8FC26006246AC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */; };
+		FD3F655F1CD3450B00FBEE43 /* BasePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F655E1CD3450B00FBEE43 /* BasePageController.m */; };
 		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */; };
 		FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */; };
@@ -636,6 +637,8 @@
 		FD3E6E381CC8FBC2006246AC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		FD3E6E3A1CC8FBED006246AC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FD3E6E3D1CC8FC26006246AC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FD3F655D1CD3450B00FBEE43 /* BasePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageController.h; sourceTree = "<group>"; };
+		FD3F655E1CD3450B00FBEE43 /* BasePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageController.m; sourceTree = "<group>"; };
 		FD405EA71CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchByTitleOrOthersTableViewController.h; sourceTree = "<group>"; };
 		FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchByTitleOrOthersTableViewController.m; sourceTree = "<group>"; };
 		FD405EAB1CCB6B5C005AD869 /* ActivitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySearchViewController.h; sourceTree = "<group>"; };
@@ -1185,6 +1188,7 @@
 		F73B78BB1C813E2800069EEE /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				FD3F655C1CD3442200FBEE43 /* Message */,
 				FD4F43C81CD03FCB005BF414 /* Control */,
 				FD3DFE7F1CBDD97900CD9E3A /* Friends */,
 				F76E923B1CAB5A7C001AE980 /* Settings */,
@@ -1348,6 +1352,8 @@
 				F7A61E771CA04CCB001B5FB3 /* WMPageController.m */,
 				FD4F43C51CCF1580005BF414 /* LXPageController.h */,
 				FD4F43C61CCF1580005BF414 /* LXPageController.m */,
+				FD3F655D1CD3450B00FBEE43 /* BasePageController.h */,
+				FD3F655E1CD3450B00FBEE43 /* BasePageController.m */,
 			);
 			path = WMPageController;
 			sourceTree = "<group>";
@@ -1667,6 +1673,13 @@
 				FD3E6E181CC8F4D1006246AC /* WXApiObject.h */,
 			);
 			path = Wechat;
+			sourceTree = "<group>";
+		};
+		FD3F655C1CD3442200FBEE43 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		FD405EAA1CCB6B37005AD869 /* Search */ = {
@@ -2426,6 +2439,7 @@
 				FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */,
 				FD4462831CAD4B4C00F7E12F /* ActivityDetailTableViewController.m in Sources */,
 				FDFD8C681CB938560095FC3C /* JCTagListView.m in Sources */,
+				FD3F655F1CD3450B00FBEE43 /* BasePageController.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
