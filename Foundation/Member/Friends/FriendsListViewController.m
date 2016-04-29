@@ -41,30 +41,48 @@
                             @"QueryParams":[StringUtil dictToJson:dict],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]
                             };
-    [self.service POST:@"personal/friends/getFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service POST:@"personal/friends/getFriendsForIOS" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataArray = responseObject;
         [self.friendsTableView reloadData];
     } noResult:nil];
 }
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return self.dataArray.count;
-//}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataArray.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    for (NSString *letter in self.dataArray[section]) {
+        return [self.dataArray[section][letter] count];
+    }
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    for (NSString *letter in self.dataArray[section]) {
+        return letter;
+    }
+    return @"";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSDictionary *dict = self.dataArray[indexPath.section];
+    NSArray *array;
+    for (NSString *letter in self.dataArray[indexPath.section]) {
+        array = self.dataArray[indexPath.section][letter];
+    }
+    NSDictionary *dict = array[indexPath.row];
     FriendTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"FriendTableViewCell" owner:nil options:nil] firstObject];
     cell.avatarImageView.clipsToBounds = YES;
     cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
-    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dataArray[indexPath.row][@"pictUrl"]]];
-    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
-    cell.realnameLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"realName"]];
-    cell.companyLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"company"]];
-    cell.dutyLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"duty"]];
-    cell.mobileLabel.text = [StringUtil toString:self.dataArray[indexPath.row][@"mobile"]];
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
+    if (dict[@"pictUrl"] != [NSNull null]) {
+        [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
+    }
+    cell.realnameLabel.text = [StringUtil toString:dict[@"realName"]];
+    cell.companyLabel.text = [StringUtil toString:dict[@"company"]];
+    cell.dutyLabel.text = [StringUtil toString:dict[@"duty"]];
+    cell.mobileLabel.text = [StringUtil toString:dict[@"mobile"]];
     return cell;
 }
 
