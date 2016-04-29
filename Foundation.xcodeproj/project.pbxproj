@@ -165,6 +165,11 @@
 		FD3F655F1CD3450B00FBEE43 /* BasePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F655E1CD3450B00FBEE43 /* BasePageController.m */; };
 		FD3F65621CD3460A00FBEE43 /* MessagePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65611CD3460900FBEE43 /* MessagePageController.m */; };
 		FD3F65651CD3465700FBEE43 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */; };
+		FD3F65691CD34ED700FBEE43 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65671CD34ED700FBEE43 /* MessageTableViewCell.m */; };
+		FD3F656A1CD34ED700FBEE43 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3F65681CD34ED700FBEE43 /* MessageTableViewCell.xib */; };
+		FD3F656E1CD34EF800FBEE43 /* MailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F656C1CD34EF800FBEE43 /* MailTableViewCell.m */; };
+		FD3F656F1CD34EF800FBEE43 /* MailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3F656D1CD34EF800FBEE43 /* MailTableViewCell.xib */; };
+		FD3F65721CD34F1200FBEE43 /* MailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3F65711CD34F1200FBEE43 /* MailViewController.m */; };
 		FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */; };
 		FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EAC1CCB6B5C005AD869 /* ActivitySearchViewController.m */; };
 		FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD405EB01CCB70AC005AD869 /* ProjectSearchViewController.m */; };
@@ -645,6 +650,14 @@
 		FD3F65611CD3460900FBEE43 /* MessagePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePageController.m; sourceTree = "<group>"; };
 		FD3F65631CD3465700FBEE43 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
+		FD3F65661CD34ED700FBEE43 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		FD3F65671CD34ED700FBEE43 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		FD3F65681CD34ED700FBEE43 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		FD3F656B1CD34EF800FBEE43 /* MailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTableViewCell.h; sourceTree = "<group>"; };
+		FD3F656C1CD34EF800FBEE43 /* MailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailTableViewCell.m; sourceTree = "<group>"; };
+		FD3F656D1CD34EF800FBEE43 /* MailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailTableViewCell.xib; sourceTree = "<group>"; };
+		FD3F65701CD34F1200FBEE43 /* MailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailViewController.h; sourceTree = "<group>"; };
+		FD3F65711CD34F1200FBEE43 /* MailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailViewController.m; sourceTree = "<group>"; };
 		FD405EA71CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchByTitleOrOthersTableViewController.h; sourceTree = "<group>"; };
 		FD405EA81CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchByTitleOrOthersTableViewController.m; sourceTree = "<group>"; };
 		FD405EAB1CCB6B5C005AD869 /* ActivitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitySearchViewController.h; sourceTree = "<group>"; };
@@ -1688,6 +1701,14 @@
 				FD3F65611CD3460900FBEE43 /* MessagePageController.m */,
 				FD3F65631CD3465700FBEE43 /* MessageTableViewController.h */,
 				FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */,
+				FD3F65661CD34ED700FBEE43 /* MessageTableViewCell.h */,
+				FD3F65671CD34ED700FBEE43 /* MessageTableViewCell.m */,
+				FD3F65681CD34ED700FBEE43 /* MessageTableViewCell.xib */,
+				FD3F656B1CD34EF800FBEE43 /* MailTableViewCell.h */,
+				FD3F656C1CD34EF800FBEE43 /* MailTableViewCell.m */,
+				FD3F656D1CD34EF800FBEE43 /* MailTableViewCell.xib */,
+				FD3F65701CD34F1200FBEE43 /* MailViewController.h */,
+				FD3F65711CD34F1200FBEE43 /* MailViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2288,10 +2309,12 @@
 				FD4CD7D21CCD0AF500659D9D /* zl03@2x.png in Resources */,
 				F741A6491C8F38E4008DC72B /* BookTableViewCell.xib in Resources */,
 				FDE26AD61C9BF8B8003418D5 /* person_event@2x.png in Resources */,
+				FD3F656A1CD34ED700FBEE43 /* MessageTableViewCell.xib in Resources */,
 				FD9450EB1CA8353400E00759 /* menu_my_post@2x.png in Resources */,
 				F748184F1CCD40DB00CEEE3A /* app_loading_img_big@2x.png in Resources */,
 				FDE2D98E1CA3D341008DDE4F /* app_label@2x.png in Resources */,
 				FD94510A1CA843DD00E00759 /* zl08@2x.png in Resources */,
+				FD3F656F1CD34EF800FBEE43 /* MailTableViewCell.xib in Resources */,
 				FDEADC0C1C92AA2D00971DD1 /* icon_about_selected@2x.png in Resources */,
 				FDE2D9621CA36D56008DDE4F /* menu_mine@2x.png in Resources */,
 				FDE098A51CA5737900F271EF /* arrow_left@2x.png in Resources */,
@@ -2322,6 +2345,7 @@
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
 				F748184D1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m in Sources */,
 				FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */,
+				FD3F65721CD34F1200FBEE43 /* MailViewController.m in Sources */,
 				F74C9AFB1CBE1DE300C7A607 /* EYTagView.m in Sources */,
 				FD4E515C1CC11A5500061830 /* AJPhotoPickerGallery.m in Sources */,
 				FDE33F221CA0068C005C6863 /* ActivityTableViewDelegate.m in Sources */,
@@ -2382,6 +2406,7 @@
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F74C9AF81CBE1DE300C7A607 /* EYPopupView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
+				FD3F65691CD34ED700FBEE43 /* MessageTableViewCell.m in Sources */,
 				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
 				FD405EBA1CCBADF2005AD869 /* CopyrightViewController.m in Sources */,
 				FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */,
@@ -2401,6 +2426,7 @@
 				FD4CD7E81CCE686D00659D9D /* NoteTableViewCell.m in Sources */,
 				FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
+				FD3F656E1CD34EF800FBEE43 /* MailTableViewCell.m in Sources */,
 				FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */,
 				FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */,
 				FDF3FE211CA816F0007B7C83 /* MyProjectTableViewController.m in Sources */,

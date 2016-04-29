@@ -1,26 +1,26 @@
 //
-//  MessageTableViewController.m
+//  MailViewController.m
 //  Foundation
 //
 //  Created by Dotton on 16/4/29.
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "MessageTableViewController.h"
-#import "MessageTableViewCell.h"
+#import "MailViewController.h"
+#import "MailTableViewCell.h"
 
-@interface MessageTableViewController ()
+@interface MailViewController ()
 
 @end
 
-@implementation MessageTableViewController
+@implementation MailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setDynamicLayout];
     [self initRefreshControl];
     [self fetchData];
-    self.navigationItem.title = @"系统消息";
+    self.navigationItem.title = @"私信";
 }
 
 //上拉下拉控件
@@ -45,10 +45,9 @@
 ///请求网络
 - (void)fetchData {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                @"SEQ_toUserId":[User getInstance].uid,
-                                                                                @"SEQ_type":self.SEQ_type
+                                                                                self.userType:[User getInstance].uid,
+                                                                                @"SEQ_type":@"1"
                                                                                 }];
-    
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"personal/msg/getUserMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -80,9 +79,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
-    MessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"MessageTableViewCell" owner:nil options:nil] firstObject];
+    MailTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"MailTableViewCell" owner:nil options:nil] firstObject];
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
+    cell.avatarImageView.clipsToBounds = YES;
+    cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
+    [cell.realNameButton setTitle:dict[@"realName"] forState:(UIControlStateNormal)];
     cell.createdDatetimeLabel.text = [DateUtil toShortDateCN:dict[@"createdDate"] time:dict[@"createdTime"]];
-    cell.titleLabel.text = [StringUtil toString:dict[@"title"]];
+//    是否显示收件状态
+    if ([self.userType isEqualToString:@"SEQ_userId"]) {
+        //显示状态
+        cell.statusLabel.hidden = NO;
+//        status: (0," 发送成功"), (1,"对方已阅读"), (2,"对方已回复");
+        switch ([dict[@"status"] integerValue]) {
+            case 0:
+                cell.statusLabel.textColor = [UIColor redColor];
+                cell.statusLabel.text = @"发送成功";
+                break;
+            case 1:
+                cell.statusLabel.textColor = [UIColor blueColor];
+                cell.statusLabel.text = @"对方已阅读";
+                break;
+            case 2:
+                cell.statusLabel.textColor = [UIColor greenColor];
+                cell.statusLabel.text = @"对方已回复";
+                break;
+            default:
+                break;
+        }
+        cell.leadingOfCreatedDateTimeLabel.constant = 100;
+    } else {
+        cell.statusLabel.hidden = YES;
+    }
     cell.contentLabel.text = [StringUtil toString:dict[@"content"]];
     return cell;
 }

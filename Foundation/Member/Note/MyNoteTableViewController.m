@@ -25,10 +25,6 @@
     self.navigationItem.title = @"我的笔记";
 }
 
-- (void)edit:(NSDictionary *)info{
-    NSLog(@"info:%@",info);
-}
-
 //上拉下拉控件
 - (void)initRefreshControl {
     /**上拉刷新、下拉加载*/
@@ -104,7 +100,7 @@
     cell.bookExcerptLabel.text = [StringUtil toString:dict[@"bookExcerpt"]];
     cell.remarkLabel.text = dict[@"remark"];
     cell.bookNameLabel.text = [StringUtil toString:dict[@"bookName"]];
-    cell.createdDatetimeLabel.text = [DateUtil toString:dict[@"createdDate"] time:self.dataArray[indexPath.row][@"createdTime"]];
+    cell.createdDatetimeLabel.text = [DateUtil toString:dict[@"createdDate"] time:dict[@"createdTime"]];
     return cell;
 }
 

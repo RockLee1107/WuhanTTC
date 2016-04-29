@@ -8,6 +8,7 @@
 
 #import "MessagePageController.h"
 #import "MessageTableViewController.h"
+#import "MailViewController.h"
 
 @interface MessagePageController ()
 
@@ -27,8 +28,8 @@
     if (self) {
         NSArray *viewControllerClasses = @[
                                            [MessageTableViewController class],
-                                           [MessageTableViewController class],
-                                           [MessageTableViewController class]
+                                           [MailViewController class],
+                                           [MailViewController class]
                                            ];
         NSArray *titles = @[
                             @"系统消息",
@@ -44,14 +45,14 @@
         //为不同页面设置相对应的标签，每一个key对应一个values
         self.keys = @[
                       @"SEQ_type",
-                      @"SEQ_type",
-                      @"SEQ_type"
+                      @"userType",
+                      @"userType"
                       ];
         self.values = @[
                         @"0",
 //                        由于收信是toUserId，所以人为地将它的SEQ_type定为-1，在子页中硬编码判断
-                        @"-1",
-                        @"1"
+                        @"SEQ_toUserId",
+                        @"SEQ_userId"
                         ];
     }
     return self;
