@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VQC-ae-W7i">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="VQC-ae-W7i">
                         <rect key="frame" x="9" y="7" width="65" height="65"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="VQC-ae-W7i" secondAttribute="height" multiplier="1:1" id="Jwj-JK-Tsw"/>
@@ -77,4 +77,7 @@
             <point key="canvasLocation" x="512" y="332"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="app_loading_img_big.png" width="50" height="35"/>
+    </resources>
 </document>

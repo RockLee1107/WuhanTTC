@@ -76,9 +76,7 @@
     cell.avatarImageView.clipsToBounds = YES;
     cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
     NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
-    if (dict[@"pictUrl"] != [NSNull null]) {
-        [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
-    }
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
     cell.realnameLabel.text = [StringUtil toString:dict[@"realName"]];
     cell.companyLabel.text = [StringUtil toString:dict[@"company"]];
     cell.dutyLabel.text = [StringUtil toString:dict[@"duty"]];
@@ -92,7 +90,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
-    vc.userId = self.dataArray[indexPath.row][@"friendId"];
+    NSString *key;
+    for (NSString *letter in self.dataArray[indexPath.section]) {
+        key = letter;
+    }
+    vc.userId = self.dataArray[indexPath.section][key][indexPath.row][@"friendId"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
