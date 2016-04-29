@@ -93,15 +93,15 @@
 //        status: (0," 发送成功"), (1,"对方已阅读"), (2,"对方已回复");
         switch ([dict[@"status"] integerValue]) {
             case 0:
-                cell.statusLabel.textColor = [UIColor redColor];
+                cell.statusLabel.textColor = HGColor(0x01, 0xbf, 0x01);
                 cell.statusLabel.text = @"发送成功";
                 break;
             case 1:
-                cell.statusLabel.textColor = [UIColor blueColor];
+                cell.statusLabel.textColor = HGColor(0xff, 0x82, 0x00);
                 cell.statusLabel.text = @"对方已阅读";
                 break;
             case 2:
-                cell.statusLabel.textColor = [UIColor greenColor];
+                cell.statusLabel.textColor = HGColor(0xee, 0x30, 0x00);
                 cell.statusLabel.text = @"对方已回复";
                 break;
             default:
