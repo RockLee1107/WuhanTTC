@@ -64,7 +64,7 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="99"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kYO-Ex-et1" id="yca-Lp-a0E">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-YH-u4L">
@@ -80,7 +80,7 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRZ-lb-5oa">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aRZ-lb-5oa">
                                                     <rect key="frame" x="85" y="13" width="99" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="99" id="1TB-7d-aTZ"/>
@@ -104,7 +104,7 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvH-Rj-DpA">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvH-Rj-DpA" customClass="LXButton">
                                                     <rect key="frame" x="85" y="68" width="69" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="69" id="2lW-DN-zmf"/>
@@ -112,8 +112,11 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="发私信"/>
+                                                    <connections>
+                                                        <action selector="sendMsgButtonPress:" destination="7Ba-nW-pys" eventType="touchUpInside" id="ZMl-Bd-Dfp"/>
+                                                    </connections>
                                                 </button>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imi-47-RA8">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imi-47-RA8" customClass="LXButton">
                                                     <rect key="frame" x="162" y="68" width="69" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="0bF-Ll-Lof"/>
@@ -121,8 +124,11 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="删除好友"/>
+                                                    <connections>
+                                                        <action selector="delFriendButtonPress:" destination="7Ba-nW-pys" eventType="touchUpInside" id="vcV-AH-0P5"/>
+                                                    </connections>
                                                 </button>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yns-zF-Elj">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yns-zF-Elj" customClass="LXButton">
                                                     <rect key="frame" x="85" y="68" width="69" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="69" id="hCU-5q-orw"/>
@@ -130,6 +136,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="加好友"/>
+                                                    <connections>
+                                                        <action selector="makeFriendsButtonPress:" destination="7Ba-nW-pys" eventType="touchUpInside" id="9Cp-aW-lUb"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CEO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DiP-fw-Lf8">
                                                     <rect key="frame" x="188" y="14" width="70" height="18"/>
@@ -183,7 +192,7 @@
                                         <rect key="frame" x="0.0" y="234" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OvW-xI-6Rs" id="HBQ-tI-6HL">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEB-EU-UID">
@@ -206,7 +215,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="He0-3F-zmI">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="He0-3F-zmI" customClass="LXButton">
                                                     <rect key="frame" x="243" y="12" width="69" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="69" id="LgY-Ie-3hH"/>
@@ -214,6 +223,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="投递项目"/>
+                                                    <connections>
+                                                        <action selector="postProjectButton:" destination="7Ba-nW-pys" eventType="touchUpInside" id="Btn-dI-epa"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -230,7 +242,7 @@
                                         <rect key="frame" x="0.0" y="281" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ff0-Ap-DfA" id="KiE-AZ-5Vz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYB-vY-aBC" customClass="CaptionButton">
@@ -266,7 +278,7 @@
                                         <rect key="frame" x="0.0" y="361" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jrh-Qg-zqT" id="uB9-LU-OXV">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucf-Ug-MhO" customClass="CaptionButton">
@@ -302,7 +314,7 @@
                                         <rect key="frame" x="0.0" y="441" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="41G-cI-Osb" id="s4h-3S-ZyB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-Lb-s93" customClass="CaptionButton">
@@ -338,7 +350,7 @@
                                         <rect key="frame" x="0.0" y="521" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qff-9e-AtA" id="YHw-Wq-Ryd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zue-es-fYU" customClass="CaptionButton">
@@ -382,12 +394,16 @@
                         <outlet property="areaLabel" destination="Pf0-nT-tCp" id="m4F-Kl-cGJ"/>
                         <outlet property="avatarImageView" destination="lgO-YH-u4L" id="7IT-0S-Xrd"/>
                         <outlet property="companyLabel" destination="EDC-oa-Pek" id="WiD-tv-Iui"/>
+                        <outlet property="delFriendButton" destination="imi-47-RA8" id="gZt-Q2-IeH"/>
                         <outlet property="dutyLabel" destination="DiP-fw-Lf8" id="NqW-P6-hgI"/>
                         <outlet property="investAreaLabel" destination="CiX-1t-pQg" id="xCq-uC-qam"/>
                         <outlet property="investIdeaLabel" destination="q8Z-kP-LcR" id="lcl-hk-pn1"/>
                         <outlet property="investProcessLabel" destination="ELP-J7-JWE" id="E26-TO-NTn"/>
                         <outlet property="investProjectLabel" destination="haO-jy-fuu" id="fLb-if-eRh"/>
+                        <outlet property="makeFriendsButton" destination="Yns-zF-Elj" id="WR9-DO-o7M"/>
+                        <outlet property="postProjectButton" destination="He0-3F-zmI" id="sa9-tW-mIi"/>
                         <outlet property="realnameLabel" destination="aRZ-lb-5oa" id="Muv-Mc-he0"/>
+                        <outlet property="sendMsgButton" destination="IvH-Rj-DpA" id="DpR-BO-NSQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70G-ta-3y1" userLabel="First Responder" sceneMemberID="firstResponder"/>

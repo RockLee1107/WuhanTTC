@@ -7,6 +7,8 @@
 //
 
 #import "UserDetailViewController.h"
+#import "EYInputPopupView.h"
+#import "LXButton.h"
 
 @interface UserDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -18,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *investAreaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investProcessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investProjectLabel;
+@property (weak, nonatomic) IBOutlet LXButton *makeFriendsButton;
+@property (weak, nonatomic) IBOutlet LXButton *delFriendButton;
+@property (weak, nonatomic) IBOutlet LXButton *postProjectButton;
+@property (weak, nonatomic) IBOutlet LXButton *sendMsgButton;
 @end
 
 @implementation UserDetailViewController
@@ -57,6 +63,25 @@
         } else {
             self.navigationItem.title = @"用户信息";
         }
+        /*4大按钮的显示隐藏*/
+        //是投资者
+        if ([self.dataDict[@"isInvestor"] boolValue]) {
+            self.postProjectButton.hidden = NO;
+        }
+        //是好友
+        if ([self.dataDict[@"isFriend"] boolValue]) {
+            self.sendMsgButton.hidden = NO;
+            self.delFriendButton.hidden = NO;
+        } else {
+            self.makeFriendsButton.hidden = NO;
+        }
+        //是自己
+        if ([self.userId isEqualToString:[User getInstance].uid]) {
+            self.postProjectButton.hidden = YES;
+            self.sendMsgButton.hidden = YES;
+            self.delFriendButton.hidden = YES;
+            self.makeFriendsButton.hidden = YES;
+        }
         [self.tableView reloadData];
     } noResult:nil];
 }
@@ -71,4 +96,45 @@
     return [super tableView:tableView numberOfRowsInSection:section];
 }
 
+- (IBAction)sendMsgButtonPress:(id)sender {
+//    跳转发消息页面
+
+}
+
+- (IBAction)delFriendButtonPress:(id)sender {
+//    刷新原来的单元格/fetchData
+    NSDictionary *param = @{
+                            @"friendId":self.userId,
+                            @"userId":[User getInstance].uid
+                            };
+    [self.service POST:@"personal/friends/delFriend" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+        [self fetchData];
+    } noResult:nil];
+}
+
+//添加好友
+- (IBAction)makeFriendsButtonPress:(id)sender {
+    [EYInputPopupView popViewWithTitle:@"好友申请" contentText:@""
+                                  type:EYInputPopupView_Type_multi_line
+                           cancelBlock:^{
+                               
+                           } confirmBlock:^(UIView *view, NSString *text) {
+                               NSDictionary *param = @{@"Friends":[StringUtil dictToJson:@{
+                                                                                           @"friendId":self.userId,
+                                                                                           @"userId":[User getInstance].uid
+                                                                                           }
+                                                                   ]};
+                               [self.service POST:@"personal/friends/makeFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                   [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+                               } noResult:nil];
+                           } dismissBlock:^{
+                               
+                           }
+     ];
+}
+
+- (IBAction)postProjectButton:(id)sender {
+//    跳转可投资项目页
+}
 @end
