@@ -67,12 +67,17 @@
         //是投资者
         if ([self.dataDict[@"isInvestor"] boolValue]) {
             self.postProjectButton.hidden = NO;
+        } else {
+            self.postProjectButton.hidden = YES;
         }
         //是好友
         if ([self.dataDict[@"isFriend"] boolValue]) {
             self.sendMsgButton.hidden = NO;
             self.delFriendButton.hidden = NO;
+            self.makeFriendsButton.hidden = YES;
         } else {
+            self.sendMsgButton.hidden = YES;
+            self.delFriendButton.hidden = YES;
             self.makeFriendsButton.hidden = NO;
         }
         //是自己
@@ -107,10 +112,15 @@
                             @"friendId":self.userId,
                             @"userId":[User getInstance].uid
                             };
-    [self.service POST:@"personal/friends/delFriend" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [SVProgressHUD showSuccessWithStatus:@"删除成功"];
-        [self fetchData];
-    } noResult:nil];
+    
+    [[PXAlertView showAlertWithTitle:@"您确定删除好友吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
+        if (!cancelled) {
+            [self.service POST:@"personal/friends/delFriend" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+                [self fetchData];
+            } noResult:nil];
+        }
+    }] useDefaultIOS7Style];
 }
 
 //添加好友
