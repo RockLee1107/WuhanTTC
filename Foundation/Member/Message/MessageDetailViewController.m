@@ -184,11 +184,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 1) {
 //        跳转按钮所在行；分别减去导航栏、消息摘要行、文本框所在行，但不包括底部栏
-        CGFloat height = SCREEN_HEIGHT - 64.0 - 100.0 - 44.0;
-        if (self.dataDict[@"title"] != [NSNull null]) {
-            //当如系统信息是没有标题栏的时候
-            height += 40.0;
-        }
+        CGFloat height = SCREEN_HEIGHT - 64.0 - 100.0 - 44.0 - 49.0;
+//        if (self.dataDict[@"title"] != [NSNull null]) {
+//            //当如系统信息是没有标题栏的时候
+//            height += 40.0;
+//        }
         return height;
     } else if (indexPath.row == 0) {
         if (self.dataDict[@"title"] == [NSNull null]) {
