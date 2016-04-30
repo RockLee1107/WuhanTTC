@@ -84,6 +84,7 @@
     MessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"MessageTableViewCell" owner:nil options:nil] firstObject];
     cell.createdDatetimeLabel.text = [DateUtil toShortDateCN:dict[@"createdDate"] time:dict[@"createdTime"]];
     cell.titleLabel.text = [StringUtil toString:dict[@"title"]];
+    cell.unreadImageView.hidden = ![dict[@"status"] boolValue];
     cell.contentLabel.text = [StringUtil toString:dict[@"content"]];
     return cell;
 }

@@ -16,5 +16,6 @@
 @property (nonatomic,strong) IBOutlet UIButton *realNameButton;
 @property (nonatomic,strong) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *directionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *unreadImageView;
 
 @end

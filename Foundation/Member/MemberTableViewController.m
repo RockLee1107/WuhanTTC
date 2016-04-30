@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *userIdentityButton;
+@property (weak, nonatomic) IBOutlet UIImageView *unreadImageView;
 
 @end
 
@@ -55,6 +56,7 @@
         } else {
             userIdentity = @"创业者";
         }
+        self.unreadImageView.hidden = ![responseObject[@"hasUnRead"] boolValue];
         [self.userIdentityButton setTitle:userIdentity forState:(UIControlStateNormal)];
     } noResult:nil];
 }

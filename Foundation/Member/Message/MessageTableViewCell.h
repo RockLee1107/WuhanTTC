@@ -12,4 +12,5 @@
 @property (nonatomic,strong) IBOutlet UILabel *createdDatetimeLabel;
 @property (nonatomic,strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic,strong) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *unreadImageView;
 @end

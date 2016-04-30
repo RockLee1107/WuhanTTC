@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4月29日 12:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ik-d1-sOd">
@@ -38,6 +39,19 @@
                             </mask>
                         </variation>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_unread.png" translatesAutoresizingMaskIntoConstraints="NO" id="wWu-FJ-My8">
+                        <rect key="frame" x="7" y="41" width="9" height="9"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="9" id="MOA-hK-Sb9"/>
+                            <constraint firstAttribute="width" constant="9" id="VdV-6C-ddF"/>
+                            <constraint firstAttribute="width" secondItem="wWu-FJ-My8" secondAttribute="height" multiplier="1:1" id="c3p-FZ-0RA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="c3p-FZ-0RA"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有人给您投资项目了" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1vm-t0-gR6">
                         <rect key="frame" x="142" y="8" width="170" height="18"/>
                         <constraints>
@@ -57,19 +71,31 @@
                     <constraint firstAttribute="topMargin" secondItem="1ik-d1-sOd" secondAttribute="top" id="1Dx-cg-Loq"/>
                     <constraint firstAttribute="topMargin" secondItem="1vm-t0-gR6" secondAttribute="top" id="1l6-an-6AP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1vm-t0-gR6" secondAttribute="trailing" id="UIs-I7-1RV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="wWu-FJ-My8" secondAttribute="bottom" constant="1.5" id="W0G-wX-RcU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9bT-Dv-edZ" secondAttribute="trailing" id="Yux-IL-eHe"/>
                     <constraint firstItem="9bT-Dv-edZ" firstAttribute="top" secondItem="1ik-d1-sOd" secondAttribute="bottom" constant="10" id="aJ5-e7-qBO"/>
+                    <constraint firstItem="wWu-FJ-My8" firstAttribute="width" secondItem="wWu-FJ-My8" secondAttribute="height" multiplier="1:1" id="dBJ-Y9-8l9"/>
                     <constraint firstItem="9bT-Dv-edZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="11" id="eKb-dc-Bs1"/>
+                    <constraint firstItem="wWu-FJ-My8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-1" id="g4T-Rc-BEY"/>
                     <constraint firstItem="1vm-t0-gR6" firstAttribute="leading" secondItem="1ik-d1-sOd" secondAttribute="trailing" constant="8" id="rmn-MD-Ozc"/>
                     <constraint firstItem="1ik-d1-sOd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="11" id="vRc-dQ-tJo"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="dBJ-Y9-8l9"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="9bT-Dv-edZ" id="4Yl-Ig-CmT"/>
                 <outlet property="createdDatetimeLabel" destination="1ik-d1-sOd" id="Cxj-0D-eXu"/>
                 <outlet property="titleLabel" destination="1vm-t0-gR6" id="tfp-wr-FYD"/>
+                <outlet property="unreadImageView" destination="wWu-FJ-My8" id="zLv-lG-pm6"/>
             </connections>
             <point key="canvasLocation" x="509" y="287"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="app_unread.png" width="9" height="9"/>
+    </resources>
 </document>

@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zPG-Kt-b8d" id="ANZ-tw-WH5">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4月29日 12:12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdR-tV-axv">
@@ -56,6 +56,19 @@
                             </mask>
                         </variation>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_unread.png" translatesAutoresizingMaskIntoConstraints="NO" id="MSo-kF-JOo">
+                        <rect key="frame" x="7" y="40" width="9" height="9"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="MSo-kF-JOo" secondAttribute="height" multiplier="1:1" id="WDG-Vq-mcU"/>
+                            <constraint firstAttribute="height" constant="9" id="qUs-5A-oSg"/>
+                            <constraint firstAttribute="width" constant="9" id="r2o-fD-K2Z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WDG-Vq-mcU"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="7F8-6r-BqY">
                         <rect key="frame" x="175" y="5" width="24" height="24"/>
                         <constraints>
@@ -88,13 +101,16 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="MSo-kF-JOo" firstAttribute="leading" secondItem="ANZ-tw-WH5" secondAttribute="leadingMargin" constant="-1" id="5eN-Vo-VJx"/>
                     <constraint firstItem="uVg-qo-WXL" firstAttribute="leading" secondItem="7F8-6r-BqY" secondAttribute="trailing" constant="8" id="7SF-Dd-5Z1"/>
+                    <constraint firstItem="MSo-kF-JOo" firstAttribute="width" secondItem="MSo-kF-JOo" secondAttribute="height" multiplier="1:1" id="AcX-11-CDc"/>
                     <constraint firstAttribute="topMargin" secondItem="8MT-Pg-SeR" secondAttribute="top" id="Dbg-VN-bQl"/>
                     <constraint firstItem="7F8-6r-BqY" firstAttribute="top" secondItem="ANZ-tw-WH5" secondAttribute="topMargin" constant="-3" id="E6U-SB-u9i"/>
                     <constraint firstItem="7F8-6r-BqY" firstAttribute="leading" secondItem="8MT-Pg-SeR" secondAttribute="trailing" constant="8" id="EEG-1O-GM6"/>
                     <constraint firstItem="i5L-S7-9Tk" firstAttribute="leading" secondItem="ANZ-tw-WH5" secondAttribute="leadingMargin" constant="11" id="ICN-ne-M1l"/>
                     <constraint firstItem="8MT-Pg-SeR" firstAttribute="leading" secondItem="GdR-tV-axv" secondAttribute="trailing" constant="3" id="K2A-Ca-QYZ"/>
                     <constraint firstItem="uVg-qo-WXL" firstAttribute="top" secondItem="ANZ-tw-WH5" secondAttribute="topMargin" constant="-2" id="K7w-86-X0V"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="MSo-kF-JOo" secondAttribute="bottom" constant="2.5" id="Ns6-QU-5Lk"/>
                     <constraint firstItem="oAZ-RT-iyf" firstAttribute="top" secondItem="GdR-tV-axv" secondAttribute="bottom" constant="10" id="ag9-og-pce"/>
                     <constraint firstAttribute="topMargin" secondItem="GdR-tV-axv" secondAttribute="top" id="ck6-ZY-ZMg"/>
                     <constraint firstAttribute="topMargin" secondItem="i5L-S7-9Tk" secondAttribute="top" id="hFR-uA-c9N"/>
@@ -103,6 +119,11 @@
                     <constraint firstAttribute="trailingMargin" secondItem="oAZ-RT-iyf" secondAttribute="trailing" id="xgP-mO-djD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="uVg-qo-WXL" secondAttribute="trailing" constant="2" id="yvM-hO-TQe"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="AcX-11-CDc"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatarImageView" destination="7F8-6r-BqY" id="gnW-lO-V7M"/>
@@ -112,11 +133,13 @@
                 <outlet property="leadingOfCreatedDateTimeLabel" destination="jbJ-7d-mTx" id="1ib-bc-vZG"/>
                 <outlet property="realNameButton" destination="uVg-qo-WXL" id="nPi-ws-CZW"/>
                 <outlet property="statusLabel" destination="i5L-S7-9Tk" id="ViS-8L-9Qc"/>
+                <outlet property="unreadImageView" destination="MSo-kF-JOo" id="NE6-Jp-9L8"/>
             </connections>
             <point key="canvasLocation" x="509" y="287"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="app_loading_img_big.png" width="50" height="35"/>
+        <image name="app_unread.png" width="9" height="9"/>
     </resources>
 </document>
