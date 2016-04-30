@@ -139,9 +139,13 @@
 
 //通过验证
 - (void)makeFriends:(id)sender {
+    NSDate *now = [NSDate date];
     NSDictionary *param = @{@"Friends":[StringUtil dictToJson:@{
                                                                 @"friendId":self.dataDict[@"userId"],
-                                                                @"userId":[User getInstance].uid
+                                                                @"userId":[User getInstance].uid,
+                                                                @"createdDate": [DateUtil dateToDatePart:now],
+                                                                @"createdTime": [DateUtil dateToTimePart:now],
+                                                                @"realName":self.dataDict[@"realName"]
                                                                 }
                                         ],
                             @"msgId":self.dataDict[@"id"]

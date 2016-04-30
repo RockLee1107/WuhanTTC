@@ -171,11 +171,12 @@
                                                                                            @"type":@"0",
                                                                                            @"contentType":@"4",
                                                                                            @"title":@"好友申请",
+                                                                                           @"status":@"0",
                                                                                            @"content":[NSString stringWithFormat:@"%@请求添加你为好友：%@",self.dataDict[@"userinfo"][@"realName"],text]
                                                                                            }
                                                                    ]};
                                [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                   [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+                                   [SVProgressHUD showSuccessWithStatus:@"发送成功，等待对方验证"];
                                } noResult:nil];
                            } dismissBlock:^{
                                
