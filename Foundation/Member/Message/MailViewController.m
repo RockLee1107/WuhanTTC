@@ -108,7 +108,7 @@
             default:
                 break;
         }
-        cell.leadingOfCreatedDateTimeLabel.constant = 100;
+        cell.leadingOfCreatedDateTimeLabel.constant = 95;
         cell.directionLabel.text = @"发给";
     } else {
 //        收信

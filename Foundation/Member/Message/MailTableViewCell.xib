@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来自" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MT-Pg-SeR">
-                        <rect key="frame" x="142" y="8" width="30" height="18"/>
+                        <rect key="frame" x="137" y="8" width="30" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="B5b-Sy-PSO"/>
                             <constraint firstAttribute="width" constant="30" id="ffO-r9-Kxt"/>
@@ -57,17 +57,18 @@
                         </variation>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="7F8-6r-BqY">
-                        <rect key="frame" x="180" y="5" width="24" height="24"/>
+                        <rect key="frame" x="175" y="5" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="aef-pe-12z"/>
                             <constraint firstAttribute="width" secondItem="7F8-6r-BqY" secondAttribute="height" multiplier="1:1" id="ywR-OX-5BB"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVg-qo-WXL">
-                        <rect key="frame" x="212" y="6" width="84" height="22"/>
+                        <rect key="frame" x="207" y="6" width="103" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="BXc-ks-Tgv"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="名称"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对方已回复" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5L-S7-9Tk">
@@ -92,7 +93,7 @@
                     <constraint firstItem="7F8-6r-BqY" firstAttribute="top" secondItem="ANZ-tw-WH5" secondAttribute="topMargin" constant="-3" id="E6U-SB-u9i"/>
                     <constraint firstItem="7F8-6r-BqY" firstAttribute="leading" secondItem="8MT-Pg-SeR" secondAttribute="trailing" constant="8" id="EEG-1O-GM6"/>
                     <constraint firstItem="i5L-S7-9Tk" firstAttribute="leading" secondItem="ANZ-tw-WH5" secondAttribute="leadingMargin" constant="11" id="ICN-ne-M1l"/>
-                    <constraint firstItem="8MT-Pg-SeR" firstAttribute="leading" secondItem="GdR-tV-axv" secondAttribute="trailing" constant="8" id="K2A-Ca-QYZ"/>
+                    <constraint firstItem="8MT-Pg-SeR" firstAttribute="leading" secondItem="GdR-tV-axv" secondAttribute="trailing" constant="3" id="K2A-Ca-QYZ"/>
                     <constraint firstItem="uVg-qo-WXL" firstAttribute="top" secondItem="ANZ-tw-WH5" secondAttribute="topMargin" constant="-2" id="K7w-86-X0V"/>
                     <constraint firstItem="oAZ-RT-iyf" firstAttribute="top" secondItem="GdR-tV-axv" secondAttribute="bottom" constant="10" id="ag9-og-pce"/>
                     <constraint firstAttribute="topMargin" secondItem="GdR-tV-axv" secondAttribute="top" id="ck6-ZY-ZMg"/>
@@ -100,7 +101,7 @@
                     <constraint firstItem="GdR-tV-axv" firstAttribute="leading" secondItem="ANZ-tw-WH5" secondAttribute="leadingMargin" constant="11" id="jbJ-7d-mTx"/>
                     <constraint firstItem="oAZ-RT-iyf" firstAttribute="leading" secondItem="ANZ-tw-WH5" secondAttribute="leadingMargin" constant="11" id="nd7-uC-Ym3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="oAZ-RT-iyf" secondAttribute="trailing" id="xgP-mO-djD"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="uVg-qo-WXL" secondAttribute="trailing" constant="16" id="yvM-hO-TQe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uVg-qo-WXL" secondAttribute="trailing" constant="2" id="yvM-hO-TQe"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -110,12 +110,14 @@
 }
 
 //立即查看4种跳转
+//文章
 - (void)jumpBook:(id)sender {
     BookDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.bookId = self.dataDict[@"contentId"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+//活动
 - (void)jumpActivity:(id)sender {
     [SingletonObject getInstance].pid = self.dataDict[@"contentId"];
     ActivityDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
@@ -123,12 +125,14 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+//项目
 - (void)jumpProject:(id)sender {
     [SingletonObject getInstance].pid = self.dataDict[@"contentId"];
     ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+//通过验证
 - (void)makeFriends:(id)sender {
     NSDictionary *param = @{@"Friends":[StringUtil dictToJson:@{
                                                                 @"friendId":self.dataDict[@"userId"],
