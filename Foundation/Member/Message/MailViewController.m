@@ -86,7 +86,7 @@
     cell.avatarImageView.layer.cornerRadius = CGRectGetWidth(cell.avatarImageView.frame) / 2.0;
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
     [cell.realNameButton setTitle:dict[@"realName"] forState:(UIControlStateNormal)];
-    cell.unreadImageView.hidden = ![dict[@"status"] boolValue];
+    cell.unreadImageView.hidden = [dict[@"status"] boolValue];
     cell.createdDatetimeLabel.text = [DateUtil toShortDateCN:dict[@"createdDate"] time:dict[@"createdTime"]];
 //    是否显示收件状态
     if ([self.userType isEqualToString:@"SEQ_userId"]) {
