@@ -143,7 +143,9 @@
                                                                 @"friendId":self.dataDict[@"userId"],
                                                                 @"userId":[User getInstance].uid
                                                                 }
-                                        ]};
+                                        ],
+                            @"msgId":self.dataDict[@"id"]
+                            };
     [self.service POST:@"personal/friends/makeFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.jumpButton.hidden = YES;
         [SVProgressHUD showSuccessWithStatus:@"添加好友成功"];
