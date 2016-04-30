@@ -20,7 +20,33 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"消息";
-    // Do any additional setup after loading the view.
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"全部已读" style:(UIBarButtonItemStyleBordered) target:self action:@selector(clear:)];
+}
+
+///全部已读
+- (void)clear:(UIBarButtonItem *)item {
+//    UITableViewController *vc = (UITableViewController *)self.currentViewController;
+//    vc.editing = !vc.editing;
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                   @"userId":[User getInstance].uid,
+                                                   @"status":@"1",
+                                                   }];
+    
+    if ([self.currentViewController isKindOfClass:[MessageTableViewController class]]) {
+        [param setObject:@"0" forKey:@"type"];
+        [[HttpService getInstance] POST:@"personal/msg/changeAllMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+            [((MessageTableViewController *)self.currentViewController) fetchData];
+        } noResult:nil];
+    } else {
+        [param setObject:@"1" forKey:@"type"];
+        [[HttpService getInstance] POST:@"personal/msg/changeAllMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+            [((MailViewController *)self.currentViewController) fetchData];
+        } noResult:nil];
+    }
+    
+    
 }
 
 - (instancetype)init{

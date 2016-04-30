@@ -10,4 +10,5 @@
 
 @interface MessageTableViewController : BaseStaticTableViewController
 @property (nonatomic,strong) NSString *SEQ_type;
+- (void)fetchData;
 @end

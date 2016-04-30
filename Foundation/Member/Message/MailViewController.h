@@ -10,5 +10,5 @@
 
 @interface MailViewController : BaseStaticTableViewController
 @property (nonatomic,strong) NSString *userType;
-
+- (void)fetchData;
 @end
