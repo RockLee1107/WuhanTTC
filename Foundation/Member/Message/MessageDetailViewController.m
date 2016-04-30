@@ -51,6 +51,11 @@
         self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame) / 2.0;
         [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
         self.realNameLabel.hidden = YES;
+//        消息发送者为本人
+        if ([self.dataDict[@"userId"] isEqualToString:[User getInstance].uid]) {
+            //隐藏文本输入框与发送按钮
+            self.msgContentView.hidden = YES;
+        }
     } else {
 //        系统消息
         self.realNameLabel.text = self.dataDict[@"realName"];
@@ -90,8 +95,8 @@
 
 ///加载本页时改变消息状态
 - (void)changeMsgStatus {
-//    首先得是非对方已回复的，也非已读，才调。
-    if ([self.dataDict[@"status"] integerValue] == 0) {
+//    首先得是非对方已回复的，也非已读，才调。同时还得非本人，与回复框显示与否同理。
+    if ([self.dataDict[@"status"] integerValue] == 0 && ![self.dataDict[@"userId"] isEqualToString:[User getInstance].uid]) {
         NSDictionary *param = @{
                                 @"msgId":self.dataDict[@"id"],
                                 @"status":@"1"
