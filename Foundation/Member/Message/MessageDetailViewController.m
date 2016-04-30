@@ -15,7 +15,7 @@
 #import "SingletonObject.h"
 #import "VerifyUtil.h"
 
-@interface MessageDetailViewController ()
+@interface MessageDetailViewController ()<UITextFieldDelegate>
 @property (nonatomic,strong) IBOutlet UILabel *createdDatetimeLabel;
 @property (nonatomic,strong) IBOutlet UILabel *contentLabel;
 @property (nonatomic,strong) IBOutlet UIImageView *avatarImageView;
@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setDynamicLayout];
-//    NSDictionary *dict = self.dataDict;
+    self.msgTextField.delegate = self;
     [self changeMsgStatus];
     self.captionLabel.text = [StringUtil toString:self.dataDict[@"title"]];
     self.contentLabel.text = [StringUtil toString:self.dataDict[@"content"]];
@@ -164,20 +164,27 @@
     NSDate *now = [NSDate date];
     NSDictionary *param = @{
                             @"UserMessage":[StringUtil dictToJson:@{
-                                                                  @"content": self.msgTextField.text,
-                                                                  @"createdDate": [DateUtil dateToDatePart:now],
-                                                                  @"createdTime": [DateUtil dateToTimePart:now],
-                                                                  @"replyMsgId": self.dataDict[@"id"],
-                                                                  @"status": @"0",
-                                                                  @"toUserId": self.dataDict[@"userId"],
-                                                                  @"type": @"1",
-                                                                  @"userId": [User getInstance].uid
-                                                                  }
+                                                                    @"content": self.msgTextField.text,
+                                                                    @"createdDate": [DateUtil dateToDatePart:now],
+                                                                    @"createdTime": [DateUtil dateToTimePart:now],
+                                                                    @"replyMsgId": self.dataDict[@"id"],
+                                                                    @"status": @"0",
+                                                                    @"toUserId": self.dataDict[@"userId"],
+                                                                    @"type": @"1",
+                                                                    @"userId": [User getInstance].uid
+                                                                    }
                                             ]
                             };
     [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+        self.msgTextField.text = @"";
     } noResult:nil];
+}
+
+#pragma mark - textField delegate 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self sendButtonPress:nil];
+    return YES;
 }
 
 #pragma mark - tb delegate
