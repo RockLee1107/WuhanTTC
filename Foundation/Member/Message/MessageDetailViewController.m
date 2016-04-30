@@ -25,10 +25,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 //跳转按钮
 @property (weak, nonatomic) IBOutlet LXButton *jumpButton;
+//灰底背景色ContentView
+@property (weak, nonatomic) IBOutlet UIView *msgContentView;
 //输入框
 @property (nonatomic,strong) IBOutlet UITextField *msgTextField;
-//发送按钮
-@property (nonatomic,strong) IBOutlet LXButton *sendButton;
+
 
 @end
 
@@ -38,6 +39,7 @@
     [super viewDidLoad];
     [self setDynamicLayout];
 //    NSDictionary *dict = self.dataDict;
+    [self changeMsgStatus];
     self.captionLabel.text = [StringUtil toString:self.dataDict[@"title"]];
     self.contentLabel.text = [StringUtil toString:self.dataDict[@"content"]];
     self.createdDatetimeLabel.text = [DateUtil toShortDateCN:self.dataDict[@"createdDate"] time:self.dataDict[@"createdTime"]];
@@ -54,9 +56,12 @@
         self.realNameLabel.text = self.dataDict[@"realName"];
         self.realNameButton.hidden = YES;
         self.avatarImageView.hidden = YES;
+        //隐藏文本输入框与发送按钮
+        self.msgContentView.hidden = YES;
+//        self.msgContentView.backgroundColor = [UIColor whiteColor];
     }
 //    立即查看、加为好友等按钮
-    if (self.dataDict[@"contentType"] == [NSNull null]) {
+    if (self.dataDict[@"contentType"] == [NSNull null] || [self.dataDict[@"contentType"] isEqualToString:@""]) {
         self.jumpButton.hidden = YES;
     } else {
         switch ([self.dataDict[@"contentType"] integerValue]) {
@@ -83,6 +88,20 @@
     }
 }
 
+///加载本页时改变消息状态
+- (void)changeMsgStatus {
+//    首先得是非对方已回复的，也非已读，才调。
+    if ([self.dataDict[@"status"] integerValue] == 0) {
+        NSDictionary *param = @{
+                                @"msgId":self.dataDict[@"id"],
+                                @"status":@"1"
+                                };
+        [self.service POST:@"personal/msg/changeMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            [SVProgressHUD showSuccessWithStatus:@"已读"];
+        } noResult:nil];
+    }
+}
+
 //跳转个人详情
 - (IBAction)showUserDetail:(id)sender {
     UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
@@ -99,13 +118,14 @@
 
 - (void)jumpActivity:(id)sender {
     [SingletonObject getInstance].pid = self.dataDict[@"contentId"];
-    ProjectDetailViewController *vc = [[ProjectDetailViewController alloc] init];
+    ActivityDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
+    vc.activityId = self.dataDict[@"contentId"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)jumpProject:(id)sender {
     [SingletonObject getInstance].pid = self.dataDict[@"contentId"];
-    ActivityDetailViewController *vc = [[ActivityDetailViewController alloc] init];
+    ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -116,6 +136,7 @@
                                                                 }
                                         ]};
     [self.service POST:@"personal/friends/makeFriends" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.jumpButton.hidden = YES;
         [SVProgressHUD showSuccessWithStatus:@"添加好友成功"];
     } noResult:nil];
     
@@ -128,7 +149,7 @@
         [SVProgressHUD showErrorWithStatus:@"请输入要回复的内容"];
         return;
     }
-    [self.sendButton resignFirstResponder];
+    [self.msgTextField resignFirstResponder];
     NSDate *now = [NSDate date];
     NSDictionary *param = @{
                             @"UserMessage":[StringUtil dictToJson:@{
