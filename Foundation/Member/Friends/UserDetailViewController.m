@@ -108,9 +108,37 @@
     } noResult:nil];
 }
 
+//    发消息弹窗
 - (IBAction)sendMsgButtonPress:(id)sender {
-//    跳转发消息页面
-
+    [EYInputPopupView popViewWithTitle:@"发送私信" contentText:@""
+                                  type:EYInputPopupView_Type_multi_line
+                           cancelBlock:^{
+                               
+                           } confirmBlock:^(UIView *view, NSString *text) {
+                               if (![VerifyUtil hasValue:text]) {
+                                   [SVProgressHUD showErrorWithStatus:@"请输入私信内容"];
+                                   return;
+                               }
+                               NSDate *now = [NSDate date];
+                               NSDictionary *param = @{
+                                                       @"UserMessage":[StringUtil dictToJson:@{
+                                                                                               @"content": text,
+                                                                                               @"createdDate": [DateUtil dateToDatePart:now],
+                                                                                               @"createdTime": [DateUtil dateToTimePart:now],
+                                                                                               @"status": @"0",
+                                                                                               @"toUserId": self.userId,
+                                                                                               @"type": @"1",
+                                                                                               @"userId": [User getInstance].uid
+                                                                                               }
+                                                                       ]
+                                                       };
+                               [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                   [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+                               } noResult:nil];
+                           } dismissBlock:^{
+                               
+                           }
+     ];
 }
 
 - (IBAction)delFriendButtonPress:(id)sender {
