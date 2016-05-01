@@ -220,9 +220,18 @@ typedef enum : NSUInteger {
     [self postData:BizStatusSave];
 }
 
+//发布按钮
+- (IBAction)publishButtonPress:(id)sender {
+    [self postData:BizStatusPublish];
+}
+
 ///提交到网络
 - (void)postData:(NSInteger)bizStatus {
-//表单验证，考虑保存模式下可为空，考虑结束日期要大于开始日期
+    if (bizStatus == BizStatusPublish) {
+        
+        //表单验证，考虑保存模式下可为空，
+    }
+//    考虑结束日期要大于开始日期
     NSMutableDictionary *activity = [NSMutableDictionary dictionaryWithDictionary:
                                      @{
                                        @"activityTitle":self.activityTitleTextField.text,

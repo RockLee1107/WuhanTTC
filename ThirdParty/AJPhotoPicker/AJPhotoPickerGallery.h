@@ -11,8 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AJPhotoBrowserViewController.h"
-#define IMAGE_WIDTH ((SCREEN_WIDTH) - 32) / 4.0 - 4
-#define IMAGE_WIDTH_WITH_PADDING IMAGE_WIDTH + 5
+#import "Global.h"
+
 @interface AJPhotoPickerGallery : UIView<AJPhotoPickerProtocol,AJPhotoBrowserDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UIViewController *vc;
 @property (strong, nonatomic) NSMutableArray *photos;
