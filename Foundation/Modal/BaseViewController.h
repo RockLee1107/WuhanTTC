@@ -20,6 +20,7 @@
 
 @interface BaseViewController : UIViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSArray *dataImmutableArray;
+@property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) UITextField *currentTextField;
 @property (nonatomic,strong) HttpService *service;
 @property (nonatomic,strong) UITapGestureRecognizer *tap;

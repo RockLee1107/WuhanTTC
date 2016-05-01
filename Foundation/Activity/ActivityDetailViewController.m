@@ -9,8 +9,11 @@
 #import "ActivityDetailViewController.h"
 #import "ActivityDetailTableViewController.h"
 #import "DTKDropdownMenuView.h"
+#import "LXButton.h"
 
 @interface ActivityDetailViewController ()
+@property (weak, nonatomic) IBOutlet LXButton *joinButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerMarginBottom;
 
 @end
 
@@ -18,7 +21,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addRightItem];
+    [self fetchData];
+}
+
+
+- (void)fetchData {
+    NSDictionary *param = @{
+                            @"activityId":self.activityId
+                            };
+    [self.service POST:@"/activity/getActivity" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.dataDict = responseObject;
+        if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+//            如果是非本人发布，才显示报名按钮
+            self.joinButton.hidden = NO;
+        } else {
+            self.containerMarginBottom.constant = 0;
+        }
+//        添加右上角菜单 
+        [self addRightItem];
+    } noResult:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -60,8 +81,12 @@
             [SVProgressHUD showSuccessWithStatus:@"关注活动成功"];
         } noResult:nil];
     }];
-    
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu"];
+    NSMutableArray *array = [NSMutableArray array];
+//    本人无关注
+    if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+        [array addObject:item0];
+    }
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
