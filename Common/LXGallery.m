@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "AJPhotoBrowserViewController.h"
 #import "Global.h"
+#import "ImageBrowserViewController.h"
 
 @implementation LXGallery
 
@@ -55,5 +56,12 @@
 //    AJPhotoBrowserViewController *photoBrowserViewController = [[AJPhotoBrowserViewController alloc] initWithPhotos:self.photos index:index];
 //    photoBrowserViewController.delegate = self;
 //    [self.vc presentViewController:photoBrowserViewController animated:YES completion:nil];
+    
+    ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
+    vc.imageArray = self.urlArray;
+    vc.selectedIndex = 0;
+    self.vc.hidesBottomBarWhenPushed = YES;
+    [self.vc.navigationController pushViewController:vc animated:YES];
+    self.vc.hidesBottomBarWhenPushed = NO;
 }
 @end

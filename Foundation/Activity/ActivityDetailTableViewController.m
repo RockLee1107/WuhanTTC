@@ -54,6 +54,7 @@
         self.urlArray = [self.dataDict[@"detailPictURL"] componentsSeparatedByString:@","];
         LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, ceil(self.urlArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING)];
         gallery.urlArray = self.urlArray;
+        gallery.vc = self;
         [gallery reloadImagesList];
         [self.pictureView addSubview:gallery];
 //        [self.pictureView addSubview:[UIView new]];

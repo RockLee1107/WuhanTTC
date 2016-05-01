@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LXGallery : UIView
-//@property (nonatomic,strong) NSString *urlStr;
+@property (nonatomic,strong) UIViewController *vc;
 @property (nonatomic,strong) NSArray *urlArray;
 - (void)reloadImagesList;
 @end

@@ -126,6 +126,22 @@
 		FD3B005C1CC66F6500DA0166 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */; };
 		FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */; };
 		FD3BDDD61CD5A492006F9EA5 /* LXGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDD51CD5A492006F9EA5 /* LXGallery.m */; };
+		FD3BDE0A1CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDE31CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.m */; };
+		FD3BDE0B1CD5E86C006F9EA5 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDE61CD5E86C006F9EA5 /* UIImage+Category.m */; };
+		FD3BDE0C1CD5E86C006F9EA5 /* KL_ImagesZoomController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDE81CD5E86C006F9EA5 /* KL_ImagesZoomController.m */; };
+		FD3BDE0D1CD5E86C006F9EA5 /* KL_ImageZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDEA1CD5E86C006F9EA5 /* KL_ImageZoomView.m */; };
+		FD3BDE0E1CD5E86C006F9EA5 /* RoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDEC1CD5E86C006F9EA5 /* RoundButton.m */; };
+		FD3BDE0F1CD5E86C006F9EA5 /* RoundImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDEE1CD5E86C006F9EA5 /* RoundImageView.m */; };
+		FD3BDE101CD5E86C006F9EA5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDF21CD5E86C006F9EA5 /* SDImageCache.m */; };
+		FD3BDE111CD5E86C006F9EA5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDF61CD5E86C006F9EA5 /* MKAnnotationView+WebCache.m */; };
+		FD3BDE121CD5E86C006F9EA5 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDF81CD5E86C006F9EA5 /* UIButton+WebCache.m */; };
+		FD3BDE131CD5E86C006F9EA5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDFA1CD5E86C006F9EA5 /* UIImageView+WebCache.m */; };
+		FD3BDE141CD5E86C006F9EA5 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDFD1CD5E86C006F9EA5 /* SDWebImageDownloader.m */; };
+		FD3BDE151CD5E86C006F9EA5 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE021CD5E86C006F9EA5 /* SDWebImageDecoder.m */; };
+		FD3BDE161CD5E86C006F9EA5 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE041CD5E86C006F9EA5 /* SDWebImageManager.m */; };
+		FD3BDE171CD5E86C006F9EA5 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE071CD5E86C006F9EA5 /* SDWebImagePrefetcher.m */; };
+		FD3BDE181CD5E86C006F9EA5 /* ZoomImgItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE091CD5E86C006F9EA5 /* ZoomImgItem.m */; };
+		FD3BDE1B1CD5E88C006F9EA5 /* ImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */; };
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
@@ -574,6 +590,42 @@
 		FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
 		FD3BDDD41CD5A492006F9EA5 /* LXGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXGallery.h; sourceTree = "<group>"; };
 		FD3BDDD51CD5A492006F9EA5 /* LXGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXGallery.m; sourceTree = "<group>"; };
+		FD3BDDE21CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClubNoImgPlaceholderView.h; sourceTree = "<group>"; };
+		FD3BDDE31CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClubNoImgPlaceholderView.m; sourceTree = "<group>"; };
+		FD3BDDE51CD5E86C006F9EA5 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		FD3BDDE61CD5E86C006F9EA5 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		FD3BDDE71CD5E86C006F9EA5 /* KL_ImagesZoomController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KL_ImagesZoomController.h; sourceTree = "<group>"; };
+		FD3BDDE81CD5E86C006F9EA5 /* KL_ImagesZoomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KL_ImagesZoomController.m; sourceTree = "<group>"; };
+		FD3BDDE91CD5E86C006F9EA5 /* KL_ImageZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KL_ImageZoomView.h; sourceTree = "<group>"; };
+		FD3BDDEA1CD5E86C006F9EA5 /* KL_ImageZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KL_ImageZoomView.m; sourceTree = "<group>"; };
+		FD3BDDEB1CD5E86C006F9EA5 /* RoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundButton.h; sourceTree = "<group>"; };
+		FD3BDDEC1CD5E86C006F9EA5 /* RoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundButton.m; sourceTree = "<group>"; };
+		FD3BDDED1CD5E86C006F9EA5 /* RoundImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundImageView.h; sourceTree = "<group>"; };
+		FD3BDDEE1CD5E86C006F9EA5 /* RoundImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundImageView.m; sourceTree = "<group>"; };
+		FD3BDDF11CD5E86C006F9EA5 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		FD3BDDF21CD5E86C006F9EA5 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		FD3BDDF31CD5E86C006F9EA5 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
+		FD3BDDF51CD5E86C006F9EA5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
+		FD3BDDF61CD5E86C006F9EA5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
+		FD3BDDF71CD5E86C006F9EA5 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		FD3BDDF81CD5E86C006F9EA5 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		FD3BDDF91CD5E86C006F9EA5 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		FD3BDDFA1CD5E86C006F9EA5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		FD3BDDFC1CD5E86C006F9EA5 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		FD3BDDFD1CD5E86C006F9EA5 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		FD3BDDFE1CD5E86C006F9EA5 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
+		FD3BDDFF1CD5E86C006F9EA5 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		FD3BDE011CD5E86C006F9EA5 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		FD3BDE021CD5E86C006F9EA5 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		FD3BDE031CD5E86C006F9EA5 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		FD3BDE041CD5E86C006F9EA5 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		FD3BDE051CD5E86C006F9EA5 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
+		FD3BDE061CD5E86C006F9EA5 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		FD3BDE071CD5E86C006F9EA5 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		FD3BDE081CD5E86C006F9EA5 /* ZoomImgItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImgItem.h; sourceTree = "<group>"; };
+		FD3BDE091CD5E86C006F9EA5 /* ZoomImgItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImgItem.m; sourceTree = "<group>"; };
+		FD3BDE191CD5E88C006F9EA5 /* ImageBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBrowserViewController.h; sourceTree = "<group>"; };
+		FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowserViewController.m; sourceTree = "<group>"; };
 		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
 		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD3D59F81CB29AB100B9514D /* ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetViewController.h; sourceTree = "<group>"; };
@@ -1053,6 +1105,8 @@
 		F73B785B1C81375500069EEE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BDE191CD5E88C006F9EA5 /* ImageBrowserViewController.h */,
+				FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */,
 				FD3E6E2F1CC8F527006246AC /* ShareUtil.h */,
 				FD3E6E301CC8F527006246AC /* ShareUtil.m */,
 				FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */,
@@ -1091,6 +1145,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BDDE11CD5E86C006F9EA5 /* ShowImg */,
 				FD3E6DE11CC8F4D1006246AC /* UMSocial_Sdk_4.3 */,
 				FD4E51341CC118FD00061830 /* AJPhotoPicker */,
 				F74C9AE31CBE1DE300C7A607 /* EYPopupView */,
@@ -1564,6 +1619,95 @@
 				FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */,
 			);
 			path = Finance;
+			sourceTree = "<group>";
+		};
+		FD3BDDE11CD5E86C006F9EA5 /* ShowImg */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDDE21CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.h */,
+				FD3BDDE31CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.m */,
+				FD3BDDE41CD5E86C006F9EA5 /* DDProgressView */,
+				FD3BDDE71CD5E86C006F9EA5 /* KL_ImagesZoomController.h */,
+				FD3BDDE81CD5E86C006F9EA5 /* KL_ImagesZoomController.m */,
+				FD3BDDE91CD5E86C006F9EA5 /* KL_ImageZoomView.h */,
+				FD3BDDEA1CD5E86C006F9EA5 /* KL_ImageZoomView.m */,
+				FD3BDDEB1CD5E86C006F9EA5 /* RoundButton.h */,
+				FD3BDDEC1CD5E86C006F9EA5 /* RoundButton.m */,
+				FD3BDDED1CD5E86C006F9EA5 /* RoundImageView.h */,
+				FD3BDDEE1CD5E86C006F9EA5 /* RoundImageView.m */,
+				FD3BDDEF1CD5E86C006F9EA5 /* SDWebImage */,
+				FD3BDE081CD5E86C006F9EA5 /* ZoomImgItem.h */,
+				FD3BDE091CD5E86C006F9EA5 /* ZoomImgItem.m */,
+			);
+			path = ShowImg;
+			sourceTree = "<group>";
+		};
+		FD3BDDE41CD5E86C006F9EA5 /* DDProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDDE51CD5E86C006F9EA5 /* UIImage+Category.h */,
+				FD3BDDE61CD5E86C006F9EA5 /* UIImage+Category.m */,
+			);
+			path = DDProgressView;
+			sourceTree = "<group>";
+		};
+		FD3BDDEF1CD5E86C006F9EA5 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDDF01CD5E86C006F9EA5 /* Cache */,
+				FD3BDDF41CD5E86C006F9EA5 /* Categories */,
+				FD3BDDFB1CD5E86C006F9EA5 /* Downloader */,
+				FD3BDDFF1CD5E86C006F9EA5 /* SDWebImageCompat.h */,
+				FD3BDE001CD5E86C006F9EA5 /* Utils */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		FD3BDDF01CD5E86C006F9EA5 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDDF11CD5E86C006F9EA5 /* SDImageCache.h */,
+				FD3BDDF21CD5E86C006F9EA5 /* SDImageCache.m */,
+				FD3BDDF31CD5E86C006F9EA5 /* SDImageCacheDelegate.h */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		FD3BDDF41CD5E86C006F9EA5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDDF51CD5E86C006F9EA5 /* MKAnnotationView+WebCache.h */,
+				FD3BDDF61CD5E86C006F9EA5 /* MKAnnotationView+WebCache.m */,
+				FD3BDDF71CD5E86C006F9EA5 /* UIButton+WebCache.h */,
+				FD3BDDF81CD5E86C006F9EA5 /* UIButton+WebCache.m */,
+				FD3BDDF91CD5E86C006F9EA5 /* UIImageView+WebCache.h */,
+				FD3BDDFA1CD5E86C006F9EA5 /* UIImageView+WebCache.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		FD3BDDFB1CD5E86C006F9EA5 /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDDFC1CD5E86C006F9EA5 /* SDWebImageDownloader.h */,
+				FD3BDDFD1CD5E86C006F9EA5 /* SDWebImageDownloader.m */,
+				FD3BDDFE1CD5E86C006F9EA5 /* SDWebImageDownloaderDelegate.h */,
+			);
+			path = Downloader;
+			sourceTree = "<group>";
+		};
+		FD3BDE001CD5E86C006F9EA5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDE011CD5E86C006F9EA5 /* SDWebImageDecoder.h */,
+				FD3BDE021CD5E86C006F9EA5 /* SDWebImageDecoder.m */,
+				FD3BDE031CD5E86C006F9EA5 /* SDWebImageManager.h */,
+				FD3BDE041CD5E86C006F9EA5 /* SDWebImageManager.m */,
+				FD3BDE051CD5E86C006F9EA5 /* SDWebImageManagerDelegate.h */,
+				FD3BDE061CD5E86C006F9EA5 /* SDWebImagePrefetcher.h */,
+				FD3BDE071CD5E86C006F9EA5 /* SDWebImagePrefetcher.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		FD3D59FE1CB2AA6E00B9514D /* PXAlert */ = {
@@ -2352,12 +2496,14 @@
 				FD47F85D1C8AC58C00D0ED07 /* Page.m in Sources */,
 				FD4CD7DD1CCD1B3100659D9D /* ReplyForMemberCenterTableViewCell.m in Sources */,
 				FD3B00471CC4C04300DA0166 /* ImageUtil.m in Sources */,
+				FD3BDE0D1CD5E86C006F9EA5 /* KL_ImageZoomView.m in Sources */,
 				FD066CE71CB8EB09001A132A /* ActionSheetDatePicker.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
 				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
 				FDE2D9521CA369CF008DDE4F /* MASCompositeConstraint.m in Sources */,
 				F748184D1CCBD3EC00CEEE3A /* PostSubjectTableViewController.m in Sources */,
+				FD3BDE111CD5E86C006F9EA5 /* MKAnnotationView+WebCache.m in Sources */,
 				FD4E514F1CC118FE00061830 /* AJPhotoGroupCell.m in Sources */,
 				FD3F65721CD34F1200FBEE43 /* MailViewController.m in Sources */,
 				F74C9AFB1CBE1DE300C7A607 /* EYTagView.m in Sources */,
@@ -2378,6 +2524,7 @@
 				F73B78971C81375600069EEE /* HttpService.m in Sources */,
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				FDFD8C5B1CB92F130095FC3C /* BizViewController.m in Sources */,
+				FD3BDE0F1CD5E86C006F9EA5 /* RoundImageView.m in Sources */,
 				FD066CEF1CB8F579001A132A /* StatusDict.m in Sources */,
 				FD066CEC1CB8EB09001A132A /* SWActionSheet.m in Sources */,
 				FD4F43DE1CD1A840005BF414 /* UserTableViewDelegate.m in Sources */,
@@ -2395,10 +2542,12 @@
 				F7A61E791CA04CCB001B5FB3 /* WMMenuItem.m in Sources */,
 				FD3F65651CD3465700FBEE43 /* MessageTableViewController.m in Sources */,
 				FD4E51501CC118FE00061830 /* AJPhotoGroupView.m in Sources */,
+				FD3BDE131CD5E86C006F9EA5 /* UIImageView+WebCache.m in Sources */,
 				FDE26B021C9C38A0003418D5 /* UIImageView+AFNetworking.m in Sources */,
 				FDE098911CA5206800F271EF /* BookListDelegate.m in Sources */,
 				FDE26AAB1C9A3C09003418D5 /* ActivityListViewController.m in Sources */,
 				FDE26ACC1C9BF6EE003418D5 /* MemberTableViewController.m in Sources */,
+				FD3BDE1B1CD5E88C006F9EA5 /* ImageBrowserViewController.m in Sources */,
 				FDE26AFE1C9C38A0003418D5 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				FDFD8C661CB938560095FC3C /* JCCollectionViewTagFlowLayout.m in Sources */,
 				FD9450E71CA8336A00E00759 /* SubjectDetailTableViewController.m in Sources */,
@@ -2426,8 +2575,10 @@
 				FD3D5A051CB2AA6E00B9514D /* PXAlertView+Customization.m in Sources */,
 				FD405EBA1CCBADF2005AD869 /* CopyrightViewController.m in Sources */,
 				FD4E51591CC118FE00061830 /* AJTapDetectingView.m in Sources */,
+				FD3BDE181CD5E86C006F9EA5 /* ZoomImgItem.m in Sources */,
 				F795DF431CB2555A002BCDEE /* RegistViewController.m in Sources */,
 				FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */,
+				FD3BDE0C1CD5E86C006F9EA5 /* KL_ImagesZoomController.m in Sources */,
 				F7FE50061C8A76C600114B28 /* StringUtil.m in Sources */,
 				F795DF5D1CB40BB8002BCDEE /* HotCityTableViewCell.m in Sources */,
 				F7FE500C1C8A7C8B00114B28 /* BookSearcher.m in Sources */,
@@ -2443,6 +2594,7 @@
 				FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
 				FD3F656E1CD34EF800FBEE43 /* MailTableViewCell.m in Sources */,
+				FD3BDE121CD5E86C006F9EA5 /* UIButton+WebCache.m in Sources */,
 				FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */,
 				FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */,
 				FDF3FE211CA816F0007B7C83 /* MyProjectTableViewController.m in Sources */,
@@ -2457,6 +2609,8 @@
 				FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
+				FD3BDE141CD5E86C006F9EA5 /* SDWebImageDownloader.m in Sources */,
+				FD3BDE161CD5E86C006F9EA5 /* SDWebImageManager.m in Sources */,
 				FD4F43C41CCF08CE005BF414 /* MyNoteByBookTableViewController.m in Sources */,
 				FDE2AFE61C887ED2002238CA /* SpecialTypeViewController.m in Sources */,
 				FD3B00501CC61DCE00DA0166 /* ProcessTableViewController.m in Sources */,
@@ -2491,7 +2645,9 @@
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FD4F43CB1CD04005005BF414 /* NoteOrCollectTableHeaderView.m in Sources */,
 				FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */,
+				FD3BDE0B1CD5E86C006F9EA5 /* UIImage+Category.m in Sources */,
 				FD4462831CAD4B4C00F7E12F /* ActivityDetailTableViewController.m in Sources */,
+				FD3BDE171CD5E86C006F9EA5 /* SDWebImagePrefetcher.m in Sources */,
 				FDFD8C681CB938560095FC3C /* JCTagListView.m in Sources */,
 				FD3F655F1CD3450B00FBEE43 /* BasePageController.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
@@ -2507,6 +2663,7 @@
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
 				FDFD8C671CB938560095FC3C /* JCTagCell.m in Sources */,
 				F7A61E801CA04E83001B5FB3 /* ProjectSummaryTableViewController.m in Sources */,
+				FD3BDE101CD5E86C006F9EA5 /* SDImageCache.m in Sources */,
 				FD4E514E1CC118FE00061830 /* AJGradientView.m in Sources */,
 				FD066CE61CB8EB09001A132A /* ActionSheetCustomPicker.m in Sources */,
 				FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */,
@@ -2514,6 +2671,7 @@
 				F70B01A21C7232FC00D46D79 /* main.m in Sources */,
 				FD4CD7E41CCE437B00659D9D /* LXWebView.m in Sources */,
 				FD4E51581CC118FE00061830 /* AJPhotoZoomingScrollView.m in Sources */,
+				FD3BDE0E1CD5E86C006F9EA5 /* RoundButton.m in Sources */,
 				F73B78B51C8137B600069EEE /* MainTabBarController.m in Sources */,
 				FDE2D95B1CA369CF008DDE4F /* ViewController+MASAdditions.m in Sources */,
 				FD19BB5B1CB60067007D52DC /* ProjectCreateTableViewController.m in Sources */,
@@ -2524,6 +2682,7 @@
 				FD5AA8771CCA10DD002FD276 /* CommentTableViewController.m in Sources */,
 				FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */,
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
+				FD3BDE151CD5E86C006F9EA5 /* SDWebImageDecoder.m in Sources */,
 				F7EB9B941CAB5AE5005343AC /* SettingsTableViewController.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				FD3DFE881CBDDB7F00CD9E3A /* FriendTableViewCell.m in Sources */,
@@ -2532,6 +2691,7 @@
 				FD4CD7D81CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m in Sources */,
 				FDF3FE371CA81F52007B7C83 /* MyActivityTableViewController.m in Sources */,
 				FDDFA9681CBA9B63001827BE /* VerifyUtil.m in Sources */,
+				FD3BDE0A1CD5E86C006F9EA5 /* ClubNoImgPlaceholderView.m in Sources */,
 				FDE33F0F1C9FED31005C6863 /* BaseTableViewDelegate.m in Sources */,
 				FD3B005B1CC66F6500DA0166 /* FinanceTableViewCell.m in Sources */,
 				FD3DFE841CBDDB2600CD9E3A /* FriendsListViewController.m in Sources */,
