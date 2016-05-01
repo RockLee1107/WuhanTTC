@@ -125,6 +125,7 @@
 		FD3B005B1CC66F6500DA0166 /* FinanceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3B00591CC66F6500DA0166 /* FinanceTableViewCell.m */; };
 		FD3B005C1CC66F6500DA0166 /* FinanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */; };
 		FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */; };
+		FD3BDDD61CD5A492006F9EA5 /* LXGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDDD51CD5A492006F9EA5 /* LXGallery.m */; };
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
@@ -571,6 +572,8 @@
 		FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinanceTableViewCell.xib; sourceTree = "<group>"; };
 		FD3B005D1CC66F7900DA0166 /* FinanceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceTableViewController.h; sourceTree = "<group>"; };
 		FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceTableViewController.m; sourceTree = "<group>"; };
+		FD3BDDD41CD5A492006F9EA5 /* LXGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXGallery.h; sourceTree = "<group>"; };
+		FD3BDDD51CD5A492006F9EA5 /* LXGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXGallery.m; sourceTree = "<group>"; };
 		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
 		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD3D59F81CB29AB100B9514D /* ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetViewController.h; sourceTree = "<group>"; };
@@ -1079,6 +1082,8 @@
 				FD3B00461CC4C04300DA0166 /* ImageUtil.m */,
 				FD4CD7E21CCE437B00659D9D /* LXWebView.h */,
 				FD4CD7E31CCE437B00659D9D /* LXWebView.m */,
+				FD3BDDD41CD5A492006F9EA5 /* LXGallery.h */,
+				FD3BDDD51CD5A492006F9EA5 /* LXGallery.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2411,6 +2416,7 @@
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
 				FD3F65771CD3799A00FBEE43 /* MessageDetailViewController.m in Sources */,
 				FDD0FBD41CA8C018004CFA75 /* SubjectTableViewDelegate.m in Sources */,
+				FD3BDDD61CD5A492006F9EA5 /* LXGallery.m in Sources */,
 				FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */,
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,

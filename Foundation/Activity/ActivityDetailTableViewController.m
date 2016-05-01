@@ -7,6 +7,7 @@
 //
 
 #import "ActivityDetailTableViewController.h"
+#import "LXGallery.h"
 
 @interface ActivityDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictUrlImageView;
@@ -20,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *applyNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *applyRequirementLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityDetailsLabel;
+//图集
+@property (weak, nonatomic) IBOutlet UIView *pictureView;
+@property (nonatomic,strong) NSArray *urlArray;
+
 @end
 
 @implementation ActivityDetailTableViewController
@@ -45,24 +50,40 @@
         self.planSiteLabel.text = [StringUtil toString:responseObject[@"planSite"]];
         self.applyRequirementLabel.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
         self.activityDetailsLabel.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
+//        图集
+        
+        self.urlArray = [self.dataDict[@"detailPictURL"] componentsSeparatedByString:@","];
+        LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, self.urlArray.count / 4 * IMAGE_WIDTH_WITH_PADDING)];
+        gallery.urlArray = self.urlArray;
+        [gallery reloadImagesList];
+        [self.pictureView addSubview:gallery];
+//        [self.pictureView addSubview:[UIView new]];
+        [self.tableView reloadData];
     } noResult:nil];
     // Do any additional setup after loading the view.
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 2) {
+//        活动要求
         CGRect frame = [[StringUtil toString:self.dataDict[@"applyRequirement"]] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
                                                                         options:(NSStringDrawingUsesLineFragmentOrigin)
                                                                      attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                                                         context:nil];
         return frame.size.height + 110.0;
     } else if (indexPath.row == 3) {
+//        活动详情
         CGRect frame = [[StringUtil toString:self.dataDict[@"activityDetails"]] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
                                                                         options:(NSStringDrawingUsesLineFragmentOrigin)
                                                                      attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                                                         context:nil];
         return frame.size.height + 110.0;
+    } else if (indexPath.row == 4) {
+//        详情图片
+//        return 1111;
+        return 40 + IMAGE_WIDTH_WITH_PADDING * (self.urlArray.count / 4 + 3);
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
+
 @end

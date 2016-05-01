@@ -34,7 +34,7 @@ typedef enum : NSUInteger {
 @interface ActivityCreateTableViewController ()<CityViewControllerDelegete,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *activityTitleTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
-@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
+//@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
 @property (weak, nonatomic) IBOutlet LXButton *onlineCityButton;       //城市
 @property (strong, nonatomic) NSString *cityname;       //城市名称或“线上”以传值服务端

@@ -44,7 +44,9 @@
 
 #define ACTIVITY_STATUS_ARRAY @[@"报名中",@"已满",@"已结束"]
 #define USER_IDENTITY_DICT @{@"INVESTOR":@"投资者",@"CREATOR":@"创业者"}
-
+//图集尺寸
+#define IMAGE_WIDTH ((SCREEN_WIDTH) - 32) / 4.0 - 4
+#define IMAGE_WIDTH_WITH_PADDING IMAGE_WIDTH + 5
 
 
 #endif
