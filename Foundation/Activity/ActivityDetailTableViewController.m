@@ -51,9 +51,8 @@
         self.applyRequirementLabel.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
         self.activityDetailsLabel.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
 //        图集
-        
         self.urlArray = [self.dataDict[@"detailPictURL"] componentsSeparatedByString:@","];
-        LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, self.urlArray.count / 4 * IMAGE_WIDTH_WITH_PADDING)];
+        LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, ceil(self.urlArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING)];
         gallery.urlArray = self.urlArray;
         [gallery reloadImagesList];
         [self.pictureView addSubview:gallery];
@@ -80,8 +79,8 @@
         return frame.size.height + 110.0;
     } else if (indexPath.row == 4) {
 //        详情图片
-//        return 1111;
-        return 40 + IMAGE_WIDTH_WITH_PADDING * (self.urlArray.count / 4 + 3);
+        CGFloat height = IMAGE_WIDTH_WITH_PADDING * ceil(self.urlArray.count / 4.0);
+        return 40 + height;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
