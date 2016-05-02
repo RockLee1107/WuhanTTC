@@ -11,11 +11,14 @@
 #import "DTKDropdownMenuView.h"
 #import "LXButton.h"
 #import "LoginViewController.h"
+#import "KGModal.h"
+#import "Masonry.h"
+#import "LXButton.h"
 
 @interface ActivityDetailViewController ()
 @property (weak, nonatomic) IBOutlet LXButton *joinButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerMarginBottom;
-
+@property (strong, nonatomic) NSMutableArray *requiredInfoType;
 @end
 
 @implementation ActivityDetailViewController
@@ -53,7 +56,7 @@
         [self jumpLogin];
         return;
     }
-    
+    self.requiredInfoType = [NSMutableArray array];
 //    duty
 //    company
 //    email
@@ -68,40 +71,87 @@
                            };
 //    NSArray *infoTypeArray = [[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","];
     NSString *infoType = [StringUtil toString:self.dataDict[@"infoType"]];
-    NSLog(@"infoType%@",infoType);
+//    NSLog(@"infoType：%@",infoType);
+    BOOL flag = YES;
     User *user = [User getInstance];
     if ([infoType rangeOfString:@"公司"].location != NSNotFound) {
         if (user.company == nil) {
-            [SVProgressHUD showErrorWithStatus:@"请完善公司"];
+            [self.requiredInfoType addObject:@"公司"];
+            flag = NO;
         }
     }
     if ([infoType rangeOfString:@"邮箱"].location != NSNotFound) {
         if (user.email == nil) {
-            [SVProgressHUD showErrorWithStatus:@"请完善邮箱"];
+            [self.requiredInfoType addObject:@"邮箱"];
+            flag = NO;
         }
     }
     if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
         if (user.wechat == nil) {
-            [SVProgressHUD showErrorWithStatus:@"请完善微信"];
+            [self.requiredInfoType addObject:@"微信"];
+            flag = NO;
         }
     }
-    if ([infoType rangeOfString:@"职务"].location != NSNotFound) {
+    if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
         if (user.duty == nil) {
-            [SVProgressHUD showErrorWithStatus:@"请完善职务"];
+            [self.requiredInfoType addObject:@"微信"];
+            flag = NO;
         }
     }
     
+    if (!flag) {
+//        弹窗完善资料
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.8, self.requiredInfoType.count * 50 + 70)];
+        view.layer.cornerRadius = 4.0;
+        view.clipsToBounds = YES;
+        view.backgroundColor = [UIColor whiteColor];
+        for (int i = 0; i < self.requiredInfoType.count; i++) {
+            UILabel *label = [[UILabel alloc] init];
+            label.text = self.requiredInfoType[i];
+            [view addSubview:label];
+            [label mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(view.mas_left).offset(20);
+                make.top.equalTo(view.mas_top).offset(20 + i * 50);
+            }];
+            
+        }
+        LXButton *confirmButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
+        [confirmButton setTitle:@"确定" forState:(UIControlStateNormal)];
+        [view addSubview:confirmButton];
+        [confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(view.mas_bottom).offset(-30);
+            make.left.equalTo(view.mas_left).offset(30);
+            make.width.mas_equalTo(SCREEN_WIDTH * 0.3);
+            make.height.mas_equalTo(40);
+        }];
+        LXButton *cancelButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
+        [cancelButton setBackgroundColor:[UIColor lightGrayColor]];
+        [cancelButton setTitle:@"取消" forState:(UIControlStateNormal)];
+        [view addSubview:cancelButton];
+        [cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(view.mas_bottom).offset(-30);
+            make.right.equalTo(view.mas_right).offset(-30);
+            make.width.mas_equalTo(SCREEN_WIDTH * 0.3);
+            make.height.mas_equalTo(40);
+        }];
+        [[KGModal sharedInstance] showWithContentView:view];
+    } else {
         //报名操作
         NSDictionary *param = @{
                                 @"Applys":[StringUtil dictToJson:@{
                                                                         @"activityId":self.activityId,
-                                                                        @"userId":[User getInstance].uid
+                                                                        @"name":[User getInstance].realname,
+                                                                        @"mobile":[User getInstance].username,
+                                                                        @"company":[StringUtil toString:[User getInstance].company],
+                                                                        @"duty":[StringUtil toString:[User getInstance].duty],
+                                                                        @"wechat":[StringUtil toString:[User getInstance].wechat],
+                                                                        @"email":[StringUtil toString:[User getInstance].email]
                                                                         }]
                                 };
         [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"报名成功"];
         } noResult:nil];
-    
+    }
 }
 
 ///导航栏下拉菜单

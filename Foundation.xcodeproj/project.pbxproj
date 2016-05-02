@@ -142,6 +142,7 @@
 		FD3BDE171CD5E86C006F9EA5 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE071CD5E86C006F9EA5 /* SDWebImagePrefetcher.m */; };
 		FD3BDE181CD5E86C006F9EA5 /* ZoomImgItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE091CD5E86C006F9EA5 /* ZoomImgItem.m */; };
 		FD3BDE1B1CD5E88C006F9EA5 /* ImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */; };
+		FD3BDE241CD746CA006F9EA5 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE231CD746CA006F9EA5 /* KGModal.m */; };
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
@@ -626,6 +627,8 @@
 		FD3BDE091CD5E86C006F9EA5 /* ZoomImgItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImgItem.m; sourceTree = "<group>"; };
 		FD3BDE191CD5E88C006F9EA5 /* ImageBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBrowserViewController.h; sourceTree = "<group>"; };
 		FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowserViewController.m; sourceTree = "<group>"; };
+		FD3BDE221CD746CA006F9EA5 /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
+		FD3BDE231CD746CA006F9EA5 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
 		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
 		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD3D59F81CB29AB100B9514D /* ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetViewController.h; sourceTree = "<group>"; };
@@ -1145,6 +1148,7 @@
 		F73B78641C81375500069EEE /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FD3BDE211CD746CA006F9EA5 /* KGModal */,
 				FD3BDDE11CD5E86C006F9EA5 /* ShowImg */,
 				FD3E6DE11CC8F4D1006246AC /* UMSocial_Sdk_4.3 */,
 				FD4E51341CC118FD00061830 /* AJPhotoPicker */,
@@ -1708,6 +1712,15 @@
 				FD3BDE071CD5E86C006F9EA5 /* SDWebImagePrefetcher.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FD3BDE211CD746CA006F9EA5 /* KGModal */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BDE221CD746CA006F9EA5 /* KGModal.h */,
+				FD3BDE231CD746CA006F9EA5 /* KGModal.m */,
+			);
+			path = KGModal;
 			sourceTree = "<group>";
 		};
 		FD3D59FE1CB2AA6E00B9514D /* PXAlert */ = {
@@ -2684,6 +2697,7 @@
 				F73B78AA1C81375600069EEE /* MJRefreshLegendHeader.m in Sources */,
 				FD3BDE151CD5E86C006F9EA5 /* SDWebImageDecoder.m in Sources */,
 				F7EB9B941CAB5AE5005343AC /* SettingsTableViewController.m in Sources */,
+				FD3BDE241CD746CA006F9EA5 /* KGModal.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				FD3DFE881CBDDB7F00CD9E3A /* FriendTableViewCell.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
