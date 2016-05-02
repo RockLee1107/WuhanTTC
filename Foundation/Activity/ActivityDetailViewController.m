@@ -50,9 +50,17 @@
 
 - (IBAction)joinButtonPress:(id)sender {
     if (![[User getInstance] isLogin]) {
-        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"login"];
-        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        [self jumpLogin];
+        return;
     }
+    
+//    duty
+//    company
+//    email
+//    weChat
+    NSArray *infoTypeArray = [[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","];
+    if ([infoTypeArray containsObject:@""]){}
+    
     if ([[User getInstance].hasInfo boolValue]) {
         //报名操作
         NSDictionary *param = @{

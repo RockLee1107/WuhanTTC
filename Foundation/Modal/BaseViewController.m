@@ -57,7 +57,8 @@
 
 - (void)jumpLogin {
     LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+//    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
 }
 
 - (void)goBack {
