@@ -63,14 +63,6 @@
 - (void)logout {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"uid"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"hasInfo"];
 }
 
-- (void)setHasInfo:(NSNumber *)hasInfo {
-    [[NSUserDefaults standardUserDefaults] setObject:hasInfo forKey:@"hasInfo"];
-}
-
-- (NSNumber *)hasInfo {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"hasInfo"];
-}
 @end

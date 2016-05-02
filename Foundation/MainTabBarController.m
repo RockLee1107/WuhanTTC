@@ -47,6 +47,22 @@
             self.projectNVC  = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateInitialViewController];
             self.memberNVC   = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateInitialViewController];
             self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
+            User *user = [User getInstance];
+            if (responseObject[@"userInfo"][@"realName"] != [NSNull null] && responseObject[@"userInfo"][@"realName"] != nil && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]) {
+                user.realname = responseObject[@"userInfo"][@"realName"];
+            }
+            if (responseObject[@"userInfo"][@"company"] != [NSNull null] && responseObject[@"userInfo"][@"company"] != nil && ![responseObject[@"userInfo"][@"company"] isEqualToString:@""]) {
+                user.company = responseObject[@"userInfo"][@"company"];
+            }
+            if (responseObject[@"userInfo"][@"duty"] != [NSNull null] && responseObject[@"userInfo"][@"duty"] != nil && ![responseObject[@"userInfo"][@"duty"] isEqualToString:@""]) {
+                user.duty = responseObject[@"userInfo"][@"duty"];
+            }
+            if (responseObject[@"userInfo"][@"email"] != [NSNull null] && responseObject[@"userInfo"][@"email"] != nil && ![responseObject[@"userInfo"][@"email"] isEqualToString:@""]) {
+                user.email = responseObject[@"userInfo"][@"email"];
+            }
+            if (responseObject[@"userInfo"][@"weChat"] != [NSNull null] && responseObject[@"userInfo"][@"weChat"] != nil && ![responseObject[@"userInfo"][@"weChat"] isEqualToString:@""]) {
+                user.wechat = responseObject[@"userInfo"][@"weChat"];
+            }
             //是否APP管理员，文献列表选择用此传值
             [User getInstance].isAdmin = responseObject[@"userInfo"][@"isAdmin"];
             //是否社区管理员，文献列表选择用此传值

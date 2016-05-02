@@ -136,13 +136,6 @@
         //            NSLog(@"responseObject:%@",responseObject);
         if ([responseObject[@"success"] boolValue]) {
             [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
-            if (![self.companyTextField.text isEqualToString:@""]
-                && ![self.dutyTextField.text isEqualToString:@""]
-                && ![self.realnameTextField.text isEqualToString:@""]) {
-                [User getInstance].hasInfo = [NSNumber numberWithBool:YES];
-            } else {
-                [User getInstance].hasInfo = [NSNumber numberWithBool:NO];
-            }
             [self goBack];
         } else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];

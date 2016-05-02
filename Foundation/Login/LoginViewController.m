@@ -39,7 +39,7 @@
 //    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 #endif
     self.usernameTextField.text = @"13587567910";
-//    self.usernameTextField.text = @"18658350723";
+    self.usernameTextField.text = @"18658350723";
 //    self.usernameTextField.text = @"15867718912";
     self.passwordView.textField.text = @"325200";
 //    胡念测试号
@@ -74,20 +74,20 @@
         user.isAdmin = responseObject[@"userInfo"][@"isAdmin"];
         //是否社区管理员，文献列表选择用此传值
         user.isBm = responseObject[@"userInfo"][@"isBm"];
-        if (
-            responseObject[@"userInfo"][@"realName"] != [NSNull null]
-            && responseObject[@"userInfo"][@"company"] != [NSNull null]
-            && responseObject[@"userInfo"][@"duty"] != [NSNull null]
-            &&responseObject[@"userInfo"][@"realName"] != nil
-            && responseObject[@"userInfo"][@"company"] != nil
-            && responseObject[@"userInfo"][@"duty"] != nil
-            && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]
-            && ![responseObject[@"userInfo"][@"company"] isEqualToString:@""]
-            && ![responseObject[@"userInfo"][@"duty"] isEqualToString:@""]
-            ) {
-            user.hasInfo = [NSNumber numberWithBool:YES];
-        } else {
-            user.hasInfo = [NSNumber numberWithBool:NO];
+        if (responseObject[@"userInfo"][@"realName"] != [NSNull null] && responseObject[@"userInfo"][@"realName"] != nil && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]) {
+            user.realname = responseObject[@"userInfo"][@"realName"];
+        }
+        if (responseObject[@"userInfo"][@"company"] != [NSNull null] && responseObject[@"userInfo"][@"company"] != nil && ![responseObject[@"userInfo"][@"company"] isEqualToString:@""]) {
+            user.company = responseObject[@"userInfo"][@"company"];
+        }
+        if (responseObject[@"userInfo"][@"duty"] != [NSNull null] && responseObject[@"userInfo"][@"duty"] != nil && ![responseObject[@"userInfo"][@"duty"] isEqualToString:@""]) {
+            user.duty = responseObject[@"userInfo"][@"duty"];
+        }
+        if (responseObject[@"userInfo"][@"email"] != [NSNull null] && responseObject[@"userInfo"][@"email"] != nil && ![responseObject[@"userInfo"][@"email"] isEqualToString:@""]) {
+            user.email = responseObject[@"userInfo"][@"email"];
+        }
+        if (responseObject[@"userInfo"][@"weChat"] != [NSNull null] && responseObject[@"userInfo"][@"weChat"] != nil && ![responseObject[@"userInfo"][@"weChat"] isEqualToString:@""]) {
+            user.wechat = responseObject[@"userInfo"][@"weChat"];
         }
         //将各状态值存到本地
         [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

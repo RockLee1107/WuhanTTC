@@ -58,10 +58,39 @@
 //    company
 //    email
 //    weChat
-    NSArray *infoTypeArray = [[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","];
-    if ([infoTypeArray containsObject:@""]){}
+    NSDictionary *dict = @{
+                           @"姓名":@"realname",//name
+                           @"手机":@"username",//mobile
+                           @"公司":@"company",
+                           @"邮箱":@"email",
+                           @"微信":@"wechat",
+                           @"职务":@"duty"
+                           };
+//    NSArray *infoTypeArray = [[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","];
+    NSString *infoType = [StringUtil toString:self.dataDict[@"infoType"]];
+    NSLog(@"infoType%@",infoType);
+    User *user = [User getInstance];
+    if ([infoType rangeOfString:@"公司"].location != NSNotFound) {
+        if (user.company == nil) {
+            [SVProgressHUD showErrorWithStatus:@"请完善公司"];
+        }
+    }
+    if ([infoType rangeOfString:@"邮箱"].location != NSNotFound) {
+        if (user.email == nil) {
+            [SVProgressHUD showErrorWithStatus:@"请完善邮箱"];
+        }
+    }
+    if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
+        if (user.wechat == nil) {
+            [SVProgressHUD showErrorWithStatus:@"请完善微信"];
+        }
+    }
+    if ([infoType rangeOfString:@"职务"].location != NSNotFound) {
+        if (user.duty == nil) {
+            [SVProgressHUD showErrorWithStatus:@"请完善职务"];
+        }
+    }
     
-    if ([[User getInstance].hasInfo boolValue]) {
         //报名操作
         NSDictionary *param = @{
                                 @"Applys":[StringUtil dictToJson:@{
@@ -72,9 +101,7 @@
         [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"报名成功"];
         } noResult:nil];
-    } else {
-        [SVProgressHUD showErrorWithStatus:@"请先完善个人资料"];
-    }
+    
 }
 
 ///导航栏下拉菜单

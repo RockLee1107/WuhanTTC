@@ -7,11 +7,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--创连接-->
+        <!--创投融-->
         <scene sceneID="FPO-lA-S7X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bpr-sV-Ntu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="创连接" image="icon_project_normal.png" id="uiB-Qm-Tur"/>
+                    <tabBarItem key="tabBarItem" title="创投融" image="icon_project_normal.png" id="uiB-Qm-Tur"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

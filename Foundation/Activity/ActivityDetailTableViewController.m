@@ -51,7 +51,7 @@
         self.applyRequirementLabel.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
         self.activityDetailsLabel.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
 //        图集
-        self.urlArray = [self.dataDict[@"detailPictURL"] componentsSeparatedByString:@","];
+        self.urlArray = [[StringUtil toString:self.dataDict[@"detailPictURL"]] componentsSeparatedByString:@","];
         LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, ceil(self.urlArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING)];
         gallery.urlArray = self.urlArray;
         gallery.vc = self;
