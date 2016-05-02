@@ -40,60 +40,68 @@
 }
 
 - (void)fetchData {
-    NSDictionary *param = @{
-                            @"userId":[User getInstance].uid
-                            };
-    [self.service POST:@"personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.realnameLabel.text = responseObject[@"userinfo"][@"realName"];
-        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"userinfo"][@"pictUrl"]]];
-//        NSLog(@"%@",url);
-        [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
-        NSString *userIdentity = nil;
-        if (responseObject[@"investorInfo"] != [NSNull null]) {
-            if ([responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
-                userIdentity = @"投资者";
+    if ([[User getInstance] isLogin]) {
+        NSDictionary *param = @{
+                                @"userId":[User getInstance].uid
+                                };
+        [self.service POST:@"personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.realnameLabel.text = responseObject[@"userinfo"][@"realName"];
+            NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"userinfo"][@"pictUrl"]]];
+            //        NSLog(@"%@",url);
+            [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
+            NSString *userIdentity = nil;
+            if (responseObject[@"investorInfo"] != [NSNull null]) {
+                if ([responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
+                    userIdentity = @"投资者";
+                }
+            } else {
+                userIdentity = @"创业者";
             }
-        } else {
-            userIdentity = @"创业者";
-        }
-        self.unreadImageView.hidden = ![responseObject[@"hasUnRead"] boolValue];
-        [self.userIdentityButton setTitle:userIdentity forState:(UIControlStateNormal)];
-    } noResult:nil];
+            self.unreadImageView.hidden = ![responseObject[@"hasUnRead"] boolValue];
+            [self.userIdentityButton setTitle:userIdentity forState:(UIControlStateNormal)];
+        } noResult:nil];
+
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *vc = nil;
-    if (indexPath.section == 0) {
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
-    } else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            //消息
-            vc = [[MessagePageController alloc] init];
-        } else if (indexPath.row == 1) {
-            //创友录
-            vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateInitialViewController];
+    if ([[User getInstance] isLogin]) {
+        if (indexPath.section == 0) {
+            vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
+        } else if (indexPath.section == 1) {
+            if (indexPath.row == 0) {
+                //消息
+                vc = [[MessagePageController alloc] init];
+            } else if (indexPath.row == 1) {
+                //创友录
+                vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateInitialViewController];
+            }
+        } else if (indexPath.section == 2) {
+            if (indexPath.row == 0) {
+                //我的收藏
+                vc = [[MyCollectPageController alloc] init];
+            } else if (indexPath.row == 1) {
+                //我的笔记
+                vc = [[MyNotePageController alloc] init];
+            } else if (indexPath.row == 2) {
+                //我的项目
+                vc = [[MyProjectPageController alloc] init];
+            } else if (indexPath.row == 3) {
+                //我的活动
+                vc = [[MyActivityPageController alloc] init];
+            } else if (indexPath.row == 4) {
+                //我的帖子
+                vc = [[MySubjectPageController alloc] init];
+            }
+        } else if (indexPath.section == 3) {
+            vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
         }
-    } else if (indexPath.section == 2) {
-        if (indexPath.row == 0) {
-            //我的收藏
-            vc = [[MyCollectPageController alloc] init];
-        } else if (indexPath.row == 1) {
-            //我的笔记
-            vc = [[MyNotePageController alloc] init];
-        } else if (indexPath.row == 2) {
-            //我的项目
-            vc = [[MyProjectPageController alloc] init];
-        } else if (indexPath.row == 3) {
-            //我的活动
-            vc = [[MyActivityPageController alloc] init];
-        } else if (indexPath.row == 4) {
-            //我的帖子
-            vc = [[MySubjectPageController alloc] init];
-        }
-    } else if (indexPath.section == 3) {
-        vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
     }
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //#warning appstore

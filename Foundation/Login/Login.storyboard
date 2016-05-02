@@ -9,7 +9,7 @@
         <!--团团创-->
         <scene sceneID="u8P-HG-Ffg">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Kw2-8L-AiA" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" automaticallyAdjustsScrollViewInsets="NO" id="Kw2-8L-AiA" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RxT-kC-0Oy"/>
                         <viewControllerLayoutGuide type="bottom" id="SvF-kF-x0S"/>
@@ -140,7 +140,7 @@
                                                     <action selector="loginButtonPress:" destination="Kw2-8L-AiA" eventType="touchUpInside" id="7xb-lB-fy6"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-uV-a71" customClass="LXButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-uV-a71" customClass="LXButton">
                                                 <rect key="frame" x="15" y="226" width="260" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="SaX-d0-rdE"/>
@@ -201,7 +201,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="kNN-4K-sUA" firstAttribute="top" secondItem="opP-Qg-kCA" secondAttribute="bottom" constant="36" id="7AZ-T3-hDr"/>
                                     <constraint firstItem="P8J-ws-qUz" firstAttribute="leading" secondItem="xTf-22-ZWO" secondAttribute="leading" constant="19" id="BiF-zf-Zmw"/>
@@ -489,7 +489,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="DGs-RC-cB6" secondAttribute="bottom" constant="188" id="EZ7-iy-uah"/>
                                     <constraint firstItem="DGs-RC-cB6" firstAttribute="leading" secondItem="GrB-Am-RlX" secondAttribute="leading" constant="19" id="GvW-gI-igp"/>
@@ -719,7 +719,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="vbA-MZ-fca" secondAttribute="bottom" constant="188" id="BOo-77-wKU"/>
                                     <constraint firstItem="vbA-MZ-fca" firstAttribute="leading" secondItem="NfB-IJ-rQo" secondAttribute="leading" constant="19" id="F4u-6R-iI4"/>

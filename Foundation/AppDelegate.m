@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "Global.h"
-#import "LoginViewController.h"
+#import "MainTabBarController.h"
+#import "HttpService.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -24,10 +26,12 @@
     [[UINavigationBar appearance] setBarTintColor:tintColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance]setTintColor:tintColor];
-    //登录页为首页
-    LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    //登录页由首页改为Tab页
+//    NSLog(@"uid%@",[User getInstance].uid);
+    MainTabBarController *vc = [[MainTabBarController alloc] init];
     self.window.rootViewController = vc;
+//    LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     return YES;
 }

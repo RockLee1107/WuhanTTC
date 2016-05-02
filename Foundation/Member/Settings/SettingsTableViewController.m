@@ -28,7 +28,8 @@
         [[User getInstance] logout];
         [[PXAlertView showAlertWithTitle:@"退出成功" message:nil completion:^(BOOL cancelled, NSInteger buttonIndex) {
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+//            [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
         }] useDefaultIOS7Style];
     }
 }

@@ -9,6 +9,7 @@
 #import "HttpService.h"
 #import "SVProgressHUD.h"
 #import "LoginViewController.h"
+#import "SingletonObject.h"
 
 @implementation HttpService
 - (instancetype)init {
@@ -36,6 +37,7 @@
         } else {
             if ([responseObject[@"errorCode"] integerValue] == 520) {
                 //未登录
+                [SingletonObject getInstance].isMaticLogout = YES;
                 LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
                 [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
             } else if ([responseObject[@"errorCode"] integerValue] == 521){
@@ -67,6 +69,7 @@
         } else {
             if ([responseObject[@"errorCode"] integerValue] == 520) {
                 //未登录
+                [SingletonObject getInstance].isMaticLogout = YES;
                 LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
                 [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
             } else if ([responseObject[@"errorCode"] integerValue] == 521){

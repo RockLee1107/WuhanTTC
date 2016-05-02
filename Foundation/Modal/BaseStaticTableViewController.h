@@ -20,6 +20,7 @@
 #import "LocationUtil.h"
 #import "VerifyUtil.h"
 #import "BaseTableViewDelegate.h"
+#import "LoginViewController.h"
 
 @interface BaseStaticTableViewController : UITableViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSDictionary *dataDict;

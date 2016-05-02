@@ -13,6 +13,7 @@
 #import "LXButton.h"
 //#import "ProjectCreateTableViewController.h"
 #import "BookSearchViewController.h"
+#import "SingletonObject.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -35,7 +36,7 @@
     self.visitorButton.backgroundColor = [UIColor grayColor];
     //    自动登录，调试阶段打开
 #if DEBUG
-    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
+//    [self performSelector:@selector(loginButtonPress:) withObject:nil afterDelay:.1f];
 #endif
     self.usernameTextField.text = @"13587567910";
 //    self.usernameTextField.text = @"18658350723";
@@ -49,9 +50,11 @@
 
 ///游客登录
 - (IBAction)vistorButtonPress:(id)sender {
-    [self.service POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    [self.service POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        清空本地信息
+//        [[User getInstance] logout];
         [self jumpMain];
-    } noResult:nil];
+//    } noResult:nil];
 }
 
 ///会员登录
@@ -64,6 +67,7 @@
         //        NSLog(@"login:%@",responseObject);
         User *user = [User getInstance];
         user.username = responseObject[@"username"];
+        user.password = password;
         user.realname = responseObject[@"realName"];
         user.uid = responseObject[@"userId"];
         //是否APP管理员，文献列表选择用此传值
@@ -100,7 +104,11 @@
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
-        [self jumpMain];
+        if ([SingletonObject getInstance].isMaticLogout) {
+            [self jumpMain];
+        } else {
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }
 //        [self jumpTest];
     } noResult:^{
         

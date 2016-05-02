@@ -21,6 +21,10 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
 }
 
+- (NSString *)password {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+}
+
 - (NSString *)realname {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"realname"];
 }
@@ -31,6 +35,10 @@
 
 - (void)setUsername:(NSString *)username {
     [[NSUserDefaults standardUserDefaults] setObject:username forKey:@"username"];
+}
+
+- (void)setPassword:(NSString *)password {
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"password"];
 }
 
 - (void)setRealname:(NSString *)realname {

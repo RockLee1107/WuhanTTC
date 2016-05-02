@@ -35,7 +35,11 @@
 }
 
 -(void)fetchData {
-    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{@"SEQ_userId":[User getInstance].uid}]};
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if ([[User getInstance] isLogin]) {
+        [dict setObject:[User getInstance].uid forKey:@"SEQ_userId"];
+    }
+    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:dict]};
     [self.service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataImmutableArray = responseObject;
         [self.tableView reloadData];
