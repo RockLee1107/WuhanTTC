@@ -53,7 +53,7 @@
             self.joinButton.enabled = NO;
         } else if ([self.dataDict[@"applyNum"] integerValue] >= [self.dataDict[@"planJoinNum"] integerValue]){
 //            人数已满
-            [self.joinButton setTitle:@"报名人数已满" forState:(UIControlStateNormal)];
+            [self.joinButton setTitle:@"报名截止" forState:(UIControlStateNormal)];
             [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
             self.joinButton.enabled = NO;
         } else {
