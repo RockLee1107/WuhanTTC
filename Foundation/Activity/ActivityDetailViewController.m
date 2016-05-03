@@ -155,15 +155,13 @@
     } else {
         //报名操作
         NSDictionary *param = @{
-                                @"Applys":[StringUtil dictToJson:@{
-                                                                        @"activityId":self.activityId,
-                                                                        @"name":[User getInstance].realname,
-                                                                        @"mobile":[User getInstance].username,
-                                                                        @"company":[StringUtil toString:[User getInstance].company],
-                                                                        @"duty":[StringUtil toString:[User getInstance].duty],
-                                                                        @"wechat":[StringUtil toString:[User getInstance].wechat],
-                                                                        @"email":[StringUtil toString:[User getInstance].email]
-                                                                        }]
+                                @"activityId":self.activityId,
+                                @"name":[User getInstance].realname,
+                                @"mobile":[User getInstance].username,
+                                @"company":[StringUtil toString:[User getInstance].company],
+                                @"duty":[StringUtil toString:[User getInstance].duty],
+                                @"wechat":[StringUtil toString:[User getInstance].wechat],
+                                @"email":[StringUtil toString:[User getInstance].email]
                                 };
         [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"报名成功"];
@@ -182,7 +180,7 @@
         }
     }
     //报名操作
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                 @"activityId":self.activityId,
                                                                                 @"name":[User getInstance].realname,
                                                                                 @"mobile":[User getInstance].username,
@@ -194,12 +192,10 @@
     for (int i = 0; i < self.requiredKey.count; i++) {
 //        NSLog(@"%@",self.requiredKey[i]);
 //        NSLog(@"%@",[self.requiredTextField[i] text]);
-        [dict setObject:[self.requiredTextField[i] text] forKey:self.requiredKey[i]];
+        [param setObject:[self.requiredTextField[i] text] forKey:self.requiredKey[i]];
     }
     
-    NSDictionary *param = @{
-                            @"Applys":[StringUtil dictToJson:dict]
-                            };
+
     [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"报名成功"];
         [[KGModal sharedInstance] hide];
