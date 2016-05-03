@@ -78,7 +78,6 @@
         [self.pictureView addSubview:gallery];
         [self.tableView reloadData];
     } noResult:nil];
-    // Do any additional setup after loading the view.
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -15,6 +15,7 @@
 #import "Masonry.h"
 #import "LXButton.h"
 #import "EYInputPopupView.h"
+#import "ActivityCreateTableViewController.h"
 
 @interface ActivityDetailViewController ()
 @property (weak, nonatomic) IBOutlet LXButton *joinButton;
@@ -262,7 +263,12 @@
          ];
     
     }];
-    
+    //    活动编辑
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"活动编辑" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+        ActivityCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
+        vc.dataDict = self.dataDict;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 //    关注
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
@@ -287,7 +293,11 @@
         ) {
         [array addObject:item0];
     }
-    
+//    审核中不允许编辑
+    if ([self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]
+        && [self.dataDict[@"bizStatus"] integerValue] != BizStatusPublish) {
+        [array addObject:item1];
+    }
 //    本人不显示关注按钮
     if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
         [array addObject:item2];
