@@ -8,6 +8,7 @@
 
 #import "ActivityDetailTableViewController.h"
 #import "LXGallery.h"
+#import "JCTagListView.h"
 
 @interface ActivityDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictUrlImageView;
@@ -24,6 +25,11 @@
 //图集
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
 @property (nonatomic,strong) NSArray *urlArray;
+//报名人信息
+@property (nonatomic, strong) JCTagListView *tagListView;
+//非本人隐藏之
+@property (weak, nonatomic) IBOutlet UIView *applyListView;
+@property (weak, nonatomic) IBOutlet UIButton *applyListButton;
 
 @end
 
@@ -34,6 +40,7 @@
     NSDictionary *param = @{
                             @"activityId":self.activityId
                             };
+    
     [self.service POST:@"/activity/getActivity" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
         [self.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"pictUrl"]]]]];
@@ -50,6 +57,19 @@
         self.planSiteLabel.text = [StringUtil toString:responseObject[@"planSite"]];
         self.applyRequirementLabel.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
         self.activityDetailsLabel.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
+        if ([self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+            //    报名人要求
+            self.tagListView = [[JCTagListView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH + 10, 110)];
+            [self.applyListView addSubview:self.tagListView];
+            self.tagListView.canSelectTags = NO;
+        } else {
+            self.tagListView.hidden = YES;
+            self.applyListButton.hidden = YES;
+        }
+        //    初始
+        self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
+        //已选
+        self.tagListView.selectedTags = [NSMutableArray arrayWithArray:[self.dataDict[@"infoType"] componentsSeparatedByString:@","]];
 //        图集
         self.urlArray = [[StringUtil toString:self.dataDict[@"detailPictURL"]] componentsSeparatedByString:@","];
         LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, ceil(self.urlArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING)];
@@ -57,14 +77,17 @@
         gallery.vc = self;
         [gallery reloadImagesList];
         [self.pictureView addSubview:gallery];
-//        [self.pictureView addSubview:[UIView new]];
         [self.tableView reloadData];
     } noResult:nil];
     // Do any additional setup after loading the view.
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 2) {
+    if (indexPath.row == 1) {
+        if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+            return 0;
+        }
+    } else if (indexPath.row == 2) {
 //        活动要求
         CGRect frame = [[StringUtil toString:self.dataDict[@"applyRequirement"]] boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, FLT_MAX)
                                                                         options:(NSStringDrawingUsesLineFragmentOrigin)

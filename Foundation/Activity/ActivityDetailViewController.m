@@ -123,7 +123,7 @@
             textField.delegate = self;
             [view addSubview:textField];
             [textField mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(label.mas_right);
+                make.left.equalTo(label.mas_right).offset(10);
                 make.right.equalTo(view.mas_right).offset(-20);
                 make.centerY.equalTo(label.mas_centerY);
             }];
