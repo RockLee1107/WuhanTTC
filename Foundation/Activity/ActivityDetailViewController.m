@@ -48,7 +48,7 @@
 //        日期截止
         NSDate *endDateTime = [DateUtil toDate:[NSString stringWithFormat:@"%@%@",self.dataDict[@"endDate"],self.dataDict[@"endTime"]] format:@"YYYYMMddHHmm"];
         if ([endDateTime compare:[NSDate date]] == NSOrderedAscending) {
-            [self.joinButton setTitle:@"报名已结束" forState:(UIControlStateNormal)];
+            [self.joinButton setTitle:@"报名结束" forState:(UIControlStateNormal)];
             [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
             self.joinButton.enabled = NO;
         } else if ([self.dataDict[@"applyNum"] integerValue] >= [self.dataDict[@"planJoinNum"] integerValue]){
