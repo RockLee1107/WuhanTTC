@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet LXButton *joinButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerMarginBottom;
 @property (strong, nonatomic) NSMutableArray *requiredInfoType;
+@property (strong, nonatomic) NSMutableArray *requiredTextField;
+@property (strong, nonatomic) NSMutableArray *requiredKey;
 @end
 
 @implementation ActivityDetailViewController
@@ -57,13 +59,15 @@
         return;
     }
     self.requiredInfoType = [NSMutableArray array];
+    self.requiredTextField = [NSMutableArray array];
+    self.requiredKey = [NSMutableArray array];
 //    duty
 //    company
 //    email
 //    weChat
     NSDictionary *dict = @{
-                           @"姓名":@"realname",//name
-                           @"手机":@"username",//mobile
+                           @"姓名":@"name",//realname
+                           @"手机":@"mobile",//username
                            @"公司":@"company",
                            @"邮箱":@"email",
                            @"微信":@"wechat",
@@ -101,7 +105,7 @@
     
     if (!flag) {
 //        弹窗完善资料
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.8, self.requiredInfoType.count * 50 + 70)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.8, self.requiredInfoType.count * 50 + 100)];
         view.layer.cornerRadius = 4.0;
         view.clipsToBounds = YES;
         view.backgroundColor = [UIColor whiteColor];
@@ -110,14 +114,25 @@
             label.text = self.requiredInfoType[i];
             [view addSubview:label];
             [label mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(view.mas_left).offset(20);
-                make.top.equalTo(view.mas_top).offset(20 + i * 50);
+                make.left.equalTo(view.mas_left).offset(40);
+                make.top.equalTo(view.mas_top).offset(30 + i * 50);
+                make.width.mas_equalTo(40);
             }];
-            
+            UITextField *textField = [[UITextField alloc] init];
+            textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            [view addSubview:textField];
+            [textField mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(label.mas_right);
+                make.right.equalTo(view.mas_right).offset(-20);
+                make.centerY.equalTo(label.mas_centerY);
+            }];
+            [self.requiredTextField addObject:textField];
+            [self.requiredKey addObject:dict[self.requiredInfoType[i]]];
         }
         LXButton *confirmButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
         [confirmButton setTitle:@"确定" forState:(UIControlStateNormal)];
         [view addSubview:confirmButton];
+        [confirmButton addTarget:self action:@selector(confirmButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
         [confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(view.mas_bottom).offset(-30);
             make.left.equalTo(view.mas_left).offset(30);
@@ -128,6 +143,7 @@
         [cancelButton setBackgroundColor:[UIColor lightGrayColor]];
         [cancelButton setTitle:@"取消" forState:(UIControlStateNormal)];
         [view addSubview:cancelButton];
+        [cancelButton addTarget:self action:@selector(cancelButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
         [cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(view.mas_bottom).offset(-30);
             make.right.equalTo(view.mas_right).offset(-30);
@@ -152,6 +168,46 @@
             [SVProgressHUD showSuccessWithStatus:@"报名成功"];
         } noResult:nil];
     }
+}
+
+//弹窗提交按钮
+- (void)confirmButtonPress:(UIButton *)sender {
+    for (int i = 0; i < self.requiredKey.count; i++) {
+        //        NSLog(@"%@",self.requiredKey[i]);
+        //        NSLog(@"%@",[self.requiredTextField[i] text]);
+        if (![VerifyUtil hasValue:[self.requiredTextField[i] text]]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写内容"];
+            return;
+        }
+    }
+    //报名操作
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                @"activityId":self.activityId,
+                                                                                @"name":[User getInstance].realname,
+                                                                                @"mobile":[User getInstance].username,
+                                                                                @"company":[StringUtil toString:[User getInstance].company],
+                                                                                @"duty":[StringUtil toString:[User getInstance].duty],
+                                                                                @"wechat":[StringUtil toString:[User getInstance].wechat],
+                                                                                @"email":[StringUtil toString:[User getInstance].email]
+                                                                                }];
+    for (int i = 0; i < self.requiredKey.count; i++) {
+//        NSLog(@"%@",self.requiredKey[i]);
+//        NSLog(@"%@",[self.requiredTextField[i] text]);
+        [dict setObject:[self.requiredTextField[i] text] forKey:self.requiredKey[i]];
+    }
+    
+    NSDictionary *param = @{
+                            @"Applys":[StringUtil dictToJson:dict]
+                            };
+    [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD showSuccessWithStatus:@"报名成功"];
+        [[KGModal sharedInstance] hide];
+    } noResult:nil];
+}
+
+//弹窗取消按钮
+- (void)cancelButtonPress:(UIButton *)sender {
+    [[KGModal sharedInstance] hide];
 }
 
 ///导航栏下拉菜单

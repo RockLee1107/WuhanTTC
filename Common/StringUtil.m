@@ -25,7 +25,7 @@
     return jsonString;
 }
 +(NSString*)toString:(id)object {
-    if (object == [NSNull null]) {
+    if (object == [NSNull null] || object == nil) {
         object = @"";
     }
     return object;
