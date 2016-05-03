@@ -143,6 +143,9 @@
 		FD3BDE181CD5E86C006F9EA5 /* ZoomImgItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE091CD5E86C006F9EA5 /* ZoomImgItem.m */; };
 		FD3BDE1B1CD5E88C006F9EA5 /* ImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */; };
 		FD3BDE241CD746CA006F9EA5 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE231CD746CA006F9EA5 /* KGModal.m */; };
+		FD3BDE281CD8746E006F9EA5 /* ApplyUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE261CD8746E006F9EA5 /* ApplyUserTableViewCell.m */; };
+		FD3BDE291CD8746E006F9EA5 /* ApplyUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3BDE271CD8746E006F9EA5 /* ApplyUserTableViewCell.xib */; };
+		FD3BDE2C1CD876A9006F9EA5 /* ApplyListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3BDE2B1CD876A9006F9EA5 /* ApplyListTableViewController.m */; };
 		FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */; };
 		FD3D59FA1CB29AB100B9514D /* ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59F91CB29AB100B9514D /* ResetViewController.m */; };
 		FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD3D59FC1CB2A19700B9514D /* modifyViewController.m */; };
@@ -629,6 +632,11 @@
 		FD3BDE1A1CD5E88C006F9EA5 /* ImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowserViewController.m; sourceTree = "<group>"; };
 		FD3BDE221CD746CA006F9EA5 /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
 		FD3BDE231CD746CA006F9EA5 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
+		FD3BDE251CD8746E006F9EA5 /* ApplyUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyUserTableViewCell.h; path = Foundation/Activity/ApplyUserTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		FD3BDE261CD8746E006F9EA5 /* ApplyUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyUserTableViewCell.m; path = Foundation/Activity/ApplyUserTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		FD3BDE271CD8746E006F9EA5 /* ApplyUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ApplyUserTableViewCell.xib; path = Foundation/Activity/ApplyUserTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		FD3BDE2A1CD876A9006F9EA5 /* ApplyListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyListTableViewController.h; path = Foundation/Activity/ApplyListTableViewController.h; sourceTree = SOURCE_ROOT; };
+		FD3BDE2B1CD876A9006F9EA5 /* ApplyListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyListTableViewController.m; path = Foundation/Activity/ApplyListTableViewController.m; sourceTree = SOURCE_ROOT; };
 		FD3D59F51CB28C4E00B9514D /* LXSmsCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSmsCodeButton.h; sourceTree = "<group>"; };
 		FD3D59F61CB28C4E00B9514D /* LXSmsCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSmsCodeButton.m; sourceTree = "<group>"; };
 		FD3D59F81CB29AB100B9514D /* ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetViewController.h; sourceTree = "<group>"; };
@@ -1416,6 +1424,11 @@
 				FD4462821CAD4B4C00F7E12F /* ActivityDetailTableViewController.m */,
 				FD4462841CAD51FF00F7E12F /* ActivityDetailViewController.h */,
 				FD4462851CAD51FF00F7E12F /* ActivityDetailViewController.m */,
+				FD3BDE251CD8746E006F9EA5 /* ApplyUserTableViewCell.h */,
+				FD3BDE261CD8746E006F9EA5 /* ApplyUserTableViewCell.m */,
+				FD3BDE271CD8746E006F9EA5 /* ApplyUserTableViewCell.xib */,
+				FD3BDE2A1CD876A9006F9EA5 /* ApplyListTableViewController.h */,
+				FD3BDE2B1CD876A9006F9EA5 /* ApplyListTableViewController.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -2409,6 +2422,7 @@
 				FD9450F11CA8362100E00759 /* menu_report@2x.png in Resources */,
 				FD3F65741CD3773200FBEE43 /* Message.storyboard in Resources */,
 				F73B78AE1C81375600069EEE /* SVProgressHUD.bundle in Resources */,
+				FD3BDE291CD8746E006F9EA5 /* ApplyUserTableViewCell.xib in Resources */,
 				FD9450E31CA831A800E00759 /* menu_contribute@2x.png in Resources */,
 				FDF3FE131CA80922007B7C83 /* app_search@2x.png in Resources */,
 				FDE26AE81C9C322A003418D5 /* app_failure_img@2x.png in Resources */,
@@ -2538,6 +2552,7 @@
 				F73B78A61C81375600069EEE /* MJRefreshGifFooter.m in Sources */,
 				FDFD8C5B1CB92F130095FC3C /* BizViewController.m in Sources */,
 				FD3BDE0F1CD5E86C006F9EA5 /* RoundImageView.m in Sources */,
+				FD3BDE2C1CD876A9006F9EA5 /* ApplyListTableViewController.m in Sources */,
 				FD066CEF1CB8F579001A132A /* StatusDict.m in Sources */,
 				FD066CEC1CB8EB09001A132A /* SWActionSheet.m in Sources */,
 				FD4F43DE1CD1A840005BF414 /* UserTableViewDelegate.m in Sources */,
@@ -2700,6 +2715,7 @@
 				FD3BDE241CD746CA006F9EA5 /* KGModal.m in Sources */,
 				F73B789A1C81375600069EEE /* AFHTTPRequestOperationManager.m in Sources */,
 				FD3DFE881CBDDB7F00CD9E3A /* FriendTableViewCell.m in Sources */,
+				FD3BDE281CD8746E006F9EA5 /* ApplyUserTableViewCell.m in Sources */,
 				FDE26B041C9C38A0003418D5 /* UIRefreshControl+AFNetworking.m in Sources */,
 				FDE26B011C9C38A0003418D5 /* UIButton+AFNetworking.m in Sources */,
 				FD4CD7D81CCD168700659D9D /* SubjectForMemberCenterTableViewCell.m in Sources */,

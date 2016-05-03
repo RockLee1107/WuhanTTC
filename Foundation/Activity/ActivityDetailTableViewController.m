@@ -9,6 +9,7 @@
 #import "ActivityDetailTableViewController.h"
 #import "LXGallery.h"
 #import "JCTagListView.h"
+#import "ApplyListTableViewController.h"
 
 @interface ActivityDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictUrlImageView;
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *endDatetimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *planSiteLabel;
-@property (weak, nonatomic) IBOutlet UILabel *applyNumLabel;
+@property (weak, nonatomic) IBOutlet UIButton *applyButton;
 @property (weak, nonatomic) IBOutlet UILabel *applyRequirementLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityDetailsLabel;
 //图集
@@ -52,7 +53,7 @@
         self.endDatetimeLabel.text = [DateUtil toString:responseObject[@"endDate"] time:responseObject[@"endTime"]];
         NSString *applyNum = [responseObject[@"applyNum"] stringValue];
         NSString *planJoinNum = [responseObject[@"planJoinNum"] stringValue];
-        self.applyNumLabel.text = [NSString stringWithFormat:@"%@/%@",applyNum,planJoinNum];
+        [self.applyButton setTitle:[NSString stringWithFormat:@"%@/%@",applyNum,planJoinNum] forState:(UIControlStateNormal)];
         self.cityLabel.text = [StringUtil toString:responseObject[@"city"]];
         self.planSiteLabel.text = [StringUtil toString:responseObject[@"planSite"]];
         self.applyRequirementLabel.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
@@ -107,6 +108,14 @@
         return 40 + height;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (IBAction)applyButtonPress:(id)sender {
+    if ([self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+        ApplyListTableViewController *vc = [[ApplyListTableViewController alloc] init];
+        vc.activityId = self.activityId;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end
