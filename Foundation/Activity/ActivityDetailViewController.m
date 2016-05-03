@@ -14,6 +14,7 @@
 #import "KGModal.h"
 #import "Masonry.h"
 #import "LXButton.h"
+#import "EYInputPopupView.h"
 
 @interface ActivityDetailViewController ()
 @property (weak, nonatomic) IBOutlet LXButton *joinButton;
@@ -235,8 +236,36 @@
 ///导航栏下拉菜单
 - (void)addRightItem
 {
+    //    活动提醒
     //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"活动提醒" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+        [EYInputPopupView popViewWithTitle:@"活动提醒" contentText:@"请填写活动提醒内容"
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                       [SVProgressHUD showErrorWithStatus:@"请填写活动提醒内容"];
+                                       return ;
+                                   }
+                                   NSDictionary *param = @{
+                                                           @"activityId":self.activityId,
+                                                           @"userId":[User getInstance].uid,
+                                                           @"content":text
+                                                           };
+                                   [self.service POST:@"activity/activityReminder" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
+                               }
+         ];
+    
+    }];
+    
+//    关注
+    //    __weak typeof(self) weakSelf = self;
+    DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
 //        访问网络
         NSDictionary *param = @{
                                 @"Participate":[StringUtil dictToJson:@{
@@ -249,10 +278,19 @@
             [SVProgressHUD showSuccessWithStatus:@"关注活动成功"];
         } noResult:nil];
     }];
+    
     NSMutableArray *array = [NSMutableArray array];
-//    本人无关注
-    if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+    //    是本人，活动为通过状态，有人报名
+    if ([self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]
+        && [self.dataDict[@"applyNum"] integerValue] > 0
+        && [self.dataDict[@"bizStatus"] integerValue] == BizStatusChecked
+        ) {
         [array addObject:item0];
+    }
+    
+//    本人不显示关注按钮
+    if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
+        [array addObject:item2];
     }
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu"];
     menuView.cellColor = MAIN_COLOR;

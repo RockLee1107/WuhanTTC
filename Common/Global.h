@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #ifndef Beauty_Global_h
 #define Beauty_Global_h
-
 #define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]
 
 /*dev db*/
@@ -47,6 +47,12 @@
 //图集尺寸
 #define IMAGE_WIDTH ((SCREEN_WIDTH) - 32) / 4.0 - 4
 #define IMAGE_WIDTH_WITH_PADDING (IMAGE_WIDTH + 5)
-
+//保存或发布
+typedef enum : NSUInteger {
+    BizStatusSave,
+    BizStatusPublish,
+    BizStatusChecked,
+    BizStatusReject
+} BizStatus;
 
 #endif

@@ -33,7 +33,7 @@
         NSArray *titles = @[
                             @"我创建的",
                             @"我参与的",
-                            @"我收到的"
+                            @"我关注的"
                             ];
         self.viewControllerClasses = viewControllerClasses;
         self.titles = titles;

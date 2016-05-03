@@ -21,11 +21,7 @@
 #import "JCTagListView.h"
 #import "ImageUtil.h"
 
-//保存或发布
-typedef enum : NSUInteger {
-    BizStatusSave,
-    BizStatusPublish
-} BizStatus;
+
 //线上或线下
 typedef enum : NSUInteger {
     CityStyleOffline,
