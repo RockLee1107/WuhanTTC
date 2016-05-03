@@ -30,10 +30,7 @@
     self.memberNVC   = blankNVC;
     
     
-    self.bookNVC.tabBarItem.selectedImage        = [UIImage imageNamed:@"icon_book_selected"];
-    self.activityNVC.tabBarItem.selectedImage    = [UIImage imageNamed:@"icon_activity_selected"];
-    self.projectNVC.tabBarItem.selectedImage     = [UIImage imageNamed:@"icon_project_selected"];
-    self.memberNVC.tabBarItem.selectedImage      = [UIImage imageNamed:@"icon_member_selected"];
+
     self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
 
     if ([[User getInstance] isLogin]) {
@@ -42,11 +39,7 @@
         NSDictionary *param = @{@"username":username,
                                 @"password":password};
         [[HttpService getInstance] POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            self.bookNVC     = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateInitialViewController];
-            self.activityNVC = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateInitialViewController];
-            self.projectNVC  = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateInitialViewController];
-            self.memberNVC   = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateInitialViewController];
-            self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
+            [self setup];
             User *user = [User getInstance];
             if (responseObject[@"userInfo"][@"realName"] != [NSNull null] && responseObject[@"userInfo"][@"realName"] != nil && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]) {
                 user.realname = responseObject[@"userInfo"][@"realName"];
@@ -71,26 +64,23 @@
     } else {
         //    同样发一下游客登录接口
         [[HttpService getInstance] POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            self.bookNVC     = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateInitialViewController];
-            self.activityNVC = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateInitialViewController];
-            self.projectNVC  = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateInitialViewController];
-            self.memberNVC   = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateInitialViewController];
-            self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
+            [self setup];
         } noResult:nil];
     }
+
 }
-//
-//- (void)setup {
-//    UINavigationController *bookNVC     = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateInitialViewController];
-//    UINavigationController *activityNVC = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateInitialViewController];
-//    UINavigationController *projectNVC  = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateInitialViewController];
-//    UINavigationController *memberNVC   = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateInitialViewController];
-//    bookNVC.tabBarItem.selectedImage        = [UIImage imageNamed:@"icon_book_selected"];
-//    activityNVC.tabBarItem.selectedImage    = [UIImage imageNamed:@"icon_activity_selected"];
-//    projectNVC.tabBarItem.selectedImage     = [UIImage imageNamed:@"icon_project_selected"];
-//    memberNVC.tabBarItem.selectedImage      = [UIImage imageNamed:@"icon_member_selected"];
-//    self.viewControllers = @[bookNVC];
-//}
+
+- (void)setup {
+    self.bookNVC     = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateInitialViewController];
+    self.activityNVC = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateInitialViewController];
+    self.projectNVC  = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateInitialViewController];
+    self.memberNVC   = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateInitialViewController];
+    self.bookNVC.tabBarItem.selectedImage        = [UIImage imageNamed:@"icon_book_selected"];
+    self.activityNVC.tabBarItem.selectedImage    = [UIImage imageNamed:@"icon_activity_selected"];
+    self.projectNVC.tabBarItem.selectedImage     = [UIImage imageNamed:@"icon_project_selected"];
+    self.memberNVC.tabBarItem.selectedImage      = [UIImage imageNamed:@"icon_member_selected"];
+    self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
