@@ -69,28 +69,85 @@ typedef enum : NSUInteger {
     [super viewDidLoad];
 //    隐藏键盘
     self.activityTitleTextField.delegate = self;
-//    照片拾取
+    if (self.dataDict != nil) {
+//        编辑会传入dataDict
+        [self editSetup];
+    } else {
+        [self createSetup];
+    }
+}
+
+//编辑活动初始化
+- (void) editSetup {
+//    标题
+    self.activityTitleTextField.text = [StringUtil toString:self.dataDict[@"activityTitle"]];
+//    城市
+    if (![self.dataDict[@"city"] isEqualToString:@"线上"]) {
+//        线下
+        [self.currentCityButton setTitle:self.dataDict[@"city"] forState:(UIControlStateNormal)];
+        self.currentCityButton.backgroundColor = MAIN_COLOR;
+        self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
+    } else {
+//        线上
+        self.currentCityButton.backgroundColor = [UIColor lightGrayColor];
+        self.onlineCityButton.backgroundColor = MAIN_COLOR;
+    }
+//    活动类型
+    [self.typeButton setTitle:[StringUtil toString:self.dataDict[@"type"]] forState:(UIControlStateNormal)];
+//      开始时间
+    [self.planDateButton setTitle:[DateUtil toString:self.dataDict[@"planDate"] time:self.dataDict[@"planTime"]] forState:(UIControlStateNormal)];
+    self.planDate = [DateUtil toDate:[NSString stringWithFormat:@"%@%@",self.dataDict[@"planDate"],self.dataDict[@"planTime"]] format:@"YYYYMMddHHmm"];
+//      结束时间
+    [self.endDateButton setTitle:[DateUtil toString:self.dataDict[@"endDate"] time:self.dataDict[@"endTime"]] forState:(UIControlStateNormal)];
+    self.endDate = [DateUtil toDate:[NSString stringWithFormat:@"%@%@",self.dataDict[@"endDate"],self.dataDict[@"endTime"]] format:@"YYYYMMddHHmm"];
+//      活动地点
+    self.planSiteTextField.text = [StringUtil toString:self.dataDict[@"planSite"]];
+//    报名人数
+    if ([self.dataDict[@"planJoinNum"] integerValue] > 0) {
+        self.planJoinNumTextField.text = [self.dataDict[@"planJoinNum"] stringValue];
+    }
+//    联系人
+    self.linkmanTextField.text = [StringUtil toString:self.dataDict[@"linkMan"]];
+    self.telephoneTextField.text = [StringUtil toString:self.dataDict[@"telePhone"]];
+//    活动介绍
+    self.activityDetailsTextView.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
+    self.applyRequireMentTextView.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
+    //    报名人要求，必须是无人报名时方可改动
+    if ([self.dataDict[@"applyNum"] integerValue] == 0) {
+        self.tagListView.canSelectTags = YES;
+    } else {
+        self.tagListView.canSelectTags = NO;
+    }
+//    初始
+    self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
+//已选
+    self.tagListView.selectedTags = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","]];
+}
+
+//创建活动初始化
+- (void)createSetup {
+    //    照片拾取
     self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
     self.picker.delegate = self;
     self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
-
-//    当前城市
+    
+    //    当前城市
     [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
-//    开始与结束时间
+    //    开始与结束时间
     self.planDate = [NSDate date];
     self.endDate = [NSDate date];
-//    默认联系人与电话
+    //    默认联系人与电话
     self.linkmanTextField.text = [User getInstance].realname;
     self.telephoneTextField.text = [User getInstance].username;
-//    照片选择器
+    //    照片选择器
     self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING)];
     self.photoGallery.vc = self;
     self.photoGallery.maxCount = 9;
     [self.pictureView addSubview:self.photoGallery];
-//    线上样式
+    //    线上样式
     self.onlineCityButton.backgroundColor = [UIColor lightGrayColor];
     self.cityname = [LocationUtil getInstance].locatedCityName;
-//    报名人要求
+    //    报名人要求
     self.tagListView.canSelectTags = YES;
     //    初始
     self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
