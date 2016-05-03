@@ -69,7 +69,6 @@
                                     <constraint firstAttribute="height" constant="37" id="2a6-9t-XbJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="我要报名"/>
                                 <connections>
                                     <action selector="joinButtonPress:" destination="z3r-ku-b0c" eventType="touchUpInside" id="AvW-oR-4Aw"/>
                                 </connections>

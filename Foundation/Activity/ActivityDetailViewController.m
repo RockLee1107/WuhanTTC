@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self fetchData];
 }
 
@@ -43,7 +44,22 @@
         } else {
             self.containerMarginBottom.constant = 0;
         }
-//        添加右上角菜单 
+
+//        日期截止
+        NSDate *endDateTime = [DateUtil toDate:[NSString stringWithFormat:@"%@%@",self.dataDict[@"endDate"],self.dataDict[@"endTime"]] format:@"YYYYMMddHHmm"];
+        if ([endDateTime compare:[NSDate date]] == NSOrderedAscending) {
+            [self.joinButton setTitle:@"报名已结束" forState:(UIControlStateNormal)];
+            [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            self.joinButton.enabled = NO;
+        } else if ([self.dataDict[@"applyNum"] integerValue] >= [self.dataDict[@"planJoinNum"] integerValue]){
+//            人数已满
+            [self.joinButton setTitle:@"报名人数已满" forState:(UIControlStateNormal)];
+            [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            self.joinButton.enabled = NO;
+        } else {
+            [self.joinButton setTitle:@"我要报名" forState:(UIControlStateNormal)];
+        }
+        //        添加右上角菜单
         [self addRightItem];
     } noResult:nil];
 }

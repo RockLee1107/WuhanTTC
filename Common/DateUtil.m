@@ -180,4 +180,13 @@
     }
     return NO;
 }
+
+///转成标准日期
++ (NSDate *)toDate:(NSString *)str format:(NSString *)format {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    NSDate *date = [formatter dateFromString:str];
+    return date;
+}
+
 @end

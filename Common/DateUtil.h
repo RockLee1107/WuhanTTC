@@ -38,4 +38,6 @@
 + (NSString *)dateToCompactStringWithoutSecond:(NSDate *)date;
 ///日期比较For未读红点
 + (BOOL)compare:(NSString *)latestUpdateTime lastRequestTime:(NSString *)lastRequestTime;
+///转成标准日期
++ (NSDate *)toDate:(NSString *)str format:(NSString *)format;
 @end
