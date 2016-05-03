@@ -82,6 +82,7 @@ typedef enum : NSUInteger {
 //    标题
     self.activityTitleTextField.text = [StringUtil toString:self.dataDict[@"activityTitle"]];
 //    城市
+    self.cityname = self.dataDict[@"city"];
     if (![self.dataDict[@"city"] isEqualToString:@"线上"]) {
 //        线下
         [self.currentCityButton setTitle:self.dataDict[@"city"] forState:(UIControlStateNormal)];
