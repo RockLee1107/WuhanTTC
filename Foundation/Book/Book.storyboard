@@ -130,10 +130,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="app_read.png" translatesAutoresizingMaskIntoConstraints="NO" id="AVa-vv-al9">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_read.png" translatesAutoresizingMaskIntoConstraints="NO" id="AVa-vv-al9">
                                                     <rect key="frame" x="21" y="11" width="20" height="14"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsa-yR-9aS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsa-yR-9aS">
                                                     <rect key="frame" x="49" y="18" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.56862745100000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -161,10 +161,10 @@
                                                         <action selector="copyrightButtonPress:" destination="aqg-dw-zVl" eventType="touchUpInside" id="GfU-BN-xxd"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="app_collect.png" translatesAutoresizingMaskIntoConstraints="NO" id="pen-K1-9YY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_collect.png" translatesAutoresizingMaskIntoConstraints="NO" id="pen-K1-9YY">
                                                     <rect key="frame" x="94" y="9" width="18" height="17"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhU-Cp-3wh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhU-Cp-3wh">
                                                     <rect key="frame" x="122" y="18" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.56862745100000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,7 +327,7 @@
         <scene sceneID="TeB-BQ-b7m">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="No2-gS-rFE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="内容" image="icon_content_normal.png" id="x0X-2Y-GsO"/>
+                    <tabBarItem key="tabBarItem" title="内容" image="icon_content_normal.png" selectedImage="icon_content_selected.png" id="x0X-2Y-GsO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gje-19-7Ne">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -432,7 +432,7 @@
         <scene sceneID="MwG-pC-3sg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MXc-hj-tGh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="社区" image="icon_community_normal.png" id="vaK-4K-5MZ"/>
+                    <tabBarItem key="tabBarItem" title="社区" image="icon_community_normal.png" selectedImage="icon_community_selected.png" id="vaK-4K-5MZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xSm-Fw-FEc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -451,7 +451,7 @@
         <scene sceneID="2nA-Tb-2Cd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="34T-X1-DSW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="关于" image="icon_about_normal.png" id="7in-qt-sdE"/>
+                    <tabBarItem key="tabBarItem" title="关于" image="icon_about_normal.png" selectedImage="icon_about_selected.png" id="7in-qt-sdE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="heI-Vh-gZV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -481,7 +481,7 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fTk-Xo-WUr" id="CiW-zm-ORr">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="暂无信息" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IJ-uh-R95">
@@ -515,7 +515,7 @@
                                         <rect key="frame" x="0.0" y="246" width="320" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="04S-fi-Owk" id="Q2V-jP-a78">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="暂无信息" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvr-DG-bkx">
@@ -549,7 +549,7 @@
                                         <rect key="frame" x="0.0" y="393" width="320" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zdm-ZP-MhG" id="tQU-ch-jjF">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="147"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvt-iJ-YSW">
@@ -652,7 +652,7 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XLP-No-lUL" id="vQS-rN-U1r">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdu-en-x8x" customClass="CaptionButton">
@@ -686,7 +686,7 @@
                                         <rect key="frame" x="0.0" y="143" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d2e-ac-4Ux" id="D1K-Ir-hoi">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxw-nF-fXt" customClass="CaptionButton">
@@ -721,7 +721,7 @@
                                         <rect key="frame" x="0.0" y="228" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="itP-2F-5lK" id="4Eg-cR-0jZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjE-yJ-TQP" customClass="CaptionButton">
@@ -734,7 +734,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U3V-KB-7xf" customClass="EMTextView">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U3V-KB-7xf" customClass="EMTextView">
                                                     <rect key="frame" x="11" y="40" width="299" height="142"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -762,7 +762,7 @@
                                         <rect key="frame" x="0.0" y="448" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oPN-vP-Y3a" id="AdH-0G-6qI">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgw-ar-jws" customClass="LXButton">
@@ -816,7 +816,7 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NZs-SV-gQt" id="JHc-96-rqR">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybk-mx-O0g" customClass="CaptionButton">
@@ -851,7 +851,7 @@
                                         <rect key="frame" x="0.0" y="184" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MOc-Sx-pth" id="x45-UA-K0q">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-1m-erE" customClass="CaptionButton">
@@ -864,7 +864,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a7x-Xd-jmV" customClass="EMTextView">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a7x-Xd-jmV" customClass="EMTextView">
                                                     <rect key="frame" x="11" y="40" width="299" height="142"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -892,7 +892,7 @@
                                         <rect key="frame" x="0.0" y="404" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wVV-Zi-MoP" id="roG-qd-Hsa">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59W-Ja-wLn" customClass="LXButton">
@@ -936,10 +936,13 @@
         <image name="app_comment.png" width="20" height="18"/>
         <image name="app_read.png" width="20" height="14"/>
         <image name="arrow_left.png" width="40" height="25"/>
-        <image name="icon_about_normal.png" width="31" height="31"/>
+        <image name="icon_about_normal.png" width="26" height="26"/>
+        <image name="icon_about_selected.png" width="26" height="26"/>
         <image name="icon_book_normal.png" width="21" height="26"/>
-        <image name="icon_community_normal.png" width="31" height="31"/>
-        <image name="icon_content_normal.png" width="31" height="31"/>
+        <image name="icon_community_normal.png" width="26" height="26"/>
+        <image name="icon_community_selected.png" width="26" height="26"/>
+        <image name="icon_content_normal.png" width="26" height="26"/>
+        <image name="icon_content_selected.png" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zcR-na-EF7"/>
