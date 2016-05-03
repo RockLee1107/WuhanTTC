@@ -136,6 +136,19 @@
         //            NSLog(@"responseObject:%@",responseObject);
         if ([responseObject[@"success"] boolValue]) {
             [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            User *user = [User getInstance];
+            if ([VerifyUtil hasValue:self.companyTextField.text]) {
+                user.company = self.companyTextField.text;
+            }
+            if ([VerifyUtil hasValue:self.emailTextField.text]) {
+                user.email = self.emailTextField.text;
+            }
+            if ([VerifyUtil hasValue:self.dutyTextField.text]) {
+                user.duty = self.dutyTextField.text;
+            }
+            if ([VerifyUtil hasValue:self.wechatTextField.text]) {
+                user.wechat = self.wechatTextField.text;
+            }
             [self goBack];
         } else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];

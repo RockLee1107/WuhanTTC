@@ -79,26 +79,26 @@
     BOOL flag = YES;
     User *user = [User getInstance];
     if ([infoType rangeOfString:@"公司"].location != NSNotFound) {
-        if (user.company == nil) {
+        if (user.company == nil || [user.company isEqualToString:@""]) {
             [self.requiredInfoType addObject:@"公司"];
             flag = NO;
         }
     }
     if ([infoType rangeOfString:@"邮箱"].location != NSNotFound) {
-        if (user.email == nil) {
+        if (user.email == nil || [user.email isEqualToString:@""]) {
             [self.requiredInfoType addObject:@"邮箱"];
             flag = NO;
         }
     }
     if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
-        if (user.wechat == nil) {
+        if (user.wechat == nil || [user.wechat isEqualToString:@""]) {
             [self.requiredInfoType addObject:@"微信"];
             flag = NO;
         }
     }
-    if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
-        if (user.duty == nil) {
-            [self.requiredInfoType addObject:@"微信"];
+    if ([infoType rangeOfString:@"职务"].location != NSNotFound) {
+        if (user.duty == nil || [user.duty isEqualToString:@""]) {
+            [self.requiredInfoType addObject:@"职务"];
             flag = NO;
         }
     }
@@ -120,6 +120,7 @@
             }];
             UITextField *textField = [[UITextField alloc] init];
             textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            textField.delegate = self;
             [view addSubview:textField];
             [textField mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(label.mas_right);
