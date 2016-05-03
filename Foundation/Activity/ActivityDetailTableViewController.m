@@ -63,9 +63,7 @@
             self.tagListView = [[JCTagListView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH + 10, 110)];
             [self.applyListView addSubview:self.tagListView];
             self.tagListView.canSelectTags = NO;
-        } else {
-            self.tagListView.hidden = YES;
-            self.applyListButton.hidden = YES;
+            self.applyListButton.hidden = NO;
         }
         //    初始
         self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
