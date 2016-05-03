@@ -56,6 +56,11 @@
             [self.joinButton setTitle:@"报名截止" forState:(UIControlStateNormal)];
             [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
             self.joinButton.enabled = NO;
+        } else if ([self.dataDict[@"isApply"] boolValue]) {
+//            已报名
+            [self.joinButton setTitle:@"已报名" forState:(UIControlStateNormal)];
+            [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            self.joinButton.enabled = NO;
         } else {
             [self.joinButton setTitle:@"我要报名" forState:(UIControlStateNormal)];
         }
@@ -77,10 +82,6 @@
     self.requiredInfoType = [NSMutableArray array];
     self.requiredTextField = [NSMutableArray array];
     self.requiredKey = [NSMutableArray array];
-//    duty
-//    company
-//    email
-//    weChat
     NSDictionary *dict = @{
                            @"姓名":@"name",//realname
                            @"手机":@"mobile",//username
@@ -181,6 +182,10 @@
                                 };
         [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"报名成功"];
+            //            已报名
+            [self.joinButton setTitle:@"已报名" forState:(UIControlStateNormal)];
+            [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
+            self.joinButton.enabled = NO;
         } noResult:nil];
     }
 }
@@ -215,6 +220,10 @@
     [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"报名成功"];
         [[KGModal sharedInstance] hide];
+        //            已报名
+        [self.joinButton setTitle:@"已报名" forState:(UIControlStateNormal)];
+        [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
+        self.joinButton.enabled = NO;
     } noResult:nil];
 }
 
