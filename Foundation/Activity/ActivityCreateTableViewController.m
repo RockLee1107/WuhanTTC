@@ -29,7 +29,8 @@ typedef enum : NSUInteger {
 } CityStyle;
 @interface ActivityCreateTableViewController ()<CityViewControllerDelegete,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *activityTitleTextField; //名称
-@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
+@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像按钮
+//@property (strong, nonatomic) UIImage *avatarImage;       //头像
 //@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
 @property (weak, nonatomic) IBOutlet LXButton *onlineCityButton;       //城市
@@ -79,6 +80,17 @@ typedef enum : NSUInteger {
 
 //编辑活动初始化
 - (void) editSetup {
+    //    照片拾取
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
+    self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
+    UIImageView *avatarImageView = [UIImageView new];
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dataDict[@"pictUrl"]]];
+    [avatarImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] placeholderImage:[UIImage new] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+//        self.avatarImage = image;
+        self.picker.imageOriginal = image;
+        [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+    } failure:nil];
 //    标题
     self.activityTitleTextField.text = [StringUtil toString:self.dataDict[@"activityTitle"]];
 //    城市
