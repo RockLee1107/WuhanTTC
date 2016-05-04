@@ -296,7 +296,6 @@ typedef enum : NSUInteger {
                                      @{
                                        @"activityTitle":self.activityTitleTextField.text,
                                        @"city":self.cityname,
-//                                       @"typeCode":self.selectedTypeValue,
                                        @"planDate":[DateUtil dateToDatePart:self.planDate],//日期需要转化20151123格式
                                        @"planTime":[DateUtil dateToTimePart:self.planDate],//Time convert to 2315 Style
                                        @"endDate":[DateUtil dateToDatePart:self.endDate],
@@ -311,6 +310,10 @@ typedef enum : NSUInteger {
                                        @"infoType":[self.tagListView.selectedTags componentsJoinedByString:@","]
                                        }
                                      ];
+//    如果是编辑，传回原activityId
+    if (self.dataDict[@"activityId"]) {
+        [activity setObject:self.dataDict[@"activityId"] forKey:@"activityId"];
+    }
 //    活动类型
     if (self.selectedTypeValue != nil) {
         [activity setObject:self.selectedTypeValue forKey:@"typeCode"];

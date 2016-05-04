@@ -29,10 +29,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self fetchData];
 }
 
+//从编辑页面返回时要刷新自身，因为是本地dict传值，没有访问网络
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchData];
+}
 
 - (void)fetchData {
     NSDictionary *param = @{

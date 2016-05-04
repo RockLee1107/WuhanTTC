@@ -38,6 +38,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+}
+
+//从编辑页面返回时要刷新自身，因为是本地dict传值，没有访问网络
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self fetchData];
+}
+
+- (void)fetchData {
     NSDictionary *param = @{
                             @"activityId":self.activityId
                             };
@@ -69,7 +79,7 @@
         self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
         //已选
         self.tagListView.selectedTags = [NSMutableArray arrayWithArray:[self.dataDict[@"infoType"] componentsSeparatedByString:@","]];
-//        图集
+        //        图集
         self.urlArray = [[StringUtil toString:self.dataDict[@"detailPictURL"]] componentsSeparatedByString:@","];
         LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, ceil(self.urlArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING)];
         gallery.urlArray = self.urlArray;
