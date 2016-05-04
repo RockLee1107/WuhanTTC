@@ -595,6 +595,7 @@
                     <connections>
                         <outlet property="tableView" destination="06Z-a8-1XX" id="Xj7-Df-9nY"/>
                         <segue destination="6lI-6M-3wB" kind="show" identifier="detailInvestor" id="gwe-KU-Bxu"/>
+                        <segue destination="45Y-on-deO" kind="show" identifier="verify" id="I6u-DP-4z8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKb-9M-fXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -859,6 +860,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrR-zB-Fcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1545" y="1547"/>
+        </scene>
+        <!--投资人认证-->
+        <scene sceneID="qOM-Gi-UjX">
+            <objects>
+                <tableViewController id="45Y-on-deO" customClass="VerifyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pvs-1d-tg1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="qU0-YW-qZL">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Oc1-KI-iQY">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oc1-KI-iQY" id="Cm0-O3-ft8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvk-8P-d7B">
+                                                    <rect key="frame" x="45" y="15" width="77" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCC-eR-rz2">
+                                                    <rect key="frame" x="122" y="9" width="99" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <state key="normal" title="《认证投资人规范》"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mvk-8P-d7B" firstAttribute="centerY" secondItem="Cm0-O3-ft8" secondAttribute="centerY" id="5U9-Zh-TzE"/>
+                                                <constraint firstItem="oCC-eR-rz2" firstAttribute="centerY" secondItem="Cm0-O3-ft8" secondAttribute="centerY" id="ora-Kj-hdc"/>
+                                                <constraint firstItem="mvk-8P-d7B" firstAttribute="leading" secondItem="Cm0-O3-ft8" secondAttribute="leadingMargin" constant="37" id="pPC-Pt-WaN"/>
+                                                <constraint firstItem="oCC-eR-rz2" firstAttribute="leading" secondItem="mvk-8P-d7B" secondAttribute="trailing" id="zN8-R7-5xo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9aH-ft-POQ">
+                                        <rect key="frame" x="0.0" y="108" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aH-ft-POQ" id="uBb-71-fMk">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4zt-2L-UGH">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4zt-2L-UGH" id="RC8-9y-QUy">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="45Y-on-deO" id="BD2-TK-3bq"/>
+                            <outlet property="delegate" destination="45Y-on-deO" id="Rfz-wP-yls"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="投资人认证" id="3bo-vt-aaq"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7nD-ZH-fkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="2355"/>
         </scene>
         <!--创建项目-->
         <scene sceneID="RQE-R0-cMR">
