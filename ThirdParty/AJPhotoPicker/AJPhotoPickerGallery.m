@@ -16,14 +16,62 @@
 ///初始化
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
-        //上传按钮
-        self.button = [UIButton buttonWithType:(UIButtonTypeSystem)];
-        [self.button setImage:[[UIImage imageNamed:@"app_photo.png"] imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)] forState:(UIControlStateNormal)];
-        self.button.frame = CGRectMake(0, 0, IMAGE_WIDTH, IMAGE_WIDTH);
-        [self addSubview:self.button];
-        [self.button addTarget:self action:@selector(multipleSelectionAction:) forControlEvents:(UIControlEventTouchUpInside)];
+        [self setup];
     }
     return self;
+}
+
+///读取始化
+- (instancetype)initWithFrame:(CGRect)frame imageUrlArray:(NSArray *)array {
+    if (self == [super initWithFrame:frame]) {
+        [self setup];
+        [self loadPhotos:array];
+    }
+    return self;
+}
+
+- (void)setup {
+    //上传按钮
+    self.button = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    [self.button setImage:[[UIImage imageNamed:@"app_photo.png"] imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)] forState:(UIControlStateNormal)];
+    self.button.frame = CGRectMake(0, 0, IMAGE_WIDTH, IMAGE_WIDTH);
+    [self addSubview:self.button];
+    [self.button addTarget:self action:@selector(multipleSelectionAction:) forControlEvents:(UIControlEventTouchUpInside)];
+}
+
+- (void)loadPhotos:(NSArray *)array {
+    for (int i = 0; i < array.count; i++) {
+        SDWebImageManager *manager = [SDWebImageManager sharedManager];
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,array[i]];;
+        UIImage *cachedImage = [manager imageWithURL:[NSURL URLWithString:imageUrl]];
+        if (cachedImage) {
+            //已经下载
+            [self.photos addObject:cachedImage];
+        }else {
+            //未下载 需要去下载 内部会处理 此图是否下载中
+            currentImageUrl = imageUrl;
+            [manager downloadWithURL:[NSURL URLWithString:imageUrl] delegate:self];
+        }
+    }
+    [self reloadImagesList];
+}
+
+- (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image
+{
+    //下载图片成功
+    if ([imageManager webImageDownoaderWithUrl:[NSURL URLWithString:currentImageUrl]]) {
+        [self.photos addObject:image];
+        [self reloadImagesList];
+        //        NSLog(@"当前 -- 下载图片成功");
+    }
+}
+
+- (void)webImageManager:(SDWebImageManager *)imageManager didFailWithError:(NSError *)error
+{
+    //下载图片失败
+    if ([imageManager webImageDownoaderWithUrl:[NSURL URLWithString:currentImageUrl]]) {
+        NSLog(@"当前url 下载失败");
+    }
 }
 
 //点击上传按钮

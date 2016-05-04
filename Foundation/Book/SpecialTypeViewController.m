@@ -11,6 +11,8 @@
 #import "SpecialTypeTableViewCell.h"
 #import "DTKDropdownMenuView.h"
 #import "ContributeTableViewController.h"
+//test
+#import "MyActivityPageController.h"
 
 @interface SpecialTypeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,6 +27,9 @@
     self.tableView.dataSource = self;
     [self addRightItem];
     [self fetchData];
+    //test
+    MyActivityPageController *pager = [[MyActivityPageController alloc] init];
+    [self.navigationController pushViewController:pager animated:YES];
 }
 
 //从子Tab回来时要显示导航栏

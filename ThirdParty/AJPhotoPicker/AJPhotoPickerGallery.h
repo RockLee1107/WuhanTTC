@@ -12,12 +12,18 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AJPhotoBrowserViewController.h"
 #import "Global.h"
+#import "SDWebImageManagerDelegate.h"
+#import "SDWebImageManager.h"
 
-@interface AJPhotoPickerGallery : UIView<AJPhotoPickerProtocol,AJPhotoBrowserDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface AJPhotoPickerGallery : UIView<AJPhotoPickerProtocol,AJPhotoBrowserDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SDWebImageManagerDelegate>
+{
+    NSString *currentImageUrl;
+}
 @property (nonatomic,strong) UIViewController *vc;
 @property (strong, nonatomic) NSMutableArray *photos;
 @property (strong, nonatomic) UIButton *button;
 
 @property (nonatomic, assign) NSInteger maxCount;
-
+///读取始化
+- (instancetype)initWithFrame:(CGRect)frame imageUrlArray:(NSArray *)array;
 @end

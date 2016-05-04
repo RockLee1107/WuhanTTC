@@ -110,6 +110,12 @@ typedef enum : NSUInteger {
 //    联系人
     self.linkmanTextField.text = [StringUtil toString:self.dataDict[@"linkMan"]];
     self.telephoneTextField.text = [StringUtil toString:self.dataDict[@"telePhone"]];
+    //    照片选择器
+    NSArray *photoArray = [[StringUtil toString:self.dataDict[@"detailPictURL"]] componentsSeparatedByString:@","];
+    self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING) imageUrlArray: photoArray];
+    self.photoGallery.vc = self;
+    self.photoGallery.maxCount = 9;
+    [self.pictureView addSubview:self.photoGallery];
 //    活动介绍
     self.activityDetailsTextView.text = [StringUtil toString:self.dataDict[@"activityDetails"]];
     self.applyRequireMentTextView.text = [StringUtil toString:self.dataDict[@"applyRequirement"]];
