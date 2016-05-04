@@ -299,9 +299,56 @@ typedef enum : NSUInteger {
 
 ///提交到网络
 - (void)postData:(NSInteger)bizStatus {
+    
+    if ([self.planDate compare:self.endDate] == NSOrderedDescending) {
+        [SVProgressHUD showErrorWithStatus:@"结束时间不能早于开始时间哦"];
+        return;
+    }
+    
     if (bizStatus == BizStatusPublish) {
-        
-        //表单验证，考虑保存模式下可为空，
+        //表单验证，考虑保存模式下可为空
+//        标题
+        if (![VerifyUtil isValidStringLengthRange:self.activityTitleTextField.text between:1 and:26]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入活动名称(1-26字)"];
+            return ;
+        }
+//        主图
+        if (self.picker.imageOriginal == nil) {
+            [SVProgressHUD showErrorWithStatus:@"请上传活动图片"];
+            return ;
+        }
+//        活动类型
+        if ([self.selectedTypeValue isEqualToString:@""]) {
+            [SVProgressHUD showErrorWithStatus:@"请选择活动类型"];
+            return ;
+        }
+//        人数
+        if ([self.planJoinNumTextField.text integerValue] == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请填写正确的活动人数"];
+            return ;
+        }
+//        联系人
+        if (![VerifyUtil isValidStringLengthRange:self.linkmanTextField.text between:1 and:50]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写联系人(1-50字)"];
+            return ;
+        }
+//        电话
+        if (![VerifyUtil isMobile:self.telephoneTextField.text]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+            return ;
+        }
+//        活动介绍
+        if (![VerifyUtil isValidStringLengthRange:self.activityDetailsTextView.text between:3 and:2000]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写活动介绍(3-2000字)"];
+            return ;
+        }
+//        城市
+        if (self.cityStyle == CityStyleOffline) {
+            if (![VerifyUtil isValidStringLengthRange:self.planSiteTextField.text between:3 and:50]) {
+                [SVProgressHUD showErrorWithStatus:@"请填写活动地点(3-50字)"];
+                return ;
+            }
+        }
     }
     [SVProgressHUD showWithStatus:@"正在保存"];
 //    考虑结束日期要大于开始日期
