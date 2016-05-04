@@ -303,6 +303,7 @@ typedef enum : NSUInteger {
         
         //表单验证，考虑保存模式下可为空，
     }
+    [SVProgressHUD showWithStatus:@"正在保存"];
 //    考虑结束日期要大于开始日期
     NSMutableDictionary *activity = [NSMutableDictionary dictionaryWithDictionary:
                                      @{
@@ -339,9 +340,10 @@ typedef enum : NSUInteger {
     } else {
         [activity setObject:@"" forKey:@"pictURL"];
     }
+//    原来BizStatus是多少，这里还是传多少，针对已公布出去的活动，创建副本用得到。创建项目亦然。
     NSDictionary *param = @{
                             @"Activity":[StringUtil dictToJson:activity],
-                            @"SrcStatus":@""
+                            @"SrcStatus":self.dataDict[@"bizStatus"] != nil ? self.dataDict[@"bizStatus"] : @""
                             };
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"activity/saveActivity"];
@@ -359,6 +361,7 @@ typedef enum : NSUInteger {
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
         //            NSLog(@"responseObject:%@",responseObject);
         if ([responseObject[@"success"] boolValue]) {
             [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
