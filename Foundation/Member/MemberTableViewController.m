@@ -50,10 +50,8 @@
             //        NSLog(@"%@",url);
             [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
             NSString *userIdentity = nil;
-            if (responseObject[@"investorInfo"] != [NSNull null]) {
-                if ([responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
-                    userIdentity = @"投资者";
-                }
+            if (responseObject[@"investorInfo"] != [NSNull null] && [responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
+                userIdentity = @"投资者";
             } else {
                 userIdentity = @"创业者";
             }
