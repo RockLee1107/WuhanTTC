@@ -26,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightItem];
+    [SingletonObject getInstance].dataDict = self.dataDict;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {

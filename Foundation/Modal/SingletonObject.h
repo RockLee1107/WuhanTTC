@@ -11,5 +11,6 @@
 @interface SingletonObject : NSObject
 + (instancetype)getInstance;
 @property (nonatomic,strong) NSString *pid;
+@property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,assign) BOOL isMaticLogout;
 @end
