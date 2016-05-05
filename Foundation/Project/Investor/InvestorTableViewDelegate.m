@@ -35,7 +35,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    InvestorDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"investorDetail"];
+    InvestorDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateViewControllerWithIdentifier:@"investorDetail"];
     vc.dataDict = self.dataArray[indexPath.row];
     [self.vc.navigationController pushViewController:vc animated:YES];
 }
