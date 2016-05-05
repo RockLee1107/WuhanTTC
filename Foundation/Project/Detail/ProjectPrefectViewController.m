@@ -7,7 +7,7 @@
 //
 
 #import "ProjectPrefectViewController.h"
-#import "ProjectSummaryTableViewController.h"
+#import "ProjectCreateTableViewController.h"
 #import "TeamListTableViewController.h"
 #import "ProcessTableViewController.h"
 #import "FinanceTableViewController.h"
@@ -30,7 +30,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         NSArray *viewControllerClasses = @[
-                                           [ProjectSummaryTableViewController class],
+                                           [ProjectCreateTableViewController class],
                                            [TeamListTableViewController class],
                                            [ProductTableViewController class],
                                            [ProcessTableViewController class],

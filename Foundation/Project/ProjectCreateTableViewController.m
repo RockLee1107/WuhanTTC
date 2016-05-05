@@ -15,6 +15,7 @@
 #import "BizViewController.h"
 #import "VerifyUtil.h"
 #import "LXPhotoPicker.h"
+#import "SingletonObject.h"
 
 @interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
@@ -41,13 +42,34 @@
 
 @implementation ProjectCreateTableViewController
 
+- (instancetype)init {
+    self = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.dataDict = [SingletonObject getInstance].dataDict;
     self.projectNameTextField.delegate = self;
-    [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
+    if (self.dataDict != nil) {
+        //        编辑会传入dataDict
+        [self editSetup];
+    } else {
+        [self createSetup];
+    }
+
 
 }
 
+//创建时初始化
+- (void)createSetup {
+    [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
+}
+
+//编辑时初始化
+- (void)editSetup {
+    [self.currentCityButton setTitle:self.dataDict[@"area"] forState:(UIControlStateNormal)];
+}
 ///切换城市
 - (IBAction)switchCity:(id)sender {
     CityViewController *vc = [[CityViewController alloc] init];
