@@ -16,8 +16,7 @@
 @property (nonatomic, strong, readwrite) UIViewController *currentViewController;
 // 用于记录子控制器view的frame，用于 scrollView 上的展示的位置
 @property (nonatomic, strong) NSMutableArray *childViewFrames;
-// 当前展示在屏幕上的控制器，方便在滚动的时候读取 (避免不必要计算)
-@property (nonatomic, strong) NSMutableDictionary *displayVC;
+
 // 用于记录销毁的viewController的位置 (如果它是某一种scrollView的Controller的话)
 @property (nonatomic, strong) NSMutableDictionary *posRecords;
 // 用于缓存加载过的控制器

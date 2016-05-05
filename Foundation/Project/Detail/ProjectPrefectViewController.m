@@ -16,6 +16,8 @@
 #import "DTKDropdownMenuView.h"
 #import "HttpService.h"
 #import "Global.h"
+#import "LXButton.h"
+#import "Masonry.h"
 
 @interface ProjectPrefectViewController ()
 @end
@@ -24,6 +26,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIView *containerView = [[UIView alloc] init];
+//    包裹按钮的白底背景图层
+    containerView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:containerView];
+    [containerView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+        make.right.equalTo(self.view.mas_right);
+        make.height.mas_equalTo(60.0);
+    }];
+//    提交按钮
+    LXButton *publishButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
+    [publishButton setTitle:@"发布项目" forState:(UIControlStateNormal)];
+//    绑定点击事件
+    [publishButton addTarget:self action:@selector(publishButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
+    [containerView addSubview:publishButton];
+    [publishButton mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(containerView.mas_centerY);
+        make.left.equalTo(containerView.mas_left).offset(20);
+        make.right.equalTo(containerView.mas_right).offset(-20);
+        make.height.mas_equalTo(40.0);
+    }];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -72,4 +96,9 @@
     
 }
 
+- (void)publishButtonPress:(UIButton *)sender {
+    
+    ProjectCreateTableViewController *pvc = self.displayVC[@"0"];
+    
+}
 @end
