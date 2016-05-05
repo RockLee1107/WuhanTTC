@@ -292,6 +292,7 @@
 		FD94510B1CA843DD00E00759 /* zl09@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9451021CA843DD00E00759 /* zl09@2x.png */; };
 		FDAD29271CDB2E1800349D50 /* ProjectPrefectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD29261CDB2E1700349D50 /* ProjectPrefectViewController.m */; };
 		FDAD292A1CDB2F3000349D50 /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD29291CDB2F3000349D50 /* ProductTableViewController.m */; };
+		FDAD292C1CDB37F200349D50 /* Investor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAD292B1CDB37F200349D50 /* Investor.storyboard */; };
 		FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */; };
 		FDD0FBC91CA8B2DD004CFA75 /* app_comment_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0FBC81CA8B2DD004CFA75 /* app_comment_list@2x.png */; };
 		FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD0FBCE1CA8C018004CFA75 /* SubjectTableViewCell.m */; };
@@ -885,6 +886,7 @@
 		FDAD29261CDB2E1700349D50 /* ProjectPrefectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPrefectViewController.m; sourceTree = "<group>"; };
 		FDAD29281CDB2F3000349D50 /* ProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewController.h; sourceTree = "<group>"; };
 		FDAD29291CDB2F3000349D50 /* ProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewController.m; sourceTree = "<group>"; };
+		FDAD292B1CDB37F200349D50 /* Investor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Investor.storyboard; sourceTree = "<group>"; };
 		FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		FDD0FBC81CA8B2DD004CFA75 /* app_comment_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_comment_list@2x.png"; sourceTree = "<group>"; };
@@ -1625,6 +1627,7 @@
 				FD34C0C51CAFEBE9002B7630 /* InvestorDetailTableViewController.m */,
 				FD3BDE2D1CD9F132006F9EA5 /* VerifyTableViewController.h */,
 				FD3BDE2E1CD9F132006F9EA5 /* VerifyTableViewController.m */,
+				FDAD292B1CDB37F200349D50 /* Investor.storyboard */,
 			);
 			path = Investor;
 			sourceTree = "<group>";
@@ -2485,6 +2488,7 @@
 				FD405EB51CCBA8D9005AD869 /* app_collect@2x.png in Resources */,
 				FDE26ADA1C9BF8B8003418D5 /* person_post@2x.png in Resources */,
 				F7EB9B9A1CAB6788005343AC /* app_pwd_unvisible@2x.png in Resources */,
+				FDAD292C1CDB37F200349D50 /* Investor.storyboard in Resources */,
 				F74C9AF71CBE1DE300C7A607 /* EYPopupView.bundle in Resources */,
 				FD3E6E2C1CC8F4D2006246AC /* UMSocialSDKResourcesNew.bundle in Resources */,
 				FDEADC0B1C92AA2D00971DD1 /* icon_community_selected@2x.png in Resources */,

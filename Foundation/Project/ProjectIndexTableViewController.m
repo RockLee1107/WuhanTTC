@@ -8,6 +8,7 @@
 
 #import "ProjectIndexTableViewController.h"
 #import "ProjectTableViewDelegate.h"
+#import "InvestorListViewController.h"
 
 @interface ProjectIndexTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;
@@ -84,11 +85,18 @@
         [self.wrappedTableView.footer noticeNoMoreData];
     }];
 }
-
+#pragma mark - tb delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 1) {
         return self.tableViewDelegate.dataArray.count * 80.0;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        InvestorListViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateInitialViewController];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 @end
