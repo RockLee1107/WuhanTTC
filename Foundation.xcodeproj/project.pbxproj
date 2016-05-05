@@ -290,6 +290,8 @@
 		FD9451091CA843DD00E00759 /* zl07@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9451001CA843DD00E00759 /* zl07@2x.png */; };
 		FD94510A1CA843DD00E00759 /* zl08@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9451011CA843DD00E00759 /* zl08@2x.png */; };
 		FD94510B1CA843DD00E00759 /* zl09@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9451021CA843DD00E00759 /* zl09@2x.png */; };
+		FDAD29271CDB2E1800349D50 /* ProjectPrefectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD29261CDB2E1700349D50 /* ProjectPrefectViewController.m */; };
+		FDAD292A1CDB2F3000349D50 /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDAD29291CDB2F3000349D50 /* ProductTableViewController.m */; };
 		FDD02FA61C89C6F3005A3CB8 /* BookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */; };
 		FDD0FBC91CA8B2DD004CFA75 /* app_comment_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDD0FBC81CA8B2DD004CFA75 /* app_comment_list@2x.png */; };
 		FDD0FBD21CA8C018004CFA75 /* SubjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD0FBCE1CA8C018004CFA75 /* SubjectTableViewCell.m */; };
@@ -879,6 +881,10 @@
 		FD9451001CA843DD00E00759 /* zl07@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl07@2x.png"; sourceTree = "<group>"; };
 		FD9451011CA843DD00E00759 /* zl08@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl08@2x.png"; sourceTree = "<group>"; };
 		FD9451021CA843DD00E00759 /* zl09@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zl09@2x.png"; sourceTree = "<group>"; };
+		FDAD29251CDB2E1700349D50 /* ProjectPrefectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectPrefectViewController.h; sourceTree = "<group>"; };
+		FDAD29261CDB2E1700349D50 /* ProjectPrefectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectPrefectViewController.m; sourceTree = "<group>"; };
+		FDAD29281CDB2F3000349D50 /* ProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewController.h; sourceTree = "<group>"; };
+		FDAD29291CDB2F3000349D50 /* ProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewController.m; sourceTree = "<group>"; };
 		FDD02FA41C89C6F3005A3CB8 /* BookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookDetailViewController.h; sourceTree = "<group>"; };
 		FDD02FA51C89C6F3005A3CB8 /* BookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookDetailViewController.m; sourceTree = "<group>"; };
 		FDD0FBC81CA8B2DD004CFA75 /* app_comment_list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_comment_list@2x.png"; sourceTree = "<group>"; };
@@ -1439,10 +1445,14 @@
 		F7A61E651CA04A41001B5FB3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FDAD29251CDB2E1700349D50 /* ProjectPrefectViewController.h */,
+				FDAD29261CDB2E1700349D50 /* ProjectPrefectViewController.m */,
 				F7A61E7E1CA04E83001B5FB3 /* ProjectSummaryTableViewController.h */,
 				F7A61E7F1CA04E83001B5FB3 /* ProjectSummaryTableViewController.m */,
 				F7A61E661CA04AE3001B5FB3 /* ProjectDetailViewController.h */,
 				F7A61E671CA04AE3001B5FB3 /* ProjectDetailViewController.m */,
+				FDAD29281CDB2F3000349D50 /* ProductTableViewController.h */,
+				FDAD29291CDB2F3000349D50 /* ProductTableViewController.m */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -2640,6 +2650,7 @@
 				F74818521CCDCB7D00CEEE3A /* ContributeTableViewController.m in Sources */,
 				FD5AA8731CCA0C3E002FD276 /* CommentTableViewCell.m in Sources */,
 				FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */,
+				FDAD29271CDB2E1800349D50 /* ProjectPrefectViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
 				FD3BDE141CD5E86C006F9EA5 /* SDWebImageDownloader.m in Sources */,
@@ -2692,6 +2703,7 @@
 				F74C9AF61CBE1DE300C7A607 /* EYInputPopupView.m in Sources */,
 				FD4F43D21CD0A944005BF414 /* FeedBackTableViewController.m in Sources */,
 				FDE2D9531CA369CF008DDE4F /* MASConstraint.m in Sources */,
+				FDAD292A1CDB2F3000349D50 /* ProductTableViewController.m in Sources */,
 				F73B78961C81375600069EEE /* CommonUtil.m in Sources */,
 				FDF3FE391CA81F52007B7C83 /* MyCollectTableViewController.m in Sources */,
 				FDFD8C671CB938560095FC3C /* JCTagCell.m in Sources */,

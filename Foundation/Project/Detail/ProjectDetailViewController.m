@@ -16,6 +16,7 @@
 #import "DTKDropdownMenuView.h"
 #import "HttpService.h"
 #import "Global.h"
+#import "ProjectPrefectViewController.h"
 
 @interface ProjectDetailViewController ()
 @end
@@ -87,10 +88,15 @@
     }];
 //    除审核中以外
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"更新项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
-        //        [self performSegueWithIdentifier:@"create" sender:nil];
+        ProjectPrefectViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"prefect"];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 //    成员或投资人身份
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"项目BP" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
+        //        [self performSegueWithIdentifier:@"create" sender:nil];
+    }];
+//    成员或投资人身份
+    DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"评析" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
         //        [self performSegueWithIdentifier:@"create" sender:nil];
     }];
     NSMutableArray *array = [NSMutableArray array];
@@ -103,6 +109,7 @@
 //        成员或投资人
         if ([[self.dataDict[@"parterIds"] componentsSeparatedByString:@","] containsObject:[User getInstance].uid] || [[User getInstance].isInvestor boolValue]) {
             [array addObject:item2];
+            [array addObject:item3];
         }
     } else {
         [array addObject:item0];
