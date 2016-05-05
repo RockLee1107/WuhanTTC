@@ -545,6 +545,7 @@
                     <connections>
                         <outlet property="bizNameLabel" destination="mIc-pZ-AK6" id="tuW-n5-W2c"/>
                         <outlet property="companyLabel" destination="l3I-RT-nNx" id="c1W-wi-LW3"/>
+                        <outlet property="pictureView" destination="YDr-nc-zaJ" id="hmp-cl-00c"/>
                         <outlet property="procDetailsLabel" destination="S8C-Vo-cx1" id="vZb-Tk-Z5B"/>
                         <outlet property="procFuncLabel" destination="M45-hC-466" id="KxY-7t-Gkh"/>
                         <outlet property="procStatusNameLabel" destination="QkQ-Ca-aAi" id="1yS-uT-D43"/>
@@ -570,7 +571,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADE-ni-lJp" customClass="LXButton">
-                                <rect key="frame" x="4" y="530" width="312" height="30"/>
+                                <rect key="frame" x="4" y="472" width="312" height="30"/>
                                 <state key="normal" title="发布项目"/>
                                 <connections>
                                     <action selector="createButtonPress:" destination="LFm-MW-hdo" eventType="touchUpInside" id="5h1-Vh-rXj"/>
@@ -579,7 +580,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zO8-HL-yFW" firstAttribute="top" secondItem="ADE-ni-lJp" secondAttribute="bottom" constant="8" id="5fO-0I-gTr"/>
+                            <constraint firstItem="zO8-HL-yFW" firstAttribute="top" secondItem="ADE-ni-lJp" secondAttribute="bottom" constant="66" id="5fO-0I-gTr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ADE-ni-lJp" secondAttribute="trailing" constant="-12" id="Op4-fa-M6W"/>
                             <constraint firstItem="ADE-ni-lJp" firstAttribute="leading" secondItem="1gA-lF-qoX" secondAttribute="leadingMargin" constant="-12" id="bBA-aD-MSh"/>
                         </constraints>
