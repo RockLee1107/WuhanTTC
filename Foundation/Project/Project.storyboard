@@ -1017,12 +1017,44 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="132" id="Jct-5c-Sbc">
+                                        <rect key="frame" x="0.0" y="757" width="320" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jct-5c-Sbc" id="j5I-DO-x1k">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFh-H5-fpm" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="ZHn-oR-UEd"/>
+                                                        <constraint firstAttribute="height" constant="20" id="cmw-DP-KaW"/>
+                                                    </constraints>
+                                                    <state key="normal" title="项目BP">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(限20张)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNR-t3-JPP">
+                                                    <rect key="frame" x="105" y="12" width="59" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.15294117647058825" green="0.43529411764705883" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VNR-t3-JPP" firstAttribute="leading" secondItem="LFh-H5-fpm" secondAttribute="trailing" constant="2" id="CcO-j2-PY6"/>
+                                                <constraint firstItem="VNR-t3-JPP" firstAttribute="top" secondItem="j5I-DO-x1k" secondAttribute="topMargin" constant="4" id="UwL-0w-wO9"/>
+                                                <constraint firstItem="LFh-H5-fpm" firstAttribute="top" secondItem="j5I-DO-x1k" secondAttribute="topMargin" constant="4" id="oem-tR-Xub"/>
+                                                <constraint firstItem="LFh-H5-fpm" firstAttribute="leading" secondItem="j5I-DO-x1k" secondAttribute="leadingMargin" constant="5" id="qBq-gs-Qyn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Hkn-99-yVw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="sCl-aU-1cu">
-                                        <rect key="frame" x="0.0" y="777" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="909" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sCl-aU-1cu" id="WRv-0q-MbN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -1061,6 +1093,7 @@
                         <outlet property="descTextView" destination="pFV-0Y-3tc" id="NUb-jx-UHG"/>
                         <outlet property="financeButton" destination="7jr-dg-gtn" id="UCZ-s6-6LH"/>
                         <outlet property="headPictUrlButton" destination="abZ-5M-MoK" id="TWE-af-BFj"/>
+                        <outlet property="pictureView" destination="j5I-DO-x1k" id="qwq-Vu-Pgu"/>
                         <outlet property="projectNameTextField" destination="jHO-rH-tjF" id="sJz-4q-bnb"/>
                         <outlet property="projectResumeTextView" destination="jRe-sb-Spm" id="2ZT-iR-m53"/>
                         <outlet property="statusButton" destination="cKq-qW-prX" id="YXn-mC-CMT"/>

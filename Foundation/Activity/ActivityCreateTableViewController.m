@@ -50,6 +50,7 @@ typedef enum : NSUInteger {
 //联系人
 @property (weak, nonatomic) IBOutlet UITextField *linkmanTextField;
 @property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
+//照片拾取器
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
 @property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
 //活动地点
