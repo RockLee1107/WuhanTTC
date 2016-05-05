@@ -17,6 +17,7 @@
 #import "LXPhotoPicker.h"
 #import "SingletonObject.h"
 
+//编辑、添加共用ProjectCreateTableViewController
 @interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
@@ -51,8 +52,11 @@
     [super viewDidLoad];
     self.dataDict = [SingletonObject getInstance].dataDict;
     self.projectNameTextField.delegate = self;
-    if (self.dataDict != nil) {
+    //pid意味着真正的编辑，而不是创建
+    if (self.dataDict != nil && self.pid != nil) {
         //        编辑会传入dataDict
+        self.projectNameTextField.text = [StringUtil toString:self.dataDict[@"projectName"]];
+        
         [self editSetup];
     } else {
         [self createSetup];
