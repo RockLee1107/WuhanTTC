@@ -60,6 +60,12 @@
             [User getInstance].isAdmin = responseObject[@"userInfo"][@"isAdmin"];
             //是否社区管理员，文献列表选择用此传值
             [User getInstance].isBm = responseObject[@"userInfo"][@"isBm"];
+            //是否投资人
+            if (responseObject[@"investorInfo"] != [NSNull null] && [responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
+                user.isInvestor = @1;
+            } else {
+                user.isInvestor = @0;
+            }
         } noResult:nil];
     } else {
         //    同样发一下游客登录接口

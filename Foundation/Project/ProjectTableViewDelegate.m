@@ -42,6 +42,7 @@
     NSDictionary *object = self.dataArray[indexPath.row];
     [SingletonObject getInstance].pid = object[@"projectId"];
     ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
+    vc.dataDict = object;
     [self.vc.navigationController pushViewController:vc animated:YES];
 }
 

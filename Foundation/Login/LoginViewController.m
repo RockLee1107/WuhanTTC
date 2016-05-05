@@ -89,6 +89,12 @@
         if (responseObject[@"userInfo"][@"weChat"] != [NSNull null] && responseObject[@"userInfo"][@"weChat"] != nil && ![responseObject[@"userInfo"][@"weChat"] isEqualToString:@""]) {
             user.wechat = responseObject[@"userInfo"][@"weChat"];
         }
+        //是否投资人
+        if (responseObject[@"investorInfo"] != [NSNull null] && [responseObject[@"investorInfo"][@"bizStatus"] integerValue] == 1) {
+            user.isInvestor = @1;
+        } else {
+            user.isInvestor = @0;
+        }
         //将各状态值存到本地
         [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             //        项目阶段

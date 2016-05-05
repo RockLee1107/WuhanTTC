@@ -10,4 +10,5 @@
 #import "WMPageController.h"
 
 @interface ProjectDetailViewController : WMPageController
+@property (nonatomic,strong) NSDictionary *dataDict;
 @end

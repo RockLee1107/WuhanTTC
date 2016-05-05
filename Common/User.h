@@ -22,6 +22,8 @@
 //管理员属性-文献查询与社区管理用
 @property (nonatomic,strong,nonnull) NSNumber *isAdmin;
 @property (nonatomic,strong,nonnull) NSNumber *isBm;
+//是否投资人
+@property (nonatomic,strong,nonnull) NSNumber *isInvestor;
 - (void)logout;
 - (BOOL)isLogin;
 @end

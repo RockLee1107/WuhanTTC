@@ -15,9 +15,9 @@
 #import "SingletonObject.h"
 #import "DTKDropdownMenuView.h"
 #import "HttpService.h"
+#import "Global.h"
 
 @interface ProjectDetailViewController ()
-
 @end
 
 @implementation ProjectDetailViewController
@@ -85,14 +85,30 @@
             [SVProgressHUD showSuccessWithStatus:@"关注成功"];
         } noResult:nil];
     }];
+//    除审核中以外
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"更新项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
         //        [self performSegueWithIdentifier:@"create" sender:nil];
     }];
+//    成员或投资人身份
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"项目BP" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
         //        [self performSegueWithIdentifier:@"create" sender:nil];
     }];
     NSMutableArray *array = [NSMutableArray array];
-    [array addObject:item0];
+//    是创建人
+    if ([[User getInstance].uid isEqualToString:self.dataDict[@"createdById"]]) {
+//        非审核中
+        if ([self.dataDict[@"bizStatus"] integerValue] != BizStatusPublish) {
+            [array addObject:item1];
+        }
+//        成员或投资人
+        if ([[self.dataDict[@"parterIds"] componentsSeparatedByString:@","] containsObject:[User getInstance].uid] || [[User getInstance].isInvestor boolValue]) {
+            [array addObject:item2];
+        }
+    } else {
+        [array addObject:item0];
+    }
+    
+    
 //    [array addObject:item1];
 //    [array addObject:item2];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
