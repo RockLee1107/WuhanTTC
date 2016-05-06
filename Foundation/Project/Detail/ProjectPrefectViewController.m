@@ -18,6 +18,7 @@
 #import "Global.h"
 #import "LXButton.h"
 #import "Masonry.h"
+#import "ImageUtil.h"
 
 @interface ProjectPrefectViewController ()
 @end
@@ -133,17 +134,23 @@
         return;
     }
     
-    NSDictionary *project = @{
-                              @"projectId":[SingletonObject getInstance].pid,
-                              @"projectName":projectVC.projectNameTextField.text,
-                              @"headPictUrl":projectVC.picker.filePath,
-                              @"projectResume":projectVC.projectResumeTextView.text,
-                              @"desc":projectVC.descTextView.text,
-                              @"procStatusCode":projectVC.selectedStatusValue,
-                              @"financeProcCode":projectVC.selectedFinanceValue,
-                              @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
-                              @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
-                              };
+    NSMutableDictionary *project = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                            @"projectId":[SingletonObject getInstance].pid,
+                                                                            @"projectName":projectVC.projectNameTextField.text,
+                                                                            @"headPictUrl":projectVC.picker.filePath,
+                                                                            @"projectResume":projectVC.projectResumeTextView.text,
+                                                                            @"desc":projectVC.descTextView.text,
+                                                                            @"procStatusCode":projectVC.selectedStatusValue,
+                                                                            @"financeProcCode":projectVC.selectedFinanceValue,
+                                                                            @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
+                                                                            @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
+                                                                            }];
+    
+    //    多图
+    if (projectVC.photoGallery.photos.count > 0) {
+        [project setObject:[[ImageUtil getInstance] savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
+    }
+    
     NSDictionary *team = @{
                            @"parterId":[User getInstance].uid,
                            @"duty":@"创始人"
@@ -155,7 +162,17 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:projectVC.picker.filename mimeType:@"image/jpeg"];
+//        针对保存草稿时不传递数据
+        if (projectVC.picker.filePath) {
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:projectVC.picker.filename mimeType:@"image/jpeg"];
+        }
+        //        多图
+        if (projectVC.photoGallery.photos.count > 0) {
+            for (int i = 0; i < projectVC.photoGallery.photos.count; i++) {
+                UIImage *image = projectVC.photoGallery.photos[i];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+            }
+        }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
