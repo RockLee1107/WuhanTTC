@@ -76,10 +76,13 @@
     self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"projectResume"]];
 //    项目阶段
     [self.statusButton setTitle:[StringUtil toString:self.dataDict[@"procStatusName"]] forState:(UIControlStateNormal)];
+    self.selectedStatusValue = self.dataDict[@"procStatusCode"];
 //    融资阶段
     [self.financeButton setTitle:[StringUtil toString:self.dataDict[@"financeProcName"]] forState:(UIControlStateNormal)];
+    self.selectedFinanceValue = self.dataDict[@"financeProcCode"];
 //    项目领域
     [self.bizButton setTitle:[StringUtil toString:self.dataDict[@"bizName"]] forState:(UIControlStateNormal)];
+    self.selectedCodeArray = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"bizCode"]] componentsSeparatedByString:@","]];
     self.selectedNameArray = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"bizName"]] componentsSeparatedByString:@","]];
     //    项目描述
     self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"desc"]];
