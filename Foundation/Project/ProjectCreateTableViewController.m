@@ -93,7 +93,8 @@
     self.selectedCodeArray = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"bizCode"]] componentsSeparatedByString:@","]];
     self.selectedNameArray = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"bizName"]] componentsSeparatedByString:@","]];
     //    项目描述
-    self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"desc"]];
+    self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"projectResume"]];
+    self.descTextView.text = [StringUtil toString:self.dataDict[@"projectDesc"]];
     //    照片选择器
     NSArray *photoArray = [[StringUtil toString:self.dataDict[@"bppictUrl"]] componentsSeparatedByString:@","];
     self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING) imageUrlArray: photoArray];
