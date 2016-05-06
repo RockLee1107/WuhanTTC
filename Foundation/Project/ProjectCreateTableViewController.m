@@ -15,7 +15,7 @@
 #import "BizViewController.h"
 #import "VerifyUtil.h"
 #import "LXPhotoPicker.h"
-#import "SingletonObject.h"
+//#import "SingletonObject.h"
 #import "AJPhotoPickerGallery.h"
 
 //编辑、添加共用ProjectCreateTableViewController
@@ -53,14 +53,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataDict = [SingletonObject getInstance].dataDict;
     self.projectNameTextField.delegate = self;
-    //pid意味着真正的编辑，而不是创建
-    if (self.dataDict != nil && self.pid != nil) {
-        //        编辑会传入dataDict
-        self.projectNameTextField.text = [StringUtil toString:self.dataDict[@"projectName"]];
+    //pid意味着编辑，而不是创建
+    
+    if (self.pid != nil) {
+       
+        NSDictionary *param = @{
+                                @"projectId":self.pid
+                                };
+        [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.dataDict = responseObject;
+            [self editSetup];
+            
+        } noResult:^{
+            
+        }];
         
-        [self editSetup];
     } else {
         [self createSetup];
     }
@@ -76,6 +84,8 @@
 
 //编辑时初始化
 - (void)editSetup {
+//    名称
+    self.projectNameTextField.text = [StringUtil toString:self.dataDict[@"projectName"]];
     //    照片拾取
     self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
     self.picker.delegate = self;
@@ -107,7 +117,9 @@
     
 //      城市
     [self.currentCityButton setTitle:self.dataDict[@"area"] forState:(UIControlStateNormal)];
+    [self.tableView reloadData];
 }
+
 ///切换城市
 - (IBAction)switchCity:(id)sender {
     CityViewController *vc = [[CityViewController alloc] init];

@@ -8,7 +8,6 @@
 
 #import "ProductTableViewController.h"
 #import "AJPhotoPickerGallery.h"
-#import "SingletonObject.h"
 #import "EMTextView.h"
 
 @interface ProductTableViewController ()
@@ -30,15 +29,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setDynamicLayout];
-//  Pager控件限制不得已，单例传值
-    self.dataDict = [SingletonObject getInstance].dataDict;
-    //    照片选择器
-    NSArray *photoArray = [[StringUtil toString:self.dataDict[@"procShows"]] componentsSeparatedByString:@","];
-    self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING) imageUrlArray: photoArray];
-    self.photoGallery.vc = self;
-    self.photoGallery.maxCount = 9;
-    self.procDetailsTextView.text = [StringUtil toString:self.dataDict[@"procDetails"]];
-    [self.pictureView addSubview:self.photoGallery];
+    NSDictionary *param = @{
+                            @"projectId":self.pid
+                            };
+    [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.dataDict = responseObject;
+        //    照片选择器
+        NSArray *photoArray = [[StringUtil toString:self.dataDict[@"procShows"]] componentsSeparatedByString:@","];
+        self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING) imageUrlArray: photoArray];
+        self.photoGallery.vc = self;
+        self.photoGallery.maxCount = 9;
+        self.procDetailsTextView.text = [StringUtil toString:self.dataDict[@"procDetails"]];
+        [self.pictureView addSubview:self.photoGallery];
+        [self.tableView reloadData];
+    } noResult:^{
+        
+    }];
 }
 
 #pragma mark - Table view data source
