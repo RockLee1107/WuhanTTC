@@ -286,6 +286,7 @@
 		FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */; };
 		FD5AA88A1CCA2A8D002FD276 /* BookSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */; };
 		FD5AA88B1CCA2A8D002FD276 /* BookSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */; };
+		FD5ADD851CDCDBA9005ED424 /* FinanceCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD841CDCDBA9005ED424 /* FinanceCreateTableViewController.m */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -895,6 +896,8 @@
 		FD5AA8871CCA2A8D002FD276 /* BookSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchTableViewCell.h; sourceTree = "<group>"; };
 		FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchTableViewCell.m; sourceTree = "<group>"; };
 		FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookSearchTableViewCell.xib; sourceTree = "<group>"; };
+		FD5ADD831CDCDBA9005ED424 /* FinanceCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceCreateTableViewController.h; sourceTree = "<group>"; };
+		FD5ADD841CDCDBA9005ED424 /* FinanceCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceCreateTableViewController.m; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1725,6 +1728,8 @@
 				FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */,
 				FD3B005D1CC66F7900DA0166 /* FinanceTableViewController.h */,
 				FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */,
+				FD5ADD831CDCDBA9005ED424 /* FinanceCreateTableViewController.h */,
+				FD5ADD841CDCDBA9005ED424 /* FinanceCreateTableViewController.m */,
 			);
 			path = Finance;
 			sourceTree = "<group>";
@@ -2737,6 +2742,7 @@
 				FD3F656E1CD34EF800FBEE43 /* MailTableViewCell.m in Sources */,
 				FD3BDE121CD5E86C006F9EA5 /* UIButton+WebCache.m in Sources */,
 				FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */,
+				FD5ADD851CDCDBA9005ED424 /* FinanceCreateTableViewController.m in Sources */,
 				FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */,
 				FDF3FE211CA816F0007B7C83 /* MyProjectTableViewController.m in Sources */,
 				FDE2D9541CA369CF008DDE4F /* MASConstraintMaker.m in Sources */,
