@@ -7,16 +7,12 @@
 //
 
 #import "ProductTableViewController.h"
-#import "AJPhotoPickerGallery.h"
-#import "EMTextView.h"
 
 @interface ProductTableViewController ()
 @property (strong,nonatomic) NSString *pid;
 //照片选择器
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
-@property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
-//产品功能
-@property (weak, nonatomic) IBOutlet EMTextView *procDetailsTextView;
+
 @end
 
 @implementation ProductTableViewController

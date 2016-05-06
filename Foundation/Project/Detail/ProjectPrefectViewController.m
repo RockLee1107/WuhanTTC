@@ -100,7 +100,15 @@
 - (void)publishButtonPress:(UIButton *)sender {
     
     ProjectCreateTableViewController *projectVC = self.childViewControllers[0];
-    
+    ProductTableViewController *productVC = nil;
+//    设置vc
+    for(int i = 0; i < self.childViewControllers.count; i++) {
+        if ([self.childViewControllers[i] isKindOfClass:[ProductTableViewController class]]) {
+            productVC = self.childViewControllers[i];
+        }
+    }
+
+/*项目信息*/
     if (![VerifyUtil hasValue:projectVC.projectNameTextField.text]) {
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
         return;
@@ -151,6 +159,19 @@
         [project setObject:[[ImageUtil getInstance] savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
     }
     
+
+/*产品信息*/
+//    后端api要求，产品信息与项目基本共用Project对象
+    if (![productVC.procDetailsTextView.text isEqualToString:@""]) {
+        [project setObject:productVC.procDetailsTextView.text forKey:@"procDetails"];
+    }
+    if (productVC != nil) {
+        //    多图
+        if (productVC.photoGallery.photos.count > 0) {
+            [project setObject:[[ImageUtil getInstance] savePicture:@"procShows" images:productVC.photoGallery.photos] forKey:@"procShows"];
+        }
+    }
+//    json化
     NSDictionary *team = @{
                            @"parterId":[User getInstance].uid,
                            @"duty":@"创始人"
@@ -166,10 +187,19 @@
         if (projectVC.picker.filePath) {
             [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:projectVC.picker.filename mimeType:@"image/jpeg"];
         }
+//        bp
         //        多图
         if (projectVC.photoGallery.photos.count > 0) {
             for (int i = 0; i < projectVC.photoGallery.photos.count; i++) {
                 UIImage *image = projectVC.photoGallery.photos[i];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+            }
+        }
+//        产品
+        //        多图
+        if (productVC.photoGallery.photos.count > 0) {
+            for (int i = 0; i < productVC.photoGallery.photos.count; i++) {
+                UIImage *image = productVC.photoGallery.photos[i];
                 [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
             }
         }
