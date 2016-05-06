@@ -7,7 +7,11 @@
 //
 
 #import "BaseStaticTableViewController.h"
+#import "AJPhotoPickerGallery.h"
+#import "EMTextView.h"
 
 @interface ProductTableViewController : BaseStaticTableViewController
-
+@property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
+//产品功能
+@property (weak, nonatomic) IBOutlet EMTextView *procDetailsTextView;
 @end

@@ -7,45 +7,104 @@
 //
 
 #import "ProjectCreateTableViewController.h"
-#import "EMTextView.h"
 #import "CityViewController.h"
-#import "LXButton.h"
 #import "ActionSheetStringPicker.h"
 #import "StatusDict.h"
 #import "BizViewController.h"
 #import "VerifyUtil.h"
-#import "LXPhotoPicker.h"
+#import "ImageUtil.h"
+//#import "SingletonObject.h"
 
+//编辑、添加共用ProjectCreateTableViewController
 @interface ProjectCreateTableViewController ()<CityViewControllerDelegete,BizViewControllerDelegate,LXPhotoPickerDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *projectNameTextField; //名称
-@property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
-@property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
-@property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
-//项目状态
-@property (weak, nonatomic) IBOutlet UIButton *statusButton;         //按钮，用于显示所选中文值
-@property (assign, nonatomic) NSInteger selectedStatusIndex;           //状态index，用于选择框反显
-@property (strong, nonatomic) NSString *selectedStatusValue;           //状态value，用于数据提交
-//融资阶段
-@property (weak, nonatomic) IBOutlet UIButton *financeButton;
-@property (assign, nonatomic) NSInteger selectedFinanceIndex;
-@property (strong, nonatomic) NSString *selectedFinanceValue;
-//项目领域
-@property (weak, nonatomic) IBOutlet UIButton *bizButton;
-@property (strong, nonatomic) NSMutableArray *selectedCodeArray;
-@property (strong, nonatomic) NSMutableArray *selectedNameArray;
-
-@property (weak, nonatomic) IBOutlet EMTextView *descTextView;          //描述
-@property (strong, nonatomic) LXPhotoPicker *picker;
 
 @end
 
 @implementation ProjectCreateTableViewController
 
+- (instancetype)init {
+    self = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.projectNameTextField.delegate = self;
-    [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
+    //pid意味着编辑，而不是创建
+    
+    if (self.pid != nil) {
+       
+        NSDictionary *param = @{
+                                @"projectId":self.pid
+                                };
+        [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.dataDict = responseObject;
+            [self editSetup];
+            
+        } noResult:^{
+            
+        }];
+        
+    } else {
+        [self createSetup];
+    }
 
+
+}
+
+//创建时初始化
+- (void)createSetup {
+    //    照片拾取
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
+    self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
+    
+    [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
+    self.pictureView.hidden = YES;
+}
+
+//编辑时初始化
+- (void)editSetup {
+//    名称
+    self.projectNameTextField.text = [StringUtil toString:self.dataDict[@"projectName"]];
+    //    照片拾取
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
+    self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
+    UIImageView *avatarImageView = [UIImageView new];
+    NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:self.dataDict[@"headPictUrl"]]];
+    [avatarImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] placeholderImage:[UIImage new] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        //        self.avatarImage = image;
+        self.picker.imageOriginal = image;
+        [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+        //        读图的时候也将图存回本地
+        self.picker.filePath = [ImageUtil savePicture:self.picker.filename image:self.picker.imageOriginal];
+    } failure:nil];
+//    项目简介
+    self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"projectResume"]];
+//    项目阶段
+    [self.statusButton setTitle:[StringUtil toString:self.dataDict[@"procStatusName"]] forState:(UIControlStateNormal)];
+    self.selectedStatusValue = self.dataDict[@"procStatusCode"];
+//    融资阶段
+    [self.financeButton setTitle:[StringUtil toString:self.dataDict[@"financeProcName"]] forState:(UIControlStateNormal)];
+    self.selectedFinanceValue = self.dataDict[@"financeProcCode"];
+//    项目领域
+    [self.bizButton setTitle:[StringUtil toString:self.dataDict[@"bizName"]] forState:(UIControlStateNormal)];
+    self.selectedCodeArray = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"bizCode"]] componentsSeparatedByString:@","]];
+    self.selectedNameArray = [NSMutableArray arrayWithArray:[[StringUtil toString:self.dataDict[@"bizName"]] componentsSeparatedByString:@","]];
+    //    项目描述
+    self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"projectResume"]];
+    self.descTextView.text = [StringUtil toString:self.dataDict[@"projectDesc"]];
+    //    照片选择器
+    NSArray *photoArray = [[StringUtil toString:self.dataDict[@"bppictUrl"]] componentsSeparatedByString:@","];
+    self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING) imageUrlArray: photoArray];
+    self.photoGallery.vc = self;
+    self.photoGallery.maxCount = 20;
+    [self.pictureView addSubview:self.photoGallery];
+    
+//      城市
+    [self.currentCityButton setTitle:self.dataDict[@"area"] forState:(UIControlStateNormal)];
+    [self.tableView reloadData];
 }
 
 ///切换城市
@@ -113,13 +172,35 @@
     }
 }
 
-//提交数据
+//保持按钮点击事件
+- (IBAction)saveButtonPress:(id)sender {
+    if (![VerifyUtil hasValue:self.projectNameTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.selectedStatusValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目阶段"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.selectedFinanceValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+        return;
+    }
+    if (self.selectedCodeArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
+        return;
+    }
+    [self postData];
+}
+
+
+//发布按钮点击
 - (IBAction)createButtonPress:(id)sender {
     if (![VerifyUtil hasValue:self.projectNameTextField.text]) {
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
         return;
     }
-    if (![VerifyUtil hasValue:self.picker.filePath]) {
+    if (self.picker.imageOriginal == nil) {
         [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
         return;
     }
@@ -143,21 +224,38 @@
         [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
         return;
     }
-    if (![VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:50]) {
+    if (![VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:500]) {
         [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
         return;
     }
+    [self postData];
+}
+
+//提交数据到服务器
+- (void)postData {
+    NSMutableDictionary *project = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                @"projectName":self.projectNameTextField.text,
+                                                                                @"procStatusCode":self.selectedStatusValue,
+                                                                                @"financeProcCode":self.selectedFinanceValue,
+                                                                                @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
+                                                                                }];
+    //    头像
+    if ([VerifyUtil hasValue:self.picker.filePath]) {
+        [project setObject:self.picker.filePath forKey:@"headPictUrl"];
+    }
+    //    简介
+    if ([VerifyUtil isValidStringLengthRange:self.projectResumeTextView.text between:3 and:50]) {
+        [project setObject:self.projectResumeTextView.text forKey:@"projectResume"];
+    }
+    //    城市
+    if (![[self.currentCityButton titleForState:(UIControlStateNormal)] isEqualToString:@"城市"]) {
+        [project setObject:[self.currentCityButton titleForState:(UIControlStateNormal)] forKey:@"area"];
+    }
+    //    描述
+    if ([VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:500]) {
+        [project setObject:self.descTextView.text forKey:@"desc"];
+    }
     
-    NSDictionary *project = @{
-                            @"projectName":self.projectNameTextField.text,
-                            @"headPictUrl":self.picker.filePath,
-                            @"projectResume":self.projectResumeTextView.text,
-                            @"desc":self.descTextView.text,
-                            @"procStatusCode":self.selectedStatusValue,
-                            @"financeProcCode":self.selectedFinanceValue,
-                            @"area":[self.currentCityButton titleForState:(UIControlStateNormal)],
-                            @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
-                            };
     NSDictionary *team = @{
                            @"parterId":[User getInstance].uid,
                            @"duty":@"创始人"
@@ -169,7 +267,12 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        //        logo
+        if (self.picker.filePath) {
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        }
+        
+
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
@@ -183,22 +286,39 @@
         NSLog(@"%@",error);
         [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
-//    [self.service POST:@"personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
-//        [self goBack];
-//    } noResult:nil];
+    //    [self.service POST:@"personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+    //        [self goBack];
+    //    } noResult:nil];
 }
 
 //点选相片或拍照
 - (IBAction)selectPicture:(id)sender {
     [self.currentTextField resignFirstResponder];
-    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
-    self.picker.delegate = self;
     [self.picker selectPicture];
 }
 
 ///LXPhoto Delegate
 - (void)didSelectPhoto:(UIImage *)image {
     [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+}
+
+#pragma mark - tb delegate 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //pid意味着真正的编辑，而不是创建
+    if (self.dataDict == nil || self.pid == nil) {
+        if (indexPath.section == 0 && indexPath.row == 8) {
+            return 0;
+        }
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    //pid意味着真正的编辑，而不是创建
+    if (self.dataDict != nil && self.pid != nil) {
+        return 1;
+    }
+    return [super numberOfSectionsInTableView:tableView];
 }
 @end

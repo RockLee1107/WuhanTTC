@@ -267,7 +267,8 @@
         } else {
             if (vc) {
                 // vc不在视野中且存在，移除他
-                [self removeViewController:vc atIndex:i];
+//                注释之，不然displayVC与childViewController只有一个元素 - by huangxj
+//                [self removeViewController:vc atIndex:i];
             }
         }
     }
@@ -504,7 +505,8 @@
         UIViewController *currentViewController = self.displayVC[@(currentIndex)];
         // 最好判断一下，因为在做某个项目时，currentViewController = nil
         if (currentViewController) {
-            [self removeViewController:currentViewController atIndex:currentIndex];
+//                注释之，不然displayVC与childViewController只有一个元素 - by huangxj
+//            [self removeViewController:currentViewController atIndex:currentIndex];
         }
         [self layoutChildViewControllers];
         self.currentViewController = self.displayVC[@(self.selectIndex)];

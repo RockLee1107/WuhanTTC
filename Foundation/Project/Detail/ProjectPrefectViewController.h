@@ -7,8 +7,8 @@
 //
 
 #import "Global.h"
-#import "WMPageController.h"
+#import "BasePageController.h"
 
-@interface ProjectPrefectViewController : WMPageController
+@interface ProjectPrefectViewController : BasePageController
 @property (nonatomic,strong) NSDictionary *dataDict;
 @end

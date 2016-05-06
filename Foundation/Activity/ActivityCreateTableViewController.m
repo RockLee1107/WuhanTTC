@@ -50,6 +50,7 @@ typedef enum : NSUInteger {
 //联系人
 @property (weak, nonatomic) IBOutlet UITextField *linkmanTextField;
 @property (weak, nonatomic) IBOutlet UITextField *telephoneTextField;
+//照片拾取器
 @property (weak, nonatomic) IBOutlet UIView *pictureView;
 @property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
 //活动地点
@@ -90,6 +91,8 @@ typedef enum : NSUInteger {
 //        self.avatarImage = image;
         self.picker.imageOriginal = image;
         [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+//        读图的时候也将图存回本地
+        self.picker.filePath = [ImageUtil savePicture:self.picker.filename image:self.picker.imageOriginal];
     } failure:nil];
 //    标题
     self.activityTitleTextField.text = [StringUtil toString:self.dataDict[@"activityTitle"]];

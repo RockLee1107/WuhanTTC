@@ -17,6 +17,7 @@
 #import "HttpService.h"
 #import "Global.h"
 #import "ProjectPrefectViewController.h"
+#import "ImageBrowserViewController.h"
 
 @interface ProjectDetailViewController ()
 @end
@@ -26,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addRightItem];
+    [SingletonObject getInstance].dataDict = self.dataDict;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -93,7 +95,17 @@
     }];
 //    成员或投资人身份
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"项目BP" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
-        //        [self performSegueWithIdentifier:@"create" sender:nil];
+        if (self.dataDict[@"bpPictUrl"] == [NSNull null]) {
+            [SVProgressHUD showErrorWithStatus:@"暂无项目BP"];
+        } else {
+            ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
+            vc.imageArray = [self.dataDict[@"bppictUrl"] componentsSeparatedByString:@","];
+            vc.selectedIndex = 0;
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+            self.hidesBottomBarWhenPushed = NO;
+        }
+        
     }];
 //    成员或投资人身份
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"评析" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
