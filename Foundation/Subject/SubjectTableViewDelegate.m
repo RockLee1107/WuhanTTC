@@ -44,5 +44,6 @@
     NSDictionary *object = self.dataArray[indexPath.row];
     vc.dict = object;
     [self.vc.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

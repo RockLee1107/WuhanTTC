@@ -142,6 +142,7 @@
     if ([_my_delegate respondsToSelector:@selector(didSelectGroup:)]) {
         [_my_delegate didSelectGroup:group];
     }
+   
 }
 
 #pragma mark - getter/setter

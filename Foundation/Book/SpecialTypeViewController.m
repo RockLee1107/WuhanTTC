@@ -86,6 +86,7 @@
     vc.specialCode = self.dataImmutableArray[indexPath.row][@"specialCode"];
     vc.specialName = self.dataImmutableArray[indexPath.row][@"specialName"];
     [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 ///导航栏下拉菜单

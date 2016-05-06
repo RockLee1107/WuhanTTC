@@ -268,6 +268,7 @@
         self.bookType = self.data3[indexPath.row][0];
         [self fetchData];
     }
+   
 }
 
 @end

@@ -298,5 +298,6 @@
         vc.type = @"SLIKE_labelName";
         [self.navigationController pushViewController:vc animated:YES];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

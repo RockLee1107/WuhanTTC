@@ -78,6 +78,7 @@
         //上传头像
         [self selectPicture];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //点选相片或拍照
