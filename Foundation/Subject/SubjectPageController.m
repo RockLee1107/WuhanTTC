@@ -77,11 +77,11 @@
         [self.navigationController pushViewController:vc animated:YES];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
-    menuView.cellColor = MAIN_COLOR;
+    menuView.cellColor = MENU_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
     menuView.titleFont = [UIFont systemFontOfSize:18.f];
-    menuView.textColor = [UIColor whiteColor];
+    menuView.textColor = [UIColor blackColor];
     menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     menuView.textFont = [UIFont systemFontOfSize:16.f];
     menuView.animationDuration = 0.4f;
