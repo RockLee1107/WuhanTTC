@@ -12,6 +12,7 @@
 #import "StatusDict.h"
 #import "BizViewController.h"
 #import "VerifyUtil.h"
+#import "ImageUtil.h"
 //#import "SingletonObject.h"
 
 //编辑、添加共用ProjectCreateTableViewController
@@ -53,6 +54,11 @@
 
 //创建时初始化
 - (void)createSetup {
+    //    照片拾取
+    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
+    self.picker.delegate = self;
+    self.picker.filename = [NSString stringWithFormat:@"avatar_%d.jpg",(int)([[NSDate date] timeIntervalSince1970])];
+    
     [self.currentCityButton setTitle:[LocationUtil getInstance].locatedCityName forState:(UIControlStateNormal)];
     self.pictureView.hidden = YES;
 }
@@ -71,6 +77,8 @@
         //        self.avatarImage = image;
         self.picker.imageOriginal = image;
         [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+        //        读图的时候也将图存回本地
+        self.picker.filePath = [ImageUtil savePicture:self.picker.filename image:self.picker.imageOriginal];
     } failure:nil];
 //    项目简介
     self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"projectResume"]];
@@ -286,8 +294,6 @@
 //点选相片或拍照
 - (IBAction)selectPicture:(id)sender {
     [self.currentTextField resignFirstResponder];
-    self.picker = [[LXPhotoPicker alloc] initWithParentView:self];
-    self.picker.delegate = self;
     [self.picker selectPicture];
 }
 

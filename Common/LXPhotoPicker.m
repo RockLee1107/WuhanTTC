@@ -57,6 +57,7 @@
 //        [self.headPictUrlButton setImage:self.imageOriginal forState:(UIControlStateNormal)];
         [self.delegate didSelectPhoto:self.imageOriginal];
         self.filePath = [ImageUtil savePicture:self.filename image:self.imageOriginal];
+        
     }];
 }
 @end

@@ -91,6 +91,8 @@ typedef enum : NSUInteger {
 //        self.avatarImage = image;
         self.picker.imageOriginal = image;
         [self.headPictUrlButton setImage:image forState:(UIControlStateNormal)];
+//        读图的时候也将图存回本地
+        self.picker.filePath = [ImageUtil savePicture:self.picker.filename image:self.picker.imageOriginal];
     } failure:nil];
 //    标题
     self.activityTitleTextField.text = [StringUtil toString:self.dataDict[@"activityTitle"]];

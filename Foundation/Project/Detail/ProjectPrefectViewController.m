@@ -155,7 +155,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:projectVC.picker.filename mimeType:@"image/jpeg"];
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
