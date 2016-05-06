@@ -110,5 +110,6 @@
 //    }
     vc.userId = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row][@"friendId"];
     [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

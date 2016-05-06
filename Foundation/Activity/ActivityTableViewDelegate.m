@@ -45,6 +45,7 @@
     ActivityDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.activityId = object[@"activityId"];
     [self.vc.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //可编辑-包括左滑删除

@@ -32,6 +32,7 @@
 //            [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
         }] useDefaultIOS7Style];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

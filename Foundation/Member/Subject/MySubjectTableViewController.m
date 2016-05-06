@@ -97,6 +97,7 @@
     NSDictionary *object = self.dataMutableArray[indexPath.row];
     vc.dict = object;
     [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //可编辑-包括左滑删除

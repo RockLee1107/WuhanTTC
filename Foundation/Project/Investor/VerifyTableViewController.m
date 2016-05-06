@@ -60,11 +60,11 @@
     // Do any additional setup after loading the view.
 }
 
-///活动规范
+///认证投资人规范
 - (IBAction)standardButtonPress:(id)sender {
     StandardViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"standard"];
     vc.type = @"1";
-    vc.naviTitle = @"活动发布规范";
+    vc.naviTitle = @"认证投资人规范";
     [self.navigationController pushViewController:vc animated:YES];
 }
 

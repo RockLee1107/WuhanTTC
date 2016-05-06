@@ -100,6 +100,7 @@
         LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
         [self.navigationController presentViewController:vc animated:YES completion:nil];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 //#warning appstore

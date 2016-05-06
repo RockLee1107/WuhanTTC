@@ -67,6 +67,7 @@
     MyCollectTableViewController *vc = [[MyCollectTableViewController alloc] init];
     vc.specialCode = dict[@"specialCode"];
     [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

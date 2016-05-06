@@ -98,5 +98,6 @@
         InvestorListViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateInitialViewController];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

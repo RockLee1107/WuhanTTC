@@ -241,6 +241,7 @@
             vc.userId = self.userId;
             [self.navigationController pushViewController:vc animated:YES];
         }
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 @end
