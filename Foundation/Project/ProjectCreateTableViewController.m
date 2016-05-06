@@ -188,7 +188,7 @@
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
         return;
     }
-    if (![VerifyUtil hasValue:self.picker.filePath]) {
+    if (self.picker.imageOriginal == nil) {
         [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
         return;
     }
