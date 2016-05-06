@@ -73,17 +73,17 @@
                             @"subjectId":self.dict[@"subjectId"]
                             };
     //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *itemBm0 = [DTKDropdownItem itemWithTitle:@"关闭本帖" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *itemBm0 = [DTKDropdownItem itemWithTitle:@"关闭本帖" iconName:@"menu_close_post" callBack:^(NSUInteger index, id info) {
         [self.service POST:@"book/postSubject/closeSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"帖子关闭成功"];
         } noResult:nil];
     }];
-    DTKDropdownItem *itemBm1 = [DTKDropdownItem itemWithTitle:@"置顶" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *itemBm1 = [DTKDropdownItem itemWithTitle:@"置顶" iconName:@"menu_top" callBack:^(NSUInteger index, id info) {
         [self.service POST:@"book/postSubject/topSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"帖子置顶成功"];
         } noResult:nil];
     }];
-    DTKDropdownItem *itemBm2 = [DTKDropdownItem itemWithTitle:@"加精" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *itemBm2 = [DTKDropdownItem itemWithTitle:@"加精" iconName:@"menu_essential" callBack:^(NSUInteger index, id info) {
         [self.service POST:@"book/postSubject/essenceSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"帖子加精成功"];
         } noResult:nil];

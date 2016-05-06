@@ -92,7 +92,7 @@
 - (void)addRightItem
 {
 //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_essential" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_contribute" callBack:^(NSUInteger index, id info) {
         ContributeTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"contribute"];
         [self.navigationController pushViewController:vc animated:YES];
     }];
@@ -100,11 +100,11 @@
         //跳转搜索页
         [self performSegueWithIdentifier:@"search" sender:nil];
     }];
-    menuView.cellColor = MAIN_COLOR;
+    menuView.cellColor = MENU_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
     menuView.titleFont = [UIFont systemFontOfSize:18.f];
-    menuView.textColor = [UIColor whiteColor];
+    menuView.textColor = [UIColor blackColor];
     menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     menuView.textFont = [UIFont systemFontOfSize:16.f];
     menuView.animationDuration = 0.4f;

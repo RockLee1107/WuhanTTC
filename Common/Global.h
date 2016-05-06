@@ -10,6 +10,7 @@
 #ifndef Beauty_Global_h
 #define Beauty_Global_h
 #define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]
+#define MENU_COLOR [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]
 
 /*dev db*/
 #define HOST_URL @"http://120.25.76.149:8080/ttc_web"

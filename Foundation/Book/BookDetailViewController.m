@@ -179,7 +179,7 @@
 - (void)addRightItem
 {
     __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"menu_comment" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"app_comment" callBack:^(NSUInteger index, id info) {
         CommentTableViewController *commentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"comment"];
         commentVC.bookId = self.bookId;
         [weakSelf.navigationController pushViewController:commentVC animated:YES];
@@ -209,7 +209,7 @@
                                }
          ];
     }];
-    DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"menu_collect" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"app_collect" callBack:^(NSUInteger index, id info) {
         //        访问网络
         NSDictionary *param = @{
                                 @"Collect":[StringUtil dictToJson:@{
@@ -238,7 +238,7 @@
             [share shareWithUrl];
         } noResult:nil];
     }];
-    DTKDropdownItem *item4 = [DTKDropdownItem itemWithTitle:@"文献发布" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item4 = [DTKDropdownItem itemWithTitle:@"文献发布" iconName:@"menu_pub" callBack:^(NSUInteger index, id info) {
         NSDictionary *param = @{
                                 @"bookId":self.bookId
                             };

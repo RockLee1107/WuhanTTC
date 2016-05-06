@@ -69,10 +69,10 @@
 - (void)addRightItem
 {
     //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的帖子" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的帖子" iconName:@"menu_my_post" callBack:^(NSUInteger index, id info) {
         [SVProgressHUD showSuccessWithStatus:@"^_^"];
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"发帖" iconName:@"menu_my_post" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"发帖" iconName:@"menu_add" callBack:^(NSUInteger index, id info) {
         PostSubjectTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
         [self.navigationController pushViewController:vc animated:YES];
     }];

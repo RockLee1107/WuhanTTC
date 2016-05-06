@@ -99,7 +99,7 @@
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:MY_COMMENT iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
         [self switchMyOrAllComment];
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
                                       type:EYInputPopupView_Type_multi_line
                                cancelBlock:^{
@@ -127,11 +127,11 @@
          ];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
-    menuView.cellColor = MAIN_COLOR;
+    menuView.cellColor = MENU_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
     menuView.titleFont = [UIFont systemFontOfSize:18.f];
-    menuView.textColor = [UIColor whiteColor];
+    menuView.textColor = [UIColor blackColor];
     menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     menuView.textFont = [UIFont systemFontOfSize:16.f];
     menuView.animationDuration = 0.4f;

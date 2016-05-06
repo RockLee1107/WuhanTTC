@@ -242,7 +242,7 @@
 {
     //    活动提醒
     //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"活动提醒" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"活动提醒" iconName:@"menu_remind" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"活动提醒" contentText:@"请填写活动提醒内容"
                                       type:EYInputPopupView_Type_multi_line
                                cancelBlock:^{
@@ -267,14 +267,14 @@
     
     }];
     //    活动编辑
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"活动编辑" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"活动编辑" iconName:@"menu_edit" callBack:^(NSUInteger index, id info) {
         ActivityCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
         vc.dataDict = self.dataDict;
         [self.navigationController pushViewController:vc animated:YES];
     }];
 //    关注
     //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_collect.png" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_attention" callBack:^(NSUInteger index, id info) {
 //        访问网络
         NSDictionary *param = @{
                                 @"Participate":[StringUtil dictToJson:@{
@@ -306,11 +306,11 @@
         [array addObject:item2];
     }
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:array icon:@"ic_menu"];
-    menuView.cellColor = MAIN_COLOR;
+    menuView.cellColor = MENU_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
     menuView.titleFont = [UIFont systemFontOfSize:18.f];
-    menuView.textColor = [UIColor whiteColor];
+    menuView.textColor = [UIColor blackColor];
     menuView.cellSeparatorColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     menuView.textFont = [UIFont systemFontOfSize:16.f];
     menuView.animationDuration = 0.4f;
