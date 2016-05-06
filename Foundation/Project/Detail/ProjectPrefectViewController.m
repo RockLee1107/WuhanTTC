@@ -153,22 +153,25 @@
                                                                             @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
                                                                             @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
                                                                             }];
-    
+    //不能使用图片单例ImageUtil
+    ImageUtil *projectImageUtil = [[ImageUtil alloc] init];
     //    多图
     if (projectVC.photoGallery.photos.count > 0) {
-        [project setObject:[[ImageUtil getInstance] savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
+        [project setObject:[projectImageUtil savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
     }
     
 
 /*产品信息*/
 //    后端api要求，产品信息与项目基本共用Project对象
-    if (![productVC.procDetailsTextView.text isEqualToString:@""]) {
+    if (![productVC.procDetailsTextView.text isEqualToString:@""] && productVC.procDetailsTextView.text != nil) {
         [project setObject:productVC.procDetailsTextView.text forKey:@"procDetails"];
     }
+    //不能使用图片单例ImageUtil
+    ImageUtil *productImageUtil = [[ImageUtil alloc] init];
     if (productVC != nil) {
         //    多图
         if (productVC.photoGallery.photos.count > 0) {
-            [project setObject:[[ImageUtil getInstance] savePicture:@"procShows" images:productVC.photoGallery.photos] forKey:@"procShows"];
+            [project setObject:[productImageUtil savePicture:@"procShows" images:productVC.photoGallery.photos] forKey:@"procShows"];
         }
     }
 //    json化
@@ -193,7 +196,7 @@
         if (projectVC.photoGallery.photos.count > 0) {
             for (int i = 0; i < projectVC.photoGallery.photos.count; i++) {
                 UIImage *image = projectVC.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"bpPictUrl_%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"bpPictUrl_%zi",i] fileName:projectImageUtil.filenames[i] mimeType:@"image/jpeg"];
             }
         }
 //        产品
@@ -201,7 +204,7 @@
         if (productVC.photoGallery.photos.count > 0) {
             for (int i = 0; i < productVC.photoGallery.photos.count; i++) {
                 UIImage *image = productVC.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"procShows_%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"procShows_%zi",i] fileName:productImageUtil.filenames[i] mimeType:@"image/jpeg"];
             }
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
