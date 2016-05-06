@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3826CA1CDB52A40057B0C2 /* InvestorSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3826C91CDB52A40057B0C2 /* InvestorSearchViewController.m */; };
+		1F3826F01CDB939E0057B0C2 /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3826EF1CDB939E0057B0C2 /* ProcessViewController.m */; };
 		F70B01A21C7232FC00D46D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A11C7232FC00D46D79 /* main.m */; };
 		F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A41C7232FC00D46D79 /* AppDelegate.m */; };
 		F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AC1C7232FC00D46D79 /* Images.xcassets */; };
@@ -387,6 +389,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F3826C81CDB52A40057B0C2 /* InvestorSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvestorSearchViewController.h; sourceTree = "<group>"; };
+		1F3826C91CDB52A40057B0C2 /* InvestorSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvestorSearchViewController.m; sourceTree = "<group>"; };
+		1F3826EE1CDB939E0057B0C2 /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessViewController.h; path = Investor/ProcessViewController.h; sourceTree = "<group>"; };
+		1F3826EF1CDB939E0057B0C2 /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProcessViewController.m; path = Investor/ProcessViewController.m; sourceTree = "<group>"; };
 		F70B019C1C7232FC00D46D79 /* Foundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70B01A01C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F70B01A11C7232FC00D46D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1331,6 +1337,8 @@
 				FDF3FE081CA7E948007B7C83 /* ProjectIndexTableViewController.m */,
 				FD19BB591CB60067007D52DC /* ProjectCreateTableViewController.h */,
 				FD19BB5A1CB60067007D52DC /* ProjectCreateTableViewController.m */,
+				1F3826EE1CDB939E0057B0C2 /* ProcessViewController.h */,
+				1F3826EF1CDB939E0057B0C2 /* ProcessViewController.m */,
 				FDFD8C591CB92F130095FC3C /* BizViewController.h */,
 				FDFD8C5A1CB92F130095FC3C /* BizViewController.m */,
 			);
@@ -1616,6 +1624,8 @@
 		FD34C0B81CAFBDA0002B7630 /* Investor */ = {
 			isa = PBXGroup;
 			children = (
+				1F3826C81CDB52A40057B0C2 /* InvestorSearchViewController.h */,
+				1F3826C91CDB52A40057B0C2 /* InvestorSearchViewController.m */,
 				FD34C0B91CAFBDCA002B7630 /* InvestorListViewController.h */,
 				FD34C0BA1CAFBDCA002B7630 /* InvestorListViewController.m */,
 				FD34C0BC1CAFBE9B002B7630 /* InvestorTableViewCell.h */,
@@ -2667,6 +2677,7 @@
 				FD725F731CBE86CF00A29998 /* ActivityCreateTableViewController.m in Sources */,
 				F73B78AB1C81375600069EEE /* UIScrollView+MJExtension.m in Sources */,
 				F795DF5A1CB40BB8002BCDEE /* City.m in Sources */,
+				1F3826CA1CDB52A40057B0C2 /* InvestorSearchViewController.m in Sources */,
 				F73B78AC1C81375600069EEE /* UIScrollView+MJRefresh.m in Sources */,
 				FD4F43E61CD1BC36005BF414 /* UserDetailViewController.m in Sources */,
 				FD9450E01CA82ECA00E00759 /* AboutTableViewController.m in Sources */,
@@ -2691,6 +2702,7 @@
 				F7FE50001C892E7F00114B28 /* LoginViewController.m in Sources */,
 				FDE50A861CA0D0800058B87D /* SingletonObject.m in Sources */,
 				FDE26AFF1C9C38A0003418D5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				1F3826F01CDB939E0057B0C2 /* ProcessViewController.m in Sources */,
 				FD4F43CB1CD04005005BF414 /* NoteOrCollectTableHeaderView.m in Sources */,
 				FD3B005F1CC66F7900DA0166 /* FinanceTableViewController.m in Sources */,
 				FD3BDE0B1CD5E86C006F9EA5 /* UIImage+Category.m in Sources */,
