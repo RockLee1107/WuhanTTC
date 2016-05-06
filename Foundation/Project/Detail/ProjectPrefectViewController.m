@@ -187,12 +187,13 @@
         if (projectVC.picker.filePath) {
             [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:projectVC.picker.filename mimeType:@"image/jpeg"];
         }
+//        图片名称加了前缀，不然会冲突覆盖
 //        bp
         //        多图
         if (projectVC.photoGallery.photos.count > 0) {
             for (int i = 0; i < projectVC.photoGallery.photos.count; i++) {
                 UIImage *image = projectVC.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"bpPictUrl_%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
             }
         }
 //        产品
@@ -200,7 +201,7 @@
         if (productVC.photoGallery.photos.count > 0) {
             for (int i = 0; i < productVC.photoGallery.photos.count; i++) {
                 UIImage *image = productVC.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"procShows_%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
             }
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
