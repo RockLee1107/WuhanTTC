@@ -98,7 +98,77 @@
 
 - (void)publishButtonPress:(UIButton *)sender {
     
-//    ProjectCreateTableViewController *pvc = self.displayVC[@0];
+    ProjectCreateTableViewController *projectVC = self.childViewControllers[0];
+    
+    if (![VerifyUtil hasValue:projectVC.projectNameTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
+        return;
+    }
+    if (![VerifyUtil hasValue:projectVC.picker.filePath]) {
+        [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
+        return;
+    }
+    if (![VerifyUtil isValidStringLengthRange:projectVC.projectResumeTextView.text between:3 and:50]) {
+        [SVProgressHUD showErrorWithStatus:@"项目简介字数为3～50"];
+        return;
+    }
+    if ([[projectVC.currentCityButton titleForState:(UIControlStateNormal)] isEqualToString:@"城市"]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择所在城市"];
+        return;
+    }
+    if (![VerifyUtil hasValue:projectVC.selectedStatusValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目阶段"];
+        return;
+    }
+    if (![VerifyUtil hasValue:projectVC.selectedFinanceValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+        return;
+    }
+    if (projectVC.selectedCodeArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
+        return;
+    }
+    if (![VerifyUtil isValidStringLengthRange:projectVC.descTextView.text between:3 and:50]) {
+        [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
+        return;
+    }
+    
+    NSDictionary *project = @{
+                              @"projectId":[SingletonObject getInstance].pid,
+                              @"projectName":projectVC.projectNameTextField.text,
+                              @"headPictUrl":projectVC.picker.filePath,
+                              @"projectResume":projectVC.projectResumeTextView.text,
+                              @"desc":projectVC.descTextView.text,
+                              @"procStatusCode":projectVC.selectedStatusValue,
+                              @"financeProcCode":projectVC.selectedFinanceValue,
+                              @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
+                              @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
+                              };
+    NSDictionary *team = @{
+                           @"parterId":[User getInstance].uid,
+                           @"duty":@"创始人"
+                           };
+    NSDictionary *param = @{
+                            @"Project":[StringUtil dictToJson:project],
+                            @"Team":[StringUtil dictToJson:@[team]]
+                            };
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
+    [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            NSLog(@"responseObject:%@",responseObject);
+        if ([responseObject[@"success"] boolValue]) {
+            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+        [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
     
 }
 @end
