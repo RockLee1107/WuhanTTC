@@ -47,8 +47,7 @@ typedef NS_ENUM(NSUInteger, WMPageControllerCachePolicy) {
  */
 @property (nonatomic, copy) NSArray *titles;
 @property (nonatomic, strong, readonly) UIViewController *currentViewController;
-// 当前展示在屏幕上的控制器，方便在滚动的时候读取 (避免不必要计算)
-@property (nonatomic, strong) NSMutableDictionary *displayVC;
+
 /**
  *  设置选中几号 item
  *  To select item at index
