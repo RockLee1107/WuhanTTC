@@ -1084,7 +1084,13 @@
                             <outlet property="delegate" destination="LFm-MW-hdo" id="PsN-cW-jYi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="创建项目" id="6DX-Qp-dE7"/>
+                    <navigationItem key="navigationItem" title="创建项目" id="6DX-Qp-dE7">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="KzC-de-pbG">
+                            <connections>
+                                <action selector="saveButtonPress:" destination="LFm-MW-hdo" id="M2a-hj-yK3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="888"/>
                     <connections>

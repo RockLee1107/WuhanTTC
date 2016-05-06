@@ -128,7 +128,7 @@
         [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
         return;
     }
-    if (![VerifyUtil isValidStringLengthRange:projectVC.descTextView.text between:3 and:50]) {
+    if (![VerifyUtil isValidStringLengthRange:projectVC.descTextView.text between:3 and:500]) {
         [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
         return;
     }

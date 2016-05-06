@@ -160,7 +160,29 @@
     }
 }
 
-//提交数据
+//保持按钮点击事件
+- (IBAction)saveButtonPress:(id)sender {
+    if (![VerifyUtil hasValue:self.projectNameTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.selectedStatusValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目阶段"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.selectedFinanceValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+        return;
+    }
+    if (self.selectedCodeArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
+        return;
+    }
+    [self postData];
+}
+
+
+//发布按钮点击
 - (IBAction)createButtonPress:(id)sender {
     if (![VerifyUtil hasValue:self.projectNameTextField.text]) {
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
@@ -190,21 +212,38 @@
         [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
         return;
     }
-    if (![VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:50]) {
+    if (![VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:500]) {
         [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
         return;
     }
+    [self postData];
+}
+
+//提交数据到服务器
+- (void)postData {
+    NSMutableDictionary *project = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                @"projectName":self.projectNameTextField.text,
+                                                                                @"procStatusCode":self.selectedStatusValue,
+                                                                                @"financeProcCode":self.selectedFinanceValue,
+                                                                                @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
+                                                                                }];
+    //    头像
+    if ([VerifyUtil hasValue:self.picker.filePath]) {
+        [project setObject:self.picker.filePath forKey:@"headPictUrl"];
+    }
+    //    简介
+    if ([VerifyUtil isValidStringLengthRange:self.projectResumeTextView.text between:3 and:50]) {
+        [project setObject:self.projectResumeTextView.text forKey:@"projectResume"];
+    }
+    //    城市
+    if (![[self.currentCityButton titleForState:(UIControlStateNormal)] isEqualToString:@"城市"]) {
+        [project setObject:[self.currentCityButton titleForState:(UIControlStateNormal)] forKey:@"area"];
+    }
+    //    描述
+    if ([VerifyUtil isValidStringLengthRange:self.descTextView.text between:3 and:500]) {
+        [project setObject:self.descTextView.text forKey:@"desc"];
+    }
     
-    NSDictionary *project = @{
-                            @"projectName":self.projectNameTextField.text,
-                            @"headPictUrl":self.picker.filePath,
-                            @"projectResume":self.projectResumeTextView.text,
-                            @"desc":self.descTextView.text,
-                            @"procStatusCode":self.selectedStatusValue,
-                            @"financeProcCode":self.selectedFinanceValue,
-                            @"area":[self.currentCityButton titleForState:(UIControlStateNormal)],
-                            @"bizCode":[self.selectedCodeArray componentsJoinedByString:@","]
-                            };
     NSDictionary *team = @{
                            @"parterId":[User getInstance].uid,
                            @"duty":@"创始人"
@@ -216,7 +255,12 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        //        logo
+        if (self.picker.filePath) {
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:@"something.jpg" mimeType:@"image/jpeg"];
+        }
+        
+
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
@@ -230,10 +274,10 @@
         NSLog(@"%@",error);
         [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
-//    [self.service POST:@"personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
-//        [self goBack];
-//    } noResult:nil];
+    //    [self.service POST:@"personal/prefectProject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+    //        [self goBack];
+    //    } noResult:nil];
 }
 
 //点选相片或拍照
