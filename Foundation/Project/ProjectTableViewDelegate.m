@@ -31,6 +31,8 @@
     cell.resumeLabel.text = [StringUtil toString:object[@"projectResume"]];
     /**城市*/
     cell.cityLabel.text = [StringUtil toString:object[@"area"]];
+//    阶段
+    [cell.financeProcNameLabel setTitle:[StringUtil toString:object[@"financeProcName"]] forState:(UIControlStateNormal)];
     return cell;
 }
 
