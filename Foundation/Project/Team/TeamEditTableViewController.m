@@ -25,11 +25,13 @@
 
 //delete
 - (IBAction)deleteButtonPress:(id)sender {
-    
     [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
         if (!cancelled) {
-            [self.parentVC.dataArray removeObject:self.dataDict];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.service POST:@"team/delete" parameters:@{@"id":self.dataDict[@"parterId"]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+                [self.parentVC.dataArray removeObject:self.dataDict];
+                [self.navigationController popViewControllerAnimated:YES];
+            } noResult:nil];
         }
     }] useDefaultIOS7Style];
 }
