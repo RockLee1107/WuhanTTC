@@ -33,6 +33,8 @@
         [self.processDateButton setTitle:[DateUtil toString:self.dataDict[@"processDate"]] forState:(UIControlStateNormal)];
         self.processDate = [DateUtil toDate:self.dataDict[@"processDate"] format:@"YYYYMMdd"];
         self.descTextView.text = self.dataDict[@"desc"];
+//        创建右上角删除按钮
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"app_delete"] style:(UIBarButtonItemStyleBordered) target:self action:@selector(deleteButtonPress:)];
     }
     
 }
@@ -82,7 +84,7 @@
 
 
 //delete
-- (IBAction)deleteButtonPress:(id)sender {
+- (void)deleteButtonPress:(id)sender {
     [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
         if (!cancelled) {
             //有id则是数据库里即有的，否则是刚刚添加进的
