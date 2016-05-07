@@ -44,6 +44,13 @@
 @property (weak, nonatomic) IBOutlet EMTextView *investIdeaTextView;
 @property (weak, nonatomic) IBOutlet EMTextView *investCaseTextView;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *cell0;
+@property (weak, nonatomic) IBOutlet UIView *cell1;
+@property (weak, nonatomic) IBOutlet UIView *cell2;
+@property (weak, nonatomic) IBOutlet UIView *cell3;
+@property (weak, nonatomic) IBOutlet UIView *cell4;
+
 @end
 
 @implementation UserInfoTableViewController
@@ -97,6 +104,12 @@
             self.investCaseTextView.text = [StringUtil toString:self.investorInfo[@"investProjects"]];
             [self.bizButton setTitle:self.investorInfo[@"investArea"] forState:(UIControlStateNormal)];
             [self.processButton setTitle:self.investorInfo[@"investProcess"] forState:(UIControlStateNormal)];
+        } else {
+            self.cell0.hidden = YES;
+            self.cell1.hidden = YES;
+            self.cell2.hidden = YES;
+            self.cell3.hidden = YES;
+            self.cell4.hidden = YES;
         }
         
     } noResult:nil];
@@ -289,4 +302,12 @@
     self.processNameArray = selectedNameArray;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![[[User getInstance] isInvestor] boolValue]){
+        if (indexPath.section == 1) {
+            return 0;
+        }
+    }
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
 @end

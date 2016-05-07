@@ -860,6 +860,11 @@
                         <outlet property="areaTextField" destination="rpt-vj-6xm" id="JV1-BH-1Vb"/>
                         <outlet property="avatarImageView" destination="iBi-T0-AgS" id="AF2-jY-c9U"/>
                         <outlet property="bizButton" destination="Ph3-k4-eeB" id="neK-s4-G1g"/>
+                        <outlet property="cell0" destination="wxO-2z-hjI" id="XCa-ZA-iWY"/>
+                        <outlet property="cell1" destination="H5M-yn-gd9" id="hBc-RM-q8r"/>
+                        <outlet property="cell2" destination="ryE-71-3ob" id="CMZ-LE-KLn"/>
+                        <outlet property="cell3" destination="neC-ZU-2cF" id="df8-pC-6Jb"/>
+                        <outlet property="cell4" destination="IWK-LP-Yeo" id="uZK-pw-uMG"/>
                         <outlet property="companyTextField" destination="dHx-Aj-fgo" id="O3z-Xl-HWO"/>
                         <outlet property="dutyTextField" destination="EgF-5r-aIJ" id="ZmZ-p0-YV0"/>
                         <outlet property="emailTextField" destination="z9c-Kb-A6o" id="ve1-C0-Ru0"/>
