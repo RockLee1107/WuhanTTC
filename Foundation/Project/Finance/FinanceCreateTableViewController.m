@@ -13,10 +13,12 @@
 #import "StatusDict.h"
 
 @interface FinanceCreateTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableViewCell *investCompCell;
 //融资阶段
 @property (weak, nonatomic) IBOutlet UIButton *financeButton;
 @property (assign, nonatomic) NSInteger selectedFinanceIndex;
 @property (strong, nonatomic) NSString *selectedFinanceValue;
+@property (strong, nonatomic) NSArray *array;
 //融资金额
 @property (weak, nonatomic) IBOutlet UITextField *financeAmountTextField;
 //融资进展
@@ -40,14 +42,49 @@
 //    初始化日期
     self.financeTime = [NSDate date];
     [self.financeTimeButton setTitle:[DateUtil dateToString:self.financeTime] forState:(UIControlStateNormal)];
+    //    数据预处理
+    self.array = [StatusDict financeProc];
+    
+    if (self.dataDict != nil) {
+        //编辑页面将有传值
+        self.navigationItem.title = @"编辑融资进展";
+        [self.financeTimeButton setTitle:[DateUtil toString:self.dataDict[@"financeTime"]] forState:(UIControlStateNormal)];
+        self.financeTime = [DateUtil toDate:self.dataDict[@"financeTime"] format:@"YYYYMMdd"];
+        
+        self.financeAmountTextField.text = [self.dataDict[@"financeAmount"] stringValue];
+        self.financeProcSegmentedControl.selectedSegmentIndex = [self.dataDict[@"financeProc"] intValue];
+        self.selectedFinanceValue = self.dataDict[@"financeProcCode"];
+        self.investCompTextView.text = ![VerifyUtil hasValue:self.dataDict[@"financeProcCode"]] ? @"" : self.dataDict[@"financeProcCode"];
+
+        self.moneyTypeSegmentedControl.selectedSegmentIndex = [self.dataDict[@"moneyType"] intValue];
+        self.sellSharesTextField.text = [self.dataDict[@"sellShares"] stringValue] ;
+        self.pid = self.dataDict[@"projectId"];
+        [self.financeTimeButton setTitle:[DateUtil dateToString:self.financeTime] forState:(UIControlStateNormal)];
+        
+        
+        for (NSDictionary *dict in self.array) {
+            
+            if(self.dataDict[@"financeProcCode"] == dict[@"financeProcCode"]){
+                [self.financeButton setTitle:dict[@"financeProcName"] forState:(UIControlStateNormal)];
+            }
+        }
+    
+    }
 }
+
+//更改融资状态
+- (IBAction)changeProcStatus:(id)sender {
+    if(self.financeProcSegmentedControl.selectedSegmentIndex == 0){
+        
+    }
+}
+
 
 //选择融资阶段
 - (IBAction)selectFinace:(id)sender {
-    //    数据预处理
-    NSArray *array = [StatusDict financeProc];
+    
     NSMutableArray *names = [NSMutableArray array];
-    for (NSDictionary *dict in array) {
+    for (NSDictionary *dict in self.array) {
         [names addObject:dict[@"financeProcName"]];
     }
     //弹出选择框
@@ -55,7 +92,7 @@
         //            按钮赋值当前区名称
         self.selectedFinanceIndex = selectedIndex;
         //            当前选值以提交
-        self.selectedFinanceValue = array[selectedIndex][@"financeProcCode"];
+        self.selectedFinanceValue = self.array[selectedIndex][@"financeProcCode"];
         [self.financeButton setTitle:selectedValue forState:(UIControlStateNormal)];
     } cancelBlock:nil origin:sender];
 }
@@ -87,7 +124,7 @@
         return;
     }
     if ([self.sellSharesTextField.text integerValue] > 100) {
-        [SVProgressHUD showErrorWithStatus:@"出让股份应该是小于100"];
+        [SVProgressHUD showErrorWithStatus:@"出让股份应小于100%"];
         return;
     }
     if (self.financeProcSegmentedControl.selectedSegmentIndex == 1) {
@@ -95,6 +132,27 @@
             [SVProgressHUD showErrorWithStatus:@"请填写投资人/投资机构"];
             return;
         }
+    }
+    
+    if (self.dataDict != nil) {
+        //编辑页面将有传值
+        //    定义一个dict，初始与写入
+        NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self.dataDict];
+        
+        
+        [dict setObject:self.financeAmountTextField.text forKey:@"financeAmount"];
+        [dict setObject:[NSNumber numberWithInteger:self.financeProcSegmentedControl.selectedSegmentIndex] forKey:@"financeProc"];
+        [dict setObject:self.selectedFinanceValue forKey:@"financeProcCode"];
+        [dict setObject:[DateUtil dateToDatePart:self.financeTime] forKey:@"financeTime"];
+        [dict setObject:![VerifyUtil hasValue:self.investCompTextView.text] ? @"" : self.investCompTextView.text forKey:@"investComp"];
+        [dict setObject:[NSNumber numberWithInteger:self.moneyTypeSegmentedControl.selectedSegmentIndex] forKey:@"moneyType"];
+        [dict setObject:self.pid forKey:@"projectId"];
+        [dict setObject:self.sellSharesTextField.text forKey:@"sellShares"];
+        //    找回原来的index
+        NSInteger index = [self.parentVC.dataArray indexOfObject:self.dataDict];
+        [self.parentVC.dataArray setObject:dict atIndexedSubscript:index];
+        [self.navigationController popViewControllerAnimated:YES];
+        return ;
     }
     
     NSDictionary *financeDict = @{
@@ -108,6 +166,30 @@
                                   @"sellShares":self.sellSharesTextField.text
                                   };
     [self.parentVC.dataArray addObject:financeDict];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+//delete
+- (IBAction)deleteButtonPress:(id)sender {
+    [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
+        if (!cancelled) {
+            //有id则是数据库里即有的，否则是刚刚添加进的
+            if (self.dataDict[@"id"] == nil) {
+                [self deleteAndPop];
+            } else {
+                [self.service POST:@"finance/delete" parameters:@{@"id":self.dataDict[@"id"]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    [self deleteAndPop];
+                } noResult:nil];
+            }
+        }
+    }] useDefaultIOS7Style];
+}
+
+//删除内存数据以及返回前一页
+- (void)deleteAndPop {
+    [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+    [self.parentVC.dataArray removeObject:self.dataDict];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

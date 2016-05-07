@@ -33,6 +33,7 @@
         [self.processDateButton setTitle:[DateUtil toString:self.dataDict[@"processDate"]] forState:(UIControlStateNormal)];
         self.processDate = [DateUtil toDate:self.dataDict[@"processDate"] format:@"YYYYMMdd"];
         self.descTextView.text = self.dataDict[@"desc"];
+        
     }
     
 }

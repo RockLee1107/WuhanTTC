@@ -117,4 +117,11 @@
     return 116.0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FinanceCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"finance"];
+    vc.dataDict = self.dataArray[indexPath.row];
+    vc.parentVC = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end
