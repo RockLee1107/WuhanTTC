@@ -116,6 +116,7 @@
         [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
         return;
     }
+    [self postData:BizStatusSave];
 }
 
 - (void)publishButtonPress:(UIButton *)sender {
@@ -176,7 +177,7 @@
     }
 }
 
-- (void)postData:(NSInteger)bizStatus {
+- (void)postData:(BizStatus)bizStatus {
     ProjectCreateTableViewController *projectVC = self.projectVC;
     ProductTableViewController *productVC = self.productVC;
     TeamListTableViewController *teamVC = self.teamVC;
@@ -191,7 +192,8 @@
                                                                                    @"procStatusCode":projectVC.selectedStatusValue,
                                                                                    @"financeProcCode":projectVC.selectedFinanceValue,
                                                                                    @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
-                                                                                   @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
+                                                                                   @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","],
+                                                                                   @"SrcStatus":projectVC.dataDict[@"bizStatus"] != nil ? projectVC.dataDict[@"bizStatus"] : @""
                                                                                    }];
     //不能使用图片单例ImageUtil
     ImageUtil *projectImageUtil = [[ImageUtil alloc] init];
@@ -217,6 +219,9 @@
             [project setObject:[productVC.photoGallery fetchPhoto:@"procShows" imageUtil:productImageUtil] forKey:@"procShows"];
 
         }
+    } else {
+        [project setObject:[StringUtil toString:projectVC.dataDict[@"procShows"]] forKey:@"procShows"];
+        [project setObject:[StringUtil toString:projectVC.dataDict[@"procDetails"]] forKey:@"procDetails"];
     }
     //Project为首页，必然存在
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
