@@ -1609,7 +1609,13 @@
                             <outlet property="delegate" destination="2h8-V5-sYr" id="g7x-kF-zKN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="添加进度信息" id="38w-aJ-bvj"/>
+                    <navigationItem key="navigationItem" title="添加进度信息" id="38w-aJ-bvj">
+                        <barButtonItem key="rightBarButtonItem" image="app_delete.png" id="aPT-ai-Qv9">
+                            <connections>
+                                <action selector="deleteButtonPress:" destination="2h8-V5-sYr" id="GRc-Rq-Hhf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

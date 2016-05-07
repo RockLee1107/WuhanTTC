@@ -27,11 +27,14 @@
 - (IBAction)deleteButtonPress:(id)sender {
     [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
         if (!cancelled) {
-            [self.service POST:@"team/delete" parameters:@{@"id":self.dataDict[@"parterId"]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [SVProgressHUD showSuccessWithStatus:@"删除成功"];
-                [self.parentVC.dataArray removeObject:self.dataDict];
-                [self.navigationController popViewControllerAnimated:YES];
-            } noResult:nil];
+            //有id则是数据库里即有的，否则是刚刚添加进的
+            if (self.dataDict[@"id"] == nil) {
+                [self deleteAndPop];
+            } else {
+                [self.service POST:@"team/delete" parameters:@{@"id":self.dataDict[@"id"]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    [self deleteAndPop];
+                } noResult:nil];
+            }
         }
     }] useDefaultIOS7Style];
 }
@@ -43,6 +46,7 @@
         [SVProgressHUD showErrorWithStatus:@"请填写职务"];
         return ;
     }
+//    定义一个dict，初始与写入
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self.dataDict];
     [dict setObject:self.dutyTextField.text forKey:@"duty"];
 //    找回原来的index
@@ -51,4 +55,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//删除内存数据以及返回前一页
+- (void)deleteAndPop {
+    [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+    [self.parentVC.dataArray removeObject:self.dataDict];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

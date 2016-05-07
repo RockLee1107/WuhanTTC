@@ -100,4 +100,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ProcessCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"process"];
+    vc.dataDict = self.dataArray[indexPath.row];
+    vc.parentVC = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 @end
