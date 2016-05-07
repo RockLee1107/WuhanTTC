@@ -687,7 +687,7 @@
             </objects>
             <point key="canvasLocation" x="1398" y="-193"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--设置-->
         <scene sceneID="OdO-RU-qfA">
             <objects>
                 <tableViewController storyboardIdentifier="settings" id="HfX-2I-S6X" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -824,6 +824,7 @@
                             <outlet property="delegate" destination="HfX-2I-S6X" id="EAY-X1-EcZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="设置" id="DLN-Ua-sLV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNW-nE-Ijq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1231,7 +1232,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="283"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqP-7l-Rkm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="284" translatesAutoresizingMaskIntoConstraints="NO" id="bqP-7l-Rkm">
                                                     <rect key="frame" x="18" y="8" width="284" height="267"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
