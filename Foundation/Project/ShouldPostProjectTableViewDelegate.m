@@ -58,7 +58,7 @@
                                    }
                                    NSDictionary *param = @{
                                                            @"Post":[StringUtil dictToJson:@{
-                                                                                                @"projectId":[SingletonObject getInstance].pid,
+                                                                                                @"projectId":object[@"projectId"],
                                                                                                 @"desc":text,
                                                                                                 @"userId":[User getInstance].uid,
                                                                                                 @"financeId":self.financeId
