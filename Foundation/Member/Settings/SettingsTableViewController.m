@@ -9,6 +9,7 @@
 #import "SettingsTableViewController.h"
 #import "LoginViewController.h"
 #import "AboutViewController.h"
+#import "ShareUtil.h"
 
 @interface SettingsTableViewController ()
 
@@ -22,14 +23,6 @@
     // Do any additional setup after loading the view.
 }
 
-///活动规范
-- (IBAction)aboutButtonPress:(id)sender {
-    AboutViewController *vc = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateViewControllerWithIdentifier:@"about"];
-    vc.type = @"3";
-    vc.naviTitle = @"关于团团创";
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         
@@ -40,6 +33,13 @@
         vc.naviTitle = @"关于团团创";
         [self.navigationController pushViewController:vc animated:YES];
 
+    }else if(indexPath.section == 1 && indexPath.row == 1){
+        ShareUtil *share = [ShareUtil getInstance];
+        share.shareTitle = [NSString stringWithFormat:@"%@邀请您加入团团创",[User getInstance].realname];
+        share.shareText = @"创业成就梦想，创新改变世界 || 更多精品，更好体验，尽在团团创APP";
+        share.shareUrl = @"http://www.teamchuang.com/ttc_uploads/upload/Share/recommend.html";
+        share.vc = self;
+        [share shareWithUrl];
     }
     else if (indexPath.section == 3) {
         [[User getInstance] logout];

@@ -83,7 +83,7 @@
 
 
 //delete
-- (IBAction)deleteButtonPress:(id)sender {
+- (void)deleteButtonPress:(id)sender {
     [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
         if (!cancelled) {
             //有id则是数据库里即有的，否则是刚刚添加进的

@@ -451,18 +451,22 @@
                                                     </constraints>
                                                     <state key="normal" title="手机"/>
                                                 </button>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9j4-cC-6RV">
-                                                    <rect key="frame" x="105" y="12" width="194" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAD-Xo-RsW">
+                                                    <rect key="frame" x="106" y="12" width="193" height="30"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="mobileButtonPress:" destination="OU4-zg-p59" eventType="touchUpInside" id="pPO-Iv-aik"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9j4-cC-6RV" firstAttribute="leading" secondItem="JRr-cA-pwq" secondAttribute="trailing" constant="2" id="H0V-kn-doC"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="9j4-cC-6RV" secondAttribute="trailing" constant="13" id="NPK-SC-zjq"/>
+                                                <constraint firstItem="PAD-Xo-RsW" firstAttribute="leading" secondItem="JRr-cA-pwq" secondAttribute="trailing" constant="3" id="Dsn-3b-211"/>
+                                                <constraint firstItem="PAD-Xo-RsW" firstAttribute="centerY" secondItem="Gkz-ac-Td0" secondAttribute="centerY" id="JTl-nK-ruo"/>
                                                 <constraint firstItem="JRr-cA-pwq" firstAttribute="centerY" secondItem="Gkz-ac-Td0" secondAttribute="centerY" id="ZPG-fS-v04"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PAD-Xo-RsW" secondAttribute="trailing" constant="13" id="qCB-z2-Srb"/>
                                                 <constraint firstItem="JRr-cA-pwq" firstAttribute="leading" secondItem="Gkz-ac-Td0" secondAttribute="leadingMargin" constant="5" id="u6A-lL-YV5"/>
-                                                <constraint firstItem="9j4-cC-6RV" firstAttribute="centerY" secondItem="Gkz-ac-Td0" secondAttribute="centerY" id="yTD-ah-FtH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -678,7 +682,7 @@
                         <outlet property="companyTextField" destination="dHx-Aj-fgo" id="O3z-Xl-HWO"/>
                         <outlet property="dutyTextField" destination="EgF-5r-aIJ" id="ZmZ-p0-YV0"/>
                         <outlet property="emailTextField" destination="z9c-Kb-A6o" id="ve1-C0-Ru0"/>
-                        <outlet property="mobileTextField" destination="9j4-cC-6RV" id="z9X-kz-Bxy"/>
+                        <outlet property="mobileButton" destination="PAD-Xo-RsW" id="EAK-Ah-MPn"/>
                         <outlet property="realnameTextField" destination="i4E-mc-kgM" id="UJH-ce-ryT"/>
                         <outlet property="wechatTextField" destination="O6N-3u-Qqs" id="Kum-M7-oN3"/>
                     </connections>
@@ -687,7 +691,7 @@
             </objects>
             <point key="canvasLocation" x="1398" y="-193"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--设置-->
         <scene sceneID="OdO-RU-qfA">
             <objects>
                 <tableViewController storyboardIdentifier="settings" id="HfX-2I-S6X" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -824,6 +828,7 @@
                             <outlet property="delegate" destination="HfX-2I-S6X" id="EAY-X1-EcZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="设置" id="DLN-Ua-sLV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNW-nE-Ijq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1231,7 +1236,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="283"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqP-7l-Rkm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="284" translatesAutoresizingMaskIntoConstraints="NO" id="bqP-7l-Rkm">
                                                     <rect key="frame" x="18" y="8" width="284" height="267"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

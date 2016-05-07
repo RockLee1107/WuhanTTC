@@ -9,10 +9,11 @@
 #import "UserInfoTableViewController.h"
 #import "CityViewController.h"
 #import "LXPhotoPicker.h"
+#import "ModifyMobileViewController.h"
 
 @interface UserInfoTableViewController ()<LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *realnameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
+@property (weak, nonatomic) IBOutlet UIButton *mobileButton;
 @property (weak, nonatomic) IBOutlet UITextField *wechatTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dutyTextField;
@@ -31,7 +32,6 @@
     [super viewDidLoad];
 //    隐藏键盘
     self.realnameTextField.delegate = self;
-    self.mobileTextField.delegate = self;
     self.wechatTextField.delegate = self;
     self.emailTextField.delegate = self;
     self.dutyTextField.delegate = self;
@@ -63,7 +63,7 @@
             [self.avatarImageView setImage:image];
         } failure:nil];
         self.realnameTextField.text = [StringUtil toString:responseObject[@"realName"]];
-        self.mobileTextField.text = [StringUtil toString:responseObject[@"mobile"]];
+        [self.mobileButton setTitle:[StringUtil toString:responseObject[@"mobile"]] forState:(UIControlStateNormal)];
         self.wechatTextField.text = [StringUtil toString:responseObject[@"weChat"]];
         self.emailTextField.text = [StringUtil toString:responseObject[@"email"]];
         self.dutyTextField.text = [StringUtil toString:responseObject[@"duty"]];
@@ -71,6 +71,17 @@
         self.areaTextField.text = [StringUtil toString:responseObject[@"area"]];
     } noResult:nil];
 }
+
+//modify mobile
+- (IBAction)mobileButtonPress:(id)sender {
+    [[PXAlertView showAlertWithTitle:@"确定要修改手机号码？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
+        if (!cancelled) {
+            ModifyMobileViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"modify"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }] useDefaultIOS7Style];
+}
+
 
 //tb delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,7 +107,6 @@
                                      @{
                                        @"userId":[User getInstance].uid,
                                        @"realName":self.realnameTextField.text,
-                                       @"mobile":self.mobileTextField.text,
                                        @"email":self.emailTextField.text,
                                        @"duty":self.dutyTextField.text,
                                        @"company":self.companyTextField.text,

@@ -36,6 +36,10 @@
 ///获取验证码
 - (IBAction)authCodeButtonPress:(LXSmsCodeButton *)sender {
     NSString *username = self.usernameTextField.text;
+    if (![VerifyUtil isMobile:username]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        return;
+    }
     NSDictionary *param = @{@"username":username};
     [self.service POST:@"getAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [sender reSend];
@@ -48,6 +52,18 @@
     NSString *password = self.passwordView.textField.text;
     NSString *authCode = self.authCodeTextField.text;
     NSString *realname = self.realnameTextField.text;
+    if (![VerifyUtil hasValue:realname]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入昵称"];
+        return;
+    }
+    if (![VerifyUtil isMobile:username]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        return;
+    }
+    if (![VerifyUtil isSimplePassword:password]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入6位以上密码"];
+        return;
+    }
     NSDictionary *param = @{@"realName":realname,
                             @"username":username,
                             @"password":password,

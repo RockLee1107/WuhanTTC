@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXButton.h"
 
 @interface ProjectTableViewCell : UITableViewCell
 /**图片*/
@@ -17,4 +18,6 @@
 @property (nonatomic,weak) IBOutlet UILabel *resumeLabel;
 /**城市*/
 @property (nonatomic,weak) IBOutlet UILabel *cityLabel;
+/*阶段*/
+@property (nonatomic,weak) IBOutlet LXButton *financeProcNameLabel;
 @end
