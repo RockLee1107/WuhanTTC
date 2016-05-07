@@ -50,30 +50,25 @@
         self.navigationItem.title = @"编辑融资进展";
         [self.financeTimeButton setTitle:[DateUtil toString:self.dataDict[@"financeTime"]] forState:(UIControlStateNormal)];
         self.financeTime = [DateUtil toDate:self.dataDict[@"financeTime"] format:@"YYYYMMdd"];
-        
         self.financeAmountTextField.text = [self.dataDict[@"financeAmount"] stringValue];
         self.financeProcSegmentedControl.selectedSegmentIndex = [self.dataDict[@"financeProc"] intValue];
         self.selectedFinanceValue = self.dataDict[@"financeProcCode"];
-        self.investCompTextView.text = ![VerifyUtil hasValue:self.dataDict[@"financeProcCode"]] ? @"" : self.dataDict[@"financeProcCode"];
-
+        self.investCompTextView.text = ![VerifyUtil hasValue:self.dataDict[@"investComp"]] ? @"" : self.dataDict[@"investComp"];
         self.moneyTypeSegmentedControl.selectedSegmentIndex = [self.dataDict[@"moneyType"] intValue];
-        self.sellSharesTextField.text = [self.dataDict[@"sellShares"] stringValue] ;
+        self.sellSharesTextField.text = [self.dataDict[@"sellShares"] stringValue];
         self.pid = self.dataDict[@"projectId"];
         [self.financeTimeButton setTitle:[DateUtil dateToString:self.financeTime] forState:(UIControlStateNormal)];
-        
-        
         for (NSDictionary *dict in self.array) {
-            
             if(self.dataDict[@"financeProcCode"] == dict[@"financeProcCode"]){
                 [self.financeButton setTitle:dict[@"financeProcName"] forState:(UIControlStateNormal)];
             }
         }
-    
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"app_delete"] style:(UIBarButtonItemStyleBordered) target:self action:@selector(deleteButtonPress:)];
     }
 }
 
 //更改融资状态
-- (IBAction)changeProcStatus:(id)sender {
+- (void)changeProcStatus:(id)sender {
     if(self.financeProcSegmentedControl.selectedSegmentIndex == 0){
         
     }
@@ -140,14 +135,14 @@
         NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self.dataDict];
         
         
-        [dict setObject:self.financeAmountTextField.text forKey:@"financeAmount"];
+        [dict setObject:[NSNumber numberWithInteger:[self.financeAmountTextField.text integerValue]] forKey:@"financeAmount"];
         [dict setObject:[NSNumber numberWithInteger:self.financeProcSegmentedControl.selectedSegmentIndex] forKey:@"financeProc"];
         [dict setObject:self.selectedFinanceValue forKey:@"financeProcCode"];
         [dict setObject:[DateUtil dateToDatePart:self.financeTime] forKey:@"financeTime"];
         [dict setObject:![VerifyUtil hasValue:self.investCompTextView.text] ? @"" : self.investCompTextView.text forKey:@"investComp"];
         [dict setObject:[NSNumber numberWithInteger:self.moneyTypeSegmentedControl.selectedSegmentIndex] forKey:@"moneyType"];
         [dict setObject:self.pid forKey:@"projectId"];
-        [dict setObject:self.sellSharesTextField.text forKey:@"sellShares"];
+        [dict setObject:[NSNumber numberWithInteger:[self.sellSharesTextField.text integerValue]] forKey:@"sellShares"];
         //    找回原来的index
         NSInteger index = [self.parentVC.dataArray indexOfObject:self.dataDict];
         [self.parentVC.dataArray setObject:dict atIndexedSubscript:index];
@@ -156,14 +151,14 @@
     }
     
     NSDictionary *financeDict = @{
-                                  @"financeAmount":self.financeAmountTextField.text,
+                                  @"financeAmount":[NSNumber numberWithInteger:[self.financeAmountTextField.text integerValue]],
                                   @"financeProc":[NSNumber numberWithInteger:self.financeProcSegmentedControl.selectedSegmentIndex],
                                   @"financeProcCode":self.selectedFinanceValue,
                                   @"financeTime":[DateUtil dateToDatePart:self.financeTime],
                                   @"investComp": ![VerifyUtil hasValue:self.investCompTextView.text] ? @"" : self.investCompTextView.text,
                                   @"moneyType":[NSNumber numberWithInteger:self.moneyTypeSegmentedControl.selectedSegmentIndex],
                                   @"projectId":self.pid,
-                                  @"sellShares":self.sellSharesTextField.text
+                                  @"sellShares":[NSNumber numberWithInteger:[self.sellSharesTextField.text integerValue]]
                                   };
     [self.parentVC.dataArray addObject:financeDict];
     [self.navigationController popViewControllerAnimated:YES];
@@ -171,7 +166,7 @@
 
 
 //delete
-- (IBAction)deleteButtonPress:(id)sender {
+- (void)deleteButtonPress:(id)sender {
     [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
         if (!cancelled) {
             //有id则是数据库里即有的，否则是刚刚添加进的

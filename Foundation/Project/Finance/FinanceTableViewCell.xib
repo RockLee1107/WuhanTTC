@@ -68,9 +68,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资机构/投资人：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piQ-RK-Ufd">
-                        <rect key="frame" x="121" y="91" width="125" height="18"/>
+                        <rect key="frame" x="121" y="91" width="130" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="125" id="L10-gp-kvs"/>
+                            <constraint firstAttribute="width" constant="130" id="L10-gp-kvs"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +84,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="N4a-Gp-3Tv">
-                        <rect key="frame" x="245" y="91" width="66" height="18"/>
+                        <rect key="frame" x="250" y="91" width="61" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
