@@ -13,6 +13,8 @@
 #import "FriendsListViewController.h"
 #import "KGModal.h"
 #import "LXButton.h"
+#import "TeamEditTableViewController.h"
+#import "UserDetailViewController.h"
 
 @interface TeamListTableViewController ()<UITableViewDelegate,UITableViewDataSource,FriendsListViewControllerDelegate>
 @property (nonatomic,strong) UITableView *tableView;
@@ -62,6 +64,13 @@
         }
     } noResult:nil];
     [self fetchData];
+}
+
+
+//返回即刷新数据，将本VC的dataArray传给添加页面
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 
 //按钮点击
@@ -232,4 +241,20 @@
     return 75.0;
 }
 
+//单行，非本人则跳转编辑页面，返回用户详情页
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *parterId = self.dataArray[indexPath.row][@"parterId"];
+    if ([parterId isEqualToString:[User getInstance].uid]) {
+//        用户详情
+        UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
+        vc.userId = parterId;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+//        成员编辑
+        TeamEditTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"team"];
+        vc.parentVC = self;
+        vc.parterId = parterId;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 @end
