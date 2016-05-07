@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是活动名称，只显示一行" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yv-vb-p7o">
-                        <rect key="frame" x="77" y="14" width="128" height="21"/>
+                        <rect key="frame" x="77" y="14" width="112" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,10 +50,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isK-L7-Wb4" customClass="LXButton">
-                        <rect key="frame" x="213" y="13" width="64" height="23"/>
+                        <rect key="frame" x="197" y="13" width="80" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="PFF-eb-XG3"/>
-                            <constraint firstAttribute="width" constant="64" id="utx-fb-hEk"/>
+                            <constraint firstAttribute="width" constant="80" id="utx-fb-hEk"/>
                         </constraints>
                         <state key="normal" title="A轮">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
