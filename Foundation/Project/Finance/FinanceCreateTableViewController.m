@@ -108,8 +108,6 @@
                                   @"sellShares":self.sellSharesTextField.text
                                   };
     [self.parentVC.dataArray addObject:financeDict];
-//    数据源传回
-//    self.parentVC.dataArray = self.mArray;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

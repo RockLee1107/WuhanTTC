@@ -102,13 +102,17 @@
     return 80.0;
 }
 
+///默认查看个人详情，还有添加团队、分享创友
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row];
+    if (self.selectDelegate != nil) {
+        UIViewController *vc = [self.selectDelegate friendDidSelect:dict[@"friendId"] realname:dict[@"realName"] company:dict[@"company"] duty:dict[@"duty"]];
+        [vc.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    //默认行为
     UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
-//    NSString *key;
-//    for (NSString *letter in self.dataArray[indexPath.section]) {
-//        key = letter;
-//    }
-    vc.userId = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row][@"friendId"];
+    vc.userId = dict[@"friendId"];
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

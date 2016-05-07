@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseTableViewController.h"
+
+@protocol FriendsListViewControllerDelegate <NSObject>
+- (UIViewController *)friendDidSelect:(NSString *)userId realname:(NSString *)realname company:(NSString *)company duty:(NSString *)duty;
+@end
 @interface FriendsListViewController : BaseTableViewController
 @property (nonatomic,strong) NSString *userId;
+@property (nonatomic,strong) id<FriendsListViewControllerDelegate> selectDelegate;
+
 @end

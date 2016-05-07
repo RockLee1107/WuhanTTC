@@ -95,7 +95,7 @@
     }];
 //    成员或投资人身份
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"项目BP" iconName:@"menu_bp" callBack:^(NSUInteger index, id info) {
-        if (self.dataDict[@"bpPictUrl"] == [NSNull null]) {
+        if (self.dataDict[@"bppictUrl"] == [NSNull null]) {
             [SVProgressHUD showErrorWithStatus:@"暂无项目BP"];
         } else {
             ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
