@@ -58,7 +58,29 @@
         self.pictUrlImageView.clipsToBounds = YES;
         self.activityTitleLabel.text = [StringUtil toString:responseObject[@"activityTitle"]];
         self.typeLabel.text = [StringUtil toString:responseObject[@"type"]];
-        self.statusLabel.text = ACTIVITY_STATUS_ARRAY[[responseObject[@"status"] integerValue]];
+        
+//        self.statusLabel.text = ACTIVITY_STATUS_ARRAY[[responseObject[@"status"] integerValue]];
+        
+        //如果报名人数未满，且报名时间未截止，显示报名中
+        if([responseObject[@"applyNum"] integerValue] < [responseObject[@"planJoinNum"] integerValue]
+           && [DateUtil isDestDateInFuture:[[StringUtil toString:responseObject[@"endDate"]] stringByAppendingString:[StringUtil toString:responseObject[@"endTime"]]]]){
+            /**状态*/
+            self.statusLabel.text = @"报名中";
+            self.statusLabel.backgroundColor = ACTIVITY_STATUS_ON_COLOR;
+        }
+        //如果报名人数已满，且报名时间未截止，显示已满
+        else if([responseObject[@"applyNum"] integerValue] == [responseObject[@"planJoinNum"] integerValue]
+                && [DateUtil isDestDateInFuture:[[StringUtil toString:responseObject[@"endDate"]] stringByAppendingString:[StringUtil toString:responseObject[@"endTime"]]]]){
+            /**状态*/
+            self.statusLabel.text = @"已满";
+            self.statusLabel.backgroundColor = ACTIVITY_STATUS_FULL_COLOR;
+        }
+        else{
+            self.statusLabel.text = @"已结束";
+            self.statusLabel.backgroundColor = ACTIVITY_STATUS_OVER_COLOR;
+        }
+        
+        
         self.planDatetimeLabel.text = [DateUtil toString:responseObject[@"planDate"] time:responseObject[@"planTime"]];
         self.endDatetimeLabel.text = [DateUtil toString:responseObject[@"endDate"] time:responseObject[@"endTime"]];
         NSString *applyNum = [responseObject[@"applyNum"] stringValue];

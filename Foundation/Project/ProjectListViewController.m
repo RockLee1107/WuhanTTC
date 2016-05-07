@@ -131,7 +131,7 @@
         MyProjectPageController *vc = [[MyProjectPageController alloc] init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"app_create" callBack:^(NSUInteger index, id info) {
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         [self performSegueWithIdentifier:@"create" sender:nil];
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
