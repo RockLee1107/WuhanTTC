@@ -7,6 +7,7 @@
 //
 
 #import "InvestorDetailTableViewController.h"
+#import "ShouldPostProjectTableViewController.h"
 
 @interface InvestorDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictUrlImageView;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *investAreaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investProcessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *investProjectLabel;
+@property (weak, nonatomic) IBOutlet LXButton *postButton;
 
 @end
 
@@ -26,6 +28,10 @@
     [super viewDidLoad];
     [self setDynamicLayout];
     [self fetchData];
+//    如果是本人，那么隐藏按钮
+    if ([self.dataDict[@"userId"] isEqualToString:[User getInstance].uid]) {
+        self.postButton.hidden = YES;
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -46,6 +52,12 @@
         self.investIdeaLabel.text = [StringUtil toPlaceHolderString:responseObject[@"investIdea"]];
 
     } noResult:nil];
+}
+
+- (IBAction)postButtonPress:(id)sender {
+    ShouldPostProjectTableViewController *vc = [[ShouldPostProjectTableViewController alloc] init];
+    vc.financeId = self.dataDict[@"userId"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

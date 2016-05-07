@@ -294,6 +294,8 @@
 		FD5ADD951CDE08D7005ED424 /* ModifyMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD941CDE08D7005ED424 /* ModifyMobileViewController.m */; };
 		FD5ADD981CDE133F005ED424 /* ConfirmMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD971CDE133F005ED424 /* ConfirmMobileViewController.m */; };
 		FD5ADD9C1CDE2662005ED424 /* menu_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5ADD9B1CDE2662005ED424 /* menu_edit@2x.png */; };
+		FD5ADD9F1CDE8D87005ED424 /* ShouldPostProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD9E1CDE8D87005ED424 /* ShouldPostProjectTableViewController.m */; };
+		FD5ADDA21CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADDA11CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.m */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -915,6 +917,10 @@
 		FD5ADD961CDE133F005ED424 /* ConfirmMobileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMobileViewController.h; sourceTree = "<group>"; };
 		FD5ADD971CDE133F005ED424 /* ConfirmMobileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMobileViewController.m; sourceTree = "<group>"; };
 		FD5ADD9B1CDE2662005ED424 /* menu_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_edit@2x.png"; sourceTree = "<group>"; };
+		FD5ADD9D1CDE8D87005ED424 /* ShouldPostProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldPostProjectTableViewController.h; sourceTree = "<group>"; };
+		FD5ADD9E1CDE8D87005ED424 /* ShouldPostProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldPostProjectTableViewController.m; sourceTree = "<group>"; };
+		FD5ADDA01CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShouldPostProjectTableViewDelegate.h; sourceTree = "<group>"; };
+		FD5ADDA11CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShouldPostProjectTableViewDelegate.m; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -2287,6 +2293,8 @@
 				FDE33F0B1C9FE993005C6863 /* ProjectListViewController.m */,
 				FDE33F101C9FEDF9005C6863 /* ProjectTableViewDelegate.h */,
 				FDE33F111C9FEDF9005C6863 /* ProjectTableViewDelegate.m */,
+				FD5ADDA01CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.h */,
+				FD5ADDA11CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.m */,
 				FDE33F131C9FEF68005C6863 /* ProjectTableViewCell.h */,
 				FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */,
 				FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */,
@@ -2347,6 +2355,8 @@
 		FDF3FE1B1CA816F0007B7C83 /* Project */ = {
 			isa = PBXGroup;
 			children = (
+				FD5ADD9D1CDE8D87005ED424 /* ShouldPostProjectTableViewController.h */,
+				FD5ADD9E1CDE8D87005ED424 /* ShouldPostProjectTableViewController.m */,
 				FDF3FE1C1CA816F0007B7C83 /* MyProjectPageController.h */,
 				FDF3FE1D1CA816F0007B7C83 /* MyProjectPageController.m */,
 				FDF3FE1E1CA816F0007B7C83 /* MyProjectTableViewController.h */,
@@ -2763,6 +2773,7 @@
 				F73B789E1C81375600069EEE /* AFURLConnectionOperation.m in Sources */,
 				FDE2D9561CA369CF008DDE4F /* MASViewAttribute.m in Sources */,
 				F7A61E681CA04AE3001B5FB3 /* ProjectDetailViewController.m in Sources */,
+				FD5ADD9F1CDE8D87005ED424 /* ShouldPostProjectTableViewController.m in Sources */,
 				FD4CD7E81CCE686D00659D9D /* NoteTableViewCell.m in Sources */,
 				FD405EB11CCB70AC005AD869 /* ProjectSearchViewController.m in Sources */,
 				FDE26B031C9C38A0003418D5 /* UIProgressView+AFNetworking.m in Sources */,
@@ -2776,6 +2787,7 @@
 				F73B78A81C81375600069EEE /* MJRefreshHeader.m in Sources */,
 				F74C9AFA1CBE1DE300C7A607 /* EYTextPopupView.m in Sources */,
 				F7A61E7C1CA04CCB001B5FB3 /* WMScrollView.m in Sources */,
+				FD5ADDA21CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.m in Sources */,
 				FD066CE91CB8EB09001A132A /* ActionSheetLocalePicker.m in Sources */,
 				FD9450D71CA82BD400E00759 /* SubjectPageController.m in Sources */,
 				F74818521CCDCB7D00CEEE3A /* ContributeTableViewController.m in Sources */,
