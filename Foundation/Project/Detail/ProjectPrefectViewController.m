@@ -98,13 +98,21 @@
 }
 
 - (void)publishButtonPress:(UIButton *)sender {
-    
     ProjectCreateTableViewController *projectVC = self.childViewControllers[0];
     ProductTableViewController *productVC = nil;
+    TeamListTableViewController *teamVC = nil;
+    ProcessTableViewController *processVC = nil;
+    FinanceTableViewController *financeVC = nil;
 //    设置vc
     for(int i = 0; i < self.childViewControllers.count; i++) {
         if ([self.childViewControllers[i] isKindOfClass:[ProductTableViewController class]]) {
             productVC = self.childViewControllers[i];
+        } else if ([self.childViewControllers[i] isKindOfClass:[TeamListTableViewController class]]){
+            teamVC = self.childViewControllers[i];
+        } else if ([self.childViewControllers[i] isKindOfClass:[ProcessTableViewController class]]){
+            processVC = self.childViewControllers[i];
+        } else if ([self.childViewControllers[i] isKindOfClass:[FinanceTableViewController class]]){
+            financeVC = self.childViewControllers[i];
         }
     }
 
@@ -168,21 +176,28 @@
     }
     //不能使用图片单例ImageUtil
     ImageUtil *productImageUtil = [[ImageUtil alloc] init];
+//    判断有没有productVC，展示过才有
     if (productVC != nil) {
         //    多图
         if (productVC.photoGallery.photos.count > 0) {
             [project setObject:[productImageUtil savePicture:@"procShows" images:productVC.photoGallery.photos] forKey:@"procShows"];
         }
     }
-//    json化
-    NSDictionary *team = @{
-                           @"parterId":[User getInstance].uid,
-                           @"duty":@"创始人"
-                           };
-    NSDictionary *param = @{
-                            @"Project":[StringUtil dictToJson:project],
-                            @"Team":[StringUtil dictToJson:@[team]]
-                            };
+    //Project为首页，必然存在
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setObject:[StringUtil dictToJson:project] forKey:@"Project"];
+//    判断有没有teamVC，展示过才有
+    if (teamVC != nil) {
+        [param setObject:[StringUtil dictToJson:teamVC.dataArray] forKey:@"Team"];
+    }
+//    判断有没有processVC，展示过才有
+    if (processVC != nil) {
+        [param setObject:[StringUtil dictToJson:processVC.dataArray] forKey:@"Process"];
+    }
+//    判断有没有financeVC，展示过才有
+    if (financeVC != nil) {
+        [param setObject:[StringUtil dictToJson:financeVC.dataArray] forKey:@"Finance"];
+    }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {

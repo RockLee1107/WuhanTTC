@@ -287,6 +287,11 @@
 		FD5AA87E1CCA1AAB002FD276 /* BookSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA87D1CCA1AAB002FD276 /* BookSearchViewController.m */; };
 		FD5AA88A1CCA2A8D002FD276 /* BookSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */; };
 		FD5AA88B1CCA2A8D002FD276 /* BookSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */; };
+		FD5ADD851CDCDBA9005ED424 /* FinanceCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD841CDCDBA9005ED424 /* FinanceCreateTableViewController.m */; };
+		FD5ADD871CDD7CE8005ED424 /* app_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5ADD861CDD7CE8005ED424 /* app_add@2x.png */; };
+		FD5ADD8D1CDD7DA5005ED424 /* ProcessCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD8C1CDD7DA5005ED424 /* ProcessCreateTableViewController.m */; };
+		FD5ADD8F1CDDDB47005ED424 /* app_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5ADD8E1CDDDB47005ED424 /* app_delete@2x.png */; };
+		FD5ADD921CDDDB76005ED424 /* TeamEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD911CDDDB76005ED424 /* TeamEditTableViewController.m */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -898,6 +903,14 @@
 		FD5AA8871CCA2A8D002FD276 /* BookSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookSearchTableViewCell.h; sourceTree = "<group>"; };
 		FD5AA8881CCA2A8D002FD276 /* BookSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchTableViewCell.m; sourceTree = "<group>"; };
 		FD5AA8891CCA2A8D002FD276 /* BookSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookSearchTableViewCell.xib; sourceTree = "<group>"; };
+		FD5ADD831CDCDBA9005ED424 /* FinanceCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinanceCreateTableViewController.h; sourceTree = "<group>"; };
+		FD5ADD841CDCDBA9005ED424 /* FinanceCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinanceCreateTableViewController.m; sourceTree = "<group>"; };
+		FD5ADD861CDD7CE8005ED424 /* app_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_add@2x.png"; sourceTree = "<group>"; };
+		FD5ADD8B1CDD7DA5005ED424 /* ProcessCreateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCreateTableViewController.h; sourceTree = "<group>"; };
+		FD5ADD8C1CDD7DA5005ED424 /* ProcessCreateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCreateTableViewController.m; sourceTree = "<group>"; };
+		FD5ADD8E1CDDDB47005ED424 /* app_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_delete@2x.png"; sourceTree = "<group>"; };
+		FD5ADD901CDDDB76005ED424 /* TeamEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamEditTableViewController.h; sourceTree = "<group>"; };
+		FD5ADD911CDDDB76005ED424 /* TeamEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamEditTableViewController.m; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1444,6 +1457,8 @@
 				F74C9B011CC5289900C7A607 /* TeamTableViewCell.h */,
 				F74C9B021CC5289900C7A607 /* TeamTableViewCell.m */,
 				F74C9B031CC5289900C7A607 /* TeamTableViewCell.xib */,
+				FD5ADD901CDDDB76005ED424 /* TeamEditTableViewController.h */,
+				FD5ADD911CDDDB76005ED424 /* TeamEditTableViewController.m */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -1563,6 +1578,8 @@
 		F7B98EAB1C7459FF006ABA71 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FD5ADD8E1CDDDB47005ED424 /* app_delete@2x.png */,
+				FD5ADD861CDD7CE8005ED424 /* app_add@2x.png */,
 				FD4F43D51CD1A3F9005BF414 /* app_addfriend@2x.png */,
 				FD4F43D61CD1A3F9005BF414 /* app_totop@2x.png */,
 				FD4F43D31CD1A13A005BF414 /* investor_apply@2x.png */,
@@ -1718,6 +1735,8 @@
 				FD3B004B1CC61DB800DA0166 /* ProcessTableViewCell.xib */,
 				FD3B004E1CC61DCE00DA0166 /* ProcessTableViewController.h */,
 				FD3B004F1CC61DCE00DA0166 /* ProcessTableViewController.m */,
+				FD5ADD8B1CDD7DA5005ED424 /* ProcessCreateTableViewController.h */,
+				FD5ADD8C1CDD7DA5005ED424 /* ProcessCreateTableViewController.m */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -1730,6 +1749,8 @@
 				FD3B005A1CC66F6500DA0166 /* FinanceTableViewCell.xib */,
 				FD3B005D1CC66F7900DA0166 /* FinanceTableViewController.h */,
 				FD3B005E1CC66F7900DA0166 /* FinanceTableViewController.m */,
+				FD5ADD831CDCDBA9005ED424 /* FinanceCreateTableViewController.h */,
+				FD5ADD841CDCDBA9005ED424 /* FinanceCreateTableViewController.m */,
 			);
 			path = Finance;
 			sourceTree = "<group>";
@@ -2510,6 +2531,7 @@
 				F795DF451CB40643002BCDEE /* app_photo@2x.png in Resources */,
 				FD3B004D1CC61DB800DA0166 /* ProcessTableViewCell.xib in Resources */,
 				FDEADC101C92AA2D00971DD1 /* icon_content_selected@2x.png in Resources */,
+				FD5ADD871CDD7CE8005ED424 /* app_add@2x.png in Resources */,
 				FD9450E41CA831A800E00759 /* menu_essential@2x.png in Resources */,
 				1F9F92CA1CDCC34F0084ED2A /* menu_auther@2x.png in Resources */,
 				FD4F43CF1CD0565C005BF414 /* app_pre@2x.png in Resources */,
@@ -2603,6 +2625,7 @@
 				FDF3FE0E1CA7F854007B7C83 /* ico_make.png in Resources */,
 				1F9F92CB1CDCC34F0084ED2A /* menu_bp@2x.png in Resources */,
 				F73B78C11C813E2800069EEE /* Project.storyboard in Resources */,
+				FD5ADD8F1CDDDB47005ED424 /* app_delete@2x.png in Resources */,
 				FD3DFE811CBDDAAD00CD9E3A /* Friends.storyboard in Resources */,
 				1F9F92D61CDCC34F0084ED2A /* menu_report@2x.png in Resources */,
 				FD3B005C1CC66F6500DA0166 /* FinanceTableViewCell.xib in Resources */,
@@ -2743,6 +2766,7 @@
 				FD3F656E1CD34EF800FBEE43 /* MailTableViewCell.m in Sources */,
 				FD3BDE121CD5E86C006F9EA5 /* UIButton+WebCache.m in Sources */,
 				FD3D59FD1CB2A19700B9514D /* modifyViewController.m in Sources */,
+				FD5ADD851CDCDBA9005ED424 /* FinanceCreateTableViewController.m in Sources */,
 				FD405EAD1CCB6B5C005AD869 /* ActivitySearchViewController.m in Sources */,
 				FDF3FE211CA816F0007B7C83 /* MyProjectTableViewController.m in Sources */,
 				FDE2D9541CA369CF008DDE4F /* MASConstraintMaker.m in Sources */,
@@ -2757,6 +2781,7 @@
 				FDAD29271CDB2E1800349D50 /* ProjectPrefectViewController.m in Sources */,
 				FD44627F1CAD1C7F00F7E12F /* SubjectDetailTableViewCell.m in Sources */,
 				FD34C0C31CAFEAED002B7630 /* InvestorTableViewDelegate.m in Sources */,
+				FD5ADD8D1CDD7DA5005ED424 /* ProcessCreateTableViewController.m in Sources */,
 				FD3BDE141CD5E86C006F9EA5 /* SDWebImageDownloader.m in Sources */,
 				FD3BDE161CD5E86C006F9EA5 /* SDWebImageManager.m in Sources */,
 				FD4F43C41CCF08CE005BF414 /* MyNoteByBookTableViewController.m in Sources */,
@@ -2774,6 +2799,7 @@
 				FD3F65621CD3460A00FBEE43 /* MessagePageController.m in Sources */,
 				F73B789B1C81375600069EEE /* AFHTTPSessionManager.m in Sources */,
 				F73B789F1C81375600069EEE /* AFURLRequestSerialization.m in Sources */,
+				FD5ADD921CDDDB76005ED424 /* TeamEditTableViewController.m in Sources */,
 				F74C9B001CC5287F00C7A607 /* TeamListTableViewController.m in Sources */,
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
 				FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */,
