@@ -29,6 +29,7 @@
     [super viewDidLoad];
     [self addRightItem];
     [SingletonObject getInstance].dataDict = self.dataDict;
+    [SingletonObject getInstance].isBrowse = YES;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {

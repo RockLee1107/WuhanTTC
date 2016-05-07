@@ -33,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIView *containerView = [[UIView alloc] init];
+    [SingletonObject getInstance].isBrowse = NO;
 //    包裹按钮的白底背景图层
     containerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:containerView];

@@ -15,6 +15,7 @@
 #import "LXButton.h"
 #import "TeamEditTableViewController.h"
 #import "UserDetailViewController.h"
+#import "SingletonObject.h"
 
 @interface TeamListTableViewController ()<UITableViewDelegate,UITableViewDataSource,FriendsListViewControllerDelegate>
 @property (nonatomic,strong) UITableView *tableView;
@@ -43,7 +44,7 @@
                             };
     [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
-        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid]) {
+        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
             //            创建者
             //        tb下移
             [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -250,11 +251,18 @@
         vc.userId = parterId;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-//        成员编辑
-        TeamEditTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"team"];
-        vc.parentVC = self;
-        vc.dataDict = self.dataArray[indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([SingletonObject getInstance].isBrowse) {
+            //        用户详情
+            UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
+            vc.userId = parterId;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+    //        成员编辑
+            TeamEditTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"team"];
+            vc.parentVC = self;
+            vc.dataDict = self.dataArray[indexPath.row];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 @end

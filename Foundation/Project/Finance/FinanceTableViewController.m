@@ -11,6 +11,7 @@
 #import "FinanceCreateTableViewController.h"
 #import "StatusDict.h"
 #import "Masonry.h"
+#import "SingletonObject.h"
 
 @interface FinanceTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -34,7 +35,7 @@
                             };
     [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
-        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid]) {
+        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
 //            创建者
             //        tb下移
             [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -118,10 +119,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([SingletonObject getInstance].isBrowse) {
+        return;
+    }
     FinanceCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"finance"];
     vc.dataDict = self.dataArray[indexPath.row];
     vc.parentVC = self;
     [self.navigationController pushViewController:vc animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
