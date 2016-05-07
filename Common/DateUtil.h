@@ -40,6 +40,6 @@
 + (BOOL)compare:(NSString *)latestUpdateTime lastRequestTime:(NSString *)lastRequestTime;
 ///转成标准日期
 + (NSDate *)toDate:(NSString *)str format:(NSString *)format;
-///制定的日期跟当前时间比较
+///指定的日期跟当前时间比较
 +(BOOL)isDestDateInFuture:(NSString *)destStr;
 @end

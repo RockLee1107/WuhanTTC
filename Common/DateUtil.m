@@ -188,7 +188,7 @@
     
 }
 
-
+///两个日期的比较
 +(BOOL)compareOneDay:(NSDate *)oneDay withAnotherDay:(NSDate *)anotherDay
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
