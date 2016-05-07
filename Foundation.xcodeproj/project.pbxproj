@@ -292,6 +292,8 @@
 		FD5ADD8D1CDD7DA5005ED424 /* ProcessCreateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD8C1CDD7DA5005ED424 /* ProcessCreateTableViewController.m */; };
 		FD5ADD8F1CDDDB47005ED424 /* app_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5ADD8E1CDDDB47005ED424 /* app_delete@2x.png */; };
 		FD5ADD921CDDDB76005ED424 /* TeamEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD911CDDDB76005ED424 /* TeamEditTableViewController.m */; };
+		FD5ADD951CDE08D7005ED424 /* ModifyMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD941CDE08D7005ED424 /* ModifyMobileViewController.m */; };
+		FD5ADD981CDE133F005ED424 /* ConfirmMobileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5ADD971CDE133F005ED424 /* ConfirmMobileViewController.m */; };
 		FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */; };
 		FD5C74F71CC71DD80022BD81 /* EvaluateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */; };
 		FD5C74FA1CC71DE90022BD81 /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5C74F91CC71DE90022BD81 /* EvaluateTableViewController.m */; };
@@ -911,6 +913,10 @@
 		FD5ADD8E1CDDDB47005ED424 /* app_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_delete@2x.png"; sourceTree = "<group>"; };
 		FD5ADD901CDDDB76005ED424 /* TeamEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamEditTableViewController.h; sourceTree = "<group>"; };
 		FD5ADD911CDDDB76005ED424 /* TeamEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamEditTableViewController.m; sourceTree = "<group>"; };
+		FD5ADD931CDE08D7005ED424 /* ModifyMobileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyMobileViewController.h; sourceTree = "<group>"; };
+		FD5ADD941CDE08D7005ED424 /* ModifyMobileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyMobileViewController.m; sourceTree = "<group>"; };
+		FD5ADD961CDE133F005ED424 /* ConfirmMobileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmMobileViewController.h; sourceTree = "<group>"; };
+		FD5ADD971CDE133F005ED424 /* ConfirmMobileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmMobileViewController.m; sourceTree = "<group>"; };
 		FD5C74F31CC71DD80022BD81 /* EvaluateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewCell.h; sourceTree = "<group>"; };
 		FD5C74F41CC71DD80022BD81 /* EvaluateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewCell.m; sourceTree = "<group>"; };
 		FD5C74F51CC71DD80022BD81 /* EvaluateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateTableViewCell.xib; sourceTree = "<group>"; };
@@ -1571,6 +1577,10 @@
 				F795DF421CB2555A002BCDEE /* RegistViewController.m */,
 				FD3D59F81CB29AB100B9514D /* ResetViewController.h */,
 				FD3D59F91CB29AB100B9514D /* ResetViewController.m */,
+				FD5ADD931CDE08D7005ED424 /* ModifyMobileViewController.h */,
+				FD5ADD941CDE08D7005ED424 /* ModifyMobileViewController.m */,
+				FD5ADD961CDE133F005ED424 /* ConfirmMobileViewController.h */,
+				FD5ADD971CDE133F005ED424 /* ConfirmMobileViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -2737,6 +2747,7 @@
 				FDD0FBD41CA8C018004CFA75 /* SubjectTableViewDelegate.m in Sources */,
 				FD3BDDD61CD5A492006F9EA5 /* LXGallery.m in Sources */,
 				FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */,
+				FD5ADD951CDE08D7005ED424 /* ModifyMobileViewController.m in Sources */,
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F74C9AF81CBE1DE300C7A607 /* EYPopupView.m in Sources */,
@@ -2882,6 +2893,7 @@
 				FD5AA87A1CCA110D002FD276 /* CommentTableViewDelegate.m in Sources */,
 				F73B789D1C81375600069EEE /* AFSecurityPolicy.m in Sources */,
 				FD4CD7C91CCD015C00659D9D /* SpecialTypeForCollectTableViewCell.m in Sources */,
+				FD5ADD981CDE133F005ED424 /* ConfirmMobileViewController.m in Sources */,
 				FD3D59F71CB28C4E00B9514D /* LXSmsCodeButton.m in Sources */,
 				F73B78A01C81375600069EEE /* AFURLResponseSerialization.m in Sources */,
 				F73B78991C81375600069EEE /* AFHTTPRequestOperation.m in Sources */,
