@@ -253,7 +253,7 @@
 //        成员编辑
         TeamEditTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"team"];
         vc.parentVC = self;
-        vc.parterId = parterId;
+        vc.dataDict = self.dataArray[indexPath.row];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

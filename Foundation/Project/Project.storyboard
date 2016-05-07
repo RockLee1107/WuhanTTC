@@ -1724,7 +1724,6 @@
                                                     </constraints>
                                                     <state key="normal" title="确认"/>
                                                     <connections>
-                                                        <action selector="submit:" destination="hcK-X1-Luw" eventType="touchUpInside" id="t4N-ty-tXN"/>
                                                         <action selector="submitButtonPress:" destination="hcK-X1-Luw" eventType="touchUpInside" id="knb-Q7-pQA"/>
                                                     </connections>
                                                 </button>

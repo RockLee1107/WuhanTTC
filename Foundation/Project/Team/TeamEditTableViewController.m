@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.dutyTextField.text = self.dataDict[@"duty"];
+    self.realnameLabel.text = self.dataDict[@"realName"];
 }
 
 //delete
@@ -26,36 +28,25 @@
     
     [[PXAlertView showAlertWithTitle:@"确定要删除吗？" message:nil cancelTitle:@"取消" otherTitle:@"确定" completion:^(BOOL cancelled, NSInteger buttonIndex) {
         if (!cancelled) {
-            
-            for (NSDictionary *dict in [self.parentVC.dataArray copy]) {
-                if (dict[@"parterId"] == self.parterId) {
-                    [self.parentVC.dataArray removeObject:dict];
-                    [self.navigationController popViewControllerAnimated:YES];
-                    return;
-                }
-            }
+            [self.parentVC.dataArray removeObject:self.dataDict];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }] useDefaultIOS7Style];
 }
 
 //modity
 - (IBAction)submitButtonPress:(id)sender {
-    
+//    form verify
+    if (![VerifyUtil hasValue:self.dutyTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写职务"];
+        return ;
+    }
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self.dataDict];
+    [dict setObject:self.dutyTextField.text forKey:@"duty"];
+//    找回原来的index
+    NSInteger index = [self.parentVC.dataArray indexOfObject:self.dataDict];
+    [self.parentVC.dataArray setObject:dict atIndexedSubscript:index];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

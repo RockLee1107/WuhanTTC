@@ -11,6 +11,5 @@
 
 @interface TeamEditTableViewController : BaseStaticTableViewController
 @property (strong,nonatomic) TeamListTableViewController *parentVC;
-@property (strong,nonatomic) NSString *parterId;
 
 @end
