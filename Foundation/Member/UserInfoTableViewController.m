@@ -91,7 +91,7 @@
             [self.avatarImageView setImage:image];
         } failure:nil];
         self.realnameTextField.text = [StringUtil toString:responseObject[@"realName"]];
-        [self.mobileButton setTitle:[StringUtil toString:responseObject[@"mobile"]] forState:(UIControlStateNormal)];
+        [self.mobileButton setTitle:[User getInstance].username forState:(UIControlStateNormal)];
         self.wechatTextField.text = [StringUtil toString:responseObject[@"weChat"]];
         self.emailTextField.text = [StringUtil toString:responseObject[@"email"]];
         self.dutyTextField.text = [StringUtil toString:responseObject[@"duty"]];
@@ -171,14 +171,16 @@
         self.picker.filename = self.userinfo[@"pictUrl"];
     }
 //    @"pictUrl":self.picker.filePath,
-    if (![VerifyUtil isValidStringLengthRange:self.investIdeaTextView.text between:3 and:200]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入投资理念(3-200字)"];
-        return;
-    }
-    
-    if (![VerifyUtil isValidStringLengthRange:self.investCaseTextView.text between:3 and:500]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入投资案例(3-500字)"];
-        return;
+    if ([[User getInstance].isInvestor boolValue]) {
+        if (![VerifyUtil isValidStringLengthRange:self.investIdeaTextView.text between:3 and:200]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入投资理念(3-200字)"];
+            return;
+        }
+        
+        if (![VerifyUtil isValidStringLengthRange:self.investCaseTextView.text between:3 and:500]) {
+            [SVProgressHUD showErrorWithStatus:@"请输入投资案例(3-500字)"];
+            return;
+        }
     }
     
     

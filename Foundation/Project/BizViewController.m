@@ -49,6 +49,10 @@
 
 - (IBAction)finish:(id)sender {
     [self.delegate didSelectedTags:_selectedCodeArray selectedNames:self.tagListView.selectedTags];
+    if (_selectedCodeArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"最少选择一个"];
+        return;
+    }
     [self goBack];
 }
 
