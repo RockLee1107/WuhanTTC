@@ -37,12 +37,15 @@
     self.button.frame = CGRectMake(0, 0, IMAGE_WIDTH, IMAGE_WIDTH);
     [self addSubview:self.button];
     [self.button addTarget:self action:@selector(multipleSelectionAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    self.photosArrival = [NSMutableArray array];
+    self.photosStrArray = [NSMutableArray array];
 }
 
 - (void)loadPhotos:(NSArray *)array {
     for (int i = 0; i < array.count; i++) {
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
-        NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,array[i]];;
+        NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,array[i]];
+        [self.photosStrArray addObject:array[i]];
         UIImage *cachedImage = [manager imageWithURL:[NSURL URLWithString:imageUrl]];
         if (cachedImage) {
             //已经下载
@@ -97,6 +100,8 @@
 //选取了一张或多张照片回调
 - (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAssets:(NSArray *)assets {
     [self.photos addObjectsFromArray:[self assetsToImages:assets]];
+    //新图
+    [self.photosArrival addObjectsFromArray:[self assetsToImages:assets]];
     [self reloadImagesList];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -150,6 +155,9 @@
 - (void)photoBrowser:(AJPhotoBrowserViewController *)vc didDonePhotos:(NSArray *)photos {
     [self.photos removeAllObjects];
     [self.photos addObjectsFromArray:photos];
+    //新图
+    [self.photosArrival removeAllObjects];
+    [self.photosArrival addObjectsFromArray:photos];
     [self reloadImagesList];
     [vc dismissViewControllerAnimated:YES completion:nil];
 }
@@ -177,6 +185,8 @@
         originalImage = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
     }
     [self.photos addObject:[self shrinked:originalImage]];
+//    新图
+    [self.photosArrival addObject:[self shrinked:originalImage]];
     [self reloadImagesList];
     [self.vc dismissViewControllerAnimated:YES completion:nil];
 }
@@ -275,6 +285,13 @@
         _photos = [NSMutableArray array];
     }
     return _photos;
+}
+
+
+//获得图片地址
+- (NSString *)fetchPhoto:(NSString *)filename imageUtil:(ImageUtil *)imageUtil {
+    [self.photosStrArray addObjectsFromArray:[[imageUtil savePicture:filename images:self.photosArrival] componentsSeparatedByString:@","]];
+    return [self.photosStrArray componentsJoinedByString:@","];
 }
 
 @end

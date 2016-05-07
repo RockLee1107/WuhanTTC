@@ -197,7 +197,8 @@
     ImageUtil *projectImageUtil = [[ImageUtil alloc] init];
     //    多图
     if (projectVC.photoGallery.photos.count > 0) {
-        [project setObject:[projectImageUtil savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
+//        [project setObject:[projectImageUtil savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
+        [project setObject:[projectVC.photoGallery fetchPhoto:@"bpPictUrl" imageUtil:projectImageUtil] forKey:@"bpPictUrl"];
     }
     
     
@@ -212,7 +213,9 @@
     if (productVC != nil) {
         //    多图
         if (productVC.photoGallery.photos.count > 0) {
-            [project setObject:[productImageUtil savePicture:@"procShows" images:productVC.photoGallery.photos] forKey:@"procShows"];
+//            [project setObject:[productImageUtil savePicture:@"procShows" images:productVC.photoGallery.photosArrival] forKey:@"procShows"];
+            [project setObject:[productVC.photoGallery fetchPhoto:@"procShows" imageUtil:productImageUtil] forKey:@"procShows"];
+
         }
     }
     //Project为首页，必然存在
@@ -241,18 +244,18 @@
         //        图片名称加了前缀，不然会冲突覆盖
         //        bp
         //        多图
-        if (projectVC.photoGallery.photos.count > 0) {
-            for (int i = 0; i < projectVC.photoGallery.photos.count; i++) {
-                UIImage *image = projectVC.photoGallery.photos[i];
+        if (projectVC.photoGallery.photosArrival.count > 0) {
+            for (int i = 0; i < projectVC.photoGallery.photosArrival.count; i++) {
+                UIImage *image = projectVC.photoGallery.photosArrival[i];
                 [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"bpPictUrl_%zi",i] fileName:projectImageUtil.filenames[i] mimeType:@"image/jpeg"];
             }
         }
         //        产品
         //        多图
         if (productVC != nil) {
-            if (productVC.photoGallery.photos.count > 0) {
-                for (int i = 0; i < productVC.photoGallery.photos.count; i++) {
-                    UIImage *image = productVC.photoGallery.photos[i];
+            if (productVC.photoGallery.photosArrival.count > 0) {
+                for (int i = 0; i < productVC.photoGallery.photosArrival.count; i++) {
+                    UIImage *image = productVC.photoGallery.photosArrival[i];
                     [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"procShows_%zi",i] fileName:productImageUtil.filenames[i] mimeType:@"image/jpeg"];
                 }
             }
