@@ -112,16 +112,16 @@
         //        [self performSegueWithIdentifier:@"create" sender:nil];
     }];
     NSMutableArray *array = [NSMutableArray array];
+    //        成员或投资人
+    if ([[self.dataDict[@"parterIds"] componentsSeparatedByString:@","] containsObject:[User getInstance].uid] || [[User getInstance].isInvestor boolValue]) {
+        [array addObject:item2];
+        [array addObject:item3];
+    }
 //    是创建人
     if ([[User getInstance].uid isEqualToString:self.dataDict[@"createdById"]]) {
 //        非审核中
         if ([self.dataDict[@"bizStatus"] integerValue] != BizStatusPublish) {
             [array addObject:item1];
-        }
-//        成员或投资人
-        if ([[self.dataDict[@"parterIds"] componentsSeparatedByString:@","] containsObject:[User getInstance].uid] || [[User getInstance].isInvestor boolValue]) {
-            [array addObject:item2];
-            [array addObject:item3];
         }
     } else {
         [array addObject:item0];

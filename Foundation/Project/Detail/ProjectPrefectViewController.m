@@ -21,6 +21,11 @@
 #import "ImageUtil.h"
 
 @interface ProjectPrefectViewController ()
+@property (nonatomic,strong) ProjectCreateTableViewController *projectVC;
+@property (nonatomic,strong) ProductTableViewController *productVC;
+@property (nonatomic,strong) TeamListTableViewController *teamVC;
+@property (nonatomic,strong) ProcessTableViewController *processVC;
+@property (nonatomic,strong) FinanceTableViewController *financeVC;
 @end
 
 @implementation ProjectPrefectViewController
@@ -94,73 +99,100 @@
 }
 
 - (IBAction)save:(UIBarButtonItem *)sender {
-    
-}
-
-- (void)publishButtonPress:(UIButton *)sender {
-    ProjectCreateTableViewController *projectVC = self.childViewControllers[0];
-    ProductTableViewController *productVC = nil;
-    TeamListTableViewController *teamVC = nil;
-    ProcessTableViewController *processVC = nil;
-    FinanceTableViewController *financeVC = nil;
-//    设置vc
-    for(int i = 0; i < self.childViewControllers.count; i++) {
-        if ([self.childViewControllers[i] isKindOfClass:[ProductTableViewController class]]) {
-            productVC = self.childViewControllers[i];
-        } else if ([self.childViewControllers[i] isKindOfClass:[TeamListTableViewController class]]){
-            teamVC = self.childViewControllers[i];
-        } else if ([self.childViewControllers[i] isKindOfClass:[ProcessTableViewController class]]){
-            processVC = self.childViewControllers[i];
-        } else if ([self.childViewControllers[i] isKindOfClass:[FinanceTableViewController class]]){
-            financeVC = self.childViewControllers[i];
-        }
-    }
-
-/*项目信息*/
-    if (![VerifyUtil hasValue:projectVC.projectNameTextField.text]) {
+    [self fetchVC];
+    if (![VerifyUtil hasValue:self.projectVC.projectNameTextField.text]) {
         [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
         return;
     }
-    if (projectVC.picker.imageOriginal == nil) {
-        [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
-        return;
-    }
-    if (![VerifyUtil isValidStringLengthRange:projectVC.projectResumeTextView.text between:3 and:50]) {
-        [SVProgressHUD showErrorWithStatus:@"项目简介字数为3～50"];
-        return;
-    }
-    if ([[projectVC.currentCityButton titleForState:(UIControlStateNormal)] isEqualToString:@"城市"]) {
-        [SVProgressHUD showErrorWithStatus:@"请选择所在城市"];
-        return;
-    }
-    if (![VerifyUtil hasValue:projectVC.selectedStatusValue]) {
+    if (![VerifyUtil hasValue:self.projectVC.selectedStatusValue]) {
         [SVProgressHUD showErrorWithStatus:@"请选择项目阶段"];
         return;
     }
-    if (![VerifyUtil hasValue:projectVC.selectedFinanceValue]) {
+    if (![VerifyUtil hasValue:self.projectVC.selectedFinanceValue]) {
         [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
         return;
     }
-    if (projectVC.selectedCodeArray.count == 0) {
+    if (self.projectVC.selectedCodeArray.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
         return;
     }
-    if (![VerifyUtil isValidStringLengthRange:projectVC.descTextView.text between:3 and:500]) {
+}
+
+- (void)publishButtonPress:(UIButton *)sender {
+    [self fetchVC];
+    /*项目信息*/
+    if (![VerifyUtil hasValue:self.projectVC.projectNameTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写项目名称"];
+        return;
+    }
+    if (self.projectVC.picker.imageOriginal == nil) {
+        [SVProgressHUD showErrorWithStatus:@"请上传项目Logo"];
+        return;
+    }
+    if (![VerifyUtil isValidStringLengthRange:self.projectVC.projectResumeTextView.text between:3 and:50]) {
+        [SVProgressHUD showErrorWithStatus:@"项目简介字数为3～50"];
+        return;
+    }
+    if ([[self.projectVC.currentCityButton titleForState:(UIControlStateNormal)] isEqualToString:@"城市"]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择所在城市"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.projectVC.selectedStatusValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目阶段"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.projectVC.selectedFinanceValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+        return;
+    }
+    if (self.projectVC.selectedCodeArray.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择项目领域"];
+        return;
+    }
+    if (![VerifyUtil isValidStringLengthRange:self.projectVC.descTextView.text between:3 and:500]) {
         [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
         return;
     }
-    
+    [self postData:BizStatusPublish];
+}
+
+- (void)fetchVC {
+    self.projectVC = self.childViewControllers[0];
+    self.productVC = nil;
+    self.teamVC = nil;
+    self.processVC = nil;
+    self.financeVC = nil;
+    //    设置vc
+    for(int i = 0; i < self.childViewControllers.count; i++) {
+        if ([self.childViewControllers[i] isKindOfClass:[ProductTableViewController class]]) {
+            self.productVC = self.childViewControllers[i];
+        } else if ([self.childViewControllers[i] isKindOfClass:[TeamListTableViewController class]]){
+            self.teamVC = self.childViewControllers[i];
+        } else if ([self.childViewControllers[i] isKindOfClass:[ProcessTableViewController class]]){
+            self.processVC = self.childViewControllers[i];
+        } else if ([self.childViewControllers[i] isKindOfClass:[FinanceTableViewController class]]){
+            self.financeVC = self.childViewControllers[i];
+        }
+    }
+}
+
+- (void)postData:(NSInteger)bizStatus {
+    ProjectCreateTableViewController *projectVC = self.projectVC;
+    ProductTableViewController *productVC = self.productVC;
+    TeamListTableViewController *teamVC = self.teamVC;
+    ProcessTableViewController *processVC = self.processVC;
+    FinanceTableViewController *financeVC = self.financeVC;
     NSMutableDictionary *project = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                            @"projectId":[SingletonObject getInstance].pid,
-                                                                            @"projectName":projectVC.projectNameTextField.text,
-                                                                            @"headPictUrl":projectVC.picker.filePath,
-                                                                            @"projectResume":projectVC.projectResumeTextView.text,
-                                                                            @"desc":projectVC.descTextView.text,
-                                                                            @"procStatusCode":projectVC.selectedStatusValue,
-                                                                            @"financeProcCode":projectVC.selectedFinanceValue,
-                                                                            @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
-                                                                            @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
-                                                                            }];
+                                                                                   @"projectId":[SingletonObject getInstance].pid,
+                                                                                   @"projectName":projectVC.projectNameTextField.text,
+                                                                                   @"headPictUrl":projectVC.picker.filePath,
+                                                                                   @"projectResume":projectVC.projectResumeTextView.text,
+                                                                                   @"desc":projectVC.descTextView.text,
+                                                                                   @"procStatusCode":projectVC.selectedStatusValue,
+                                                                                   @"financeProcCode":projectVC.selectedFinanceValue,
+                                                                                   @"area":[projectVC.currentCityButton titleForState:(UIControlStateNormal)],
+                                                                                   @"bizCode":[projectVC.selectedCodeArray componentsJoinedByString:@","]
+                                                                                   }];
     //不能使用图片单例ImageUtil
     ImageUtil *projectImageUtil = [[ImageUtil alloc] init];
     //    多图
@@ -168,15 +200,15 @@
         [project setObject:[projectImageUtil savePicture:@"bpPictUrl" images:projectVC.photoGallery.photos] forKey:@"bpPictUrl"];
     }
     
-
-/*产品信息*/
-//    后端api要求，产品信息与项目基本共用Project对象
+    
+    /*产品信息*/
+    //    后端api要求，产品信息与项目基本共用Project对象
     if (![productVC.procDetailsTextView.text isEqualToString:@""] && productVC.procDetailsTextView.text != nil) {
         [project setObject:productVC.procDetailsTextView.text forKey:@"procDetails"];
     }
     //不能使用图片单例ImageUtil
     ImageUtil *productImageUtil = [[ImageUtil alloc] init];
-//    判断有没有productVC，展示过才有
+    //    判断有没有productVC，展示过才有
     if (productVC != nil) {
         //    多图
         if (productVC.photoGallery.photos.count > 0) {
@@ -186,27 +218,28 @@
     //Project为首页，必然存在
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:[StringUtil dictToJson:project] forKey:@"Project"];
-//    判断有没有teamVC，展示过才有
+    //    判断有没有teamVC，展示过才有
     if (teamVC != nil) {
         [param setObject:[StringUtil dictToJson:teamVC.dataArray] forKey:@"Team"];
     }
-//    判断有没有processVC，展示过才有
+    //    判断有没有processVC，展示过才有
     if (processVC != nil) {
         [param setObject:[StringUtil dictToJson:processVC.dataArray] forKey:@"Process"];
     }
-//    判断有没有financeVC，展示过才有
+    //    判断有没有financeVC，展示过才有
     if (financeVC != nil) {
         [param setObject:[StringUtil dictToJson:financeVC.dataArray] forKey:@"Finance"];
     }
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"project/prefectProject"];
+    [SVProgressHUD showWithStatus:@"处理中请稍候"];
     [manager POST:urlstr parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        针对保存草稿时不传递数据
+        //        针对保存草稿时不传递数据
         if (projectVC.picker.filePath) {
             [formData appendPartWithFileData:UIImageJPEGRepresentation(projectVC.picker.imageOriginal,0.8) name:@"headPictUrl" fileName:projectVC.picker.filename mimeType:@"image/jpeg"];
         }
-//        图片名称加了前缀，不然会冲突覆盖
-//        bp
+        //        图片名称加了前缀，不然会冲突覆盖
+        //        bp
         //        多图
         if (projectVC.photoGallery.photos.count > 0) {
             for (int i = 0; i < projectVC.photoGallery.photos.count; i++) {
@@ -214,17 +247,20 @@
                 [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"bpPictUrl_%zi",i] fileName:projectImageUtil.filenames[i] mimeType:@"image/jpeg"];
             }
         }
-//        产品
+        //        产品
         //        多图
-        if (productVC.photoGallery.photos.count > 0) {
-            for (int i = 0; i < productVC.photoGallery.photos.count; i++) {
-                UIImage *image = productVC.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"procShows_%zi",i] fileName:productImageUtil.filenames[i] mimeType:@"image/jpeg"];
+        if (productVC != nil) {
+            if (productVC.photoGallery.photos.count > 0) {
+                for (int i = 0; i < productVC.photoGallery.photos.count; i++) {
+                    UIImage *image = productVC.photoGallery.photos[i];
+                    [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"procShows_%zi",i] fileName:productImageUtil.filenames[i] mimeType:@"image/jpeg"];
+                }
             }
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //            NSLog(@"responseObject:%@",responseObject);
+        [SVProgressHUD dismiss];
         if ([responseObject[@"success"] boolValue]) {
             [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
             [self.navigationController popViewControllerAnimated:YES];
@@ -235,6 +271,5 @@
         NSLog(@"%@",error);
         [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
-    
 }
 @end
