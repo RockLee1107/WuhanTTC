@@ -19,4 +19,6 @@
 @property (nonatomic,weak) IBOutlet UILabel *planDateLabel;
 /**城市*/
 @property (nonatomic,weak) IBOutlet UILabel *cityLabel;
+/**活动类型*/
+@property (nonatomic,weak) IBOutlet UILabel *typeLabel;
 @end

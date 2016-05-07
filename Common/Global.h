@@ -14,6 +14,7 @@
 
 /*dev db*/
 #define HOST_URL @"http://120.25.76.149:8080/ttc_web"
+//#define HOST_URL @"http://192.168.1.106:8080/ttc_web"
 #define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
 #define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
 
@@ -43,6 +44,9 @@
 #define BOOK_TYPE_COLOR @{@"DOC":DOC_COLOR,@"PPT":PPT_COLOR,@"VIDEO":VIDEO_COLOR}
 #define BOOK_TYPE_TEXT @{@"DOC":@"图文",@"PPT":@"PPT",@"VIDEO":@"视频"}
 
+#define ACTIVITY_STATUS_ON_COLOR [UIColor colorWithRed:104/255.0 green:191/255.0 blue:54/255.0 alpha:1.0]
+#define ACTIVITY_STATUS_OVER_COLOR [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0]
+#define ACTIVITY_STATUS_FULL_COLOR [UIColor colorWithRed:238/255.0 green:48/255.0 blue:0/255.0 alpha:1.0]
 #define ACTIVITY_STATUS_ARRAY @[@"报名中",@"已满",@"已结束"]
 #define USER_IDENTITY_DICT @{@"INVESTOR":@"投资者",@"CREATOR":@"创业者"}
 //图集尺寸

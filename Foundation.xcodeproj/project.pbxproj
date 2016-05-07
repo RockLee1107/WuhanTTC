@@ -30,6 +30,7 @@
 		1F9F92D61CDCC34F0084ED2A /* menu_report@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C11CDCC34F0084ED2A /* menu_report@2x.png */; };
 		1F9F92D71CDCC34F0084ED2A /* menu_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C21CDCC34F0084ED2A /* menu_share@2x.png */; };
 		1F9F92D81CDCC34F0084ED2A /* menu_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */; };
+		1F9F92DB1CDCD6E70084ED2A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */; };
 		F70B01A21C7232FC00D46D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A11C7232FC00D46D79 /* main.m */; };
 		F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A41C7232FC00D46D79 /* AppDelegate.m */; };
 		F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AC1C7232FC00D46D79 /* Images.xcassets */; };
@@ -435,6 +436,8 @@
 		1F9F92C11CDCC34F0084ED2A /* menu_report@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_report@2x.png"; sourceTree = "<group>"; };
 		1F9F92C21CDCC34F0084ED2A /* menu_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_share@2x.png"; sourceTree = "<group>"; };
 		1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_top@2x.png"; sourceTree = "<group>"; };
+		1F9F92D91CDCD6E70084ED2A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		F70B019C1C7232FC00D46D79 /* Foundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70B01A01C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F70B01A11C7232FC00D46D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1452,6 +1455,8 @@
 				F7EB9B931CAB5AE5005343AC /* SettingsTableViewController.m */,
 				FD3D59FB1CB2A19700B9514D /* modifyViewController.h */,
 				FD3D59FC1CB2A19700B9514D /* modifyViewController.m */,
+				1F9F92D91CDCD6E70084ED2A /* AboutViewController.h */,
+				1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -2655,6 +2660,7 @@
 				FDF3FE361CA81F52007B7C83 /* MyActivityPageController.m in Sources */,
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
+				1F9F92DB1CDCD6E70084ED2A /* AboutViewController.m in Sources */,
 				FD4CD7C51CCCFF2200659D9D /* MyCollectBySpecialTableViewController.m in Sources */,
 				FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */,
 				FD4E51531CC118FE00061830 /* AJPhotoListView.m in Sources */,

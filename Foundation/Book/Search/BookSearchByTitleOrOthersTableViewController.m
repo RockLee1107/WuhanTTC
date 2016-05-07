@@ -67,9 +67,14 @@
     if (self.specialCode) {
         [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
     }
+    
+    if ([[User getInstance] isLogin]) {
+        //管理员判断
+        [dict setObject:[[User getInstance].isAdmin stringValue] forKey:@"SEQ_isAdmin"];
+    }
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service POST:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零

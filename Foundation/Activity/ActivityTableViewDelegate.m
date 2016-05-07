@@ -10,6 +10,7 @@
 #import "ActivityTableViewCell.h"
 #import "ActivityDetailViewController.h"
 #import "MyActivityTableViewController.h"
+#import "DateUtil.h"
 
 @implementation ActivityTableViewDelegate
 #pragma mark - tb代理方法
@@ -26,8 +27,30 @@
     cell.pictUrlImageView.clipsToBounds = YES;
     /**标题*/
     cell.activityTitleLabel.text = [StringUtil toString:object[@"activityTitle"]];
-    /**状态*/
-    cell.statusLabel.text = ACTIVITY_STATUS_ARRAY[[object[@"status"] integerValue]];
+    
+    cell.typeLabel.text = [StringUtil toString:object[@"type"]];
+  
+    //状态判断
+    //如果报名人数未满，且报名时间未截止，显示报名中
+    if([object[@"applyNum"] integerValue] < [object[@"planJoinNum"] integerValue]
+        && [DateUtil isDestDateInFuture:[[StringUtil toString:object[@"endDate"]] stringByAppendingString:[StringUtil toString:object[@"endTime"]]]]){
+        /**状态*/
+        cell.statusLabel.text = @"报名中";
+        cell.statusLabel.backgroundColor = ACTIVITY_STATUS_ON_COLOR;
+    }
+    //如果报名人数已满，且报名时间未截止，显示已满
+    else if([object[@"applyNum"] integerValue] == [object[@"planJoinNum"] integerValue]
+            && [DateUtil isDestDateInFuture:[[StringUtil toString:object[@"endDate"]] stringByAppendingString:[StringUtil toString:object[@"endTime"]]]]){
+        /**状态*/
+        cell.statusLabel.text = @"已满";
+        cell.statusLabel.backgroundColor = ACTIVITY_STATUS_FULL_COLOR;
+    }
+    else{
+        cell.statusLabel.text = @"已结束";
+        cell.statusLabel.backgroundColor = ACTIVITY_STATUS_OVER_COLOR;
+    }
+    
+
     /**开始时间*/
     cell.planDateLabel.text = [DateUtil toShortDate:object[@"planDate"]];
     /**城市*/

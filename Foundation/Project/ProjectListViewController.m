@@ -28,6 +28,7 @@
 @property (nonatomic,strong) NSString *orderBy;
 @property (nonatomic,strong) NSString *city;
 @property (nonatomic,strong) NSString *bizCode;
+
 @end
 
 @implementation ProjectListViewController
@@ -39,6 +40,8 @@
     [self initSearchConditionView];
     [self addRightItem];
     self.bizCode = @"all";
+    self.orderBy = @"pbDate";
+  
 }
 
 //上拉下拉控件
@@ -92,6 +95,18 @@
         [dict setObject:self.bizCode forKey:@"SIN_bizCode"];
         
     }
+    
+
+    if ([[User getInstance] isLogin]) {
+        [dict setObject:[User getInstance].uid forKey:@"SEQ_curUserId"];
+        
+    }
+    
+    //默认查询已发布的项目
+    [dict setObject:@"2" forKey:@"IEQ_bizStatus"];
+    
+    
+    
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {

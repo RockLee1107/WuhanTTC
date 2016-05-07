@@ -45,6 +45,7 @@
     [self performSelector:@selector(hideNaviBar) withObject:nil afterDelay:0.025];
     self.categoryCode = @"all";
     self.bookType = @"all";
+    self.orderBy = @"pbDate";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
