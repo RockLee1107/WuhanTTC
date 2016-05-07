@@ -8,6 +8,7 @@
 
 #import "InvestorDetailTableViewController.h"
 #import "ShouldPostProjectTableViewController.h"
+#import "LXButton.h"
 
 @interface InvestorDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pictUrlImageView;
