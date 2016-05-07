@@ -56,9 +56,7 @@
                                   @"processDate":[DateUtil dateToDatePart:self.processDate],
                                   @"projectId":self.pid
                                   };
-    [self.dataMutableArray addObject:financeDict];
-    //    数据源传回
-    self.parentVC.dataArray = self.dataMutableArray;
+    [self.parentVC.dataArray addObject:financeDict];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

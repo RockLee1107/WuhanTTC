@@ -68,7 +68,7 @@
 - (void)addButtonPress:(UIButton *)sender {
     ProcessCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"process"];
     //    传数组过去，待传回，然后提交服务器
-    vc.dataMutableArray = self.dataArray;
+//    vc.dataMutableArray = self.dataArray;
     //pid传递
     vc.pid = self.pid;
     //vc传递
@@ -83,7 +83,9 @@
                                                                     }],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"process/queryProcessList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject;
+//        self.dataArray = responseObject;
+        [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
     } noResult:nil];
 }

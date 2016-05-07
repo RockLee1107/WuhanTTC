@@ -67,7 +67,7 @@
 - (void)addButtonPress:(UIButton *)sender {
     FinanceCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"finance"];
 //    传数组过去，待传回，然后提交服务器
-    vc.dataMutableArray = self.dataArray;
+//    vc.mArray = self.dataArray;
     //pid传递
     vc.pid = self.pid;
     //vc传递
@@ -82,7 +82,9 @@
                                                                     }],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"finance/queryFinanceList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject;
+//        self.dataArray = responseObject;
+        [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
     } noResult:nil];
 }

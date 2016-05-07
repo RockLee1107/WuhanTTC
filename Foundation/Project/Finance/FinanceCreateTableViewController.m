@@ -86,6 +86,10 @@
         [SVProgressHUD showErrorWithStatus:@"请填写出让股份"];
         return;
     }
+    if ([self.sellSharesTextField.text integerValue] > 100) {
+        [SVProgressHUD showErrorWithStatus:@"出让股份应该是小于100"];
+        return;
+    }
     if (self.financeProcSegmentedControl.selectedSegmentIndex == 1) {
         if (![VerifyUtil hasValue:self.investCompTextView.text]) {
             [SVProgressHUD showErrorWithStatus:@"请填写投资人/投资机构"];
@@ -103,9 +107,9 @@
                                   @"projectId":self.pid,
                                   @"sellShares":self.sellSharesTextField.text
                                   };
-    [self.dataMutableArray addObject:financeDict];
+    [self.parentVC.dataArray addObject:financeDict];
 //    数据源传回
-    self.parentVC.dataArray = self.dataMutableArray;
+//    self.parentVC.dataArray = self.mArray;
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -12,4 +12,5 @@
 @interface FinanceCreateTableViewController : BaseStaticTableViewController
 @property (strong,nonatomic) NSString *pid;
 @property (strong,nonatomic) FinanceTableViewController *parentVC;
+
 @end
