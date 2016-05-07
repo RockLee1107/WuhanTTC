@@ -7,8 +7,8 @@
 //
 
 #import "Global.h"
-#import "LXPageController.h"
+#import "BasePageController.h"
 
-@interface MySubjectPageController : LXPageController
+@interface MySubjectPageController : BasePageController
 
 @end

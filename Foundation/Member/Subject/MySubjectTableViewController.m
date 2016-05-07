@@ -99,7 +99,7 @@
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
+/**暂时不需要删帖功能
 //可编辑-包括左滑删除
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!self.userId) {
@@ -125,4 +125,5 @@
         } noResult:nil];
     }
 }
+*/
 @end

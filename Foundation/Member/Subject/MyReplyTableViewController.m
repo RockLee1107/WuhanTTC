@@ -98,7 +98,7 @@
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
+/**暂时不需要删帖功能
 //单元格删除
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
@@ -115,4 +115,5 @@
         } noResult:nil];
     }
 }
+*/
 @end
