@@ -8,7 +8,6 @@
 
 #import "FinanceCreateTableViewController.h"
 #import "EMTextView.h"
-#import "LXButton.h"
 #import "ActionSheetStringPicker.h"
 #import "ActionSheetDatePicker.h"
 #import "StatusDict.h"
@@ -31,7 +30,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *sellSharesTextField;
 //投资人/投资机构
 @property (weak, nonatomic) IBOutlet EMTextView *investCompTextView;
-@property (weak, nonatomic) IBOutlet LXButton *cancelButton;
 
 @end
 
@@ -41,8 +39,7 @@
     [super viewDidLoad];
 //    初始化日期
     self.financeTime = [NSDate date];
-//    取消按钮样式
-    self.cancelButton.backgroundColor = [UIColor lightGrayColor];
+    [self.financeTimeButton setTitle:[DateUtil dateToString:self.financeTime] forState:(UIControlStateNormal)];
 }
 
 //选择融资阶段
@@ -65,7 +62,8 @@
 
 ///选择开始日期
 - (IBAction)selectFinanceTime:(id)sender {
-    AbstractActionSheetPicker *actionSheetPicker;actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"选择开始时间" datePickerMode:UIDatePickerModeDate selectedDate:self.financeTime minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
+    AbstractActionSheetPicker *actionSheetPicker;
+    actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"选择融资时间" datePickerMode:UIDatePickerModeDate selectedDate:self.financeTime minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
     [actionSheetPicker showActionSheetPicker];
 }
 
@@ -76,12 +74,31 @@
 }
 
 - (IBAction)submit:(id)sender {
+    if (![VerifyUtil hasValue:self.selectedFinanceValue]) {
+        [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.financeAmountTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写融资金额"];
+        return;
+    }
+    if (![VerifyUtil hasValue:self.sellSharesTextField.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写出让股份"];
+        return;
+    }
+    if (self.financeProcSegmentedControl.selectedSegmentIndex == 1) {
+        if (![VerifyUtil hasValue:self.investCompTextView.text]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写投资人/投资机构"];
+            return;
+        }
+    }
+    
     NSDictionary *financeDict = @{
                                   @"financeAmount":self.financeAmountTextField.text,
                                   @"financeProc":[NSNumber numberWithInteger:self.financeProcSegmentedControl.selectedSegmentIndex],
                                   @"financeProcCode":self.selectedFinanceValue,
                                   @"financeTime":[DateUtil dateToDatePart:self.financeTime],
-                                  @"investComp":self.investCompTextView.text,
+                                  @"investComp": ![VerifyUtil hasValue:self.investCompTextView.text] ? @"" : self.investCompTextView.text,
                                   @"moneyType":[NSNumber numberWithInteger:self.moneyTypeSegmentedControl.selectedSegmentIndex],
                                   @"projectId":self.pid,
                                   @"sellShares":self.sellSharesTextField.text
@@ -92,7 +109,4 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)cancel:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
 @end

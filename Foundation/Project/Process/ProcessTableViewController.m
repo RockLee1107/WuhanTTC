@@ -8,8 +8,12 @@
 
 #import "ProcessTableViewController.h"
 #import "ProcessTableViewCell.h"
+#import "StatusDict.h"
+#import "Masonry.h"
+#import "ProcessCreateTableViewController.h"
 
-@interface ProcessTableViewController ()
+@interface ProcessTableViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic,strong) UITableView *tableView;
 
 @end
 
@@ -17,11 +21,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    self.tableView = [[UITableView alloc] init];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    //管理页面
+    NSDictionary *param = @{
+                            @"projectId":self.pid
+                            };
+    [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.dataDict = responseObject;
+        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid]) {
+            //            创建者
+            //        tb下移
+            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_top).offset(40);
+            }];
+            //        添加按钮
+            UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
+            [self.view addSubview:addButton];
+            [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self.view.mas_right).offset(-20);
+                make.top.equalTo(self.view.mas_top).offset(20);
+                make.width.mas_equalTo(40);
+                make.height.mas_equalTo(40);
+            }];
+            [addButton addTarget:self action:@selector(addButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
+            
+        }
+    } noResult:nil];
     [self fetchData];
 }
 
+//返回即刷新数据，将本VC的dataArray传给添加页面
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+//按钮点击
+- (void)addButtonPress:(UIButton *)sender {
+    ProcessCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"process"];
+    //    传数组过去，待传回，然后提交服务器
+    vc.dataMutableArray = self.dataArray;
+    //pid传递
+    vc.pid = self.pid;
+    //vc传递
+    vc.parentVC = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+//访问网络
 - (void)fetchData {
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{
                                                                     @"SEQ_projectId":self.pid

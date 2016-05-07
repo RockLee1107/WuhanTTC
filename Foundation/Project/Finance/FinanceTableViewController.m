@@ -14,7 +14,6 @@
 
 @interface FinanceTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
-//@property (nonatomic,strong) UIButton *addButton;
 @end
 
 @implementation FinanceTableViewController
@@ -39,11 +38,11 @@
 //            创建者
             //        tb下移
             [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view.mas_top).offset(80);
+                make.top.equalTo(self.view.mas_top).offset(40);
             }];
             //        添加按钮
             UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-            [addButton setImage:[UIImage imageNamed:@"menu_add_comment"] forState:(UIControlStateNormal)];
+            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
             [self.view addSubview:addButton];
             [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.right.equalTo(self.view.mas_right).offset(-20);
@@ -62,7 +61,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-    NSLog(@"dataArray:%@",self.dataArray);
 }
 
 //按钮点击

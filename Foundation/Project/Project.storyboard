@@ -595,6 +595,7 @@
                     <connections>
                         <segue destination="911-hu-pXi" kind="show" identifier="product" id="qBd-jt-vso"/>
                         <segue destination="Wtm-gF-t0j" kind="show" identifier="finance" id="2mu-9y-dLf"/>
+                        <segue destination="2h8-V5-sYr" kind="show" identifier="process" id="fzp-b4-Yfy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECI-a8-JYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -973,7 +974,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入产品功能(3-1000字)"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请填写投资人/投资机构"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </textView>
                                             </subviews>
@@ -1004,22 +1005,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVU-W0-jGC" customClass="LXButton">
-                                                    <rect key="frame" x="172" y="21" width="129" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="tVU-W0-jGC" secondAttribute="height" multiplier="43:10" id="EwG-UY-sIT"/>
-                                                        <constraint firstAttribute="width" constant="129" id="Ofg-gY-606"/>
-                                                    </constraints>
-                                                    <state key="normal" title="取消"/>
-                                                    <connections>
-                                                        <action selector="cancel:" destination="Wtm-gF-t0j" eventType="touchUpInside" id="s93-MK-6Bu"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhA-aH-Agv" customClass="LXButton">
-                                                    <rect key="frame" x="17" y="21" width="129" height="30"/>
+                                                    <rect key="frame" x="8" y="18" width="304" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="129" id="dHy-4S-ADG"/>
-                                                        <constraint firstAttribute="width" secondItem="mhA-aH-Agv" secondAttribute="height" multiplier="43:10" id="pDL-Md-3YX"/>
+                                                        <constraint firstAttribute="height" constant="35" id="pdv-tB-LF5"/>
                                                     </constraints>
                                                     <state key="normal" title="确认"/>
                                                     <connections>
@@ -1028,10 +1017,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mhA-aH-Agv" firstAttribute="centerY" secondItem="xfp-xL-aMK" secondAttribute="centerY" id="08h-DY-Evt"/>
-                                                <constraint firstItem="tVU-W0-jGC" firstAttribute="centerY" secondItem="xfp-xL-aMK" secondAttribute="centerY" id="MXq-xc-uHq"/>
-                                                <constraint firstItem="mhA-aH-Agv" firstAttribute="leading" secondItem="xfp-xL-aMK" secondAttribute="leadingMargin" constant="9" id="Nvw-42-NWa"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="tVU-W0-jGC" secondAttribute="trailing" constant="11" id="w0J-mV-65Y"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mhA-aH-Agv" secondAttribute="trailing" id="Ixg-vy-AfW"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="mhA-aH-Agv" secondAttribute="leading" id="R7k-rd-5td"/>
+                                                <constraint firstItem="mhA-aH-Agv" firstAttribute="centerY" secondItem="xfp-xL-aMK" secondAttribute="centerY" id="fdL-9s-X1d"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1047,7 +1035,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="cancelButton" destination="tVU-W0-jGC" id="u0s-LQ-Pde"/>
                         <outlet property="financeAmountTextField" destination="rDF-wO-cav" id="oUN-yH-ZC0"/>
                         <outlet property="financeButton" destination="6k3-n9-Mf5" id="43y-f2-fmj"/>
                         <outlet property="financeProcSegmentedControl" destination="Cm1-0a-Uwv" id="w6F-Fv-csv"/>
@@ -1496,6 +1483,143 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KyW-dA-oZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2065" y="1557"/>
+        </scene>
+        <!--添加进度信息-->
+        <scene sceneID="ZIp-f5-mV0">
+            <objects>
+                <tableViewController storyboardIdentifier="process" id="2h8-V5-sYr" customClass="ProcessCreateTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="5OM-aF-oMB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <sections>
+                            <tableViewSection id="09A-7m-vat">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="zRp-JD-ED9">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zRp-JD-ED9" id="D5N-ca-scA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXe-Td-tjM" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="12" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="5oQ-Xi-5d6"/>
+                                                        <constraint firstAttribute="width" constant="90" id="suR-b2-NJ2"/>
+                                                    </constraints>
+                                                    <state key="normal" title="进度日期">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sm5-Nk-HFP">
+                                                    <rect key="frame" x="121" y="7" width="184" height="30"/>
+                                                    <state key="normal" title="请选择"/>
+                                                    <connections>
+                                                        <action selector="selectProcessDate:" destination="2h8-V5-sYr" eventType="touchUpInside" id="oaG-Gu-BJi"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sm5-Nk-HFP" firstAttribute="leading" secondItem="xXe-Td-tjM" secondAttribute="trailing" constant="18" id="7SD-XD-bMh"/>
+                                                <constraint firstItem="xXe-Td-tjM" firstAttribute="top" secondItem="D5N-ca-scA" secondAttribute="topMargin" constant="4" id="Hc6-GI-NOS"/>
+                                                <constraint firstItem="sm5-Nk-HFP" firstAttribute="centerY" secondItem="D5N-ca-scA" secondAttribute="centerY" id="QGY-Wx-8OL"/>
+                                                <constraint firstItem="xXe-Td-tjM" firstAttribute="leading" secondItem="D5N-ca-scA" secondAttribute="leadingMargin" constant="5" id="Qn4-Zd-eg8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sm5-Nk-HFP" secondAttribute="trailing" constant="7" id="rZO-w7-vF6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="Xc6-dZ-sLR">
+                                        <rect key="frame" x="0.0" y="143" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xc6-dZ-sLR" id="Eg0-gQ-frv">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fp-zd-tkr" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="15" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Nf4-Iz-G0i"/>
+                                                        <constraint firstAttribute="width" constant="90" id="n08-wr-yXM"/>
+                                                    </constraints>
+                                                    <state key="normal" title="进度描述">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Vb-Go-ypj" customClass="EMTextView">
+                                                    <rect key="frame" x="8" y="43" width="304" height="56"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入填写重要事件或重大进展(50字以内)"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1fp-zd-tkr" firstAttribute="top" secondItem="Eg0-gQ-frv" secondAttribute="topMargin" constant="7" id="0Vp-yy-IoO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6Vb-Go-ypj" secondAttribute="trailing" id="Eqa-lu-7V9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Vb-Go-ypj" secondAttribute="bottom" id="WRu-Kw-83s"/>
+                                                <constraint firstItem="1fp-zd-tkr" firstAttribute="leading" secondItem="Eg0-gQ-frv" secondAttribute="leadingMargin" constant="5" id="gPY-RB-FCi"/>
+                                                <constraint firstItem="1fp-zd-tkr" firstAttribute="centerY" secondItem="Eg0-gQ-frv" secondAttribute="centerY" id="q2q-nW-yXx"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="6Vb-Go-ypj" secondAttribute="leading" id="upU-sK-C5g"/>
+                                                <constraint firstItem="6Vb-Go-ypj" firstAttribute="top" secondItem="1fp-zd-tkr" secondAttribute="bottom" constant="8" id="vuK-pp-t9P"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="q2q-nW-yXx"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="4Jv-N9-TXt">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="73" id="nmK-Lw-eM0">
+                                        <rect key="frame" x="0.0" y="287" width="320" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nmK-Lw-eM0" id="xwk-81-Jy0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUb-9J-fjJ" customClass="LXButton">
+                                                    <rect key="frame" x="8" y="18" width="304" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="RUt-3P-ivt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="确认"/>
+                                                    <connections>
+                                                        <action selector="submit:" destination="2h8-V5-sYr" eventType="touchUpInside" id="kPW-ha-mGf"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="lUb-9J-fjJ" secondAttribute="leading" id="52N-vw-D2A"/>
+                                                <constraint firstItem="lUb-9J-fjJ" firstAttribute="centerY" secondItem="xwk-81-Jy0" secondAttribute="centerY" id="hIC-2f-X4d"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lUb-9J-fjJ" secondAttribute="trailing" id="hiJ-Sm-jBn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="2h8-V5-sYr" id="5dX-7g-PFf"/>
+                            <outlet property="delegate" destination="2h8-V5-sYr" id="g7x-kF-zKN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="添加进度信息" id="38w-aJ-bvj"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="descTextView" destination="6Vb-Go-ypj" id="BWr-7I-4vC"/>
+                        <outlet property="processDateButton" destination="sm5-Nk-HFP" id="nmK-s1-s6Y"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ds3-Ez-olc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2427" y="1440"/>
         </scene>
     </scenes>
     <resources>
