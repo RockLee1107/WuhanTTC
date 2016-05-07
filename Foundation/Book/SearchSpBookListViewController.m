@@ -141,8 +141,14 @@
 {
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_contribute" callBack:^(NSUInteger index, id info) {
-        ContributeTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"contribute"];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[User getInstance] isLogin]) {
+            ContributeTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"contribute"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+        
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页

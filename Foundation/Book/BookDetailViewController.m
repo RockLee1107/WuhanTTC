@@ -185,44 +185,56 @@
         [weakSelf.navigationController pushViewController:commentVC animated:YES];
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
-        [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
-                                      type:EYInputPopupView_Type_multi_line
-                               cancelBlock:^{
-                                   
-                               } confirmBlock:^(UIView *view, NSString *text) {
-                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
-                                       [SVProgressHUD showErrorWithStatus:@"请评论回复内容(1-500字)"];
-                                       return ;
+        if ([[User getInstance] isLogin]) {
+            [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
+                                          type:EYInputPopupView_Type_multi_line
+                                   cancelBlock:^{
+                                       
+                                   } confirmBlock:^(UIView *view, NSString *text) {
+                                       if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                           [SVProgressHUD showErrorWithStatus:@"请评论回复内容(1-500字)"];
+                                           return ;
+                                       }
+                                       NSDictionary *param = @{
+                                                               @"BookComment":[StringUtil dictToJson:@{
+                                                                                                       @"bookId":self.bookId,
+                                                                                                       @"userId":[User getInstance].uid,
+                                                                                                       @"comment":text,
+                                                                                                       }]
+                                                               };
+                                       [self.service POST:@"book/comment/addComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+                                       } noResult:nil];
+                                   } dismissBlock:^{
+                                       
                                    }
-                                   NSDictionary *param = @{
-                                                           @"BookComment":[StringUtil dictToJson:@{
-                                                                                                  @"bookId":self.bookId,
-                                                                                                  @"userId":[User getInstance].uid,
-                                                                                                  @"comment":text,
-                                                                                                  }]
-                                                           };
-                                   [self.service POST:@"book/comment/addComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [SVProgressHUD showSuccessWithStatus:@"评论成功"];
-                                   } noResult:nil];
-                               } dismissBlock:^{
-                                   
-                               }
-         ];
+             ];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+       
     }];
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"app_collect" callBack:^(NSUInteger index, id info) {
-        //        访问网络
-        NSDictionary *param = @{
-                                @"Collect":[StringUtil dictToJson:@{
+        if ([[User getInstance] isLogin]) {
+            //        访问网络
+            NSDictionary *param = @{
+                                    @"Collect":[StringUtil dictToJson:@{
                                                                         @"bookId":self.bookId,
                                                                         @"userId":[User getInstance].uid,
                                                                         @"specialType":self.dataDict[@"specialCode"],
                                                                         @"bookType":self.dataDict[@"bookType"],
                                                                         @"isAttention":@1
                                                                         }]
-                                };
-        [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-        } noResult:nil];
+                                    };
+            [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+            } noResult:nil];        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+
+        
     }];
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"分享" iconName:@"menu_share" callBack:^(NSUInteger index, id info) {
 //        请求网络获取副标题摘要
@@ -239,12 +251,18 @@
         } noResult:nil];
     }];
     DTKDropdownItem *item4 = [DTKDropdownItem itemWithTitle:@"文献发布" iconName:@"menu_pub" callBack:^(NSUInteger index, id info) {
-        NSDictionary *param = @{
-                                @"bookId":self.bookId
-                            };
-        [self.service POST:@"book/appPublish" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"发布成功"];
-        } noResult:nil];
+        if ([[User getInstance] isLogin]) {
+            NSDictionary *param = @{
+                                    @"bookId":self.bookId
+                                    };
+            [self.service POST:@"book/appPublish" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+            } noResult:nil];        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+
+        
     }];
     NSMutableArray *array = [NSMutableArray array];
     [array addObject:item0];

@@ -11,6 +11,7 @@
 #import "DTKDropdownMenuView.h"
 #import "MyActivityPageController.h"
 #import "StatusDict.h"
+#import "LoginViewController.h"
 
 @interface ActivityListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -114,11 +115,23 @@
 {
     __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的活动" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
-        MyActivityPageController *vc = [[MyActivityPageController alloc] init];
-        [weakSelf.navigationController pushViewController:vc animated:YES];
-    }];
+         if ([[User getInstance] isLogin]) {
+             MyActivityPageController *vc = [[MyActivityPageController alloc] init];
+             [weakSelf.navigationController pushViewController:vc animated:YES];
+
+         }else{
+             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+             [self.navigationController presentViewController:vc animated:YES completion:nil];
+         }
+           }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建活动" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
-        [self performSegueWithIdentifier:@"create" sender:nil];
+        if ([[User getInstance] isLogin]) {
+            [self performSegueWithIdentifier:@"create" sender:nil];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+        
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页

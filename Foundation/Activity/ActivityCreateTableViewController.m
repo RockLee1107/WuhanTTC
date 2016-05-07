@@ -383,7 +383,10 @@ typedef enum : NSUInteger {
     }
 //    多图
     if (self.photoGallery.photos.count > 0) {
-        [activity setObject:[[ImageUtil getInstance] savePicture:@"detailPictURL" images:self.photoGallery.photos] forKey:@"detailPictURL"];
+        //不能使用图片单例ImageUtil
+        ImageUtil *activityImageUtil = [[ImageUtil alloc] init];
+        
+        [activity setObject:[self.photoGallery fetchPhoto:@"detailPictURL" imageUtil:activityImageUtil] forKey:@"detailPictURL"];
     }
     if (self.picker.filePath) {
         [activity setObject:self.picker.filePath forKey:@"pictURL"];
