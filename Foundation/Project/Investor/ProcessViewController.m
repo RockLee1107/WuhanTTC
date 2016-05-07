@@ -23,8 +23,8 @@
     self.tagListView.maxCount = 4;
 //    初始
     NSMutableArray *array = [NSMutableArray array];
-    for (NSDictionary *dict in [StatusDict procStatus]) {
-        [array addObject:dict[@"procStatusName"]];
+    for (NSDictionary *dict in [StatusDict financeProc]) {
+        [array addObject:dict[@"financeProcName"]];
     }
     self.tagListView.tags = array;
     //已选
@@ -40,9 +40,9 @@
 //        NSLog(@"______%ld______", (long)index);
         //判断已选状态，是则加入，否则移除
         if ([self.tagListView.selectedTags containsObject:array[index]]) {
-            [self.selectedCodeArray addObject:[StatusDict procStatus][index][@"procStatusCode"]];
+            [self.selectedCodeArray addObject:[StatusDict financeProc][index][@"financeProcCode"]];
         } else {
-            [self.selectedCodeArray removeObject:[StatusDict procStatus][index][@"procStatusCode"]];
+            [self.selectedCodeArray removeObject:[StatusDict financeProc][index][@"financeProcCode"]];
         }
     }];
 }

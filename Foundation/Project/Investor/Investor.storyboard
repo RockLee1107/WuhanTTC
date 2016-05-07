@@ -762,7 +762,7 @@
         <!--选择投资阶段-->
         <scene sceneID="rqV-sD-Yr6">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="G8s-Ek-lwJ" userLabel="选择投资阶段" customClass="ProcessViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="process" automaticallyAdjustsScrollViewInsets="NO" id="G8s-Ek-lwJ" userLabel="选择投资阶段" customClass="ProcessViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3mr-wd-c13"/>
                         <viewControllerLayoutGuide type="bottom" id="vgi-ai-bkW"/>
@@ -804,7 +804,7 @@
         <!--选择投资领域-->
         <scene sceneID="0Dg-nZ-L71">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zPk-re-WDc" customClass="BizViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="biz" automaticallyAdjustsScrollViewInsets="NO" id="zPk-re-WDc" customClass="BizViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x0L-vs-pwl"/>
                         <viewControllerLayoutGuide type="bottom" id="Gsh-OL-Gs2"/>
