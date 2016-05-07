@@ -243,49 +243,67 @@
     //    活动提醒
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"活动提醒" iconName:@"menu_remind" callBack:^(NSUInteger index, id info) {
-        [EYInputPopupView popViewWithTitle:@"活动提醒" contentText:@"请填写活动提醒内容"
-                                      type:EYInputPopupView_Type_multi_line
-                               cancelBlock:^{
-                                   
-                               } confirmBlock:^(UIView *view, NSString *text) {
-                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
-                                       [SVProgressHUD showErrorWithStatus:@"请填写活动提醒内容"];
-                                       return ;
-                                   }
-                                   NSDictionary *param = @{
-                                                           @"activityId":self.activityId,
-                                                           @"userId":[User getInstance].uid,
-                                                           @"content":text
-                                                           };
-                                   [self.service POST:@"activity/activityReminder" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [SVProgressHUD showSuccessWithStatus:@"发送成功"];
-                                   } noResult:nil];
-                               } dismissBlock:^{
-                                   
-                               }
-         ];
+         if ([[User getInstance] isLogin]) {
+             [EYInputPopupView popViewWithTitle:@"活动提醒" contentText:@"请填写活动提醒内容"
+                                           type:EYInputPopupView_Type_multi_line
+                                    cancelBlock:^{
+                                        
+                                    } confirmBlock:^(UIView *view, NSString *text) {
+                                        if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                            [SVProgressHUD showErrorWithStatus:@"请填写活动提醒内容"];
+                                            return ;
+                                        }
+                                        NSDictionary *param = @{
+                                                                @"activityId":self.activityId,
+                                                                @"userId":[User getInstance].uid,
+                                                                @"content":text
+                                                                };
+                                        [self.service POST:@"activity/activityReminder" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                            [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+                                        } noResult:nil];
+                                    } dismissBlock:^{
+                                        
+                                    }
+              ];
+         }else{
+             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+             [self.navigationController presentViewController:vc animated:YES completion:nil];
+         }
+        
     
     }];
     //    活动编辑
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"活动编辑" iconName:@"menu_edit" callBack:^(NSUInteger index, id info) {
-        ActivityCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
-        vc.dataDict = self.dataDict;
-        [self.navigationController pushViewController:vc animated:YES];
+         if ([[User getInstance] isLogin]) {
+             ActivityCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
+             vc.dataDict = self.dataDict;
+             [self.navigationController pushViewController:vc animated:YES];
+         }else{
+             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+             [self.navigationController presentViewController:vc animated:YES completion:nil];
+         }
+        
     }];
 //    关注
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_attention" callBack:^(NSUInteger index, id info) {
-//        访问网络
-        NSDictionary *param = @{
-                                @"Participate":[StringUtil dictToJson:@{
-                                                                        @"activityId":self.activityId,
-                                                                        @"userId":[User getInstance].uid,
-                                                                        @"isAttention":@1
-                                                                        }]
-                                };
-        [self.service GET:@"/activity/activityAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"关注活动成功"];
-        } noResult:nil];
+         if ([[User getInstance] isLogin]) {
+             //        访问网络
+             NSDictionary *param = @{
+                                     @"Participate":[StringUtil dictToJson:@{
+                                                                             @"activityId":self.activityId,
+                                                                             @"userId":[User getInstance].uid,
+                                                                             @"isAttention":@1
+                                                                             }]
+                                     };
+             [self.service GET:@"/activity/activityAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 [SVProgressHUD showSuccessWithStatus:@"关注活动成功"];
+             } noResult:nil];
+         }else{
+             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+             [self.navigationController presentViewController:vc animated:YES completion:nil];
+         }
+
     }];
     
     NSMutableArray *array = [NSMutableArray array];

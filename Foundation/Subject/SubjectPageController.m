@@ -11,6 +11,7 @@
 #import "DTKDropdownMenuView.h"
 #import "SubTabBarController.h"
 #import "PostSubjectTableViewController.h"
+#import "MySubjectPageController.h"
 
 @interface SubjectPageController ()
 
@@ -70,11 +71,26 @@
 {
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的帖子" iconName:@"menu_my_post" callBack:^(NSUInteger index, id info) {
-        [SVProgressHUD showSuccessWithStatus:@"^_^"];
+        if ([[User getInstance] isLogin]) {
+            UIViewController *vc = [[MySubjectPageController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+      
+
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"发帖" iconName:@"menu_add" callBack:^(NSUInteger index, id info) {
-        PostSubjectTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([[User getInstance] isLogin]) {
+            PostSubjectTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+
+       
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
     menuView.cellColor = MENU_COLOR;

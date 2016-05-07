@@ -74,71 +74,107 @@
                             };
     //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *itemBm0 = [DTKDropdownItem itemWithTitle:@"关闭本帖" iconName:@"menu_close_post" callBack:^(NSUInteger index, id info) {
-        [self.service POST:@"book/postSubject/closeSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"帖子关闭成功"];
-        } noResult:nil];
+        if ([[User getInstance] isLogin]) {
+            [self.service POST:@"book/postSubject/closeSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"帖子关闭成功"];
+            } noResult:nil];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+
+        }
+        
     }];
     DTKDropdownItem *itemBm1 = [DTKDropdownItem itemWithTitle:@"置顶" iconName:@"menu_top" callBack:^(NSUInteger index, id info) {
-        [self.service POST:@"book/postSubject/topSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"帖子置顶成功"];
-        } noResult:nil];
+        if ([[User getInstance] isLogin]) {
+            [self.service POST:@"book/postSubject/topSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"帖子置顶成功"];
+            } noResult:nil];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            
+        }
+
+        
     }];
     DTKDropdownItem *itemBm2 = [DTKDropdownItem itemWithTitle:@"加精" iconName:@"menu_essential" callBack:^(NSUInteger index, id info) {
-        [self.service POST:@"book/postSubject/essenceSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"帖子加精成功"];
-        } noResult:nil];
+        if ([[User getInstance] isLogin]) {
+            [self.service POST:@"book/postSubject/essenceSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+            } noResult:nil];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            
+        }
+
+        
     }];
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"举报" iconName:@"menu_report" callBack:^(NSUInteger index, id info) {
-        [EYInputPopupView popViewWithTitle:@"举报帖子" contentText:@"请填写举报内容(1-200字)"
-                                      type:EYInputPopupView_Type_multi_line
-                               cancelBlock:^{
-                                   
-                               } confirmBlock:^(UIView *view, NSString *text) {
-                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
-                                       [SVProgressHUD showErrorWithStatus:@"请举报回复内容(1-200字)"];
-                                       return ;
-                                   }
-                                   NSDictionary *param = @{
-                                                           @"PostReport":[StringUtil dictToJson:@{
-                                                                                                 @"subjectId":self.dict[@"subjectId"],
-                                                                                                 @"userId":[User getInstance].uid,
-                                                                                                 @"remark":text,
-                                                                                                 }]
-                                                           };
-                                   [self.service POST:@"book/postSubject/reportSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [SVProgressHUD showSuccessWithStatus:@"举报成功"];
-                                   } noResult:nil];
-                               } dismissBlock:^{
-                                   
-                               }];
+        if ([[User getInstance] isLogin]) {
+            [EYInputPopupView popViewWithTitle:@"举报帖子" contentText:@"请填写举报内容(1-200字)"
+                                          type:EYInputPopupView_Type_multi_line
+                                   cancelBlock:^{
+                                       
+                                   } confirmBlock:^(UIView *view, NSString *text) {
+                                       if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                           [SVProgressHUD showErrorWithStatus:@"请举报回复内容(1-200字)"];
+                                           return ;
+                                       }
+                                       NSDictionary *param = @{
+                                                               @"PostReport":[StringUtil dictToJson:@{
+                                                                                                      @"subjectId":self.dict[@"subjectId"],
+                                                                                                      @"userId":[User getInstance].uid,
+                                                                                                      @"remark":text,
+                                                                                                      }]
+                                                               };
+                                       [self.service POST:@"book/postSubject/reportSubject" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           [SVProgressHUD showSuccessWithStatus:@"举报成功"];
+                                       } noResult:nil];
+                                   } dismissBlock:^{
+                                       
+                                   }];        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            
+        }
+        
     }];
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"只看楼主" iconName:@"menu_auther" callBack:^(NSUInteger index, id info) {
         [self switchAuthorOrAllPost];
     }];
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"回复" iconName:@"menu_reply" callBack:^(NSUInteger index, id info) {
-        [EYInputPopupView popViewWithTitle:@"回复帖子" contentText:@"请填写回复内容(1-200字)"
-                                      type:EYInputPopupView_Type_multi_line
-                               cancelBlock:^{
-                                   
-                               } confirmBlock:^(UIView *view, NSString *text) {
-                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
-                                       [SVProgressHUD showErrorWithStatus:@"请填写回复内容(1-200字)"];
-                                       return ;
-                                   }
-                                   NSDictionary *param = @{
-                                                           @"PostReply":[StringUtil dictToJson:@{
-                                                                                                 @"subjectId":self.dict[@"subjectId"],
-                                                                                                 @"userId":[User getInstance].uid,
-                                                                                                 @"content":text,
-                                                                                                 }]
-                                                           };
-                                   [self.service POST:@"book/postReply/reply" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [SVProgressHUD showSuccessWithStatus:@"回复成功"];
-                                       [self fetchData];
-                                   } noResult:nil];
-                               } dismissBlock:^{
-                                   
-                               }];
+        if ([[User getInstance] isLogin]) {
+            [EYInputPopupView popViewWithTitle:@"回复帖子" contentText:@"请填写回复内容(1-200字)"
+                                          type:EYInputPopupView_Type_multi_line
+                                   cancelBlock:^{
+                                       
+                                   } confirmBlock:^(UIView *view, NSString *text) {
+                                       if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                           [SVProgressHUD showErrorWithStatus:@"请填写回复内容(1-200字)"];
+                                           return ;
+                                       }
+                                       NSDictionary *param = @{
+                                                               @"PostReply":[StringUtil dictToJson:@{
+                                                                                                     @"subjectId":self.dict[@"subjectId"],
+                                                                                                     @"userId":[User getInstance].uid,
+                                                                                                     @"content":text,
+                                                                                                     }]
+                                                               };
+                                       [self.service POST:@"book/postReply/reply" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           [SVProgressHUD showSuccessWithStatus:@"回复成功"];
+                                           [self fetchData];
+                                       } noResult:nil];
+                                   } dismissBlock:^{
+                                       
+                                   }];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+
+        }
+       
     }];
     NSMutableArray *array = [NSMutableArray array];
     if ([[User getInstance].isBm boolValue]) {
