@@ -16,6 +16,10 @@
 
 @interface TeamListTableViewController ()<UITableViewDelegate,UITableViewDataSource,FriendsListViewControllerDelegate>
 @property (nonatomic,strong) UITableView *tableView;
+@property (strong,nonatomic) NSString *userId;
+@property (strong,nonatomic) NSString *realname;
+@property (strong,nonatomic) NSString *pictUrl;
+@property (strong,nonatomic) UITextField *dutyTextField;
 
 @end
 
@@ -68,7 +72,11 @@
 }
 
 //点击创友录回调
-- (UIViewController *)friendDidSelect:(NSString *)userId realname:(NSString *)realname company:(NSString *)company duty:(NSString *)duty {
+- (UIViewController *)friendDidSelect:(NSString *)userId realname:(NSString *)realname company:(NSString *)company duty:(NSString *)duty pictUrl:(NSString *)pictUrl {
+//    将userId等存到成员变量
+    self.userId = userId;
+    self.realname = realname;
+    self.pictUrl = pictUrl;
     //        弹窗完善资料
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.8, 3 * 50 + 100)];
     view.layer.cornerRadius = 4.0;
@@ -128,7 +136,8 @@
         make.right.equalTo(view.mas_right).offset(-20);
         make.centerY.equalTo(dutyCaption.mas_centerY);
     }];
-    
+//    成员变量指向dutyTextField
+    self.dutyTextField = dutyTextField;
 //    确认取消按钮
     LXButton *confirmButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
     [confirmButton setTitle:@"确定" forState:(UIControlStateNormal)];
@@ -157,7 +166,20 @@
 
 //弹窗提交按钮
 - (void)confirmButtonPress:(UIButton *)sender {
-    
+    if ([self.dataDict[@"duty"] isEqualToString:@""] ) {
+        [SVProgressHUD showErrorWithStatus:@"请输入职务"];
+    } else {
+        [[KGModal sharedInstance] hide];
+        NSDictionary *teamDict = @{
+                          @"duty": self.dutyTextField.text,
+                          @"realName": self.realname,
+                          @"parterId": self.userId,
+                          @"projectId": self.pid,
+                          @"pictUrl": self.pictUrl
+                          };
+        [self.dataArray addObject:teamDict];
+        [self.tableView reloadData];
+    }
 }
 
 //弹窗取消按钮
@@ -171,7 +193,8 @@
                                                                     }],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"team/queryTeamList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataArray = responseObject;
+        [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
     } noResult:nil];
 }

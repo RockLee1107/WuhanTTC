@@ -106,7 +106,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row];
     if (self.selectDelegate != nil) {
-        UIViewController *vc = [self.selectDelegate friendDidSelect:dict[@"friendId"] realname:dict[@"realName"] company:dict[@"company"] duty:dict[@"duty"]];
+        UIViewController *vc = [self.selectDelegate friendDidSelect:dict[@"friendId"] realname:dict[@"realName"] company:dict[@"company"] duty:dict[@"duty"] pictUrl:dict[@"pictUrl"]];
         [vc.navigationController popViewControllerAnimated:YES];
         return;
     }
