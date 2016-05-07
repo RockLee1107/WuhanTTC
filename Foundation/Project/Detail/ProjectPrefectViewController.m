@@ -183,11 +183,6 @@
             [project setObject:[productImageUtil savePicture:@"procShows" images:productVC.photoGallery.photos] forKey:@"procShows"];
         }
     }
-//    json化
-//    NSDictionary *team = @{
-//                           @"parterId":[User getInstance].uid,
-//                           @"duty":@"创始人"
-//                           };
     //Project为首页，必然存在
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setObject:[StringUtil dictToJson:project] forKey:@"Project"];

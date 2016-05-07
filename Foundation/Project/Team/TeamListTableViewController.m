@@ -166,8 +166,11 @@
 
 //弹窗提交按钮
 - (void)confirmButtonPress:(UIButton *)sender {
-    if ([self.dataDict[@"duty"] isEqualToString:@""] ) {
+    if ([self.dutyTextField.text isEqualToString:@""] ) {
         [SVProgressHUD showErrorWithStatus:@"请输入职务"];
+    } else if ([self isExsitUser:self.userId]){
+        [SVProgressHUD showErrorWithStatus:@"请不要重复添加团队成员哦"];
+        [[KGModal sharedInstance] hide];
     } else {
         [[KGModal sharedInstance] hide];
         NSDictionary *teamDict = @{
@@ -180,6 +183,16 @@
         [self.dataArray addObject:teamDict];
         [self.tableView reloadData];
     }
+}
+
+///判断是否存在团队成员
+- (BOOL)isExsitUser:(NSString *)uid {
+    for (NSDictionary *user in self.dataArray) {
+        if ([user[@"parterId"] isEqualToString:uid]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 //弹窗取消按钮
