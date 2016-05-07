@@ -18,6 +18,7 @@
 #import "Global.h"
 #import "ProjectPrefectViewController.h"
 #import "ImageBrowserViewController.h"
+#import "EYInputPopupView.h"
 
 @interface ProjectDetailViewController ()
 @end
@@ -109,7 +110,31 @@
     }];
 //    成员或投资人身份
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"评析" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
-        //        [self performSegueWithIdentifier:@"create" sender:nil];
+        [EYInputPopupView popViewWithTitle:@"添加评析" contentText:@"请填写评析内容(1-200字)"
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                       [SVProgressHUD showErrorWithStatus:@"请举报评析内容(1-200字)"];
+                                       return ;
+                                   }
+                                   NSDictionary *param = @{
+                                                           @"Evaluate":[StringUtil dictToJson:@{
+                                                                                                  @"projectId":[SingletonObject getInstance].pid,
+                                                                                                  @"content":text,
+                                                                                                  @"userId":[User getInstance].uid,
+                                                                                                  @"duty":[User getInstance].duty
+                                                                                                  }]
+                                                           };
+                                   [[HttpService getInstance] POST:@"evaluate/saveEvaluate" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
+                               }
+         ];
+        
     }];
     NSMutableArray *array = [NSMutableArray array];
     //        成员或投资人
