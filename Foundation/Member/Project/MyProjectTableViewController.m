@@ -98,6 +98,10 @@
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
     } noResult:^{
+        if (self.page.pageNo == 1) {
+            [self.tableViewDelegate.dataArray removeAllObjects];
+            [self.tableView reloadData];
+        }
         [self.tableView.footer noticeNoMoreData];
     }];
 }

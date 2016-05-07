@@ -13,6 +13,7 @@
 #import "MyCollectTableViewController.h"
 #import "MyProjectTableViewController.h"
 #import "MySubjectTableViewController.h"
+#import "ShouldPostProjectTableViewController.h"
 
 @interface UserDetailViewController ()
 /*个人信息属性*/
@@ -185,7 +186,9 @@
 }
 
 - (IBAction)postProjectButton:(id)sender {
-//    跳转可投资项目页
+    ShouldPostProjectTableViewController *vc = [[ShouldPostProjectTableViewController alloc] init];
+    vc.financeId = self.userId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - tb delegate
