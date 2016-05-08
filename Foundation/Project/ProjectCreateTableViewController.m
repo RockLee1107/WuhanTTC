@@ -52,6 +52,11 @@
 
 }
 
+//主要针对图片选择的回调
+-(void)viewDidAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
 //创建时初始化
 - (void)createSetup {
     //    照片拾取
@@ -311,6 +316,12 @@
             return 0;
         }
     }
+    if (indexPath.row == 8) {
+        NSInteger imageCount = self.photoGallery.photos.count;
+        CGFloat imageWidth = (SCREEN_WIDTH - 32) / 4.0 - 4;
+        CGFloat height = ((imageCount / 4) + 1) * imageWidth + 100;
+        return height;
+    }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
@@ -321,4 +332,5 @@
     }
     return [super numberOfSectionsInTableView:tableView];
 }
+
 @end

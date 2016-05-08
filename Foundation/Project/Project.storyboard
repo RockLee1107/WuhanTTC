@@ -621,11 +621,11 @@
                         <sections>
                             <tableViewSection id="aKW-xf-lLU">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="Akj-lW-F7W">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="108"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="Akj-lW-F7W">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Akj-lW-F7W" id="GYw-tf-FFI">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSz-Bx-MXw" customClass="CaptionButton">
@@ -662,7 +662,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="vtT-oN-L4S">
-                                        <rect key="frame" x="0.0" y="172" width="320" height="108"/>
+                                        <rect key="frame" x="0.0" y="163" width="320" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vtT-oN-L4S" id="0ui-xk-W5k">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
@@ -1065,7 +1065,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="create" id="LFm-MW-hdo" customClass="ProjectCreateTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Zgs-mq-51S">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="888"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="918"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -1364,11 +1364,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="154" id="Jct-5c-Sbc">
-                                        <rect key="frame" x="0.0" y="757" width="320" height="154"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="173" id="Jct-5c-Sbc">
+                                        <rect key="frame" x="0.0" y="757" width="320" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jct-5c-Sbc" id="j5I-DO-x1k">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="172"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFh-H5-fpm" customClass="CaptionButton">
@@ -1401,7 +1401,7 @@
                             <tableViewSection id="Hkn-99-yVw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="sCl-aU-1cu">
-                                        <rect key="frame" x="0.0" y="931" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="950" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sCl-aU-1cu" id="WRv-0q-MbN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -1439,7 +1439,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="888"/>
+                    <size key="freeformSize" width="320" height="918"/>
                     <connections>
                         <outlet property="bizButton" destination="ZAW-hn-THm" id="oQC-u0-P7H"/>
                         <outlet property="currentCityButton" destination="de3-Oc-WKl" id="47V-GV-Wh0"/>
@@ -1465,11 +1465,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Jdy-dy-yA3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QNO-pb-Fvd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="888"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="918"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvt-wX-Whz" customClass="JCTagListView">
-                                <rect key="frame" x="-4" y="64" width="328" height="824"/>
+                                <rect key="frame" x="-4" y="64" width="328" height="854"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
