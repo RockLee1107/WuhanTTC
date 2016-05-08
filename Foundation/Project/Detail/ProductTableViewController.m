@@ -54,7 +54,7 @@
     if (indexPath.row == 0) {
         NSInteger imageCount = self.photoGallery.photos.count;
         CGFloat imageWidth = (SCREEN_WIDTH - 32) / 4.0 - 4;
-        CGFloat height = ((imageCount / 4) + 1) * imageWidth + 40;
+        CGFloat height = ((imageCount / 4) + 1) * imageWidth + 50;
         return height;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
