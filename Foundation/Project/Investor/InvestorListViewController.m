@@ -9,6 +9,7 @@
 #import "InvestorListViewController.h"
 #import "InvestorTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
+#import "LoginViewController.h"
 
 @interface InvestorListViewController ()
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
@@ -80,24 +81,30 @@
 - (void)addRightItem
 {
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"申请认证" iconName:@"investor_apply" callBack:^(NSUInteger index, id info) {
-        NSDictionary *param = @{
-                                @"userId":[User getInstance].uid
-                                };
-//        请求一下网络，了解身份或申请状态
-        [self.service POST:@"/personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            if (responseObject[@"investorInfo"] == [NSNull null]) {
-                //创业者初始状态
-                [self performSegueWithIdentifier:@"verify" sender:nil];
-            } else {
-                if (![responseObject[@"investorInfo"][@"bizStatus"] boolValue]) {
-//                    审核中
-                    [SVProgressHUD showSuccessWithStatus:@"审核中"];
+        if ([[User getInstance] isLogin]) {
+            NSDictionary *param = @{
+                                    @"userId":[User getInstance].uid
+                                    };
+            //        请求一下网络，了解身份或申请状态
+            [self.service POST:@"/personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                if (responseObject[@"investorInfo"] == [NSNull null]) {
+                    //创业者初始状态
+                    [self performSegueWithIdentifier:@"verify" sender:nil];
                 } else {
-//                    通过审核，已是投资人
-                    [SVProgressHUD showSuccessWithStatus:@"您已经是投资人，请勿重复认证"];
+                    if (![responseObject[@"investorInfo"][@"bizStatus"] boolValue]) {
+                        //                    审核中
+                        [SVProgressHUD showSuccessWithStatus:@"审核中"];
+                    } else {
+                        //                    通过审核，已是投资人
+                        [SVProgressHUD showSuccessWithStatus:@"您已经是投资人，请勿重复认证"];
+                    }
                 }
-            }
-        } noResult:nil];
+            } noResult:nil];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+        
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页

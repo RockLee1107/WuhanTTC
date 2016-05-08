@@ -111,35 +111,41 @@
 
 //    发消息弹窗
 - (IBAction)sendMsgButtonPress:(id)sender {
-    [EYInputPopupView popViewWithTitle:@"发送私信" contentText:@""
-                                  type:EYInputPopupView_Type_multi_line
-                           cancelBlock:^{
-                               
-                           } confirmBlock:^(UIView *view, NSString *text) {
-                               if (![VerifyUtil hasValue:text]) {
-                                   [SVProgressHUD showErrorWithStatus:@"请输入私信内容"];
-                                   return;
+    if ([[User getInstance] isLogin]) {
+        [EYInputPopupView popViewWithTitle:@"发送私信" contentText:@""
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   if (![VerifyUtil hasValue:text]) {
+                                       [SVProgressHUD showErrorWithStatus:@"请输入私信内容"];
+                                       return;
+                                   }
+                                   NSDate *now = [NSDate date];
+                                   NSDictionary *param = @{
+                                                           @"UserMessage":[StringUtil dictToJson:@{
+                                                                                                   @"content": text,
+                                                                                                   @"createdDate": [DateUtil dateToDatePart:now],
+                                                                                                   @"createdTime": [DateUtil dateToTimePart:now],
+                                                                                                   @"status": @"0",
+                                                                                                   @"toUserId": self.userId,
+                                                                                                   @"type": @"1",
+                                                                                                   @"userId": [User getInstance].uid
+                                                                                                   }
+                                                                           ]
+                                                           };
+                                   [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"发送成功"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
                                }
-                               NSDate *now = [NSDate date];
-                               NSDictionary *param = @{
-                                                       @"UserMessage":[StringUtil dictToJson:@{
-                                                                                               @"content": text,
-                                                                                               @"createdDate": [DateUtil dateToDatePart:now],
-                                                                                               @"createdTime": [DateUtil dateToTimePart:now],
-                                                                                               @"status": @"0",
-                                                                                               @"toUserId": self.userId,
-                                                                                               @"type": @"1",
-                                                                                               @"userId": [User getInstance].uid
-                                                                                               }
-                                                                       ]
-                                                       };
-                               [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                   [SVProgressHUD showSuccessWithStatus:@"发送成功"];
-                               } noResult:nil];
-                           } dismissBlock:^{
-                               
-                           }
-     ];
+         ];
+    }else{
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 
 - (IBAction)delFriendButtonPress:(id)sender {
@@ -161,34 +167,46 @@
 
 //添加好友
 - (IBAction)makeFriendsButtonPress:(id)sender {
-    [EYInputPopupView popViewWithTitle:@"好友申请" contentText:@""
-                                  type:EYInputPopupView_Type_multi_line
-                           cancelBlock:^{
-                               
-                           } confirmBlock:^(UIView *view, NSString *text) {
-                               NSDictionary *param = @{@"UserMessage":[StringUtil dictToJson:@{
-                                                                                           @"toUserId":self.userId,
-                                                                                           @"userId":[User getInstance].uid,
-                                                                                           @"type":@"0",
-                                                                                           @"contentType":@"4",
-                                                                                           @"title":@"好友申请",
-                                                                                           @"status":@"0",
-                                                                                           @"content":[NSString stringWithFormat:@"%@请求添加你为好友：%@",self.dataDict[@"userinfo"][@"realName"],text]
-                                                                                           }
-                                                                   ]};
-                               [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                   [SVProgressHUD showSuccessWithStatus:@"发送成功，等待对方验证"];
-                               } noResult:nil];
-                           } dismissBlock:^{
-                               
-                           }
-     ];
+    if ([[User getInstance] isLogin]) {
+        [EYInputPopupView popViewWithTitle:@"好友申请" contentText:@""
+                                      type:EYInputPopupView_Type_multi_line
+                               cancelBlock:^{
+                                   
+                               } confirmBlock:^(UIView *view, NSString *text) {
+                                   NSDictionary *param = @{@"UserMessage":[StringUtil dictToJson:@{
+                                                                                                   @"toUserId":self.userId,
+                                                                                                   @"userId":[User getInstance].uid,
+                                                                                                   @"type":@"0",
+                                                                                                   @"contentType":@"4",
+                                                                                                   @"title":@"好友申请",
+                                                                                                   @"status":@"0",
+                                                                                                   @"content":[NSString stringWithFormat:@"%@请求添加你为好友：%@",self.dataDict[@"userinfo"][@"realName"],text]
+                                                                                                   }
+                                                                           ]};
+                                   [self.service POST:@"personal/msg/sendMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       [SVProgressHUD showSuccessWithStatus:@"发送成功，等待对方验证"];
+                                   } noResult:nil];
+                               } dismissBlock:^{
+                                   
+                               }
+         ];
+
+    }else{
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (IBAction)postProjectButton:(id)sender {
-    ShouldPostProjectTableViewController *vc = [[ShouldPostProjectTableViewController alloc] init];
-    vc.financeId = self.userId;
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([[User getInstance] isLogin]) {
+        ShouldPostProjectTableViewController *vc = [[ShouldPostProjectTableViewController alloc] init];
+        vc.financeId = self.userId;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 
 #pragma mark - tb delegate
