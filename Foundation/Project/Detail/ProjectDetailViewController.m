@@ -82,63 +82,89 @@
 {
 //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_attention" callBack:^(NSUInteger index, id info) {
-        //        //        访问网络
-        NSDictionary *param = @{
-                                @"Attention":[StringUtil dictToJson:@{
-                                                                        @"projectId":[SingletonObject getInstance].pid,
-                                                                        @"userId":[User getInstance].uid,
-                                                                        @"isAttention":@1
-                                                                        }]
-                                };
-        [[HttpService getInstance] GET:@"/project/projectAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"关注成功"];
-        } noResult:nil];
+        if ([[User getInstance] isLogin]) {
+            //        //        访问网络
+            NSDictionary *param = @{
+                                    @"Attention":[StringUtil dictToJson:@{
+                                                                          @"projectId":[SingletonObject getInstance].pid,
+                                                                          @"userId":[User getInstance].uid,
+                                                                          @"isAttention":@1
+                                                                          }]
+                                    };
+            [[HttpService getInstance] GET:@"/project/projectAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"关注成功"];
+            } noResult:nil];
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
+        
     }];
 //    除审核中以外
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"更新项目" iconName:@"menu_edit" callBack:^(NSUInteger index, id info) {
-        ProjectPrefectViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"prefect"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
+        if ([[User getInstance] isLogin]) {
+            ProjectPrefectViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"prefect"];
+            [self.navigationController pushViewController:vc animated:YES];
+
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+
+        }
+            }];
 //    成员或投资人身份
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"项目BP" iconName:@"menu_bp" callBack:^(NSUInteger index, id info) {
         if (self.dataDict[@"bppictUrl"] == [NSNull null]) {
             [SVProgressHUD showErrorWithStatus:@"暂无项目BP"];
         } else {
-            ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
-            vc.imageArray = [self.dataDict[@"bppictUrl"] componentsSeparatedByString:@","];
-            vc.selectedIndex = 0;
-            self.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-            self.hidesBottomBarWhenPushed = NO;
+            if ([[User getInstance] isLogin]) {
+                ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
+                vc.imageArray = [self.dataDict[@"bppictUrl"] componentsSeparatedByString:@","];
+                vc.selectedIndex = 0;
+                self.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+                self.hidesBottomBarWhenPushed = NO;
+            }else{
+                LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+                [self.navigationController presentViewController:vc animated:YES completion:nil];
+                
+            }
+            
         }
         
     }];
 //    成员或投资人身份
     DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"评析" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
-        [EYInputPopupView popViewWithTitle:@"添加评析" contentText:@"请填写评析内容(1-200字)"
-                                      type:EYInputPopupView_Type_multi_line
-                               cancelBlock:^{
-                                   
-                               } confirmBlock:^(UIView *view, NSString *text) {
-                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
-                                       [SVProgressHUD showErrorWithStatus:@"请举报评析内容(1-200字)"];
-                                       return ;
+        if ([[User getInstance] isLogin]) {
+            [EYInputPopupView popViewWithTitle:@"添加评析" contentText:@"请填写评析内容(1-200字)"
+                                          type:EYInputPopupView_Type_multi_line
+                                   cancelBlock:^{
+                                       
+                                   } confirmBlock:^(UIView *view, NSString *text) {
+                                       if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                           [SVProgressHUD showErrorWithStatus:@"请举报评析内容(1-200字)"];
+                                           return ;
+                                       }
+                                       NSDictionary *param = @{
+                                                               @"Evaluate":[StringUtil dictToJson:@{
+                                                                                                    @"projectId":[SingletonObject getInstance].pid,
+                                                                                                    @"content":text,
+                                                                                                    @"userId":[User getInstance].uid,
+                                                                                                    @"duty":[User getInstance].duty
+                                                                                                    }]
+                                                               };
+                                       [[HttpService getInstance] POST:@"evaluate/saveEvaluate" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+                                       } noResult:nil];
+                                   } dismissBlock:^{
+                                       
                                    }
-                                   NSDictionary *param = @{
-                                                           @"Evaluate":[StringUtil dictToJson:@{
-                                                                                                  @"projectId":[SingletonObject getInstance].pid,
-                                                                                                  @"content":text,
-                                                                                                  @"userId":[User getInstance].uid,
-                                                                                                  @"duty":[User getInstance].duty
-                                                                                                  }]
-                                                           };
-                                   [[HttpService getInstance] POST:@"evaluate/saveEvaluate" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [SVProgressHUD showSuccessWithStatus:@"添加成功"];
-                                   } noResult:nil];
-                               } dismissBlock:^{
-                                   
-                               }
-         ];
+             ];
+
+        }else{
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }
         
     }];
     NSMutableArray *array = [NSMutableArray array];
