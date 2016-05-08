@@ -29,6 +29,10 @@
     [super viewDidLoad];
     [self addRightItem];
     [SingletonObject getInstance].dataDict = self.dataDict;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [SingletonObject getInstance].isBrowse = YES;
 }
 

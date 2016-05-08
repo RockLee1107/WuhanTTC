@@ -33,7 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIView *containerView = [[UIView alloc] init];
-    [SingletonObject getInstance].isBrowse = NO;
 //    包裹按钮的白底背景图层
     containerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:containerView];
@@ -55,6 +54,11 @@
         make.right.equalTo(containerView.mas_right).offset(-20);
         make.height.mas_equalTo(40.0);
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [SingletonObject getInstance].isBrowse = NO;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
