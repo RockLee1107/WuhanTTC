@@ -79,7 +79,7 @@
             [self.tableView.footer resetNoMoreData];
         }
         //返回总条数
-        if (!self.userId) {
+        if (!self.userId && self.specialCode == nil) {
             //self.userId代表从创友录等用户资料点击而进来的
             ((BookListDelegate *)self.tableViewDelegate).num = responseObject[@"totalCount"];
         }
