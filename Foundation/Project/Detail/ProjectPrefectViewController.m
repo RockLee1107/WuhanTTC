@@ -155,6 +155,23 @@
         [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～500"];
         return;
     }
+    if (![VerifyUtil isValidStringLengthRange:self.productVC.procDetailsTextView.text between:3 and:1000]) {
+        [SVProgressHUD showErrorWithStatus:@"项目描述字数为3～1000"];
+        return;
+    }
+    if (self.productVC.photoGallery.photos.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请上传产品图片"];
+        return;
+    }
+//    发布要求有团队、融资、进展
+    if ([self.processVC.dataArray count] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请先完善进展信息"];
+        return;
+    }
+    if ([self.financeVC.dataArray count] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请先完善融资信息"];
+        return;
+    }
     [self postData:BizStatusPublish];
 }
 

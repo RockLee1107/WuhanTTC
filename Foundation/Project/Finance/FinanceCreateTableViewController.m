@@ -128,6 +128,14 @@
             return;
         }
     }
+/*    对于未融已融状态  */
+//    1.如果是新增一条未融资的记录,那直接判断内存中是否有未融资,如果有,表示重复录入
+//    2.如果是修改,且是由已融资改成未融资的,如果内存中有未融资的,也表示重复录入了未融资的记录
+//    3.其他情况都可以操作成功
+/*    对于融资阶段的判断 */
+//    1 新增，只要内存中包含当前新增记录的融资阶段，则重复
+//    2 修改，只要内存中包含修改后记录的融资阶段，则重复
+//    3 其他情况都可以操作成功
     
     //        内存里是不是含有未融资
     BOOL isExsitUndo = NO;
@@ -142,8 +150,8 @@
         }
     }
     
+    //编辑页面将有传值
     if (self.dataDict != nil) {
-        //编辑页面将有传值
         //    定义一个dict，初始与写入
         NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:self.dataDict];
         //之前融资状态 - self.dataDict[@"financeProc"]
@@ -173,11 +181,13 @@
         [self.navigationController popViewControllerAnimated:YES];
         return ;
     } else {
+//        添加
 //        如果是新增一条未融资的记录,那直接判断内存中是否有未融资,如果有,表示重复录入
         if (isExsitUndo && self.financeProcSegmentedControl.selectedSegmentIndex == 0) {
             [SVProgressHUD showErrorWithStatus:@"当前已有未融资信息哦"];
             return;
         }
+//        添加时仅判断是否内存中存在
         if (isExistProcCode) {
             [SVProgressHUD showErrorWithStatus:@"请勿重复录入融资阶段哦"];
             return;
