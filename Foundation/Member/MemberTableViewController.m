@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *userIdentityButton;
 @property (weak, nonatomic) IBOutlet UIImageView *unreadImageView;
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
 
 @end
 
@@ -41,6 +42,7 @@
 
 - (void)fetchData {
     if ([[User getInstance] isLogin]) {
+        self.loginLabel.hidden = YES;
         NSDictionary *param = @{
                                 @"userId":[User getInstance].uid
                                 };
@@ -59,6 +61,8 @@
             [self.userIdentityButton setTitle:userIdentity forState:(UIControlStateNormal)];
         } noResult:nil];
 
+    } else {
+        self.loginLabel.hidden = NO;
     }
 }
 

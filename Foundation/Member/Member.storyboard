@@ -53,10 +53,11 @@
                                                         <constraint firstAttribute="width" secondItem="sGg-ec-ayS" secondAttribute="height" multiplier="1:1" id="sx3-Bn-EHI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFh-Lm-3m7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFh-Lm-3m7">
                                                     <rect key="frame" x="98" y="23" width="106" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="106" id="F5t-Q0-gEp"/>
+                                                        <constraint firstAttribute="height" constant="21" id="MBj-MO-ooM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,6 +72,15 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立即登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgJ-aN-QPK">
+                                                    <rect key="frame" x="109" y="27" width="137" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="5de-5J-1to"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="f2e-x0-MNt" firstAttribute="leading" secondItem="sGg-ec-ayS" secondAttribute="trailing" constant="20" id="3oR-Qh-Z4L"/>
@@ -78,6 +88,9 @@
                                                 <constraint firstItem="sGg-ec-ayS" firstAttribute="leading" secondItem="PX7-50-yOm" secondAttribute="leadingMargin" constant="9" id="CJZ-My-hhE"/>
                                                 <constraint firstItem="OFh-Lm-3m7" firstAttribute="top" secondItem="PX7-50-yOm" secondAttribute="topMargin" constant="15" id="FJG-8W-S1w"/>
                                                 <constraint firstAttribute="centerY" secondItem="sGg-ec-ayS" secondAttribute="centerY" constant="-0.5" id="bgw-Fj-A6L"/>
+                                                <constraint firstItem="JgJ-aN-QPK" firstAttribute="leading" secondItem="sGg-ec-ayS" secondAttribute="trailing" constant="30" id="cQM-ED-SGP"/>
+                                                <constraint firstItem="JgJ-aN-QPK" firstAttribute="centerY" secondItem="PX7-50-yOm" secondAttribute="centerY" id="hMT-6A-KJY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JgJ-aN-QPK" secondAttribute="trailing" constant="33" id="puw-jU-kKA"/>
                                                 <constraint firstItem="f2e-x0-MNt" firstAttribute="top" secondItem="OFh-Lm-3m7" secondAttribute="bottom" constant="1" id="zBE-Pr-xI2"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -353,6 +366,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="avatarImageView" destination="sGg-ec-ayS" id="m4X-jU-eXr"/>
+                        <outlet property="loginLabel" destination="JgJ-aN-QPK" id="Pod-n4-cb2"/>
                         <outlet property="realnameLabel" destination="OFh-Lm-3m7" id="x7G-Fu-OeE"/>
                         <outlet property="unreadImageView" destination="QLh-zs-1FR" id="q4v-12-x20"/>
                         <outlet property="userIdentityButton" destination="f2e-x0-MNt" id="mEo-yT-3Q2"/>
