@@ -51,7 +51,7 @@
 - (void)fetchData {
     NSDictionary *param = @{
                             @"hisUserId":self.userId,
-                            @"curUserId":[User getInstance].uid,
+                            @"curUserId":[User getInstance].isLogin ? [User getInstance].uid: @"",
                             };
     [self.service GET:@"/personal/info/getUserDetails" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dataDict = responseObject;
@@ -84,10 +84,10 @@
             self.postProjectButton.hidden = YES;
         }
         /*4大标签*/
-        self.sameFdsNumLabel.text = self.dataDict[@"userStaticDto"][@"sameFdsNum"];
-        self.hisColNumLabel.text = self.dataDict[@"userStaticDto"][@"hisColNum"];
-        self.hisAtProjNumLabel.text = self.dataDict[@"userStaticDto"][@"hisAtProjNum"];
-        self.hisPostNumLabel.text = self.dataDict[@"userStaticDto"][@"hisPostNum"];
+        self.sameFdsNumLabel.text = [StringUtil toString:self.dataDict[@"userStaticDto"][@"sameFdsNum"]];
+        self.hisColNumLabel.text = [StringUtil toString:self.dataDict[@"userStaticDto"][@"hisColNum"]];
+        self.hisAtProjNumLabel.text = [StringUtil toString:self.dataDict[@"userStaticDto"][@"hisAtProjNum"]];
+        self.hisPostNumLabel.text = [StringUtil toString:self.dataDict[@"userStaticDto"][@"hisPostNum"]];
         //是好友
         if ([self.dataDict[@"isFriend"] boolValue]) {
             self.sendMsgButton.hidden = NO;

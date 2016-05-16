@@ -154,7 +154,8 @@
                                        @"duty":self.dutyTextField.text,
                                        @"company":self.companyTextField.text,
                                        @"area":self.areaTextField.text,
-                                       @"weChat":self.wechatTextField.text
+                                       @"weChat":self.wechatTextField.text,
+                                       @"mobile":[User getInstance].username
                                        }
                                      ];
     

@@ -165,9 +165,12 @@
     NSMutableArray *names = [NSMutableArray array];
     [names addObject:@[@"all",@"全部"]];
     NSArray *array = [StatusDict activityType];
-    for (NSDictionary *dict in array) {
-        [names addObject:@[dict[@"typeCode"],dict[@"typeName"]]];
+    if(array != nil && array.count > 0){
+        for (NSDictionary *dict in array) {
+            [names addObject:@[dict[@"typeCode"],dict[@"typeName"]]];
+        }
     }
+   
     self.data3 = names;
     JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
