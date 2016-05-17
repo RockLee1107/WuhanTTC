@@ -11,7 +11,7 @@
 #import "AboutViewController.h"
 #import "ShareUtil.h"
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController ()<UIAlertViewDelegate>
 
 @end
 
@@ -25,7 +25,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+//        [alertView show];
     }
     else if(indexPath.section == 1 && indexPath.row == 0){
         AboutViewController *vc = [[UIStoryboard storyboardWithName:@"Member" bundle:nil] instantiateViewControllerWithIdentifier:@"about"];
@@ -50,6 +51,19 @@
         }] useDefaultIOS7Style];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //确认退出系统
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        
+        /***退出后应该删除掉用户token(未做)***/
+        
+    }
 }
 
 @end

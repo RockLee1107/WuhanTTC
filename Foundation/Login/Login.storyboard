@@ -64,17 +64,17 @@
                                             <constraint firstAttribute="height" constant="1" id="xke-Xa-DR9"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-4K-sUA">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-4K-sUA">
                                         <rect key="frame" x="143" y="499" width="42" height="42"/>
                                         <animations/>
                                         <state key="normal" image="login_sina.png"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-oc-nRa">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-oc-nRa">
                                         <rect key="frame" x="37" y="499" width="42" height="42"/>
                                         <animations/>
                                         <state key="normal" image="login_wx.png"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-ul-cfs">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-ul-cfs">
                                         <rect key="frame" x="249" y="499" width="42" height="42"/>
                                         <animations/>
                                         <state key="normal" image="login_qq.png"/>
@@ -135,26 +135,6 @@
                                                     <constraint firstAttribute="height" constant="1" id="Sb8-2N-cys"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-bI-J8D" customClass="LXButton">
-                                                <rect key="frame" x="15" y="170" width="260" height="36"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="Yxr-pQ-j3m"/>
-                                                    <constraint firstAttribute="width" constant="260" id="eV9-iB-kHO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="登录">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="eV9-iB-kHO"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="loginButtonPress:" destination="Kw2-8L-AiA" eventType="touchUpInside" id="7xb-lB-fy6"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-uV-a71" customClass="LXButton">
                                                 <rect key="frame" x="15" y="226" width="260" height="36"/>
                                                 <animations/>
@@ -173,6 +153,26 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="vistorButtonPress:" destination="Kw2-8L-AiA" eventType="touchUpInside" id="sDe-ET-Z0Y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-bI-J8D" customClass="LXButton">
+                                                <rect key="frame" x="15" y="170" width="260" height="36"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="Yxr-pQ-j3m"/>
+                                                    <constraint firstAttribute="width" constant="260" id="eV9-iB-kHO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="登录">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="eV9-iB-kHO"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="loginButtonPress:" destination="Kw2-8L-AiA" eventType="touchUpInside" id="7xb-lB-fy6"/>
                                                 </connections>
                                             </button>
                                         </subviews>

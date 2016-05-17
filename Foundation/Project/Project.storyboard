@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="591" y="481"/>
         </scene>
-        <!--创连接-->
+        <!--创投融-->
         <scene sceneID="5SI-i5-Vg8">
             <objects>
                 <tableViewController id="cyv-Ze-yal" customClass="ProjectIndexTableViewController" sceneMemberID="viewController">
@@ -206,7 +206,7 @@
                             <outlet property="delegate" destination="cyv-Ze-yal" id="k5f-5M-fe3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="创连接" id="MMz-ER-4Wa"/>
+                    <navigationItem key="navigationItem" title="创投融" id="MMz-ER-4Wa"/>
                     <connections>
                         <outlet property="investorCountLabel" destination="HG8-gE-W6R" id="X3T-x1-9VS"/>
                         <outlet property="projectCountLabel" destination="dne-df-cgb" id="T6N-nj-sKl"/>
@@ -614,7 +614,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1A-Li-1Z6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="55"/>
+            <point key="canvasLocation" x="2510" y="3"/>
         </scene>
         <!--完善项目信息-->
         <scene sceneID="OCZ-79-ErF">

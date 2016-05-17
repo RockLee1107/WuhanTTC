@@ -2474,7 +2474,7 @@
 				TargetAttributes = {
 					F70B019B1C7232FC00D46D79 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = K83TKABJMN;
+						DevelopmentTeam = P967XC9JMD;
 					};
 				};
 			};
@@ -3018,7 +3018,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3045,7 +3046,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3064,8 +3066,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e7c795f-c3a8-487b-aaa2-89fb80843ed1";
-			};
+							};
 			name = Release;
 		};
 		FDE26AAC1C9A5369003418D5 /* ad hoc */ = {
@@ -3110,7 +3111,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3129,7 +3131,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6e8ccfd8-0c33-4255-a782-88086e64ea0c";
+				
 			};
 			name = "ad hoc";
 		};

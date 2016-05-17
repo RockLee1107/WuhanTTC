@@ -74,6 +74,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *vc = nil;
+    //登录状态
     if ([[User getInstance] isLogin]) {
         if (indexPath.section == 0) {
             vc = [self.storyboard instantiateViewControllerWithIdentifier:@"userinfo"];
@@ -106,15 +107,21 @@
             vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
         }
         [self.navigationController pushViewController:vc animated:YES];
-    } else {
+    }//游客状态
+    else {
         if (indexPath.section == 0) {
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
             [self.navigationController presentViewController:vc animated:YES completion:nil];
-        }else {
+        }
+        else if (indexPath.section == 3) {
+            vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
             [alertView show];
         }
-
+        
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

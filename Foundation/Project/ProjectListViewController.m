@@ -6,6 +6,8 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***创投融->项目***/
+
 #import "ProjectListViewController.h"
 #import "ProjectTableViewCell.h"
 #import "ProjectTableViewDelegate.h"
@@ -41,7 +43,6 @@
     [self addRightItem];
     self.bizCode = @"all";
     self.orderBy = @"pbDate";
-  
 }
 
 //上拉下拉控件

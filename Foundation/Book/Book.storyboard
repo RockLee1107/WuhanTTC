@@ -222,6 +222,7 @@
                     </tableView>
                     <connections>
                         <outlet property="captionLabel" destination="AoN-Ga-jIX" id="c9s-Qp-6Dh"/>
+                        <outlet property="collectNumImageView" destination="pen-K1-9YY" id="KuC-eC-eMb"/>
                         <outlet property="collectNumLabel" destination="dhU-Cp-3wh" id="gYR-0W-e6C"/>
                         <outlet property="commentNumLabel" destination="Tlk-mZ-q2x" id="IXo-MK-gvt"/>
                         <outlet property="footContentView" destination="gcW-3q-OU4" id="K01-c0-ehx"/>

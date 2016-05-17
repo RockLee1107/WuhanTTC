@@ -26,7 +26,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *readNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *collectNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;
-@property (weak, nonatomic) IBOutlet UIView *footContentView;
+@property (weak, nonatomic) IBOutlet UIView  *footContentView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *collectNumImageView;//收藏视图
 
 @end
 
@@ -34,12 +36,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //给收藏视图添加手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    tap.numberOfTapsRequired    = 1;
+    tap.numberOfTouchesRequired = 1;
+    [self.collectNumImageView addGestureRecognizer:tap];
+    
     [self addRightItem];
     [self setDynamicLayout];
     self.webView.delegate = self;
     self.webView.scrollView.scrollEnabled = NO;
     [self.webView customMenu];
     self.footContentView.hidden = YES;
+    
+    
+    
     [SVProgressHUD showWithStatus:@"正在加载"];
     NSDictionary *param = @{@"bookId":self.bookId};
     [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -68,6 +80,33 @@
     } noResult:^{
         
     }];
+    
+    
+    
+}
+
+//点击收藏
+- (void)tap:(UITapGestureRecognizer *)tt {
+    
+    if ([[User getInstance] isLogin]) {
+        //        访问网络
+        NSDictionary *param = @{
+                                @"Collect":[StringUtil dictToJson:@{
+                                                                    @"bookId":self.bookId,
+                                                                    @"userId":[User getInstance].uid,
+                                                                    @"specialType":self.dataDict[@"specialCode"],
+                                                                    @"bookType":self.dataDict[@"bookType"],
+                                                                    @"isAttention":@1
+                                                                    }]
+                                };
+        [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+        } noResult:nil];
+    }else {
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
+
 }
 
 - (IBAction)copyrightButtonPress:(id)sender {
