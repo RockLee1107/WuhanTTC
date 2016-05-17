@@ -21,9 +21,9 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *nameNavigationItem;
 //搜索条件
 @property (nonatomic,strong) NSArray *dataTitle;
-@property (nonatomic,strong) NSArray *data1;
+@property (nonatomic,strong) NSArray *data1;//顺序数据源
 @property (nonatomic,strong) NSArray *data2;
-@property (nonatomic,strong) NSArray *data3;
+@property (nonatomic,strong) NSArray *data3;//格式数据源
 @property (nonatomic,assign) NSInteger currentData1Index;
 @property (nonatomic,assign) NSInteger currentData2Index;
 @property (nonatomic,assign) NSInteger currentData3Index;
@@ -90,7 +90,10 @@
     self.tableView.dataSource = self.tableViewDelegate;
 }
 
+/*********???????**********/
+
 -(void)fetchData {
+    
     NSMutableDictionary *query = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                   @"SEQ_specialCode":((SubTabBarController *)self.tabBarController).specialCode                                                                                  }];
 //    游客判断

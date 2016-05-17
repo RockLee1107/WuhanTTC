@@ -20,17 +20,17 @@
 
 @interface UserInfoTableViewController ()<LXPhotoPickerDelegate,BizViewControllerDelegate,ProcessViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *realnameTextField;
-@property (weak, nonatomic) IBOutlet UIButton *mobileButton;
+@property (weak, nonatomic) IBOutlet UIButton    *mobileButton;
 @property (weak, nonatomic) IBOutlet UITextField *wechatTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dutyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;
 @property (weak, nonatomic) IBOutlet UITextField *areaTextField;
 @property (strong, nonatomic) LXPhotoPicker *picker;
-@property (strong, nonatomic) NSDictionary *userinfo;
-@property (strong, nonatomic) NSDictionary *investorInfo;
+@property (strong, nonatomic) NSDictionary  *userinfo;
+@property (strong, nonatomic) NSDictionary  *investorInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-@property (strong, nonatomic) UIImage *avatarImage;
+@property (strong, nonatomic) UIImage  *avatarImage;
 @property (strong, nonatomic) NSString *filename;
 /*投资人部分*/
 //投资领域
@@ -81,6 +81,7 @@
                             @"userId":[User getInstance].uid
                             };
     [self.service POST:@"/personal/info/getUserInfo" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         self.userinfo = responseObject[@"userinfo"];
         self.investorInfo = responseObject[@"investorInfo"];
         responseObject = responseObject[@"userinfo"];

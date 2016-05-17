@@ -33,9 +33,10 @@
     [self.faultTimeButton setTitle:[DateUtil dateToCompactStringWithoutSecond:self.faultTime] forState:(UIControlStateNormal)];
 }
 
-///选择开始日期
+///点击故障发生时间
 - (IBAction)selectfaultTime:(id)sender {
-    AbstractActionSheetPicker *actionSheetPicker;actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"选择开始时间" datePickerMode:UIDatePickerModeDateAndTime selectedDate:self.faultTime minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
+    AbstractActionSheetPicker *actionSheetPicker;
+    actionSheetPicker = [[ActionSheetDatePicker alloc] initWithTitle:@"选择开始时间" datePickerMode:UIDatePickerModeDateAndTime selectedDate:self.faultTime minimumDate:nil maximumDate:nil target:self action:@selector(dateWasSelected:element:) origin:sender];
     [actionSheetPicker showActionSheetPicker];
 }
 
@@ -45,7 +46,7 @@
     [self.faultTimeButton setTitle:[DateUtil dateToFullString:self.faultTime] forState:(UIControlStateNormal)];
 }
 
-///submit button press
+///submit button press  点击提交反馈
 - (IBAction)submitButtonPress:(id)sender {
     if (![VerifyUtil hasValue:self.faultDescTextView.text]) {
         [SVProgressHUD showErrorWithStatus:@"请填写您需要反馈的信息"];

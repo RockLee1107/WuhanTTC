@@ -16,18 +16,22 @@
 #import "SingletonObject.h"
 
 @interface LoginViewController ()
-@property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet LXPasswordView *passwordView;
-@property (weak, nonatomic) IBOutlet LXButton *visitorButton;
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;//大白框
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;//装登录页面，快速注册，忘记密码页面
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;//用户名
+@property (weak, nonatomic) IBOutlet LXPasswordView *passwordView;//密码
+@property (weak, nonatomic) IBOutlet LXButton *visitorButton;//随便逛逛
+
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /**************???????***************/
     [[LocationUtil getInstance] fetchLocation];
+    
     self.containerView.layer.cornerRadius = 4.0;
     self.containerView.clipsToBounds = YES;
     [self.scrollView addGestureRecognizer:self.tap];
@@ -74,6 +78,8 @@
         user.isAdmin = responseObject[@"userInfo"][@"isAdmin"];
         //是否社区管理员，文献列表选择用此传值
         user.isBm = responseObject[@"userInfo"][@"isBm"];
+        
+        
         if (responseObject[@"userInfo"][@"realName"] != [NSNull null] && responseObject[@"userInfo"][@"realName"] != nil && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]) {
             user.realname = responseObject[@"userInfo"][@"realName"];
         }

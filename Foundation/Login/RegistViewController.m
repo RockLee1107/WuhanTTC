@@ -75,6 +75,7 @@
     } noResult:nil];
 }
 
+//注册成功后返回到登录页面
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

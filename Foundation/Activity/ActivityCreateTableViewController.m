@@ -27,6 +27,7 @@ typedef enum : NSUInteger {
     CityStyleOffline,
     CityStyleOnline
 } CityStyle;
+
 @interface ActivityCreateTableViewController ()<CityViewControllerDelegete,LXPhotoPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *activityTitleTextField; //名称
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像按钮

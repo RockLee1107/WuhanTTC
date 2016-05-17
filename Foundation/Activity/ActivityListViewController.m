@@ -6,6 +6,8 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/******创活动首页******/
+
 #import "ActivityListViewController.h"
 #import "ActivityTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
@@ -16,10 +18,10 @@
 @interface ActivityListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
 //搜索条件
-@property (nonatomic,strong) NSArray *dataTitle;
-@property (nonatomic,strong) NSArray *data1;
-@property (nonatomic,strong) NSArray *data2;
-@property (nonatomic,strong) NSArray *data3;
+@property (nonatomic,strong) NSArray *dataTitle;//按发布时间；全国；类型
+@property (nonatomic,strong) NSArray *data1;//按发布时间
+@property (nonatomic,strong) NSArray *data2;//全国
+@property (nonatomic,strong) NSArray *data3;//类型
 @property (nonatomic,assign) NSInteger currentData1Index;
 @property (nonatomic,assign) NSInteger currentData2Index;
 @property (nonatomic,assign) NSInteger currentData3Index;
@@ -33,7 +35,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //初始化代理
     [self initDelegate];
+    //上拉下拉控件
     [self initRefreshControl];
     [self initSearchConditionView];
     [self addRightItem];
@@ -62,7 +67,6 @@
         // 拿到当前的上拉刷新控件，结束刷新状态
         [weakSelf.tableView.footer endRefreshing];
     }];
-    
 }
 
 //初始化代理
@@ -118,7 +122,6 @@
          if ([[User getInstance] isLogin]) {
              MyActivityPageController *vc = [[MyActivityPageController alloc] init];
              [weakSelf.navigationController pushViewController:vc animated:YES];
-
          }else{
              LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
              [self.navigationController presentViewController:vc animated:YES completion:nil];

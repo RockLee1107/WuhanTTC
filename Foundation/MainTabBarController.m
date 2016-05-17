@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //初始化，Navi管理TabBar
     UIViewController *blankVC = [[UIViewController alloc] init];
     blankVC.view.backgroundColor = [UIColor whiteColor];
     UINavigationController *blankNVC = [[UINavigationController alloc] initWithRootViewController:blankVC];
@@ -30,29 +32,40 @@
     self.memberNVC   = blankNVC;
     
     
-
     self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
 
+    //如果用户点击了登录
     if ([[User getInstance] isLogin]) {
+        //获得输入的帐户和密码
         NSString *username = [User getInstance].username;
         NSString *password = [User getInstance].password;
+        //请求体
         NSDictionary *param = @{@"username":username,
                                 @"password":password};
         [[HttpService getInstance] POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            //成功的回调
+            
             [self setup];
             User *user = [User getInstance];
+            
+            //姓名
             if (responseObject[@"userInfo"][@"realName"] != [NSNull null] && responseObject[@"userInfo"][@"realName"] != nil && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]) {
                 user.realname = responseObject[@"userInfo"][@"realName"];
             }
+            //公司
             if (responseObject[@"userInfo"][@"company"] != [NSNull null] && responseObject[@"userInfo"][@"company"] != nil && ![responseObject[@"userInfo"][@"company"] isEqualToString:@""]) {
                 user.company = responseObject[@"userInfo"][@"company"];
             }
+            //职务
             if (responseObject[@"userInfo"][@"duty"] != [NSNull null] && responseObject[@"userInfo"][@"duty"] != nil && ![responseObject[@"userInfo"][@"duty"] isEqualToString:@""]) {
                 user.duty = responseObject[@"userInfo"][@"duty"];
             }
+            //邮箱
             if (responseObject[@"userInfo"][@"email"] != [NSNull null] && responseObject[@"userInfo"][@"email"] != nil && ![responseObject[@"userInfo"][@"email"] isEqualToString:@""]) {
                 user.email = responseObject[@"userInfo"][@"email"];
             }
+            //微信
             if (responseObject[@"userInfo"][@"weChat"] != [NSNull null] && responseObject[@"userInfo"][@"weChat"] != nil && ![responseObject[@"userInfo"][@"weChat"] isEqualToString:@""]) {
                 user.wechat = responseObject[@"userInfo"][@"weChat"];
             }
@@ -76,6 +89,7 @@
 
 }
 
+//初始化
 - (void)setup {
     self.bookNVC     = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateInitialViewController];
     self.activityNVC = [[UIStoryboard storyboardWithName:@"Activity" bundle:nil] instantiateInitialViewController];

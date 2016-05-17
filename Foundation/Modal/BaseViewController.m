@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.service = [HttpService getInstance];
     //后退按钮标题与按钮图片
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
@@ -50,17 +51,20 @@
     return YES;
 }
 
+//回到创成长首页
 - (void)jumpMain {
     MainTabBarController *vc = [[MainTabBarController alloc] init];
     [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
 }
 
+//跳转到登录页面
 - (void)jumpLogin {
     LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
     [self.navigationController presentViewController:vc animated:YES completion:nil];
 //    [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
 }
 
+//返回
 - (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
 }

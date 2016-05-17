@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,6 +18,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFx-LD-dx9">
                         <rect key="frame" x="52" y="12" width="260" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="xiZ-0T-Qpa"/>
                         </constraints>
@@ -27,6 +28,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-03-05" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dQ-kh-lNo">
                         <rect key="frame" x="12" y="46" width="79" height="16"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="79" id="3yk-Cd-xs4"/>
                         </constraints>
@@ -36,6 +38,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_label.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZCm-rk-AHF">
                         <rect key="frame" x="112" y="49" width="10" height="10"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="HQ3-6f-zmV"/>
                             <constraint firstAttribute="width" constant="10" id="hfr-gp-0bI"/>
@@ -43,12 +46,14 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创业公司,股权分配" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b3-gm-sbJ">
                         <rect key="frame" x="134" y="46" width="178" height="16"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0Y-ea-ohP">
                         <rect key="frame" x="12" y="16" width="32" height="15"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="3K1-km-LU7"/>
                             <constraint firstAttribute="width" secondItem="l0Y-ea-ohP" secondAttribute="height" multiplier="32:15" id="mle-cg-UJq"/>
@@ -60,6 +65,7 @@
                         </state>
                     </button>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="ZCm-rk-AHF" firstAttribute="leading" secondItem="2dQ-kh-lNo" secondAttribute="trailing" constant="21" id="7YM-Lh-mfD"/>
                     <constraint firstItem="l0Y-ea-ohP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="7gr-Oq-Jyd"/>
@@ -75,6 +81,7 @@
                     <constraint firstItem="2dQ-kh-lNo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="sgk-IQ-UCB"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="bookLabelLabel" destination="0b3-gm-sbJ" id="Osg-sz-L6i"/>
                 <outlet property="bookNameLabel" destination="CFx-LD-dx9" id="6UP-zQ-TRN"/>
@@ -85,6 +92,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="app_label.png" width="10" height="10"/>
+        <image name="app_label.png" width="14" height="15"/>
     </resources>
 </document>

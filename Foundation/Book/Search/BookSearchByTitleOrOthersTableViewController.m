@@ -53,17 +53,15 @@
 
 //初始化代理
 - (void)initDelegate {
-    self.tableViewDelegate = [[BookListDelegate alloc] init];
+    self.tableViewDelegate    = [[BookListDelegate alloc] init];
     self.tableViewDelegate.vc = self;
-    self.tableView.delegate = self.tableViewDelegate;
+    self.tableView.delegate   = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }
 
 ///请求网络
 - (void)fetchData {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                self.type:self.keyWords
-                                                                                }];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{self.type:self.keyWords}];
     if (self.specialCode) {
         [dict setObject:self.specialCode forKey:@"SEQ_specialCode"];
     }
@@ -75,6 +73,7 @@
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service POST:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         [SVProgressHUD dismiss];
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零

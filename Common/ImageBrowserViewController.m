@@ -16,8 +16,8 @@
 #import "SVProgressHUD.h"
 
 @interface ImageBrowserViewController ()<UIGestureRecognizerDelegate>
-@property (strong, nonatomic) NSDictionary *userInfo;
 
+@property (strong, nonatomic) NSDictionary *userInfo;
 
 @end
 

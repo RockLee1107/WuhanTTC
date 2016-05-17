@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwl-XT-YHN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wwl-XT-YHN">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -23,6 +23,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8J-ws-qUz">
                                         <rect key="frame" x="19" y="405" width="60" height="30"/>
+                                        <animations/>
                                         <state key="normal" title="快速注册"/>
                                         <connections>
                                             <segue destination="d42-va-fbk" kind="show" id="Rkh-dP-KSF"/>
@@ -30,6 +31,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFt-wU-Jtn">
                                         <rect key="frame" x="249" y="405" width="60" height="30"/>
+                                        <animations/>
                                         <state key="normal" title="忘记密码">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -39,6 +41,7 @@
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOu-mk-PwU" userLabel="分割线">
                                         <rect key="frame" x="39" y="454" width="110" height="1"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="DQJ-61-Sl4"/>
@@ -47,12 +50,14 @@
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opP-Qg-kCA">
                                         <rect key="frame" x="157" y="445" width="15" height="18"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYm-Tq-wfx" userLabel="分割线">
                                         <rect key="frame" x="178" y="454" width="110" height="1"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="2lX-9u-33I"/>
@@ -61,14 +66,17 @@
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-4K-sUA">
                                         <rect key="frame" x="143" y="499" width="42" height="42"/>
+                                        <animations/>
                                         <state key="normal" image="login_sina.png"/>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-oc-nRa">
                                         <rect key="frame" x="37" y="499" width="42" height="42"/>
+                                        <animations/>
                                         <state key="normal" image="login_wx.png"/>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-ul-cfs">
                                         <rect key="frame" x="249" y="499" width="42" height="42"/>
+                                        <animations/>
                                         <state key="normal" image="login_qq.png"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEd-KI-5jg">
@@ -76,6 +84,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpn-Tx-rZa">
                                                 <rect key="frame" x="26" y="35" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="Kge-cP-9bg"/>
                                                 </constraints>
@@ -85,6 +94,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fhf-rg-v5f">
                                                 <rect key="frame" x="85" y="30" width="182" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="4ld-s8-PVs"/>
                                                 </constraints>
@@ -93,6 +103,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJh-QW-Izr" userLabel="分割线">
                                                 <rect key="frame" x="30" y="75" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="7H8-jV-DOS"/>
@@ -100,6 +111,7 @@
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2j-2e-sRL">
                                                 <rect key="frame" x="26" y="105" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="IdV-kb-09v"/>
                                                 </constraints>
@@ -109,6 +121,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbm-on-rsu" customClass="LXPasswordView">
                                                 <rect key="frame" x="85" y="100" width="182" height="30"/>
+                                                <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="pOx-nF-11m"/>
@@ -116,6 +129,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOi-tu-TUe" userLabel="分割线">
                                                 <rect key="frame" x="30" y="145" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Sb8-2N-cys"/>
@@ -123,6 +137,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2C-bI-J8D" customClass="LXButton">
                                                 <rect key="frame" x="15" y="170" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="Yxr-pQ-j3m"/>
                                                     <constraint firstAttribute="width" constant="260" id="eV9-iB-kHO"/>
@@ -142,6 +157,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBz-uV-a71" customClass="LXButton">
                                                 <rect key="frame" x="15" y="226" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="SaX-d0-rdE"/>
                                                     <constraint firstAttribute="height" constant="36" id="afj-7R-62i"/>
@@ -160,6 +176,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="tBz-uV-a71" secondAttribute="trailing" constant="15" id="21o-2t-6bR"/>
@@ -196,11 +213,13 @@
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="创业成就梦想    创新改变世界" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-Vu-VEu">
                                         <rect key="frame" x="53" y="480" width="222" height="21"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="kNN-4K-sUA" firstAttribute="top" secondItem="opP-Qg-kCA" secondAttribute="bottom" constant="36" id="7AZ-T3-hDr"/>
@@ -229,6 +248,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SvF-kF-x0S" firstAttribute="top" secondItem="xTf-22-ZWO" secondAttribute="bottom" id="HNE-J2-oGp"/>
@@ -248,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgL-V2-YhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="237"/>
+            <point key="canvasLocation" x="852" y="-93"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ovZ-an-gSO">
@@ -259,6 +279,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nex-gT-PP8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -267,7 +288,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xxu-dr-H3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="237"/>
+            <point key="canvasLocation" x="363" y="-81"/>
         </scene>
         <!--欢迎注册团团创-->
         <scene sceneID="KRg-Oa-l1E">
@@ -289,6 +310,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VI-J5-KQA">
                                                 <rect key="frame" x="26" y="35" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="vNg-mw-kSb"/>
                                                 </constraints>
@@ -298,6 +320,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFU-lJ-vVj" userLabel="分割线">
                                                 <rect key="frame" x="30" y="75" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Nwe-Sq-wJI"/>
@@ -305,6 +328,7 @@
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入姓名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vMq-If-5xD">
                                                 <rect key="frame" x="85" y="30" width="182" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="LIY-Mj-8kt"/>
                                                 </constraints>
@@ -313,6 +337,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUv-Dw-D7U">
                                                 <rect key="frame" x="26" y="175" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="Yg3-Q5-CsI"/>
                                                 </constraints>
@@ -322,6 +347,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ouV-DK-Eeu">
                                                 <rect key="frame" x="85" y="170" width="97" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="kpU-Ah-rwK"/>
                                                 </constraints>
@@ -330,6 +356,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYK-cP-EJD">
                                                 <rect key="frame" x="26" y="105" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="I7o-8B-uDu"/>
                                                 </constraints>
@@ -339,6 +366,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-hW-vCn" userLabel="分割线">
                                                 <rect key="frame" x="30" y="145" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="6Uw-UB-PUa"/>
@@ -346,6 +374,7 @@
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HGb-4h-dbm">
                                                 <rect key="frame" x="85" y="100" width="182" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="cEG-Gh-gbi"/>
                                                 </constraints>
@@ -354,6 +383,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7U-ae-U9W">
                                                 <rect key="frame" x="26" y="245" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="Ryj-MA-PUx"/>
                                                 </constraints>
@@ -363,6 +393,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5o-gS-eqc" customClass="LXPasswordView">
                                                 <rect key="frame" x="85" y="240" width="182" height="30"/>
+                                                <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="8zk-Or-iHg"/>
@@ -370,6 +401,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bn-Fc-gOn" userLabel="分割线">
                                                 <rect key="frame" x="30" y="285" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="q3k-mw-wew"/>
@@ -377,6 +409,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huZ-5G-rbd" userLabel="分割线">
                                                 <rect key="frame" x="30" y="215" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="vEi-GN-8u7"/>
@@ -384,6 +417,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgA-L9-q3N" customClass="LXButton">
                                                 <rect key="frame" x="15" y="310" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="6Mq-Ty-fz8"/>
                                                     <constraint firstAttribute="height" constant="36" id="TdK-rP-d1j"/>
@@ -403,6 +437,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-0r-EKp" customClass="LXSmsCodeButton">
                                                 <rect key="frame" x="188" y="167" width="91" height="35"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="cZ4-Ss-dqM"/>
                                                     <constraint firstAttribute="height" constant="36" id="rHa-Qa-Hnf"/>
@@ -424,6 +459,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="ZFU-lJ-vVj" firstAttribute="leading" secondItem="DGs-RC-cB6" secondAttribute="leading" constant="30" id="0pF-Lc-xhR"/>
@@ -476,6 +512,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miu-Jv-qes">
                                         <rect key="frame" x="58" y="509" width="213" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="m9l-hi-CgI"/>
                                             <constraint firstAttribute="width" constant="213" id="w64-RZ-Ym0"/>
@@ -489,6 +526,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="DGs-RC-cB6" secondAttribute="bottom" constant="188" id="EZ7-iy-uah"/>
@@ -501,6 +539,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GrB-Am-RlX" firstAttribute="leading" secondItem="5lQ-gk-uU0" secondAttribute="leadingMargin" constant="-20" id="4zI-wo-hHd"/>
@@ -522,7 +561,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHI-Jm-nRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="-59"/>
+            <point key="canvasLocation" x="1253" y="-135"/>
         </scene>
         <!--找回密码-->
         <scene sceneID="ZfD-kl-Ssw">
@@ -544,6 +583,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLv-Vc-a59">
                                                 <rect key="frame" x="26" y="105" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="ObT-e3-4x8"/>
                                                 </constraints>
@@ -553,6 +593,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lYO-dr-k0x">
                                                 <rect key="frame" x="85" y="100" width="97" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="400-1N-m2S"/>
                                                 </constraints>
@@ -561,6 +602,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMy-LR-J7l">
                                                 <rect key="frame" x="26" y="35" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="c7Y-kv-Cvq"/>
                                                 </constraints>
@@ -570,6 +612,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inU-64-ei7" userLabel="分割线">
                                                 <rect key="frame" x="30" y="75" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="f9m-f6-3yS"/>
@@ -577,6 +620,7 @@
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Q0-jZ-5hU">
                                                 <rect key="frame" x="85" y="30" width="182" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ISP-fy-7m8"/>
                                                 </constraints>
@@ -585,6 +629,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LQ-S3-7Nq">
                                                 <rect key="frame" x="26" y="175" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="2K3-vP-5zz"/>
                                                 </constraints>
@@ -594,6 +639,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUB-EA-ZRf" customClass="LXPasswordView">
                                                 <rect key="frame" x="85" y="170" width="182" height="30"/>
+                                                <animations/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ehw-uF-R4H"/>
@@ -601,6 +647,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKT-2B-bdd" userLabel="分割线">
                                                 <rect key="frame" x="30" y="215" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="XMx-kF-CKa"/>
@@ -608,6 +655,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fO-9K-K1i" userLabel="分割线">
                                                 <rect key="frame" x="30" y="145" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="LPC-ah-lkP"/>
@@ -615,6 +663,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdM-Rr-PVr" customClass="LXButton">
                                                 <rect key="frame" x="15" y="240" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="Iep-eA-JuT"/>
                                                     <constraint firstAttribute="height" constant="36" id="ddC-Ee-OVN"/>
@@ -634,6 +683,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUc-en-n9P" customClass="LXSmsCodeButton">
                                                 <rect key="frame" x="188" y="97" width="91" height="35"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="9RI-y3-y1i"/>
                                                     <constraint firstAttribute="width" constant="260" id="Sjs-E3-WYk"/>
@@ -656,6 +706,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEv-9O-goI" customClass="LXButton">
                                                 <rect key="frame" x="15" y="291" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="6Zr-w7-gxf"/>
                                                     <constraint firstAttribute="height" constant="36" id="sWU-4s-jdr"/>
@@ -674,6 +725,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="yUc-en-n9P" secondAttribute="trailing" constant="11" id="0lI-0n-gxY"/>
@@ -720,6 +772,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="vbA-MZ-fca" secondAttribute="bottom" constant="188" id="BOo-77-wKU"/>
@@ -730,6 +783,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NfB-IJ-rQo" firstAttribute="top" secondItem="bh1-Yw-9Kp" secondAttribute="bottom" constant="-64" id="YMk-gf-eeu"/>
@@ -772,6 +826,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2T-jA-8Mv">
                                                 <rect key="frame" x="26" y="105" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="MNm-mY-cXM"/>
                                                 </constraints>
@@ -781,6 +836,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sCY-AX-ORn">
                                                 <rect key="frame" x="85" y="100" width="97" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="t9r-cB-8JI"/>
                                                 </constraints>
@@ -789,6 +845,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="旧手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sd2-jk-AnF">
                                                 <rect key="frame" x="26" y="35" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="0H5-MV-i5Y"/>
                                                 </constraints>
@@ -798,6 +855,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQ9-5Q-gFG" userLabel="分割线">
                                                 <rect key="frame" x="30" y="75" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="4PJ-hu-MF8"/>
@@ -805,6 +863,7 @@
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dt4-XB-TWc">
                                                 <rect key="frame" x="85" y="30" width="182" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="dQr-gl-IRm"/>
                                                 </constraints>
@@ -813,6 +872,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aL-W9-qla" userLabel="分割线">
                                                 <rect key="frame" x="30" y="145" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="k2g-K8-dKM"/>
@@ -820,6 +880,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ral-Kj-gTn" customClass="LXButton">
                                                 <rect key="frame" x="15" y="240" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="4ht-QQ-uUP"/>
                                                     <constraint firstAttribute="height" constant="36" id="Ocb-ue-bjr"/>
@@ -839,6 +900,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SR1-VL-xXW" customClass="LXSmsCodeButton">
                                                 <rect key="frame" x="188" y="97" width="91" height="35"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="BG0-fM-a5j"/>
                                                     <constraint firstAttribute="height" constant="35" id="Hx9-Gr-7fs"/>
@@ -860,6 +922,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Dt4-XB-TWc" firstAttribute="leading" secondItem="Sd2-jk-AnF" secondAttribute="trailing" constant="4" id="0gu-Cn-wPF"/>
@@ -896,6 +959,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvW-Bc-YfG">
                                         <rect key="frame" x="27" y="509" width="275" height="30"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="275" id="bQ0-9e-thJ"/>
                                             <constraint firstAttribute="height" constant="30" id="jhZ-xM-60X"/>
@@ -909,6 +973,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="qy1-g4-UV1" firstAttribute="centerX" secondItem="pmc-pi-FAn" secondAttribute="centerX" id="ETI-Jn-1e0"/>
@@ -921,6 +986,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pmc-pi-FAn" firstAttribute="top" secondItem="4UJ-eW-WRc" secondAttribute="bottom" constant="-64" id="Ckj-Uk-EjM"/>
@@ -940,7 +1006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2b-K9-jXY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297" y="-59"/>
+            <point key="canvasLocation" x="1731" y="-127"/>
         </scene>
         <!--更换手机-->
         <scene sceneID="tli-Cl-rGU">
@@ -962,6 +1028,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xd-Mn-DSI">
                                                 <rect key="frame" x="26" y="105" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="m2b-Sk-SMc"/>
                                                 </constraints>
@@ -971,6 +1038,7 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O5C-tT-DsD">
                                                 <rect key="frame" x="85" y="100" width="97" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="qEu-hm-Tqe"/>
                                                 </constraints>
@@ -979,6 +1047,7 @@
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goC-35-9ea">
                                                 <rect key="frame" x="26" y="35" width="55" height="20"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="N2B-qc-qNT"/>
                                                 </constraints>
@@ -988,6 +1057,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeT-le-VLU" userLabel="分割线">
                                                 <rect key="frame" x="30" y="75" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="rii-GU-MDm"/>
@@ -995,6 +1065,7 @@
                                             </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zMr-up-5i0">
                                                 <rect key="frame" x="85" y="30" width="182" height="30"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="PaY-gr-4nJ"/>
                                                 </constraints>
@@ -1003,6 +1074,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDR-vj-yYn" userLabel="分割线">
                                                 <rect key="frame" x="30" y="145" width="230" height="1"/>
+                                                <animations/>
                                                 <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="m92-4f-vkq"/>
@@ -1010,6 +1082,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOF-mh-y9B" customClass="LXButton">
                                                 <rect key="frame" x="15" y="240" width="260" height="36"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="qrt-qr-cUe"/>
                                                     <constraint firstAttribute="height" constant="36" id="v12-50-NBu"/>
@@ -1029,6 +1102,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm4-E0-Mti" customClass="LXSmsCodeButton">
                                                 <rect key="frame" x="188" y="97" width="91" height="35"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="2jC-lB-RgS"/>
                                                     <constraint firstAttribute="width" constant="260" id="3Hc-7o-upV"/>
@@ -1050,6 +1124,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="fm4-E0-Mti" secondAttribute="trailing" constant="11" id="0Vl-5a-TMC"/>
@@ -1085,6 +1160,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="tI8-3h-cpy" firstAttribute="centerX" secondItem="y6K-8s-xl0" secondAttribute="centerX" id="6Md-zm-cS4"/>
@@ -1095,6 +1171,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y6K-8s-xl0" firstAttribute="leading" secondItem="rHR-ka-8Jk" secondAttribute="leadingMargin" constant="-20" id="abP-mc-A7B"/>
@@ -1113,7 +1190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWK-zR-zFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="-59"/>
+            <point key="canvasLocation" x="2292" y="-120"/>
         </scene>
     </scenes>
     <resources>

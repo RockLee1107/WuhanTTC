@@ -27,6 +27,11 @@
 
 @implementation MemberTableViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+    [self fetchData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.avatarImageView.clipsToBounds = YES;
@@ -35,12 +40,8 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.tabBarController.tabBar.hidden = NO;
-    [self fetchData];
-}
-
 - (void)fetchData {
+    //登录状态
     if ([[User getInstance] isLogin]) {
         self.loginLabel.hidden = YES;
         NSDictionary *param = @{

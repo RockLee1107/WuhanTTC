@@ -6,16 +6,18 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/********搜索栏下是9个button********/
+
 #import "BookSearchViewController.h"
 #import "BookListDelegate.h"
 #import "BookSearchTableViewCell.h"
 #import "BookSearchByTitleOrOthersTableViewController.h"
 #import "Masonry.h"
 
-@interface BookSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate ,UISearchDisplayDelegate>
+@interface BookSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UISearchDisplayDelegate>
 @property (weak,nonatomic) IBOutlet UITableView *parentTableView;
 @property (strong,nonatomic) UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;//搜索栏
 @property (strong, nonatomic) NSString *keyWords;
 @property (strong, nonatomic) UIView *containerView;
 @property (strong, nonatomic) Page *hotPage;
@@ -113,6 +115,7 @@
     [self.service POST:@"book/label/queryHotLabel" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //render container view
         self.labelArray = responseObject;
+        //如果热门栏目少于9个，就不能向右滑动
         if ([responseObject count] < 9) {
             self.rightButton.enabled = NO;
         } else {
@@ -198,7 +201,7 @@
     self.tableView.dataSource = self.tableViewDelegate;
 }
 
-///请求网络
+//请求网络
 - (void)fetchData {
     self.page.pageSize = 10;
 //    specialCode

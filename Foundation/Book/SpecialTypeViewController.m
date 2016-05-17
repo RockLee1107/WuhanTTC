@@ -4,7 +4,9 @@
 //
 //  Created by Dotton on 16/3/3.
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
-//
+
+
+//              ***********创成长首页***********
 
 #import "SpecialTypeViewController.h"
 #import "SubTabBarController.h"
@@ -39,17 +41,23 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 
+//请求数据
 -(void)fetchData {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if ([[User getInstance] isLogin]) {
+        
         [dict setObject:[User getInstance].uid forKey:@"SEQ_userId"];
     }
+    
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:dict]};
     [self.service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         self.dataImmutableArray = responseObject;
+        
         [self.tableView reloadData];
     } noResult:nil];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -95,13 +103,15 @@
 {
 //    __weak typeof(self) weakSelf = self;
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"推荐好文" iconName:@"menu_contribute" callBack:^(NSUInteger index, id info) {
-         if ([[User getInstance] isLogin]) {
+        //如果用户已经登录
+        if ([[User getInstance] isLogin]) {
              ContributeTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"contribute"];
              [self.navigationController pushViewController:vc animated:YES];
-         }else{
+        }//提示用户先登录
+        else{
              LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
              [self.navigationController presentViewController:vc animated:YES completion:nil];
-         }
+        }
         
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
