@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,6 +18,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="vfc-5r-V8c">
                         <rect key="frame" x="8" y="20" width="60" height="60"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="4Bi-Yd-ApW"/>
                             <constraint firstAttribute="width" secondItem="vfc-5r-V8c" secondAttribute="height" multiplier="1:1" id="d3e-eb-pZm"/>
@@ -31,6 +32,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CjL-7y-gTU">
                         <rect key="frame" x="85" y="13" width="113" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="113" id="bLd-aQ-vT8"/>
                         </constraints>
@@ -40,6 +42,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13587567910" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqB-A3-2Fx">
                         <rect key="frame" x="212" y="14" width="100" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="9tS-gW-l02"/>
                         </constraints>
@@ -49,6 +52,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0a-PE-gnA">
                         <rect key="frame" x="85" y="44" width="110" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="110" id="dXG-Os-K5n"/>
                         </constraints>
@@ -58,17 +62,20 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlo-7u-msV">
                         <rect key="frame" x="85" y="73" width="208" height="18"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CEO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2y-DN-bLj">
                         <rect key="frame" x="212" y="44" width="92" height="18"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="Mlo-7u-msV" firstAttribute="leading" secondItem="vfc-5r-V8c" secondAttribute="trailing" constant="17" id="3Da-Jc-1lH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="b2y-DN-bLj" secondAttribute="trailing" constant="8" id="3jY-VS-8Vu"/>
@@ -86,6 +93,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Mlo-7u-msV" secondAttribute="trailing" constant="19" id="wg2-hG-lq2"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="avatarImageView" destination="vfc-5r-V8c" id="b0h-N5-NH7"/>
                 <outlet property="companyLabel" destination="J0a-PE-gnA" id="Iwy-xI-Jp7"/>

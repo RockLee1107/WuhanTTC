@@ -6,6 +6,9 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/******我页面******/
+
+
 #import "MemberTableViewController.h"
 #import "MyCollectPageController.h"
 #import "MyNotePageController.h"
@@ -16,7 +19,7 @@
 #import "FriendsListViewController.h"
 #import "MessagePageController.h"
 
-@interface MemberTableViewController ()
+@interface MemberTableViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *userIdentityButton;
@@ -34,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.avatarImageView.clipsToBounds = YES;
     self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame) / 2.0;
 //    self.usernameLabel.text = [User getInstance].username;
@@ -62,7 +66,8 @@
             [self.userIdentityButton setTitle:userIdentity forState:(UIControlStateNormal)];
         } noResult:nil];
 
-    } else {
+    }//游客状态
+    else {
         self.loginLabel.hidden = NO;
     }
 }
@@ -102,11 +107,32 @@
         }
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        if (indexPath.section == 0) {
+            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        }else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
+        }
+
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //确认退出系统
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+
+        
+        /***退出后应该删除掉用户token(未做)***/
+
+    }
+}
+
 
 //#warning appstore
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

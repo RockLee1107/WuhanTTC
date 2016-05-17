@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,6 +17,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkO-zE-R45" userLabel="Line">
                         <rect key="frame" x="104" y="0.0" width="2" height="43"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.0" green="0.56862745098039214" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="3Ht-j1-pJL"/>
@@ -24,6 +25,7 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016年04月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANF-Mp-tcP">
                         <rect key="frame" x="8" y="13" width="83" height="18"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="83" id="3Km-mh-pTo"/>
                         </constraints>
@@ -33,18 +35,21 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进度详情说明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUi-08-0CR">
                         <rect key="frame" x="121" y="13" width="191" height="18"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_timeline_done.png" translatesAutoresizingMaskIntoConstraints="NO" id="veB-Zf-k1a">
                         <rect key="frame" x="99" y="8" width="12" height="12"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="wNe-bx-OpY"/>
                             <constraint firstAttribute="width" constant="12" id="woW-nh-XeH"/>
                         </constraints>
                     </imageView>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="kUi-08-0CR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="00f-41-EcG"/>
                     <constraint firstItem="tkO-zE-R45" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="GHK-hm-1bD"/>
@@ -58,6 +63,7 @@
                     <constraint firstItem="ANF-Mp-tcP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yhN-0h-XhH"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="dateLabel" destination="ANF-Mp-tcP" id="ba5-Wa-RhY"/>
                 <outlet property="descLabel" destination="kUi-08-0CR" id="805-WK-pAl"/>

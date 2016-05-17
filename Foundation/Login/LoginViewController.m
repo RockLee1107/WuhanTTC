@@ -29,6 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //添加返回按钮
+    [self createBackButton];
+    
     /**************???????***************/
     [[LocationUtil getInstance] fetchLocation];
     
@@ -50,6 +54,20 @@
 //    self.usernameTextField.text = @"18602764235";
 //    self.passwordView.textField.text = @"zxcvbn";
     
+}
+
+- (void)createBackButton {
+    //返回按钮
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn.frame = CGRectMake(30, 29, 49, 30);
+    [backBtn setImage:[UIImage imageNamed:@"arrow_left@2x"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+- (void)backBtnClick {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 ///游客登录
