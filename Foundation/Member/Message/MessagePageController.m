@@ -75,7 +75,7 @@
                       @"userType"
                       ];
         self.values = @[
-                        @"0",
+                        @"('99','0')",
 //                        由于收信是toUserId，所以人为地将它的SEQ_type定为-1，在子页中硬编码判断
                         @"SEQ_toUserId",
                         @"SEQ_userId"
