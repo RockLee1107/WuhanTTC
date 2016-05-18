@@ -41,7 +41,7 @@
         return;
     }
     NSDictionary *param = @{@"username":username};
-    [self.service POST:@"getAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service POST:@"getRegisterAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [sender reSend];
     } noResult:nil];
 }
