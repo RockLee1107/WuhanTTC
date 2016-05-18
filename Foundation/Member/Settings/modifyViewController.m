@@ -40,6 +40,7 @@
                             };
     [self.service POST:@"modifyPassword" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[PXAlertView showAlertWithTitle:@"密码修改成功" message:nil completion:^(BOOL cancelled, NSInteger buttonIndex) {
+            
             [self jumpLogin];
         }] useDefaultIOS7Style];
     } noResult:nil];

@@ -15,7 +15,7 @@
 #import "StatusDict.h"
 #import "LoginViewController.h"
 
-@interface ActivityListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
+@interface ActivityListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet BaseTableView *tableView;
 //搜索条件
 @property (nonatomic,strong) NSArray *dataTitle;//按发布时间；全国；类型
@@ -123,10 +123,11 @@
              MyActivityPageController *vc = [[MyActivityPageController alloc] init];
              [weakSelf.navigationController pushViewController:vc animated:YES];
          }else{
-             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-             [self.navigationController presentViewController:vc animated:YES completion:nil];
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+             [alertView show];
          }
            }];
+    
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建活动" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
             [self performSegueWithIdentifier:@"create" sender:nil];
@@ -150,6 +151,20 @@
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //确认退出系统
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        
+        
+        /***退出后应该删除掉用户token(未做)***/
+        
+    }
 }
 
 #pragma mark - 下拉筛选菜单

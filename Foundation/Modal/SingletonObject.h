@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface SingletonObject : NSObject
+
 + (instancetype)getInstance;
 @property (nonatomic,strong) NSString *pid;
 @property (nonatomic,strong) NSDictionary *dataDict;
-@property (nonatomic,assign) BOOL isMaticLogout;
+@property (nonatomic,assign) BOOL isMaticLogout; 
 @property (nonatomic,assign) BOOL isBrowse;
+
 @end

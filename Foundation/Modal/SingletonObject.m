@@ -13,6 +13,7 @@
     static SingletonObject *instance;
     if (instance == nil) {
         instance = [[self alloc]init];
+        
     }
     return instance;
 }

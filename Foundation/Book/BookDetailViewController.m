@@ -16,16 +16,18 @@
 #import "LXWebView.h"
 #import "BookSearchByTitleOrOthersTableViewController.h"
 
-@interface BookDetailViewController ()<UIWebViewDelegate>
+@interface BookDetailViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet LXWebView *webView;
 @property (assign, nonatomic) CGFloat introWebViewHeight;
 //是否已经加载网页
 @property (assign, nonatomic) BOOL isLoadedWeb;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *publishDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *readNumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *collectNumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *readNumLabel;//阅读数
+@property (weak, nonatomic) IBOutlet UILabel *collectNumLabel;//收藏数
+@property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;//评论数
+
 @property (weak, nonatomic) IBOutlet UIView  *footContentView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *collectNumImageView;//收藏视图
@@ -38,27 +40,32 @@
     [super viewDidLoad];
     
     //给收藏视图添加手势
+    self.collectNumImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     tap.numberOfTapsRequired    = 1;
+    tap.view.tag = 0;
     tap.numberOfTouchesRequired = 1;
     [self.collectNumImageView addGestureRecognizer:tap];
     
+    //导航栏下拉菜单
     [self addRightItem];
+    
     [self setDynamicLayout];
+    
+//    self.footContentView.hidden = YES;
     self.webView.delegate = self;
     self.webView.scrollView.scrollEnabled = NO;
     [self.webView customMenu];
-    self.footContentView.hidden = YES;
     
     
     
     [SVProgressHUD showWithStatus:@"正在加载"];
     NSDictionary *param = @{@"bookId":self.bookId};
     [self.service POST:@"book/getBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [SVProgressHUD dismiss];
+        
         self.webView.bookId = self.bookId;
         self.webView.bookName = responseObject[@"title"];
-        self.footContentView.hidden = NO;
+//        self.footContentView.hidden = NO;
         self.dataDict = responseObject;
 //        NSString *cssStr = @"<style>img{width:100%;}</style>";
 //        标题栏
@@ -77,38 +84,59 @@
         self.commentNumLabel.text = [responseObject[@"commentNum"] stringValue];
         NSString *contentStr = responseObject[@"content"];
         [self.webView loadHTMLString:contentStr baseURL:nil];
+        
+        
     } noResult:^{
         
     }];
     
-    
-    
 }
+
 
 //点击收藏
 - (void)tap:(UITapGestureRecognizer *)tt {
-    
     if ([[User getInstance] isLogin]) {
-        //        访问网络
-        NSDictionary *param = @{
-                                @"Collect":[StringUtil dictToJson:@{
-                                                                    @"bookId":self.bookId,
-                                                                    @"userId":[User getInstance].uid,
-                                                                    @"specialType":self.dataDict[@"specialCode"],
-                                                                    @"bookType":self.dataDict[@"bookType"],
-                                                                    @"isAttention":@1
-                                                                    }]
-                                };
-        [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-        } noResult:nil];
+        
+        if (tt.view.tag == 0) {
+            //收藏后及时更新数据
+            NSString *collectNum = self.collectNumLabel.text;
+            int num = [collectNum intValue] + 1;
+            self.collectNumLabel.text = [NSString stringWithFormat:@"%d", num];
+            tt.view.tag = 1;
+            //        访问网络
+            NSDictionary *param = @{
+                                    @"Collect":[StringUtil dictToJson:@{
+                                                                        @"bookId":self.bookId,
+                                                                        @"userId":[User getInstance].uid,
+                                                                        @"specialType":self.dataDict[@"specialCode"],
+                                                                        @"bookType":self.dataDict[@"bookType"],
+                                                                        @"isAttention":@1
+                                                                        }]
+                                    };
+            [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
+            } noResult:nil];
+        }else {
+            [SVProgressHUD showSuccessWithStatus:@"该文献已经收藏"];
+        }
     }else {
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+        [alertView show];
     }
 
 }
 
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+//点击版权声明
 - (IBAction)copyrightButtonPress:(id)sender {
     CopyrightViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"copyright"];
     vc.bookId = self.bookId;
@@ -117,6 +145,7 @@
 
 //webView delegate
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
+    
     if(self.isLoadedWeb)
     {
         NSString *height_str= [webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"];
@@ -144,6 +173,9 @@
     self.isLoadedWeb = YES;
     //加载实际要现实的html
     [webView loadHTMLString:html baseURL:nil];
+    
+    self.footContentView.hidden = NO;
+    [SVProgressHUD dismiss];
 }
 
 //获取宽度已经适配于webView的html。这里的原始html也可以通过js从webView里获取
@@ -199,6 +231,7 @@
             [labelButton addTarget:self action:@selector(searchByLabelId:) forControlEvents:(UIControlEventTouchUpInside)];
             [cell.contentView addSubview:labelButton];
         }
+        
         return cell;
     }
     return [super tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -207,6 +240,8 @@
 //标签点击事件
 - (void)searchByLabelId:(UIButton *)sender {
     NSString *labelId = self.dataDict[@"labels"][sender.tag][@"id"];
+    
+    
     BookSearchByTitleOrOthersTableViewController *vc = [[BookSearchByTitleOrOthersTableViewController alloc] init];
     vc.keyWords = labelId;
     vc.type = @"SEQ_labelId";
@@ -254,8 +289,14 @@
         }
        
     }];
+    
+    //点击收藏
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"app_collect" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
+            
+            
+            
+            
             //        访问网络
             NSDictionary *param = @{
                                     @"Collect":[StringUtil dictToJson:@{
@@ -267,10 +308,17 @@
                                                                         }]
                                     };
             [self.service GET:@"personal/collect/collectBook" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
                 [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
-            } noResult:nil];        }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+                //收藏后及时更新数据
+                NSString *collectNum = self.collectNumLabel.text;
+                int num = [collectNum intValue] + 1;
+                self.collectNumLabel.text = [NSString stringWithFormat:@"%d", num];
+                
+            } noResult:nil];
+        } else{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+                [alertView show];
         }
 
         

@@ -9,6 +9,9 @@
 #import "ResetViewController.h"
 #import "LXPasswordView.h"
 #import "LXSmsCodeButton.h"
+#import "LoginViewController.h"
+#import "SingletonObject.h"
+#import "User.h"
 
 @interface ResetViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -54,7 +57,20 @@
                             };
     [self.service POST:@"resetPassword" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"密码重置成功"];
-        [self goBack:nil];
+        
+        [SingletonObject getInstance].isMaticLogout = YES;
+        
+//        [[User getInstance] setPassword:password];
+        
+        //[self jumpLogin];
+        
+        for(UIViewController *controller in self.navigationController.viewControllers) {
+            if([controller isKindOfClass:[LoginViewController class]]){
+                LoginViewController *loginVC = (LoginViewController *)controller;
+                [self.navigationController popToViewController:loginVC animated:YES];
+            }
+        }
+        
     } noResult:nil];
 }
 

@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet LXPasswordView *passwordView;//密码
 @property (weak, nonatomic) IBOutlet LXButton *visitorButton;//随便逛逛
 
+@property (nonatomic,assign) BOOL isMaticLogout;
+
 @end
 
 @implementation LoginViewController
@@ -134,9 +136,11 @@
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
+        
+        
         if ([SingletonObject getInstance].isMaticLogout) {
             [self jumpMain];
-        } else {
+        } else{
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         }
 //        [self jumpTest];
