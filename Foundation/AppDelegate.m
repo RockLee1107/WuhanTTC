@@ -26,7 +26,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance]setTintColor:tintColor];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    //登录页由首页改为Tab页
+    //登录页由首页改为Tab页 ** 
 //    NSLog(@"uid%@",[User getInstance].uid);
     MainTabBarController *vc = [[MainTabBarController alloc] init];
     self.window.rootViewController = vc;
