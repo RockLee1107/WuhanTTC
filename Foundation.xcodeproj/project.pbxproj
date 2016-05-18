@@ -1576,8 +1576,8 @@
 				F7FE4FFF1C892E7F00114B28 /* LoginViewController.m */,
 				F7B827F41C892DDC00014746 /* Login.storyboard */,
 				F795DF411CB2555A002BCDEE /* RegistViewController.h */,
-				FD3D59F81CB29AB100B9514D /* ResetViewController.h */,
 				F795DF421CB2555A002BCDEE /* RegistViewController.m */,
+				FD3D59F81CB29AB100B9514D /* ResetViewController.h */,
 				FD3D59F91CB29AB100B9514D /* ResetViewController.m */,
 				FD5ADD931CDE08D7005ED424 /* ModifyMobileViewController.h */,
 				FD5ADD941CDE08D7005ED424 /* ModifyMobileViewController.m */,
@@ -3008,6 +3008,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3101,6 +3102,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3111,8 +3113,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

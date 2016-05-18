@@ -17,6 +17,8 @@
 
 @interface LoginViewController ()
 
+
+
 @property (weak, nonatomic) IBOutlet UIView *containerView;//大白框
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;//装登录页面，快速注册，忘记密码页面
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;//用户名
@@ -31,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     //添加返回按钮
     [self createBackButton];
@@ -137,6 +140,9 @@
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
         
+//        if (self.isReset != nil && [self.isReset isEqualToString:@"YES"]) {
+//            [self jumpMain];
+//        }
         
         if ([SingletonObject getInstance].isMaticLogout) {
             [self jumpMain];
