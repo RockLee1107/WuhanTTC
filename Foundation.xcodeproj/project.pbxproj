@@ -2474,7 +2474,7 @@
 				TargetAttributes = {
 					F70B019B1C7232FC00D46D79 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = P967XC9JMD;
+						DevelopmentTeam = BA33VTHQ9G;
 					};
 				};
 			};
@@ -3019,14 +3019,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xin song (59DM2Z8C7R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xin song (59DM2Z8C7R)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = Foundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3039,6 +3040,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "347103b9-157c-42e4-b6d8-c2ca29eafb8d";
 			};
 			name = Debug;
 		};
@@ -3047,14 +3049,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xin song (59DM2Z8C7R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xin song (59DM2Z8C7R)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = Foundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3067,6 +3070,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "347103b9-157c-42e4-b6d8-c2ca29eafb8d";
 			};
 			name = Release;
 		};
@@ -3113,14 +3117,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xin song (59DM2Z8C7R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xin song (59DM2Z8C7R)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 				);
 				INFOPLIST_FILE = Foundation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3133,6 +3138,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "347103b9-157c-42e4-b6d8-c2ca29eafb8d";
 			};
 			name = "ad hoc";
 		};
