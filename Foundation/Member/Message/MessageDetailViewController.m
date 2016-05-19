@@ -37,9 +37,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setDynamicLayout];
     self.msgTextField.delegate = self;
     [self changeMsgStatus];
+    
+    //标题
     self.captionLabel.text = [StringUtil toString:self.dataDict[@"title"]];
     self.contentLabel.text = [StringUtil toString:self.dataDict[@"content"]];
     self.createdDatetimeLabel.text = [DateUtil toShortDateCN:self.dataDict[@"createdDate"] time:self.dataDict[@"createdTime"]];

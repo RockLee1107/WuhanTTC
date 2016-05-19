@@ -12,13 +12,13 @@
 #define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]
 #define MENU_COLOR [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]
 
-/*dev db*/
+/*dev db*/    //测试环境
 #define HOST_URL @"http://120.25.76.149:8080/ttc_web"
 //#define HOST_URL @"http://192.168.1.105:8080/ttc_web"
 #define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
 #define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
 
-/*pro db*/
+/*pro db*/    //正式环境
 //#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
 //#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
 //#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"

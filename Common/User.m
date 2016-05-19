@@ -66,4 +66,8 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
 }
 
+- (void)removePassword {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+}
+
 @end

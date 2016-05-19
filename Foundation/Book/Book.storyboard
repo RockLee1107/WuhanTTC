@@ -526,7 +526,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K96-XF-2OD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1400" y="1013.88"/>
+            <point key="canvasLocation" x="1298" y="996"/>
         </scene>
         <!--About Table View Controller-->
         <scene sceneID="I6P-f9-PkT">
@@ -963,8 +963,8 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a7x-Xd-jmV" customClass="EMTextView">
-                                                    <rect key="frame" x="11" y="40" width="299" height="142"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a7x-Xd-jmV" customClass="EMTextView">
+                                                    <rect key="frame" x="11" y="40" width="299" height="141"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

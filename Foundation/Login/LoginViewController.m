@@ -139,17 +139,9 @@
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
         } noResult:nil];
+
+        [self jumpMain];
         
-//        if (self.isReset != nil && [self.isReset isEqualToString:@"YES"]) {
-//            [self jumpMain];
-//        }
-        
-        if ([SingletonObject getInstance].isMaticLogout) {
-            [self jumpMain];
-        } else{
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-        }
-//        [self jumpTest];
     } noResult:^{
         
     }];

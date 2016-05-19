@@ -3040,7 +3040,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "347103b9-157c-42e4-b6d8-c2ca29eafb8d";
 			};
 			name = Debug;
 		};
@@ -3070,7 +3069,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "347103b9-157c-42e4-b6d8-c2ca29eafb8d";
 			};
 			name = Release;
 		};
@@ -3138,7 +3136,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "347103b9-157c-42e4-b6d8-c2ca29eafb8d";
 			};
 			name = "ad hoc";
 		};

@@ -26,4 +26,5 @@
 @property (nonatomic,strong,nonnull) NSNumber *isInvestor;
 - (void)logout;
 - (BOOL)isLogin;
+- (void)removePassword;
 @end

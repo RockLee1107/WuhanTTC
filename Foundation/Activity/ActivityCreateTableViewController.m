@@ -304,6 +304,7 @@ typedef enum : NSUInteger {
 ///提交到网络
 - (void)postData:(NSInteger)bizStatus {
     
+    //开始结束时间
     if ([self.planDate compare:self.endDate] == NSOrderedDescending) {
         [SVProgressHUD showErrorWithStatus:@"结束时间不能早于开始时间哦"];
         return;

@@ -40,9 +40,17 @@
 ///获取验证码
 - (IBAction)authCodeButtonPress:(LXSmsCodeButton *)sender {
     NSString *username = self.usernameTextField.text;
+    
+    if (![VerifyUtil isMobile:username]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        return;
+    }
+    //GCD倒计时
+    [sender doInit];
+    
     NSDictionary *param = @{@"username":username};
     [self.service POST:@"getAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [sender reSend];
+        //[sender reSend];
     } noResult:nil];
 }
 
@@ -58,18 +66,15 @@
     [self.service POST:@"resetPassword" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD showSuccessWithStatus:@"密码重置成功"];
         
-//        [SingletonObject getInstance].isMaticLogout = YES;
         
-//        [[User getInstance] setPassword:password];
-        
-        //[self jumpLogin];
-        
-       
+        //修改后先移除存在本地的
+        [[User getInstance] removePassword];
         
         for(UIViewController *controller in self.navigationController.viewControllers) {
             if([controller isKindOfClass:[LoginViewController class]]){
                 LoginViewController *loginVC = (LoginViewController *)controller;
-                [self.navigationController popToViewController:loginVC animated:YES];
+//                [self.navigationController popToViewController:loginVC animated:YES];
+                [self presentViewController:loginVC animated:YES completion:nil];
             }
         }
         

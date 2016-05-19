@@ -40,6 +40,8 @@
         [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
         return;
     }
+    //加一个定时器
+    
     NSDictionary *param = @{@"username":username};
     [self.service POST:@"getRegisterAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [sender reSend];
