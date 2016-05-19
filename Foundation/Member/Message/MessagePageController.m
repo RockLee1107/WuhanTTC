@@ -9,7 +9,7 @@
 #import "MessagePageController.h"
 #import "MessageTableViewController.h"
 #import "MailViewController.h"
-///
+
 @interface MessagePageController ()
 
 @end
@@ -31,7 +31,7 @@
                                                    @"userId":[User getInstance].uid,
                                                    @"status":@"1",
                                                    }];
-    
+    //
     if ([self.currentViewController isKindOfClass:[MessageTableViewController class]]) {
         [param setObject:@"0" forKey:@"type"];
         [[HttpService getInstance] POST:@"personal/msg/changeAllMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
