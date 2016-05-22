@@ -13,6 +13,7 @@
 #import "ProjectTableViewDelegate.h"
 #import "InvestorListViewController.h"
 #import "ImageBrowserViewController.h"
+#import "ProjectBPViewController.h"
 
 @interface ProjectIndexTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;//热门项目下的TableView
@@ -101,7 +102,8 @@
     
     //点击项目BP
     if (indexPath.section == 0 && indexPath.row == 0) {
-        
+        ProjectBPViewController *bpVC = [[ProjectBPViewController alloc] init];
+        [self.navigationController pushViewController:bpVC animated:YES];
     }
     
     //点击投资人

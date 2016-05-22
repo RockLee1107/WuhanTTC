@@ -30,6 +30,14 @@
 		1F9F92D71CDCC34F0084ED2A /* menu_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C21CDCC34F0084ED2A /* menu_share@2x.png */; };
 		1F9F92D81CDCC34F0084ED2A /* menu_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */; };
 		1F9F92DB1CDCD6E70084ED2A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */; };
+		8E0C7A871CF18F450053D2BF /* ProjectBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C7A861CF18F450053D2BF /* ProjectBPViewController.m */; };
+		8E0C7A8B1CF19C450053D2BF /* ProjectBPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C7A891CF19C450053D2BF /* ProjectBPCell.m */; };
+		8E0C7A8C1CF19C450053D2BF /* ProjectBPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0C7A8A1CF19C450053D2BF /* ProjectBPCell.xib */; };
+		8E0C7A901CF1B5C60053D2BF /* ProjectBPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C7A8F1CF1B5C60053D2BF /* ProjectBPDetailViewController.m */; };
+		8E0C7A971CF1B8760053D2BF /* ProjectBPDetailDescCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C7A951CF1B8760053D2BF /* ProjectBPDetailDescCell.m */; };
+		8E0C7A981CF1B8760053D2BF /* ProjectBPDetailDescCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0C7A961CF1B8760053D2BF /* ProjectBPDetailDescCell.xib */; };
+		8E0C7A9C1CF1B8A10053D2BF /* ProjectBPDetailImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C7A9A1CF1B8A10053D2BF /* ProjectBPDetailImageCell.m */; };
+		8E0C7A9D1CF1B8A10053D2BF /* ProjectBPDetailImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0C7A9B1CF1B8A10053D2BF /* ProjectBPDetailImageCell.xib */; };
 		F70B01A21C7232FC00D46D79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A11C7232FC00D46D79 /* main.m */; };
 		F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70B01A41C7232FC00D46D79 /* AppDelegate.m */; };
 		F70B01AD1C7232FC00D46D79 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70B01AC1C7232FC00D46D79 /* Images.xcassets */; };
@@ -444,6 +452,19 @@
 		1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_top@2x.png"; sourceTree = "<group>"; };
 		1F9F92D91CDCD6E70084ED2A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		8E0C7A851CF18F450053D2BF /* ProjectBPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPViewController.h; sourceTree = "<group>"; };
+		8E0C7A861CF18F450053D2BF /* ProjectBPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPViewController.m; sourceTree = "<group>"; };
+		8E0C7A881CF19C450053D2BF /* ProjectBPCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPCell.h; sourceTree = "<group>"; };
+		8E0C7A891CF19C450053D2BF /* ProjectBPCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPCell.m; sourceTree = "<group>"; };
+		8E0C7A8A1CF19C450053D2BF /* ProjectBPCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectBPCell.xib; sourceTree = "<group>"; };
+		8E0C7A8E1CF1B5C60053D2BF /* ProjectBPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPDetailViewController.h; sourceTree = "<group>"; };
+		8E0C7A8F1CF1B5C60053D2BF /* ProjectBPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPDetailViewController.m; sourceTree = "<group>"; };
+		8E0C7A941CF1B8760053D2BF /* ProjectBPDetailDescCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPDetailDescCell.h; sourceTree = "<group>"; };
+		8E0C7A951CF1B8760053D2BF /* ProjectBPDetailDescCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPDetailDescCell.m; sourceTree = "<group>"; };
+		8E0C7A961CF1B8760053D2BF /* ProjectBPDetailDescCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectBPDetailDescCell.xib; sourceTree = "<group>"; };
+		8E0C7A991CF1B8A10053D2BF /* ProjectBPDetailImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectBPDetailImageCell.h; sourceTree = "<group>"; };
+		8E0C7A9A1CF1B8A10053D2BF /* ProjectBPDetailImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectBPDetailImageCell.m; sourceTree = "<group>"; };
+		8E0C7A9B1CF1B8A10053D2BF /* ProjectBPDetailImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectBPDetailImageCell.xib; sourceTree = "<group>"; };
 		F70B019C1C7232FC00D46D79 /* Foundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F70B01A01C7232FC00D46D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F70B01A11C7232FC00D46D79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2298,6 +2319,19 @@
 				FDE33F131C9FEF68005C6863 /* ProjectTableViewCell.h */,
 				FDE33F141C9FEF68005C6863 /* ProjectTableViewCell.m */,
 				FDE33F151C9FEF68005C6863 /* ProjectTableViewCell.xib */,
+				8E0C7A851CF18F450053D2BF /* ProjectBPViewController.h */,
+				8E0C7A861CF18F450053D2BF /* ProjectBPViewController.m */,
+				8E0C7A881CF19C450053D2BF /* ProjectBPCell.h */,
+				8E0C7A891CF19C450053D2BF /* ProjectBPCell.m */,
+				8E0C7A8A1CF19C450053D2BF /* ProjectBPCell.xib */,
+				8E0C7A8E1CF1B5C60053D2BF /* ProjectBPDetailViewController.h */,
+				8E0C7A8F1CF1B5C60053D2BF /* ProjectBPDetailViewController.m */,
+				8E0C7A941CF1B8760053D2BF /* ProjectBPDetailDescCell.h */,
+				8E0C7A951CF1B8760053D2BF /* ProjectBPDetailDescCell.m */,
+				8E0C7A961CF1B8760053D2BF /* ProjectBPDetailDescCell.xib */,
+				8E0C7A991CF1B8A10053D2BF /* ProjectBPDetailImageCell.h */,
+				8E0C7A9A1CF1B8A10053D2BF /* ProjectBPDetailImageCell.m */,
+				8E0C7A9B1CF1B8A10053D2BF /* ProjectBPDetailImageCell.xib */,
 			);
 			name = ProjectList;
 			sourceTree = "<group>";
@@ -2527,6 +2561,7 @@
 				FD9450F71CA8398800E00759 /* menu_collect@2x.png in Resources */,
 				FD3E6E251CC8F4D2006246AC /* UMShareEditViewControlleriPad.xib in Resources */,
 				1F9F92D21CDCC34F0084ED2A /* menu_my_post@2x.png in Resources */,
+				8E0C7A8C1CF19C450053D2BF /* ProjectBPCell.xib in Resources */,
 				FD3E6E271CC8F4D2006246AC /* UMSnsAccountViewController.xib in Resources */,
 				1F9F92C81CDCC34F0084ED2A /* menu_add@2x.png in Resources */,
 				F74C9B051CC5289900C7A607 /* TeamTableViewCell.xib in Resources */,
@@ -2576,6 +2611,7 @@
 				FD3DFE891CBDDB7F00CD9E3A /* FriendTableViewCell.xib in Resources */,
 				1F9F92D01CDCC34F0084ED2A /* menu_essential@2x.png in Resources */,
 				F73B78B81C813DDD00069EEE /* Book.storyboard in Resources */,
+				8E0C7A981CF1B8760053D2BF /* ProjectBPDetailDescCell.xib in Resources */,
 				1F9F92CF1CDCC34F0084ED2A /* menu_create@2x.png in Resources */,
 				FD3E6E201CC8F4D2006246AC /* WeiboSDK.bundle in Resources */,
 				1F9F92C51CDCC34F0084ED2A /* app_collect@2x.png in Resources */,
@@ -2598,6 +2634,7 @@
 				F795DF611CB40BB8002BCDEE /* LocationCityTableViewCell.xib in Resources */,
 				FD9450EA1CA8353400E00759 /* menu_create@2x.png in Resources */,
 				FD4CD7D91CCD168700659D9D /* SubjectForMemberCenterTableViewCell.xib in Resources */,
+				8E0C7A9D1CF1B8A10053D2BF /* ProjectBPDetailImageCell.xib in Resources */,
 				F73B78D11C81451E00069EEE /* icon_project_selected@2x.png in Resources */,
 				FD4F43D81CD1A3F9005BF414 /* app_totop@2x.png in Resources */,
 				FD3E6E281CC8F4D2006246AC /* UMSShareListController.xib in Resources */,
@@ -2696,6 +2733,7 @@
 				FD34C0BB1CAFBDCA002B7630 /* InvestorListViewController.m in Sources */,
 				F795DF5F1CB40BB8002BCDEE /* JSONKit.m in Sources */,
 				1F9F92DB1CDCD6E70084ED2A /* AboutViewController.m in Sources */,
+				8E0C7A901CF1B5C60053D2BF /* ProjectBPDetailViewController.m in Sources */,
 				FD4CD7C51CCCFF2200659D9D /* MyCollectBySpecialTableViewController.m in Sources */,
 				FD405EA91CCB6168005AD869 /* BookSearchByTitleOrOthersTableViewController.m in Sources */,
 				FD4E51531CC118FE00061830 /* AJPhotoListView.m in Sources */,
@@ -2743,6 +2781,7 @@
 				FD4CD7E11CCD1B4B00659D9D /* MyReplyTableViewController.m in Sources */,
 				FD3E6E311CC8F527006246AC /* ShareUtil.m in Sources */,
 				F70B01A51C7232FC00D46D79 /* AppDelegate.m in Sources */,
+				8E0C7A8B1CF19C450053D2BF /* ProjectBPCell.m in Sources */,
 				F7A61E7D1CA04CCB001B5FB3 /* WMPageController.m in Sources */,
 				FDE33F091C9FD5E6005C6863 /* BaseTableView.m in Sources */,
 				FD3F65771CD3799A00FBEE43 /* MessageDetailViewController.m in Sources */,
@@ -2751,6 +2790,7 @@
 				FD725F761CBE8BE600A29998 /* StandardViewController.m in Sources */,
 				FD5ADD951CDE08D7005ED424 /* ModifyMobileViewController.m in Sources */,
 				F7A61E781CA04CCB001B5FB3 /* WMFooldView.m in Sources */,
+				8E0C7A9C1CF1B8A10053D2BF /* ProjectBPDetailImageCell.m in Sources */,
 				FDF3FE091CA7E948007B7C83 /* ProjectIndexTableViewController.m in Sources */,
 				F74C9AF81CBE1DE300C7A607 /* EYPopupView.m in Sources */,
 				F73B78AD1C81375600069EEE /* UIView+MJExtension.m in Sources */,
@@ -2819,6 +2859,7 @@
 				FDE26B051C9C38A0003418D5 /* UIWebView+AFNetworking.m in Sources */,
 				FD5C74F61CC71DD80022BD81 /* EvaluateTableViewCell.m in Sources */,
 				FD066CEB1CB8EB09001A132A /* DistancePickerView.m in Sources */,
+				8E0C7A971CF1B8760053D2BF /* ProjectBPDetailDescCell.m in Sources */,
 				F74C9AF91CBE1DE300C7A607 /* EYTagPopupView.m in Sources */,
 				FD3D5A061CB2AA6E00B9514D /* PXAlertView.m in Sources */,
 				FD4F43C71CCF1580005BF414 /* LXPageController.m in Sources */,
@@ -2906,6 +2947,7 @@
 				FD4E51561CC118FE00061830 /* AJPhotoBrowserViewController.m in Sources */,
 				FD066CE81CB8EB09001A132A /* ActionSheetDistancePicker.m in Sources */,
 				F7A61E7B1CA04CCB001B5FB3 /* WMProgressView.m in Sources */,
+				8E0C7A871CF18F450053D2BF /* ProjectBPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
