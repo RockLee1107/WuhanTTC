@@ -9,19 +9,24 @@
 #import "ProjectSummaryTableViewController.h"
 #import "SingletonObject.h"
 #import "LXGallery.h"
+#import "CaptionButton.h"
 
 @interface ProjectSummaryTableViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
-@property (weak, nonatomic) IBOutlet UILabel *procDetailsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *projectNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *procStatusNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bizNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *procUrlLabel;
-@property (weak, nonatomic) IBOutlet UILabel *procFuncLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;//项目名称旁的图片
+@property (weak, nonatomic) IBOutlet UILabel *procDetailsLabel;//项目描述
+@property (weak, nonatomic) IBOutlet UILabel *projectNameLabel;//项目名称
+@property (weak, nonatomic) IBOutlet UILabel *procStatusNameLabel;//产品阶段
+@property (weak, nonatomic) IBOutlet UILabel *bizNameLabel;//经营范围
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;//公司名称
+@property (weak, nonatomic) IBOutlet UILabel *procUrlLabel;//项目网址
+@property (weak, nonatomic) IBOutlet UILabel *procFuncLabel;//产品功能
 //图集
-@property (weak, nonatomic) IBOutlet UIView *pictureView;
+@property (weak, nonatomic) IBOutlet UIView *pictureView;//产品展示
 @property (nonatomic,strong) NSArray *urlArray;
+
+@property (weak, nonatomic) IBOutlet UITableView *evaluateTableView;//产品评析
+@property (weak, nonatomic) IBOutlet CaptionButton *evaluateBtn;
+
 @end
 
 @implementation ProjectSummaryTableViewController
@@ -33,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,6 +77,7 @@
 }
 
 #pragma mark - tb delegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 4) {
         //        详情图片

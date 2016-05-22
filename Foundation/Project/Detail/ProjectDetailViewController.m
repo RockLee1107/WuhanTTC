@@ -4,7 +4,7 @@
 //
 //  Created by HuangXiuJie on 16/3/21.
 //
-//
+//    *****创投融->项目->点击cell后进入的详情页*****
 
 #import "ProjectDetailViewController.h"
 #import "ProjectSummaryTableViewController.h"
@@ -27,12 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self addRightItem];
     [SingletonObject getInstance].dataDict = self.dataDict;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [SingletonObject getInstance].isBrowse = YES;
 }
 
@@ -95,6 +97,7 @@
                 [SVProgressHUD showSuccessWithStatus:@"关注成功"];
             } noResult:nil];
         }else{
+           
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
             [self.navigationController presentViewController:vc animated:YES completion:nil];
         }
@@ -112,11 +115,11 @@
 
         }
             }];
-//    成员或投资人身份
+//    成员或投资人身份  点击项目BP
     DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"项目BP" iconName:@"menu_bp" callBack:^(NSUInteger index, id info) {
         if (self.dataDict[@"bppictUrl"] == [NSNull null]) {
             [SVProgressHUD showErrorWithStatus:@"暂无项目BP"];
-        } else {
+        } else{
             if ([[User getInstance] isLogin]) {
                 ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
                 vc.imageArray = [self.dataDict[@"bppictUrl"] componentsSeparatedByString:@","];

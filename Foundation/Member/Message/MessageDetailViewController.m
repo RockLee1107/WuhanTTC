@@ -16,20 +16,21 @@
 #import "VerifyUtil.h"
 
 @interface MessageDetailViewController ()<UITextFieldDelegate>
-@property (nonatomic,strong) IBOutlet UILabel *createdDatetimeLabel;
-@property (nonatomic,strong) IBOutlet UILabel *contentLabel;
-@property (nonatomic,strong) IBOutlet UIImageView *avatarImageView;
-@property (nonatomic,strong) IBOutlet UIButton *realNameButton;
-@property (nonatomic,strong) IBOutlet UILabel *realNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *directionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (nonatomic,strong) IBOutlet UILabel *createdDatetimeLabel;//时间
+@property (nonatomic,strong) IBOutlet UILabel *contentLabel;//内容
+@property (nonatomic,strong) IBOutlet UIImageView *avatarImageView;//收信下的头像
+@property (nonatomic,strong) IBOutlet UIButton *realNameButton;//收信－>消息详情的 发信人按钮
+@property (nonatomic,strong) IBOutlet UILabel *realNameLabel;//系统管理员
+@property (weak, nonatomic) IBOutlet UILabel *directionLabel;//来自
+@property (weak, nonatomic) IBOutlet UILabel *captionLabel;//标题
 //跳转按钮
 @property (weak, nonatomic) IBOutlet LXButton *jumpButton;
 //灰底背景色ContentView
-@property (weak, nonatomic) IBOutlet UIView *msgContentView;
+@property (weak, nonatomic) IBOutlet UIView *msgContentView;//收信-->消息详情 下方的框
 //输入框
-@property (nonatomic,strong) IBOutlet UITextField *msgTextField;
+@property (nonatomic,strong) IBOutlet UITextField *msgTextField;//收信->消息详情 下方的输入框
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -39,13 +40,23 @@
     [super viewDidLoad];
     
     [self setDynamicLayout];
+    
     self.msgTextField.delegate = self;
     [self changeMsgStatus];
     
+    //时间
+    self.createdDatetimeLabel.text = [DateUtil toShortDateCN:self.dataDict[@"createdDate"] time:self.dataDict[@"createdTime"]];
     //标题
     self.captionLabel.text = [StringUtil toString:self.dataDict[@"title"]];
+    //内容
     self.contentLabel.text = [StringUtil toString:self.dataDict[@"content"]];
-    self.createdDatetimeLabel.text = [DateUtil toShortDateCN:self.dataDict[@"createdDate"] time:self.dataDict[@"createdTime"]];
+    self.contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.contentLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.contentLabel.frame);
+    
+    
+//    self.contentLabel.text = @"点击领取创业学习大礼包";
+    
+    //如根据从上一个页面传过来的 type  加载不同的详情页面 1-->收信页面
     if ([self.dataDict[@"type"] integerValue] == 1) {
         //私信
         [self.realNameButton setTitle:self.dataDict[@"realName"] forState:(UIControlStateNormal)];
@@ -54,14 +65,20 @@
         self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame) / 2.0;
         [self.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
         self.realNameLabel.hidden = YES;
+    
 //        消息发送者为本人
         if ([self.dataDict[@"userId"] isEqualToString:[User getInstance].uid]) {
             //隐藏文本输入框与发送按钮
             self.msgContentView.hidden = YES;
         }
-    } else {
+    }
+    //加载系统通知详情页面
+    else {
+        
+        
 //        系统消息
-        self.realNameLabel.text = self.dataDict[@"realName"];
+//        self.realNameLabel.text = self.dataDict[@"realName"];
+        self.realNameLabel.text = @"系统管理员";
         self.realNameButton.hidden = YES;
         self.avatarImageView.hidden = YES;
         //隐藏文本输入框与发送按钮
@@ -160,7 +177,7 @@
     
 }
 
-//发送文本按钮
+// 消息->收信->消息详情 发送文本按钮
 - (IBAction)sendButtonPress:(id)sender {
 //    msgTextField
     if (![VerifyUtil hasValue:self.msgTextField.text]) {
@@ -195,6 +212,7 @@
 }
 
 #pragma mark - tb delegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 1) {
 //        跳转按钮所在行；分别减去导航栏、消息摘要行、文本框所在行，但不包括底部栏
@@ -203,10 +221,17 @@
 //            //当如系统信息是没有标题栏的时候
 //            height += 40.0;
 //        }
+        
+        
+        
         return height;
     } else if (indexPath.row == 0) {
         if (self.dataDict[@"title"] == [NSNull null]) {
             return 60.0;
+        }else {
+            
+            CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
+            return size.height;
         }
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];

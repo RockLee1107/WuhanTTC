@@ -590,6 +590,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-mU-Isy" customClass="CaptionButton">
+                                                    <rect key="frame" x="13" y="30" width="90" height="20"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="3Sb-Ph-Wra"/>
+                                                        <constraint firstAttribute="height" constant="20" id="axd-wx-2Ow"/>
+                                                    </constraints>
+                                                    <state key="normal" title="活动图片">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="116-RD-ZsD">
                                                     <rect key="frame" x="234" y="11" width="58" height="58"/>
                                                     <animations/>
@@ -601,17 +612,6 @@
                                                     <connections>
                                                         <action selector="selectPicture:" destination="C2G-Xp-UQ1" eventType="touchUpInside" id="5dG-GW-1hf"/>
                                                     </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6O-mU-Isy" customClass="CaptionButton">
-                                                    <rect key="frame" x="13" y="30" width="90" height="20"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="3Sb-Ph-Wra"/>
-                                                        <constraint firstAttribute="height" constant="20" id="axd-wx-2Ow"/>
-                                                    </constraints>
-                                                    <state key="normal" title="活动图片">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
                                                 </button>
                                             </subviews>
                                             <animations/>

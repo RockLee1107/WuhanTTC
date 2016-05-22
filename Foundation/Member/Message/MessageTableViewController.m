@@ -18,10 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setDynamicLayout];
     [self initRefreshControl];
     [self fetchData];
-    self.navigationItem.title = @"系统消息";
+    
 }
 
 //上拉下拉控件
@@ -45,6 +46,7 @@
 
 ///请求网络
 - (void)fetchData {
+    //参数:1.SEQ_toUserId--用户id  2.SIN_type--页面
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                 @"SEQ_toUserId":[User getInstance].uid,
                                                                                 @"SIN_type":self.SEQ_type
@@ -53,6 +55,8 @@
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
     [self.service GET:@"personal/msg/getUserMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
         [SVProgressHUD dismiss];
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
@@ -63,8 +67,10 @@
         if ([responseObject count] < self.page.pageSize) {
             [self.tableView.footer noticeNoMoreData];
         }
+        //如果SIN_type 是系统通知页面  self.dataMutableArray获得的也就是这个页面的数据
         [self.dataMutableArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
+        
     } noResult:^{
         if (self.page.pageNo == 1) {
             [self.dataMutableArray removeAllObjects];
@@ -82,9 +88,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
     MessageTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"MessageTableViewCell" owner:nil options:nil] firstObject];
+    //时间
     cell.createdDatetimeLabel.text = [DateUtil toShortDateCN:dict[@"createdDate"] time:dict[@"createdTime"]];
+    //时间旁的描述文字
     cell.titleLabel.text = [StringUtil toString:dict[@"title"]];
+    //
     cell.unreadImageView.hidden = [dict[@"status"] boolValue];
+    //文字
     cell.contentLabel.text = [StringUtil toString:dict[@"content"]];
     return cell;
 }
@@ -93,6 +103,8 @@
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
     MessageDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateInitialViewController];
     vc.dataDict = dict;
+    NSLog(@"%@", dict);
+   
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -36,13 +36,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您收到一份..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfc-OA-Cl7">
-                                                    <rect key="frame" x="19" y="74" width="293" height="18"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_loading_img_big.png" translatesAutoresizingMaskIntoConstraints="NO" id="wza-57-g66">
                                                     <rect key="frame" x="180" y="5" width="24" height="24"/>
                                                     <animations/>
@@ -62,15 +55,8 @@
                                                         <action selector="showUserDetail:" destination="6y2-1k-jL0" eventType="touchUpInside" id="mFL-El-V7F"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统管理员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH8-5L-V9Z">
-                                                    <rect key="frame" x="181" y="8" width="101" height="18"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOe-UP-8d3">
-                                                    <rect key="frame" x="8" y="40" width="304" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOe-UP-8d3">
+                                                    <rect key="frame" x="0.0" y="39" width="320" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,12 +72,28 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统管理员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH8-5L-V9Z">
+                                                    <rect key="frame" x="181" y="8" width="101" height="18"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="您收到一份..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfc-OA-Cl7">
+                                                    <rect key="frame" x="19" y="73" width="293" height="19"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="IfH-HV-NeB" firstAttribute="leading" secondItem="bgV-Je-rRS" secondAttribute="trailing" constant="8" id="29R-Ua-teN"/>
                                                 <constraint firstItem="VN7-Ed-3tO" firstAttribute="top" secondItem="KpW-bc-tdz" secondAttribute="topMargin" constant="-2" id="5hB-FP-pqu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VN7-Ed-3tO" secondAttribute="trailing" constant="16" id="69k-Vy-ABP"/>
+                                                <constraint firstItem="Wfc-OA-Cl7" firstAttribute="top" secondItem="fOe-UP-8d3" secondAttribute="bottom" constant="13" id="6VK-RF-rql"/>
+                                                <constraint firstAttribute="trailing" secondItem="fOe-UP-8d3" secondAttribute="trailing" id="6t2-WA-Axp"/>
                                                 <constraint firstItem="wza-57-g66" firstAttribute="leading" secondItem="IfH-HV-NeB" secondAttribute="trailing" constant="8" id="8xr-AO-C1N"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="KH8-5L-V9Z" secondAttribute="trailing" constant="30" id="F4y-5x-LNk"/>
                                                 <constraint firstItem="KH8-5L-V9Z" firstAttribute="top" secondItem="KpW-bc-tdz" secondAttribute="topMargin" id="GJA-ic-J5P"/>
@@ -105,9 +107,18 @@
                                                 <constraint firstItem="VN7-Ed-3tO" firstAttribute="leading" secondItem="wza-57-g66" secondAttribute="trailing" constant="8" id="TIM-D8-P7k"/>
                                                 <constraint firstAttribute="topMargin" secondItem="bgV-Je-rRS" secondAttribute="top" id="aam-0V-cPb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="fOe-UP-8d3" secondAttribute="trailing" id="cc7-c3-bk0"/>
+                                                <constraint firstItem="fOe-UP-8d3" firstAttribute="top" secondItem="wza-57-g66" secondAttribute="bottom" constant="10" id="pFQ-Hi-PqN"/>
+                                                <constraint firstItem="fOe-UP-8d3" firstAttribute="leading" secondItem="KpW-bc-tdz" secondAttribute="leading" id="sib-UQ-4Ad"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Wfc-OA-Cl7" secondAttribute="bottom" id="uSW-dA-OMq"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="fOe-UP-8d3" secondAttribute="leading" id="yka-Xt-DgD"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="cc7-c3-bk0"/>
+                                                    <exclude reference="yka-Xt-DgD"/>
+                                                    <exclude reference="R6m-Uc-9qX"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
@@ -188,6 +199,7 @@
                         <outlet property="avatarImageView" destination="wza-57-g66" id="9mB-dz-DNd"/>
                         <outlet property="captionLabel" destination="fOe-UP-8d3" id="p5I-g7-d7p"/>
                         <outlet property="contentLabel" destination="Wfc-OA-Cl7" id="ezx-es-AgK"/>
+                        <outlet property="contentView" destination="KpW-bc-tdz" id="NLb-QM-8LX"/>
                         <outlet property="createdDatetimeLabel" destination="bgV-Je-rRS" id="WYN-PH-Lx0"/>
                         <outlet property="directionLabel" destination="IfH-HV-NeB" id="DVq-ae-W0e"/>
                         <outlet property="jumpButton" destination="FRW-Rg-rda" id="7ah-Kt-Hg2"/>

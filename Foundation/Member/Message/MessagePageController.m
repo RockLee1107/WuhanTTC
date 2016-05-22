@@ -6,6 +6,9 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/*******消息页面******/
+
+
 #import "MessagePageController.h"
 #import "MessageTableViewController.h"
 #import "MailViewController.h"
@@ -18,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"消息";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"全部已读" style:(UIBarButtonItemStyleBordered) target:self action:@selector(clear:)];
@@ -31,14 +35,16 @@
                                                    @"userId":[User getInstance].uid,
                                                    @"status":@"1",
                                                    }];
-    //
+    //如果点击的是系统通知页面的 全部已读
     if ([self.currentViewController isKindOfClass:[MessageTableViewController class]]) {
         [param setObject:@"0" forKey:@"type"];
         [[HttpService getInstance] POST:@"personal/msg/changeAllMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"操作成功"];
             [((MessageTableViewController *)self.currentViewController) fetchData];
         } noResult:nil];
-    } else {
+    }
+    //进入收信的全部已读
+    else{
         [param setObject:@"1" forKey:@"type"];
         [[HttpService getInstance] POST:@"personal/msg/changeAllMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD showSuccessWithStatus:@"操作成功"];
@@ -58,7 +64,7 @@
                                            [MailViewController class]
                                            ];
         NSArray *titles = @[
-                            @"系统消息",
+                            @"系统通知",
                             @"收信",
                             @"发信"
                             ];

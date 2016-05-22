@@ -75,7 +75,7 @@ typedef enum : NSUInteger {
     if (self.dataDict != nil) {
 //        编辑会传入dataDict
         [self editSetup];
-    } else {
+    } else{
         [self createSetup];
     }
 }

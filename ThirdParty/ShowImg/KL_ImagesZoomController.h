@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface KL_ImagesZoomController : UIView<UITableViewDelegate,UITableViewDataSource>
-- (id)initWithFrame:(CGRect)frame imgViewSize:(CGSize)size;
+
 @property (nonatomic, retain)NSArray *imgs;
 
+- (id)initWithFrame:(CGRect)frame imgViewSize:(CGSize)size;
 - (void)updateImageDate:(NSArray *)imageArr selectIndex:(NSInteger)index;
+
 @end

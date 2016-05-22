@@ -12,11 +12,12 @@
 #import "ProjectIndexTableViewController.h"
 #import "ProjectTableViewDelegate.h"
 #import "InvestorListViewController.h"
+#import "ImageBrowserViewController.h"
 
 @interface ProjectIndexTableViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;
-@property (weak, nonatomic) IBOutlet UILabel *projectCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *investorCountLabel;
+@property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;//热门项目下的TableView
+@property (weak, nonatomic) IBOutlet UILabel *projectCountLabel;//项目数
+@property (weak, nonatomic) IBOutlet UILabel *investorCountLabel;//投资人数
 @end
 
 @implementation ProjectIndexTableViewController
@@ -97,7 +98,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row == 1) {
+    
+    //点击项目BP
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        
+    }
+    
+    //点击投资人
+    if (indexPath.section == 0 && indexPath.row == 2) {
         InvestorListViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateInitialViewController];
         [self.navigationController pushViewController:vc animated:YES];
     }
