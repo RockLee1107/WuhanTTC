@@ -10,6 +10,7 @@
 #import "ProjectBPDetailDescCell.h"
 #import "ProjectBPDetailImageCell.h"
 #import "StringUtil.h"
+#import "LXGallery.h"
 
 @interface ProjectBPDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -22,6 +23,18 @@
 
 @implementation ProjectBPDetailViewController
 
+//视图将要出现
+-(void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+//视图将要消失
+-(void)viewWillDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -31,10 +44,9 @@
 
 - (void)createUI {
     
-    
     self.title = @"项目信息";
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStyleGrouped];
+    _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64-64) style:UITableViewStylePlain];
     _myTableView.delegate   = self;
     _myTableView.dataSource = self;
     [self.view addSubview:_myTableView];
@@ -43,6 +55,20 @@
     [_myTableView registerNib:[UINib nibWithNibName:@"ProjectBPDetailImageCell" bundle:nil] forCellReuseIdentifier:@"cellTwo"];
     
     self.myDataArray = [[StringUtil toString:self.dataDic[@"bppictUrl"]] componentsSeparatedByString:@","];
+//    NSLog(@"%@~~~~~\n", self.dataDic);
+    
+    //更多项目信息
+    UIButton *moreProjectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    moreProjectBtn.frame = CGRectMake(12, SCREEN_HEIGHT-52, SCREEN_WIDTH-24, 40);
+    moreProjectBtn.backgroundColor = MAIN_COLOR;
+    [moreProjectBtn setTitle:@"更多项目信息" forState:UIControlStateNormal];
+    [moreProjectBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [moreProjectBtn addTarget:self action:@selector(moreProjectBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:moreProjectBtn];
+    
+}
+
+- (void)moreProjectBtnClick {
     
 }
 
@@ -53,26 +79,31 @@
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }else {
-        return self.myDataArray.count;
-    }
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
+    if (indexPath.row == 0) {
         ProjectBPDetailDescCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellOne"];
         
+        [cell.iconImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,self.dataDic[@"headPictUrl"]]]];
+        cell.titleLabel.text = self.dataDic[@"projectName"];
+        cell.descLabel.text  = self.dataDic[@"projectResume"];
+        cell.typeLabel.text  = [NSString stringWithFormat:@"%@ %@", self.dataDic[@"procStatusName"], self.dataDic[@"bizName"]];
         return cell;
     }else {
         ProjectBPDetailImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTwo"];
-        [cell.iconImageView setImageWithURL:[NSURL URLWithString:self.myDataArray[indexPath.row]]];
+        
+        LXGallery *gallery = [[LXGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, ceil(self.myDataArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING)];
+        gallery.urlArray = self.myDataArray;
+        gallery.vc = self;
+        [gallery reloadImagesList];
+        [cell.iconImageView addSubview:gallery];
         return cell;
     }
 }
@@ -81,7 +112,7 @@
     if (indexPath.section == 0) {
         return 130;
     }else {
-        return [self.myDataArray count] * 70;
+        return ceil(self.myDataArray.count / 4.0) * IMAGE_WIDTH_WITH_PADDING;
     }
 }
 

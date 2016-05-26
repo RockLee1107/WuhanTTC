@@ -47,7 +47,7 @@
 - (void)fetchData {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
                                                                                 self.userType:[User getInstance].uid,
-                                                                                @"SEQ_type":@"1"
+                                                                                @"SEQ_type":@"('1')"
                                                                                 }];
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};

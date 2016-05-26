@@ -10,6 +10,7 @@
 
 @interface ProjectBPDetailImageCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
+
+@property (weak, nonatomic) IBOutlet UIView *iconImageView;
 
 @end

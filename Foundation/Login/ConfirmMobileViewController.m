@@ -38,9 +38,11 @@
         return;
     }
     
+    [sender startTime];
+    
     NSDictionary *param = @{@"username":newMobile};
     [self.service POST:@"getAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [sender reSend];
+        //[sender reSend];
     } noResult:nil];
 }
 

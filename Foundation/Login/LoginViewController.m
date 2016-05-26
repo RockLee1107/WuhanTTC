@@ -14,10 +14,9 @@
 //#import "ProjectCreateTableViewController.h"
 #import "BookSearchViewController.h"
 #import "SingletonObject.h"
+#import "MainTabBarController.h"
 
 @interface LoginViewController ()
-
-
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;//大白框
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;//装登录页面，快速注册，忘记密码页面
@@ -36,9 +35,9 @@
     
     
     //添加返回按钮
-    [self createBackButton];
+//    [self createBackButton];
     
-    /**************???????***************/
+    /**************定位***************/
     [[LocationUtil getInstance] fetchLocation];
     
     self.containerView.layer.cornerRadius = 4.0;
@@ -75,13 +74,15 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-///游客登录
+///点击随便逛逛
 - (IBAction)vistorButtonPress:(id)sender {
-//    [self.service POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        清空本地信息
-//        [[User getInstance] logout];
-        [self jumpMain];
-//    } noResult:nil];
+    [self.service POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        MainTabBarController *vc = [[MainTabBarController alloc] init];
+        [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
+        [vc goToHome];
+        
+    } noResult:nil];
 }
 
 ///会员登录

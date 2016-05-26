@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/****创投融->投资人****/
+
 #import "InvestorListViewController.h"
 #import "InvestorTableViewDelegate.h"
 #import "DTKDropdownMenuView.h"
@@ -16,6 +18,17 @@
 @end
 
 @implementation InvestorListViewController
+
+//视图将要出现
+-(void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+}
+
+//视图将要消失
+-(void)viewWillDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

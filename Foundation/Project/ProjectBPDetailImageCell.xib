@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,35 +14,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="05E-Dk-FoO">
-                        <rect key="frame" x="12" y="12" width="55" height="55"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzW-Nx-jtN" customClass="CaptionButton">
+                        <rect key="frame" x="12" y="12" width="90" height="20"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="05E-Dk-FoO" secondAttribute="height" multiplier="1:1" id="WY2-NB-VHx"/>
+                            <constraint firstAttribute="height" constant="20" id="lq0-uP-Irb"/>
+                            <constraint firstAttribute="width" constant="90" id="sH6-4v-oFq"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" title="  项目BP展示"/>
+                    </button>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="05E-Dk-FoO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="1Jr-8S-Tam"/>
-                    <constraint firstAttribute="bottom" secondItem="05E-Dk-FoO" secondAttribute="bottom" constant="12" id="5Za-KC-IkX"/>
-                    <constraint firstAttribute="bottom" secondItem="05E-Dk-FoO" secondAttribute="bottom" constant="12" id="LZY-vD-IF2"/>
-                    <constraint firstItem="05E-Dk-FoO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="OjA-LU-VQ5"/>
-                    <constraint firstItem="05E-Dk-FoO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="W92-yj-FOs"/>
-                    <constraint firstItem="05E-Dk-FoO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="X2i-BH-UXN"/>
+                    <constraint firstItem="QzW-Nx-jtN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="PY6-70-hzq"/>
+                    <constraint firstItem="QzW-Nx-jtN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Xx7-cE-e6n"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="1Jr-8S-Tam"/>
-                        <exclude reference="5Za-KC-IkX"/>
-                        <exclude reference="W92-yj-FOs"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
-                <outlet property="iconImageView" destination="05E-Dk-FoO" id="Bxh-08-Fi4"/>
+                <outlet property="iconImageView" destination="H2p-sc-9uM" id="hhF-Dv-u7I"/>
             </connections>
+            <point key="canvasLocation" x="576" y="319"/>
         </tableViewCell>
     </objects>
 </document>

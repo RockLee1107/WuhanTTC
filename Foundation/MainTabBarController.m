@@ -9,6 +9,7 @@
 #import "MainTabBarController.h"
 #import "User.h"
 #import "HttpService.h"
+#import "LoginViewController.h"
 
 @interface MainTabBarController ()
 @property (strong,nonatomic) UINavigationController *bookNVC;
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //初始化，Navi管理TabBar
+    //初始化
     UIViewController *blankVC = [[UIViewController alloc] init];
     blankVC.view.backgroundColor = [UIColor whiteColor];
     UINavigationController *blankNVC = [[UINavigationController alloc] initWithRootViewController:blankVC];
@@ -31,12 +32,11 @@
     self.projectNVC  = blankNVC;
     self.memberNVC   = blankNVC;
     
-    
     self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
 
-    //如果用户点击了登录
+    //如果用户登录登录过存在本地有uid
     if ([[User getInstance] isLogin]) {
-        //获得输入的帐户和密码
+        //获得存在本地的帐户和密码
         NSString *username = [User getInstance].username;
         NSString *password = [User getInstance].password;
         //请求体
@@ -82,11 +82,27 @@
         } noResult:nil];
     } else {
         //    同样发一下游客登录接口
-        [[HttpService getInstance] POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [self setup];
-        } noResult:nil];
+        //[[HttpService getInstance] POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //[self setup];
+            
+            [self login];
+            
+        //} noResult:nil];
     }
+}
 
+- (void)login {
+    [self setup];
+    LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+    [self presentViewController:loginVC animated:YES completion:nil];
+}
+
+- (void)goToHome {
+
+    
+    [[HttpService getInstance] POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+       [self setup];
+    } noResult:nil];
 }
 
 //初始化

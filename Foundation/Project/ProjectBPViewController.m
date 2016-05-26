@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***项目BP列表***/
+
 #import "ProjectBPViewController.h"
 #import "StatusDict.h"
 #import "DTKDropdownMenuView.h"
@@ -13,6 +15,7 @@
 #import "LoginViewController.h"
 #import "ProjectBPCell.h"
 #import "ProjectBPDetailViewController.h"
+#import "CreateBPViewController.h"
 
 @interface ProjectBPViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -36,13 +39,23 @@
 
 @implementation ProjectBPViewController
 
+//视图将要出现
+-(void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+    self.view.backgroundColor = SeparatorColor;
+}
+
+//视图将要消失
+-(void)viewWillDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.myDataArray = [[NSMutableArray alloc] init];
-    
-    [self initRefreshControl];
     [self initSearchConditionView];
     [self addRightItem];
     self.bizCode = @"all";
@@ -53,9 +66,9 @@
 - (void)createUI {
     
     self.title = @"项目BP列表";
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.myTableView = [[UITableView alloc] initWithFrame:CGRectMake(12, 64+44+12, SCREEN_WIDTH-24, SCREEN_HEIGHT-64-44-49-12) style:UITableViewStylePlain];
+    self.myTableView = [[UITableView alloc] initWithFrame:CGRectMake(12, 64+44+12, SCREEN_WIDTH-24, SCREEN_HEIGHT-64-12) style:UITableViewStylePlain];
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -64,11 +77,13 @@
     //分割线
     for (int i=0; i<self.myDataArray.count; i++) {
         
-        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, i*(220)+200, SCREEN_WIDTH, 20)];
-        separator.backgroundColor = [UIColor lightGrayColor];
+        UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(0, i*(143)+123, SCREEN_WIDTH, 20)];
+        separator.backgroundColor = SeparatorColor;
         [self.myTableView addSubview:separator];
     }
     [self.view addSubview:self.myTableView];
+    
+    [self initRefreshControl];
 }
 
 //上拉下拉控件
@@ -81,7 +96,7 @@
         [weakSelf loadData];
         [weakSelf.myTableView.header endRefreshing];
     }];
-    [self.myTableView.legendHeader beginRefreshing];
+    //[self.myTableView.legendHeader beginRefreshing];
     [self.myTableView addLegendFooterWithRefreshingBlock:^{
         weakSelf.page.pageNo++;
         [weakSelf loadData];
@@ -97,9 +112,11 @@
                    @[@"pbDate",@"按发布时间"],
                    @[@"commNum",@"按关注度"]
                    ];
-    self.data2 = @[
-                   @[@"",@"全国"],
-                   @[[LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
+    
+    /***定位问题 @[[LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"] ***/
+    
+    self.data2 = @[@[@"",@"全国"],
+                   @[@"",@"武汉"]
                    ];
     NSMutableArray *names = [NSMutableArray array];
     [names addObject:@[@"all",@"全部"]];
@@ -118,26 +135,32 @@
     [self.view addSubview:menu];
 }
 
+//搜索旁的编辑按钮
 - (void)addRightItem {
     __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的项目" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
+    //点击我的BP
+    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的BP" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
             MyProjectPageController *vc = [[MyProjectPageController alloc] init];
             [weakSelf.navigationController pushViewController:vc animated:YES];
-        }else{
+        }else {
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
             [self.navigationController presentViewController:vc animated:YES completion:nil];
         }
         
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
+    //点击创建BP
+    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建BP" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
-            [self performSegueWithIdentifier:@"create" sender:nil];
-        }else{
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CreateBPViewController" bundle:nil];
+            UINavigationController *createBPVC = [storyboard instantiateViewControllerWithIdentifier:@"createBP"];
+            [createBPVC setHidesBottomBarWhenPushed:YES];
+            [weakSelf.navigationController pushViewController:createBPVC animated:YES];
+        }else {
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
             [self.navigationController presentViewController:vc animated:YES completion:nil];
         }
-        
     }];
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页
@@ -195,6 +218,7 @@
             [self.myDataArray removeAllObjects];
             [self.myTableView.footer resetNoMoreData];
         }
+
         [self.myDataArray addObjectsFromArray:responseObject];
         
         [self.myTableView reloadData];
@@ -219,23 +243,21 @@
     
     ProjectBPCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ProjectBPCell" owner:nil options:nil] firstObject];
     NSDictionary *object = self.myDataArray[indexPath.row];
-    
     [cell.iconImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"headPictUrl"]]]]];
+    cell.iconImageView.layer.cornerRadius = 30;
+    cell.iconImageView.layer.masksToBounds = YES;
     cell.titleLabel.text = @"团团创";
     cell.contentLabel.text = [StringUtil toString:object[@"projectResume"]];
-    cell.typeLabel.text = @"教育培训,创业服务";
-    cell.statusLabel.text = @"武汉|天使轮·已上线";
     cell.viewCount.text = @"103";
     cell.supportCount.text = @"103";
     cell.commentCount.text = @"103";
 
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 220;
+    return 143;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

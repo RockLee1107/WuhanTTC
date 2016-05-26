@@ -46,7 +46,7 @@
         return;
     }
     //GCD倒计时
-    [sender doInit];
+    [sender startTime];
     
     NSDictionary *param = @{@"username":username};
     [self.service POST:@"getAuthenMsg" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -54,7 +54,7 @@
     } noResult:nil];
 }
 
-///重置密码
+///忘记密码
 - (IBAction)resetButtonPress:(id)sender {
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordView.textField.text;
@@ -73,8 +73,8 @@
         for(UIViewController *controller in self.navigationController.viewControllers) {
             if([controller isKindOfClass:[LoginViewController class]]){
                 LoginViewController *loginVC = (LoginViewController *)controller;
-//                [self.navigationController popToViewController:loginVC animated:YES];
-                [self presentViewController:loginVC animated:YES completion:nil];
+                [self.navigationController popToViewController:loginVC animated:YES];
+            
             }
         }
         

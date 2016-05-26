@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***创投融->项目->创建项目***/
+
 #import "ProjectCreateTableViewController.h"
 #import "CityViewController.h"
 #import "ActionSheetStringPicker.h"
@@ -29,9 +31,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.projectNameTextField.delegate = self;
-    //pid意味着编辑，而不是创建
     
+    //项目名称
+    self.projectNameTextField.delegate = self;
+    
+    //pid意味着编辑，而不是创建  入口为:创投融->项目->我的项目->点击进入详情->更新项目    编辑项目信息所以先请求之前已保存在服务器的数据
     if (self.pid != nil) {
        
         NSDictionary *param = @{
@@ -100,6 +104,7 @@
     //    项目描述
     self.projectResumeTextView.text = [StringUtil toString:self.dataDict[@"projectResume"]];
     self.descTextView.text = [StringUtil toString:self.dataDict[@"projectDesc"]];
+    
     //    照片选择器
     NSArray *photoArray = [[StringUtil toString:self.dataDict[@"bppictUrl"]] componentsSeparatedByString:@","];
     self.photoGallery = [[AJPhotoPickerGallery alloc] initWithFrame:CGRectMake(16, 40, SCREEN_WIDTH - 32, IMAGE_WIDTH_WITH_PADDING) imageUrlArray: photoArray];
@@ -124,12 +129,7 @@
     [self.currentCityButton setTitle:city forState:(UIControlStateNormal)];
 }
 
-///选择了投资领域的回调
-- (void)didSelectedTags:(NSMutableArray *)selectedCodeArray selectedNames:(NSMutableArray *)selectedNameArray {
-    [self.bizButton setTitle:[selectedNameArray componentsJoinedByString:@","] forState:(UIControlStateNormal)];
-    self.selectedCodeArray = selectedCodeArray;
-    self.selectedNameArray = selectedNameArray;
-}
+
 
 //选择项目阶段
 - (IBAction)selectStatus:(id)sender {
@@ -167,7 +167,7 @@
     } cancelBlock:nil origin:sender];
 }
 
-//投资领域
+//项目领域
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"biz"]) {
         BizViewController *vc = segue.destinationViewController;
@@ -175,6 +175,13 @@
         vc.selectedNameArray = self.selectedNameArray;
         vc.delegate = self;
     }
+}
+
+///选择了项目领域的回调
+- (void)didSelectedTags:(NSMutableArray *)selectedCodeArray selectedNames:(NSMutableArray *)selectedNameArray {
+    [self.bizButton setTitle:[selectedNameArray componentsJoinedByString:@","] forState:(UIControlStateNormal)];
+    self.selectedCodeArray = selectedCodeArray;
+    self.selectedNameArray = selectedNameArray;
 }
 
 //保持按钮点击事件

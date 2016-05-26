@@ -14,8 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *viewCount;
 @property (weak, nonatomic) IBOutlet UILabel *supportCount;
 @property (weak, nonatomic) IBOutlet UILabel *commentCount;

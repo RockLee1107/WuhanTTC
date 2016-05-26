@@ -175,10 +175,10 @@
                    @[@"readNum",@"按开始时间"],
                    @[@"commNum",@"按参与数"]
                    ];
+    /** 定位问题  第二个元素修改 @[@"1",@"线上"],  第三个元素修改 [LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]**/
     self.data2 = @[
                    @[@"",@"全国"],
-                   @[@"1",@"线上"],
-                   @[[LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
+                   @[@"武汉",@"武汉"]
                    ];
     NSMutableArray *names = [NSMutableArray array];
     [names addObject:@[@"all",@"全部"]];

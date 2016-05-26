@@ -17,8 +17,21 @@
 
 @implementation BizViewController
 
+//视图将要出现
+-(void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+}
+
+//视图将要消失
+-(void)viewWillDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.tagListView.canSelectTags = YES;
     self.tagListView.maxCount = 4;
 //    初始

@@ -6,6 +6,8 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+//创成长->内容
+
 #import "SearchSpBookListViewController.h"
 #import "BookSearcher.h"
 #import "BookDetailViewController.h"
@@ -119,6 +121,7 @@
     }
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:query],
                             @"Page":[StringUtil dictToJson:[self.page dictionary]]};;
+    
     [self.service GET:@"book/searchSpBookList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零

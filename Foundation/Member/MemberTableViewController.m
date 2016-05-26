@@ -133,10 +133,6 @@
         //进入团团创登陆页面
         LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
         [self.navigationController presentViewController:vc animated:YES completion:nil];
-
-        
-        /***退出后应该删除掉用户token(未做)***/
-
     }
 }
 

@@ -20,7 +20,7 @@
 
 //请求地理位置
 - (void)fetchLocation {
-    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager = [[CLLocationManager alloc] init];
     if([CLLocationManager locationServicesEnabled]) {
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;

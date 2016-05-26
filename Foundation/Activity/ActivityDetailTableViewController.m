@@ -44,7 +44,16 @@
 //从编辑页面返回时要刷新自身，因为是本地dict传值，没有访问网络
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+    
     [self fetchData];
+}
+
+//视图将要消失
+-(void)viewWillDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)fetchData {

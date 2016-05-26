@@ -45,6 +45,7 @@
     [SingletonObject getInstance].pid = object[@"projectId"];
     ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.dataDict = object;
+    [vc setHidesBottomBarWhenPushed:YES];
     [self.vc.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

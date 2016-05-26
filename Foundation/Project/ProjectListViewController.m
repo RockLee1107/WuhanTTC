@@ -28,15 +28,27 @@
 @property (nonatomic,assign) NSInteger currentData3Index;
 //条件值
 @property (nonatomic,strong) NSString *orderBy;
-@property (nonatomic,strong) NSString *city;
+@property (nonatomic,strong) NSString *area;
 @property (nonatomic,strong) NSString *bizCode;
 
 @end
 
 @implementation ProjectListViewController
 
+//视图将要出现
+-(void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+}
+
+//视图将要消失
+-(void)viewWillDisappear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self initDelegate];
     [self initRefreshControl];
     [self initSearchConditionView];
@@ -87,8 +99,11 @@
         
     }
     //    条件2
-    if (self.city != nil) {
-        [dict setObject:self.city forKey:@"SEQ_city"];
+    if (self.area != nil) {
+        NSLog(@"\n转之前:%@", self.area);
+        self.area = [self.area stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"\n转之后:%@", self.area);
+        [dict setObject:self.area forKey:@"SEQ_area"];
         
     }
     //    条件3
@@ -110,6 +125,7 @@
     
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    
     [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
@@ -128,6 +144,7 @@
 - (void)addRightItem
 {
     __weak typeof(self) weakSelf = self;
+    //点击我的项目
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"我的项目" iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
             MyProjectPageController *vc = [[MyProjectPageController alloc] init];
@@ -138,6 +155,7 @@
         }
         
     }];
+    //点击创建项目
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"创建项目" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
            [self performSegueWithIdentifier:@"create" sender:nil];
@@ -147,6 +165,7 @@
         }
         
     }];
+    //点击搜索
     DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu" extraIcon:@"app_search" extraButtunCallBack:^{
         //跳转搜索页
         [self performSegueWithIdentifier:@"search" sender:nil];
@@ -170,9 +189,10 @@
                    @[@"pbDate",@"按发布时间"],
                    @[@"commNum",@"按关注度"]
                    ];
+    
+    //第二个元素 武汉 暂时去掉
     self.data2 = @[
                    @[@"",@"全国"],
-                   @[[LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]
                    ];
     NSMutableArray *names = [NSMutableArray array];
     [names addObject:@[@"all",@"全部"]];
@@ -254,16 +274,24 @@
     if (indexPath.column == 0) {
         _currentData1Index = indexPath.row;
         self.orderBy = self.data1[indexPath.row][0];
-    } else if(indexPath.column == 1){
         [self fetchData];
+    }
+    
+    else if(indexPath.column == 1){
+        
         _currentData2Index = indexPath.row;
-        self.city = self.data2[indexPath.row][0];
-    } else{
+        self.area = self.data2[indexPath.row][0];
+        NSLog(@"%@", self.data2[indexPath.row][0]);
         [self fetchData];
+    }
+    
+    else{
+//        [self fetchData];
         _currentData3Index = indexPath.row;
         self.bizCode = self.data3[indexPath.row][0];
+        [self fetchData];
     }
-    [self fetchData];
+    //[self fetchData];
 }
 
 @end

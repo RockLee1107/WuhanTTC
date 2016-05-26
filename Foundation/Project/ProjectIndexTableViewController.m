@@ -14,6 +14,7 @@
 #import "InvestorListViewController.h"
 #import "ImageBrowserViewController.h"
 #import "ProjectBPViewController.h"
+#import "ProjectListViewController.h"
 
 @interface ProjectIndexTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *wrappedTableView;//热门项目下的TableView
@@ -98,16 +99,28 @@
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    ProjectListViewController *vc = segue.destinationViewController;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //点击项目BP
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        ProjectBPViewController *bpVC = [[ProjectBPViewController alloc] init];
-        [self.navigationController pushViewController:bpVC animated:YES];
-    }
+    //先去掉
+//    //点击项目BP
+//    if (indexPath.section == 0 && indexPath.row == 0) {
+//        ProjectBPViewController *bpVC = [[ProjectBPViewController alloc] init];
+//        [self.navigationController pushViewController:bpVC animated:YES];
+//    }
+    
+//    //点击项目   sb牵线自动跳转的
+//    if (indexPath.section == 0 && indexPath.row == 0) {
+
+//        
+//    }
     
     //点击投资人
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 0 && indexPath.row == 1) {
         InvestorListViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateInitialViewController];
         [self.navigationController pushViewController:vc animated:YES];
     }

@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *headPictUrlButton;       //头像
 @property (weak, nonatomic) IBOutlet EMTextView *projectResumeTextView; //简介
 @property (weak, nonatomic) IBOutlet LXButton *currentCityButton;       //城市
-//项目状态
+//项目阶段
 @property (weak, nonatomic) IBOutlet UIButton *statusButton;         //按钮，用于显示所选中文值
 @property (assign, nonatomic) NSInteger selectedStatusIndex;           //状态index，用于选择框反显
 @property (strong, nonatomic) NSString *selectedStatusValue;           //状态value，用于数据提交

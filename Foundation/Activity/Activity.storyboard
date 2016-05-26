@@ -120,7 +120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTd-ml-OQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312" y="478"/>
+            <point key="canvasLocation" x="490" y="430"/>
         </scene>
         <!--查找活动-->
         <scene sceneID="P2x-7F-wYr">

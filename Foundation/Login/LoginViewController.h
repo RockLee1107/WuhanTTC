@@ -10,6 +10,4 @@
 
 @interface LoginViewController : BaseViewController
 
-//@property (nonatomic, copy) NSString *isReset;
-
 @end

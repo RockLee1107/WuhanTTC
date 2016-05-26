@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动类型" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfP-Xb-Kri">
-                        <rect key="frame" x="77" y="46" width="56" height="17"/>
+                        <rect key="frame" x="77" y="50" width="235" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,15 +71,25 @@
                     <constraint firstItem="LRu-qh-tfd" firstAttribute="leading" secondItem="rTX-CG-MU4" secondAttribute="leadingMargin" id="7Gl-93-0jz"/>
                     <constraint firstItem="wMy-ZS-LfE" firstAttribute="leading" secondItem="isK-L7-Wb4" secondAttribute="trailing" constant="7" id="7fk-E7-zLu"/>
                     <constraint firstItem="isK-L7-Wb4" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" constant="5" id="8aS-OV-ZrR"/>
+                    <constraint firstItem="CfP-Xb-Kri" firstAttribute="leading" secondItem="LRu-qh-tfd" secondAttribute="trailing" constant="8" id="8tw-Zc-J07"/>
                     <constraint firstAttribute="centerY" secondItem="LRu-qh-tfd" secondAttribute="centerY" id="Gtl-Fd-eXf"/>
                     <constraint firstItem="isK-L7-Wb4" firstAttribute="leading" secondItem="9yv-vb-p7o" secondAttribute="trailing" constant="8" id="LXc-gb-bjk"/>
                     <constraint firstItem="LRu-qh-tfd" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" id="Pbw-19-LeM"/>
+                    <constraint firstAttribute="trailing" secondItem="CfP-Xb-Kri" secondAttribute="trailing" constant="8" id="chT-6K-vNY"/>
                     <constraint firstItem="9yv-vb-p7o" firstAttribute="leading" secondItem="LRu-qh-tfd" secondAttribute="trailing" constant="8" id="eFY-sh-ZSt"/>
                     <constraint firstItem="9yv-vb-p7o" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" constant="6" id="eoH-zK-PBM"/>
+                    <constraint firstAttribute="bottom" secondItem="CfP-Xb-Kri" secondAttribute="bottom" constant="10" id="jXn-lg-Nbf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="wMy-ZS-LfE" secondAttribute="trailing" id="nIN-Uu-ADb"/>
+                    <constraint firstItem="CfP-Xb-Kri" firstAttribute="top" secondItem="9yv-vb-p7o" secondAttribute="bottom" constant="15" id="o0C-6T-ER5"/>
                     <constraint firstItem="wMy-ZS-LfE" firstAttribute="top" secondItem="rTX-CG-MU4" secondAttribute="topMargin" constant="8" id="rMa-WS-O5U"/>
                     <constraint firstItem="CfP-Xb-Kri" firstAttribute="leading" secondItem="LRu-qh-tfd" secondAttribute="trailing" constant="8" id="rh0-er-Ml9"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="7CL-93-D78"/>
+                        <exclude reference="rh0-er-Ml9"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>

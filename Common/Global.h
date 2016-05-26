@@ -9,19 +9,24 @@
 #import <UIKit/UIKit.h>
 #ifndef Beauty_Global_h
 #define Beauty_Global_h
-#define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]
+#define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]   //蓝色
 #define MENU_COLOR [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]
 
+
 /*dev db*/    //测试环境
-#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
-//#define HOST_URL @"http://192.168.1.105:8080/ttc_web"
-#define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
-#define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
+
+//#define HOST_URL @"http://192.168.0.9:8080/ttc_web"
+//
+//
+//#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
+////#define HOST_URL @"http://192.168.0.254:8080/ttc_web"
+//#define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
+//#define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
 
 /*pro db*/    //正式环境
-//#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
-//#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
-//#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
+#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
+#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
+#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
 
 #define HGfont(s)  [UIFont systemFontOfSize:(s)]
 #define HGColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
@@ -47,6 +52,10 @@
 #define ACTIVITY_STATUS_ON_COLOR [UIColor colorWithRed:104/255.0 green:191/255.0 blue:54/255.0 alpha:1.0]
 #define ACTIVITY_STATUS_OVER_COLOR [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0]
 #define ACTIVITY_STATUS_FULL_COLOR [UIColor colorWithRed:238/255.0 green:48/255.0 blue:0/255.0 alpha:1.0]
+
+//TableView分割线颜色(浅灰色)
+#define SeparatorColor [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1.0]
+
 #define ACTIVITY_STATUS_ARRAY @[@"报名中",@"已满",@"已结束"]
 #define USER_IDENTITY_DICT @{@"INVESTOR":@"投资者",@"CREATOR":@"创业者"}
 //图集尺寸

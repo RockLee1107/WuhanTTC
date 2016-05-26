@@ -14,7 +14,7 @@
 @property (assign, nonatomic) int timerNum;
 @property (strong, nonatomic) NSTimer *codeTimer;
 @property (strong, nonatomic) UILabel *secondLabel;
--(void)doInit;
 -(void)timerClock;
 -(void)reSend;
+-(void)startTime;
 @end

@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDB-6y-3Ta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-310"/>
+            <point key="canvasLocation" x="1522" y="-446"/>
         </scene>
         <!--Sub Tab Bar Controller-->
         <scene sceneID="Rpk-8A-Tlf">
@@ -354,7 +354,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubM-B6-cvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018.6666666666666" y="284"/>
+            <point key="canvasLocation" x="1006" y="275"/>
         </scene>
         <!--创成长-->
         <scene sceneID="FPO-lA-S7X">
@@ -396,7 +396,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXg-0b-wsc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="-299"/>
+            <point key="canvasLocation" x="1141" y="-460"/>
         </scene>
         <!--Subject Page Controller-->
         <scene sceneID="YUo-Qr-iCD">
