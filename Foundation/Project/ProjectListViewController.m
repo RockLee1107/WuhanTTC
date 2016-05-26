@@ -193,6 +193,7 @@
     //第二个元素 武汉 暂时去掉
     self.data2 = @[
                    @[@"",@"全国"],
+                   @[@"武汉",@"武汉"]
                    ];
     NSMutableArray *names = [NSMutableArray array];
     [names addObject:@[@"all",@"全部"]];
@@ -286,12 +287,10 @@
     }
     
     else{
-//        [self fetchData];
         _currentData3Index = indexPath.row;
         self.bizCode = self.data3[indexPath.row][0];
         [self fetchData];
     }
-    //[self fetchData];
 }
 
 @end

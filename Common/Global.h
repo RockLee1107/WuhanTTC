@@ -18,15 +18,15 @@
 //#define HOST_URL @"http://192.168.0.9:8080/ttc_web"
 //
 //
-//#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
-////#define HOST_URL @"http://192.168.0.254:8080/ttc_web"
-//#define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
-//#define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
+#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
+//#define HOST_URL @"http://192.168.0.254:8080/ttc_web"
+#define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
+#define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
 
 /*pro db*/    //正式环境
-#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
-#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
-#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
+//#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
+//#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
+//#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
 
 #define HGfont(s)  [UIFont systemFontOfSize:(s)]
 #define HGColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]

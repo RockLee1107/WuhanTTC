@@ -30,9 +30,9 @@
 @property (nonatomic,assign) NSInteger currentData2Index;
 @property (nonatomic,assign) NSInteger currentData3Index;
 //条件值
-@property (nonatomic,strong) NSString *orderBy;
-@property (nonatomic,strong) NSString *categoryCode;
-@property (nonatomic,strong) NSString *bookType;
+@property (nonatomic,strong) NSString *orderBy;//顺序
+@property (nonatomic,strong) NSString *categoryCode;//全部
+@property (nonatomic,strong) NSString *bookType;//格式
 @end
 
 @implementation SearchSpBookListViewController

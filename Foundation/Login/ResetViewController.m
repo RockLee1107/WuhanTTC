@@ -69,6 +69,7 @@
         
         //修改后先移除存在本地的
         [[User getInstance] removePassword];
+        //回到登陆页面会重新把密码存到本地
         
         for(UIViewController *controller in self.navigationController.viewControllers) {
             if([controller isKindOfClass:[LoginViewController class]]){

@@ -30,35 +30,35 @@
 //    NSLog(@"param:%@",dict);
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
     
-//    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    self.manager.requestSerializer  = [AFHTTPRequestSerializer serializer];
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    self.manager.requestSerializer  = [AFHTTPRequestSerializer serializer];
     
     NSLog(@"\n转之前:%@", dict);
     
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject: @"text/html"];
+    self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject: @"text/html"];
     
     NSLog(@"\n转之后%@", dict);
     
     [self.manager GET:urlstr parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"origin response:\n%@",responseObject);
         
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        if ([dict[@"success"] boolValue] == YES) {
-            success(operation,dict[@"data"]);
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        if ([dic[@"success"] boolValue] == YES) {
+            success(operation,dic[@"data"]);
 //            [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
         } else {
-            if ([dict[@"errorCode"] integerValue] == 520) {
+            if ([dic[@"errorCode"] integerValue] == 520) {
                 //未登录
                 [SingletonObject getInstance].isMaticLogout = YES;
                 LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
                 [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
-            } else if ([dict[@"errorCode"] integerValue] == 521){
+            } else if ([dic[@"errorCode"] integerValue] == 521){
 //                无结果
                 [SVProgressHUD showSuccessWithStatus:@"加载完毕"];
                 noResult();
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:dict[@"msg"] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:dic[@"msg"] message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
                 [alert show];
             }
         }
