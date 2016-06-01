@@ -602,6 +602,7 @@
     [CATransaction commit];
     
     complete();
+//    NSLog(@"eeeeeee");
 }
 
 - (void)animateBackGroundView:(UIView *)view show:(BOOL)show complete:(void(^)())complete {
@@ -692,10 +693,11 @@
 /**
  *动画显示下拉菜单
  */
+
 - (void)animateCollectionView:(UICollectionView *)collectionView show:(BOOL)show complete:(void(^)())complete {
     
     if (show) {
-        
+        //点击类型 菜单下拉
         CGFloat collectionViewHeight = 0;
         
         if (collectionView) {
@@ -711,7 +713,10 @@
                 collectionView.frame = CGRectMake(_origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 20*12+25*3+30);
             }
         }];
+        
+        NSLog(@"ccccccc");
     } else {
+        //点击收回
         [UIView animateWithDuration:0.2 animations:^{
             
             if (collectionView) {
@@ -723,6 +728,7 @@
                 [collectionView removeFromSuperview];
             }
         }];
+        NSLog(@"ddddddd");
     }
     complete();
 }
@@ -1002,12 +1008,6 @@
     return nil;
 }
 
-#pragma mark - 代理传值
-- (void)sureBtnClick {
-    
-    [self.delegate sendInfoWithSectionOne:self.choosedSectionOneArray SectionTwo:self.choosedSectionTwoArray SectionThree:self.choosedSectionThreeArray];
-}
-
 //头部视图高度
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
@@ -1052,25 +1052,53 @@
     
     //////
     JSCollectionViewCell *cell = (JSCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-
+    
     for (UIView *subview in cell.contentView.subviews) {
     
         if ([subview isKindOfClass:[UIImageView class]]) {
-            //选中
+            //选中 
             if (subview.tag == 0) {
                 
                 subview.backgroundColor = [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0];
                 subview.tag = 1;
-                
+
             }else {
                 
                 subview.backgroundColor = [UIColor whiteColor];
                 subview.tag = 0;
+                
             }
-            
         }
     }
 }
+
+#pragma mark - 代理传值
+- (void)sureBtnClick {
+    
+    [self.delegate sendInfoWithSectionOne:self.choosedSectionOneArray SectionTwo:self.choosedSectionTwoArray SectionThree:self.choosedSectionThreeArray];
+    
+    //点击确认后让弹框还原
+    BOOL displayByCollectionView = NO;
+    if ([_dataSource respondsToSelector:@selector(displayByCollectionViewInColumn:)]) {
+        
+        displayByCollectionView = [_dataSource displayByCollectionViewInColumn:_currentSelectedMenudIndex];
+    }
+    if (displayByCollectionView) {
+        
+        [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView collectionView:_collectionView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
+            _show = NO;
+        }];
+        
+    } else{
+        [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView leftTableView:_leftTableView rightTableView:_rightTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
+            _show = NO;
+        }];
+    }
+    
+    [(CALayer *)self.bgLayers[_currentSelectedMenudIndex] setBackgroundColor:BackColor.CGColor];
+    
+}
+
 
 - (void)confiMenuWithSelectRow:(NSInteger)row{
     CATextLayer *title = (CATextLayer *)_titles[_currentSelectedMenudIndex];

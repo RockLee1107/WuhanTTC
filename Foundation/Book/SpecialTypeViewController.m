@@ -39,11 +39,11 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden = NO;
-
 }
 
 //请求数据
 -(void)fetchData {
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if ([[User getInstance] isLogin]) {
         
@@ -52,7 +52,7 @@
     
     NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:dict]};
     [self.service GET:@"book/special/querySpecialType" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+        [SVProgressHUD dismiss];
         self.dataImmutableArray = responseObject;
         
         [self.tableView reloadData];

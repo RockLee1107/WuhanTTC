@@ -73,8 +73,6 @@
 @property (nonatomic, strong) NSMutableArray *choosedSectionTwoArray;
 @property (nonatomic, strong) NSMutableArray *choosedSectionThreeArray;
 
-@property (nonatomic, assign) NSInteger cellOfSection;
-@property (nonatomic, assign) NSInteger cellOfRow;
 
 @property (nonatomic, strong) UIColor *indicatorColor;
 @property (nonatomic, strong) UIColor *textColor;

@@ -16,6 +16,7 @@
 #import "BookDetailViewController.h"
 #import "SingletonObject.h"
 #import "VerifyUtil.h"
+#import "MessageWebViewController.h"
 
 @interface MessageDetailViewController ()<UITextFieldDelegate>
 @property (nonatomic,strong) IBOutlet UILabel *createdDatetimeLabel;//时间
@@ -34,12 +35,19 @@
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
+@property (strong, nonatomic) IBOutlet UIButton *spreeBtn;
+
+@property (nonatomic, copy) NSString *urlStr;
+
+
 @end
 
 @implementation MessageDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     [self setDynamicLayout];
     
@@ -55,8 +63,23 @@
     self.contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.contentLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.contentLabel.frame);
     
+    //正则表达式获取url
+    NSError *error;
+    NSString *regulaStr = @"\\bhttps?://[a-zA-Z0-9\\-.]+(?::(\\d+))?(?:(?:/[a-zA-Z0-9\\-._?,'+\\&%$=~*!():@\\\\]*)+)?";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regulaStr
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    NSArray *arrayOfAllMatches = [regex matchesInString:self.contentLabel.text options:0 range:NSMakeRange(0, [self.contentLabel.text length])];
     
-//    self.contentLabel.text = @"点击领取创业学习大礼包";
+    for (NSTextCheckingResult *match in arrayOfAllMatches)
+    {
+        self.urlStr = [self.contentLabel.text substringWithRange:match.range];
+        if (![self.urlStr isEqualToString:@""]) {
+            [self.spreeBtn setTitle:@"点击领取创业学习大礼包" forState:UIControlStateNormal];
+        }else {
+            self.spreeBtn.hidden = YES;
+        }
+    }
     
     //如根据从上一个页面传过来的 type  加载不同的详情页面 1-->收信页面
     if ([self.dataDict[@"type"] integerValue] == 1) {
@@ -112,6 +135,11 @@
                 break;
         }
     }
+}
+- (IBAction)spreeBtnClick:(UIButton *)sender {
+    MessageWebViewController *webVC = [[MessageWebViewController alloc] init];
+    webVC.urlStr = self.urlStr;
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 ///加载本页时改变消息状态
@@ -223,16 +251,17 @@
 //            height += 40.0;
 //        }
         
-        
+        NSLog(@"height:%f", height);
         
         return height;
     } else if (indexPath.row == 0) {
         if (self.dataDict[@"title"] == [NSNull null]) {
             return 60.0;
         }else {
-            
-            CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
-            return size.height;
+            //自适应获得文本的高度
+            CGSize size = [self.contentLabel systemLayoutSizeFittingSize:UILayoutFittingExpandedSize];
+            NSLog(@"%f", size.height);
+            return size.height + 100;
         }
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];

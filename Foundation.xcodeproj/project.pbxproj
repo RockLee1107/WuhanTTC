@@ -31,6 +31,7 @@
 		1F9F92D81CDCC34F0084ED2A /* menu_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */; };
 		1F9F92DB1CDCD6E70084ED2A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */; };
 		826370771CFD30240054F07F /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 826370761CFD30240054F07F /* CollectionHeaderView.m */; };
+		828EA08F1CFEB70D00189757 /* MessageWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 828EA08E1CFEB70D00189757 /* MessageWebViewController.m */; };
 		8291E9B51CFC80190033F40D /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8291E9B41CFC80190033F40D /* ProjectModel.m */; };
 		8E01CC511CF33066006D530B /* CreateBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E01CC501CF33066006D530B /* CreateBPViewController.m */; };
 		8E01CC531CF330F6006D530B /* CreateBPViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E01CC521CF330F6006D530B /* CreateBPViewController.storyboard */; };
@@ -456,8 +457,11 @@
 		1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_top@2x.png"; sourceTree = "<group>"; };
 		1F9F92D91CDCD6E70084ED2A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		8243F3951CFEC59B00DADBD5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		826370751CFD30240054F07F /* CollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
 		826370761CFD30240054F07F /* CollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderView.m; sourceTree = "<group>"; };
+		828EA08D1CFEB70D00189757 /* MessageWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageWebViewController.h; sourceTree = "<group>"; };
+		828EA08E1CFEB70D00189757 /* MessageWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageWebViewController.m; sourceTree = "<group>"; };
 		8291E9B31CFC80190033F40D /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
 		8291E9B41CFC80190033F40D /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
 		8E01CC4F1CF33066006D530B /* CreateBPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateBPViewController.h; sourceTree = "<group>"; };
@@ -1269,6 +1273,7 @@
 			children = (
 				F70B01A01C7232FC00D46D79 /* Info.plist */,
 				F70B01A11C7232FC00D46D79 /* main.m */,
+				8243F3951CFEC59B00DADBD5 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2085,6 +2090,8 @@
 				FD3F65611CD3460900FBEE43 /* MessagePageController.m */,
 				FD3F65631CD3465700FBEE43 /* MessageTableViewController.h */,
 				FD3F65641CD3465700FBEE43 /* MessageTableViewController.m */,
+				828EA08D1CFEB70D00189757 /* MessageWebViewController.h */,
+				828EA08E1CFEB70D00189757 /* MessageWebViewController.m */,
 				FD3F65661CD34ED700FBEE43 /* MessageTableViewCell.h */,
 				FD3F65671CD34ED700FBEE43 /* MessageTableViewCell.m */,
 				FD3F65681CD34ED700FBEE43 /* MessageTableViewCell.xib */,
@@ -2935,6 +2942,7 @@
 				FDFD8C681CB938560095FC3C /* JCTagListView.m in Sources */,
 				FD3F655F1CD3450B00FBEE43 /* BasePageController.m in Sources */,
 				FDE26AEB1C9C363A003418D5 /* BaseTableViewController.m in Sources */,
+				828EA08F1CFEB70D00189757 /* MessageWebViewController.m in Sources */,
 				F7A61E7A1CA04CCB001B5FB3 /* WMMenuView.m in Sources */,
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
 				F795DF5B1CB40BB8002BCDEE /* CityViewController.m in Sources */,
@@ -3123,6 +3131,8 @@
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 					"$(PROJECT_DIR)/ThirdParty/umsdk_IOS_analyics_idfa_v4.0.2",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/lizhiqiang/Desktop/团团创/iOS/Foundation/Foundation/PrefixHeader.pch";
 				INFOPLIST_FILE = Foundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3154,6 +3164,8 @@
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 					"$(PROJECT_DIR)/ThirdParty/umsdk_IOS_analyics_idfa_v4.0.2",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/lizhiqiang/Desktop/团团创/iOS/Foundation/Foundation/PrefixHeader.pch";
 				INFOPLIST_FILE = Foundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3223,6 +3235,8 @@
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
 					"$(PROJECT_DIR)/ThirdParty/umsdk_IOS_analyics_idfa_v4.0.2",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/lizhiqiang/Desktop/团团创/iOS/Foundation/Foundation/PrefixHeader.pch";
 				INFOPLIST_FILE = Foundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

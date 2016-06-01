@@ -96,9 +96,11 @@
 ///导航栏下拉菜单
 - (void)addRightItem
 {
+    //我的评论
     DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:MY_COMMENT iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
         [self switchMyOrAllComment];
     }];
+    //写评论
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
         [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
                                       type:EYInputPopupView_Type_multi_line

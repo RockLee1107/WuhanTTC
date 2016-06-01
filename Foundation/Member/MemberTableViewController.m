@@ -106,6 +106,7 @@
         } else if (indexPath.section == 3) {
             vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
         }
+        [vc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:vc animated:YES];
     }//游客状态
     else {

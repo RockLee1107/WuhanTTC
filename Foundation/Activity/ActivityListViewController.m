@@ -79,6 +79,7 @@
 
 /**创活动*/
 - (void)fetchData{
+    [SVProgressHUD showWithStatus:@"正在加载..."];
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                 @{
                                   @"IEQ_bizStatus":@"2",
@@ -102,21 +103,10 @@
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
     
-    
-//    [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        if (self.page.pageNo == 1) {
-//            //由于下拉刷新时页面而归零
-//            [self.tableViewDelegate.dataArray removeAllObjects];
-//            [self.tableView.footer resetNoMoreData];
-//        }
-//        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
-//        [self.tableView reloadData];
-//    } noResult:^{
-//        [self.tableView.footer noticeNoMoreData];
-//    }];
-    
+    [SVProgressHUD dismiss];
     [self.service POST:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+        [SVProgressHUD dismiss];
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];

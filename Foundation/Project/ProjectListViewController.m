@@ -39,9 +39,9 @@
 @property (nonatomic,strong) NSString *area;//全国
 @property (nonatomic,strong) NSString *bizCode;//类型
 
-@property (nonatomic,strong) NSArray *sIN_processStatusCodeArray;//项目阶段参数数组
-@property (nonatomic,strong) NSArray *sIN_bizCodeArray;//项目领域参数数组
-@property (nonatomic,strong) NSArray *sIN_financeProcCodeArray;//融资阶段参数数组
+@property (nonatomic,strong) NSMutableArray *sIN_processStatusCodeArray;//项目阶段参数数组
+@property (nonatomic,strong) NSMutableArray *sIN_bizCodeArray;//项目领域参数数组
+@property (nonatomic,strong) NSMutableArray *sIN_financeProcCodeArray;//融资阶段参数数组
 
 @property (nonatomic,strong) NSString *sIN_processStatusCode;//项目阶段参数数组
 @property (nonatomic,strong) NSString *sIN_bizCode;//项目领域参数数组
@@ -64,6 +64,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sIN_processStatusCodeArray = [[NSMutableArray alloc] init];
+    self.sIN_bizCodeArray = [[NSMutableArray alloc] init];
+    self.sIN_financeProcCodeArray = [[NSMutableArray alloc] init];
     
     [self initDelegate];
     [self initRefreshControl];
@@ -629,11 +633,11 @@
 - (void)sendInfoWithSectionOne:(NSArray *)sectionOneArray SectionTwo:(NSArray *)sectionTwoArray SectionThree:(NSArray *)sectionThreeArray {
     
     //项目阶段
-    self.sIN_processStatusCodeArray = sectionOneArray;
+    [self.sIN_processStatusCodeArray addObjectsFromArray:sectionOneArray];
     //项目领域
-    self.sIN_bizCodeArray = sectionTwoArray;
+    [self.sIN_bizCodeArray addObjectsFromArray:sectionTwoArray];
     //融资阶段
-    self.sIN_financeProcCodeArray = sectionThreeArray;
+    [self.sIN_financeProcCodeArray addObjectsFromArray:sectionThreeArray];
     
     
     self.sIN_processStatusCode = [self.sIN_processStatusCodeArray componentsJoinedByString:@","];
@@ -641,6 +645,10 @@
     self.sIN_financeProcCode = [self.sIN_financeProcCodeArray componentsJoinedByString:@","];
     
     [self fetchRankData];
+    //请求完成一次后删掉之前的数据
+    [self.sIN_processStatusCodeArray removeAllObjects];
+    [self.sIN_bizCodeArray removeAllObjects];
+    [self.sIN_financeProcCodeArray removeAllObjects];
 }
 
 #pragma mark - 筛选栏
@@ -725,6 +733,7 @@
     }
     
     else{
+        
 //        _currentData3Index = indexPath.row;
 //        self.bizCode = self.data3[indexPath.row][0];
 //        [self fetchData];

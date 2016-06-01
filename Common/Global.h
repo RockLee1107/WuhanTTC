@@ -15,10 +15,10 @@
 
 /*dev db*/    //测试环境
 
-//#define HOST_URL @"http://192.168.0.9:8080/ttc_web"
+#define HOST_URL @"http://192.168.0.109:8080/ttc_web"
 
 
-#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
+//#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
 //#define HOST_URL @"http://192.168.0.254:8080/ttc_web"
 #define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
 #define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
