@@ -39,7 +39,7 @@
         imageView.clipsToBounds = YES;
         NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,self.urlArray[i]];
         [imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"app_loading_img_big.png"]];
-        imageView.tag = i;
+        imageView.tag = i + 600;
         imageView.userInteractionEnabled = YES;
         [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBig:)]];
         [self addSubview:imageView];
@@ -59,7 +59,7 @@
     
     ImageBrowserViewController *vc = [[ImageBrowserViewController alloc] init];
     vc.imageArray = self.urlArray;
-    vc.selectedIndex = 0;
+    vc.selectedIndex = sender.view.tag - 600;
     self.vc.hidesBottomBarWhenPushed = YES;
     [self.vc.navigationController pushViewController:vc animated:YES];
     self.vc.hidesBottomBarWhenPushed = NO;

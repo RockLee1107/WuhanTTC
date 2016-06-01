@@ -20,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
     UIColor *tintColor = MAIN_COLOR;
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [[UINavigationBar appearance] setBarTintColor:tintColor];

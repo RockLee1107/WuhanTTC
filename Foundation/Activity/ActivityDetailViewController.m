@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***创活动首页->活动详情***/
+
 #import "ActivityDetailViewController.h"
 #import "ActivityDetailTableViewController.h"
 #import "DTKDropdownMenuView.h"
@@ -18,11 +20,13 @@
 #import "ActivityCreateTableViewController.h"
 
 @interface ActivityDetailViewController ()
-@property (weak, nonatomic) IBOutlet LXButton *joinButton;
+
+@property (weak, nonatomic) IBOutlet LXButton *joinButton;//我要报名
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerMarginBottom;
 @property (strong, nonatomic) NSMutableArray *requiredInfoType;
 @property (strong, nonatomic) NSMutableArray *requiredTextField;
 @property (strong, nonatomic) NSMutableArray *requiredKey;
+
 @end
 
 @implementation ActivityDetailViewController
@@ -79,119 +83,122 @@
     vc.activityId = self.activityId;
 }
 
+//点击我要报名
 - (IBAction)joinButtonPress:(id)sender {
     if (![[User getInstance] isLogin]) {
-        [self jumpLogin];
-        return;
-    }
-    self.requiredInfoType = [NSMutableArray array];
-    self.requiredTextField = [NSMutableArray array];
-    self.requiredKey = [NSMutableArray array];
-    NSDictionary *dict = @{
-                           @"姓名":@"name",//realname
-                           @"手机":@"mobile",//username
-                           @"公司":@"company",
-                           @"邮箱":@"email",
-                           @"微信":@"wechat",
-                           @"职务":@"duty"
-                           };
-//    NSArray *infoTypeArray = [[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","];
-    NSString *infoType = [StringUtil toString:self.dataDict[@"infoType"]];
-//    NSLog(@"infoType：%@",infoType);
-    BOOL flag = YES;
-    User *user = [User getInstance];
-    if ([infoType rangeOfString:@"公司"].location != NSNotFound) {
-        if (user.company == nil || [user.company isEqualToString:@""]) {
-            [self.requiredInfoType addObject:@"公司"];
-            flag = NO;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+        [alertView show];
+    }else {
+        self.requiredInfoType = [NSMutableArray array];
+        self.requiredTextField = [NSMutableArray array];
+        self.requiredKey = [NSMutableArray array];
+        NSDictionary *dict = @{
+                               @"姓名":@"name",//realname
+                               @"手机":@"mobile",//username
+                               @"公司":@"company",
+                               @"邮箱":@"email",
+                               @"微信":@"wechat",
+                               @"职务":@"duty"
+                               };
+        //    NSArray *infoTypeArray = [[StringUtil toString:self.dataDict[@"infoType"]] componentsSeparatedByString:@","];
+        NSString *infoType = [StringUtil toString:self.dataDict[@"infoType"]];
+        //    NSLog(@"infoType：%@",infoType);
+        BOOL flag = YES;
+        User *user = [User getInstance];
+        if ([infoType rangeOfString:@"公司"].location != NSNotFound) {
+            if (user.company == nil || [user.company isEqualToString:@""]) {
+                [self.requiredInfoType addObject:@"公司"];
+                flag = NO;
+            }
         }
-    }
-    if ([infoType rangeOfString:@"邮箱"].location != NSNotFound) {
-        if (user.email == nil || [user.email isEqualToString:@""]) {
-            [self.requiredInfoType addObject:@"邮箱"];
-            flag = NO;
+        if ([infoType rangeOfString:@"邮箱"].location != NSNotFound) {
+            if (user.email == nil || [user.email isEqualToString:@""]) {
+                [self.requiredInfoType addObject:@"邮箱"];
+                flag = NO;
+            }
         }
-    }
-    if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
-        if (user.wechat == nil || [user.wechat isEqualToString:@""]) {
-            [self.requiredInfoType addObject:@"微信"];
-            flag = NO;
+        if ([infoType rangeOfString:@"微信"].location != NSNotFound) {
+            if (user.wechat == nil || [user.wechat isEqualToString:@""]) {
+                [self.requiredInfoType addObject:@"微信"];
+                flag = NO;
+            }
         }
-    }
-    if ([infoType rangeOfString:@"职务"].location != NSNotFound) {
-        if (user.duty == nil || [user.duty isEqualToString:@""]) {
-            [self.requiredInfoType addObject:@"职务"];
-            flag = NO;
+        if ([infoType rangeOfString:@"职务"].location != NSNotFound) {
+            if (user.duty == nil || [user.duty isEqualToString:@""]) {
+                [self.requiredInfoType addObject:@"职务"];
+                flag = NO;
+            }
         }
-    }
-    
-    if (!flag) {
-//        弹窗完善资料
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.8, self.requiredInfoType.count * 50 + 100)];
-        view.layer.cornerRadius = 4.0;
-        view.clipsToBounds = YES;
-        view.backgroundColor = [UIColor whiteColor];
-        for (int i = 0; i < self.requiredInfoType.count; i++) {
-            UILabel *label = [[UILabel alloc] init];
-            label.text = self.requiredInfoType[i];
-            [view addSubview:label];
-            [label mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(view.mas_left).offset(40);
-                make.top.equalTo(view.mas_top).offset(30 + i * 50);
-                make.width.mas_equalTo(40);
+        
+        if (!flag) {
+            //        弹窗完善资料
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.8, self.requiredInfoType.count * 50 + 100)];
+            view.layer.cornerRadius = 4.0;
+            view.clipsToBounds = YES;
+            view.backgroundColor = [UIColor whiteColor];
+            for (int i = 0; i < self.requiredInfoType.count; i++) {
+                UILabel *label = [[UILabel alloc] init];
+                label.text = self.requiredInfoType[i];
+                [view addSubview:label];
+                [label mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(view.mas_left).offset(40);
+                    make.top.equalTo(view.mas_top).offset(30 + i * 50);
+                    make.width.mas_equalTo(40);
+                }];
+                UITextField *textField = [[UITextField alloc] init];
+                textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+                textField.delegate = self;
+                [view addSubview:textField];
+                [textField mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.left.equalTo(label.mas_right).offset(10);
+                    make.right.equalTo(view.mas_right).offset(-20);
+                    make.centerY.equalTo(label.mas_centerY);
+                }];
+                [self.requiredTextField addObject:textField];
+                [self.requiredKey addObject:dict[self.requiredInfoType[i]]];
+            }
+            LXButton *confirmButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
+            [confirmButton setTitle:@"确定" forState:(UIControlStateNormal)];
+            [view addSubview:confirmButton];
+            [confirmButton addTarget:self action:@selector(confirmButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
+            [confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(view.mas_bottom).offset(-30);
+                make.left.equalTo(view.mas_left).offset(30);
+                make.width.mas_equalTo(SCREEN_WIDTH * 0.3);
+                make.height.mas_equalTo(40);
             }];
-            UITextField *textField = [[UITextField alloc] init];
-            textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-            textField.delegate = self;
-            [view addSubview:textField];
-            [textField mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(label.mas_right).offset(10);
-                make.right.equalTo(view.mas_right).offset(-20);
-                make.centerY.equalTo(label.mas_centerY);
+            LXButton *cancelButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
+            [cancelButton setBackgroundColor:[UIColor lightGrayColor]];
+            [cancelButton setTitle:@"取消" forState:(UIControlStateNormal)];
+            [view addSubview:cancelButton];
+            [cancelButton addTarget:self action:@selector(cancelButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
+            [cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(view.mas_bottom).offset(-30);
+                make.right.equalTo(view.mas_right).offset(-30);
+                make.width.mas_equalTo(SCREEN_WIDTH * 0.3);
+                make.height.mas_equalTo(40);
             }];
-            [self.requiredTextField addObject:textField];
-            [self.requiredKey addObject:dict[self.requiredInfoType[i]]];
+            [[KGModal sharedInstance] showWithContentView:view];
+        } else {
+            //报名操作
+            NSDictionary *param = @{
+                                    @"activityId":self.activityId,
+                                    @"name":[User getInstance].realname,
+                                    @"mobile":[User getInstance].username,
+                                    @"company":[StringUtil toString:[User getInstance].company],
+                                    @"duty":[StringUtil toString:[User getInstance].duty],
+                                    @"wechat":[StringUtil toString:[User getInstance].wechat],
+                                    @"email":[StringUtil toString:[User getInstance].email]
+                                    };
+            [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD showSuccessWithStatus:@"报名成功"];
+                //            已报名
+                [self.joinButton setTitle:@"已报名" forState:(UIControlStateNormal)];
+                [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
+                self.joinButton.enabled = NO;
+            } noResult:nil];
         }
-        LXButton *confirmButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
-        [confirmButton setTitle:@"确定" forState:(UIControlStateNormal)];
-        [view addSubview:confirmButton];
-        [confirmButton addTarget:self action:@selector(confirmButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
-        [confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(view.mas_bottom).offset(-30);
-            make.left.equalTo(view.mas_left).offset(30);
-            make.width.mas_equalTo(SCREEN_WIDTH * 0.3);
-            make.height.mas_equalTo(40);
-        }];
-        LXButton *cancelButton = [LXButton buttonWithType:(UIButtonTypeSystem)];
-        [cancelButton setBackgroundColor:[UIColor lightGrayColor]];
-        [cancelButton setTitle:@"取消" forState:(UIControlStateNormal)];
-        [view addSubview:cancelButton];
-        [cancelButton addTarget:self action:@selector(cancelButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
-        [cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(view.mas_bottom).offset(-30);
-            make.right.equalTo(view.mas_right).offset(-30);
-            make.width.mas_equalTo(SCREEN_WIDTH * 0.3);
-            make.height.mas_equalTo(40);
-        }];
-        [[KGModal sharedInstance] showWithContentView:view];
-    } else {
-        //报名操作
-        NSDictionary *param = @{
-                                @"activityId":self.activityId,
-                                @"name":[User getInstance].realname,
-                                @"mobile":[User getInstance].username,
-                                @"company":[StringUtil toString:[User getInstance].company],
-                                @"duty":[StringUtil toString:[User getInstance].duty],
-                                @"wechat":[StringUtil toString:[User getInstance].wechat],
-                                @"email":[StringUtil toString:[User getInstance].email]
-                                };
-        [self.service POST:@"/apply/addApplys" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [SVProgressHUD showSuccessWithStatus:@"报名成功"];
-            //            已报名
-            [self.joinButton setTitle:@"已报名" forState:(UIControlStateNormal)];
-            [self.joinButton setBackgroundColor:[UIColor lightGrayColor]];
-            self.joinButton.enabled = NO;
-        } noResult:nil];
+
     }
 }
 
@@ -300,8 +307,8 @@
                  [SVProgressHUD showSuccessWithStatus:@"关注活动成功"];
              } noResult:nil];
          }else{
-             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-             [self.navigationController presentViewController:vc animated:YES completion:nil];
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+             [alertView show];
          }
 
     }];
@@ -334,6 +341,15 @@
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 @end

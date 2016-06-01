@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***消息->消息详情***/
+
 #import "MessageDetailViewController.h"
 #import "LXButton.h"
 #import "UserDetailViewController.h"
@@ -75,7 +77,6 @@
     //加载系统通知详情页面
     else {
         
-        
 //        系统消息
 //        self.realNameLabel.text = self.dataDict[@"realName"];
         self.realNameLabel.text = @"系统管理员";
@@ -122,7 +123,7 @@
                                 @"status":@"1"
                                 };
         [self.service POST:@"personal/msg/changeMsgStatus" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            [SVProgressHUD showSuccessWithStatus:@"已读"];
+            [SVProgressHUD showSuccessWithStatus:@"已读"];
         } noResult:nil];
     }
 }

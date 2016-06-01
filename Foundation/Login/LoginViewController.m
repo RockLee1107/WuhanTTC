@@ -91,6 +91,20 @@
     NSString *password = self.passwordView.textField.text;
     NSDictionary *param = @{@"username":username,
                             @"password":password};
+    
+    if (![VerifyUtil isMobile:username]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
+        return;
+    }
+    if (![VerifyUtil isSimplePassword:password]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+        return;
+    }
+//    if (![VerifyUtil isAdvancePassword:password]) {
+//        [SVProgressHUD showErrorWithStatus:@"不能输入含有中文的字符"];
+//        return;
+//    }
+    
     [self.service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //        NSLog(@"login:%@",responseObject);
         User *user = [User getInstance];
@@ -127,18 +141,21 @@
         }
         //将各状态值存到本地
         [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            
             //        项目阶段
-            [self saveStatusCode:responseObject type:@"procStatus" key:nil thirdParty:nil];
-            //        融资阶段
-            [self saveStatusCode:responseObject type:@"financeProc" key:nil thirdParty:nil];
+            [self saveStatusCode:responseObject type:@"procStatus" key:@"procStatus" thirdParty:nil];
             //        项目领域
             [self saveStatusCode:responseObject type:@"industry" key:@"biz" thirdParty:nil];
-            //        活动类型
+            //        融资阶段
+            [self saveStatusCode:responseObject type:@"financeProc" key:@"financeProc" thirdParty:nil];
+                        //        活动类型
             [self saveStatusCode:responseObject type:@"activityType" key:@"type" thirdParty:nil];
             //        专题
             [self saveStatusCode:responseObject type:@"specialType" key:@"special" thirdParty:nil];
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
+        
         } noResult:nil];
 
         [self jumpMain];
@@ -150,8 +167,6 @@
 
 - (void)jumpTest {
     BookSearchViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"find"];
-    
-//    ProjectCreateTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"create"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

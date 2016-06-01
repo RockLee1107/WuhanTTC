@@ -101,7 +101,22 @@
     }
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    
+//    [self.service GET:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        if (self.page.pageNo == 1) {
+//            //由于下拉刷新时页面而归零
+//            [self.tableViewDelegate.dataArray removeAllObjects];
+//            [self.tableView.footer resetNoMoreData];
+//        }
+//        [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
+//        [self.tableView reloadData];
+//    } noResult:^{
+//        [self.tableView.footer noticeNoMoreData];
+//    }];
+    
+    [self.service POST:@"/activity/queryActivityList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];
@@ -109,9 +124,11 @@
         }
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];
+        
     } noResult:^{
         [self.tableView.footer noticeNoMoreData];
     }];
+    
 }
 
 ///导航栏下拉菜单 1
@@ -132,8 +149,8 @@
         if ([[User getInstance] isLogin]) {
             [self performSegueWithIdentifier:@"create" sender:nil];
         }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
         }
         
     }];
@@ -155,15 +172,11 @@
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //确认退出系统
+
     if (buttonIndex == 1) {
         //进入团团创登陆页面
         LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
         [self.navigationController presentViewController:vc animated:YES completion:nil];
-        
-        
-        /***退出后应该删除掉用户token(未做)***/
-        
     }
 }
 
@@ -178,6 +191,7 @@
     /** 定位问题  第二个元素修改 @[@"1",@"线上"],  第三个元素修改 [LocationUtil getInstance].cityName == nil ? @"" : [LocationUtil getInstance].cityName,[LocationUtil getInstance].isSuccess == YES ? [LocationUtil getInstance].cityName : @"定位失败"]**/
     self.data2 = @[
                    @[@"",@"全国"],
+                   @[@"线上",@"线上"],
                    @[@"武汉",@"武汉"]
                    ];
     NSMutableArray *names = [NSMutableArray array];

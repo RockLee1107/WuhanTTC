@@ -59,6 +59,7 @@
 @protocol JSDropDownMenuDelegate <NSObject>
 @optional
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath;
+- (void)sendInfoWithSectionOne:(NSArray *)sectionOneArray SectionTwo:(NSArray *)sectionTwoArray SectionThree:(NSArray *)sectionThreeArray;
 @end
 
 #pragma mark - interface
@@ -66,6 +67,14 @@
 
 @property (nonatomic, weak) id <JSDropDownMenuDataSource> dataSource;
 @property (nonatomic, weak) id <JSDropDownMenuDelegate> delegate;
+
+@property (nonatomic, strong) NSArray *bigArray;///////////////////
+@property (nonatomic, strong) NSMutableArray *choosedSectionOneArray;/////////////
+@property (nonatomic, strong) NSMutableArray *choosedSectionTwoArray;
+@property (nonatomic, strong) NSMutableArray *choosedSectionThreeArray;
+
+@property (nonatomic, assign) NSInteger cellOfSection;
+@property (nonatomic, assign) NSInteger cellOfRow;
 
 @property (nonatomic, strong) UIColor *indicatorColor;
 @property (nonatomic, strong) UIColor *textColor;

@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***创活动->活动详情***/
+
 #import "ActivityDetailTableViewController.h"
 #import "LXGallery.h"
 #import "JCTagListView.h"
@@ -24,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *applyRequirementLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityDetailsLabel;
 //图集
-@property (weak, nonatomic) IBOutlet UIView *pictureView;
+@property (weak, nonatomic) IBOutlet UIView *pictureView;//详情图片
 @property (nonatomic,strong) NSArray *urlArray;
 //报名人信息
 @property (nonatomic, strong) JCTagListView *tagListView;

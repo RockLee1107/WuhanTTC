@@ -172,7 +172,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="summary" id="eYg-cQ-5qD" customClass="ActivityDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Mkb-pR-heg">
-                        <rect key="frame" x="0.0" y="0.0" width="328" height="454"/>
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="688"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -491,6 +491,8 @@
                             <outlet property="delegate" destination="eYg-cQ-5qD" id="n2u-HM-IhA"/>
                         </connections>
                     </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="328" height="688"/>
                     <connections>
                         <outlet property="activityDetailsLabel" destination="fal-E5-jKF" id="tVv-eE-9xq"/>
                         <outlet property="activityTitleLabel" destination="6Ra-eL-18W" id="gPC-9N-ZQO"/>
@@ -510,7 +512,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Z4-Tm-8Mo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2056" y="478"/>
+            <point key="canvasLocation" x="1876" y="487"/>
         </scene>
         <!--创建活动-->
         <scene sceneID="8nr-0m-BFF">

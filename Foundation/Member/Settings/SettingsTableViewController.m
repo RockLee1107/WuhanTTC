@@ -42,27 +42,28 @@
         share.vc = self;
         [share shareWithUrl];
     }
+    //点击退出登陆
     else if (indexPath.section == 3) {
-        [[User getInstance] logout];
-        [[PXAlertView showAlertWithTitle:@"退出成功" message:nil completion:^(BOOL cancelled, NSInteger buttonIndex) {
+        //如果是登陆状态
+        if ([[User getInstance] isLogin]) {
+        
+            [[User getInstance] logout];
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
             [self.navigationController presentViewController:vc animated:YES completion:nil];
-//            [[[UIApplication sharedApplication].windows firstObject] setRootViewController:vc];
-        }] useDefaultIOS7Style];
+
+        }else {
+            [SVProgressHUD showSuccessWithStatus:@"亲,您还没有登陆哦!"];
+        }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //确认退出系统
     if (buttonIndex == 1) {
         //进入团团创登陆页面
         LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
         [self.navigationController presentViewController:vc animated:YES completion:nil];
-        
-        /***退出后应该删除掉用户token(未做)***/
-        
     }
 }
 

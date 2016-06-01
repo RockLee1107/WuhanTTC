@@ -99,7 +99,6 @@
 
 - (void)goToHome {
 
-    
     [[HttpService getInstance] POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
        [self setup];
     } noResult:nil];

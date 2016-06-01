@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***消息->系统通知***/
+
 #import "MessageTableViewController.h"
 #import "MessageTableViewCell.h"
 #import "MessageDetailViewController.h"
@@ -103,7 +105,7 @@
     NSDictionary *dict = self.dataMutableArray[indexPath.row];
     MessageDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateInitialViewController];
     vc.dataDict = dict;
-    NSLog(@"%@", dict);
+    //NSLog(@"%@", dict);
    
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

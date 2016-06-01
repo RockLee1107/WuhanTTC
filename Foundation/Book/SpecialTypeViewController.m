@@ -39,6 +39,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden = NO;
+
 }
 
 //请求数据

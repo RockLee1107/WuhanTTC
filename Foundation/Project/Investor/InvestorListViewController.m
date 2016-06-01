@@ -114,8 +114,8 @@
                 }
             } noResult:nil];
         }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
         }
         
     }];
@@ -134,4 +134,14 @@
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
 }
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
+}
+
 @end

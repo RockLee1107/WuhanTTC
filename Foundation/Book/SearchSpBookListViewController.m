@@ -22,9 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *nameNavigationItem;
 //搜索条件
-@property (nonatomic,strong) NSArray *dataTitle;
+@property (nonatomic,strong) NSArray *dataTitle;//顺序，分类，格式
 @property (nonatomic,strong) NSArray *data1;//顺序数据源
-@property (nonatomic,strong) NSArray *data2;
+@property (nonatomic,strong) NSArray *data2;//分类数据源
 @property (nonatomic,strong) NSArray *data3;//格式数据源
 @property (nonatomic,assign) NSInteger currentData1Index;
 @property (nonatomic,assign) NSInteger currentData2Index;
@@ -151,8 +151,8 @@
             ContributeTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"contribute"];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
         }
         
     }];
@@ -282,6 +282,15 @@
         [self fetchData];
     }
    
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 @end

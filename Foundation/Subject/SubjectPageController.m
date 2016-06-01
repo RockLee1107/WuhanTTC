@@ -6,6 +6,8 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***创成长->社区***/
+
 #import "SubjectPageController.h"
 #import "SubjectListViewController.h"
 #import "DTKDropdownMenuView.h"
@@ -75,8 +77,8 @@
             UIViewController *vc = [[MySubjectPageController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
         }
       
 
@@ -86,8 +88,8 @@
             PostSubjectTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
             [self.navigationController pushViewController:vc animated:YES];
         }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
         }
 
        
@@ -103,6 +105,15 @@
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 @end

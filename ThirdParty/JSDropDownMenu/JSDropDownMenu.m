@@ -7,6 +7,8 @@
 //
 
 #import "JSDropDownMenu.h"
+#import "ProjectModel.h"
+#import "CollectionHeaderView.h"
 
 #define BackColor [UIColor colorWithRed:244.0f/255.0f green:244.0f/255.0f blue:244.0f/255.0f alpha:1.0]
 // 选中颜色加深
@@ -50,6 +52,8 @@
 
 @property(nonatomic,strong) UILabel *textLabel;
 @property(nonatomic,strong) UIImageView *accessoryView;
+@property(nonatomic,strong) UIImageView *cellView;
+@property(nonatomic,strong) UIButton *cellBtn;
 
 -(void)removeAccessoryView;
 
@@ -61,9 +65,12 @@
     
     self = [super initWithFrame:frame];
     if (self) {
+        _cellView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)]; //////
+        _cellView.userInteractionEnabled = YES;//////
         _textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _textLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:_textLabel];
+        [_cellView addSubview:_textLabel]; //
+        [self.contentView addSubview:_cellView];
     }
     return self;
 }
@@ -305,10 +312,27 @@
         _collectionView.backgroundColor = [UIColor colorWithRed:220.f/255.0f green:220.f/255.0f blue:220.f/255.0f alpha:1.0];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        //注册头部视图
+        [_collectionView registerClass:[CollectionHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        
+        //确认按钮
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake((self.frame.size.width-80)/2, 20*12+25*3+7, 80, 22);
+        [button setTitle:@"确认" forState:UIControlStateNormal];
+        button.backgroundColor = [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0];
+        [button addTarget:self action:@selector(sureBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_collectionView addSubview:button];
+        
+        self.choosedSectionOneArray = [[NSMutableArray alloc] init];
+        self.choosedSectionTwoArray = [[NSMutableArray alloc] init];
+        self.choosedSectionThreeArray = [[NSMutableArray alloc] init];
+        
+        //注册尾部视图
+//        [_collectionView registerClass:[CollectionFooterView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
         
         
         self.autoresizesSubviews = NO;
-        _leftTableView.autoresizesSubviews = NO;
+        _leftTableView.autoresizesSubviews  = NO;
         _rightTableView.autoresizesSubviews = NO;
         _collectionView.autoresizesSubviews = NO;
         
@@ -684,7 +708,7 @@
         
         [UIView animateWithDuration:0.2 animations:^{
             if (collectionView) {
-                collectionView.frame = CGRectMake(_origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, collectionViewHeight);
+                collectionView.frame = CGRectMake(_origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 20*12+25*3+30);
             }
         }];
     } else {
@@ -905,14 +929,17 @@
 #pragma mark - UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+//修改过    return 1;
+    return [self.bigArray count]-1;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
     // 为collectionview时 leftOrRight 为-1
     if ([self.dataSource respondsToSelector:@selector(menu:numberOfRowsInColumn:leftOrRight: leftRow:)]) {
-        return [self.dataSource menu:self numberOfRowsInColumn:self.currentSelectedMenudIndex leftOrRight:-1 leftRow:-1];
+       //修改过  return [self.dataSource menu:self numberOfRowsInColumn:self.currentSelectedMenudIndex leftOrRight:-1 leftRow:-1];
+        ProjectModel *model = self.bigArray[section + 1];
+        return [model.sectionArray count];
     } else {
         NSAssert(0 == 1, @"required method of dataSource protocol should be implemented");
         return 0;
@@ -925,7 +952,11 @@
     JSCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCell forIndexPath:indexPath];
     
     if ([self.dataSource respondsToSelector:@selector(menu:titleForRowAtIndexPath:)]) {
-        cell.textLabel.text = [self.dataSource menu:self titleForRowAtIndexPath:[JSIndexPath indexPathWithCol:self.currentSelectedMenudIndex leftOrRight:-1 leftRow:-1 row:indexPath.row]];
+//        cell.textLabel.text = [self.dataSource menu:self titleForRowAtIndexPath:[JSIndexPath indexPathWithCol:self.currentSelectedMenudIndex leftOrRight:-1 leftRow:-1 row:indexPath.row]];
+        ProjectModel *model = self.bigArray[indexPath.section+1];
+        cell.textLabel.text = model.sectionArray[indexPath.row][1];
+        cell.cellView.tag = 0;
+        
     } else {
         NSAssert(0 == 1, @"dataSource method needs to be implemented");
     }
@@ -941,14 +972,52 @@
         
         [cell removeAccessoryView];
     }
-    
     return cell;
+}
+
+#pragma mark - 头部视图
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    //////
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader])
+    {
+        CollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"header" forIndexPath:indexPath];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, headerView.frame.size.width-15, 60)];
+        ProjectModel *model = self.bigArray[indexPath.section+1];
+        titleLabel.text     = model.title;
+        if (headerView.subviews.count == 0)
+        {
+            [headerView addSubview:titleLabel];
+        }
+        else
+        {
+            UILabel *label = headerView.subviews[0];
+            label.textAlignment = NSTextAlignmentLeft;
+            label.text = model.title;
+        }
+        headerView.tag = 400 + indexPath.section;
+        return headerView;
+    }
+    
+    return nil;
+}
+
+#pragma mark - 代理传值
+- (void)sureBtnClick {
+    
+    [self.delegate sendInfoWithSectionOne:self.choosedSectionOneArray SectionTwo:self.choosedSectionTwoArray SectionThree:self.choosedSectionThreeArray];
+}
+
+//头部视图高度
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(collectionView.frame.size.width, 25);
 }
 
 #pragma mark --UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((collectionView.frame.size.width-1)/2, 38);
+    return CGSizeMake((collectionView.frame.size.width-1)/3, 20);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
@@ -959,13 +1028,47 @@
 #pragma mark --UICollectionViewDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.delegate || [self.delegate respondsToSelector:@selector(menu:didSelectRowAtIndexPath:)]) {
-        
-        [self confiMenuWithSelectRow:indexPath.row];
-        
-        [self.delegate menu:self didSelectRowAtIndexPath:[JSIndexPath indexPathWithCol:self.currentSelectedMenudIndex leftOrRight:-1 leftRow:-1 row:indexPath.row]];
-    } else {
-        //TODO: delegate is nil
+//    if (self.delegate || [self.delegate respondsToSelector:@selector(menu:didSelectRowAtIndexPath:)]) {
+//        
+//        [self confiMenuWithSelectRow:indexPath.row];
+//        
+//        [self.delegate menu:self didSelectRowAtIndexPath:[JSIndexPath indexPathWithCol:self.currentSelectedMenudIndex leftOrRight:-1 leftRow:-1 row:indexPath.row]];
+//    } else {
+//        //TODO: delegate is nil
+//    }
+    ProjectModel *model = self.bigArray[indexPath.section+1];
+    NSString *code = model.sectionArray[indexPath.row][0];
+    
+    
+    if (indexPath.section == 0) {
+        [self.choosedSectionOneArray addObject:code];
+    }
+    if (indexPath.section == 1) {
+        [self.choosedSectionTwoArray addObject:code];
+    }
+    if (indexPath.section == 2) {
+        [self.choosedSectionThreeArray addObject:code];
+    }
+    
+    //////
+    JSCollectionViewCell *cell = (JSCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+
+    for (UIView *subview in cell.contentView.subviews) {
+    
+        if ([subview isKindOfClass:[UIImageView class]]) {
+            //选中
+            if (subview.tag == 0) {
+                
+                subview.backgroundColor = [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0];
+                subview.tag = 1;
+                
+            }else {
+                
+                subview.backgroundColor = [UIColor whiteColor];
+                subview.tag = 0;
+            }
+            
+        }
     }
 }
 

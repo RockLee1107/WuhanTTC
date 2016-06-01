@@ -30,6 +30,8 @@
 		1F9F92D71CDCC34F0084ED2A /* menu_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C21CDCC34F0084ED2A /* menu_share@2x.png */; };
 		1F9F92D81CDCC34F0084ED2A /* menu_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */; };
 		1F9F92DB1CDCD6E70084ED2A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */; };
+		826370771CFD30240054F07F /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 826370761CFD30240054F07F /* CollectionHeaderView.m */; };
+		8291E9B51CFC80190033F40D /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8291E9B41CFC80190033F40D /* ProjectModel.m */; };
 		8E01CC511CF33066006D530B /* CreateBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E01CC501CF33066006D530B /* CreateBPViewController.m */; };
 		8E01CC531CF330F6006D530B /* CreateBPViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E01CC521CF330F6006D530B /* CreateBPViewController.storyboard */; };
 		8E0C7A871CF18F450053D2BF /* ProjectBPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C7A861CF18F450053D2BF /* ProjectBPViewController.m */; };
@@ -454,6 +456,10 @@
 		1F9F92C31CDCC34F0084ED2A /* menu_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_top@2x.png"; sourceTree = "<group>"; };
 		1F9F92D91CDCD6E70084ED2A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1F9F92DA1CDCD6E70084ED2A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		826370751CFD30240054F07F /* CollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
+		826370761CFD30240054F07F /* CollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderView.m; sourceTree = "<group>"; };
+		8291E9B31CFC80190033F40D /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
+		8291E9B41CFC80190033F40D /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
 		8E01CC4F1CF33066006D530B /* CreateBPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateBPViewController.h; sourceTree = "<group>"; };
 		8E01CC501CF33066006D530B /* CreateBPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateBPViewController.m; sourceTree = "<group>"; };
 		8E01CC521CF330F6006D530B /* CreateBPViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateBPViewController.storyboard; sourceTree = "<group>"; };
@@ -2362,6 +2368,8 @@
 			children = (
 				FDE33F0A1C9FE993005C6863 /* ProjectListViewController.h */,
 				FDE33F0B1C9FE993005C6863 /* ProjectListViewController.m */,
+				8291E9B31CFC80190033F40D /* ProjectModel.h */,
+				8291E9B41CFC80190033F40D /* ProjectModel.m */,
 				FDE33F101C9FEDF9005C6863 /* ProjectTableViewDelegate.h */,
 				FDE33F111C9FEDF9005C6863 /* ProjectTableViewDelegate.m */,
 				FD5ADDA01CDE8E24005ED424 /* ShouldPostProjectTableViewDelegate.h */,
@@ -2396,6 +2404,8 @@
 				FDF3FE0B1CA7F854007B7C83 /* ico_make.png */,
 				FDF3FE0C1CA7F854007B7C83 /* JSDropDownMenu.h */,
 				FDF3FE0D1CA7F854007B7C83 /* JSDropDownMenu.m */,
+				826370751CFD30240054F07F /* CollectionHeaderView.h */,
+				826370761CFD30240054F07F /* CollectionHeaderView.m */,
 			);
 			path = JSDropDownMenu;
 			sourceTree = "<group>";
@@ -2756,6 +2766,7 @@
 				FD3B00471CC4C04300DA0166 /* ImageUtil.m in Sources */,
 				FD3BDE0D1CD5E86C006F9EA5 /* KL_ImageZoomView.m in Sources */,
 				FD066CE71CB8EB09001A132A /* ActionSheetDatePicker.m in Sources */,
+				8291E9B51CFC80190033F40D /* ProjectModel.m in Sources */,
 				F73B78A91C81375600069EEE /* MJRefreshLegendFooter.m in Sources */,
 				FD3D5A071CB2AA6E00B9514D /* UIAlertView+PXAlertViewOverride.m in Sources */,
 				FDE2AFEA1C887F98002238CA /* BaseStaticTableViewController.m in Sources */,
@@ -2928,6 +2939,7 @@
 				FDE2AFF01C88881A002238CA /* SearchSpBookListViewController.m in Sources */,
 				F795DF5B1CB40BB8002BCDEE /* CityViewController.m in Sources */,
 				F73B78A31C81375600069EEE /* MJRefreshComponent.m in Sources */,
+				826370771CFD30240054F07F /* CollectionHeaderView.m in Sources */,
 				8E01CC511CF33066006D530B /* CreateBPViewController.m in Sources */,
 				F73B78981C81375600069EEE /* LXButton.m in Sources */,
 				F74C9AF61CBE1DE300C7A607 /* EYInputPopupView.m in Sources */,
@@ -3103,12 +3115,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
+					"$(PROJECT_DIR)/ThirdParty/umsdk_IOS_analyics_idfa_v4.0.2",
 				);
 				INFOPLIST_FILE = Foundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -3124,6 +3137,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3132,12 +3146,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
+					"$(PROJECT_DIR)/ThirdParty/umsdk_IOS_analyics_idfa_v4.0.2",
 				);
 				INFOPLIST_FILE = Foundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -3153,6 +3168,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -3199,12 +3215,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wuhan Teamchuang Internet technology Co.,ltd. (P967XC9JMD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ThirdParty/UMSocial_Sdk_4.3/TencentOpenAPI",
+					"$(PROJECT_DIR)/ThirdParty/umsdk_IOS_analyics_idfa_v4.0.2",
 				);
 				INFOPLIST_FILE = Foundation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -3220,6 +3237,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.it577.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = "ad hoc";
 		};

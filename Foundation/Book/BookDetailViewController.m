@@ -6,6 +6,9 @@
 //  Copyright (c) 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+
+/***创成长->文献列表->文献详情***/
+
 #import "BookDetailViewController.h"
 #import "DTKDropdownMenuView.h"
 #import "ShareUtil.h"
@@ -284,8 +287,8 @@
                                    }
              ];
         }else{
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
         }
        
     }];

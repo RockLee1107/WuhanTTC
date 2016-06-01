@@ -6,6 +6,8 @@
 //  Copyright © 2016年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
+/***创投融->投资人列表->投资人详情***/
+
 #import "InvestorDetailTableViewController.h"
 #import "ShouldPostProjectTableViewController.h"
 #import "LXButton.h"
@@ -67,9 +69,23 @@
 }
 
 - (IBAction)postButtonPress:(id)sender {
-    ShouldPostProjectTableViewController *vc = [[ShouldPostProjectTableViewController alloc] init];
-    vc.financeId = self.dataDict[@"userId"];
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([User getInstance].isLogin) {
+        ShouldPostProjectTableViewController *vc = [[ShouldPostProjectTableViewController alloc] init];
+        vc.financeId = self.dataDict[@"userId"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+        [alertView show];
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 @end

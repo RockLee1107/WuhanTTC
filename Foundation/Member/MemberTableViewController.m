@@ -128,7 +128,6 @@
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    //确认退出系统
     if (buttonIndex == 1) {
         //进入团团创登陆页面
         LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];

@@ -30,15 +30,8 @@
 //    NSLog(@"param:%@",dict);
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
     
-    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    self.manager.requestSerializer  = [AFHTTPRequestSerializer serializer];
-    
-    NSLog(@"\n转之前:%@", dict);
     
     urlstr = [urlstr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject: @"text/html"];
-    
-    NSLog(@"\n转之后%@", dict);
     
     [self.manager GET:urlstr parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"origin response:\n%@",responseObject);
@@ -74,7 +67,7 @@
 - (void)POST:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success noResult:(noResultBlock)noResult{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [dict setObject:@"MOBILE" forKey:@"clientType"];
-        NSLog(@"param:%@",dict);
+        //NSLog(@"param:%@",dict);
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
    
     self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -84,7 +77,7 @@
     
     [self.manager POST:urlstr parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
        
-        NSLog ( @"～～～～～\n operation: \n~~~~~~~responseString: %@" , operation. responseString );
+      //  NSLog ( @"～～～～～\n operation: \n~~~~~~~responseString: %@" , operation. responseString );
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         
