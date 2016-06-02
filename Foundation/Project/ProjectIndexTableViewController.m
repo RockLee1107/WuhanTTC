@@ -105,7 +105,7 @@
 //}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //first init
     //先去掉
 //    //点击项目BP
 //    if (indexPath.section == 0 && indexPath.row == 0) {
