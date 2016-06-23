@@ -12,4 +12,10 @@
 @interface ProcessCreateTableViewController : BaseStaticTableViewController
 @property (strong,nonatomic) NSString *pid;
 @property (strong,nonatomic) ProcessTableViewController *parentVC;
+@property (nonatomic, assign) BOOL isFromAdd;
+@property (nonatomic, copy) NSString *idStr;
+
+@property (nonatomic, copy) NSString *dateText;
+@property (nonatomic, copy) NSString *descText;
+
 @end

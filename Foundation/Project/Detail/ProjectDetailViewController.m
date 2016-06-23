@@ -19,8 +19,14 @@
 #import "ProjectPrefectViewController.h"
 #import "ImageBrowserViewController.h"
 #import "EYInputPopupView.h"
+#import "ProjectBP_DetailViewController.h"
+#import "ProjectInfoTableViewController.h"
 
 @interface ProjectDetailViewController ()
+
+@property (nonatomic,strong) HttpService *service;
+@property (nonatomic,strong) NSDictionary *dataDic;
+
 @end
 
 @implementation ProjectDetailViewController
@@ -28,54 +34,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addRightItem];
-    [SingletonObject getInstance].dataDict = self.dataDict;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [SingletonObject getInstance].isBrowse = YES;
+    //更新项目后 提交审核返回到该容器页面 需要关闭更新项目
+    if ([User getInstance].isCloseItem) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    //可以更新项目
+    if (self.whetherUpdate == YES) {
+        [self addRightItem];
+    }else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+//    [SingletonObject getInstance].isBrowse = YES;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        
         NSArray *viewControllerClasses = @[
                                            [ProjectSummaryTableViewController class],
                                            [TeamListTableViewController class],
                                            [ProcessTableViewController class],
                                            [FinanceTableViewController class],
-                                           [EvaluateTableViewController class]
+                                           [ProjectBP_DetailViewController class]
                                            ];
+
         NSArray *titles = @[
                             @"详情",
                             @"团队",
                             @"进展",
                             @"融资",
-                            @"评析"
+                            @"BP"
                             ];
         self.viewControllerClasses = viewControllerClasses;
+
         self.titles = titles;
         self.menuItemWidth = SCREEN_WIDTH / titles.count;
         self.menuViewStyle = WMMenuViewStyleLine;
         self.titleSizeSelected = 15.0;
+        self.menuHeight = 50;
         self.titleColorSelected = MAIN_COLOR;
         //为不同页面设置相对应的标签，每一个key对应一个values
-        self.keys = @[
-                      @"pid",
-                      @"pid",
-                      @"pid",
-                      @"pid",
-                      @"pid"
-                      ];
-        self.values = @[
-                        [SingletonObject getInstance].pid,
-                        [SingletonObject getInstance].pid,
-                        [SingletonObject getInstance].pid,
-                        [SingletonObject getInstance].pid,
-                        [SingletonObject getInstance].pid
-                        ];
+//        self.keys = @[
+//                      @"pid",
+//                      @"pid",
+//                      @"pid",
+//                      @"pid",
+//                      @"pid"
+//                      ];
+//        self.values = @[
+//                        [SingletonObject getInstance].pid,
+//                        [SingletonObject getInstance].pid,
+//                        [SingletonObject getInstance].pid,
+//                        [SingletonObject getInstance].pid,
+//                        [SingletonObject getInstance].pid
+//                        ];
     }
     return self;
 }
@@ -83,36 +103,38 @@
 - (void)addRightItem
 {
 //    __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_attention" callBack:^(NSUInteger index, id info) {
-        if ([[User getInstance] isLogin]) {
-            //        //        访问网络
-            NSDictionary *param = @{
-                                    @"Attention":[StringUtil dictToJson:@{
-                                                                          @"projectId":[SingletonObject getInstance].pid,
-                                                                          @"userId":[User getInstance].uid,
-                                                                          @"isAttention":@1
-                                                                          }]
-                                    };
-            [[HttpService getInstance] GET:@"/project/projectAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [SVProgressHUD showSuccessWithStatus:@"关注成功"];
-            } noResult:nil];
-        }else{
-           
-            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            [self.navigationController presentViewController:vc animated:YES completion:nil];
-        }
-        
-    }];
+//    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"关注" iconName:@"menu_attention" callBack:^(NSUInteger index, id info) {
+//        if ([[User getInstance] isLogin]) {
+//            //        //        访问网络
+//            NSDictionary *param = @{
+//                                    @"Attention":[StringUtil dictToJson:@{
+//                                                                          @"projectId":[SingletonObject getInstance].pid,
+//                                                                          @"userId":[User getInstance].uid,
+//                                                                          @"isAttention":@1
+//                                                                          }]
+//                                    };
+//            [[HttpService getInstance] GET:@"/project/projectAttention" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                [SVProgressHUD showSuccessWithStatus:@"关注成功"];
+//            } noResult:nil];
+//        }else{
+//           
+//            LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+//            [self.navigationController presentViewController:vc animated:YES completion:nil];
+//        }
+//        
+//    }];
 //    除审核中以外
     DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"更新项目" iconName:@"menu_edit" callBack:^(NSUInteger index, id info) {
-        if ([[User getInstance] isLogin]) {
-            ProjectPrefectViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"prefect"];
+        if ([[User getInstance] isLogin]) {       
+
+            ProjectInfoTableViewController*vc = [[UIStoryboard storyboardWithName:@"ProjectInfoTableViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"projectInfo"];
+            vc.isFlag = YES;//显示勾选状态
+            
             [self.navigationController pushViewController:vc animated:YES];
 
         }else{
             LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
             [self.navigationController presentViewController:vc animated:YES completion:nil];
-
         }
             }];
 //    成员或投资人身份  点击项目BP
@@ -177,13 +199,14 @@
         [array addObject:item3];
     }
 //    是创建人
+    NSLog(@"\nuid-------:%@\n-------createdById:%@", [User getInstance].uid, self.dataDict[@"createdById"]);
     if ([[User getInstance].uid isEqualToString:self.dataDict[@"createdById"]]) {
 //        非审核中
-        if ([self.dataDict[@"bizStatus"] integerValue] != BizStatusPublish) {
+        if ([self.dataDict[@"bizStatus"] integerValue] != 1) {
             [array addObject:item1];
         }
-    } else {
-        [array addObject:item0];
+    }else {
+//        [array addObject:item0];
     }
     
     
@@ -199,6 +222,13 @@
     menuView.textFont = [UIFont systemFontOfSize:16.f];
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
+//    if (self.isUpdate) {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
+//    if (self.isUpdate == NO) {
+//        self.navigationItem.rightBarButtonItem = nil;
+//    }
+//    }else {
+//        self.navigationItem.rightBarButtonItem = nil;
+//    }
 }
 @end

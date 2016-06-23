@@ -96,10 +96,10 @@
         [SVProgressHUD showErrorWithStatus:@"请输入手机号码"];
         return;
     }
-    if (![VerifyUtil isSimplePassword:password]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
-        return;
-    }
+//    if (![VerifyUtil isSimplePassword:password]) {
+//        [SVProgressHUD showErrorWithStatus:@"请输入密码"];
+//        return;
+//    }
 //    if (![VerifyUtil isAdvancePassword:password]) {
 //        [SVProgressHUD showErrorWithStatus:@"不能输入含有中文的字符"];
 //        return;
@@ -144,17 +144,23 @@
             
             
             //        项目阶段
-            [self saveStatusCode:responseObject type:@"procStatus" key:@"procStatus" thirdParty:nil];
+            [self saveStatusCode:responseObject type:@"procStatus" key:@"procStatus" thirdParty:nil fourThParty:nil];
             //        项目领域
-            [self saveStatusCode:responseObject type:@"industry" key:@"biz" thirdParty:nil];
+            [self saveStatusCode:responseObject type:@"industry" key:@"biz" thirdParty:nil fourThParty:nil];
             //        融资阶段
-            [self saveStatusCode:responseObject type:@"financeProc" key:@"financeProc" thirdParty:nil];
+            [self saveStatusCode:responseObject type:@"financeProc" key:@"financeProc" thirdParty:nil fourThParty:nil];
                         //        活动类型
-            [self saveStatusCode:responseObject type:@"activityType" key:@"type" thirdParty:nil];
+            [self saveStatusCode:responseObject type:@"activityType" key:@"type" thirdParty:nil fourThParty:nil];
             //        专题
-            [self saveStatusCode:responseObject type:@"specialType" key:@"special" thirdParty:nil];
+            [self saveStatusCode:responseObject type:@"specialType" key:@"special" thirdParty:nil fourThParty:nil];
             //        文献二级分类
-            [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode"];
+            [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode" fourThParty:@"bookNum"];
+            
+            
+//            //首页->内容->筛选栏数字
+//            [self saveStatusCode:responseObject type:@"bookType" key:@"special" thirdParty:nil];
+            
+            
         
         } noResult:nil];
 
@@ -171,7 +177,7 @@
 }
 
 //保存状态值到本地
-- (void)saveStatusCode:(NSDictionary *)responseObject type:(NSString *)type key:(NSString *)key thirdParty:(NSString *)third {
+- (void)saveStatusCode:(NSDictionary *)responseObject type:(NSString *)type key:(NSString *)key thirdParty:(NSString *)third fourThParty:(NSString *)fourth{
     NSMutableArray *array = [NSMutableArray array];
     //    第三字段可选
     if (key == nil) {
@@ -188,6 +194,10 @@
         if (third != nil) {
             [dict setObject:procStatusDict[@"specialCode"] forKey:third];
         }
+        if (fourth != nil) {
+            [dict setObject:procStatusDict[@"bookNum"] forKey:fourth];
+        }
+        
         [array addObject:dict];
     }
     [[NSUserDefaults standardUserDefaults] setObject:array forKey:type];

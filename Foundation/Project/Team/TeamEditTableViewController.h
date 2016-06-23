@@ -12,4 +12,13 @@
 @interface TeamEditTableViewController : BaseStaticTableViewController
 @property (strong,nonatomic) TeamListTableViewController *parentVC;
 
+@property (nonatomic ,assign) BOOL isFromAdd;
+@property (nonatomic, copy) NSString *idStr;
+@property (nonatomic, copy) NSString *projectId;
+
+@property (nonatomic, copy) NSString *addName;
+@property (nonatomic, copy) NSString *addDuty;
+@property (nonatomic, copy) NSString *intro;
+@property (nonatomic, copy) NSString *friendId;
+
 @end

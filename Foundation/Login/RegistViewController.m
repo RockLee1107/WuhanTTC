@@ -64,7 +64,7 @@
         return;
     }
     if (![VerifyUtil isSimplePassword:password]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入6位以上密码"];
+        [SVProgressHUD showErrorWithStatus:@"请输入至少6位密码"];
         return;
     }
     NSDictionary *param = @{@"realName":realname,

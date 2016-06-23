@@ -23,6 +23,7 @@
 #import "LoginViewController.h"
 
 @interface BaseStaticTableViewController : UITableViewController<UITextFieldDelegate>
+
 @property (nonatomic,strong) NSDictionary *dataDict;
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,strong) NSMutableArray *dataMutableArray;
@@ -32,4 +33,5 @@
 - (void)setDynamicLayout;
 - (void)goBack;
 @property (strong, nonatomic) BaseTableViewDelegate *tableViewDelegate;
+
 @end

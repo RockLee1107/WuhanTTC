@@ -10,6 +10,9 @@
 
 @interface ProjectBPDetailViewController : BaseTableViewController
 
-@property (nonatomic, strong) NSDictionary *dataDic;
+@property (nonatomic, copy) NSString *bpId;
+@property (nonatomic, copy) NSString *statusTitle;//按钮状态
+@property (nonatomic, assign) BOOL isAppear;//是从公共区域(YES)进入还是我的(NO)进入
+@property (nonatomic, assign) BOOL isUpdateBP;//是从公共区域(NO)进入不能更新BP 我的(YES)进入可以
 
 @end

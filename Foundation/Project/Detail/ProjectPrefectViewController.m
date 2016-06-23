@@ -225,7 +225,6 @@
         [project setObject:[projectVC.photoGallery fetchPhoto:@"bpPictUrl" imageUtil:projectImageUtil] forKey:@"bpPictUrl"];
     }
     
-    
     /*产品信息*/
     //    后端api要求，产品信息与项目基本共用Project对象
     if (![productVC.procDetailsTextView.text isEqualToString:@""] && productVC.procDetailsTextView.text != nil) {

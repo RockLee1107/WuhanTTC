@@ -34,6 +34,7 @@
     for (int i = 0; i < images.count; i++) {
         [array addObject:[ImageUtil savePicture:filenames[i] image:images[i]]];
     }
+//    NSLog(@"===============\n%@",[array componentsJoinedByString:@","]);
     return [array componentsJoinedByString:@","];
 }
 
@@ -45,6 +46,7 @@
         [array addObject:[NSString stringWithFormat:@"%@_%d_%zi.jpg",name,timestamp,i]];
     }
     self.filenames = array;
+    NSLog(@"\n888888%@\n999999%@", self.filenames, array);
     return array;
 }
 @end

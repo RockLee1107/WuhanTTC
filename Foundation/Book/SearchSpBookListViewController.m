@@ -19,6 +19,10 @@
 #import "BookSearchViewController.h"
 
 @interface SearchSpBookListViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate>
+{
+    NSInteger _count;
+}
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *nameNavigationItem;
 //搜索条件
@@ -91,8 +95,6 @@
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
 }
-
-/*********???????**********/
 
 -(void)fetchData {
     
@@ -187,7 +189,11 @@
     [names addObject:@[@"all",@"全部"]];
     NSArray *array = [StatusDict bookCategoryBySpecialCode:((SubTabBarController *)self.tabBarController).specialCode];
     for (NSDictionary *dict in array) {
-        [names addObject:@[dict[@"categoryCode"],dict[@"categoryName"]]];
+        [names addObject:@[dict[@"categoryCode"],dict[@"categoryName"],dict[@"bookNum"]]];
+    }
+    _count = 0;
+    for (int i=0; i<names.count-1; i++) {
+        _count += [names[i+1][2] integerValue];
     }
     
     self.data2 = names;
@@ -255,7 +261,11 @@
     if (indexPath.column == 0) {
         return _data1[indexPath.row][1];
     } else if (indexPath.column == 1 ) {
-        return _data2[indexPath.row][1];
+        if (indexPath.row == 0) {
+            return [NSString stringWithFormat:@"%@ ( 共%ld篇 )", _data2[indexPath.row][1],_count];
+        }else {
+            return [NSString stringWithFormat:@"%@ ( 共%@篇 )", _data2[indexPath.row][1], _data2[indexPath.row][2]];
+        }
     } else {
         return _data3[indexPath.row][1];
     }

@@ -23,6 +23,10 @@
 + (NSString *)financeProcByCode:(NSString *)code;
 ///文献二级列表
 + (NSArray *)bookCategory;
+///筛选栏数字
++ (NSArray *)bookType;
 ///文献二级列表分组查询
 + (NSArray *)bookCategoryBySpecialCode:(NSString *)specialCode;
+
++ (NSArray *)bookTypeBySpecialCode:(NSString *)specialCode;
 @end

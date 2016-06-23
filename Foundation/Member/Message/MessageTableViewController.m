@@ -95,7 +95,7 @@
     //时间旁的描述文字
     cell.titleLabel.text = [StringUtil toString:dict[@"title"]];
     //
-    cell.unreadImageView.hidden = [dict[@"status"] boolValue];
+//    cell.unreadImageView.hidden = [dict[@"status"] boolValue];
     //文字
     cell.contentLabel.text = [StringUtil toString:dict[@"content"]];
     return cell;

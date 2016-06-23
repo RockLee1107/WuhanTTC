@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nnk-yY-xqs">
                         <rect key="frame" x="0.0" y="64" width="320" height="824"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="JdJ-ao-8SD">
@@ -27,31 +26,27 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tz0-yo-XFl" customClass="CaptionButton">
                                                     <rect key="frame" x="10" y="10" width="80" height="25"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="5Qs-Sx-8Oc"/>
                                                         <constraint firstAttribute="height" constant="25" id="FGA-VZ-qA7"/>
                                                     </constraints>
                                                     <state key="normal" title="BP名称"/>
                                                 </button>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入BP名称(2-20字)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-Xb-PU6">
-                                                    <rect key="frame" x="20" y="45" width="280" height="24"/>
-                                                    <animations/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入BP名称(2-20字)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjz-Xb-PU6">
+                                                    <rect key="frame" x="20" y="49" width="280" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="yjz-Xb-PU6" secondAttribute="trailing" constant="20" id="5XI-fx-ugY"/>
                                                 <constraint firstItem="yjz-Xb-PU6" firstAttribute="leading" secondItem="4CV-iZ-us9" secondAttribute="leading" constant="20" id="PTN-uR-ij0"/>
-                                                <constraint firstAttribute="bottom" secondItem="yjz-Xb-PU6" secondAttribute="bottom" constant="10" id="YQm-I2-KbP"/>
-                                                <constraint firstItem="yjz-Xb-PU6" firstAttribute="top" secondItem="Tz0-yo-XFl" secondAttribute="bottom" constant="10" id="bbm-Pe-7Vs"/>
+                                                <constraint firstAttribute="bottom" secondItem="yjz-Xb-PU6" secondAttribute="bottom" constant="5" id="YQm-I2-KbP"/>
+                                                <constraint firstItem="yjz-Xb-PU6" firstAttribute="top" secondItem="Tz0-yo-XFl" secondAttribute="bottom" constant="14" id="bbm-Pe-7Vs"/>
                                                 <constraint firstItem="Tz0-yo-XFl" firstAttribute="leading" secondItem="4CV-iZ-us9" secondAttribute="leading" constant="10" id="ihb-hZ-FMv"/>
                                                 <constraint firstItem="Tz0-yo-XFl" firstAttribute="top" secondItem="4CV-iZ-us9" secondAttribute="top" constant="10" id="zTi-fZ-8As"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Spu-Z5-8F3">
                                         <rect key="frame" x="0.0" y="80" width="320" height="60"/>
@@ -61,36 +56,28 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axg-Kj-2FF" customClass="CaptionButton">
-                                                    <rect key="frame" x="10" y="20" width="95" height="19"/>
-                                                    <animations/>
+                                                    <rect key="frame" x="10" y="20" width="80" height="19"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="95" id="2wr-oW-yq5"/>
+                                                        <constraint firstAttribute="width" constant="80" id="2wr-oW-yq5"/>
                                                     </constraints>
-                                                    <state key="normal" title="BP LOGO"/>
+                                                    <state key="normal" title="LOGO"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x66-g7-cG1">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_photo@2x" translatesAutoresizingMaskIntoConstraints="NO" id="Bk3-jw-XWj">
                                                     <rect key="frame" x="251" y="5" width="49" height="49"/>
-                                                    <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="x66-g7-cG1" secondAttribute="height" multiplier="1:1" id="rMI-sh-Sx7"/>
+                                                        <constraint firstAttribute="width" secondItem="Bk3-jw-XWj" secondAttribute="height" multiplier="1:1" id="jav-xQ-IeB"/>
                                                     </constraints>
-                                                    <state key="normal" image="app_photo@2x"/>
-                                                    <connections>
-                                                        <action selector="chooseLogoBtnClick:" destination="a7R-1O-OAi" eventType="touchUpInside" id="bnT-G2-Tzz"/>
-                                                    </connections>
-                                                </button>
+                                                </imageView>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="x66-g7-cG1" secondAttribute="bottom" constant="5" id="6wK-Ga-JwQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bk3-jw-XWj" secondAttribute="trailing" constant="20" id="2hb-SE-Ydc"/>
                                                 <constraint firstItem="axg-Kj-2FF" firstAttribute="leading" secondItem="iqr-1I-9Zr" secondAttribute="leading" constant="10" id="C3E-Oz-dnc"/>
-                                                <constraint firstItem="x66-g7-cG1" firstAttribute="top" secondItem="iqr-1I-9Zr" secondAttribute="top" constant="5" id="Iqa-0P-sDs"/>
+                                                <constraint firstAttribute="bottom" secondItem="Bk3-jw-XWj" secondAttribute="bottom" constant="5" id="Xr1-6c-fcD"/>
                                                 <constraint firstAttribute="bottom" secondItem="axg-Kj-2FF" secondAttribute="bottom" constant="20" id="aYD-dF-xyc"/>
                                                 <constraint firstItem="axg-Kj-2FF" firstAttribute="top" secondItem="iqr-1I-9Zr" secondAttribute="top" constant="20" id="o4J-kN-Bjy"/>
-                                                <constraint firstAttribute="trailing" secondItem="x66-g7-cG1" secondAttribute="trailing" constant="20" id="swk-VE-2DT"/>
+                                                <constraint firstItem="Bk3-jw-XWj" firstAttribute="top" secondItem="iqr-1I-9Zr" secondAttribute="top" constant="5" id="st4-pl-PO8"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="3od-iv-N5p">
                                         <rect key="frame" x="0.0" y="140" width="320" height="50"/>
@@ -101,7 +88,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhr-H3-mdb" customClass="CaptionButton">
                                                     <rect key="frame" x="10" y="15" width="90" height="19"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Dp5-DQ-CTg"/>
                                                     </constraints>
@@ -109,7 +95,6 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lqe-tw-Kh7">
                                                     <rect key="frame" x="105" y="18" width="15" height="15"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="qTs-4J-TAS"/>
                                                     </constraints>
@@ -119,7 +104,6 @@
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部可见" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9N-Ox-f4f">
                                                     <rect key="frame" x="125" y="15" width="60" height="19"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="ziD-ui-rlK"/>
                                                     </constraints>
@@ -129,7 +113,6 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2u-S0-8js">
                                                     <rect key="frame" x="205" y="18" width="15" height="15"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="BR9-Y1-wH5"/>
                                                     </constraints>
@@ -139,7 +122,6 @@
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仅限投资人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzv-X4-bhc">
                                                     <rect key="frame" x="225" y="15" width="75" height="19"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="75" id="BiB-lz-pox"/>
                                                     </constraints>
@@ -148,7 +130,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="y9N-Ox-f4f" firstAttribute="top" secondItem="OoO-4p-saQ" secondAttribute="top" constant="15" id="4Au-GX-XMg"/>
                                                 <constraint firstAttribute="bottom" secondItem="Lqe-tw-Kh7" secondAttribute="bottom" constant="16" id="4aJ-sF-XrG"/>
@@ -167,10 +148,54 @@
                                                 <constraint firstItem="g2u-S0-8js" firstAttribute="top" secondItem="OoO-4p-saQ" secondAttribute="top" constant="17.5" id="vUN-gm-qe9"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="C0C-fV-IE7">
+                                        <rect key="frame" x="0.0" y="190" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C0C-fV-IE7" id="VNX-QL-roN">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbr-yv-bKe" customClass="CaptionButton">
+                                                    <rect key="frame" x="10" y="15" width="90" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="skk-Aa-Ml8"/>
+                                                    </constraints>
+                                                    <state key="normal" title="所在城市"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-5y-fXb">
+                                                    <rect key="frame" x="201" y="15" width="70" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="6IQ-gN-EyC"/>
+                                                    </constraints>
+                                                    <state key="normal" title="切换城市"/>
+                                                    <connections>
+                                                        <action selector="switchCityBtnClick:" destination="a7R-1O-OAi" eventType="touchUpInside" id="dUV-fT-MqS"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yI-sj-6SJ" customClass="LXButton">
+                                                    <rect key="frame" x="120" y="15" width="66" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="66" id="QKJ-uz-2E3"/>
+                                                    </constraints>
+                                                    <state key="normal" title="武汉"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="NF7-5y-fXb" secondAttribute="bottom" constant="15" id="4g9-xD-YU8"/>
+                                                <constraint firstItem="4yI-sj-6SJ" firstAttribute="top" secondItem="VNX-QL-roN" secondAttribute="top" constant="15" id="9dZ-vM-x5N"/>
+                                                <constraint firstItem="NF7-5y-fXb" firstAttribute="leading" secondItem="4yI-sj-6SJ" secondAttribute="trailing" constant="15" id="EmV-2h-8Kz"/>
+                                                <constraint firstItem="NF7-5y-fXb" firstAttribute="top" secondItem="VNX-QL-roN" secondAttribute="top" constant="15" id="LUU-5K-DY0"/>
+                                                <constraint firstAttribute="bottom" secondItem="4yI-sj-6SJ" secondAttribute="bottom" constant="15" id="Lij-Jf-OCp"/>
+                                                <constraint firstItem="4yI-sj-6SJ" firstAttribute="leading" secondItem="rbr-yv-bKe" secondAttribute="trailing" constant="20" id="gna-Zk-c8H"/>
+                                                <constraint firstItem="rbr-yv-bKe" firstAttribute="leading" secondItem="VNX-QL-roN" secondAttribute="leading" constant="10" id="okd-LW-4aL"/>
+                                                <constraint firstItem="rbr-yv-bKe" firstAttribute="top" secondItem="VNX-QL-roN" secondAttribute="top" constant="15" id="qtS-bZ-XW9"/>
+                                                <constraint firstAttribute="bottom" secondItem="rbr-yv-bKe" secondAttribute="bottom" constant="15" id="sWo-ii-PD8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="ujf-jQ-4z2">
-                                        <rect key="frame" x="0.0" y="190" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="240" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ujf-jQ-4z2" id="3ny-pf-WHf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -178,7 +203,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfR-AV-UB4" customClass="CaptionButton">
                                                     <rect key="frame" x="10" y="15" width="90" height="19"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="j2P-RD-hTW"/>
                                                     </constraints>
@@ -186,7 +210,6 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTG-2d-vO3">
                                                     <rect key="frame" x="120" y="15" width="180" height="19"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="请选择"/>
                                                     <connections>
@@ -194,7 +217,6 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="nTG-2d-vO3" secondAttribute="trailing" constant="20" id="6Ol-Sn-5gW"/>
                                                 <constraint firstItem="WfR-AV-UB4" firstAttribute="top" secondItem="3ny-pf-WHf" secondAttribute="top" constant="15" id="86h-yD-i1w"/>
@@ -205,10 +227,9 @@
                                                 <constraint firstItem="nTG-2d-vO3" firstAttribute="leading" secondItem="WfR-AV-UB4" secondAttribute="trailing" constant="20" id="eNs-HC-vQE"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="GAO-gB-dol">
-                                        <rect key="frame" x="0.0" y="240" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="290" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GAO-gB-dol" id="fQW-Rb-O2D">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -216,7 +237,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyf-IM-LiN" customClass="CaptionButton">
                                                     <rect key="frame" x="10" y="15" width="90" height="19"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="588-hE-paL"/>
                                                     </constraints>
@@ -224,14 +244,12 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4R-e9-3lE">
                                                     <rect key="frame" x="120" y="15" width="180" height="19"/>
-                                                    <animations/>
                                                     <state key="normal" title="请选择"/>
                                                     <connections>
                                                         <action selector="bizButtonClick:" destination="a7R-1O-OAi" eventType="touchUpInside" id="TN3-il-T4B"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Lyf-IM-LiN" secondAttribute="bottom" constant="15" id="AGD-8T-ek7"/>
                                                 <constraint firstItem="z4R-e9-3lE" firstAttribute="leading" secondItem="Lyf-IM-LiN" secondAttribute="trailing" constant="20" id="IH6-Xw-9nT"/>
@@ -242,10 +260,9 @@
                                                 <constraint firstItem="z4R-e9-3lE" firstAttribute="top" secondItem="fQW-Rb-O2D" secondAttribute="top" constant="15" id="tjh-Ia-VgP"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="230" id="G7p-XU-xEa">
-                                        <rect key="frame" x="0.0" y="290" width="320" height="230"/>
+                                        <rect key="frame" x="0.0" y="340" width="320" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G7p-XU-xEa" id="Ypp-Ru-Uag">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="229"/>
@@ -253,7 +270,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKq-U0-qwV" customClass="CaptionButton">
                                                     <rect key="frame" x="10" y="15" width="80" height="20"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="4hK-R8-JR3"/>
                                                         <constraint firstAttribute="height" constant="20" id="rvt-Pg-47S"/>
@@ -262,7 +278,6 @@
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="omH-8c-DhT" customClass="EMTextView">
                                                     <rect key="frame" x="20" y="55" width="280" height="154"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -271,7 +286,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textView>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="omH-8c-DhT" secondAttribute="trailing" constant="20" id="JNy-4d-vEy"/>
                                                 <constraint firstItem="omH-8c-DhT" firstAttribute="top" secondItem="OKq-U0-qwV" secondAttribute="bottom" constant="20" id="KFd-Jh-ndS"/>
@@ -281,25 +295,16 @@
                                                 <constraint firstAttribute="bottom" secondItem="omH-8c-DhT" secondAttribute="bottom" constant="20" id="vkd-p0-zjd"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="LqL-A7-K57">
-                                        <rect key="frame" x="0.0" y="520" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="570" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LqL-A7-K57" id="trA-d8-Dik">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZV-Dq-pGk">
-                                                    <rect key="frame" x="10" y="52" width="77" height="77"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="pZV-Dq-pGk" secondAttribute="height" multiplier="1:1" id="W0b-OP-Tr4"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lgi-qc-Cjh">
                                                     <rect key="frame" x="290" y="10" width="20" height="20"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="CMO-cY-CFy"/>
                                                         <constraint firstAttribute="width" constant="20" id="wUb-3n-nti"/>
@@ -307,7 +312,6 @@
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9S6-tF-LOH" customClass="CaptionButton">
                                                     <rect key="frame" x="10" y="10" width="140" height="22"/>
-                                                    <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="6MU-Z9-oX1"/>
                                                         <constraint firstAttribute="width" constant="140" id="72c-qa-bvH"/>
@@ -315,25 +319,20 @@
                                                     <state key="normal" title="项目BP(限20张)"/>
                                                 </button>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="9S6-tF-LOH" firstAttribute="leading" secondItem="trA-d8-Dik" secondAttribute="leading" constant="10" id="ASG-W8-r9F"/>
                                                 <constraint firstItem="lgi-qc-Cjh" firstAttribute="top" secondItem="trA-d8-Dik" secondAttribute="top" constant="10" id="RlG-Ay-eVC"/>
-                                                <constraint firstAttribute="bottom" secondItem="pZV-Dq-pGk" secondAttribute="bottom" constant="10" id="ew7-7B-j1q"/>
                                                 <constraint firstAttribute="trailing" secondItem="lgi-qc-Cjh" secondAttribute="trailing" constant="10" id="jY9-Rh-3vq"/>
                                                 <constraint firstItem="9S6-tF-LOH" firstAttribute="top" secondItem="trA-d8-Dik" secondAttribute="top" constant="10" id="lEa-kc-ebY"/>
-                                                <constraint firstItem="pZV-Dq-pGk" firstAttribute="leading" secondItem="trA-d8-Dik" secondAttribute="leading" constant="10" id="lWT-EA-DXp"/>
-                                                <constraint firstItem="pZV-Dq-pGk" firstAttribute="top" secondItem="9S6-tF-LOH" secondAttribute="bottom" constant="20" id="zdA-QQ-BaU"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="Jmb-c4-o85">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="cFZ-Sc-FRj">
-                                        <rect key="frame" x="0.0" y="640" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="690" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFZ-Sc-FRj" id="gWg-Mh-XJI">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -341,7 +340,6 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aov-Os-yes">
                                                     <rect key="frame" x="10" y="15" width="300" height="34"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" red="0.070144794900000002" green="0.6873762269" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="创建BP">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -351,7 +349,6 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstItem="aov-Os-yes" firstAttribute="leading" secondItem="gWg-Mh-XJI" secondAttribute="leading" constant="10" id="QY5-NE-2vy"/>
                                                 <constraint firstItem="aov-Os-yes" firstAttribute="top" secondItem="gWg-Mh-XJI" secondAttribute="top" constant="15" id="b7O-cG-xt1"/>
@@ -359,7 +356,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="aov-Os-yes" secondAttribute="bottom" constant="10" id="gIX-ez-Ja3"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -375,20 +371,21 @@
                     <size key="freeformSize" width="320" height="888"/>
                     <connections>
                         <outlet property="allVisibleBtn" destination="Lqe-tw-Kh7" id="vAI-L9-Vel"/>
+                        <outlet property="bPNameTextField" destination="yjz-Xb-PU6" id="Z7O-bG-flH"/>
                         <outlet property="bizButton" destination="z4R-e9-3lE" id="IRY-5c-VvL"/>
                         <outlet property="cellContentView" destination="trA-d8-Dik" id="ueG-zo-xRW"/>
+                        <outlet property="cityButton" destination="4yI-sj-6SJ" id="hGP-yZ-Zhj"/>
                         <outlet property="createBPBtn" destination="aov-Os-yes" id="G3U-SX-29b"/>
                         <outlet property="descTextView" destination="omH-8c-DhT" id="idn-6G-WYd"/>
                         <outlet property="financeButton" destination="nTG-2d-vO3" id="sl9-Bk-IBo"/>
-                        <outlet property="logoBtn" destination="x66-g7-cG1" id="dXa-8Q-lRX"/>
+                        <outlet property="logoImageView" destination="Bk3-jw-XWj" id="vb9-x3-vgr"/>
                         <outlet property="onlyInvestorsBtn" destination="g2u-S0-8js" id="ypO-W2-sUs"/>
-                        <outlet property="pictureView" destination="pZV-Dq-pGk" id="eyn-sL-OGd"/>
                         <outlet property="rightView" destination="OoO-4p-saQ" id="hcL-He-iRd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kze-Sf-ddk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="298"/>
+            <point key="canvasLocation" x="1634" y="317"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OJz-Bd-2GG">
@@ -398,7 +395,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ho-2X-9iR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -407,7 +403,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAZ-Yd-vjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328" y="298"/>
+            <point key="canvasLocation" x="1264" y="291"/>
         </scene>
     </scenes>
     <resources>

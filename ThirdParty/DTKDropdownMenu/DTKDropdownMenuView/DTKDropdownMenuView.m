@@ -206,6 +206,7 @@ UITableViewDataSource
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onArrowTap:)];
     [view addGestureRecognizer:tapGesture];
 }
+
 - (void)onArrowTap:(UITapGestureRecognizer *)gesture
 {
     //点击视图 结束编辑状态

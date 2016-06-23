@@ -20,4 +20,9 @@
 @property (nonatomic,weak) IBOutlet UILabel *cityLabel;
 /*阶段*/
 @property (nonatomic,weak) IBOutlet LXButton *financeProcNameLabel;
+/*状态*/
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *separatorLine;
+
 @end

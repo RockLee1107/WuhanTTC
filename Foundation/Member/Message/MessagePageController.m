@@ -73,6 +73,7 @@
         self.menuItemWidth = SCREEN_WIDTH / titles.count;
         self.menuViewStyle = WMMenuViewStyleLine;
         self.titleSizeSelected = 15.0;
+        self.menuHeight = 50;
         self.titleColorSelected = MAIN_COLOR;
         //为不同页面设置相对应的标签，每一个key对应一个values
         self.keys = @[

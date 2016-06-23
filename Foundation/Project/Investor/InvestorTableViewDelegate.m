@@ -37,6 +37,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     InvestorDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateViewControllerWithIdentifier:@"investorDetail"];
     vc.dataDict = self.dataArray[indexPath.row];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.vc.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

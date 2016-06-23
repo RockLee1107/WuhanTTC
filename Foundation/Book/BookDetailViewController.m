@@ -20,6 +20,12 @@
 #import "BookSearchByTitleOrOthersTableViewController.h"
 
 @interface BookDetailViewController ()<UIWebViewDelegate,UIAlertViewDelegate>
+{
+    DTKDropdownItem *_item0;
+    DTKDropdownItem *_item1;
+    DTKDropdownItem *_item2;
+    DTKDropdownItem *_item3;
+}
 @property (weak, nonatomic) IBOutlet LXWebView *webView;
 @property (assign, nonatomic) CGFloat introWebViewHeight;
 //是否已经加载网页
@@ -256,12 +262,18 @@
 - (void)addRightItem
 {
     __weak typeof(self) weakSelf = self;
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"app_comment" callBack:^(NSUInteger index, id info) {
-        CommentTableViewController *commentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"comment"];
-        commentVC.bookId = self.bookId;
-        [weakSelf.navigationController pushViewController:commentVC animated:YES];
+    _item0 = [DTKDropdownItem itemWithTitle:@"查看热评" iconName:@"app_comment" callBack:^(NSUInteger index, id info) {
+        if ([[User getInstance] isLogin]) {
+            CommentTableViewController *commentVC = [self.storyboard instantiateViewControllerWithIdentifier:@"comment"];
+            commentVC.bookId = self.bookId;
+            [weakSelf.navigationController pushViewController:commentVC animated:YES];
+        }else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
+        }
+        
     }];
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
+    _item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_add_comment" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
             [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
                                           type:EYInputPopupView_Type_multi_line
@@ -294,7 +306,7 @@
     }];
     
     //点击收藏
-    DTKDropdownItem *item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"app_collect" callBack:^(NSUInteger index, id info) {
+    _item2 = [DTKDropdownItem itemWithTitle:@"收藏" iconName:@"app_collect" callBack:^(NSUInteger index, id info) {
         if ([[User getInstance] isLogin]) {
             
             
@@ -326,7 +338,7 @@
 
         
     }];
-    DTKDropdownItem *item3 = [DTKDropdownItem itemWithTitle:@"分享" iconName:@"menu_share" callBack:^(NSUInteger index, id info) {
+    _item3 = [DTKDropdownItem itemWithTitle:@"分享" iconName:@"menu_share" callBack:^(NSUInteger index, id info) {
 //        请求网络获取副标题摘要
         NSDictionary *param = @{
                                 @"type":@"4"
@@ -335,7 +347,7 @@
             ShareUtil *share = [ShareUtil getInstance];
             share.shareTitle = [NSString stringWithFormat:@"[%@]%@",BOOK_TYPE_TEXT[self.dataDict[@"bookType"]],self.dataDict[@"title"]];
             share.shareText = responseObject[@"content"];
-            share.shareUrl = [NSString stringWithFormat:@"%@/%@/%@.html",SHARE_URL,self.dataDict[@"specialCode"],self.dataDict[@"bookId"]];
+            share.shareUrl = [NSString stringWithFormat:@"%@/%@",SHARE_BOOK_URL,self.dataDict[@"bookId"]];
             share.vc = self;
             [share shareWithUrl];
         } noResult:nil];
@@ -355,10 +367,10 @@
         
     }];
     NSMutableArray *array = [NSMutableArray array];
-    [array addObject:item0];
-    [array addObject:item1];
-    [array addObject:item2];
-    [array addObject:item3];
+    [array addObject:_item0];
+    [array addObject:_item1];
+    [array addObject:_item2];
+    [array addObject:_item3];
     if (self.dataDict != nil) {
         //说明已经网络加载过了
         if ([[User getInstance].isAdmin boolValue] && [self.dataDict[@"status"] integerValue] != 1) {

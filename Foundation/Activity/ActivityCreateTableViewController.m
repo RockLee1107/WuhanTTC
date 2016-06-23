@@ -38,6 +38,8 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *cityname;       //城市名称或“线上”以传值服务端
 @property (assign, nonatomic) CityStyle cityStyle;
 
+@property (nonatomic, strong) NSArray *morePhotoFilePathArray;//装传过来的多图路径
+
 //活动类型
 @property (weak, nonatomic) IBOutlet UIButton *typeButton;         //按钮，用于显示所选中文值
 @property (assign, nonatomic) NSInteger selectedTypeIndex;           //状态index，用于选择框反显
@@ -67,6 +69,10 @@ typedef enum : NSUInteger {
 @end
 
 @implementation ActivityCreateTableViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -172,9 +178,9 @@ typedef enum : NSUInteger {
     self.cityname = [LocationUtil getInstance].locatedCityName;
     //    报名人要求
     self.tagListView.canSelectTags = YES;
-    //    初始
+    //    初始     
     self.tagListView.tags = [NSMutableArray arrayWithArray:@[@"姓名",@"手机",@"公司",@"职务",@"微信",@"邮箱"]];
-    //已选
+    //    已选
     self.tagListView.selectedTags = [NSMutableArray arrayWithArray:@[@"姓名"]];
 }
 
@@ -200,6 +206,7 @@ typedef enum : NSUInteger {
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     // Return the number of sections.
+    //详情图片
     if (indexPath.row == 11) {
         NSInteger imageCount = self.photoGallery.photos.count;
         CGFloat imageWidth = (SCREEN_WIDTH - 32) / 4.0 - 4;
@@ -301,9 +308,9 @@ typedef enum : NSUInteger {
     [self postData:BizStatusPublish];
 }
 
+#pragma mark - 提交到网络
 ///提交到网络
 - (void)postData:(NSInteger)bizStatus {
-    
     //开始结束时间
     if ([self.planDate compare:self.endDate] == NSOrderedDescending) {
         [SVProgressHUD showErrorWithStatus:@"结束时间不能早于开始时间哦"];
@@ -387,9 +394,14 @@ typedef enum : NSUInteger {
     if (self.photoGallery.photos.count > 0) {
         //不能使用图片单例ImageUtil
         ImageUtil *activityImageUtil = [[ImageUtil alloc] init];
-        
         [activity setObject:[self.photoGallery fetchPhoto:@"detailPictURL" imageUtil:activityImageUtil] forKey:@"detailPictURL"];
+        self.morePhotoFilePathArray = [[self.photoGallery fetchPhoto:@"detailPictURL" imageUtil:activityImageUtil] componentsSeparatedByString:@","];
     }
+    
+    
+   
+    //活动的单张图片路径
+//     NSLog(@"\n选取的图片路径为：%@", self.picker.filePath);
     if (self.picker.filePath) {
         [activity setObject:self.picker.filePath forKey:@"pictURL"];
     } else {
@@ -407,11 +419,13 @@ typedef enum : NSUInteger {
         if (self.picker.filePath) {
             [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picker.imageOriginal,0.8) name:@"pictURL" fileName:self.picker.filename mimeType:@"image/jpeg"];
         }
+       
 //        多图
         if (self.photoGallery.photos.count > 0) {
             for (int i = 0; i < self.photoGallery.photos.count; i++) {
                 UIImage *image = self.photoGallery.photos[i];
-                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
+                [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"detailPictUrl%d",i] fileName:self.morePhotoFilePathArray[i] mimeType:@"image/jpeg"];
+//                NSLog(@"^^^^^^^^^^^^^^^^\n%@", [ImageUtil getInstance].morePhotoFileArray[i]);
             }
         }
         //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
@@ -428,6 +442,10 @@ typedef enum : NSUInteger {
         NSLog(@"%@",error);
         [[[UIAlertView alloc]initWithTitle:@"发布失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
+}
+
+- (void)sendImageFilePath:(NSString *)filePath {
+    
 }
 
 @end

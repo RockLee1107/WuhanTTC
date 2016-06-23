@@ -13,10 +13,19 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
-@property (weak, nonatomic) IBOutlet UILabel *viewCount;
-@property (weak, nonatomic) IBOutlet UILabel *supportCount;
-@property (weak, nonatomic) IBOutlet UILabel *commentCount;
+
+@property (weak, nonatomic) IBOutlet UILabel *viewCountLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *supportCountLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *collectLabel;
+
+@property (nonatomic, copy) NSString *bpId;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *separatorLine;
+
 
 
 @end

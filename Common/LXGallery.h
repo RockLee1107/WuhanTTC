@@ -12,4 +12,5 @@
 @property (nonatomic,strong) UIViewController *vc;
 @property (nonatomic,strong) NSArray *urlArray;
 - (void)reloadImagesList;
+- (void)reloadImagesListList;
 @end

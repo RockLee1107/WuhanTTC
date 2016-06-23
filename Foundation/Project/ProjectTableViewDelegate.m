@@ -12,6 +12,7 @@
 #import "SingletonObject.h"
 #import "HttpService.h"
 #import "MyProjectTableViewController.h"
+#import "User.h"
 
 @implementation ProjectTableViewDelegate
 #pragma mark - tb代理方法
@@ -33,18 +34,48 @@
     cell.cityLabel.text = [StringUtil toString:object[@"area"]];
 //    阶段
     [cell.financeProcNameLabel setTitle:[StringUtil toString:object[@"financeProcName"]] forState:(UIControlStateNormal)];
+    
+    //状态
+    if ([[object[@"bizStatus"] stringValue] isEqualToString:@"1"]) {
+        cell.statusLabel.text = @"待审核";
+        cell.statusLabel.backgroundColor = [UIColor orangeColor];
+    }else if ([[object[@"bizStatus"] stringValue] isEqualToString:@"2"]) {
+        cell.statusLabel.text = @"已发布";
+        cell.statusLabel.backgroundColor = [UIColor greenColor];
+    }else if ([[object[@"bizStatus"] stringValue] isEqualToString:@"3"] ) {
+        cell.statusLabel.text = @"未通过";
+        cell.statusLabel.backgroundColor = [UIColor redColor];
+    }
+    else {
+        cell.statusLabel.text = @"待发布";
+        cell.statusLabel.backgroundColor = [UIColor lightGrayColor];
+    }
+    cell.separatorLine.backgroundColor = SEPARATORLINE;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
+    return 100;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *object = self.dataArray[indexPath.row];
-    [SingletonObject getInstance].pid = object[@"projectId"];
+    [SingletonObject getInstance].pid = [StringUtil toString:object[@"projectId"]];
+    //从我的项目进入项目详情 传private和projectId
+    [User getInstance].sEQ_visible = @"private";
+    [User getInstance].projectId = [StringUtil toString:object[@"projectId"]];
+    
     ProjectDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"detail"];
     vc.dataDict = object;
+    //待审核不能更新项目
+    if ([[object[@"bizStatus"] stringValue] isEqualToString:@"1"]) {
+        vc.whetherUpdate = NO;
+    }
+    //驳回 未提交 已发布 均可更新项目
+    else {
+        vc.whetherUpdate = YES;
+    }
+    
     [vc setHidesBottomBarWhenPushed:YES];
     [self.vc.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

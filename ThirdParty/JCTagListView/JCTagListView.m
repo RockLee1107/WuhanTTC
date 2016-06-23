@@ -54,8 +54,8 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
     _tags = [NSMutableArray array];
     
     _tagStrokeColor = [UIColor clearColor];
-    _tagBackgroundColor = [UIColor lightGrayColor];
-    _tagTextColor = [UIColor whiteColor];
+    _tagBackgroundColor = [UIColor whiteColor];//cell背景色
+    _tagTextColor = [UIColor lightGrayColor];//字体颜色
     _tagSelectedBackgroundColor = MAIN_COLOR;
     
     _tagCornerRadius = 3.0f;
@@ -67,7 +67,7 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
     _collectionView.dataSource = self;
     _collectionView.showsHorizontalScrollIndicator = NO;
     _collectionView.showsVerticalScrollIndicator = NO;
-    _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.backgroundColor = BACKGROUND_COLOR;//collectionView背景色
     [_collectionView registerClass:[JCTagCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self addSubview:_collectionView];
 }

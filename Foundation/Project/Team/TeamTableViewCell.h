@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *realnameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dutyLabel;
+@property (strong, nonatomic) IBOutlet UILabel *introLabel;
 
 @end

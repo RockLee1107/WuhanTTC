@@ -38,33 +38,23 @@
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    //管理页面
-    NSDictionary *param = @{
-                            @"projectId":self.pid
-                            };
-    [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataDict = responseObject;
-        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
-            //            创建者
-            //        tb下移
-            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view.mas_top).offset(40);
-            }];
-            //        添加按钮
-            UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
-            [self.view addSubview:addButton];
-            [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.view.mas_right).offset(-20);
-                make.top.equalTo(self.view.mas_top).offset(20);
-                make.width.mas_equalTo(40);
-                make.height.mas_equalTo(40);
-            }];
-            [addButton addTarget:self action:@selector(addButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
-            
-        }
-    } noResult:nil];
     [self fetchData];
+}
+
+- (void)fetchData {
+    NSDictionary *dict = @{
+                           @"sEQ_projectId":[User getInstance].srcId,
+                           @"sEQ_visible":[User getInstance].sEQ_visible
+                           };
+    
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    NSDictionary *param = @{@"QueryParams":jsonStr};
+    [self.service POST:@"team/getTeamList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:responseObject];
+        [self.tableView reloadData];
+    } noResult:nil];
 }
 
 
@@ -210,18 +200,6 @@
     [[KGModal sharedInstance] hide];
 }
 
-- (void)fetchData {
-    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                    @"SEQ_projectId":self.pid
-                                                                    }],
-                            @"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service POST:@"team/queryTeamList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self.dataArray removeAllObjects];
-        [self.dataArray addObjectsFromArray:responseObject];
-        [self.tableView reloadData];
-    } noResult:nil];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
@@ -234,6 +212,12 @@
     NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:dict[@"pictUrl"]]];
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:url]];
     cell.avatarImageView.clipsToBounds = YES;
+    cell.avatarImageView.layer.cornerRadius = 30;
+    cell.avatarImageView.layer.masksToBounds = YES;
+    cell.introLabel.text = [StringUtil toString:dict[@"introduction"]];
+    if ([User getInstance].isClick == NO) {
+        cell.userInteractionEnabled = NO;
+    }
     return cell;
 }
 

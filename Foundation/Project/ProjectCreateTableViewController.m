@@ -129,8 +129,6 @@
     [self.currentCityButton setTitle:city forState:(UIControlStateNormal)];
 }
 
-
-
 //选择项目阶段
 - (IBAction)selectStatus:(id)sender {
 //    数据预处理

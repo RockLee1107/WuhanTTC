@@ -41,6 +41,7 @@
         self.menuViewStyle = WMMenuViewStyleLine;
         self.titleSizeSelected = 15.0;
         self.titleColorSelected = MAIN_COLOR;
+        self.menuHeight = 50;//标题栏高度
         //为不同页面设置相对应的标签，每一个key对应一个values
         self.keys = @[
                       @"uri",

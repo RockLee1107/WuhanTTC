@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfoTableViewController.h"
+#import "LocationUtil.h"
+#import <CoreLocation/CoreLocation.h>
 
 @protocol CityViewControllerDelegete <NSObject>
 
 -(void)cityViewdidSelectCity:(NSString *)city anamation:(BOOL)anamation;
 
 @end
-@interface CityViewController : UIViewController<UISearchBarDelegate,  UITableViewDataSource, UITableViewDelegate>
+@interface CityViewController : UIViewController<UISearchBarDelegate,  UITableViewDataSource, UITableViewDelegate,CLLocationManagerDelegate>
 @property(nonatomic, strong) NSMutableArray * ChineseCities;//存放所有未排序的城市信息
 @property (nonatomic, strong) UISearchBar *searchBar;//搜索框
 @property (nonatomic, strong) NSMutableArray *cities;//存放未处理所有城市
@@ -26,4 +28,7 @@
 @property(nonatomic, assign) BOOL isSearch;//是否是search状态
 @property(nonatomic, assign) id<CityViewControllerDelegete>delegete;
 @property (nonatomic,strong) UserInfoTableViewController *vc;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
 @end

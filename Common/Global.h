@@ -10,23 +10,25 @@
 #ifndef Beauty_Global_h
 #define Beauty_Global_h
 #define MAIN_COLOR [UIColor colorWithRed:41/255.0 green:143/255.0 blue:230/255.0 alpha:1.0]   //蓝色
+#define BACKGROUND_COLOR [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0]   //背景灰
+#define SEPARATORLINE [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]   //分割线
+
+
 #define MENU_COLOR [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0]
 
-
 /*dev db*/    //测试环境
-
-#define HOST_URL @"http://192.168.0.109:8080/ttc_web"
-
-
-//#define HOST_URL @"http://120.25.76.149:8080/ttc_web"
-//#define HOST_URL @"http://192.168.0.254:8080/ttc_web"
-#define SHARE_URL @"http://120.25.76.149/ttc_uploads/upload/Share"
+//#define HOST_URL @"http://192.168.0.109:8080/ttc_web"//星星创
+#define HOST_URL @"http://120.25.76.149:8088/ttc_web"//测试机
+#define SHARE_BOOK_URL @"http://test.teamchuang.com:8088/ttc_web/book/share"
 #define UPLOAD_URL @"http://120.25.76.149/ttc_uploads"
+#define SHARE_BP_URL @"http://test.teamchuang.com:8088/ttc_web/bp/share"
 
 /*pro db*/    //正式环境
 //#define HOST_URL @"http://120.25.231.152:8080/ttc_web"
-//#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
+////#define SHARE_URL @"http://www.teamchuang.com/ttc_uploads/upload/Share"
 //#define UPLOAD_URL @"http://www.teamchuang.com/ttc_uploads"
+//#define SHARE_BOOK_URL @"http://www.teamchuang.com:8080/ttc_web/book/share"
+//#define SHARE_BP_URL @"http://www.teamchuang.com:8080/ttc_web/bp/share"
 
 #define HGfont(s)  [UIFont systemFontOfSize:(s)]
 #define HGColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
@@ -37,6 +39,9 @@
 
 #define RECT_LOG(f) NSLog(@"\nx:%f\ny:%f\nwidth:%f\nheight:%f\n",f.origin.x,f.origin.y,f.size.width,f.size.height)
 #define NETWORK_ERROR @"网络错误"
+
+//友盟
+#define UmengAppkey @"570bbe96e0f55a6170001eb9"
 
 //typedef enum : NSUInteger {
 //    ACTIVITY_STATUS_ONE,
@@ -61,6 +66,7 @@
 //图集尺寸
 #define IMAGE_WIDTH ((SCREEN_WIDTH) - 32) / 4.0 - 4
 #define IMAGE_WIDTH_WITH_PADDING (IMAGE_WIDTH + 5)
+#define IMAGE_SingleWidth (SCREEN_WIDTH-32)
 //保存或发布
 typedef enum : NSUInteger {
     BizStatusSave,

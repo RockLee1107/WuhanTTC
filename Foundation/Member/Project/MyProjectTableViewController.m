@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self initDelegate];
     [self initRefreshControl];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -27,8 +28,6 @@
         self.navigationItem.title = @"参与的项目";
     } else if ([self.SEQ_queryType isEqualToString:@"ATTENTION"]) {
         self.navigationItem.title = @"关注的项目";
-    } else if ([self.SEQ_queryType isEqualToString:@"RECEIVED"]) {
-        self.navigationItem.title = @"收到的项目";
     } else {
         self.navigationItem.title = @"项目";
     }
@@ -57,6 +56,9 @@
 
 //初始化代理
 - (void)initDelegate {
+
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     self.tableViewDelegate = [[ProjectTableViewDelegate alloc] init];
     self.tableViewDelegate.vc = self;
     //    硬编码判断类型，先行强转
@@ -65,8 +67,7 @@
     NSDictionary *dict = @{
                            @"CREATE":@"create",
                            @"JOIN":@"join",
-                           @"ATTENTION":@"attention",
-                           @"RECEIVED":@"received"
+                           @"ATTENTION":@"attention"
                            };
     if (!self.userId) {
         //self.userId代表从创友录等用户资料点击而进来的
@@ -80,16 +81,17 @@
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                   //                                  @"SEQ_typeCode":@"",
-//                                                                     @"IEQ_status":@"2",
-                                   //                                  @"SEQ_city":@0,
-                                   //                                   @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                   //@"SEQ_typeCode":@"",
+                                   //@"IEQ_status":@"2",
+                                   //@"SEQ_city":@0,
+                                   //@"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                    @"SEQ_userId":self.userId != nil ? self.userId : [User getInstance].uid,
                                    @"SEQ_queryType":self.SEQ_queryType
                                    }];
+    
     NSString *jsonStr = [StringUtil dictToJson:dict];
     NSDictionary *param = @{@"QueryParams":jsonStr,@"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service GET:@"/project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.service POST:@"project/queryProjectList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];

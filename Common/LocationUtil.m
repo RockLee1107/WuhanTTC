@@ -57,6 +57,7 @@
     self.isSuccess = NO;
 //    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"定位失败" message:@"请检查系统设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [alertView show];
+    NSLog(@"==========\n%@", error);
 }
 
 //转换成城市名

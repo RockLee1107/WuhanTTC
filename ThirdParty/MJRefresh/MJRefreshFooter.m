@@ -41,7 +41,7 @@
     if (!_loadMoreButton) {
         UIButton *loadMoreButton = [[UIButton alloc] init];
         loadMoreButton.backgroundColor = [UIColor clearColor];
-        [loadMoreButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+      //  [loadMoreButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_loadMoreButton = loadMoreButton];
     }
     return _loadMoreButton;

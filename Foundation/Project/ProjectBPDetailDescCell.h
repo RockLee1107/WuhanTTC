@@ -18,4 +18,16 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *areaLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *viewCountLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *supportLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *collectLabel;
+
+@property (strong, nonatomic) IBOutlet UIImageView *supportImageView;
+
+@property (strong, nonatomic) IBOutlet UIImageView *collectImageView;
+
 @end

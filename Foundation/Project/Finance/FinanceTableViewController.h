@@ -10,4 +10,6 @@
 
 @interface FinanceTableViewController : BaseTableViewController
 @property (strong,nonatomic) NSString *pid;
+@property (nonatomic, assign) BOOL isAppear;
+@property (nonatomic, copy) NSString *projectId;
 @end

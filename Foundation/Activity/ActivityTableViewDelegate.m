@@ -33,14 +33,14 @@
     //状态判断
     //如果报名人数未满，且报名时间未截止，显示报名中
     if([object[@"applyNum"] integerValue] < [object[@"planJoinNum"] integerValue]
-        && [DateUtil isDestDateInFuture:[[StringUtil toString:object[@"endDate"]] stringByAppendingString:[StringUtil toString:object[@"endTime"]]]]){
+        && [DateUtil isDestDateInFuture:[[StringUtil toString:object[@"planDate"]] stringByAppendingString:[StringUtil toString:object[@"endDate"]]]]){
         /**状态*/
         cell.statusLabel.text = @"报名中";
         cell.statusLabel.backgroundColor = ACTIVITY_STATUS_ON_COLOR;
     }
     //如果报名人数已满，且报名时间未截止，显示已满
     else if([object[@"applyNum"] integerValue] == [object[@"planJoinNum"] integerValue]
-            && [DateUtil isDestDateInFuture:[[StringUtil toString:object[@"endDate"]] stringByAppendingString:[StringUtil toString:object[@"endTime"]]]]){
+            && [DateUtil isDestDateInFuture:[[StringUtil toString:object[@"planDate"]] stringByAppendingString:[StringUtil toString:object[@"endDate"]]]]){
         /**状态*/
         cell.statusLabel.text = @"已满";
         cell.statusLabel.backgroundColor = ACTIVITY_STATUS_FULL_COLOR;
@@ -49,7 +49,6 @@
         cell.statusLabel.text = @"已结束";
         cell.statusLabel.backgroundColor = ACTIVITY_STATUS_OVER_COLOR;
     }
-    
 
     /**开始时间*/
     cell.planDateLabel.text = [DateUtil toShortDate:object[@"planDate"]];

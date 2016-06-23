@@ -18,6 +18,9 @@
 #import "UserInfoTableViewController.h"
 #import "FriendsListViewController.h"
 #import "MessagePageController.h"
+#import "ContributeTableViewController.h"
+#import "MyBPTableViewController.h"
+#import "MyBPViewController.h"
 
 @interface MemberTableViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -97,17 +100,29 @@
                 //我的项目
                 vc = [[MyProjectPageController alloc] init];
             } else if (indexPath.row == 3) {
+                //我的BP
+                vc = [[MyBPViewController alloc] init];
+            } else if (indexPath.row == 4) {
                 //我的活动
                 vc = [[MyActivityPageController alloc] init];
-            } else if (indexPath.row == 4) {
+            } else if (indexPath.row == 5) {
                 //我的帖子
                 vc = [[MySubjectPageController alloc] init];
             }
-        } else if (indexPath.section == 3) {
+        } else if (indexPath.section == 4) {
             vc = [self.storyboard instantiateViewControllerWithIdentifier:@"settings"];
         }
         [vc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:vc animated:YES];
+        
+        
+        if (indexPath.section == 3) {
+            
+            ContributeTableViewController *vc = [[UIStoryboard storyboardWithName:@"Book" bundle:nil] instantiateViewControllerWithIdentifier:@"contribute"];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
     }//游客状态
     else {
         if (indexPath.section == 0) {

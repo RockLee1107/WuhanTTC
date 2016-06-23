@@ -38,14 +38,22 @@
     [self addSubview:self.button];
     [self.button addTarget:self action:@selector(multipleSelectionAction:) forControlEvents:(UIControlEventTouchUpInside)];
     self.photosArrival = [NSMutableArray array];
-    self.photosStrArray = [NSMutableArray array];
+    self.photosStrArray = [[NSMutableArray alloc] init];
 }
 
 - (void)loadPhotos:(NSArray *)array {
+//    if ([array count] > 0) {
+//        self.photosStrArray = [array mutableCopy];
+//    }
+    
     for (int i = 0; i < array.count; i++) {
+        if (![[array objectAtIndex:i] isEqualToString:@""]) {
+            [self.photosStrArray addObject:array[i]];
+        }
+        
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
         NSString *imageUrl = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,array[i]];
-        [self.photosStrArray addObject:array[i]];
+//        [self.photosStrArray addObject:array[i]];
         UIImage *cachedImage = [manager imageWithURL:[NSURL URLWithString:imageUrl]];
         if (cachedImage) {
             //已经下载
@@ -103,12 +111,15 @@
     //新图
     [self.photosArrival addObjectsFromArray:[self assetsToImages:assets]];
     [self reloadImagesList];
+    
+    NSLog(@"已完成图片的选取");
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 //点选了某张照片回调
 - (void)photoPicker:(AJPhotoPickerViewController *)picker didSelectAsset:(ALAsset *)asset {
 //    NSLog(@"%s",__func__);
+    
 }
 
 //反选了某张照片回调
@@ -149,6 +160,18 @@
 //图片浏览器中删除某张图片回调
 - (void)photoBrowser:(AJPhotoBrowserViewController *)vc deleteWithIndex:(NSInteger)index {
 //    [self reloadImagesList];
+    NSInteger delIndex = 0;
+    NSLog(@"--------\n%ld", [self.photosStrArray count]);
+    //self.photosStrArray存放老图
+    //删除新图
+    if(index >= [self.photosStrArray count]){
+        delIndex = index - self.photosStrArray.count;
+        [self.photosArrival removeObjectAtIndex:delIndex];
+    }
+    //只从老图片中删除
+    else if(index < self.photosStrArray.count){
+        [self.photosStrArray removeObjectAtIndex:index];
+    }
 }
 
 //点击图片浏览器完成按钮回调
@@ -157,7 +180,7 @@
     [self.photos addObjectsFromArray:photos];
     //新图
     [self.photosArrival removeAllObjects];
-    [self.photosArrival addObjectsFromArray:photos];
+//    [self.photosArrival addObjectsFromArray:photos];
     [self reloadImagesList];
     [vc dismissViewControllerAnimated:YES completion:nil];
 }
@@ -266,7 +289,7 @@
                 if (block) {
                     block(granted);
                 }
-            } else {
+            }else {
                 if (block) {
                     block(granted);
                 }
@@ -290,8 +313,52 @@
 
 //获得图片地址
 - (NSString *)fetchPhoto:(NSString *)filename imageUtil:(ImageUtil *)imageUtil {
-    [self.photosStrArray addObjectsFromArray:[[imageUtil savePicture:filename images:self.photosArrival] componentsSeparatedByString:@","]];
-    return [self.photosStrArray componentsJoinedByString:@","];
+//    [self.photosStrArray removeAllObjects];
+
+
+//    NSMutableArray *originalArray = [NSMutableArray array];
+   
+//    if ([self.photos count]) {
+//        NSMutableArray *mArray = [NSMutableArray array];
+//        for (int i=0; i<[self.photos count]; i++) {
+//            
+//            if (![[self.photos[i] substringToIndex:2] isEqualToString:@"up"]) {
+//                [mArray addObject:self.photos[i]];
+//            }else {
+//                
+//                [originalArray addObject:self.photos[i]];
+//            }
+//        }
+//        if ([mArray count]) {
+//             saveFilePath = [imageUtil savePicture:filename images:mArray] ;
+//        }
+//    }
+//
+    //存放所有的图片路径
+    NSMutableString *allFilePath = [[NSMutableString alloc] init];
+    self.savePath = [imageUtil savePicture:filename images:self.photosArrival];
+    
+    //老图
+    if ([self.photosStrArray count] > 0) {
+        [allFilePath appendFormat:@"%@", [self.photosStrArray componentsJoinedByString:@","]];
+    }
+    //添加了新图 且没有老图
+    if (![self.savePath isEqualToString:@""] && [self.photosStrArray count] == 0) {
+        [allFilePath appendFormat:@"%@", self.savePath];
+    }
+    //在有老图时添加了新图
+    else if (![self.savePath isEqualToString:@""] && [self.photosStrArray count] > 0) {
+        [allFilePath appendFormat:@",%@", self.savePath];
+    }
+    
+//    [self.photosStrArray addObjectsFromArray:array];
+//    NSString *filePath = [array componentsJoinedByString:@","];
+//    NSLog(@"000000000000\n%@", filename);
+//    NSLog(@"111111111111\n self.photosStrArray:%@\n", self.photosStrArray);
+    
+//    NSString *filePath = [self.photosStrArray componentsJoinedByString:@","];
+//    NSLog(@"~~~~~~~~~11111:\n%@", filePath);
+    return allFilePath;
 }
 
 @end

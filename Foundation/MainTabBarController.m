@@ -10,6 +10,7 @@
 #import "User.h"
 #import "HttpService.h"
 #import "LoginViewController.h"
+#import "MobClick.h"
 
 @interface MainTabBarController ()
 @property (strong,nonatomic) UINavigationController *bookNVC;
@@ -34,7 +35,7 @@
     
     self.viewControllers = @[self.bookNVC,self.projectNVC,self.activityNVC,self.memberNVC];
 
-    //如果用户登录登录过存在本地有uid
+    //如果用户登录过存在本地有uid
     if ([[User getInstance] isLogin]) {
         //获得存在本地的帐户和密码
         NSString *username = [User getInstance].username;
@@ -43,9 +44,9 @@
         NSDictionary *param = @{@"username":username,
                                 @"password":password};
         [[HttpService getInstance] POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
             
             //成功的回调
-            
             [self setup];
             User *user = [User getInstance];
             
@@ -79,7 +80,9 @@
             } else {
                 user.isInvestor = @0;
             }
-        } noResult:nil];
+        } noResult:^{
+            NSLog(@"11111");
+        }];
     } else {
         //    同样发一下游客登录接口
         //[[HttpService getInstance] POST:@"visitorLogin" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

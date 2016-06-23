@@ -52,8 +52,9 @@
     [UMSocialQQHandler setSupportWebView:YES];
     // 打开新浪微博的SSO开关
     // 将在新浪微博注册的应用appkey、redirectURL替换下面参数，并在info.plist的URL Scheme中相应添加wb+appkey，如"wb3921700954"，详情请参考官方文档。
-    [UMSocialSinaHandler openSSOWithRedirectURL:sinaRedirectURI];
-    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:sinaAppKey RedirectURL:sinaRedirectURI];
+//    [UMSocialSinaHandler openSSOWithRedirectURL:sinaRedirectURI];
+//    
+//    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:sinaAppKey RedirectURL:sinaRedirectURI];
     NSMutableArray *snsArr = [NSMutableArray array];
     //    QQ分享
     if ([QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi]) {

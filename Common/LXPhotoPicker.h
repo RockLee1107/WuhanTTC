@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CommonUtil.h"
 @protocol LXPhotoPickerDelegate
-- (void)didSelectPhoto:(UIImage *)image;
+- (void)didSelectPhoto:(UIImage *)image;//传图片
+@optional
+- (void)sendImageFilePath:(NSString *)filePath;//传图片路径
 @end
 @interface LXPhotoPicker : NSObject<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic,strong) UIViewController *vc;

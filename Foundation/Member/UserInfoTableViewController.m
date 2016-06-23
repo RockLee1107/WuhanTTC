@@ -141,11 +141,16 @@
     [self.picker selectPicture];
 }
 
+#pragma mark - PickerDelegate
 - (void)didSelectPhoto:(UIImage *)image {
     [self.avatarImageView setImage:image];
     self.avatarImage = image;
 }
+- (void)sendImageFilePath:(NSString *)filePath {
+    
+}
 
+//点击保存
 - (IBAction)updateUserInfo:(id)sender {
     NSMutableDictionary *userinfo = [NSMutableDictionary dictionaryWithDictionary:
                                      @{

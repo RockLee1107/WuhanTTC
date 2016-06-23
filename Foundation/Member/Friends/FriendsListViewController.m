@@ -9,6 +9,7 @@
 #import "FriendsListViewController.h"
 #import "FriendTableViewCell.h"
 #import "UserDetailViewController.h"
+#import "TeamEditTableViewController.h"
 
 @interface FriendsListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *friendsTableView;
@@ -104,16 +105,33 @@
 
 ///默认查看个人详情，还有添加团队、分享创友
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dict = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row];
-    if (self.selectDelegate != nil) {
-        UIViewController *vc = [self.selectDelegate friendDidSelect:dict[@"friendId"] realname:dict[@"realName"] company:dict[@"company"] duty:dict[@"duty"] pictUrl:dict[@"pictUrl"]];
-        [vc.navigationController popViewControllerAnimated:YES];
-        return;
+    FriendTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (self.isFromAdd) {
+        NSDictionary *dict = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row];
+        [User getInstance].friendId = [NSString stringWithFormat:@"%@", dict[@"friendId"]];
+        TeamEditTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"team"];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.isFromAdd = YES;
+        vc.title = @"添加团队成员";
+        vc.friendId = [User getInstance].friendId;
+        vc.addDuty = cell.dutyLabel.text;
+        vc.addName = cell.realnameLabel.text;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else {
+        NSDictionary *dict = self.dataArray[indexPath.section][self.letterArray[indexPath.section]][indexPath.row];
+        if (self.selectDelegate != nil) {
+            UIViewController *vc = [self.selectDelegate friendDidSelect:dict[@"friendId"] realname:dict[@"realName"] company:dict[@"company"] duty:dict[@"duty"] pictUrl:dict[@"pictUrl"]];
+            [vc.navigationController popViewControllerAnimated:YES];
+            return;
+        }
+        //默认行为
+        UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
+        vc.userId = dict[@"friendId"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    //默认行为
-    UserDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Friends" bundle:nil] instantiateViewControllerWithIdentifier:@"userDetail"];
-    vc.userId = dict[@"friendId"];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

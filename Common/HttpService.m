@@ -67,7 +67,6 @@
 - (void)POST:(NSString *)actionStr parameters:(NSDictionary *)parameters success:(success)success noResult:(noResultBlock)noResult{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [dict setObject:@"MOBILE" forKey:@"clientType"];
-        //NSLog(@"param:%@",dict);
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,actionStr];
    
     self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -76,13 +75,12 @@
     self.manager.responseSerializer.acceptableContentTypes = [self.manager.responseSerializer.acceptableContentTypes setByAddingObject: @"text/html"];
     
     [self.manager POST:urlstr parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
-      //  NSLog ( @"～～～～～\n operation: \n~~~~~~~responseString: %@" , operation. responseString );
         
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
         
         if ([dict[@"success"] boolValue] == YES) {
             success(operation,dict[@"data"]);
+//            NSLog(@"\n====%@",dict[@"data"]);
             //[SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
         }else {
             if ([dict[@"errorCode"] integerValue] == 520) {

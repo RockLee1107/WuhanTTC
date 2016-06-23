@@ -69,13 +69,16 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if ([VerifyUtil isMobile:self.keyWords]) {
         [dict setObject:self.keyWords forKey:@"SEQ_mobile"];
-    } else {
+    }else {
         [dict setObject:self.keyWords forKey:@"SLIKE_realName"];
     }
     
     NSDictionary *param =  @{@"QueryParams":[StringUtil dictToJson:dict],
                              @"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service GET:@"personal/info/getUserDetailsList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *param2 = @{@"QueryParams":[param[@"QueryParams"] stringByReplacingOccurrencesOfString:@"\\" withString:@""],
+                             @"Page":[StringUtil dictToJson:[self.page dictionary]]};
+    
+    [self.service POST:@"personal/info/getUserDetailsList" parameters:param2 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (self.page.pageNo == 1) {
             //由于下拉刷新时页面而归零
             [self.tableViewDelegate.dataArray removeAllObjects];

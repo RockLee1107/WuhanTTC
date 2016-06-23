@@ -55,9 +55,13 @@
     self.imageOriginal = imageOriginal;
     [picker dismissViewControllerAnimated:YES completion:^{
 //        [self.headPictUrlButton setImage:self.imageOriginal forState:(UIControlStateNormal)];
+        //把选取的图片传过去
         [self.delegate didSelectPhoto:self.imageOriginal];
         self.filePath = [ImageUtil savePicture:self.filename image:self.imageOriginal];
+        //传图片路径
+        [self.delegate sendImageFilePath:self.filePath];
         
+//        NSLog(@"\n-------%@\n+++++++%@", self.imageOriginal, self.filePath);
     }];
 }
 @end

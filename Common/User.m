@@ -46,7 +46,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:realname forKey:@"realname"];
 }
 
-
 - (void)setUid:(NSString *)uid {
     if (uid == nil) {
         uid = @"";

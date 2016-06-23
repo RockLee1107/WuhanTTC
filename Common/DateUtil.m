@@ -97,6 +97,20 @@
     return str;
 }
 
++ (NSString *)dateToYYMM:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYYMM"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
+
++ (NSString *)dateToSecondPart:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HHmmss"];
+    NSString *str = [formatter stringFromDate:date];
+    return str;
+}
+
 ///日期类型转不带秒数的时间字符串 0059
 + (NSString *)dateToTimePart:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -185,7 +199,6 @@
     }
   
     return 0;
-    
 }
 
 ///两个日期的比较

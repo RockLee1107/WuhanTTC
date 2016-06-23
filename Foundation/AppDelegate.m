@@ -11,6 +11,9 @@
 #import "MainTabBarController.h"
 #import "HttpService.h"
 #import "User.h"
+#import "UMMobClick/MobClick.h"
+#import "UMSocialData.h"
+
 
 @interface AppDelegate ()
 
@@ -21,6 +24,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [UMSocialData setAppKey:UmengAppkey];
+    UMConfigInstance.appKey = UmengAppkey;
+    UMConfigInstance.channelId = @"";  //ChannelId的值为应用的渠道标识。默认为 @"App Store"
+//    UMConfigInstance.eSType = E_UM_NORMAL;  // 仅适用于游戏场景，应用统计不用设置
     
     UIColor *tintColor = MAIN_COLOR;
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
@@ -28,11 +35,9 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance]setTintColor:tintColor];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    //登录页由首页改为Tab页 ** 
-//    NSLog(@"uid%@",[User getInstance].uid);
+    //登录页由首页改为Tab页 **
     MainTabBarController *vc = [[MainTabBarController alloc] init];
     self.window.rootViewController = vc;
-//    LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
     [self.window makeKeyAndVisible];
     return YES;
 }

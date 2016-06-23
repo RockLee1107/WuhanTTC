@@ -27,6 +27,9 @@
 @property (strong, nonatomic) NSMutableArray *photosArrival;
 //保持所有地址，用来传值-String
 @property (strong, nonatomic) NSMutableArray *photosStrArray;
+//保存新图的地址，用来传值
+@property (strong, nonatomic) NSString *savePath;
+
 @property (strong, nonatomic) UIButton *button;
 
 @property (nonatomic, assign) NSInteger maxCount;

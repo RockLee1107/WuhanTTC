@@ -30,32 +30,29 @@
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    //管理页面
-    NSDictionary *param = @{
-                            @"projectId":self.pid
-                            };
-    [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataDict = responseObject;
-        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
-            //            创建者
-            //        tb下移
-            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view.mas_top).offset(40);
-            }];
-            //        添加按钮
-            UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
-            [self.view addSubview:addButton];
-            [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.view.mas_right).offset(-20);
-                make.top.equalTo(self.view.mas_top).offset(20);
-                make.width.mas_equalTo(40);
-                make.height.mas_equalTo(40);
-            }];
-            [addButton addTarget:self action:@selector(addButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
-            
-        }
-    } noResult:nil];
+    
+//    [self.service GET:@"/process/getProcessList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        self.dataDict = responseObject;
+//        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
+//            //            创建者
+//            //        tb下移
+//            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(self.view.mas_top).offset(40);
+//            }];
+//            //        添加按钮
+//            UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+//            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
+//            [self.view addSubview:addButton];
+//            [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.right.equalTo(self.view.mas_right).offset(-20);
+//                make.top.equalTo(self.view.mas_top).offset(20);
+//                make.width.mas_equalTo(40);
+//                make.height.mas_equalTo(40);
+//            }];
+//            [addButton addTarget:self action:@selector(addButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
+//            
+//        }
+//   } noResult:nil];
     [self fetchData];
 }
 
@@ -77,11 +74,13 @@
 
 //访问网络
 - (void)fetchData {
-    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                    @"SEQ_projectId":self.pid
-                                                                    }],
-                            @"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service POST:@"process/queryProcessList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *dict = @{
+                           @"sEQ_projectId":[User getInstance].srcId,
+                           @"sEQ_visible":[User getInstance].sEQ_visible
+                           };
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    NSDictionary *param = @{@"QueryParams":jsonStr};
+    [self.service POST:@"process/getProcessList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        self.dataArray = responseObject;
         [self.dataArray removeAllObjects];
         [self.dataArray addObjectsFromArray:responseObject];
@@ -97,7 +96,11 @@
     ProcessTableViewCell *cell = [[[NSBundle mainBundle] loadNibNamed:@"ProcessTableViewCell" owner:nil options:nil] firstObject];
     NSDictionary *dict = self.dataArray[indexPath.row];
     cell.dateLabel.text = [DateUtil toYYYYMMCN:dict[@"processDate"]];
-    cell.descLabel.text = [StringUtil toString:dict[@"desc"]];
+    cell.descLabel.text = [StringUtil toString:dict[@"processDesc"]];
+    
+    if ([User getInstance].isClick == NO) {
+        cell.userInteractionEnabled = NO;
+    }
     return cell;
 }
 

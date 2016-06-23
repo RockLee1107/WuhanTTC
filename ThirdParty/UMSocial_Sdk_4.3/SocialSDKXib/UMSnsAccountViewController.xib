@@ -108,7 +108,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="30">
-            <rect key="frame" x="0.0" y="64" width="480" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="65">

@@ -12,5 +12,12 @@
 @interface FinanceCreateTableViewController : BaseStaticTableViewController
 @property (strong,nonatomic) NSString *pid;
 @property (strong,nonatomic) FinanceTableViewController *parentVC;
+@property (nonatomic,assign) BOOL isFromAdd;
+@property (nonatomic, copy) NSString *idStr;
+@property (nonatomic, strong) NSDictionary *dataDic;
+
+@property (nonatomic, copy) NSString *financeTimeStr;//融资时间
+@property (nonatomic, copy) NSString *fi;
+@property (nonatomic, copy) NSString *fi3;
 
 @end

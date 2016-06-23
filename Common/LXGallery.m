@@ -46,8 +46,37 @@
     }
     CGRect rect = self.frame;
     rect.size.height = (self.urlArray.count / 4 + 1) * IMAGE_WIDTH_WITH_PADDING;
+    
+//    NSLog(@"\n____________%ld", self.urlArray.count / 4);
+//    NSLog(@"\n____________%lf", IMAGE_WIDTH_WITH_PADDING);
     self.frame = rect;
 //    [self.tableView reloadData];
+}
+
+- (void)reloadImagesListList {
+    
+    CGRect frame = CGRectMake(0, 0, SCREEN_WIDTH-32, 260);
+    //    self.urlArray = [self.urlStr componentsSeparatedByString:@","];
+    for (int i = 0 ; i < self.urlArray.count; i++) {
+        frame.origin.x = 0;
+        frame.origin.y = i * 260;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+        [imageView setContentMode:UIViewContentModeScaleAspectFill];
+        imageView.clipsToBounds = YES;
+        NSString *url = [NSString stringWithFormat:@"%@/%@",UPLOAD_URL,self.urlArray[i]];
+        [imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"app_loading_img_big.png"]];
+        imageView.tag = i + 600;
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBig:)]];
+        [self addSubview:imageView];
+    }
+    CGRect rect = self.frame;
+    rect.size.height = (self.urlArray.count / 4 + 1) * IMAGE_WIDTH_WITH_PADDING;
+    
+    //    NSLog(@"\n____________%ld", self.urlArray.count / 4);
+    //    NSLog(@"\n____________%lf", IMAGE_WIDTH_WITH_PADDING);
+    self.frame = rect;
+    //    [self.tableView reloadData];
 }
 
 //查看大图

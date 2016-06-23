@@ -29,32 +29,35 @@
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    //管理页面
-    NSDictionary *param = @{
-                            @"projectId":self.pid
-                            };
-    [self.service GET:@"/project/getProjectDto" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dataDict = responseObject;
-        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
-//            创建者
-            //        tb下移
-            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.view.mas_top).offset(40);
-            }];
-            //        添加按钮
-            UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
-            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
-            [self.view addSubview:addButton];
-            [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.view.mas_right).offset(-20);
-                make.top.equalTo(self.view.mas_top).offset(20);
-                make.width.mas_equalTo(40);
-                make.height.mas_equalTo(40);
-            }];
-            [addButton addTarget:self action:@selector(addButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
-            
-        }
-    } noResult:nil];
+//    //管理页面
+//    NSDictionary *dict = @{
+//                           @"sEQ_projectId":[User getInstance].projectId,
+//                           @"sEQ_visible":@"private"
+//                           };
+//    NSString *jsonStr = [StringUtil dictToJson:dict];
+//    NSDictionary *param = @{@"QueryParams":jsonStr};
+//    [self.service GET:@"/finance/getFinanceList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        self.dataDict = responseObject;
+//        if ([self.dataDict[@"createdById"] isEqualToString:[User getInstance].uid] && ![SingletonObject getInstance].isBrowse) {
+////            创建者
+//            //        tb下移
+//            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.top.equalTo(self.view.mas_top).offset(40);
+//            }];
+//            //        添加按钮
+//            UIButton *addButton = [UIButton buttonWithType:(UIButtonTypeSystem)];
+//            [addButton setImage:[UIImage imageNamed:@"app_add"] forState:(UIControlStateNormal)];
+//            [self.view addSubview:addButton];
+//            [addButton mas_updateConstraints:^(MASConstraintMaker *make) {
+//                make.right.equalTo(self.view.mas_right).offset(-20);
+//                make.top.equalTo(self.view.mas_top).offset(20);
+//                make.width.mas_equalTo(40);
+//                make.height.mas_equalTo(40);
+//            }];
+//            [addButton addTarget:self action:@selector(addButtonPress:) forControlEvents:(UIControlEventTouchUpInside)];
+//            
+//        }
+//    } noResult:nil];
     [self fetchData];
 }
 
@@ -78,11 +81,14 @@
 
 //访问网络
 - (void)fetchData {
-    NSDictionary *param = @{@"QueryParams":[StringUtil dictToJson:@{
-                                                                    @"SEQ_projectId":self.pid
-                                                                    }],
-                            @"Page":[StringUtil dictToJson:[self.page dictionary]]};
-    [self.service POST:@"finance/queryFinanceList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *dict = @{
+                           @"sEQ_projectId":[User getInstance].srcId,
+                           @"sEQ_visible":[User getInstance].sEQ_visible
+                           };
+    NSString *jsonStr = [StringUtil dictToJson:dict];
+    NSDictionary *param = @{@"QueryParams":jsonStr};
+
+    [self.service POST:@"finance/getFinanceList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        self.dataArray = responseObject;
         [self.dataArray removeAllObjects];
         [self.dataArray addObjectsFromArray:responseObject];
@@ -111,6 +117,10 @@
     cell.financeAmountLabel.text = [NSString stringWithFormat:@"%@%@",dict[@"financeAmount"],moneyType];
     cell.sellSharesLabel.text = [NSString stringWithFormat:@"%@%%",dict[@"sellShares"]];
     cell.investCompLabel.text = [StringUtil toString:dict[@"investComp"]];
+    
+    if ([User getInstance].isClick == NO) {
+        cell.userInteractionEnabled = NO;
+    }
     return cell;
 }
 

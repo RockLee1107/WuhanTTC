@@ -15,6 +15,11 @@
 #define MY_COMMENT @"我的评论"
 #define ALL_COMMENT @"全部评论"
 @interface CommentTableViewController ()
+{
+    DTKDropdownItem *_item0;
+    DTKDropdownItem *_item1;
+}
+
 @property (nonatomic,assign) BOOL flag;
 @property (nonatomic,strong) DTKDropdownMenuView *menuView;
 @property (nonatomic,strong) NSMutableArray *allCommentsArray;
@@ -97,38 +102,50 @@
 - (void)addRightItem
 {
     //我的评论
-    DTKDropdownItem *item0 = [DTKDropdownItem itemWithTitle:MY_COMMENT iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
-        [self switchMyOrAllComment];
-    }];
+    if ([[User getInstance] isLogin]) {
+        _item0 = [DTKDropdownItem itemWithTitle:MY_COMMENT iconName:@"menu_mine" callBack:^(NSUInteger index, id info) {
+            [self switchMyOrAllComment];
+        }];
+    }else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+        [alertView show];
+    }
+    
     //写评论
-    DTKDropdownItem *item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
-        [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
-                                      type:EYInputPopupView_Type_multi_line
-                               cancelBlock:^{
-                                   
-                               } confirmBlock:^(UIView *view, NSString *text) {
-                                   if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
-                                       [SVProgressHUD showErrorWithStatus:@"请评论回复内容(1-500字)"];
-                                       return ;
+    if ([[User getInstance] isLogin]) {
+        _item1 = [DTKDropdownItem itemWithTitle:@"写评论" iconName:@"menu_create" callBack:^(NSUInteger index, id info) {
+            [EYInputPopupView popViewWithTitle:@"评论帖子" contentText:@"请填写评论内容(1-500字)"
+                                          type:EYInputPopupView_Type_multi_line
+                                   cancelBlock:^{
+                                       
+                                   } confirmBlock:^(UIView *view, NSString *text) {
+                                       if (![VerifyUtil isValidStringLengthRange:text between:1 and:200]) {
+                                           [SVProgressHUD showErrorWithStatus:@"请评论回复内容(1-500字)"];
+                                           return ;
+                                       }
+                                       NSDictionary *param = @{
+                                                               @"BookComment":[StringUtil dictToJson:@{
+                                                                                                       @"bookId":self.bookId,
+                                                                                                       @"userId":[User getInstance].uid,
+                                                                                                       @"comment":text,
+                                                                                                       }]
+                                                               };
+                                       [self.service POST:@"book/comment/addComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+                                           self.page.pageNo = 1;
+                                           [self fetchData];
+                                       } noResult:nil];
+                                   } dismissBlock:^{
+                                       
                                    }
-                                   NSDictionary *param = @{
-                                                           @"BookComment":[StringUtil dictToJson:@{
-                                                                                                   @"bookId":self.bookId,
-                                                                                                   @"userId":[User getInstance].uid,
-                                                                                                   @"comment":text,
-                                                                                                   }]
-                                                           };
-                                   [self.service POST:@"book/comment/addComment" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       [SVProgressHUD showSuccessWithStatus:@"评论成功"];
-                                       self.page.pageNo = 1;
-                                       [self fetchData];
-                                   } noResult:nil];
-                               } dismissBlock:^{
-                                   
-                               }
-         ];
-    }];
-    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[item0,item1] icon:@"ic_menu"];
+             ];
+        }];
+    }else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+        [alertView show];
+    }
+    
+    DTKDropdownMenuView *menuView = [DTKDropdownMenuView dropdownMenuViewWithType:dropDownTypeRightItem frame:CGRectMake(0, 0, 60.f, 44.f) dropdownItems:@[_item0,_item1] icon:@"ic_menu"];
     menuView.cellColor = MENU_COLOR;
     menuView.cellHeight = 50.0;
     menuView.dropWidth = 150.f;
@@ -210,5 +227,14 @@
         self.page.pageNo = 1;
         [self fetchData];
     } noResult:nil];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //进入团团创登陆页面
+        LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }
 }
 @end
