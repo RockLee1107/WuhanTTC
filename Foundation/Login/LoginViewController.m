@@ -142,7 +142,7 @@
         //将各状态值存到本地
         [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
-            
+            //
             //        项目阶段
             [self saveStatusCode:responseObject type:@"procStatus" key:@"procStatus" thirdParty:nil fourThParty:nil];
             //        项目领域
