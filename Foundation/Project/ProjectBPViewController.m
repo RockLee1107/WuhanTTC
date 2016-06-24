@@ -102,8 +102,10 @@
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.myTableView addLegendHeaderWithRefreshingBlock:^{
         weakSelf.page.pageNo = 1;
+        [weakSelf.myDataArray removeAllObjects];
         [weakSelf loadData];
         [weakSelf.myTableView.header endRefreshing];
+        [weakSelf.myTableView reloadData];
     }];
     //[self.myTableView.legendHeader beginRefreshing];
     [self.myTableView addLegendFooterWithRefreshingBlock:^{

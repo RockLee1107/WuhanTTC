@@ -15,6 +15,11 @@
 
 @implementation MyProjectTableViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    //从容器返回到我创建的项目后 置空单例
+    [User getInstance].isCloseItem = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

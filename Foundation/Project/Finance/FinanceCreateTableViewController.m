@@ -30,7 +30,7 @@
 //日期选择器
 @property (weak, nonatomic) IBOutlet UIButton *financeTimeButton;
 @property (nonatomic, strong) NSDate *financeTime;
-//融资金额
+//出让股份
 @property (weak, nonatomic) IBOutlet UITextField *sellSharesTextField;
 //投资人/投资机构
 @property (weak, nonatomic) IBOutlet EMTextView *investCompTextView;
@@ -157,8 +157,25 @@
         
         //修改
         if (self.idStr) {
-            
-            //    考虑结束日期要大于开始日期
+           
+            if (![VerifyUtil isDecimal:self.financeAmountTextField.text]) {
+                [SVProgressHUD showErrorWithStatus:@"请输入融资金额"];
+                return ;
+            }
+            if (![VerifyUtil isPercentage:self.sellSharesTextField.text]) {
+                [SVProgressHUD showErrorWithStatus:@"请输入股份"];
+                return ;
+            }
+            //选择了已融资
+            if (self.financeProcSegmentedControl.selectedSegmentIndex == 1) {
+                if (![VerifyUtil hasValue:self.investCompTextView.text]) {
+                    [SVProgressHUD showErrorWithStatus:@"请填写投资人/投资机构"];
+                    return;
+                }
+            }else {
+                self.investCompTextView.text = @"暂无";
+            }
+           
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                          @{
                                            @"projectId":projectId,
@@ -169,7 +186,7 @@
                                            @"moneyType":[NSNumber numberWithInteger:self.moneyTypeSegmentedControl.selectedSegmentIndex],
                                            @"sellShares":[NSNumber numberWithInteger:[self.sellSharesTextField.text integerValue]] ? [NSNumber numberWithInteger:[self.sellSharesTextField.text integerValue]] : self.sellSharesTextField.text,
                                            @"id":self.idStr,
-                                           @"investComp":self.investCompTextView.text ? self.investCompTextView.text : @""
+                                           @"investComp":self.investCompTextView.text ? self.investCompTextView.text : @"暂无"
                                            }
                                          ];
             
@@ -178,7 +195,9 @@
             
             [self.service POST:@"finance/saveFinancing" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                [User getInstance].projectId = responseObject[@"data"];
+                if (![responseObject isKindOfClass:[NSNull class]]) {
+                    [User getInstance].projectId = responseObject[@"data"];
+                }
                 [self.navigationController popViewControllerAnimated:YES];
                 
             } noResult:^{
@@ -186,7 +205,33 @@
             }];
             
         }else {//添加
-            //    考虑结束日期要大于开始日期
+            
+            //文本输入判断
+            if ([self.financeButton.titleLabel.text isEqualToString:@"请选择"]) {
+                [SVProgressHUD showErrorWithStatus:@"请选择融资阶段"];
+                return ;
+            }
+            
+            if (![VerifyUtil isDecimal:self.financeAmountTextField.text]) {
+                [SVProgressHUD showErrorWithStatus:@"请输入融资金额"];
+                return ;
+            }
+            
+            if (![VerifyUtil isPercentage:self.sellSharesTextField.text]) {
+                [SVProgressHUD showErrorWithStatus:@"请输入股份"];
+                return ;
+            }
+            
+            //选择了已融资
+            if (self.financeProcSegmentedControl.selectedSegmentIndex == 1) {
+                if (![VerifyUtil hasValue:self.investCompTextView.text]) {
+                    [SVProgressHUD showErrorWithStatus:@"请填写投资人/投资机构"];
+                    return;
+                }
+            }else {
+                self.investCompTextView.text = @"暂无";
+            }
+            
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                          @{
                                            @"projectId":projectId,
@@ -196,7 +241,7 @@
                                            @"financeTime":[DateUtil dateToDatePart:self.financeTime],
                                            @"moneyType":[NSNumber numberWithInteger:self.moneyTypeSegmentedControl.selectedSegmentIndex],
                                            @"sellShares":[NSNumber numberWithInteger:[self.sellSharesTextField.text integerValue]],
-                                           @"investComp":self.investCompTextView.text ? self.investCompTextView.text : @""
+                                           @"investComp":self.investCompTextView.text ? self.investCompTextView.text : @"暂无"
                                            }
                                          ];
             

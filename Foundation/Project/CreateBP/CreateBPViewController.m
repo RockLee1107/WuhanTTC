@@ -37,6 +37,8 @@
 @property (nonatomic, copy) NSString *bizName;
 @property (nonatomic, copy) NSString *bpVisible;
 
+@property (nonatomic, copy) NSString *bizStatus;//BP审核状态
+
 @end
 
 @implementation CreateBPViewController
@@ -65,7 +67,9 @@
                            };
     [self.service POST:@"bp/getBpDetailDto" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+        //取出存在服务器的图片地址
         self.originalBpFilePath = [NSString stringWithFormat:@"%@", responseObject[@"bpLogo"]];
+    
         //    标题
         self.bPNameTextField.text = [StringUtil toString:responseObject[@"bpName"]];
         
@@ -103,6 +107,8 @@
         self.bizName = responseObject[@"bizName"];
         //
         self.bpVisible = responseObject[@"bpVisible"];
+        //
+        self.bizStatus = [responseObject[@"bizStatus"] stringValue];
         
     } noResult:nil];
         
@@ -271,6 +277,8 @@
             return ;
         }
         [SVProgressHUD showWithStatus:@"创建中..."];
+        //点击创建后禁用
+        self.createBPBtn.userInteractionEnabled = NO;
         //获取系统时间
         self.planDate = [NSDate date];
         
@@ -286,7 +294,7 @@
                                                @"bpDesc":self.descTextView.text,//BP描述
                                                @"createdDate":[DateUtil dateToDatePart:self.planDate],//日期需要转化20151123格式  记录创建时间当前年月日
                                                @"createdTime":[DateUtil dateToSecondPart:self.planDate],//Time convert to 2315 Style  当前时分秒
-                                               @"bizStatus":@"1",//bizStatus区分保存与提交 保存是0 发布是1
+                                               @"bizStatus":@"1",
                                                @"area":self.cityTitle
                                                }
                                              ];
@@ -339,9 +347,6 @@
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD dismiss];
             
-            //
-            self.createBPBtn.userInteractionEnabled = NO;
-            
             if ([responseObject[@"success"] boolValue]) {
                 [SVProgressHUD dismiss];
                 [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
@@ -360,6 +365,8 @@
         //获取系统时间
         self.planDate = [NSDate date];
         
+        NSString *srcStatus = self.bizStatus;
+        
         //    考虑结束日期要大于开始日期
         NSMutableDictionary *businessPlan = [NSMutableDictionary dictionaryWithDictionary:
                                              @{
@@ -376,6 +383,7 @@
                                                @"id":[User getInstance].bpId
                                                }
                                              ];
+     
         
         //    多图
         //不能使用图片单例ImageUtil
@@ -400,16 +408,16 @@
         
         //活动的单张图片路径
         if (self.picker.filePath) {
-            [businessPlan setObject:self.picker.filePath forKey:@"pictURL"];
+            [businessPlan setObject:self.picker.filePath forKey:@"bpLogo"];
         } else {
-            [businessPlan setObject:self.originalBpFilePath forKey:@"pictURL"];
+            [businessPlan setObject:self.originalBpFilePath forKey:@"bpLogo"];
         }
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
         NSDictionary *param = @{
                                 @"BusinessPlan":[StringUtil dictToJson:businessPlan],
-                                @"SrcStatus":@"0"
+                                @"SrcStatus":srcStatus
                                 };
         
         NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"bp/saveBp"];

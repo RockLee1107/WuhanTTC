@@ -57,6 +57,18 @@
     return NO;
 }
 
+/**0到100，带小数*/
++ (BOOL)isPercentage:(NSString *)percentage {
+    //
+    NSString *num = @"^(\\d?\\d(\\.\\d*)?|100)$";
+    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",num];
+    if ([test evaluateWithObject:percentage]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 /**数字*/
 + (BOOL)isDecimal:(NSString *)number {
     NSString *passwordReg = @"^\\d+(\\.\\d+)?$";
@@ -90,4 +102,5 @@
     }
     return NO;
 }
+
 @end

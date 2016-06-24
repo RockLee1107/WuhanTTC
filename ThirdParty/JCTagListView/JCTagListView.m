@@ -127,12 +127,12 @@ static NSString * const reuseIdentifier = @"tagListViewItemId";
         
         if ([self.selectedTags containsObject:self.tags[indexPath.item]]) {
             cell.backgroundColor = self.tagBackgroundColor;
-            
+            cell.titleLabel.textColor = [UIColor lightGrayColor];
             [self.selectedTags removeObject:self.tags[indexPath.item]];
         }
         else {
             cell.backgroundColor = self.tagSelectedBackgroundColor;
-            
+            cell.titleLabel.textColor = [UIColor whiteColor];//选中后字体变白色
             [self.selectedTags addObject:self.tags[indexPath.item]];
         }
     }

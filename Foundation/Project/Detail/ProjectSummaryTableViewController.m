@@ -29,8 +29,6 @@
 @property (nonatomic, strong) NSArray *urlArray;//装产品展示图片的数组
 @property (nonatomic, strong) NSArray *commentArray;//装评析的数组
 
-
-
 @end
 
 @implementation ProjectSummaryTableViewController

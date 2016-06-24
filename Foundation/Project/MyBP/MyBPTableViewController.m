@@ -26,6 +26,9 @@
     [User getInstance].projectId = @"";
     NSString *pid = [User getInstance].projectId;
     NSLog(@"===========置空老id\n pid:%@", pid);
+    
+    //从项目详情返回到我创建的BP后，将单例置空
+    [User getInstance].isCloseItem = NO;
 }
 
 - (void)viewDidLoad {
@@ -37,11 +40,10 @@
     }else {
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
-    
-    self.myDataArray = [NSMutableArray array];
     [self fetchData];
-    [self createUI];
+    self.myDataArray = [NSMutableArray array];
     
+    [self createUI];
     
     if ([self.SEQ_queryType isEqualToString:@"CREATE"]) {
         self.navigationItem.title = @"创建的项目";
@@ -70,6 +72,8 @@
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         weakSelf.page.pageNo = 1;
+        [weakSelf.myDataArray removeAllObjects];
+        [weakSelf fetchData];
         [weakSelf.tableView.header endRefreshing];
         [weakSelf.tableView reloadData];
     }];
@@ -110,7 +114,6 @@
     
     cell.titleLabel.text = [StringUtil toString:object[@"bpName"]];
     
-    cell.bpId = [StringUtil toString:object[@"bpId"]];
     cell.separatorLine.backgroundColor = SEPARATORLINE;
     cell.viewCountLabel.text = [StringUtil toString:[NSString stringWithFormat:@"%@", object[@"readNum"]]];
     cell.supportCountLabel.text = [StringUtil toString:[NSString stringWithFormat:@"%@", object[@"likeNum"]]];
@@ -142,9 +145,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ProjectBPDetailViewController *detailVC = [[ProjectBPDetailViewController alloc] init];
-    [User getInstance].bpId = self.myDataArray[indexPath.row][@"bpId"];
     detailVC.bpId = self.myDataArray[indexPath.row][@"bpId"];
-    detailVC.isAppear = NO;//private   isAppear暂时无用
+    detailVC.isAppear = NO;//private   isAppear 入口是私有的private
     detailVC.isUpdateBP = YES;//private进入的可以修改BP
     detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];

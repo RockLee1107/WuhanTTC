@@ -55,8 +55,10 @@
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         weakSelf.page.pageNo = 1;
+        [weakSelf.myDataArray removeAllObjects];
         [weakSelf fetchData];
         [weakSelf.tableView.header endRefreshing];
+        [weakSelf.tableView reloadData];
     }];
     [self.tableView.legendHeader beginRefreshing];
     [self.tableView addLegendFooterWithRefreshingBlock:^{
@@ -95,16 +97,11 @@
     
     cell.titleLabel.text = [StringUtil toString:object[@"bpName"]];
     
-    cell.bpId = [StringUtil toString:object[@"bpId"]];
-    
     cell.viewCountLabel.text = [StringUtil toString:[NSString stringWithFormat:@"%@", object[@"readNum"]]];
     cell.supportCountLabel.text = [StringUtil toString:[NSString stringWithFormat:@"%@", object[@"likeNum"]]];
     cell.collectLabel.text = [StringUtil toString:[NSString stringWithFormat:@"%@", object[@"collectNum"]]];
     [cell.iconImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", UPLOAD_URL, object[@"bpLogo"]]] placeholderImage:[UIImage imageNamed:@"app_failure_img@2x"]];
-    
-    //切圆角
-    cell.iconImageView.layer.cornerRadius  = 39.5;
-    cell.iconImageView.layer.masksToBounds = YES;
+
     
     //待审核
     if ([[object[@"bizStatus"] stringValue] isEqualToString:@"1"] ) {
@@ -128,6 +125,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ProjectBPDetailViewController *detailVC = [[ProjectBPDetailViewController alloc] init];
     detailVC.bpId = self.myDataArray[indexPath.row][@"bpId"];
+    detailVC.isAppear = YES;
     detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];
 }

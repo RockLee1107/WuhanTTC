@@ -40,7 +40,6 @@
     self.tableViewDelegate.vc = self;
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.tableViewDelegate;
-    
 }
 
 - (void)createUI {

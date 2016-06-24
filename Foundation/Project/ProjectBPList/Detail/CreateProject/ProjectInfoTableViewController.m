@@ -149,22 +149,33 @@
 //点击提交审核
 - (void)commitBtnClick {
     
-    //判断提交审核条件
-    if (![self.select1 isEqualToString:@"ok"] && [self.requestData[@"projectName"] isEqualToString:@""]) {
-        [SVProgressHUD showErrorWithStatus:@"请填写项目信息哦"];
-        return;
-    }
-    if (![self.select3 isEqualToString:@"ok"] && [self.requestData[@"hasTeam"] intValue] == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请填写团队成员哦"];
-        return;
-    }
-    if (![self.select4 isEqualToString:@"ok"] && [self.requestData[@"hasProcess"] intValue] == 0) {
-        [SVProgressHUD showErrorWithStatus:@"请填写项目进展哦"];
-        return;
+    //从更新项目入口进入
+    if (self.isFlag) {
+        if ([self.requestData[@"hasTeam"] intValue] == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请填写团队成员哦"];
+            return;
+        }
+        if ([self.requestData[@"hasProcess"] intValue] == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请填写项目进展哦"];
+            return;
+        }
+    //从创建项目入口进入
+    }else {
+        if (![self.select1 isEqualToString:@"ok"]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写项目信息哦"];
+            return;
+        }
+        if (![self.select3 isEqualToString:@"ok"]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写团队成员哦"];
+            return;
+        }
+        if (![self.select4 isEqualToString:@"ok"]) {
+            [SVProgressHUD showErrorWithStatus:@"请填写项目进展哦"];
+            return;
+        }
     }
     
     [SVProgressHUD showWithStatus:@"正在提交审核..."];
-    
     self.commitBtn.userInteractionEnabled = NO;
     
     NSString *pid;
@@ -244,134 +255,114 @@
     }
     //产品信息
     if (indexPath.row == 2) {
-        //没有勾选说明还未填写项目信息
-        if ([self.select1 isEqualToString:@"ok"]) {
-            ProductTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"product"];
-            vc.hidesBottomBarWhenPushed = YES;
-            
-            //有老projectId就传过去做更新 没有则是第一次创建
-            if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
-                vc.projectId = [User getInstance].srcId;
-            }
-            
-            //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
-            if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
-                vc.projectId = [User getInstance].createProjectId;
-            }
-            
-            //创建后block回调刷新勾选
-            vc.block = ^(NSString *ok){
-                self.select2 = ok;
-            };
-            if ([self.select2 isEqualToString:@"ok"]) {
-                self.hasProduct = YES;
-            }
-            
-            //hasProduct默认为NO,创建后返回刷新勾选并置为YES,正向传值
-            vc.hasProduct = self.hasProduct;
-            
-            [self.navigationController pushViewController:vc animated:YES];
-        }else {
-            [SVProgressHUD showErrorWithStatus:@"请先填写项目信息哦"];
-            return;
+       
+        ProductTableViewController *vc = [[UIStoryboard storyboardWithName:@"Project" bundle:nil] instantiateViewControllerWithIdentifier:@"product"];
+        vc.hidesBottomBarWhenPushed = YES;
+        
+        //有老projectId就传过去做更新 没有则是第一次创建
+        if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
+            vc.projectId = [User getInstance].srcId;
         }
+        
+        //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
+        if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
+            vc.projectId = [User getInstance].createProjectId;
+        }
+        
+        //创建后block回调刷新勾选
+        vc.block = ^(NSString *ok){
+            self.select2 = ok;
+        };
+        if ([self.select2 isEqualToString:@"ok"]) {
+            self.hasProduct = YES;
+        }
+        
+        //hasProduct默认为NO,创建后返回刷新勾选并置为YES,正向传值
+        vc.hasProduct = self.hasProduct;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+
     }
     
     //团队成员
     if (indexPath.row == 3) {
         
-        if ([self.select1 isEqualToString:@"ok"]) {
-            TeamMemberTableViewController *vc = [[TeamMemberTableViewController alloc] init];
-            //有projectId就传过去做更新 没有则是第一次创建
-            if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
-                vc.projectId = [User getInstance].srcId;
-            }
-            //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
-            if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
-                vc.projectId = [User getInstance].createProjectId;
-            }
-            //block回调刷新勾选
-            vc.block = ^(NSString *ok){
-                self.select3 = ok;
-            };
-            if ([self.select3 isEqualToString:@"ok"]) {
-                self.hasTeam = YES;
-            }
-            //hasTeam默认为NO,创建后返回刷新勾选并置为YES,正向传值
-            vc.hasTeam = self.hasTeam;
-
-            
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else {
-            [SVProgressHUD showErrorWithStatus:@"请先填写项目信息哦"];
-            return;
+        TeamMemberTableViewController *vc = [[TeamMemberTableViewController alloc] init];
+        //有projectId就传过去做更新 没有则是第一次创建
+        if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
+            vc.projectId = [User getInstance].srcId;
         }
+        //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
+        if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
+            vc.projectId = [User getInstance].createProjectId;
+        }
+        //block回调刷新勾选
+        vc.block = ^(NSString *ok){
+            self.select3 = ok;
+        };
+        if ([self.select3 isEqualToString:@"ok"]) {
+            self.hasTeam = YES;
+        }
+        //hasTeam默认为NO,创建后返回刷新勾选并置为YES,正向传值
+        vc.hasTeam = self.hasTeam;
+
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
     //项目进展
     if (indexPath.row == 4) {
         
-        if ([self.select1 isEqualToString:@"ok"]) {
-            ProjectProgressTableViewController *vc = [[ProjectProgressTableViewController alloc] init];
+        ProjectProgressTableViewController *vc = [[ProjectProgressTableViewController alloc] init];
 
-            //有老projectId就传过去做更新 没有则是第一次创建
-            if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
-                vc.projectId = [User getInstance].srcId;
-            }
-            //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
-            if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
-                vc.projectId = [User getInstance].createProjectId;
-            }
-            //block回调刷新勾选
-            vc.block = ^(NSString *ok){
-                self.select4 = ok;
-            };
-            if ([self.select4 isEqualToString:@"ok"]) {
-                self.hasProcess = YES;
-            }
-            //hasProcess默认为NO,创建后返回刷新勾选并置为YES,正向传值
-            vc.hasProcess = self.hasProcess;
-            
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else {
-            [SVProgressHUD showErrorWithStatus:@"请先填写项目信息哦"];
-            return;
+        //有老projectId就传过去做更新 没有则是第一次创建
+        if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
+            vc.projectId = [User getInstance].srcId;
         }
+        //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
+        if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
+            vc.projectId = [User getInstance].createProjectId;
+        }
+        //block回调刷新勾选
+        vc.block = ^(NSString *ok){
+            self.select4 = ok;
+        };
+        if ([self.select4 isEqualToString:@"ok"]) {
+            self.hasProcess = YES;
+        }
+        //hasProcess默认为NO,创建后返回刷新勾选并置为YES,正向传值
+        vc.hasProcess = self.hasProcess;
+        
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
 }
     
     //融资进展
     if (indexPath.row == 5) {
         
-        if ([self.select1 isEqualToString:@"ok"]) {
-            FinanceProgressTableViewController *vc = [[FinanceProgressTableViewController alloc] init];
+        FinanceProgressTableViewController *vc = [[FinanceProgressTableViewController alloc] init];
 
-            //有老projectId就传过去做更新 没有则是第一次创建
-            if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
-                vc.projectId = [User getInstance].srcId;
-            }
-            //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
-            if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
-                vc.projectId = [User getInstance].createProjectId;
-            }
-            //block回调刷新勾选
-            vc.block = ^(NSString *ok){
-                self.select5 = ok;
-            };
-            if ([self.select5 isEqualToString:@"ok"]) {
-                self.hasFinance = YES;
-            }
-            //hasProcess默认为NO,创建后返回刷新勾选并置为YES,正向传值
-            vc.hasFinance = self.hasFinance;
+        //有老projectId就传过去做更新 没有则是第一次创建
+        if (![[User getInstance].srcId isKindOfClass:[NSNull class]] && [User getInstance].srcId != nil) {
+            vc.projectId = [User getInstance].srcId;
             
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-
-        }else {
-            [SVProgressHUD showErrorWithStatus:@"请先填写项目信息哦"];
-            return;
         }
+        //创建完项目信息后返回一个(create)projectId存入单例再进去可以修改
+        if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isEqualToString:@""]) {
+            vc.projectId = [User getInstance].createProjectId;
+        }
+        //block回调刷新勾选
+        vc.block = ^(NSString *ok){
+            self.select5 = ok;
+        };
+        if ([self.select5 isEqualToString:@"ok"]) {
+            self.hasFinance = YES;
+        }
+        //hasProcess默认为NO,创建后返回刷新勾选并置为YES,正向传值
+        vc.hasFinance = self.hasFinance;
+        
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

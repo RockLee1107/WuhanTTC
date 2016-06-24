@@ -172,7 +172,9 @@
                 [SVProgressHUD dismiss];
                 [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
             
-                [User getInstance].projectId = responseObject[@"data"];
+                if (![responseObject isKindOfClass:[NSNull class]]) {
+                    [User getInstance].projectId = responseObject[@"data"];
+                }
                 [self goBack];
             } else {
                 [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];

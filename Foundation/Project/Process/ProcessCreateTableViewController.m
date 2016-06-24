@@ -110,7 +110,9 @@
             
             [self.service POST:@"process/saveProcess" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
-                [User getInstance].projectId = responseObject[@"data"];
+                if (![responseObject isKindOfClass:[NSNull class]]) {
+                    [User getInstance].projectId = responseObject[@"data"];
+                }
                 [self.navigationController popViewControllerAnimated:YES];
                 
             } noResult:^{

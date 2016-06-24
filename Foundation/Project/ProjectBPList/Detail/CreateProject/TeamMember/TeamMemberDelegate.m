@@ -26,6 +26,8 @@
     cell.introduction.text = object[@"introduction"];
     
     [cell.picUrl setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", UPLOAD_URL, object[@"pictUrl"]]] placeholderImage:[UIImage imageNamed:@"app_failure_img@2x"]];
+    cell.picUrl.layer.cornerRadius = 27.5;
+    cell.picUrl.layer.masksToBounds = YES;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -85,7 +87,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0;
+    return 75;
 }
 
 @end

@@ -15,6 +15,11 @@
 
 @implementation MyProjectPageController
 
+- (void)viewWillAppear:(BOOL)animated {
+    //从项目详情返回到我创建的项目后，将单例置空
+    [User getInstance].isCloseItem = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

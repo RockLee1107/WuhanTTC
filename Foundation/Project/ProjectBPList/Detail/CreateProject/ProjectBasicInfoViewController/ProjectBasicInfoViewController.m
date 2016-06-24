@@ -214,7 +214,9 @@
                 NSLog(@"bbbbbbbbbbbbb\n 原Id:%@", oldId);
                 
                 //提交审核通过后再进行修改会返回一个新的projectId，也就是副本id,把之前的老id覆盖掉,之后加载该页面用的就是新id,后台会自动判断，如果项目没有提交审核通过，只是修改的话会返回老projectId
-                [User getInstance].projectId = newId;
+                if (![responseObject isKindOfClass:[NSNull class]]) {
+                    [User getInstance].projectId = responseObject[@"data"];
+                }
                 
                 [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
             

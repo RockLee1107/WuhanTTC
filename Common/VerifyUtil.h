@@ -26,6 +26,9 @@
 /**数字*/
 + (BOOL)isDecimal:(NSString *)number;
 
+/**0到100*/
++ (BOOL)isPercentage:(NSString *)percentage;
+
 /**密码相等*/
 + (BOOL)isEqualToString:(NSString *)password With:(NSString *)rePassword;
 

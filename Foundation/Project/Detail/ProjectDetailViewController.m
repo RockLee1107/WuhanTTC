@@ -39,15 +39,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    //更新项目后 提交审核返回到该容器页面 需要关闭更新项目
-    if ([User getInstance].isCloseItem) {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
+    
     
     //可以更新项目
     if (self.whetherUpdate == YES) {
         [self addRightItem];
     }else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
+    //更新项目后 提交审核返回到该容器页面 需要关闭更新项目
+    if ([User getInstance].isCloseItem == YES) {
         self.navigationItem.rightBarButtonItem = nil;
     }
     

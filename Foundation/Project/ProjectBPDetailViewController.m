@@ -272,6 +272,7 @@
           
             CreateBPViewController *vc = [[UIStoryboard storyboardWithName:@"CreateBPViewController" bundle:nil] instantiateViewControllerWithIdentifier:@"createBP"];
             vc.title = @"更新BP";
+            
             [self.navigationController pushViewController:vc animated:YES];
             
             

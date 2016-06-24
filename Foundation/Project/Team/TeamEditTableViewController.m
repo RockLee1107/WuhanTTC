@@ -93,7 +93,9 @@
             [self.service POST:@"team/saveTeam" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 //返回副本id覆盖掉原id
-                [User getInstance].projectId = responseObject[@"data"];
+                if (![responseObject isKindOfClass:[NSNull class]]) {
+                    [User getInstance].projectId = responseObject[@"data"];
+                }
                 [self.navigationController popViewControllerAnimated:YES];
                 
             } noResult:^{
