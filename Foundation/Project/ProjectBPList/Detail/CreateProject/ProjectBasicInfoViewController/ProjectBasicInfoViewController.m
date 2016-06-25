@@ -158,6 +158,8 @@
             [SVProgressHUD showErrorWithStatus:@"请输入项目描述(2-500字)"];
             return ;
         }
+        [SVProgressHUD showWithStatus:@"更新中..."];
+        self.commitBtn.userInteractionEnabled = NO;
         
         //获取系统时间
         self.planDate = [NSDate date];
@@ -174,11 +176,9 @@
                                        @"projectName":self.projectName.text,
                                        @"projectResume":self.projectIntroduce.text,
                                        @"projectId":self.projectId,
-                                       @"procUrl":self.projectUrl.text ? self.projectUrl.text : @"",
-
+                                       @"procUrl":self.projectUrl.text ? self.projectUrl.text : @""
                                        }];
         NSString *flag = [self.bizStatus isEqualToString:@"2"] ? @"true" : @"false";
-        
         
         if (self.picker.filePath) {
             [dict setObject:self.picker.filePath forKey:@"headPictUrl"];
@@ -204,8 +204,6 @@
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD dismiss];
             
-            //
-            self.commitBtn.userInteractionEnabled = NO;
         
             if ([responseObject[@"success"] boolValue]) {
                 NSString *oldId = [User getInstance].projectId;
@@ -214,10 +212,12 @@
                 NSLog(@"bbbbbbbbbbbbb\n 原Id:%@", oldId);
                 
                 //提交审核通过后再进行修改会返回一个新的projectId，也就是副本id,把之前的老id覆盖掉,之后加载该页面用的就是新id,后台会自动判断，如果项目没有提交审核通过，只是修改的话会返回老projectId
-                if (![responseObject isKindOfClass:[NSNull class]]) {
+                if (![responseObject[@"data"] isKindOfClass:[NSNull class]]) {
                     [User getInstance].projectId = responseObject[@"data"];
                 }
                 
+                [SVProgressHUD dismiss];
+               
                 [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
             
                 [self goBack];
@@ -259,6 +259,9 @@
             [SVProgressHUD showErrorWithStatus:@"请输入项目描述(3-500字)"];
             return ;
         }
+        
+        [SVProgressHUD showWithStatus:@"创建中..."];
+        self.commitBtn.userInteractionEnabled = NO;
         
         //获取系统时间
         self.planDate = [NSDate date];
@@ -302,9 +305,10 @@
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [SVProgressHUD dismiss];
             
-            self.commitBtn.userInteractionEnabled = NO;
+            
             
             if ([responseObject[@"success"] boolValue]) {
+                [SVProgressHUD dismiss];
                 [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
                 
                 //创建的时候用一个不同的单例传值回去 下次进入这个页面根据pid进行修改

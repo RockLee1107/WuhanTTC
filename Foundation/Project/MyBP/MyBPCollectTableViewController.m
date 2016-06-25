@@ -11,6 +11,7 @@
 #import "MyBPCollectTableViewController.h"
 #import "ProjectBPDetailViewController.h"
 #import "ProjectBPCell.h"
+#import "VerifyTableViewController.h"
 
 @interface MyBPCollectTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -113,8 +114,11 @@
     }else {
         cell.statusLabel.hidden = YES;
     }
+    //判断可见权限
+    if ([object[@"bpVisible"] intValue] == 1) {
+        [cell.lockImageView setImage:[UIImage imageNamed:@"app_lock"]];
+    }    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     return cell;
 }
 
@@ -123,11 +127,63 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *object = self.myDataArray[indexPath.row];
     ProjectBPDetailViewController *detailVC = [[ProjectBPDetailViewController alloc] init];
     detailVC.bpId = self.myDataArray[indexPath.row][@"bpId"];
     detailVC.isAppear = YES;
     detailVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    //判断可见权限
+    //仅投资人可见
+    if ([object[@"bpVisible"] intValue] == 1) {
+        //登录状态下
+        if ([User getInstance].isLogin) {
+            //是投资人
+            if ([[User getInstance].isInvestor isEqual:@1]) {
+                [self.navigationController pushViewController:detailVC animated:YES];
+            }
+            //申请认证投资人
+            else {
+                if ([[User getInstance].bizStatus isEqualToString:@"0"]) {
+                    //待审核
+                    [SVProgressHUD showErrorWithStatus:@"您已提交申请,请耐心等待审核哦"];
+                }else {
+                    //审核不通过
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"此BP仅限投资人查看,是否立即申请认证投资人?" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"我要认证", nil];
+                    [alertView show];
+                }
+            }
+            
+        }
+        //游客状态
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:@"为方便您管理相关信息，请登录后再进行相关操作哦" delegate:self cancelButtonTitle:@"以后再说" otherButtonTitles:@"立即登录", nil];
+            [alertView show];
+        }
+    }
+    //所有人可见
+    else {
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    //我要认证
+    if (buttonIndex == 1) {
+        //登录状态点击我要认证
+        if ([User getInstance].isLogin) {
+            VerifyTableViewController *vc = [[UIStoryboard storyboardWithName:@"Investor" bundle:nil] instantiateViewControllerWithIdentifier:@"verify"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        //游客状态
+        else {
+            //进入团团创登陆页面
+            LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            [self.navigationController presentViewController:loginVC animated:YES completion:nil];
+        }
+    }
 }
 
 /*

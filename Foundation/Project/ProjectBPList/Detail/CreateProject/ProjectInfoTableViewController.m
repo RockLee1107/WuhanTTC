@@ -183,7 +183,7 @@
     if ([User getInstance].projectId != nil && ![[User getInstance].projectId isKindOfClass:[NSNull class]]) {
         pid = [User getInstance].projectId;
     }
-    //
+    //第一次创建项目时的projectId
     if ([User getInstance].createProjectId != nil && ![[User getInstance].createProjectId isKindOfClass:[NSNull class]] && ![[User getInstance].createProjectId isEqualToString:@""]) {
         pid = [User getInstance].createProjectId;
     }
@@ -193,8 +193,8 @@
         
         [SVProgressHUD dismiss];
         [User getInstance].isCloseItem = YES;//更新项目提交审核后返回到容器，需要关闭更新项目,  创建项目返回的是BP详情
+        
         [self.navigationController popViewControllerAnimated:YES];
-
     } noResult:^{
         
     }];

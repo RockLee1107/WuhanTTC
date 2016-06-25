@@ -47,6 +47,11 @@
 
 @implementation VerifyTableViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setDynamicLayout];
@@ -95,16 +100,12 @@
     }
 }
 
-
 ///选择了投资阶段的回调
 - (void)didSelectedProcess:(NSMutableArray *)selectedCodeArray selectedNames:(NSMutableArray *)selectedNameArray {
     [self.processButton setTitle:[selectedNameArray componentsJoinedByString:@","] forState:(UIControlStateNormal)];
     self.processCodeArray = selectedCodeArray;
     self.processNameArray = selectedNameArray;
 }
-
-
-
 
 ///提交按钮点击
 - (IBAction)submitButtonPress:(id)sender {
@@ -133,7 +134,6 @@
         [SVProgressHUD showErrorWithStatus:@"请上传名片"];
         return ;
     }
-    
     NSDictionary *param = @{
                             @"InvestorInfo":[StringUtil dictToJson:@{
                                                                      @"investInstitution":self.investInstitutionTextField.text,
@@ -148,8 +148,6 @@
                                                                      }]
                             };
     
-
-    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlstr = [NSString stringWithFormat:@"%@/%@",HOST_URL,@"personal/info/setInvestorInfo"];
@@ -162,12 +160,18 @@
                 [formData appendPartWithFileData:UIImageJPEGRepresentation(image,0.8) name:[NSString stringWithFormat:@"%zi",i] fileName:[ImageUtil getInstance].filenames[i] mimeType:@"image/jpeg"];
             }
         }
-        //            NSLog(@"urlstr:%@ param:%@",urlstr,param);
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [SVProgressHUD dismiss];
-        //            NSLog(@"responseObject:%@",responseObject);
+        
         if ([responseObject[@"success"] boolValue]) {
-            [SVProgressHUD showSuccessWithStatus:@"添加成功"];
+            [SVProgressHUD showSuccessWithStatus:@"申请成功"];
+            //申请成功后返回通知已在审核中
+            if (self.block != nil) {
+                self.block(@"ok");
+            }
+            //申请认证成功后,将存在本地的bizStatus重置为0
+            [User getInstance].bizStatus = @"0";
+            
             [self goBack];
         } else {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
@@ -176,8 +180,6 @@
         NSLog(@"%@",error);
         [[[UIAlertView alloc]initWithTitle:@"提交失败" message:@"网络故障，请稍后重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
-    
-   
 }
 
 - (void)didReceiveMemoryWarning {

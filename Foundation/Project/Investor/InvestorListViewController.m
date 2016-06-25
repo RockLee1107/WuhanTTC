@@ -65,7 +65,7 @@
     self.tableView.dataSource = self.tableViewDelegate;
 }
 
-/**创连接项目*/
+/**创连接项目*/   //投资人列表
 - (void)fetchData{
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{

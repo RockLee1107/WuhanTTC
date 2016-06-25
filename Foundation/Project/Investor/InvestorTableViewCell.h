@@ -15,6 +15,8 @@
 @property (nonatomic,weak) IBOutlet UILabel *realNameLabel;
 /**公司*/
 @property (nonatomic,weak) IBOutlet UILabel *companyLabel;
+/**职责*/
+@property (strong, nonatomic) IBOutlet UILabel *dutyLabel;
 /**城市*/
 @property (nonatomic,weak) IBOutlet UILabel *areaLabel;
 /**投资阶段*/

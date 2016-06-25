@@ -224,13 +224,7 @@
     menuView.textFont = [UIFont systemFontOfSize:16.f];
     menuView.animationDuration = 0.4f;
     menuView.backgroundAlpha = 0;
-//    if (self.isUpdate) {
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:menuView];
-//    if (self.isUpdate == NO) {
-//        self.navigationItem.rightBarButtonItem = nil;
-//    }
-//    }else {
-//        self.navigationItem.rightBarButtonItem = nil;
-//    }
 }
 @end

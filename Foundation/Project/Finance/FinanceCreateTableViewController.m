@@ -196,7 +196,7 @@
             [self.service POST:@"finance/saveFinancing" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 if (![responseObject isKindOfClass:[NSNull class]]) {
-                    [User getInstance].projectId = responseObject[@"data"];
+                    [User getInstance].projectId = responseObject;
                 }
                 [self.navigationController popViewControllerAnimated:YES];
                 

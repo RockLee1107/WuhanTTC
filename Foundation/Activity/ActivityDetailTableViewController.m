@@ -59,29 +59,34 @@
 }
 
 - (void)fetchData {
+    
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    //过场动画隐藏整个界面,数据请求完后置为YES
+    self.tableView.hidden = YES;
+    
     NSDictionary *param = @{
                             @"activityId":self.activityId
                             };
     
     [self.service POST:@"/activity/getActivity" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         self.dataDict = responseObject;
         [self.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:responseObject[@"pictUrl"]]]]];
         self.pictUrlImageView.clipsToBounds = YES;
         self.activityTitleLabel.text = [StringUtil toString:responseObject[@"activityTitle"]];
         self.typeLabel.text = [StringUtil toString:responseObject[@"type"]];
         
-//        self.statusLabel.text = ACTIVITY_STATUS_ARRAY[[responseObject[@"status"] integerValue]];
-        
+        //状态判断
         //如果报名人数未满，且报名时间未截止，显示报名中
         if([responseObject[@"applyNum"] integerValue] < [responseObject[@"planJoinNum"] integerValue]
-           && [DateUtil isDestDateInFuture:[[StringUtil toString:responseObject[@"endDate"]] stringByAppendingString:[StringUtil toString:responseObject[@"endTime"]]]]){
+           && [DateUtil isDestDateInFuture:[[StringUtil toString:responseObject[@"planDate"]] stringByAppendingString:[StringUtil toString:responseObject[@"endDate"]]]]){
             /**状态*/
             self.statusLabel.text = @"报名中";
             self.statusLabel.backgroundColor = ACTIVITY_STATUS_ON_COLOR;
         }
         //如果报名人数已满，且报名时间未截止，显示已满
         else if([responseObject[@"applyNum"] integerValue] == [responseObject[@"planJoinNum"] integerValue]
-                && [DateUtil isDestDateInFuture:[[StringUtil toString:responseObject[@"endDate"]] stringByAppendingString:[StringUtil toString:responseObject[@"endTime"]]]]){
+                && [DateUtil isDestDateInFuture:[[StringUtil toString:responseObject[@"planDate"]] stringByAppendingString:[StringUtil toString:responseObject[@"endDate"]]]]){
             /**状态*/
             self.statusLabel.text = @"已满";
             self.statusLabel.backgroundColor = ACTIVITY_STATUS_FULL_COLOR;
@@ -90,7 +95,6 @@
             self.statusLabel.text = @"已结束";
             self.statusLabel.backgroundColor = ACTIVITY_STATUS_OVER_COLOR;
         }
-        
         
         self.planDatetimeLabel.text = [DateUtil toString:responseObject[@"planDate"] time:responseObject[@"planTime"]];
         self.endDatetimeLabel.text = [DateUtil toString:responseObject[@"endDate"] time:responseObject[@"endTime"]];
@@ -119,7 +123,11 @@
         gallery.vc = self;
         [gallery reloadImagesList];
         [self.pictureView addSubview:gallery];
+        
         [self.tableView reloadData];
+        
+        [SVProgressHUD dismiss];
+        self.tableView.hidden = NO;
     } noResult:nil];
 }
 

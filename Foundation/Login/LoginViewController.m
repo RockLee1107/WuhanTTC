@@ -106,7 +106,7 @@
 //    }
     
     [self.service POST:@"login" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //        NSLog(@"login:%@",responseObject);
+
         User *user = [User getInstance];
         user.username = responseObject[@"username"];
         user.password = password;
@@ -116,7 +116,6 @@
         user.isAdmin = responseObject[@"userInfo"][@"isAdmin"];
         //是否社区管理员，文献列表选择用此传值
         user.isBm = responseObject[@"userInfo"][@"isBm"];
-        
         
         if (responseObject[@"userInfo"][@"realName"] != [NSNull null] && responseObject[@"userInfo"][@"realName"] != nil && ![responseObject[@"userInfo"][@"realName"] isEqualToString:@""]) {
             user.realname = responseObject[@"userInfo"][@"realName"];
@@ -138,10 +137,14 @@
             user.isInvestor = @1;
         } else {
             user.isInvestor = @0;
+            //将认证投资人的审核状态存在本地
+            if (responseObject[@"investorInfo"] != [NSNull null]) {
+                [user setBizStatus:[responseObject[@"investorInfo"][@"bizStatus"] stringValue]];
+            }
         }
+        
         //将各状态值存到本地
         [self.service GET:@"activity/getDictionary" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
             
             //        项目阶段
             [self saveStatusCode:responseObject type:@"procStatus" key:@"procStatus" thirdParty:nil fourThParty:nil];
@@ -149,18 +152,12 @@
             [self saveStatusCode:responseObject type:@"industry" key:@"biz" thirdParty:nil fourThParty:nil];
             //        融资阶段
             [self saveStatusCode:responseObject type:@"financeProc" key:@"financeProc" thirdParty:nil fourThParty:nil];
-                        //        活动类型
+            //        活动类型
             [self saveStatusCode:responseObject type:@"activityType" key:@"type" thirdParty:nil fourThParty:nil];
             //        专题
             [self saveStatusCode:responseObject type:@"specialType" key:@"special" thirdParty:nil fourThParty:nil];
             //        文献二级分类
             [self saveStatusCode:responseObject type:@"bookCategory" key:@"category" thirdParty:@"specialCode" fourThParty:@"bookNum"];
-            
-            
-//            //首页->内容->筛选栏数字
-//            [self saveStatusCode:responseObject type:@"bookType" key:@"special" thirdParty:nil];
-            
-            
         
         } noResult:nil];
 

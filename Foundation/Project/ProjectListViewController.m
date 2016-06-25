@@ -131,8 +131,8 @@
     //请求的参数
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
-                                                                     @"IEQ_status":@"2",
-                                                                     @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
+                                    @"IEQ_status":@"2",
+                                    @"SEQ_orderBy":@"pbDate"//（pbDate发布时间，planDate活动开始时间，applyNum参与数
                                    }];
     //    条件1
     if (self.orderBy != nil) {
@@ -689,8 +689,15 @@
     //    阶段
     [cell.financeProcNameLabel setTitle:[StringUtil toString:object[@"financeProcName"]] forState:(UIControlStateNormal)];
     
+    if ([object[@"area"] isKindOfClass:[NSNull class]]) {
+        cell.cityLabel.hidden = YES;
+    }
+    if ([object[@"financeProcName"] isKindOfClass:[NSNull class]]) {
+        cell.financeProcNameLabel.hidden = YES;
+    }
+    
     //切眼角
-    cell.pictUrlImageView.layer.cornerRadius = 40;
+    cell.pictUrlImageView.layer.cornerRadius = 33.5;
     cell.pictUrlImageView.layer.masksToBounds = YES;
     
     cell.statusLabel.hidden = YES;

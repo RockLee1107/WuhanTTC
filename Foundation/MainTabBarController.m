@@ -79,6 +79,14 @@
                 user.isInvestor = @1;
             } else {
                 user.isInvestor = @0;
+                //将认证投资人的审核状态存在本地
+                if (responseObject[@"investorInfo"] != [NSNull null]) {
+                    [user setBizStatus:[responseObject[@"investorInfo"][@"bizStatus"] stringValue]];
+                }
+                //审核不通过后移除缓存在本地的bizStatus
+                else {
+                    [user removeBizStatus];
+                }
             }
         } noResult:^{
             NSLog(@"11111");

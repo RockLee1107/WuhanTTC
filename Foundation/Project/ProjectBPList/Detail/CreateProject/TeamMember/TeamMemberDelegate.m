@@ -24,10 +24,12 @@
     cell.realName.text = object[@"realName"];
     cell.duty.text = object[@"duty"];
     cell.introduction.text = object[@"introduction"];
+    cell.introduction.tag = 666 + indexPath.row;
     
     [cell.picUrl setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", UPLOAD_URL, object[@"pictUrl"]]] placeholderImage:[UIImage imageNamed:@"app_failure_img@2x"]];
-    cell.picUrl.layer.cornerRadius = 27.5;
+    cell.picUrl.layer.cornerRadius = 30;
     cell.picUrl.layer.masksToBounds = YES;
+    cell.picUrl.clipsToBounds = YES;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -87,7 +89,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 75;
+    
+    UILabel *lab = (UILabel *)[tableView viewWithTag:666 + indexPath.row];
+    //自适应获得文本的高度
+    lab.numberOfLines = 0 ;
+    [lab sizeToFit];
+    return lab.frame.size.height + 55;
 }
 
 @end

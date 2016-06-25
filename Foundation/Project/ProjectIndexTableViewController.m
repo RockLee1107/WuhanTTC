@@ -82,7 +82,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  @{
                                    @"iEQ_bizStatus":@"2",
-                                   @"sEQ_userId":[User getInstance].uid
+                                   @"sEQ_userId":[User getInstance].uid ? [User getInstance].uid : @""
                                    //                                  @"SEQ_typeCode":@"",
                                    //                                  @"IIN_status":@"2",
                                    //                                  @"SEQ_city":@0,
@@ -102,7 +102,6 @@
         
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject[@"hotBp"]];
 
-        
         self.projectBPCountLabel.text = responseObject[@"bpCount"];
         self.projectCountLabel.text = responseObject[@"projectCount"];
         self.investorCountLabel.text = responseObject[@"investorCount"];

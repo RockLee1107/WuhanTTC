@@ -11,13 +11,17 @@
 
 @interface TeamMemberTableViewController ()
 
+@property (nonatomic, strong) NSDictionary *dic;
+
 @end
 
 @implementation TeamMemberTableViewController
 
 - (void)viewWillDisappear:(BOOL)animated {
     if (self.block != nil) {
-        self.block(@"ok");
+        if (self.dic) {
+            self.block(@"ok");
+        }
     }
 }
 
@@ -57,7 +61,8 @@
     NSDictionary *param = @{@"QueryParams":jsonStr};
     
     [self.service POST:@"team/getTeamList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-      
+        
+        self.dic = responseObject;
         [self.tableViewDelegate.dataArray removeAllObjects];
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         

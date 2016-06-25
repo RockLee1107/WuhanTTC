@@ -15,7 +15,7 @@
 
 @interface ProjectSummaryTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;//项目名称旁的图片
-@property (strong, nonatomic) IBOutlet UILabel *descLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descLabel;//logo旁描述
 
 @property (weak, nonatomic) IBOutlet UILabel *procDetailsLabel;//项目描述
 @property (weak, nonatomic) IBOutlet UILabel *projectNameLabel;//项目名称
@@ -103,10 +103,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        self.descLabel.numberOfLines = 0;
+        [self.descLabel sizeToFit];
+        return self.descLabel.frame.size.height + 100;
+    }
+    if (indexPath.row == 1) {
+        self.procDetailsLabel.numberOfLines = 0;
+        [self.procDetailsLabel sizeToFit];
+        return self.procDetailsLabel.frame.size.height + 48;
+    }
     if (indexPath.row == 4) {
         //        详情图片
         CGFloat height = IMAGE_WIDTH_WITH_PADDING * ceil(self.urlArray.count / 4.0);
         return 40 + height;
+    }
+    if (indexPath.row == 5) {
+        self.procFuncLabel.numberOfLines = 0;
+        [self.procFuncLabel sizeToFit];
+        return self.procFuncLabel.frame.size.height + 48;
     }
 
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];

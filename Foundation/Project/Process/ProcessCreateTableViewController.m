@@ -35,6 +35,10 @@
     if ([self.title isEqualToString:@"添加进度信息"]) {
         self.navigationItem.rightBarButtonItem = nil;
     }
+    if (self.isFromAdd) {
+        self.descTextView.text = self.descText;
+        [self.processDateButton setTitle:self.dateText ? self.dateText : @"请选择" forState:(UIControlStateNormal)];
+    }
 //    else {
 //        self.processDate =  [DateUtil toDate:self.dateText format:@"YYYYMMdd"];
 //        self.descTextView.text = self.descText;
@@ -111,7 +115,7 @@
             [self.service POST:@"process/saveProcess" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 if (![responseObject isKindOfClass:[NSNull class]]) {
-                    [User getInstance].projectId = responseObject[@"data"];
+                    [User getInstance].projectId = responseObject;
                 }
                 [self.navigationController popViewControllerAnimated:YES];
                 

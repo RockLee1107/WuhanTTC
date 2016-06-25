@@ -97,6 +97,7 @@
     NSDictionary *dict = self.dataArray[indexPath.row];
     cell.dateLabel.text = [DateUtil toYYYYMMCN:dict[@"processDate"]];
     cell.descLabel.text = [StringUtil toString:dict[@"processDesc"]];
+    cell.descLabel.tag = 888 + indexPath.row;
     
     if ([User getInstance].isClick == NO) {
         cell.userInteractionEnabled = NO;
@@ -113,6 +114,15 @@
     vc.parentVC = self;
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UILabel *lab = (UILabel *)[self.view viewWithTag:888 + indexPath.row];
+    
+    lab.numberOfLines = 0;
+    [lab sizeToFit];
+    
+    return lab.frame.size.height + 50;
 }
 
 @end

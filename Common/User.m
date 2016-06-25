@@ -30,6 +30,10 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"realname"];
 }
 
+- (NSString *)bizStatus {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"bizStatus"];
+}
+
 - (NSString *)uid{
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
 }
@@ -44,6 +48,10 @@
 
 - (void)setRealname:(NSString *)realname {
     [[NSUserDefaults standardUserDefaults] setObject:realname forKey:@"realname"];
+}
+
+- (void)setBizStatus:(NSString *)bizStatus {
+    [[NSUserDefaults standardUserDefaults] setObject:bizStatus forKey:@"bizStatus"];
 }
 
 - (void)setUid:(NSString *)uid {
@@ -67,6 +75,10 @@
 
 - (void)removePassword {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+}
+
+- (void)removeBizStatus{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"bizStatus"];
 }
 
 @end

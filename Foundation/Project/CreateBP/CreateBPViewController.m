@@ -444,6 +444,12 @@
             if ([responseObject[@"success"] boolValue]) {
                 [SVProgressHUD dismiss];
                 [SVProgressHUD showSuccessWithStatus:responseObject[@"msg"]];
+                
+                //更新BP后会返回一个新bpId，回传过去刷新BP详情
+                if (self.block != nil) {
+                    self.block(responseObject[@"data"]);
+                }
+                
                 [self goBack];
             } else {
                 [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];

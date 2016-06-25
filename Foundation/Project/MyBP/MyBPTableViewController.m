@@ -13,6 +13,7 @@
 #import "ProjectBPDetailViewController.h"
 #import "ProjectBPCell.h"
 #import "User.h"
+#import "VerifyTableViewController.h"
 
 @interface MyBPTableViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -134,8 +135,12 @@
     }else {
         cell.statusLabel.hidden = YES;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //判断可见权限
+    if ([object[@"bpVisible"] intValue] == 1) {
+        [cell.lockImageView setImage:[UIImage imageNamed:@"app_lock"]];
+    }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

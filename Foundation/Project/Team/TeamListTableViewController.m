@@ -215,6 +215,7 @@
     cell.avatarImageView.layer.cornerRadius = 30;
     cell.avatarImageView.layer.masksToBounds = YES;
     cell.introLabel.text = [StringUtil toString:dict[@"introduction"]];
+    cell.introLabel.tag = 777 + indexPath.row;
     if ([User getInstance].isClick == NO) {
         cell.userInteractionEnabled = NO;
     }
@@ -223,7 +224,10 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 75.0;
+    UILabel *lab = (UILabel *)[self.view viewWithTag:777 + indexPath.row];
+    lab.numberOfLines = 0;
+    [lab sizeToFit];
+    return lab.frame.size.height + 65;
 }
 
 //单行，非本人则跳转编辑页面，返回用户详情页

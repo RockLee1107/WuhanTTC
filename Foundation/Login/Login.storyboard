@@ -59,15 +59,15 @@
                                             <constraint firstAttribute="height" constant="1" id="xke-Xa-DR9"/>
                                         </constraints>
                                     </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-4K-sUA">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-4K-sUA">
                                         <rect key="frame" x="143" y="499" width="42" height="42"/>
                                         <state key="normal" image="login_sina.png"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-oc-nRa">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxr-oc-nRa">
                                         <rect key="frame" x="37" y="499" width="42" height="42"/>
                                         <state key="normal" image="login_wx.png"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-ul-cfs">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-ul-cfs">
                                         <rect key="frame" x="249" y="499" width="42" height="42"/>
                                         <state key="normal" image="login_qq.png"/>
                                     </button>

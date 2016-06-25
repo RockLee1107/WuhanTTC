@@ -33,7 +33,10 @@
 @property (nonatomic,strong,nonnull) NSNumber *isBm;
 //是否投资人
 @property (nonatomic,strong,nonnull) NSNumber *isInvestor;
+@property (nonatomic,strong,nonnull) NSString *bizStatus;
+
 - (void)logout;
 - (BOOL)isLogin;
 - (void)removePassword;
+- (void)removeBizStatus;
 @end

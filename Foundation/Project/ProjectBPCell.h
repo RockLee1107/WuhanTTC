@@ -26,6 +26,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *separatorLine;
 
-
+@property (strong, nonatomic) IBOutlet UIImageView *lockImageView;//锁
 
 @end

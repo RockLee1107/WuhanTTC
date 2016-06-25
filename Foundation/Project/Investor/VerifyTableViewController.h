@@ -8,6 +8,10 @@
 
 #import "BaseStaticTableViewController.h"
 
+typedef void (^MyBlock) (NSString *);
+
 @interface VerifyTableViewController : BaseStaticTableViewController
+
+@property (nonatomic, copy) MyBlock block;
 
 @end

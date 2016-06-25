@@ -8,8 +8,10 @@
 
 #import "BaseTableViewDelegate.h"
 
-@interface ProjectIndexTableViewDelegate : BaseTableViewDelegate
+@interface ProjectIndexTableViewDelegate : BaseTableViewDelegate<UIAlertViewDelegate>
 
 @property (nonatomic,strong) NSString *delType;
+
+@property (nonatomic, copy) NSString *status;
 
 @end

@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSMutableArray *requiredTextField;
 @property (strong, nonatomic) NSMutableArray *requiredKey;
 
+
 @end
 
 @implementation ActivityDetailViewController
@@ -50,7 +51,7 @@
         if (![self.dataDict[@"createById"] isEqualToString:[User getInstance].uid]) {
 //            如果是非本人发布，才显示报名按钮
             self.joinButton.hidden = NO;
-        } else {
+        }else {
             self.containerMarginBottom.constant = 0;
         }
 

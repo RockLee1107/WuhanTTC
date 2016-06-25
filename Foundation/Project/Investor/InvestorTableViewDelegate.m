@@ -22,16 +22,19 @@
     /**图片*/
     [cell.pictUrlImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPLOAD_URL,[StringUtil toString:object[@"pictUrl"]]]]];
     cell.pictUrlImageView.clipsToBounds = YES;
+    cell.pictUrlImageView.layer.cornerRadius = 25;
+    cell.pictUrlImageView.layer.masksToBounds = YES;
     cell.realNameLabel.text = [StringUtil toString:object[@"realName"]];
     cell.companyLabel.text = [StringUtil toString:object[@"company"]];
     cell.investProcessLabel.text = [StringUtil toString:object[@"investProcess"]];
     cell.investAreaLabel.text = [StringUtil toString:object[@"investArea"]];
     cell.areaLabel.text = [StringUtil toString:object[@"area"]];
+    cell.dutyLabel.text = [StringUtil toString:object[@"duty"]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100.0;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

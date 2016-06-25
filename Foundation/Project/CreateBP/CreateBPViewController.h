@@ -11,6 +11,8 @@
 #import "AJPhotoPickerGallery.h"
 #import "EMTextView.h"
 
+typedef void (^MyBlock) (NSString *);
+
 @interface CreateBPViewController : BaseStaticTableViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *allVisibleBtn;//全部可见
@@ -36,8 +38,9 @@
 @property (strong, nonatomic) IBOutlet EMTextView *descTextView;//描述
 @property (strong, nonatomic) AJPhotoPickerGallery *photoGallery;
 
-@property (strong, nonatomic) IBOutlet UIImageView *pictureView;//项目BP图片
 @property (strong, nonatomic) IBOutlet UIView *cellContentView;
+
+@property (nonatomic, copy) MyBlock block;
 
 
 @end

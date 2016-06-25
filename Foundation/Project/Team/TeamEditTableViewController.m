@@ -94,7 +94,7 @@
                 
                 //返回副本id覆盖掉原id
                 if (![responseObject isKindOfClass:[NSNull class]]) {
-                    [User getInstance].projectId = responseObject[@"data"];
+                    [User getInstance].projectId = responseObject;
                 }
                 [self.navigationController popViewControllerAnimated:YES];
                 

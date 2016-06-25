@@ -14,13 +14,17 @@
 
 @interface ProjectProgressTableViewController ()
 
+@property (nonatomic, strong) NSDictionary *dic;
+
 @end
 
 @implementation ProjectProgressTableViewController
 
 - (void)viewWillDisappear:(BOOL)animated {
     if (self.block != nil) {
-        self.block(@"ok");
+        if (self.dic) {
+            self.block(@"ok");
+        }
     }
 }
 
@@ -60,6 +64,7 @@
     NSDictionary *param = @{@"QueryParams":jsonStr};
     [self.service POST:@"process/getProcessList" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+        self.dic = responseObject;
         [self.tableViewDelegate.dataArray removeAllObjects];
         [self.tableViewDelegate.dataArray addObjectsFromArray:responseObject];
         [self.tableView reloadData];

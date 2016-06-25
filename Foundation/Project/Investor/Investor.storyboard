@@ -318,7 +318,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fha-ce-anH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="1547"/>
+            <point key="canvasLocation" x="1501" y="1597"/>
         </scene>
         <!--投资人认证-->
         <scene sceneID="Tkk-n1-gSy">
@@ -757,7 +757,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vna-4E-WGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="486"/>
+            <point key="canvasLocation" x="1501" y="910"/>
         </scene>
         <!--选择投资阶段-->
         <scene sceneID="rqV-sD-Yr6">

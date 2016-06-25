@@ -25,6 +25,7 @@
     
     cell.dateLabel.text = [DateUtil toYYYYMMCN:dict[@"processDate"]];
     cell.descLabel.text = [StringUtil toString:dict[@"processDesc"]];
+    cell.descLabel.tag = 888 + indexPath.row;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -76,7 +77,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0;
+    UILabel *lab = (UILabel *)[tableView viewWithTag:888 + indexPath.row];
+    
+    lab.numberOfLines = 0;
+    [lab sizeToFit];
+    
+    return lab.frame.size.height + 50;
 }
 
 @end

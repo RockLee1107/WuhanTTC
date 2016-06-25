@@ -63,6 +63,7 @@
     if (buttonIndex == 1) {
         //进入团团创登陆页面
         LoginViewController *vc = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+        
         [self.navigationController presentViewController:vc animated:YES completion:nil];
     }
 }
