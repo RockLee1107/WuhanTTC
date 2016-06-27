@@ -313,27 +313,7 @@
 
 //获得图片地址
 - (NSString *)fetchPhoto:(NSString *)filename imageUtil:(ImageUtil *)imageUtil {
-//    [self.photosStrArray removeAllObjects];
 
-
-//    NSMutableArray *originalArray = [NSMutableArray array];
-   
-//    if ([self.photos count]) {
-//        NSMutableArray *mArray = [NSMutableArray array];
-//        for (int i=0; i<[self.photos count]; i++) {
-//            
-//            if (![[self.photos[i] substringToIndex:2] isEqualToString:@"up"]) {
-//                [mArray addObject:self.photos[i]];
-//            }else {
-//                
-//                [originalArray addObject:self.photos[i]];
-//            }
-//        }
-//        if ([mArray count]) {
-//             saveFilePath = [imageUtil savePicture:filename images:mArray] ;
-//        }
-//    }
-//
     //存放所有的图片路径
     NSMutableString *allFilePath = [[NSMutableString alloc] init];
     self.savePath = [imageUtil savePicture:filename images:self.photosArrival];
@@ -350,14 +330,6 @@
     else if (![self.savePath isEqualToString:@""] && [self.photosStrArray count] > 0) {
         [allFilePath appendFormat:@",%@", self.savePath];
     }
-    
-//    [self.photosStrArray addObjectsFromArray:array];
-//    NSString *filePath = [array componentsJoinedByString:@","];
-//    NSLog(@"000000000000\n%@", filename);
-//    NSLog(@"111111111111\n self.photosStrArray:%@\n", self.photosStrArray);
-    
-//    NSString *filePath = [self.photosStrArray componentsJoinedByString:@","];
-//    NSLog(@"~~~~~~~~~11111:\n%@", filePath);
     return allFilePath;
 }
 
